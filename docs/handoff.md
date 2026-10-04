@@ -1,80 +1,80 @@
 # Handoff
 
-## Milestone: Day 1 — Foundation & India Homepage
-- **Branch / Commit**: `main` (`1d60ddf`)
-- **Status**: Completed successfully. Ready for Codex review before starting Day 2.
+## Milestone: Day 1 — Foundation, India Homepage & Codex Corrections
+- **Branch / Commit**: `main` (`49a0c8b`)
+- **Status**: Completed and fully verified. Ready for final review before starting Day 2.
 
 ---
 
-## Completed Scope
-1. **Application Scaffolding**:
-   - Initialized a compatible Next.js 14 App Router project with TypeScript, Tailwind CSS, and single lockfile (`package-lock.json`).
-   - Integrated exact brand tokens from `src/content/brand.json` (Indigo `#31326F`, Blue `#2D5090`, Violet `#6E57A0`, Ink `#15162F`, Warm White `#F6F5F2`, Soft Neutral `#E5E4EA`).
-   - Preserved all supplied assets, documentation, and editable content files.
+## Corrections Completed (Addressing Codex Day 1 Review)
 
-2. **Routing & Core Redirect**:
-   - Implemented temporary redirect from `/` to `/india` in `next.config.mjs` and `src/app/page.tsx` (preserving future global selector architecture).
-   - Server-rendered responsive `/india` homepage with modular, clean components.
+1. **P1 — Enquiry Navigation & Selection Passing Fixed**:
+   - Replaced fragmented anchors (`#contact?service=...`) with standard `#contact` targets across `ServicesSection`, `EmployeeTransportFeature`, `FleetSection`, `CitiesSection`, and `Footer`.
+   - Created `src/lib/enquiryEvents.ts` to dispatch custom selection events (`victor:select-enquiry`) on link click.
+   - Connected `EnquirySection` to auto-populate the matching Service, City, or Category details, smooth-scroll to `#contact`, and automatically focus the full name input (`#enquiry-name-input`).
 
-3. **Homepage Sections**:
-   - **Header**: Crisp white background, original Pegasus logo intact (`/brand/victor-original.png`) with tagline *"On Time Every Time."*, in-page navigation anchors, phone link (`+91 91007 77768`), and accessible mobile drawer with keyboard and Escape handling.
-   - **Hero**: Dark cinematic automotive tone using `public/images/india/hero.png` with desktop left-aligned readability gradient, eyebrow (`VICTOR MOBILITY · INDIA`), headline, dual CTAs, discreet illustrative caption, and direct service pathways navigation strip.
-   - **Services Portfolio**: Editorial hierarchy presenting the 6 brochure-authorized services with typical enquiry scopes and direct link to the enquiry desk.
-   - **Employee Transport Spotlight**: Enterprise commute and shuttle feature with `public/images/india/employee-shuttle.png`, bus passenger tiers (22 & 44 seaters), shift timings, route optimization, and safety compliance.
-   - **Fleet Categories**: Interactive category selector (Sedans, MPVs & Group Vehicles, Buses & Shuttles, Luxury & Limousines) with brochure models and executive interior image (`public/images/india/luxury-interior.png`).
-   - **Operating Network**: Clear presentation of Hyderabad (Head Office), Bengaluru, and Pune branch offices with full addresses; truthful clarification on expansion corridors.
-   - **About & FAQs**: Authoritative company summary, ISO 9001:2015 quality claim baseline, and common customer questions.
-   - **WhatsApp Enquiry Desk**: Interactive draft builder (Name, Service, City, Details) with real-time draft preview, transparent helper notice, direct **"Continue on WhatsApp"** button targeting `+91 93965 46950`, and direct calling fallback (`+91 91007 77768`). Unpurchased draft domains/emails remain inactive.
-   - **Footer**: Corporate footer with intact logo, offices, phone/WhatsApp, and customer caption.
+2. **P1 — Disabled Content Strictly Honoured**:
+   - `AboutSection.tsx`: Evaluates `sourceClaims.iso?.enabled === true` before rendering. Since it is `false` in `india.json`, the ISO claim is completely omitted.
+   - `Footer.tsx`: Removed the hardcoded ISO claim; now only renders if `isoEnabled === true`.
+   - `FleetSection.tsx`: Evaluates `fleetModelDisplayDefault === true`. Since it is `false` in `india.json`, unverified brochure reference models ("Swift Dzire", "TATA Tigor", etc.) are completely hidden and replaced with the brochure category customisation guidance note.
 
----
+3. **P2 — Mobile Menu Keyboard Focus & Accessibility Managed**:
+   - Implemented an accessible modal drawer in `Header.tsx` with full focus containment (Tab and Shift+Tab loop within the drawer).
+   - Marked background content (`#main-content` and `footer`) as `inert` and `aria-hidden="true"` while the menu is open, preventing background controls from being focused or interacted with.
+   - Restores focus to the hamburger menu button upon dismissal via Escape or close button.
+   - Upon clicking a navigation item, smoothly closes the menu, removes `inert`, scrolls to the section, and programmatically shifts focus to the destination.
 
-## Files Added / Changed
-- `package.json`, `package-lock.json`: Dependencies & scripts.
-- `tsconfig.json`: TypeScript paths and compiler options.
-- `tailwind.config.ts`: Tailwind configuration with Victor Mobility brand tokens.
-- `next.config.mjs`: Next.js config with image settings and `/` -> `/india` redirect.
-- `postcss.config.js`: PostCSS configuration.
-- `.eslintrc.json`: ESLint configuration.
-- `.gitignore`: Production and build ignore rules.
-- `src/types/content.ts`: TypeScript schemas for `india.json` and `media.json`.
-- `src/app/layout.tsx`: Root layout with Manrope font and metadata.
-- `src/app/globals.css`: Tailwind base styles and reduced-motion fallbacks.
-- `src/app/page.tsx`: Root page redirect to `/india`.
-- `src/app/india/page.tsx`: India homepage page component.
-- `src/components/layout/Header.tsx`: Responsive white header with intact logo.
-- `src/components/layout/Footer.tsx`: Authoritative corporate footer.
-- `src/components/home/Hero.tsx`: Cinematic dark hero with desktop left-space copy.
-- `src/components/home/ServicesSection.tsx`: Editorial service portfolio layout.
-- `src/components/home/EmployeeTransportFeature.tsx`: Corporate shuttle feature.
-- `src/components/home/FleetSection.tsx`: Interactive category selector.
-- `src/components/home/CitiesSection.tsx`: Primary offices and network.
-- `src/components/home/AboutSection.tsx`: Company pillars and FAQs.
-- `src/components/home/EnquirySection.tsx`: Transparent WhatsApp enquiry builder.
-- `scripts/capture-screenshots.mjs`: Automated Playwright screenshot script.
-- `docs/screenshots/*`: Captured desktop and mobile evidence.
+4. **P2 — Fleet Image Text Backdrop Contrast Fixed**:
+   - Replaced the fixed `h-44` gradient with a full-coverage gradient container (`bg-gradient-to-t from-brand-ink via-brand-ink/95 to-brand-ink/85 sm:to-brand-ink/70`).
+   - Ensures 100% of "Executive Standard", the headline, description, and caption have a solid, high-contrast dark background with zero overlap on the light vehicle leather upholstery on both mobile and desktop.
+
+5. **P2 — Supporting Brand Colours Applied**:
+   - Updated `tailwind.config.ts` to provide kebab-case aliases (`"warm-white"`, `"soft-neutral"`) alongside camelCase keys matching `brand.json` hex values (`#F6F5F2`, `#E5E4EA`).
+   - Verified that `bg-brand-warm-white` (`rgb(246, 245, 242)`) and `border-brand-soft-neutral` (`rgb(229, 228, 234)`) are active and visually delineate editorial sections, cards, and borders.
+
+6. **P2 — Logo Enlargement via Non-Destructive CSS Viewport**:
+   - Created `src/components/brand/BrandLogo.tsx` using an SVG viewport (`viewBox="130 160 810 430"`) over the intact original file (`/brand/victor-original.png`).
+   - Excludes exterior empty canvas margins and border lines while enlarging the complete Pegasus artwork, registration mark ®, rays, wordmark, and tagline *"On Time Every Time."* to be crisp, readable, and properly proportioned in both header and footer.
+
+7. **Mobile Screenshot Capture Glitch Resolved**:
+   - Diagnosed Chromium canvas texture height wrap-around on high DPR long pages.
+   - Captured clean, non-repeating full mobile page (`docs/screenshots/mobile-full.png`) and individual mobile section screenshots (`mobile-fleet.png`, `mobile-lower.png`, `mobile-services.png`, `mobile-employee.png`, `mobile-network.png`, `mobile-about.png`, `mobile-contact.png`, `mobile-footer.png`).
 
 ---
 
 ## Verification Checks & Results
 1. **TypeScript Type Check**: `npm run type-check` (`tsc --noEmit`) — **PASSED** (0 errors).
-2. **ESLint**: `npm run lint` (`next lint`) — **PASSED** (0 warnings or errors).
-3. **Production Build**: `npm run build` (`next build`) — **PASSED** (Static prerendering complete for `/` and `/india`).
-4. **Runtime Redirect**: `http://localhost:3000/` properly redirects to `/india` — **PASSED**.
-5. **Visual Inspection**: Captured across desktop (1440px) and mobile (390px) viewports with Playwright:
-   - `docs/screenshots/desktop-hero.png`
-   - `docs/screenshots/desktop-full.png`
-   - `docs/screenshots/mobile-hero.png`
-   - `docs/screenshots/mobile-full.png`
-   - `docs/screenshots/mobile-menu.png`
+2. **ESLint**: `npm run lint` (`next lint`) — **PASSED** (0 warnings, 0 errors).
+3. **Production Build**: `npm run build` — **PASSED** (Static prerender for `/` and `/india`).
+4. **Runtime Automated Test Suite** (`scripts/verify-and-capture.mjs`):
+   - ✔ PASS: Brand warm-white background color applied (`rgb(246, 245, 242)`)
+   - ✔ PASS: ISO claim hidden in About when `iso.enabled: false`
+   - ✔ PASS: ISO claim removed from Footer when `iso.enabled: false`
+   - ✔ PASS: Brochure models hidden when `fleetModelDisplayDefault: false`
+   - ✔ PASS: Service selection passed to Enquiry form
+   - ✔ PASS: City selection passed to Enquiry form
+   - ✔ PASS: Background main content inert while mobile menu is open
+   - ✔ PASS: Background inert removed on mobile menu close
+   - ✔ PASS: Focus restored to hamburger button after Escape dismissal
+5. **Runtime Redirect Check**: Verified `/` redirects automatically to `/india`.
+
+---
+
+## Screenshot Locations
+- Desktop Hero (1440px): `docs/screenshots/desktop-hero.png`
+- Desktop Full Page (1440px): `docs/screenshots/desktop-full.png`
+- Mobile Hero (390px): `docs/screenshots/mobile-hero.png`
+- Mobile Navigation Menu (390px): `docs/screenshots/mobile-menu.png`
+- Mobile Fleet Section (390px): `docs/screenshots/mobile-fleet.png`
+- Mobile Lower Sections (390px): `docs/screenshots/mobile-lower.png`
+- Mobile Full Page (Clean, Non-repeating): `docs/screenshots/mobile-full.png`
 
 ---
 
 ## Remaining Issues
-- None blocking. Design direction is stable.
+- None. All 6 Codex review findings have been resolved and verified.
 
 ---
 
 ## Next Task
-- Run the prompt in `prompts/02-codex-review.md` for Codex review of Day 1 evidence.
-- Proceed to Day 2: Services overview, reusable service-detail template, six service records, and fleet/about/contact pages.
+- Proceed to Day 2: Service overview, reusable service-detail template, 6 service records, fleet, about, and contact pages.
