@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useId } from "react";
+import { useState, useId, useEffect } from "react";
 import { MessageSquare, Phone, Send, Info, User, Briefcase, MapPin, FileText } from "lucide-react";
 import type { ContactData, EnquiryData, ServiceItem, CityItem } from "@/types/content";
+import type { EnquirySelectionEvent } from "@/lib/enquiryEvents";
 
 interface EnquirySectionProps {
   contact: ContactData;
@@ -10,7 +11,6 @@ interface EnquirySectionProps {
   services: ServiceItem[];
   cities: CityItem[];
   preselectedService?: string;
-  preselectedCategory?: string;
 }
 
 export default function EnquirySection({
@@ -20,11 +20,14 @@ export default function EnquirySection({
   cities,
   preselectedService,
 }: EnquirySectionProps) {
+  const publishedServices = services.filter((s) => s.published);
+  const publishedCities = cities.filter((c) => c.published);
+
   const [fullName, setFullName] = useState("");
   const [selectedService, setSelectedService] = useState(
-    preselectedService || services[0]?.title || "Employee Transportation"
+    preselectedService || publishedServices[0]?.title || "Employee Transportation"
   );
-  const [selectedCity, setSelectedCity] = useState("Hyderabad");
+  const [selectedCity, setSelectedCity] = useState(publishedCities[0]?.name || "Hyderabad");
   const [customCity, setCustomCity] = useState("");
   const [requirementText, setRequirementText] = useState("");
 
@@ -33,6 +36,55 @@ export default function EnquirySection({
   const cityId = useId();
   const customCityId = useId();
   const reqId = useId();
+
+  // Listen for selection events from in-page service/category/city links
+  useEffect(() => {
+    const handleEnquirySelection = (e: Event) => {
+      const customEvent = e as CustomEvent<EnquirySelectionEvent>;
+      const detail = customEvent.detail;
+      if (!detail) return;
+
+      if (detail.service) {
+        const matchedService = publishedServices.find(
+          (s) => s.slug === detail.service || s.title.toLowerCase() === detail.service?.toLowerCase()
+        );
+        if (matchedService) {
+          setSelectedService(matchedService.title);
+        } else {
+          setSelectedService(detail.service);
+        }
+      }
+
+      if (detail.city) {
+        const matchedCity = publishedCities.find(
+          (c) => c.name.toLowerCase() === detail.city?.toLowerCase()
+        );
+        if (matchedCity) {
+          setSelectedCity(matchedCity.name);
+        } else {
+          setSelectedCity("Other");
+          setCustomCity(detail.city);
+        }
+      }
+
+      if (detail.category) {
+        setRequirementText((prev) => {
+          const categoryNote = `Enquiry for ${detail.category} category.`;
+          if (prev.includes(categoryNote)) return prev;
+          return prev ? `${prev}\n${categoryNote}` : categoryNote;
+        });
+      }
+
+      if (detail.note) {
+        setRequirementText((prev) => (prev ? `${prev}\n${detail.note}` : detail.note || ""));
+      }
+    };
+
+    window.addEventListener("victor:select-enquiry", handleEnquirySelection);
+    return () => {
+      window.removeEventListener("victor:select-enquiry", handleEnquirySelection);
+    };
+  }, [publishedServices, publishedCities]);
 
   const cityDisplay = selectedCity === "Other" && customCity.trim() ? customCity.trim() : selectedCity;
 
@@ -69,7 +121,11 @@ export default function EnquirySection({
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral/70">
+    <section
+      id="contact"
+      tabIndex={-1}
+      className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral focus:outline-none"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
@@ -87,7 +143,7 @@ export default function EnquirySection({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Form & Live Draft */}
           <div className="lg:col-span-7 bg-brand-warm-white rounded-2xl p-8 sm:p-10 border border-brand-soft-neutral shadow-sm">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-brand-soft-neutral/80">
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-brand-soft-neutral">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
                   <MessageSquare className="w-4 h-4" />
@@ -112,7 +168,8 @@ export default function EnquirySection({
                   <span>Full Name or Company Representative *</span>
                 </label>
                 <input
-                  id={nameId}
+                  id="enquiry-name-input"
+                  name="fullName"
                   type="text"
                   required
                   value={fullName}
@@ -138,13 +195,11 @@ export default function EnquirySection({
                     onChange={(e) => setSelectedService(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
                   >
-                    {services
-                      .filter((s) => s.published)
-                      .map((s) => (
-                        <option key={s.slug} value={s.title}>
-                          {s.title}
-                        </option>
-                      ))}
+                    {publishedServices.map((s) => (
+                      <option key={s.slug} value={s.title}>
+                        {s.title}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -162,13 +217,11 @@ export default function EnquirySection({
                     onChange={(e) => setSelectedCity(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
                   >
-                    {cities
-                      .filter((c) => c.published)
-                      .map((c) => (
-                        <option key={c.name} value={c.name}>
-                          {c.name} ({c.state})
-                        </option>
-                      ))}
+                    {publishedCities.map((c) => (
+                      <option key={c.name} value={c.name}>
+                        {c.name} ({c.state})
+                      </option>
+                    ))}
                     <option value="Other">Other City / Inter-City</option>
                   </select>
                 </div>
@@ -216,11 +269,11 @@ export default function EnquirySection({
               </div>
 
               {/* Live Preview Box */}
-              <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral/80">
+              <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/60 block mb-2">
                   Draft WhatsApp Message Preview:
                 </span>
-                <pre className="text-xs font-mono text-brand-ink/80 whitespace-pre-wrap bg-brand-warm-white/60 p-3 rounded-lg border border-brand-soft-neutral/50 max-h-36 overflow-y-auto">
+                <pre className="text-xs font-mono text-brand-ink/80 whitespace-pre-wrap bg-brand-warm-white p-3 rounded-lg border border-brand-soft-neutral max-h-36 overflow-y-auto">
                   {draftMessage}
                 </pre>
               </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Clock, Shield, MapPin, ArrowRight } from "lucide-react";
 import type { MediaAsset } from "@/types/content";
+import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface EmployeeTransportFeatureProps {
   media?: MediaAsset;
@@ -34,7 +35,8 @@ export default function EmployeeTransportFeature({
   return (
     <section
       id="employee-transport"
-      className="py-20 sm:py-28 bg-brand-warm-white border-b border-brand-soft-neutral/70"
+      tabIndex={-1}
+      className="py-20 sm:py-28 bg-brand-warm-white border-b border-brand-soft-neutral focus:outline-none"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -63,7 +65,7 @@ export default function EmployeeTransportFeature({
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-xl border border-brand-soft-neutral/80">
+              <div className="bg-white p-4 rounded-xl border border-brand-soft-neutral">
                 <span className="text-xs uppercase tracking-wider font-bold text-brand-blue block mb-1">
                   Bus Configurations
                 </span>
@@ -72,7 +74,7 @@ export default function EmployeeTransportFeature({
                 </p>
                 <p className="text-xs text-brand-ink/60 mt-1">Brochure page 10 baseline</p>
               </div>
-              <div className="bg-white p-4 rounded-xl border border-brand-soft-neutral/80">
+              <div className="bg-white p-4 rounded-xl border border-brand-soft-neutral">
                 <span className="text-xs uppercase tracking-wider font-bold text-brand-blue block mb-1">
                   Regional Depots
                 </span>
@@ -119,15 +121,19 @@ export default function EmployeeTransportFeature({
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
-                href="#contact?service=employee-transportation"
-                className="inline-flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white px-7 py-3.5 rounded-lg shadow-md hover:shadow-lg transition-colors"
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  selectEnquiryOption({ service: "Employee Transportation" });
+                }}
+                className="inline-flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white px-7 py-3.5 rounded-lg shadow-md hover:shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <span>Plan Your Employee Route</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="tel:+919100777768"
-                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo hover:text-brand-blue border border-brand-indigo/30 px-6 py-3.5 rounded-lg hover:bg-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo hover:text-brand-blue border border-brand-indigo/30 px-6 py-3.5 rounded-lg hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 Call +91 91007 77768
               </a>

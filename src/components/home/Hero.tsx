@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
 import type { IndiaContent, MediaAsset } from "@/types/content";
+import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface HeroProps {
   content: IndiaContent;
@@ -50,7 +51,7 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
           </h1>
 
           {/* Subtitle / Description */}
-          <p className="text-lg sm:text-xl text-brand-soft-neutral/90 leading-relaxed mb-8 max-w-xl font-normal">
+          <p className="text-lg sm:text-xl text-brand-soft-neutral leading-relaxed mb-8 max-w-xl font-normal">
             {content.hero.description}
           </p>
 
@@ -58,21 +59,25 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 text-sm uppercase tracking-wider font-bold bg-white text-brand-indigo hover:bg-brand-warm-white hover:text-brand-blue px-7 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150 group"
+              onClick={(e) => {
+                e.preventDefault();
+                selectEnquiryOption({});
+              }}
+              className="inline-flex items-center justify-center gap-2 text-sm uppercase tracking-wider font-bold bg-white text-brand-indigo hover:bg-brand-warm-white hover:text-brand-blue px-7 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150 group focus:outline-none focus:ring-2 focus:ring-white"
             >
               <span>{content.hero.primaryCta.label}</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
             </a>
             <a
               href="#fleet"
-              className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white hover:text-brand-soft-neutral bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 px-6 py-3.5 rounded-lg transition-colors duration-150"
+              className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white hover:text-brand-soft-neutral bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 px-6 py-3.5 rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-white"
             >
               <span>{content.hero.secondaryCta.label}</span>
             </a>
           </div>
 
           {/* Operational highlights */}
-          <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-white/15 text-xs text-brand-soft-neutral/80">
+          <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-white/15 text-xs text-brand-soft-neutral">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-brand-violet" />
               <span>Dedicated Enterprise Fleet</span>
@@ -81,7 +86,7 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
               <span className="w-1.5 h-1.5 rounded-full bg-brand-violet" />
               <span>Hyderabad · Bengaluru · Pune</span>
             </div>
-            <div className="text-[11px] text-brand-soft-neutral/60 italic">
+            <div className="text-[11px] text-brand-soft-neutral/80 italic">
               {mediaCaption}
             </div>
           </div>
@@ -100,7 +105,7 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-brand-soft-neutral hover:text-white flex items-center gap-1 transition-colors font-medium whitespace-nowrap"
+                  className="text-brand-soft-neutral hover:text-white flex items-center gap-1 transition-colors font-medium whitespace-nowrap focus:outline-none focus:ring-1 focus:ring-white rounded px-1"
                 >
                   <span>{link.label}</span>
                   <ChevronRight className="w-3.5 h-3.5 opacity-50" />

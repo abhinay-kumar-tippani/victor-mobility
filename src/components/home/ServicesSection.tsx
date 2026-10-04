@@ -2,10 +2,10 @@
 
 import { Users, Bus, Calendar, Plane, Sparkles, Key, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type { ServiceItem } from "@/types/content";
+import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface ServicesSectionProps {
   services: ServiceItem[];
-  onSelectService?: (slug: string) => void;
 }
 
 const serviceIcons: Record<string, typeof Users> = {
@@ -17,7 +17,7 @@ const serviceIcons: Record<string, typeof Users> = {
   "rent-a-car": Key,
 };
 
-export default function ServicesSection({ services, onSelectService }: ServicesSectionProps) {
+export default function ServicesSection({ services }: ServicesSectionProps) {
   const publishedServices = services.filter((s) => s.published);
 
   // Distinguish flagship enterprise services from on-demand / specialty travel for editorial variety
@@ -25,7 +25,7 @@ export default function ServicesSection({ services, onSelectService }: ServicesS
   const specializedServices = publishedServices.slice(2);
 
   return (
-    <section id="services" className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral/60">
+    <section id="services" tabIndex={-1} className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
@@ -47,7 +47,7 @@ export default function ServicesSection({ services, onSelectService }: ServicesS
             return (
               <div
                 key={service.slug}
-                className="group relative rounded-2xl bg-brand-warm-white p-8 sm:p-10 border border-brand-soft-neutral/80 hover:border-brand-indigo/40 transition-all duration-200 flex flex-col justify-between"
+                className="group relative rounded-2xl bg-brand-warm-white p-8 sm:p-10 border border-brand-soft-neutral hover:border-brand-indigo/40 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -81,11 +81,14 @@ export default function ServicesSection({ services, onSelectService }: ServicesS
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-brand-soft-neutral/60 flex items-center justify-between">
+                <div className="pt-4 border-t border-brand-soft-neutral flex items-center justify-between">
                   <a
-                    href={`#contact?service=${service.slug}`}
-                    onClick={() => onSelectService?.(service.slug)}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-brand-indigo hover:text-brand-blue group-hover:underline"
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      selectEnquiryOption({ service: service.title });
+                    }}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-brand-indigo hover:text-brand-blue group-hover:underline focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
                   >
                     <span>Discuss {service.title}</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -121,9 +124,12 @@ export default function ServicesSection({ services, onSelectService }: ServicesS
 
                 <div className="pt-4 border-t border-brand-soft-neutral/40">
                   <a
-                    href={`#contact?service=${service.slug}`}
-                    onClick={() => onSelectService?.(service.slug)}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue"
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      selectEnquiryOption({ service: service.title });
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
                   >
                     <span>Enquire Details</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

@@ -2,6 +2,7 @@
 
 import { Award, CheckCircle, HelpCircle } from "lucide-react";
 import type { IndiaContent } from "@/types/content";
+import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface AboutSectionProps {
   content: IndiaContent;
@@ -11,7 +12,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
   const { about, sourceClaims, faqs } = content;
 
   return (
-    <section id="about" className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral/70">
+    <section id="about" tabIndex={-1} className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Editorial Company Overview */}
@@ -52,8 +53,8 @@ export default function AboutSection({ content }: AboutSectionProps) {
               </ul>
             </div>
 
-            {/* Quality Standard Claim (from supplied card) */}
-            {sourceClaims.iso && (
+            {/* Quality Standard Claim: Strictly honoured per sourceClaims.iso.enabled */}
+            {sourceClaims.iso?.enabled && (
               <div className="flex items-center gap-3 p-4 rounded-xl bg-brand-indigo/5 border border-brand-indigo/15">
                 <Award className="w-5 h-5 text-brand-indigo shrink-0" />
                 <div className="text-xs text-brand-ink/80">
@@ -94,7 +95,11 @@ export default function AboutSection({ content }: AboutSectionProps) {
               </span>
               <a
                 href="#contact"
-                className="text-xs font-bold text-brand-indigo hover:text-brand-blue"
+                onClick={(e) => {
+                  e.preventDefault();
+                  selectEnquiryOption({ note: "Enquiring about general transport requirement." });
+                }}
+                className="text-xs font-bold text-brand-indigo hover:text-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
               >
                 {about.cta}
               </a>

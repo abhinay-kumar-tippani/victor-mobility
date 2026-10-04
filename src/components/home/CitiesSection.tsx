@@ -2,6 +2,7 @@
 
 import { Building2, MapPin, Navigation } from "lucide-react";
 import type { CityItem, OfficeItem } from "@/types/content";
+import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface CitiesSectionProps {
   cities: CityItem[];
@@ -13,7 +14,7 @@ export default function CitiesSection({ cities, offices }: CitiesSectionProps) {
   const publishedOffices = offices.filter((o) => o.published);
 
   return (
-    <section id="network" className="py-20 sm:py-28 bg-brand-warm-white border-b border-brand-soft-neutral/70">
+    <section id="network" tabIndex={-1} className="py-20 sm:py-28 bg-brand-warm-white border-b border-brand-soft-neutral focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
@@ -56,15 +57,19 @@ export default function CitiesSection({ cities, offices }: CitiesSectionProps) {
                   </span>
                 </p>
 
-                <p className="text-sm text-brand-ink/80 leading-relaxed bg-brand-warm-white p-4 rounded-xl border border-brand-soft-neutral/60">
+                <p className="text-sm text-brand-ink/80 leading-relaxed bg-brand-warm-white p-4 rounded-xl border border-brand-soft-neutral">
                   {office.address}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-brand-soft-neutral/50">
+              <div className="pt-6 mt-6 border-t border-brand-soft-neutral">
                 <a
-                  href={`#contact?city=${encodeURIComponent(office.city)}`}
-                  className="text-xs font-bold text-brand-indigo hover:text-brand-blue flex items-center gap-1"
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    selectEnquiryOption({ city: office.city });
+                  }}
+                  className="text-xs font-bold text-brand-indigo hover:text-brand-blue flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Enquire for {office.city} routes</span>
@@ -86,7 +91,11 @@ export default function CitiesSection({ cities, offices }: CitiesSectionProps) {
           </div>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg shrink-0 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              selectEnquiryOption({ note: "Enquiring about outstation/inter-city transport." });
+            }}
+            className="inline-flex items-center justify-center text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg shrink-0 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
           >
             Contact Dispatch Team
           </a>

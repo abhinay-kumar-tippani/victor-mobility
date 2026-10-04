@@ -1,16 +1,24 @@
 "use client";
 
-import Image from "next/image";
-import { Phone, MessageSquare, Shield } from "lucide-react";
+import Link from "next/link";
+import { Phone, MessageSquare } from "lucide-react";
 import type { ContactData, OfficeItem } from "@/types/content";
+import BrandLogo from "@/components/brand/BrandLogo";
+import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface FooterProps {
   contact: ContactData;
   offices: OfficeItem[];
   mediaCaption: string;
+  isoEnabled?: boolean;
 }
 
-export default function Footer({ contact, offices, mediaCaption }: FooterProps) {
+export default function Footer({
+  contact,
+  offices,
+  mediaCaption,
+  isoEnabled = false,
+}: FooterProps) {
   const publishedOffices = offices.filter((o) => o.published);
 
   return (
@@ -19,27 +27,21 @@ export default function Footer({ contact, offices, mediaCaption }: FooterProps) 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
           {/* Brand & Corporate Overview */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-white px-3 py-2 rounded-xl inline-block shadow-sm">
-              <div className="relative h-14 w-48">
-                <Image
-                  src="/brand/victor-original.png"
-                  alt="Victor Mobility - On Time Every Time."
-                  fill
-                  priority
-                  sizes="192px"
-                  className="object-contain object-left"
-                />
-              </div>
+            {/* Crisp white container enclosing the enlarged non-destructive logo */}
+            <div className="bg-white px-4 py-3 rounded-xl inline-block shadow-sm">
+              <BrandLogo className="w-52 sm:w-60 h-14 sm:h-16" />
             </div>
 
             <p className="text-sm text-brand-soft-neutral/80 leading-relaxed max-w-sm">
               Dedicated corporate mobility, employee shuttle networks, airport transfers, and executive travel across Hyderabad, Bengaluru, and Pune.
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-brand-soft-neutral/60">
-              <Shield className="w-4 h-4 text-brand-violet" />
-              <span>ISO 9001:2015 Quality Commitment</span>
-            </div>
+            {/* Strictly honour isoEnabled flag; no hardcoded bypass */}
+            {isoEnabled && (
+              <div className="text-xs text-brand-soft-neutral/60">
+                <span>ISO 9001:2015 Quality Commitment</span>
+              </div>
+            )}
           </div>
 
           {/* Quick Navigation Links */}
@@ -74,7 +76,14 @@ export default function Footer({ contact, offices, mediaCaption }: FooterProps) 
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    selectEnquiryOption({});
+                  }}
+                  className="hover:text-white transition-colors"
+                >
                   Requirement Desk
                 </a>
               </li>

@@ -25,7 +25,7 @@ export default function IndiaPage() {
       {/* Crisp White Header with Intact Logo */}
       <Header contact={content.contact} />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1 focus:outline-none">
         {/* Cinematic Dark Hero */}
         <Hero
           content={content}
@@ -46,6 +46,7 @@ export default function IndiaPage() {
         <FleetSection
           categories={content.fleetCategories}
           fleetNote={content.fleetNote}
+          fleetModelDisplayDefault={content.fleetModelDisplayDefault}
           luxuryMedia={luxuryAsset}
           mediaCaption={media.caption}
         />
@@ -73,6 +74,7 @@ export default function IndiaPage() {
         contact={content.contact}
         offices={content.offices}
         mediaCaption={media.caption}
+        isoEnabled={content.sourceClaims.iso?.enabled}
       />
     </div>
   );
