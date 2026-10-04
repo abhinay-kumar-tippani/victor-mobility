@@ -1,0 +1,30 @@
+{
+  "logoPath": "/brand/victor-original.png",
+  "companyName": "Victor Mobility Pvt. Ltd.",
+  "tagline": "On Time Every Time.",
+  "palette": {
+    "indigo": "#31326F",
+    "blue": "#2D5090",
+    "violet": "#6E57A0",
+    "ink": "#15162F",
+    "warmWhite": "#F6F5F2",
+    "white": "#FFFFFF",
+    "softNeutral": "#E5E4EA"
+  },
+  "colourSource": "Approximate dominant solid colours sampled from the supplied original raster logo on 2026-10-04; supporting neutrals are design choices.",
+  "logoRules": [
+    "Preserve original pixels, proportions and colours",
+    "Do not recreate lettering or horse",
+    "Do not extract logo from business-card mockup",
+    "Do not clip artwork when presenting padded image"
+  ],
+  "motion": {
+    "heroMs": 650,
+    "sectionMs": 500,
+    "menuMs": 200,
+    "controlMs": 150,
+    "revealDistancePx": 20,
+    "respectReducedMotion": true
+  }
+}
+

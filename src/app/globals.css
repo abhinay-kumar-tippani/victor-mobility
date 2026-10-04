@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-indigo: #31326F;
+  --color-blue: #2D5090;
+  --color-violet: #6E57A0;
+  --color-ink: #15162F;
+  --color-warm-white: #F6F5F2;
+  --color-soft-neutral: #E5E4EA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #15162F;
+  background-color: #FFFFFF;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure accessible focus rings matching brand indigo */
+:focus-visible {
+  outline: 2px solid #31326F;
+  outline-offset: 2px;
+}
+
+/* Smooth anchor offsets for sticky header */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

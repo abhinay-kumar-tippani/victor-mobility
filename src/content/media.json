@@ -1,0 +1,37 @@
+{
+  "caption": "Vehicle imagery is illustrative.",
+  "assets": [
+    {
+      "id": "hero",
+      "src": "/images/india/hero.png",
+      "alt": "Illustrative sedan, passenger vehicle and shuttle bus outside a contemporary office building.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "68% center",
+      "aiGenerated": true,
+      "temporary": true,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "employee-shuttle",
+      "src": "/images/india/employee-shuttle.png",
+      "alt": "Illustrative corporate passenger bus at an office pickup area.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": true,
+      "temporary": true,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "luxury-interior",
+      "src": "/images/india/luxury-interior.png",
+      "alt": "Illustrative executive vehicle interior with light leather rear seats.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "42% center",
+      "aiGenerated": true,
+      "temporary": true,
+      "actualVictorFleetPhoto": false
+    }
+  ],
+  "replacementInstructions": "Replace the file at the same path or edit src. Update alt text, focal point, aiGenerated, temporary and actualVictorFleetPhoto to reflect the replacement. Do not state it is a real fleet image until that is true."
+}
+
