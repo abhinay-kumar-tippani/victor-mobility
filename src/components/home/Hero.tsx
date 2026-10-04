@@ -41,7 +41,7 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
         <div className="max-w-2xl">
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wider uppercase text-brand-soft-neutral mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse motion-reduce:animate-none" />
             {content.hero.eyebrow}
           </div>
 

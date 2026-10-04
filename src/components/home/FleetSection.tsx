@@ -57,21 +57,29 @@ export default function FleetSection({
         </div>
 
         {/* Category Selector Tabs */}
-        <div className="flex flex-wrap gap-2 sm:gap-3 p-1.5 bg-brand-warm-white rounded-xl border border-brand-soft-neutral mb-8 max-w-3xl">
+        <div
+          role="tablist"
+          aria-label="Fleet vehicle categories"
+          className="flex flex-wrap gap-2 sm:gap-3 p-1.5 bg-brand-warm-white rounded-xl border border-brand-soft-neutral mb-8 max-w-3xl"
+        >
           {categories.map((cat) => {
             const TabIcon = categoryIcons[cat.id] || Car;
             const isActive = cat.id === activeTab;
             return (
               <button
                 key={cat.id}
+                role="tab"
+                id={`fleet-tab-${cat.id}`}
+                aria-selected={isActive}
+                aria-controls={`fleet-panel-${cat.id}`}
+                tabIndex={isActive ? 0 : -1}
                 type="button"
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-bold transition-all duration-150 min-h-[44px] ${
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-bold transition-all duration-150 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                   isActive
                     ? "bg-brand-indigo text-white shadow-sm"
                     : "text-brand-ink/70 hover:text-brand-ink hover:bg-white"
                 }`}
-                aria-pressed={isActive}
               >
                 <TabIcon className="w-4 h-4 shrink-0" />
                 <span>{cat.name}</span>
@@ -81,7 +89,12 @@ export default function FleetSection({
         </div>
 
         {/* Selected Category Details Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div
+          role="tabpanel"
+          id={`fleet-panel-${currentCategory.id}`}
+          aria-labelledby={`fleet-tab-${currentCategory.id}`}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
+        >
           {/* Left: Category Specifications & Enquiry Pathway */}
           <div className="lg:col-span-6 bg-brand-warm-white rounded-2xl p-8 sm:p-10 border border-brand-soft-neutral flex flex-col justify-between">
             <div>

@@ -1,7 +1,19 @@
 "use client";
 
 import { useState, useId, useEffect } from "react";
-import { MessageSquare, Phone, Send, Info, User, Briefcase, MapPin, FileText } from "lucide-react";
+import {
+  MessageSquare,
+  Phone,
+  Send,
+  Info,
+  User,
+  Briefcase,
+  MapPin,
+  FileText,
+  Copy,
+  Check,
+  AlertCircle,
+} from "lucide-react";
 import type { ContactData, EnquiryData, ServiceItem, CityItem } from "@/types/content";
 import type { EnquirySelectionEvent } from "@/lib/enquiryEvents";
 
@@ -36,6 +48,14 @@ export default function EnquirySection({
   );
   const [customCity, setCustomCity] = useState("");
   const [requirementText, setRequirementText] = useState("");
+
+  const [touched, setTouched] = useState({
+    name: false,
+    customCity: false,
+    requirement: false,
+  });
+  const [submissionAttempted, setSubmissionAttempted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const serviceId = useId();
   const cityId = useId();
@@ -117,34 +137,82 @@ export default function EnquirySection({
 
   const cityDisplay = selectedCity === "Other" && customCity.trim() ? customCity.trim() : selectedCity;
 
+  // Real-time accessible error calculations
+  const nameError =
+    (touched.name || submissionAttempted) && !fullName.trim()
+      ? "Please provide your full name or company representative name."
+      : "";
+
+  const customCityError =
+    selectedCity === "Other" && (touched.customCity || submissionAttempted) && !customCity.trim()
+      ? "Please specify the destination or route corridor."
+      : "";
+
+  const requirementError =
+    (touched.requirement || submissionAttempted) && !requirementText.trim()
+      ? "Please describe your transport requirement (passengers, schedule, or locations)."
+      : "";
+
+  const isValid =
+    fullName.trim().length > 0 &&
+    requirementText.trim().length > 0 &&
+    (selectedCity !== "Other" || customCity.trim().length > 0);
+
   // Build the WhatsApp message preview
   const generateWhatsAppMessage = () => {
     const lines = [
-      `*New Transport Enquiry - Victor Mobility*`,
-      `-----------------------------------------`,
-      `*Name:* ${fullName.trim() || "[Your Name]"}`,
+      `*Transport Requirement Enquiry*`,
+      `*Victor Mobility Pvt. Ltd.*`,
+      `--------------------------------`,
+      `*Representative:* ${fullName.trim() || "[Your Name]"}`,
       `*Service:* ${selectedService}`,
-      `*City:* ${cityDisplay}`,
-      `*Requirement:*`,
-      requirementText.trim() || "[Shift timings, route, passenger count or travel dates]",
+      `*Operating Hub:* ${cityDisplay}`,
+      `*Requirement Scope:*`,
+      requirementText.trim() || "[Shift timings, route corridor, passenger count or dates]",
+      `--------------------------------`,
+      `Prepared via Victor Mobility Website`,
     ];
     return lines.join("\n");
   };
 
   const draftMessage = generateWhatsAppMessage();
-  const canSend = fullName.trim().length > 0 && requirementText.trim().length > 0;
+
+  const handleCopyDraft = async () => {
+    try {
+      await navigator.clipboard.writeText(draftMessage);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // Fallback if clipboard API is restricted
+      const textarea = document.createElement("textarea");
+      textarea.value = draftMessage;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
 
   const handleContinueWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    const encodedMessage = encodeURIComponent(
-      [
-        `*New Transport Enquiry - Victor Mobility*`,
-        `Name: ${fullName.trim()}`,
-        `Service: ${selectedService}`,
-        `City: ${cityDisplay}`,
-        `Requirement: ${requirementText.trim()}`,
-      ].join("\n")
-    );
+    setSubmissionAttempted(true);
+
+    if (!fullName.trim()) {
+      document.getElementById("enquiry-name-input")?.focus();
+      return;
+    }
+    if (selectedCity === "Other" && !customCity.trim()) {
+      document.getElementById(customCityId)?.focus();
+      return;
+    }
+    if (!requirementText.trim()) {
+      document.getElementById(reqId)?.focus();
+      return;
+    }
+
+    const encodedMessage = encodeURIComponent(draftMessage);
     const url = `${contact.whatsappBaseUrl}?text=${encodedMessage}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -186,7 +254,7 @@ export default function EnquirySection({
               </span>
             </div>
 
-            <form onSubmit={handleContinueWhatsApp} className="space-y-6">
+            <form onSubmit={handleContinueWhatsApp} noValidate className="space-y-6">
               {/* Name Field: Unified matching ID for label htmlFor and input id */}
               <div>
                 <label
@@ -201,11 +269,25 @@ export default function EnquirySection({
                   name="fullName"
                   type="text"
                   required
+                  aria-required="true"
+                  aria-invalid={!!nameError}
+                  aria-describedby={nameError ? "name-error" : undefined}
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
                   placeholder="e.g. Rahul Sharma (HR / Facilities Manager)"
-                  className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
+                  className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                    nameError
+                      ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                      : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                  }`}
                 />
+                {nameError && (
+                  <p id="name-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600 font-semibold">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{nameError}</span>
+                  </p>
+                )}
               </div>
 
               {/* Service & City (2-column on tablet/desktop) */}
@@ -269,11 +351,25 @@ export default function EnquirySection({
                     id={customCityId}
                     type="text"
                     required
+                    aria-required="true"
+                    aria-invalid={!!customCityError}
+                    aria-describedby={customCityError ? "custom-city-error" : undefined}
                     value={customCity}
                     onChange={(e) => setCustomCity(e.target.value)}
+                    onBlur={() => setTouched((prev) => ({ ...prev, customCity: true }))}
                     placeholder="Enter destination or route corridor"
-                    className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo outline-none"
+                    className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                      customCityError
+                        ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                        : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo"
+                    }`}
                   />
+                  {customCityError && (
+                    <p id="custom-city-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600 font-semibold">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{customCityError}</span>
+                    </p>
+                  )}
                 </div>
               )}
 
@@ -289,19 +385,53 @@ export default function EnquirySection({
                 <textarea
                   id={reqId}
                   required
+                  aria-required="true"
+                  aria-invalid={!!requirementError}
+                  aria-describedby={requirementError ? "req-error" : undefined}
                   rows={4}
                   value={requirementText}
                   onChange={(e) => setRequirementText(e.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, requirement: true }))}
                   placeholder="Detail your requirements: passenger count, daily shift timings, pickup/drop locations, or event dates..."
-                  className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none resize-none"
+                  className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none resize-none transition-all ${
+                    requirementError
+                      ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                      : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                  }`}
                 />
+                {requirementError && (
+                  <p id="req-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600 font-semibold">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{requirementError}</span>
+                  </p>
+                )}
               </div>
 
-              {/* Live Preview Box */}
+              {/* Live Preview Box with Copy Button */}
               <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/60 block mb-2">
-                  Draft WhatsApp Message Preview:
-                </span>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/60">
+                    Draft WhatsApp Message Preview:
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleCopyDraft}
+                    className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded bg-brand-warm-white hover:bg-brand-soft-neutral text-brand-ink/80 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                    aria-label="Copy draft WhatsApp message to clipboard"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        <span className="text-emerald-700 font-bold">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5 text-brand-indigo" />
+                        <span>Copy Draft</span>
+                      </>
+                    )}
+                  </button>
+                </div>
                 <pre className="text-xs font-mono text-brand-ink/80 whitespace-pre-wrap bg-brand-warm-white p-3 rounded-lg border border-brand-soft-neutral max-h-36 overflow-y-auto">
                   {draftMessage}
                 </pre>
@@ -311,15 +441,14 @@ export default function EnquirySection({
               <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-xs text-amber-900 leading-relaxed">
                 <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
                 <div>
-                  <strong>Notice:</strong> {enquiry.helperText} Opening WhatsApp does not confirm a booking or guarantee vehicle reservation. Our team will review availability and discuss arrangements with you.
+                  <strong>Notice:</strong> {enquiry.helperText} Opening WhatsApp prepares a draft and does not confirm a booking or guarantee vehicle reservation. Our team will review availability and discuss arrangements with you.
                 </div>
               </div>
 
               {/* Primary Action Button */}
               <button
                 type="submit"
-                disabled={!canSend}
-                className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg transition-all"
+                className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
                 <Send className="w-4 h-4" />
                 <span>{enquiry.submitLabel}</span>
