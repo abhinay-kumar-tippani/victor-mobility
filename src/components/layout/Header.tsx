@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
@@ -13,18 +14,69 @@ interface HeaderProps {
 
 export default function Header({ contact }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomepage = pathname === "/india" || pathname === "/";
+
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
   const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "Employee Transport", href: "#employee-transport" },
-    { label: "Fleet", href: "#fleet" },
-    { label: "Network", href: "#network" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Services", href: "/india/services", hash: "#services" },
+    { label: "Fleet", href: "/india/fleet", hash: "#fleet" },
+    { label: "Network", href: isHomepage ? "#network" : "/india#network" },
+    { label: "About", href: "/india/about", hash: "#about" },
+    { label: "Contact", href: "/india/contact", hash: "#contact" },
   ];
+
+  // Helper to close menu and clean up
+  const closeMenu = (restoreTriggerFocus = true) => {
+    setMobileMenuOpen(false);
+    document.body.style.overflow = "unset";
+    const mainEl = document.getElementById("main-content");
+    const footerEl = document.querySelector("footer");
+    if (mainEl) {
+      mainEl.removeAttribute("inert");
+      mainEl.removeAttribute("aria-hidden");
+    }
+    if (footerEl) {
+      footerEl.removeAttribute("inert");
+      footerEl.removeAttribute("aria-hidden");
+    }
+    if (restoreTriggerFocus) {
+      setTimeout(() => {
+        menuButtonRef.current?.focus();
+      }, 50);
+    }
+  };
+
+  // Auto-close menu when resized to desktop (>= 1024px)
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches && mobileMenuOpen) {
+        closeMenu(false);
+      }
+    };
+
+    if (mql.matches && mobileMenuOpen) {
+      closeMenu(false);
+    }
+
+    if (mql.addEventListener) {
+      mql.addEventListener("change", handleMediaChange);
+    } else {
+      mql.addListener(handleMediaChange);
+    }
+
+    return () => {
+      if (mql.removeEventListener) {
+        mql.removeEventListener("change", handleMediaChange);
+      } else {
+        mql.removeListener(handleMediaChange);
+      }
+    };
+  }, [mobileMenuOpen]);
 
   // Manage inertness of background elements, focus trap, and focus restoration
   useEffect(() => {
@@ -91,6 +143,16 @@ export default function Header({ contact }: HeaderProps) {
       window.addEventListener("keydown", handleKeyDown);
       return () => {
         window.removeEventListener("keydown", handleKeyDown);
+        // Robust cleanup on unmount
+        document.body.style.overflow = "unset";
+        if (mainEl) {
+          mainEl.removeAttribute("inert");
+          mainEl.removeAttribute("aria-hidden");
+        }
+        if (footerEl) {
+          footerEl.removeAttribute("inert");
+          footerEl.removeAttribute("aria-hidden");
+        }
       };
     } else {
       document.body.style.overflow = "unset";
@@ -105,30 +167,23 @@ export default function Header({ contact }: HeaderProps) {
     }
   }, [mobileMenuOpen]);
 
-  const closeMenu = (restoreTriggerFocus = true) => {
-    setMobileMenuOpen(false);
-    if (restoreTriggerFocus) {
-      setTimeout(() => {
-        menuButtonRef.current?.focus();
-      }, 50);
-    }
-  };
-
   const handleNavClick = (href: string) => {
     closeMenu(false);
 
-    if (href === "#contact") {
-      selectEnquiryOption({});
-      return;
-    }
-
-    const targetId = href.replace("#", "");
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        targetElement.focus();
-      }, 350);
+    if (href.startsWith("#") && isHomepage) {
+      if (href === "#contact") {
+        selectEnquiryOption({});
+        return;
+      }
+      const targetId = href.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        targetElement.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
+        setTimeout(() => {
+          targetElement.focus();
+        }, prefersReduced ? 50 : 350);
+      }
     }
   };
 
@@ -147,21 +202,22 @@ export default function Header({ contact }: HeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => {
-                  if (item.href === "#contact") {
-                    e.preventDefault();
-                    selectEnquiryOption({});
-                  }
-                }}
-                className="text-sm font-semibold text-brand-ink/80 hover:text-brand-indigo transition-colors duration-150 py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`text-sm font-semibold transition-colors duration-150 py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1 ${
+                    active
+                      ? "text-brand-indigo underline underline-offset-4 font-bold"
+                      : "text-brand-ink/80 hover:text-brand-indigo"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop CTAs */}
@@ -174,16 +230,12 @@ export default function Header({ contact }: HeaderProps) {
               <Phone className="w-3.5 h-3.5" />
               <span>{contact.phoneDisplay}</span>
             </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                selectEnquiryOption({});
-              }}
+            <Link
+              href="/india/contact"
               className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
             >
               Discuss Requirement
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -248,32 +300,33 @@ export default function Header({ contact }: HeaderProps) {
 
             <div className="space-y-1 divide-y divide-brand-soft-neutral">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
+                  onClick={() => handleNavClick(item.href)}
                   className="block text-base font-semibold text-brand-ink hover:text-brand-indigo py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
+              <Link
+                href="/india/privacy"
+                onClick={() => closeMenu(false)}
+                className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo py-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
+              >
+                Privacy Notice
+              </Link>
             </div>
 
             <div className="pt-4 space-y-3">
-              <button
-                type="button"
-                onClick={() => {
-                  closeMenu(false);
-                  selectEnquiryOption({});
-                }}
+              <Link
+                href="/india/contact"
+                onClick={() => closeMenu(false)}
                 className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3 px-4 rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <MessageSquare className="w-4 h-4" />
                 Discuss Requirement
-              </button>
+              </Link>
               <a
                 href={contact.phoneHref}
                 className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-2.5 px-4 rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"

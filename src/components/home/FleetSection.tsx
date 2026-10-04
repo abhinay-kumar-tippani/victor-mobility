@@ -94,7 +94,7 @@ export default function FleetSection({
                     {currentCategory.name}
                   </h3>
                   <span className="text-xs text-brand-ink/60">
-                    Category ID: {currentCategory.id}
+                    Dedicated Vehicle Category
                   </span>
                 </div>
               </div>

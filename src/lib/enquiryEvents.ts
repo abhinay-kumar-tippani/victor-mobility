@@ -12,10 +12,11 @@ export function selectEnquiryOption(details: EnquirySelectionEvent) {
     );
     const target = document.getElementById("contact");
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
       const firstInput = document.getElementById("enquiry-name-input") as HTMLInputElement | null;
       if (firstInput) {
-        setTimeout(() => firstInput.focus(), 350);
+        setTimeout(() => firstInput.focus(), prefersReduced ? 50 : 350);
       }
     }
   }

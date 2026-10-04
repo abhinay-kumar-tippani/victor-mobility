@@ -1,17 +1,28 @@
-# Day 1 — foundation and India homepage
+# Day 2 — Core Services, Fleet, About, Contact & Privacy Routes
 Owner: Antigravity.
-Read AGENTS.md, docs/brief.md, docs/design.md and src/content/india.json.
+Read AGENTS.md, docs/brief.md, docs/design.md, src/content/india.json, src/content/media.json, and src/content/brand.json.
 
-Implement a working Next.js App Router / TypeScript / Tailwind project, keeping all supplied docs, content and assets.
-If create-next-app refuses a nonempty directory, scaffold in a temporary sibling directory and merge the application files carefully; do not delete this package to make setup work.
-Use current compatible package versions and one lockfile. Do not change frameworks during the milestone.
+Implement the Day 2 release routes and resolve all Codex review findings:
+1. Codex Review Fixes:
+   - Header breakpoint resize scroll-lock cleanup (P2)
+   - Label association for name input field (P2)
+   - Reduced-motion preference support in scrolling (P2)
+   - Content baseline alignment: "Operating Cities", "Coordinated Group Transport" (P2)
+   - Remove internal draft labels ("Category ID", "Brochure page 10 baseline", "Brochure verified") (P3)
+   - Route-planned navigation pointing to real route destinations (P3)
 
-Complete /india with responsive header/menu, hero, service navigation, employee transport feature, initial fleet categories, cities and contact invitation.
-Add a temporary / -> /india redirect. Preserve that future / can become the global selector.
-Use the supplied logo and images directly. Read colours and content from the supplied files.
-Create real working section links and phone/WhatsApp links. If full detail routes are not ready today, link to the relevant homepage section until Day 2 supplies them; no fake route destinations.
+2. Complete Release Routes:
+   - `/india/services`: Services overview of all 6 brochure services with scope details and CTAs
+   - `/india/services/[slug]`: Dynamic service template with `generateStaticParams()` for the 6 valid services, 404 for unknown slugs, dynamic metadata, and enquiry handoff
+   - `/india/fleet`: Complete fleet categories overview (Sedans, MPVs, Buses, Luxury) with guidance notes and illustrative imagery
+   - `/india/about`: Corporate story, operating pillars, established operating offices (Hyderabad, Bengaluru, Pune), and verified FAQs
+   - `/india/contact`: Dedicated requirement desk with interactive WhatsApp enquiry builder, direct call alternative, and office cards
+   - `/india/privacy`: Transparent privacy notice explaining data handling, WhatsApp hand-off, and contact details
 
-Capture desktop/mobile screenshots and an interaction recording if available.
-Run a production build and appropriate type/lint checks after setup.
-Update docs/handoff.md with files changed, checks and issues. Stop at this milestone for design review; do not spend Day 1 generating every optional feature.
-
+3. Verification & Quality:
+   - TypeScript check (`tsc --noEmit`)
+   - ESLint (`next lint`)
+   - Production Build (`next build` with 16 statically generated pages)
+   - Playwright automated verification suite (`scripts/verify-day2.mjs`)
+   - Desktop and mobile screenshot capture for all release pages
+   - Update `docs/handoff.md`

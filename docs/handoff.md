@@ -1,80 +1,130 @@
 # Handoff
 
-## Milestone: Day 1 — Foundation, India Homepage & Codex Corrections
-- **Branch / Commit**: `main` (`49a0c8b`)
-- **Status**: Completed and fully verified. Ready for final review before starting Day 2.
+## Milestone: Day 2 — Core Services, Fleet, About, Contact & Privacy Routes & Codex Fixes
+- **Branch**: `main`
+- **Status**: Completed and fully verified. Ready for review.
 
 ---
 
-## Corrections Completed (Addressing Codex Day 1 Review)
+## 1. Codex Review Corrections Completed
 
-1. **P1 — Enquiry Navigation & Selection Passing Fixed**:
-   - Replaced fragmented anchors (`#contact?service=...`) with standard `#contact` targets across `ServicesSection`, `EmployeeTransportFeature`, `FleetSection`, `CitiesSection`, and `Footer`.
-   - Created `src/lib/enquiryEvents.ts` to dispatch custom selection events (`victor:select-enquiry`) on link click.
-   - Connected `EnquirySection` to auto-populate the matching Service, City, or Category details, smooth-scroll to `#contact`, and automatically focus the full name input (`#enquiry-name-input`).
+1. **P2 — Header Breakpoint Resize Scroll-Lock & Inert Cleanup**:
+   - **Location**: `src/components/layout/Header.tsx:54-79, 143-156`
+   - Added a `window.matchMedia('(min-width: 1024px)')` listener that immediately closes the mobile drawer when the viewport widens past the desktop breakpoint.
+   - Restores `document.body.style.overflow = "unset"`, and removes `inert` and `aria-hidden` attributes from `#main-content` and `footer`.
+   - Effect cleanup ensures overflow and inert state are cleared on unmount.
 
-2. **P1 — Disabled Content Strictly Honoured**:
-   - `AboutSection.tsx`: Evaluates `sourceClaims.iso?.enabled === true` before rendering. Since it is `false` in `india.json`, the ISO claim is completely omitted.
-   - `Footer.tsx`: Removed the hardcoded ISO claim; now only renders if `isoEnabled === true`.
-   - `FleetSection.tsx`: Evaluates `fleetModelDisplayDefault === true`. Since it is `false` in `india.json`, unverified brochure reference models ("Swift Dzire", "TATA Tigor", etc.) are completely hidden and replaced with the brochure category customisation guidance note.
+2. **P2 — Unified Name Field Label Association**:
+   - **Location**: `src/components/home/EnquirySection.tsx:159-181`
+   - Unified the identifier so `<label htmlFor="enquiry-name-input">` matches `<input id="enquiry-name-input">`. Clicking the label directly focuses the name input.
 
-3. **P2 — Mobile Menu Keyboard Focus & Accessibility Managed**:
-   - Implemented an accessible modal drawer in `Header.tsx` with full focus containment (Tab and Shift+Tab loop within the drawer).
-   - Marked background content (`#main-content` and `footer`) as `inert` and `aria-hidden="true"` while the menu is open, preventing background controls from being focused or interacted with.
-   - Restores focus to the hamburger menu button upon dismissal via Escape or close button.
-   - Upon clicking a navigation item, smoothly closes the menu, removes `inert`, scrolls to the section, and programmatically shifts focus to the destination.
+3. **P2 — Respect Reduced-Motion Preference on Programmatic Scrolling**:
+   - **Location**: `src/lib/enquiryEvents.ts:15-21`, `src/components/layout/Header.tsx:180-188`
+   - Checks `window.matchMedia('(prefers-reduced-motion: reduce)').matches`.
+   - When active, uses `{ behavior: "auto" }` and shortens focus transition delays (50ms vs 350ms).
 
-4. **P2 — Fleet Image Text Backdrop Contrast Fixed**:
-   - Replaced the fixed `h-44` gradient with a full-coverage gradient container (`bg-gradient-to-t from-brand-ink via-brand-ink/95 to-brand-ink/85 sm:to-brand-ink/70`).
-   - Ensures 100% of "Executive Standard", the headline, description, and caption have a solid, high-contrast dark background with zero overlap on the light vehicle leather upholstery on both mobile and desktop.
+4. **P2 & P3 — Internal Authoring Markers Replaced with Professional Customer Messaging**:
+   - **Locations**:
+     - `src/components/home/FleetSection.tsx:97`: Replaced `"Category ID: ..."` with `"Dedicated Vehicle Category"`.
+     - `src/components/home/EmployeeTransportFeature.tsx:30, 75`: Replaced `"Regional Depots"` with `"Operating Cities: Hyderabad · Bengaluru · Pune"` and `"Vetted Drivers & Monitored Fleet"` with `"Coordinated Group Transport"`.
+     - `src/components/home/ServicesSection.tsx:96`: Replaced `"Brochure verified"` with `"Enterprise mobility"`.
 
-5. **P2 — Supporting Brand Colours Applied**:
-   - Updated `tailwind.config.ts` to provide kebab-case aliases (`"warm-white"`, `"soft-neutral"`) alongside camelCase keys matching `brand.json` hex values (`#F6F5F2`, `#E5E4EA`).
-   - Verified that `bg-brand-warm-white` (`rgb(246, 245, 242)`) and `border-brand-soft-neutral` (`rgb(229, 228, 234)`) are active and visually delineate editorial sections, cards, and borders.
-
-6. **P2 — Logo Enlargement via Non-Destructive CSS Viewport**:
-   - Created `src/components/brand/BrandLogo.tsx` using an SVG viewport (`viewBox="130 160 810 430"`) over the intact original file (`/brand/victor-original.png`).
-   - Excludes exterior empty canvas margins and border lines while enlarging the complete Pegasus artwork, registration mark ®, rays, wordmark, and tagline *"On Time Every Time."* to be crisp, readable, and properly proportioned in both header and footer.
-
-7. **Mobile Screenshot Capture Glitch Resolved**:
-   - Diagnosed Chromium canvas texture height wrap-around on high DPR long pages.
-   - Captured clean, non-repeating full mobile page (`docs/screenshots/mobile-full.png`) and individual mobile section screenshots (`mobile-fleet.png`, `mobile-lower.png`, `mobile-services.png`, `mobile-employee.png`, `mobile-network.png`, `mobile-about.png`, `mobile-contact.png`, `mobile-footer.png`).
+5. **P3 — Navigation Pointed to Real Route Destinations**:
+   - **Locations**: `src/components/layout/Header.tsx:25-30`, `src/components/layout/Footer.tsx:53-89`
+   - Navigation links now target their real route destinations:
+     - Services: `/india/services`
+     - Employee Commute: `/india/services/employee-transportation`
+     - Fleet: `/india/fleet`
+     - Network: `/india#network`
+     - About: `/india/about`
+     - Contact: `/india/contact`
+     - Privacy Notice: `/india/privacy`
 
 ---
 
-## Verification Checks & Results
+## 2. Day 2 Routes Implemented
+
+1. **Services Overview (`/india/services`)**:
+   - Presents all 6 brochure services (`employee-transportation`, `bus-shuttle-transport`, `event-transportation`, `airport-transfers`, `chauffeur-luxury`, `rent-a-car`).
+   - Detailed service descriptions, key coordination scope checklists, deep links to `/india/services/[slug]`, and enquiry actions to `/india/contact?service=[slug]`.
+
+2. **Dynamic Service Detail Template (`/india/services/[slug]`)**:
+   - Dynamic route powered by `generateStaticParams()` covering all 6 published brochure services.
+   - Unknown/unauthorized slugs return `notFound()` (404).
+   - Dynamic metadata (`generateMetadata`) with service-specific title and description.
+   - Breadcrumb navigation (`Home / Services / [Service Title]`), scope and coordination checklist (`enquiryDetails`), operating hubs callout, and sidebar CTAs.
+
+3. **Fleet Overview (`/india/fleet`)**:
+   - Highlights 4 categories: Sedans, MPVs & Group Vehicles, Buses & Shuttles, Luxury & Limousines.
+   - Evaluates `fleetModelDisplayDefault: false` by presenting category guidance and the authoritative `fleetNote` instead of claiming specific model stock availability.
+   - Includes executive interior illustration (`/images/india/luxury-interior.png`) paired with the required caption: *"Vehicle imagery is illustrative."*
+   - Explains passenger capacity, suitability, and operational standards (punctual dispatch, driver compliance, sanitized cabins).
+
+4. **About Page (`/india/about`)**:
+   - Company story, operating pillars, and mission: *"On Time Every Time."*
+   - Operational network detailing the 3 established operating offices: Hyderabad (Head Office), Bengaluru (Branch Office), and Pune (Branch Office).
+   - Expansion cities from brochure are strictly omitted from office listings per `AGENTS.md`.
+   - Verified brochure FAQs.
+
+5. **Contact & Requirement Desk (`/india/contact`)**:
+   - Interactive WhatsApp enquiry draft generator (`+91 93965 46950`) prefilling service, city, and requirement details.
+   - URL search parameter support (`?service=...&city=...`) for instant pre-population from in-page service and city buttons.
+   - Direct telephone line to representative Mujeeb Ur Rehman Mohammed (`+91 91007 77768`).
+   - Explicit disclaimer that WhatsApp draft creation is not an automated booking confirmation.
+   - Transparent clarification that official corporate email will be activated upon scheduled domain setup.
+
+6. **Privacy Notice (`/india/privacy`)**:
+   - Truthful notice explaining voluntary enquiry collection, zero data brokering/reselling, WhatsApp end-to-end encryption hand-off, and contact details for data inquiries.
+
+---
+
+## 3. Verification Checks & Results
+
 1. **TypeScript Type Check**: `npm run type-check` (`tsc --noEmit`) — **PASSED** (0 errors).
 2. **ESLint**: `npm run lint` (`next lint`) — **PASSED** (0 warnings, 0 errors).
-3. **Production Build**: `npm run build` — **PASSED** (Static prerender for `/` and `/india`).
-4. **Runtime Automated Test Suite** (`scripts/verify-and-capture.mjs`):
-   - ✔ PASS: Brand warm-white background color applied (`rgb(246, 245, 242)`)
-   - ✔ PASS: ISO claim hidden in About when `iso.enabled: false`
-   - ✔ PASS: ISO claim removed from Footer when `iso.enabled: false`
-   - ✔ PASS: Brochure models hidden when `fleetModelDisplayDefault: false`
-   - ✔ PASS: Service selection passed to Enquiry form
-   - ✔ PASS: City selection passed to Enquiry form
-   - ✔ PASS: Background main content inert while mobile menu is open
-   - ✔ PASS: Background inert removed on mobile menu close
-   - ✔ PASS: Focus restored to hamburger button after Escape dismissal
-5. **Runtime Redirect Check**: Verified `/` redirects automatically to `/india`.
+3. **Production Build**: `npm run build` — **PASSED** (16 static pages generated).
+4. **Automated Playwright Test Suite** (`scripts/verify-day2.mjs`):
+   - ✔ PASS: Route `/` status (Root Redirect -> `/india`)
+   - ✔ PASS: Route `/india` status (India Homepage)
+   - ✔ PASS: Route `/india/services` status (Services Overview)
+   - ✔ PASS: Route `/india/services/employee-transportation` status (Service Detail: Employee Transportation)
+   - ✔ PASS: Route `/india/services/bus-shuttle-transport` status (Service Detail: Bus & Shuttle)
+   - ✔ PASS: Route `/india/services/event-transportation` status (Service Detail: Event Transportation)
+   - ✔ PASS: Route `/india/services/airport-transfers` status (Service Detail: Airport Transfers)
+   - ✔ PASS: Route `/india/services/chauffeur-luxury` status (Service Detail: Chauffeur & Luxury)
+   - ✔ PASS: Route `/india/services/rent-a-car` status (Service Detail: Rent-A-Car)
+   - ✔ PASS: Route `/india/fleet` status (Fleet Categories Page)
+   - ✔ PASS: Route `/india/about` status (About Us Page)
+   - ✔ PASS: Route `/india/contact` status (Contact & Requirement Desk)
+   - ✔ PASS: Route `/india/privacy` status (Privacy Notice Page)
+   - ✔ PASS: Route `/india/services/non-existent-service` status (Invalid Service Slug returns 404)
+   - ✔ PASS: Codex Finding 1: Menu auto-closes and removes inert/overflow lock on resize >= 1024px
+   - ✔ PASS: Codex Finding 2: Clicking label focuses `#enquiry-name-input`
+   - ✔ PASS: Codex Finding 4 & 5: Internal draft labels removed and Operating Cities verified
 
 ---
 
-## Screenshot Locations
-- Desktop Hero (1440px): `docs/screenshots/desktop-hero.png`
-- Desktop Full Page (1440px): `docs/screenshots/desktop-full.png`
-- Mobile Hero (390px): `docs/screenshots/mobile-hero.png`
-- Mobile Navigation Menu (390px): `docs/screenshots/mobile-menu.png`
-- Mobile Fleet Section (390px): `docs/screenshots/mobile-fleet.png`
-- Mobile Lower Sections (390px): `docs/screenshots/mobile-lower.png`
-- Mobile Full Page (Clean, Non-repeating): `docs/screenshots/mobile-full.png`
+## 4. Screenshot Locations
+
+- **Desktop (1440px)**:
+  - Homepage: `docs/screenshots/home-desktop.png`
+  - Services Overview: `docs/screenshots/services-desktop.png`
+  - Service Detail Template: `docs/screenshots/service-detail-desktop.png`
+  - Fleet Categories: `docs/screenshots/fleet-desktop.png`
+  - About Us: `docs/screenshots/about-desktop.png`
+  - Contact & Requirement Desk: `docs/screenshots/contact-desktop.png`
+  - Privacy Notice: `docs/screenshots/privacy-desktop.png`
+
+- **Mobile (390px)**:
+  - Homepage: `docs/screenshots/home-mobile.png`
+  - Services Overview: `docs/screenshots/services-mobile.png`
+  - Service Detail Template: `docs/screenshots/service-detail-mobile.png`
+  - Fleet Categories: `docs/screenshots/fleet-mobile.png`
+  - About Us: `docs/screenshots/about-mobile.png`
+  - Contact & Requirement Desk: `docs/screenshots/contact-mobile.png`
+  - Privacy Notice: `docs/screenshots/privacy-mobile.png`
 
 ---
 
-## Remaining Issues
-- None. All 6 Codex review findings have been resolved and verified.
-
----
-
-## Next Task
-- Proceed to Day 2: Service overview, reusable service-detail template, 6 service records, fleet, about, and contact pages.
+## 5. Next Task
+- Proceed to Day 3: Interactive refinement, advanced inquiry handoffs, SEO schema/metadata enrichment, and edge testing.

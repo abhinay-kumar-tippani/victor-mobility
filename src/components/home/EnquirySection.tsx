@@ -11,6 +11,8 @@ interface EnquirySectionProps {
   services: ServiceItem[];
   cities: CityItem[];
   preselectedService?: string;
+  preselectedCity?: string;
+  isStandalonePage?: boolean;
 }
 
 export default function EnquirySection({
@@ -19,6 +21,8 @@ export default function EnquirySection({
   services,
   cities,
   preselectedService,
+  preselectedCity,
+  isStandalonePage = false,
 }: EnquirySectionProps) {
   const publishedServices = services.filter((s) => s.published);
   const publishedCities = cities.filter((c) => c.published);
@@ -27,18 +31,43 @@ export default function EnquirySection({
   const [selectedService, setSelectedService] = useState(
     preselectedService || publishedServices[0]?.title || "Employee Transportation"
   );
-  const [selectedCity, setSelectedCity] = useState(publishedCities[0]?.name || "Hyderabad");
+  const [selectedCity, setSelectedCity] = useState(
+    preselectedCity || publishedCities[0]?.name || "Hyderabad"
+  );
   const [customCity, setCustomCity] = useState("");
   const [requirementText, setRequirementText] = useState("");
 
-  const nameId = useId();
   const serviceId = useId();
   const cityId = useId();
   const customCityId = useId();
   const reqId = useId();
 
-  // Listen for selection events from in-page service/category/city links
+  // Read URL search params and listen for selection events from in-page links
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const sParam = params.get("service");
+      const cParam = params.get("city");
+      if (sParam) {
+        const matchedService = publishedServices.find(
+          (s) => s.slug === sParam || s.title.toLowerCase() === sParam.toLowerCase()
+        );
+        if (matchedService) {
+          setSelectedService(matchedService.title);
+        }
+      }
+      if (cParam) {
+        const matchedCity = publishedCities.find(
+          (c) => c.name.toLowerCase() === cParam.toLowerCase()
+        );
+        if (matchedCity) {
+          setSelectedCity(matchedCity.name);
+        } else {
+          setSelectedCity("Other");
+          setCustomCity(cParam);
+        }
+      }
+    }
     const handleEnquirySelection = (e: Event) => {
       const customEvent = e as CustomEvent<EnquirySelectionEvent>;
       const detail = customEvent.detail;
@@ -158,11 +187,11 @@ export default function EnquirySection({
             </div>
 
             <form onSubmit={handleContinueWhatsApp} className="space-y-6">
-              {/* Name Field */}
+              {/* Name Field: Unified matching ID for label htmlFor and input id */}
               <div>
                 <label
-                  htmlFor={nameId}
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2"
+                  htmlFor="enquiry-name-input"
+                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                 >
                   <User className="w-3.5 h-3.5 text-brand-blue" />
                   <span>Full Name or Company Representative *</span>
@@ -184,7 +213,7 @@ export default function EnquirySection({
                 <div>
                   <label
                     htmlFor={serviceId}
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <Briefcase className="w-3.5 h-3.5 text-brand-blue" />
                     <span>Select Service *</span>
@@ -206,7 +235,7 @@ export default function EnquirySection({
                 <div>
                   <label
                     htmlFor={cityId}
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <MapPin className="w-3.5 h-3.5 text-brand-blue" />
                     <span>Operating City *</span>
@@ -232,7 +261,7 @@ export default function EnquirySection({
                 <div>
                   <label
                     htmlFor={customCityId}
-                    className="text-xs font-bold uppercase tracking-wider text-brand-ink block mb-2"
+                    className="text-xs font-bold uppercase tracking-wider text-brand-ink block mb-2 cursor-pointer"
                   >
                     Specify City / Route Corridor *
                   </label>
@@ -252,7 +281,7 @@ export default function EnquirySection({
               <div>
                 <label
                   htmlFor={reqId}
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2"
+                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                 >
                   <FileText className="w-3.5 h-3.5 text-brand-blue" />
                   <span>Requirement Details *</span>

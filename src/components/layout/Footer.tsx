@@ -51,41 +51,39 @@ export default function Footer({
             </h4>
             <ul className="space-y-2.5 text-sm text-brand-soft-neutral/80">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Services
-                </a>
+                <Link href="/india/services" className="hover:text-white transition-colors">
+                  Services Overview
+                </Link>
               </li>
               <li>
-                <a href="#employee-transport" className="hover:text-white transition-colors">
+                <Link href="/india/services/employee-transportation" className="hover:text-white transition-colors">
                   Employee Commute
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#fleet" className="hover:text-white transition-colors">
+                <Link href="/india/fleet" className="hover:text-white transition-colors">
                   Fleet Categories
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#network" className="hover:text-white transition-colors">
+                <Link href="/india#network" className="hover:text-white transition-colors">
                   Cities & Network
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link href="/india/about" className="hover:text-white transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    selectEnquiryOption({});
-                  }}
-                  className="hover:text-white transition-colors"
-                >
+                <Link href="/india/contact" className="hover:text-white transition-colors">
                   Requirement Desk
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/india/privacy" className="hover:text-white transition-colors">
+                  Privacy Notice
+                </Link>
               </li>
             </ul>
           </div>

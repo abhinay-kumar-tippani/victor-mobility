@@ -27,8 +27,8 @@ export default function EmployeeTransportFeature({
     },
     {
       icon: Shield,
-      title: "Vetted Drivers & Monitored Fleet",
-      desc: "Professional drivers, safety compliance, and vehicles configured for daily group passenger comfort.",
+      title: "Coordinated Group Transport",
+      desc: "Route planning and schedule management aligned with office and campus transit needs.",
     },
   ];
 
@@ -72,11 +72,11 @@ export default function EmployeeTransportFeature({
                 <p className="text-sm font-semibold text-brand-ink">
                   22-Seater & 44-Seater Shuttles
                 </p>
-                <p className="text-xs text-brand-ink/60 mt-1">Brochure page 10 baseline</p>
+                <p className="text-xs text-brand-ink/60 mt-1">Workplace & venue shuttles</p>
               </div>
               <div className="bg-white p-4 rounded-xl border border-brand-soft-neutral">
                 <span className="text-xs uppercase tracking-wider font-bold text-brand-blue block mb-1">
-                  Regional Depots
+                  Operating Cities
                 </span>
                 <p className="text-sm font-semibold text-brand-ink">
                   Hyderabad · Bengaluru · Pune
