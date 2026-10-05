@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Corporate Billing, GST Invoicing & Digital Duty Slip Desk",
+    "eyebrow": "Enterprise Financial Transparency · SAC 9966 Compliant",
+    "description": "Frictionless corporate credit accounts, digital GPS-stamped duty slips, transparent toll reconciliation, and 100% GST Input Tax Credit (ITC) compliance across Hyderabad, Bengaluru, and Pune.",
+    "taxFramework": {
+      "sacCode": "SAC 996601",
+      "category": "Rental Services of Passenger Transport Vehicles With Operators",
+      "gstRates": [
+        {
+          "rate": "5% GST",
+          "description": "Standard B2B passenger transport rate without Input Tax Credit on input goods/services (commonly selected for corporate employee commute).",
+          "eligibility": "Direct corporate billing with RCM / forward charge compliance."
+        },
+        {
+          "rate": "12% GST",
+          "description": "Full forward-charge passenger transport rate allowing corporate clients to claim 100% Input Tax Credit (ITC) against commercial output tax liability.",
+          "eligibility": "Enterprise corporate accounts with active GSTIN registration."
+        }
+      ],
+      "compliancePoints": [
+        "Automated monthly consolidated tax invoice delivered within 48 hours of billing cycle close.",
+        "Digitally signed PDF invoices compliant with Rule 46 of CGST Rules.",
+        "Itemized line items matching digital duty slip booking IDs.",
+        "Active GSTIN registrations across Telangana (36), Karnataka (29), and Maharashtra (27)."
+      ]
+    },
+    "creditTerms": {
+      "standardPeriod": "30-Day Net Credit",
+      "billingCycle": "Monthly / Fortnightly (Consolidated by Business Unit / Cost Center)",
+      "paymentModes": "NEFT, RTGS, Corporate Direct Debit, Electronic Bank Transfer",
+      "disputeProtocol": "Disputed line items are isolated for 48-hour audit review while undisputed invoice amounts proceed for regular clearance, preventing service disruption."
+    },
+    "sampleDutySlips": [
+      {
+        "slipId": "VIC-DS-8841",
+        "service": "Executive Chauffeur Retainer",
+        "client": "Deloitte Global Services",
+        "passenger": "VP of Technology & Delegation",
+        "date": "2026-10-04",
+        "vehicle": "Toyota Innova HyCross (TS 09 UB 4821)",
+        "chauffeur": "K. Venkatesh (Badge: VIC-HYD-4821)",
+        "startKm": "42,150 km (08:30 AM · Staged at Novotel Hitec City)",
+        "endKm": "42,238 km (06:45 PM · Released at RGIA Airport)",
+        "totalKm": "88 km",
+        "totalHours": "10 hrs 15 mins",
+        "tolls": "₹160 (ORR Fastag Electronic Toll Pass)",
+        "parking": "₹150 (RGIA Aeromall Multi-Level Parking)",
+        "gpsVerified": "Yes (AIS-140 Automated Telematics Log)",
+        "signatureStatus": "Digitally Authenticated by Passenger via Corporate OTP"
+      },
+      {
+        "slipId": "VIC-DS-9102",
+        "service": "Campus Employee Commute Shuttle",
+        "client": "Amazon Development Centre India",
+        "passenger": "Whitefield Shift Roster (Route 14B)",
+        "date": "2026-10-04",
+        "vehicle": "44-Seater Luxury AC Coach (KA 01 MJ 1092)",
+        "chauffeur": "S. Anand Murthy (Badge: VIC-BLR-1092)",
+        "startKm": "18,400 km (06:00 AM · Depot Staging)",
+        "endKm": "18,446 km (07:45 AM · Campus Arrival)",
+        "totalKm": "46 km",
+        "totalHours": "1 hr 45 mins",
+        "tolls": "₹0 (Dedicated Industrial Corridor Route)",
+        "parking": "₹0 (Campus Dedicated Bus Bay)",
+        "gpsVerified": "Yes (Geo-fence Arrival: 07:42 AM · 3 mins early)",
+        "signatureStatus": "Roster Supervisor Digital Manifest Sign-Off"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can our company claim Input Tax Credit (ITC) on Victor Mobility invoices?",
+        "answer": "Yes. When billed under the 12% GST forward-charge rate with SAC 9966, enterprise corporate clients with active GST registrations can claim 100% Input Tax Credit against their business tax liabilities."
+      },
+      {
+        "question": "How are electronic Fastag tolls and airport parking fees accounted for?",
+        "answer": "All Fastag toll transactions and airport parking tickets are recorded digitally and itemized on the duty slip with electronic transaction IDs, ensuring zero manual markup or discrepancy."
+      },
+      {
+        "question": "What documentation is required to establish a 30-day corporate credit account?",
+        "answer": "Standard corporate onboarding requires your company PAN, Certificate of Incorporation (CIN), active GSTIN certificate, and an authorized corporate purchase order or service agreement."
+      },
+      {
+        "question": "How do you handle invoice disputes or line-item discrepancies?",
+        "answer": "Under our Transparent Billing SLA, any disputed line item is frozen and audited against GPS telematics and digital fuel/toll logs within 48 hours. The remainder of the invoice proceeds normally to avoid operational impact."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Corporate Billing, FTA VAT & Electronic Invoicing Desk",
+    "eyebrow": "FTA 5% VAT Registered · Electronic Invoicing Standards",
+    "description": "Seamless UAE corporate credit accounts, transparent Dubai Salik toll reconciliation, RTA limousine meter audit logs, and compliant Federal Tax Authority (FTA) 5% VAT invoicing across Dubai and Abu Dhabi.",
+    "taxFramework": {
+      "sacCode": "FTA TRN: 100482910400003",
+      "category": "Passenger Luxury Transport & Chauffeur Services",
+      "gstRates": [
+        {
+          "rate": "5% UAE VAT",
+          "description": "Standard Federal Tax Authority (FTA) Value Added Tax applied to passenger transportation and corporate limousine leasing services in the UAE.",
+          "eligibility": "All commercial business entities registered with the UAE FTA."
+        },
+        {
+          "rate": "0% Zero-Rated / Exempt",
+          "description": "Specific cross-border international transit arrangements or eligible diplomatic missions subject to FTA exemption certificates.",
+          "eligibility": "Embassies, consulates, and accredited international diplomatic bodies."
+        }
+      ],
+      "compliancePoints": [
+        "Full electronic tax invoice compliant with UAE FTA Tax Procedures Law.",
+        "Itemized trip-by-trip breakdown with automated Salik electronic toll logging.",
+        "Monthly consolidated statements delivered electronically within 3 business days.",
+        "Official commercial registered entity in Al Garhoud, Dubai."
+      ]
+    },
+    "creditTerms": {
+      "standardPeriod": "30-Day Net Corporate Credit",
+      "billingCycle": "Monthly Consolidated Statement with Electronic Receipt Manifest",
+      "paymentModes": "UAE Corporate Bank Transfer, Direct Debit, Corporate Credit Card, Cheque",
+      "disputeProtocol": "Transparent billing review within 24 hours backed by RTA calibrated smart meter logs and GPS time stamps."
+    },
+    "sampleDutySlips": [
+      {
+        "slipId": "VIC-DXB-7721",
+        "service": "VIP Limousine & DIFC Transfer",
+        "client": "Standard Chartered Bank UAE",
+        "passenger": "Managing Director & Senior Partner",
+        "date": "2026-10-04",
+        "vehicle": "Mercedes-Benz S-Class (DXB L-9021)",
+        "chauffeur": "M. Farhan Al-Mansoor (RTA Badge: VIC-DXB-9021)",
+        "startKm": "12,110 km (09:00 AM · Staged at Armani Hotel Burj Khalifa)",
+        "endKm": "12,165 km (03:30 PM · Released at DXB Terminal 3)",
+        "totalKm": "55 km",
+        "totalHours": "6 hrs 30 mins",
+        "tolls": "AED 16 (4 Salik Toll Gates: Safa, Barsha, Al Garhoud)",
+        "parking": "AED 50 (DIFC Gate Precinct Valet)",
+        "gpsVerified": "Yes (RTA Telematics Verified Trip Stamp)",
+        "signatureStatus": "Electronic Guest Confirmation on Chauffeur Tablet"
+      },
+      {
+        "slipId": "VIC-AUH-4109",
+        "service": "Inter-Emirate VIP Delegation",
+        "client": "Abu Dhabi Investment Council (ADIC)",
+        "passenger": "Visiting Diplomatic Economic Mission",
+        "date": "2026-10-04",
+        "vehicle": "Mercedes-Maybach S 680 (AUH 7712)",
+        "chauffeur": "T. Rashid (RTA Badge: VIC-AUH-7712)",
+        "startKm": "8,400 km (08:00 AM · Staged at ADGM Al Maryah Island)",
+        "endKm": "8,560 km (06:00 PM · Released at Downtown Dubai)",
+        "totalKm": "160 km",
+        "totalHours": "10 hrs 00 mins",
+        "tolls": "AED 24 (Darb & Salik Toll Reconciliation)",
+        "parking": "AED 0 (Executive Diplomatic Bay)",
+        "gpsVerified": "Yes (Inter-Emirate GPS Corridor Confirmation)",
+        "signatureStatus": "Protocol Officer Digital Confirmation"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are Victor Mobility's UAE invoices compliant with the Federal Tax Authority (FTA)?",
+        "answer": "Yes. All invoices are issued as formal electronic tax invoices containing our active Tax Registration Number (TRN), itemized 5% VAT calculation, and full company legal details compliant with UAE tax laws."
+      },
+      {
+        "question": "How are Dubai Salik tolls and parking fees billed?",
+        "answer": "Salik toll charges are tracked electronically through automated gate reads (AED 4 per toll gate) and itemized line-by-line without manual markup. Parking charges at airports or private venues are accompanied by digital receipts."
+      },
+      {
+        "question": "Can multinational companies set up cross-entity billing in the UAE?",
+        "answer": "Yes. We support consolidated multi-subsidiary billing, allowing central corporate finance to receive itemized department-wise or project-wise expense statements across Dubai and Abu Dhabi."
+      },
+      {
+        "question": "What is the procedure for onboarding our enterprise onto corporate credit?",
+        "answer": "Simply provide a copy of your UAE Commercial Trade License, VAT TRN certificate, and signed corporate service agreement. Account activation and credit facility setup are finalized within 24 to 48 hours."
+      }
+    ]
+  }
+}

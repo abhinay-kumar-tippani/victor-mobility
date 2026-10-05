@@ -117,6 +117,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/billing`} className="hover:text-white transition-colors text-emerald-400 font-semibold">
+                  Corporate Billing &amp; Invoicing
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
