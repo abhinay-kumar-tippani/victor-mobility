@@ -1,62 +1,51 @@
-# Milestone: Phase 19 — Enterprise Vendor Due Diligence & Institutional Procurement Vault (/due-diligence)
+# Milestone: Phase 20 — Enterprise Fleet TCO & CAPEX vs OPEX Transition Desk (/tco-calculator)
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 4, 6, 8, 10: Corporate KYC, Multi-State GSTIN Tax Governance, Statutory Labour EPF/ESIC Compliance, Commercial Motor Insurance Liability Indemnity, Bilateral Master Services Agreement Onboarding).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 4, 6, 8, 10: Fixed Monthly Cost, 0% Capital Expenditure, Fleet Maintenance & Depreciation Transfer, Standby Vehicle Replacement SLA, 100% Tax Deductible OPEX).
 
 Scope completed in this milestone:
-1. Enterprise Vendor Due Diligence Dataset (`src/content/due-diligence.json`):
-   - Comprehensive statutory pillars, corporate registration credentials, branch offices, and ethical conduct policies for India (`/india/due-diligence`) and UAE (`/uae/due-diligence`):
-     - **India Corporate Identification**:
-       - Legal Name: Victor Mobility Private Limited
-       - Constitution: Private Limited Company (Companies Act, 2013)
-       - CIN: `U50100TG2023PTC178921`
-       - PAN: `AAFCV8841M`
-       - MSME Udyam: `UDYAM-TS-09-0041829`
-       - Head Office: Plot No. 12, Survey No. 41, Financial District, Nanakramguda, Gachibowli, Hyderabad, Telangana 500032
-       - Operating Branches & State GSTINs: Hyderabad Head Office (`36AAFCV8841M1Z4`), Bengaluru Whitefield Branch (`29AAFCV8841M1Z8`), Pune Hinjawadi Branch (`27AAFCV8841M1ZB`).
-     - **Four Core Statutory Pillars (India)**:
-       - *Statutory Labour & Chauffeur Welfare*: EPF Registration (`TS/HYD/0084129/000`), ESIC Registration (`52000841290001001`), Minimum Wages Act 1948 compliance, Payment of Gratuity Act 1972 trust policy.
-       - *Corporate Taxation & GST Governance*: Telangana, Karnataka, and Maharashtra GSTINs with SAC Code `996601` (Rental services of passenger transport vehicles with operators, 5%/12% ITC).
-       - *Commercial Motor Insurance & Liability Indemnity*: Comprehensive commercial motor insurance (`HDFC-ERGO / TATA-AIG`), Passenger Personal Accident Cover (₹10,00,000/seat), Unlimited statutory third-party property damage, Bilateral MSA Annexure C corporate transit indemnity.
-       - *Chauffeur Police Vetting & Background Verification*: State Police Crime Records Bureau clearance certificates, Parivahan Sarathi digital commercial license validation, pre-employment/random toxicology screening, public QR badge verification (`/india/academy/verify`).
-     - **UAE Corporate Due Diligence Entity**:
-       - Legal Name: Victor Mobility LLC (UAE Branch)
-       - Constitution: Limited Liability Company (Dubai DED Licensed)
-       - Commercial Trade License: `DED-1048291`
-       - FTA TRN: `100482910400003`
-       - Head Office: Office 402, Al Garhoud Business Centre, Airport Road, Al Garhoud, Dubai, UAE
-       - RTA Limousine Commercial Permit: `RTA-LUX-DXB-88410`
-       - 100% RTA Limousine Chauffeur Commercial Cards & Smart Limousine Telematics Feed.
-     - **Ethical Procurement & Code of Conduct**:
-       - Zero-Tolerance for Corruption & Bribery
-       - Workplace Diversity & Non-Discrimination (dedicated women chauffeur empowerment)
-       - Driver Rest Hour & Fatigue Mandates (max 10-hour duty shift, mandatory 8-hour consecutive rest)
-       - Customer Data Privacy & ISO 27001 Telematics Security.
-     - **Institutional Onboarding Workflow**:
-       - Stage 1: NDA & KYC Exchange (within 24 hours)
-       - Stage 2: MSA Review & Redlines (24 to 48 hours)
-       - Stage 3: Dispatch Activation (immediate on execution).
+1. Enterprise Fleet TCO Dataset (`src/content/tco.json`):
+   - Comprehensive Total Cost of Ownership (TCO) financial model, vehicle asset classes, procurement models, and risk transfer schedules for India (`/india/tco-calculator`) and UAE (`/uae/tco-calculator`):
+     - **Vehicle Classifications & Capital Valuations (India)**:
+       - *Executive Saloon* (Dzire / Ciaz / Camry): Purchase Price ₹11,00,000, Monthly Depreciation ₹18,333, Maintenance/Tyres ₹6,500, Insurance/Tax ₹4,500, Driver Payroll ₹24,000, Victor Retainer ₹48,000/mo.
+       - *Premium MPV* (Toyota Innova Crysta / HyCross): Purchase Price ₹24,00,000, Monthly Depreciation ₹40,000, Maintenance/Tyres ₹12,000, Insurance/Tax ₹8,500, Driver Payroll ₹26,000, Victor Retainer ₹82,000/mo.
+       - *Executive Shuttle* (Force Urbania / 22-Seater AC): Purchase Price ₹32,00,000, Monthly Depreciation ₹53,333, Maintenance/Tyres ₹18,000, Insurance/Tax ₹12,500, Driver Payroll ₹28,000, Victor Retainer ₹1,15,000/mo.
+       - *Luxury Transit Coach* (44-Seater Air-Suspension): Purchase Price ₹65,00,000, Monthly Depreciation ₹1,08,333, Maintenance/Tyres ₹28,000, Insurance/Tax ₹18,000, Driver Payroll ₹32,000, Victor Retainer ₹1,85,000/mo.
+     - **Procurement Comparison Models**:
+       - *Company-Owned Fleet (CAPEX Model)*: +28% overhead factor (15–20% annual asset depreciation hitting enterprise EBITDA, internal fleet supervisor payroll, downtime risk).
+       - *Fragmented Local Taxi Vendors*: +22% leakage (unregulated trip sheets, 8–12% billing disputes, ad-hoc surge pricing, delayed ITC).
+       - *App-Based Ride Hailing (Employee Reimbursements)*: +35% leakage (1.8x to 2.5x morning/evening surge multipliers, lack of duty of care, high expense fraud risk).
+     - **CAPEX vs OPEX Risk Transfer Matrix**:
+       - Capital Outlay: ₹11L to ₹65L per vehicle locked into depreciating assets vs ₹0 CAPEX (100% Tax-Deductible OPEX).
+       - Vehicle Breakdown & Downtime: 1 to 3 days out of service vs 30–45 minute guaranteed vehicle swap from depot standby pool.
+       - Driver Welfare: Corporate HR liable for PF/ESIC audits vs 100% Victor Mobility payroll compliance backed by certified challans.
+       - Maintenance & Tyres: Unscheduled repair bills & parts markups vs inclusive scheduled servicing.
+       - GST Input Tax Credit: Ineligible or fragmented ITC receipts vs 100% compliant e-invoices with SAC 9966 automated ITC reconciliation.
+     - **UAE Market Model**:
+       - Lexus ES300h / Mercedes E-Class, Mercedes V-Class / Lexus LM, VIP Sprinter 16-Seater, and 50-Seater luxury touring coach modeled in AED with FTA 5% VAT recovery and RTA limousine permit governance.
 
-2. Interactive Vendor Due Diligence Desk Component (`src/components/duediligence/VendorDueDiligenceDesk.tsx`):
-   - **Statutory Pillars & Records Inspector**: Interactive tabs and cards for Labour, Taxation, Insurance, and Chauffeur Vetting with verification badges and detailed records tables.
-   - **Corporate Entity & Registered Offices**: Primary corporate identification credentials and multi-state branch office cards with active GSTIN / License identifiers.
-   - **Ethical Procurement Code of Conduct**: Audited enterprise policy schedules covering anti-bribery, rest hours, and data protection.
-   - **Institutional Onboarding FAQs & MSA Protocol**: Step-by-step corporate vendor onboarding stages and procurement FAQs.
-   - **Procurement Inquiry Drawer**: Prefilled company, officer, service type, and dossier document selections generating customized WhatsApp inquiries with honest disclaimer.
-   - **Print Dossier Action**: `window.print()` trigger for printing comprehensive due diligence documentation.
+2. Interactive Fleet TCO Calculator Desk Component (`src/components/tco/FleetTcoCalculatorDesk.tsx`):
+   - **Real-Time Financial Simulator**:
+     - Dynamic category selector, fleet size slider (1 to 50 vehicles), daily distance slider (40 to 240 km/day), and operating schedule buttons (22, 26, 30 days/mo).
+     - Live output engine calculating Monthly Current Spend, Victor Retainer Spend, Monthly Net Savings, Annual Run-Rate Benefit, % Cost Reduction, and Working Capital Unlocked.
+     - Visual cost allocation progress bars for Driver Payroll, Vehicle Depreciation, Scheduled Maintenance, and Commercial Insurance.
+   - **CAPEX vs OPEX Risk Transfer Matrix**: 5-point assessment table covering balance sheet exposure, downtime risk, and statutory compliance.
+   - **Current Model Spend Leakage Breakdown**: Comprehensive analysis of hidden costs across Company-Owned, Fragmented Vendors, and Ride-Hailing models.
+   - **CFO Advisory Inquiry Drawer**: Prepopulated parameters and honest disclaimer (`_Note: This WhatsApp message initiates an enterprise fleet TCO inquiry with Victor Mobility and does not constitute a signed contract._`).
+   - **Print Financial Audit**: `window.print()` action for institutional board presentation.
 
 3. Dedicated Route Pages:
-   - `/india/due-diligence`: India Enterprise Vendor Due Diligence & Institutional Procurement Vault with Schema.org `Service` structured data.
-   - `/uae/due-diligence`: UAE Corporate Due Diligence, RTA Licensing & Compliance Vault with Schema.org `Service` structured data.
+   - `/india/tco-calculator`: India Enterprise Fleet TCO & CAPEX vs OPEX Transition Desk with Schema.org `WebApplication` structured data.
+   - `/uae/tco-calculator`: UAE Corporate Fleet TCO & Executive Retainer Transition Desk with Schema.org `WebApplication` structured data.
 
 4. Global Navigation & Cross-Linking:
-   - Added "Vendor Due Diligence & KYC Vault" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **64 static pages**).
+   - Added "Fleet TCO & Transition Desk" link under Navigation in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **66 static pages**).
 
 5. Automated Verification & Quality Gates:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 64/64 static pages compiled (`○` and `●`).
-   - Playwright verification suite (`scripts/verify-phase19.mjs`) — 100% pass across all 5 test suites.
+   - Production Build (`next build`) — 66/66 static pages compiled (`○` and `●`).
+   - Playwright verification suite (`scripts/verify-phase20.mjs`) — 100% pass across all 5 test suites.
    - Visual screenshots captured:
-     - `phase19-india-duediligence-desktop.png`
-     - `phase19-india-duediligence-mobile.png`
-     - `phase19-uae-duediligence-desktop.png`
+     - `phase20-india-tco-desktop.png`
+     - `phase20-india-tco-mobile.png`
+     - `phase20-uae-tco-desktop.png`

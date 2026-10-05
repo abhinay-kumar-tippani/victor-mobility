@@ -147,6 +147,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/tco-calculator`} className="hover:text-white transition-colors text-cyan-400 font-semibold">
+                  Fleet TCO &amp; Transition Desk
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>

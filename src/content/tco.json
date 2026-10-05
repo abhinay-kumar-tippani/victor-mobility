@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Fleet TCO & CAPEX vs OPEX Transition Desk",
+    "eyebrow": "Corporate Financial Modeling · Zero CAPEX Fleet Transition",
+    "description": "Institutional Total Cost of Ownership (TCO) financial model comparing company-owned fleet depreciation, fragmented taxi vendor overheads, and Victor Mobility's managed contract retainers across Hyderabad, Bengaluru, and Pune.",
+    "currency": "₹",
+    "currencyCode": "INR",
+    "fuelPricePerLitre": 95,
+    "vehicleCategories": [
+      {
+        "id": "sedan",
+        "name": "Executive Saloon (Dzire / Ciaz / Camry)",
+        "badge": "Corporate Management",
+        "capexPurchasePrice": 1100000,
+        "monthlyDepreciation": 18333,
+        "monthlyMaintenanceTyres": 6500,
+        "monthlyInsuranceTax": 4500,
+        "monthlyDriverPayroll": 24000,
+        "fuelEconomyKmPerLitre": 16,
+        "victorRetainerMonthlyPerVehicle": 48000,
+        "defaultKmPerDay": 80
+      },
+      {
+        "id": "mpv",
+        "name": "Premium MPV (Toyota Innova Crysta / HyCross)",
+        "badge": "Leadership & Delegations",
+        "capexPurchasePrice": 2400000,
+        "monthlyDepreciation": 40000,
+        "monthlyMaintenanceTyres": 12000,
+        "monthlyInsuranceTax": 8500,
+        "monthlyDriverPayroll": 26000,
+        "fuelEconomyKmPerLitre": 14,
+        "victorRetainerMonthlyPerVehicle": 82000,
+        "defaultKmPerDay": 100
+      },
+      {
+        "id": "shuttle",
+        "name": "Executive Shuttle (Force Urbania / 22-Seater AC)",
+        "badge": "Tech Team Shuttles",
+        "capexPurchasePrice": 3200000,
+        "monthlyDepreciation": 53333,
+        "monthlyMaintenanceTyres": 18000,
+        "monthlyInsuranceTax": 12500,
+        "monthlyDriverPayroll": 28000,
+        "fuelEconomyKmPerLitre": 8,
+        "victorRetainerMonthlyPerVehicle": 115000,
+        "defaultKmPerDay": 120
+      },
+      {
+        "id": "coach",
+        "name": "Luxury Transit Coach (44-Seater Air-Suspension)",
+        "badge": "Arterial Shift Shuttles",
+        "capexPurchasePrice": 6500000,
+        "monthlyDepreciation": 108333,
+        "monthlyMaintenanceTyres": 28000,
+        "monthlyInsuranceTax": 18000,
+        "monthlyDriverPayroll": 32000,
+        "fuelEconomyKmPerLitre": 4,
+        "victorRetainerMonthlyPerVehicle": 185000,
+        "defaultKmPerDay": 140
+      }
+    ],
+    "comparisonModels": [
+      {
+        "id": "capex-owned",
+        "name": "Company-Owned Fleet (CAPEX Model)",
+        "tagline": "Balance-Sheet Asset Heavy",
+        "overheadFactor": 1.28,
+        "summary": "High upfront capital outlay, 15-20% annual asset depreciation, dedicated internal fleet supervisor payroll, maintenance disputes, and commercial insurance risks borne directly by your corporate balance sheet.",
+        "leakages": [
+          "15–20% annual asset depreciation hitting enterprise EBITDA",
+          "Dedicated fleet manager & mechanic payroll overheads",
+          "Zero vehicle redundancy — breakdown leads to lost work hours",
+          "Driver absenteeism, gratuity, and severance liabilities"
+        ]
+      },
+      {
+        "id": "fragmented-vendors",
+        "name": "Fragmented Local Taxi Vendors",
+        "tagline": "Unregulated Ad-Hoc Billing",
+        "overheadFactor": 1.22,
+        "summary": "Multiple localized travel agents with varied billing formats, manual fuel and toll reconciliations, no uniform vehicle standards, and frequent last-minute dispatch failures.",
+        "leakages": [
+          "Manual trip slip reconciliation with 8–12% billing disputes",
+          "Ad-hoc surge pricing during peak hours and rainstorms",
+          "No telematics tracking or automated panic SOS safety",
+          "Inconsistent GST invoice compliance delaying ITC claims"
+        ]
+      },
+      {
+        "id": "app-reimbursements",
+        "name": "App-Based Ride Hailing (Employee Reimbursements)",
+        "tagline": "Unpredictable Expense Claims",
+        "overheadFactor": 1.35,
+        "summary": "Employees booking app taxis with company corporate cards or expense receipts, subject to steep peak surge multipliers (1.8x - 2.5x), high fraud risks, and zero corporate duty-of-care.",
+        "leakages": [
+          "1.8x to 2.5x surge multipliers during morning & evening shifts",
+          "Zero guaranteed availability in suburban or tech park zones",
+          "No verified chauffeur police screening or enterprise background checks",
+          "Administrative burden processing hundreds of expense receipts monthly"
+        ]
+      }
+    ],
+    "riskTransferMatrix": [
+      {
+        "dimension": "Upfront Capital Expenditure",
+        "selfManaged": "₹11L to ₹65L per vehicle locked into depreciating assets",
+        "victorManaged": "₹0 CAPEX — 100% Tax-Deductible Operational Expense (OPEX)",
+        "benefit": "Capital Preserved"
+      },
+      {
+        "dimension": "Vehicle Breakdown & Downtime",
+        "selfManaged": "1 to 3 days out of service; rental replacement at premium ad-hoc cost",
+        "victorManaged": "30–45 minute guaranteed vehicle swap from depot standby pool",
+        "benefit": "Zero Business Disruption"
+      },
+      {
+        "dimension": "Driver Welfare & Statutory EPF/ESIC",
+        "selfManaged": "Corporate HR liable for PF/ESIC audits, overtime claims & labour disputes",
+        "victorManaged": "100% Victor Mobility payroll compliance backed by certified challans",
+        "benefit": "Zero Labour Liability"
+      },
+      {
+        "dimension": "Fleet Preventive Maintenance & Tyres",
+        "selfManaged": "Unscheduled repair bills, spare parts markups, workshop downtime",
+        "victorManaged": "Inclusive comprehensive scheduled servicing and tyre replacements",
+        "benefit": "Fixed Predictable Cost"
+      },
+      {
+        "dimension": "GST Input Tax Credit (ITC)",
+        "selfManaged": "Ineligible or fragmented ITC from non-compliant local taxi receipts",
+        "victorManaged": "100% compliant e-invoices with SAC 9966 automated ITC reconciliation",
+        "benefit": "Tax Efficient"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does transitioning to an OPEX fleet retainer model benefit corporate balance sheets?",
+        "answer": "Under an OPEX contract with Victor Mobility, your enterprise avoids immobilizing substantial capital in depreciating vehicles. Monthly retainer disbursements are classified as 100% tax-deductible operational expenditure, freeing up working capital while qualifying for 5% or 12% Input Tax Credit (ITC) under GST SAC 9966."
+      },
+      {
+        "question": "How does Victor Mobility protect enterprise clients against sudden fuel price hikes?",
+        "answer": "Our bilateral Master Services Agreement (MSA) specifies an auditable, transparent fuel escalation indexation formula tied to official state oil marketing company revisions. Base retainers remain fixed, eliminating arbitrary contractor markups."
+      },
+      {
+        "question": "What is the guaranteed turnaround time if a vehicle undergoes unexpected mechanical failure?",
+        "answer": "We maintain a 15% dedicated hot-standby fleet across Hyderabad, Bengaluru, and Pune. If an active vehicle experiences a mechanical issue, our 24/7 central dispatch triggers an immediate replacement vehicle with a badged chauffeur to arrive within 30 to 45 minutes."
+      },
+      {
+        "question": "Can enterprise clients audit monthly distance telemetry and fuel consumption logs?",
+        "answer": "Yes. Every trip is tracked via certified AIS-140 IoT telematics hardware logging exact timestamps, GPS coordinates, and odometer readings. Comprehensive digital audit manifests are attached to your monthly GST e-invoice."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Corporate Fleet TCO & Executive Retainer Transition Desk",
+    "eyebrow": "CFO Financial Analysis · Zero Balance-Sheet Asset Risk",
+    "description": "Institutional Total Cost of Ownership (TCO) financial model comparing commercial fleet leasing, corporate taxi accounts, and Victor Mobility UAE dedicated luxury limousine retainers across Dubai and Abu Dhabi.",
+    "currency": "AED ",
+    "currencyCode": "AED",
+    "fuelPricePerLitre": 3.15,
+    "vehicleCategories": [
+      {
+        "id": "sedan-uae",
+        "name": "Executive Saloon (Lexus ES300h / Mercedes E-Class)",
+        "badge": "Executive Transport",
+        "capexPurchasePrice": 220000,
+        "monthlyDepreciation": 3666,
+        "monthlyMaintenanceTyres": 1200,
+        "monthlyInsuranceTax": 1100,
+        "monthlyDriverPayroll": 4500,
+        "fuelEconomyKmPerLitre": 15,
+        "victorRetainerMonthlyPerVehicle": 11500,
+        "defaultKmPerDay": 120
+      },
+      {
+        "id": "mpv-uae",
+        "name": "Luxury Executive MPV (Mercedes V-Class / Lexus LM)",
+        "badge": "VIP Delegations",
+        "capexPurchasePrice": 380000,
+        "monthlyDepreciation": 6333,
+        "monthlyMaintenanceTyres": 1800,
+        "monthlyInsuranceTax": 1600,
+        "monthlyDriverPayroll": 5000,
+        "fuelEconomyKmPerLitre": 12,
+        "victorRetainerMonthlyPerVehicle": 16500,
+        "defaultKmPerDay": 140
+      },
+      {
+        "id": "sprinter-uae",
+        "name": "VIP Luxury Sprinter (Mercedes VIP 16-Seater)",
+        "badge": "Corporate Shuttles",
+        "capexPurchasePrice": 480000,
+        "monthlyDepreciation": 8000,
+        "monthlyMaintenanceTyres": 2400,
+        "monthlyInsuranceTax": 2200,
+        "monthlyDriverPayroll": 5500,
+        "fuelEconomyKmPerLitre": 8,
+        "victorRetainerMonthlyPerVehicle": 22000,
+        "defaultKmPerDay": 160
+      },
+      {
+        "id": "coach-uae",
+        "name": "Ultra-Luxury Touring Coach (50-Seater Coach)",
+        "badge": "Cross-Emirate Transit",
+        "capexPurchasePrice": 850000,
+        "monthlyDepreciation": 14166,
+        "monthlyMaintenanceTyres": 3800,
+        "monthlyInsuranceTax": 3200,
+        "monthlyDriverPayroll": 6000,
+        "fuelEconomyKmPerLitre": 4,
+        "victorRetainerMonthlyPerVehicle": 32000,
+        "defaultKmPerDay": 180
+      }
+    ],
+    "comparisonModels": [
+      {
+        "id": "capex-owned",
+        "name": "Corporate Direct Lease / Purchase",
+        "tagline": "High Capital Commitment",
+        "overheadFactor": 1.25,
+        "summary": "Long-term commercial lease lock-ins, driver residency visa sponsorships, comprehensive UAE motor insurance, and RTA commercial permit fees managed internally.",
+        "leakages": [
+          "Commercial vehicle lease commitments locking capital for 36–48 months",
+          "Full visa sponsorship, medical insurance, and end-of-service gratuity risks",
+          "Annual RTA commercial limousine inspection & permit renewals",
+          "Direct exposure to vehicle depreciation and resale losses"
+        ]
+      },
+      {
+        "id": "fragmented-vendors",
+        "name": "Ad-Hoc Chauffeur & Taxi Accounts",
+        "tagline": "Unregulated Hourly Rates",
+        "overheadFactor": 1.20,
+        "summary": "Uncoordinated hourly limousine bookings with variable airport waiting charges, unvetted drivers, and unintegrated Salik road toll billings.",
+        "leakages": [
+          "Ad-hoc airport parking & extended waiting surcharges",
+          "No priority vehicle allocation during major Dubai conferences & summits",
+          "Fragmented VAT invoices complicating FTA 5% input tax recovery",
+          "Inconsistent chauffeur presentation standards and protocol training"
+        ]
+      }
+    ],
+    "riskTransferMatrix": [
+      {
+        "dimension": "Capital Expenditure & Balance Sheet",
+        "selfManaged": "AED 220k to AED 850k locked per vehicle or inflexible multi-year lease",
+        "victorManaged": "100% Flexible OPEX Contract with 30-day corporate settlement terms",
+        "benefit": "Liquidity Preserved"
+      },
+      {
+        "dimension": "RTA Limousine Permits & Licensing",
+        "selfManaged": "Direct responsibility for RTA limousine commercial licensing & chauffeur cards",
+        "victorManaged": "100% Victor Mobility DED and RTA certified fleet with active telematics",
+        "benefit": "Zero Regulatory Burden"
+      },
+      {
+        "dimension": "Chauffeur Visa & Labour Welfare",
+        "selfManaged": "Corporate HR handles UAE residency visas, health insurance & WPS compliance",
+        "victorManaged": "Fully managed, badged executive chauffeurs with full statutory benefits",
+        "benefit": "Zero Labour Exposure"
+      },
+      {
+        "dimension": "Standby Replacement Protocol",
+        "selfManaged": "Vehicle downtime in workshop; no immediate executive replacement",
+        "victorManaged": "Guaranteed 30-minute replacement vehicle dispatch across Dubai & Abu Dhabi",
+        "benefit": "C-Suite Continuity"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can multinational corporations in the UAE deduct fleet retainers as operating expenses?",
+        "answer": "Yes. Retainer agreements with Victor Mobility LLC are 100% tax-deductible operational expenditure under UAE Corporate Tax regulations, with fully compliant FTA electronic tax invoices allowing 5% VAT input recovery."
+      },
+      {
+        "question": "How are Salik road tolls and airport parking fees handled on retainer contracts?",
+        "answer": "Salik road toll gates and airport terminal parking fees are electronically captured through RTA linked telematics feeds and billed transparently at exact government tariffs with zero administrative markup."
+      },
+      {
+        "question": "Are your chauffeurs trained in diplomatic and executive VIP protocol in the UAE?",
+        "answer": "Yes. All Victor Mobility chauffeurs in the UAE hold official RTA Limousine Chauffeur Cards and complete our Victor Executive Academy curriculum covering diplomatic greeting protocols, multi-lingual assistance, and discreet VIP confidentiality."
+      }
+    ]
+  }
+}
