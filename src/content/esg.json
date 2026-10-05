@@ -1,0 +1,106 @@
+{
+  "india": {
+    "title": "Corporate ESG & Green Mobility Architecture",
+    "subtitle": "Scope 3 Employee Commute Emissions Modeling & Green Fleet Roadmaps",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Mobility Pvt. Ltd.",
+    "headline": "Decarbonizing Corporate Commutes across India's Tech Corridors",
+    "description": "Empowering enterprises across Hyderabad, Bengaluru, and Pune to measure, report, and drastically curtail Scope 3 employee commute carbon footprints through high-occupancy shared shuttles, smart telematics route-bundling, and planned EV fleet integration.",
+    "emissionsBenchmarks": {
+      "iceSedanGPerKm": 148,
+      "evSedanGPerKm": 44,
+      "iceBusGPerKm": 820,
+      "busPerPassengerGPerKm": 18.6,
+      "treeAbsorptionKgPerYear": 21.8,
+      "barrelOfOilLiters": 159
+    },
+    "esgPillars": [
+      {
+        "id": "mass-transit-efficiency",
+        "title": "High-Occupancy Group Transit",
+        "subtitle": "87% Carbon Reduction vs Single Occupancy",
+        "description": "Consolidating 44 individual car commutes into a single synchronized 44-seater luxury coach slashes per-commuter carbon emissions from 148g/km to just 18.6g/km.",
+        "badge": "Scope 3 Impact"
+      },
+      {
+        "id": "telematics-route-optimization",
+        "title": "Telematics & Zero-Deadhead Routing",
+        "subtitle": "Algorithmically Optimized Rosters",
+        "description": "Real-time GPS routing eliminates empty idling, optimizes cluster pickup corridors, and prevents unnecessary stop-and-go fuel burns across tech park hubs.",
+        "badge": "Operational Efficiency"
+      },
+      {
+        "id": "chauffeur-eco-protocol",
+        "title": "Chauffeur Eco-Driving Certification",
+        "subtitle": "Victor Chauffeur Academy Standard",
+        "description": "Chauffeurs are trained in smooth acceleration curves, predictive deceleration, and mandatory idle-shutdown policies (>60 seconds) to conserve fuel.",
+        "badge": "Human Capital"
+      },
+      {
+        "id": "planned-ev-transition",
+        "title": "Progressive EV Fleet Roadmap",
+        "subtitle": "Zero Tailpipe Emission Airport & Campus Pilots",
+        "description": "Targeted deployment of electric saloons (e.g. Mahindra XUV400 EV, Tata Tigor EV) for dedicated executive airport runs and campus circular feeder loops.",
+        "badge": "Future Readiness"
+      }
+    ],
+    "governanceStandards": [
+      "BRSR (Business Responsibility and Sustainability Reporting) Audit Compatibility",
+      "Itemized monthly carbon footprint reporting by department or office facility",
+      "Strict particulate filter maintenance and tailpipe pollution check certificates (PUC)",
+      "Transparent environmental governance with zero greenwashing claims"
+    ]
+  },
+  "uae": {
+    "title": "UAE Green Limousine & Sustainable Mobility Desk",
+    "subtitle": "Aligning Executive Travel with Dubai Clean Energy Strategy & Net Zero 2050",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Luxury Limousine LLC",
+    "headline": "Pinnacle Executive Luxury with Environmental Discretion",
+    "description": "Victor Luxury Limousine LLC aligns executive hospitality, airport VIP transfers, and corporate summit delegations with the UAE Net Zero 2050 strategic initiative through high-efficiency powertrains, hybrid saloons, and eco-certified chauffeur protocols across Dubai and Abu Dhabi.",
+    "emissionsBenchmarks": {
+      "iceSedanGPerKm": 165,
+      "evSedanGPerKm": 38,
+      "iceBusGPerKm": 860,
+      "busPerPassengerGPerKm": 19.5,
+      "treeAbsorptionKgPerYear": 21.8,
+      "barrelOfOilLiters": 159
+    },
+    "esgPillars": [
+      {
+        "id": "uae-clean-powertrains",
+        "title": "Hybrid & Premium Low-Emission Fleet",
+        "subtitle": "Aligning with Dubai RTA Green Standards",
+        "description": "Incorporating high-efficiency executive hybrid saloons and ultra-refined powertrains across the Dubai and Abu Dhabi hospitality network.",
+        "badge": "RTA Green Standard"
+      },
+      {
+        "id": "summit-mass-delegations",
+        "title": "VIP Coach Group Logistics",
+        "subtitle": "Minimizing Summit Motorcade Emissions",
+        "description": "Deploying 22 and 44-seater luxury coaches for conference delegations between DIFC, Downtown Dubai, and Expo City reduces urban convoy congestion.",
+        "badge": "Summit Logistics"
+      },
+      {
+        "id": "radar-flight-conservation",
+        "title": "Radar Flight Synchronization",
+        "subtitle": "Zero Air-Conditioned Curbside Idling",
+        "description": "Real-time radar tracking at DXB, AUH, and DWC ensures chauffeurs position at passenger exit bays precisely upon gate deplaning, eliminating wasteful curbside engine idling.",
+        "badge": "Airport Precision"
+      },
+      {
+        "id": "net-zero-governance",
+        "title": "Corporate Sustainability Audit Ready",
+        "subtitle": "Detailed Scope 3 Corporate Invoicing",
+        "description": "Monthly corporate accounts receive detailed kilometer logs and estimated carbon emission reports suitable for international corporate ESG audits.",
+        "badge": "Governance"
+      }
+    ],
+    "governanceStandards": [
+      "Aligned with Dubai Clean Energy Strategy & UAE Green Mobility Target",
+      "Full compliance with RTA commercial environmental operating guidelines",
+      "Detailed Scope 3 corporate travel carbon reporting for global enterprise clients",
+      "100% adherence to scheduled OEM mechanical servicing and emission checks"
+    ]
+  }
+}

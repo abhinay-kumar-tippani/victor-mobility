@@ -1,33 +1,47 @@
-# Milestone: Phase 8 — Interactive Vehicle Fleet Showcase & Virtual Inspection Desk (/fleet)
+# Milestone: Phase 9 — Enterprise ESG & Green Fleet Carbon Calculator (/esg)
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Pages 3, 6, 7, 10: 2,000+ Luxury Cars, 500+ Buses, Executive Saloons, Luxury MPVs, First Class Coaches, Safety Standards).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 4, 10: Fleet Sustainability, EV Roadmap, High-Capacity Group Transit, ISO Environmental Standards).
 
 Scope completed in this milestone:
-1. Rich Fleet Specifications Dataset (`src/content/fleet-specifications.json`):
-   - Detailed technical and amenities specifications for India (`/india/fleet`) and UAE (`/uae/fleet`):
-     - **India Fleet**: Executive Sedans (Swift Dzire, Tigor, City), MPVs & Group Vehicles (Innova Crysta, Marazzo, Urbania), Luxury & Limousines (Mercedes E/S-Class, BMW 7), Buses & Shuttles (22 & 44-seater luxury coaches, Volvo 9600).
-     - **UAE Fleet**: First Class Saloons (Mercedes S-Class, BMW 7), Ultra-Luxury VIP (Mercedes-Maybach), Executive SUVs & MPVs (Cadillac Escalade, GMC Yukon, V-Class), Luxury Buses & VIP Coaches.
-     - Accurate passenger seating capacities, luggage limits (large suitcases vs cabin bags), cabin architecture, 4-point safety/telematics checklists, and executive onboard amenities (Evian/Perrier water, Wi-Fi, multi-device fast chargers, umbrellas).
-     - Transparent benchmark tariff matrices for airport VIP transfers, 4hr/40km half-day, 8hr/80km full-day, outstation corridors, and corporate monthly shift retainers.
+1. ESG & Carbon Modeling Dataset (`src/content/esg.json`):
+   - Detailed emissions factors and benchmarks for India (`/india/esg`) and UAE (`/uae/esg`):
+     - Single-occupancy ICE car vs high-occupancy corporate bus (148g CO2/km vs 18.6g CO2/passenger-km; ~87% carbon reduction).
+     - Electric Vehicle (EV) fleet factor (44g CO2/km life-cycle grid in India, 38g CO2/km in UAE).
+     - Mature tree absorption equivalent (21.8 kg CO2/year).
+     - Crude oil consumption offset factors.
+   - 4 Operational ESG Pillars:
+     - High-Occupancy Group Transit (Scope 3 commute emissions reduction).
+     - Telematics & Zero-Deadhead Routing (algorithmic pickup clusters avoiding empty engine idling).
+     - Chauffeur Eco-Driving Certification (smooth acceleration curves, idle cutoff > 60s).
+     - Planned Progressive EV Fleet Roadmap (zero-emission airport transfers & tech campus feeder loops).
+   - Governance Standards: BRSR-audit compatibility, transparent Scope 3 department invoicing, strict particulate filter checks.
 
-2. Interactive Vehicle Fleet Showcase & Inspection Desk Component (`src/components/fleet/InteractiveFleetShowcase.tsx`):
-   - **Dynamic Category Filter Tabs**: Filter between Sedans, MPVs, Luxury, Coaches, or View All.
-   - **Interactive Vehicle Inspection Modal**:
-     - Displays full cabin seating layout, luggage allowance details, enterprise safety and telematics protocols, onboard amenities, and recommended enterprise deployments.
-     - Accessible keyboard controls and focus handling.
-   - **Instant Corporate Rate Card & Tariff Estimator**:
-     - Real-time calculations based on Category, Duty Assignment, and Operating City (Hyderabad, Bengaluru, Pune / Dubai, Abu Dhabi).
-     - Generates prefilled WhatsApp procurement briefing with exact vehicle parameters.
-     - Strict adherence to transparency: Opening a WhatsApp draft is not simulating a booking confirmation.
+2. Interactive Corporate ESG Calculator (`src/components/esg/CorporateEsgCalculator.tsx`):
+   - **Interactive Sliders**:
+     - Commuter Volume (20 to 1,000 corporate passengers).
+     - Daily Round-Trip Commute Distance (15 to 120 km/day).
+     - Strategy Selector: Shared High-Capacity Buses (22-44 Pax) vs Electric Vehicle (EV) Transition Mix (10% to 100%).
+   - **Live Carbon Impact Metrics**:
+     - Monthly & Annual Metric Tonnes CO2e saved with percentage reduction index.
+     - Mature forest equivalent (number of trees).
+     - Barrels of crude oil conserved.
+   - **Boardroom & Procurement Reporting**:
+     - One-click "Print ESG Report" action with clean print styling (`window.print()`).
+     - "Consult ESG Mobility Specialist via WhatsApp" prefilling corporate commuter count, route distance, strategy, and annual CO2 savings.
 
-3. Page Upgrades:
-   - Upgraded `src/app/india/fleet/page.tsx` and `src/app/uae/fleet/page.tsx` with full interactive showcase and Schema.org `ItemList` structured data.
+3. Dedicated Route Pages:
+   - `/india/esg`: India Enterprise ESG & Sustainable Commute Desk with Schema.org `WebApplication` structured data.
+   - `/uae/esg`: UAE Green Limousine & Sustainable Mobility Desk aligned with UAE Net Zero 2050 strategy and Dubai Clean Energy targets.
 
-4. Automated Quality & Verification:
+4. Global Navigation & Sitemap:
+   - `Footer.tsx`: Added "ESG & Green Mobility" link under Quick Navigation across both India and UAE portals.
+   - `src/app/sitemap.ts`: Indexed all 44 static SSG routes (100% static compilation).
+
+5. Automated Quality & Verification:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 42/42 static routes compiled.
-   - Playwright verification suite (`scripts/verify-phase8.mjs`) — 100% pass across all 6 test suites.
+   - Production Build (`next build`) — 44/44 static pages compiled.
+   - Playwright verification suite (`scripts/verify-phase9.mjs`) — 100% pass across all 5 test suites.
    - Visual screenshots captured:
-     - `phase8-india-fleet-showcase-desktop.png`
-     - `phase8-india-fleet-showcase-mobile.png`
-     - `phase8-uae-fleet-showcase-desktop.png`
+     - `phase9-india-esg-desktop.png`
+     - `phase9-india-esg-mobile.png`
+     - `phase9-uae-esg-desktop.png`
