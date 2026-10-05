@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Corporate Account Onboarding & Credit Facility Application Desk",
+    "eyebrow": "Institutional Credit Terms · 30-Day Billing Retainers · Automated ECS Billing",
+    "description": "Establish a formalized corporate credit account with Victor Mobility. Enjoy pre-approved monthly credit limits, consolidated 30-day net billing cycles, and automated Input Tax Credit (ITC) reconciliation across Hyderabad, Bengaluru, and Pune.",
+    "creditTiers": [
+      {
+        "id": "growth-credit",
+        "name": "Corporate Growth Retainer",
+        "badge": "Standard Corporate",
+        "creditLimit": "₹2,00,000 – ₹5,00,000",
+        "settlementCycle": "15-Day Net Settlement",
+        "securityRequirement": "Company PAN + GSTIN + Signed ECS Mandate",
+        "turnaround": "24–48 Hours Approval",
+        "idealFor": "Mid-market enterprises with 2–5 dedicated retainers or monthly ad-hoc executive travel.",
+        "benefits": [
+          "Zero cash or driver reimbursement handling",
+          "Bi-weekly consolidated GST e-invoices with SAC 9966 ITC",
+          "Dedicated client telematics portal login credentials",
+          "Priority dispatch during peak tech corridor hours"
+        ]
+      },
+      {
+        "id": "enterprise-credit",
+        "name": "Enterprise Strategic Retainer",
+        "badge": "Most Popular",
+        "creditLimit": "₹5,00,000 – ₹25,00,000",
+        "settlementCycle": "30-Day Net Settlement",
+        "securityRequirement": "Audited Financials + Bank Mandate + Bilateral MSA",
+        "turnaround": "48 Hours Approval",
+        "idealFor": "Large technology GCCs, investment banks, and consulting firms operating 6–25 dedicated vehicles.",
+        "benefits": [
+          "Full 30-day rolling credit billing window",
+          "Dedicated corporate account manager & 24/7 central SPOC",
+          "Custom billing MIS reports categorized by cost center / project code",
+          "Guaranteed 30-minute vehicle swap from local standby pool"
+        ]
+      },
+      {
+        "id": "institutional-credit",
+        "name": "Institutional Pan-India Retainer",
+        "badge": "Fortune 500 & MNCs",
+        "creditLimit": "₹25,00,000 – ₹1 Crore+",
+        "settlementCycle": "30 to 45-Day Net Settlement",
+        "securityRequirement": "Institutional Master Services Agreement (MSA) + Corporate Treasury Protocol",
+        "turnaround": "72 Hours Approval",
+        "idealFor": "Multi-city tech conglomerates and manufacturing enterprises running 25–100+ shift shuttles and luxury motorcades.",
+        "benefits": [
+          "Custom multi-entity GST billing across Telangana, Karnataka & Maharashtra",
+          "Dedicated treasury & finance reconciliation desk",
+          "Guaranteed dedicated standby vehicles permanently stationed at your facility",
+          "Quarterly C-Suite executive transportation governance reviews"
+        ]
+      }
+    ],
+    "onboardingWorkflow": [
+      {
+        "step": "01",
+        "title": "KYC & Credit Evaluation",
+        "timeline": "Day 1",
+        "description": "Submit basic corporate credentials (Certificate of Incorporation, PAN, multi-state GSTINs, and 3 months bank statements)."
+      },
+      {
+        "step": "02",
+        "title": "Bilateral MSA & Credit Limit Issuance",
+        "timeline": "Day 2",
+        "description": "Our corporate legal desk executes standard Master Services Agreement (MSA) with agreed credit limits and 30-day payment terms."
+      },
+      {
+        "step": "03",
+        "title": "Account Activation & Dispatch Staging",
+        "timeline": "Day 3",
+        "description": "Portal credentials issued, badged chauffeurs allocated, and corporate booking workflow goes live with zero upfront payment required."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the standard corporate credit billing window provided by Victor Mobility?",
+        "answer": "Our standard corporate credit facility operates on a 30-day net settlement cycle. Monthly consolidated GST e-invoices are generated on the 1st of every month, accompanied by detailed digital trip manifests, and settled within 30 days via direct NEFT, RTGS, or automated bank ECS mandate."
+      },
+      {
+        "question": "How are billing disputes or route deviations handled under the credit facility?",
+        "answer": "Every trip is backed by certified AIS-140 IoT telematics logs recording exact timestamps and GPS routes. In the rare event of a dispute, your dedicated account manager issues an immediate credit note or adjusts the invoice prior to monthly settlement."
+      },
+      {
+        "question": "Can our accounting team receive invoices broken down by departmental cost centers?",
+        "answer": "Yes. Our automated billing engine allows corporate clients to tag bookings with custom cost centers, employee employee IDs, or client project codes. Your monthly billing pack includes itemized department-wise Excel MIS reports alongside the legal tax invoice."
+      },
+      {
+        "question": "Are there any hidden account maintenance fees or minimum spend penalties?",
+        "answer": "No. Victor Mobility corporate credit accounts have zero setup fees, zero annual maintenance charges, and no minimum spend penalties. You are billed strictly for authorized contracted retainers and booked transit services."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Corporate Account & Commercial Credit Facility Desk",
+    "eyebrow": "Corporate Limousine Credit · 30-Day Settlement · FTA 5% VAT Invoicing",
+    "description": "Establish a formalized corporate credit facility with Victor Mobility LLC. Enjoy pre-approved monthly credit limits in AED, seamless 30-day net settlement terms, and compliant electronic VAT invoices across Dubai and Abu Dhabi.",
+    "creditTiers": [
+      {
+        "id": "uae-corporate",
+        "name": "UAE Executive Retainer Account",
+        "badge": "Standard Corporate",
+        "creditLimit": "AED 25,000 – AED 75,000",
+        "settlementCycle": "15 to 30-Day Net Settlement",
+        "securityRequirement": "Trade License + TRN Certificate + Security Deposit / PDC",
+        "turnaround": "24–48 Hours Approval",
+        "idealFor": "Boutique financial firms, legal practices, and luxury hospitality desks.",
+        "benefits": [
+          "Zero per-trip credit card swipe overheads",
+          "Itemized monthly FTA 5% VAT tax invoices with Salik toll breakdowns",
+          "Dedicated booking desk with 15-minute dispatch confirmation",
+          "Executive limousine fleet (Lexus ES, Mercedes E-Class)"
+        ]
+      },
+      {
+        "id": "uae-institutional",
+        "name": "Institutional Sovereign & MNC Retainer",
+        "badge": "Fortune 500 & Banking",
+        "creditLimit": "AED 75,000 – AED 350,000+",
+        "settlementCycle": "30-Day Net Corporate Settlement",
+        "securityRequirement": "Corporate Trade License + Bilateral Master Services Agreement",
+        "turnaround": "48 Hours Approval",
+        "idealFor": "Multinational investment banks, tech firms, and diplomatic missions in DIFC, Downtown, and ADGM.",
+        "benefits": [
+          "Full 30-day net corporate settlement window",
+          "Dedicated UAE Roadshow Director and bilingual chauffeurs",
+          "Pre-approved credit line covering luxury sedans, VIP Sprinters, and luxury touring coaches",
+          "Cross-emirate transit between Dubai and Abu Dhabi with automated toll clearance"
+        ]
+      }
+    ],
+    "onboardingWorkflow": [
+      {
+        "step": "01",
+        "title": "Commercial License & TRN Submission",
+        "timeline": "Day 1",
+        "description": "Submit official DED Commercial Trade License, FTA Tax Registration Number (TRN) certificate, and authorized signatory card."
+      },
+      {
+        "step": "02",
+        "title": "Corporate Retainer Agreement",
+        "timeline": "Day 2",
+        "description": "Bilateral Master Services Agreement executed with pre-agreed AED credit limits and 30-day net payment terms."
+      },
+      {
+        "step": "03",
+        "title": "Account Go-Live & Fleet Allocation",
+        "timeline": "Day 3",
+        "description": "Corporate booking portal active, dedicated chauffeur assignments locked, and VIP service begins."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can multinational corporations in the UAE settle invoices via corporate bank transfer (WPS/SWIFT)?",
+        "answer": "Yes. Invoices can be settled directly in AED via local UAE bank transfer (direct credit / FAB / Emirates NBD) or corporate cheque under 30-day settlement terms."
+      },
+      {
+        "question": "Are Salik road tolls and airport parking fees included in the monthly credit statement?",
+        "answer": "Yes. Every Salik toll gate passage and airport terminal parking receipt is electronically matched and itemized on your monthly FTA 5% VAT invoice."
+      }
+    ]
+  }
+}
