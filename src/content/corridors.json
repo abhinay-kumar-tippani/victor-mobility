@@ -1,0 +1,336 @@
+{
+  "india": {
+    "currency": "INR",
+    "currencySymbol": "₹",
+    "note": "Rates shown are indicative corporate estimates for planning purposes. Final commercial billing depends on exact toll tariffs, GST (5% with ITC/RCM options), and customized shift roster agreements.",
+    "vehicleTiers": [
+      {
+        "id": "sedan",
+        "name": "Executive Sedan",
+        "models": "Toyota Etios / Maruti Dzire",
+        "capacity": "3 Passengers · 2 Large Bags",
+        "baseMultiplier": 1.0,
+        "hourlyRetainer": "₹2,200 (8h / 80km)"
+      },
+      {
+        "id": "premium-saloon",
+        "name": "Premium Saloon",
+        "models": "Toyota Camry / Mercedes E-Class / BMW 5",
+        "capacity": "3 Passengers · 3 Bags",
+        "baseMultiplier": 2.2,
+        "hourlyRetainer": "₹6,500 (8h / 80km)"
+      },
+      {
+        "id": "mpv",
+        "name": "Executive MPV",
+        "models": "Toyota Innova Crysta / Hycross",
+        "capacity": "5-6 Passengers · 4 Large Bags",
+        "baseMultiplier": 1.6,
+        "hourlyRetainer": "₹3,800 (8h / 80km)"
+      },
+      {
+        "id": "bus",
+        "name": "Luxury Tempo / Coach",
+        "models": "12–26 Seater Tempo Traveler / 35–45 Seater Coach",
+        "capacity": "12–45 Passengers · Ample Luggage",
+        "baseMultiplier": 2.8,
+        "hourlyRetainer": "₹7,200 (8h / 80km)"
+      }
+    ],
+    "corridors": [
+      {
+        "id": "hyd-airport-hitec",
+        "hub": "Hyderabad",
+        "from": "Rajiv Gandhi Intl Airport (RGIA - HYD)",
+        "to": "HITEC City / Financial District / Gachibowli",
+        "distanceKm": 34,
+        "estDuration": "40–55 mins",
+        "highway": "PVNR Expressway & Outer Ring Road (ORR)",
+        "basePrice": 1600,
+        "priceRange": {
+          "sedan": "₹1,600 – ₹1,900",
+          "premium-saloon": "₹3,800 – ₹4,500",
+          "mpv": "₹2,600 – ₹3,100",
+          "bus": "₹4,800 – ₹5,800"
+        },
+        "highlights": [
+          "Radar-linked terminal greeting with name-board",
+          "Toll Plaza clearance on PVNR Expressway included",
+          "Complimentary 45-minute airport wait time"
+        ]
+      },
+      {
+        "id": "hyd-airport-secunderabad",
+        "hub": "Hyderabad",
+        "from": "Rajiv Gandhi Intl Airport (RGIA - HYD)",
+        "to": "Secunderabad / Begumpet / Somajiguda",
+        "distanceKm": 38,
+        "estDuration": "50–65 mins",
+        "highway": "PVNR Elevated Corridor & Airport Approach Road",
+        "basePrice": 1700,
+        "priceRange": {
+          "sedan": "₹1,700 – ₹2,000",
+          "premium-saloon": "₹4,000 – ₹4,800",
+          "mpv": "₹2,800 – ₹3,300",
+          "bus": "₹5,200 – ₹6,200"
+        },
+        "highlights": [
+          "Expressway corridor navigation avoiding city congestion",
+          "Flight delay radar monitoring",
+          "Mineral water bottles and sanitised cabin"
+        ]
+      },
+      {
+        "id": "hyd-intercity-vijayawada",
+        "hub": "Hyderabad",
+        "from": "Hyderabad Head Office",
+        "to": "Vijayawada Commercial Hub",
+        "distanceKm": 275,
+        "estDuration": "4.5–5.5 hrs",
+        "highway": "NH-65 National Highway Corridor",
+        "basePrice": 7500,
+        "priceRange": {
+          "sedan": "₹7,500 – ₹8,800",
+          "premium-saloon": "₹16,500 – ₹19,500",
+          "mpv": "₹11,500 – ₹13,500",
+          "bus": "₹22,000 – ₹26,000"
+        },
+        "highlights": [
+          "Experienced highway certified chauffeur",
+          "Full intercity toll and state permit coordination",
+          "24/7 Operations GPS telemetry monitoring"
+        ]
+      },
+      {
+        "id": "blr-airport-whitefield",
+        "hub": "Bengaluru",
+        "from": "Kempegowda Intl Airport (BLR)",
+        "to": "Whitefield (ITPB & EPIP Zone)",
+        "distanceKm": 44,
+        "estDuration": "55–75 mins",
+        "highway": "SH-104 & Budigere Cross Express Road",
+        "basePrice": 1900,
+        "priceRange": {
+          "sedan": "₹1,900 – ₹2,300",
+          "premium-saloon": "₹4,400 – ₹5,200",
+          "mpv": "₹3,100 – ₹3,600",
+          "bus": "₹5,800 – ₹7,000"
+        },
+        "highlights": [
+          "Direct route via Budigere bypass avoiding Hebbal choke points",
+          "Terminal 1 and Terminal 2 VIP curbside pickup",
+          "Corporate billing vouchers and invoice clearance"
+        ]
+      },
+      {
+        "id": "blr-airport-electronic-city",
+        "hub": "Bengaluru",
+        "from": "Kempegowda Intl Airport (BLR)",
+        "to": "Electronic City (Phase 1 & 2)",
+        "distanceKm": 54,
+        "estDuration": "70–90 mins",
+        "highway": "Bellary Road Express Highway & Elevated Tollway",
+        "basePrice": 2200,
+        "priceRange": {
+          "sedan": "₹2,200 – ₹2,600",
+          "premium-saloon": "₹4,900 – ₹5,800",
+          "mpv": "₹3,500 – ₹4,200",
+          "bus": "₹6,800 – ₹8,200"
+        },
+        "highlights": [
+          "BETL Elevated Tollway fast-track clearance",
+          "Chauffeur flight tracking with automated WhatsApp arrival ping",
+          "Corporate luggage handling service"
+        ]
+      },
+      {
+        "id": "pune-airport-hinjawadi",
+        "hub": "Pune",
+        "from": "Pune International Airport (PNQ)",
+        "to": "Hinjawadi Infotech Park (Phase 1, 2, 3)",
+        "distanceKm": 28,
+        "estDuration": "45–60 mins",
+        "highway": "Old Mumbai-Pune Highway & Dehu Road Bypass",
+        "basePrice": 1400,
+        "priceRange": {
+          "sedan": "₹1,400 – ₹1,700",
+          "premium-saloon": "₹3,200 – ₹3,900",
+          "mpv": "₹2,300 – ₹2,800",
+          "bus": "₹4,200 – ₹5,200"
+        },
+        "highlights": [
+          "Hinjawadi campus gate-level drop-offs",
+          "Pre-assigned vetted chauffeurs with company ID",
+          "Real-time GPS tracking link shared with passenger"
+        ]
+      },
+      {
+        "id": "pune-mumbai-expressway",
+        "hub": "Pune",
+        "from": "Pune Branch Office",
+        "to": "Mumbai Nariman Point / BKC Financial Centre",
+        "distanceKm": 155,
+        "estDuration": "3.0–3.5 hrs",
+        "highway": "Yashwantrao Chavan Mumbai-Pune Expressway",
+        "basePrice": 4500,
+        "priceRange": {
+          "sedan": "₹4,500 – ₹5,400",
+          "premium-saloon": "₹10,500 – ₹12,500",
+          "mpv": "₹7,200 – ₹8,500",
+          "bus": "₹14,500 – ₹17,500"
+        },
+        "highlights": [
+          "Expressway high-speed cruise compliance",
+          "Expressway toll clearance included",
+          "Executive onboard amenities & device fast chargers"
+        ]
+      }
+    ]
+  },
+  "uae": {
+    "currency": "AED",
+    "currencySymbol": "AED ",
+    "note": "Rates shown are indicative corporate estimates for executive limousine transit in the UAE. Final pricing reflects Salik road tolls, peak hour adjustments, and airport parking fees as per RTA luxury transport standards.",
+    "vehicleTiers": [
+      {
+        "id": "sedan",
+        "name": "First Class Saloon",
+        "models": "Mercedes-Benz S-Class / BMW 7 Series / Lexus ES",
+        "capacity": "3 Passengers · 3 Large Bags",
+        "baseMultiplier": 1.0,
+        "hourlyRetainer": "AED 850 (5h Executive Package)"
+      },
+      {
+        "id": "premium-saloon",
+        "name": "Ultra-Luxury Limousine",
+        "models": "Mercedes-Maybach S-Class",
+        "capacity": "3 VIP Guests · 3 Bags",
+        "baseMultiplier": 2.0,
+        "hourlyRetainer": "AED 1,800 (5h VIP Package)"
+      },
+      {
+        "id": "mpv",
+        "name": "Executive SUV & MPV",
+        "models": "Cadillac Escalade / Mercedes V-Class / GMC Yukon",
+        "capacity": "6-7 Passengers · 5 Large Bags",
+        "baseMultiplier": 1.35,
+        "hourlyRetainer": "AED 1,150 (5h Group Package)"
+      },
+      {
+        "id": "bus",
+        "name": "Luxury Coach / Minibus",
+        "models": "Mercedes Sprinter (18 seats) / Luxury Coach (35–50 seats)",
+        "capacity": "18–50 Passengers · Spacious Cargo",
+        "baseMultiplier": 2.2,
+        "hourlyRetainer": "AED 1,950 (5h Delegation Package)"
+      }
+    ],
+    "corridors": [
+      {
+        "id": "dxb-downtown-burj",
+        "hub": "Dubai",
+        "from": "Dubai Intl Airport (DXB Terminals 1, 2, 3)",
+        "to": "Downtown Dubai / Burj Khalifa / DIFC",
+        "distanceKm": 14,
+        "estDuration": "18–25 mins",
+        "highway": "Sheikh Zayed Road (E11) & Financial Centre Road",
+        "basePrice": 220,
+        "priceRange": {
+          "sedan": "AED 220 – AED 280",
+          "premium-saloon": "AED 450 – AED 550",
+          "mpv": "AED 320 – AED 390",
+          "bus": "AED 580 – AED 720"
+        },
+        "highlights": [
+          "VIP curbside terminal greeting & luggage concierge",
+          "Salik toll clearance included",
+          "60 minutes complimentary flight delay waiting window"
+        ]
+      },
+      {
+        "id": "dxb-dubai-marina",
+        "hub": "Dubai",
+        "from": "Dubai Intl Airport (DXB)",
+        "to": "Dubai Marina / JBR / Palm Jumeirah",
+        "distanceKm": 34,
+        "estDuration": "30–40 mins",
+        "highway": "Sheikh Zayed Road (E11) Southbound",
+        "basePrice": 290,
+        "priceRange": {
+          "sedan": "AED 290 – AED 360",
+          "premium-saloon": "AED 580 – AED 700",
+          "mpv": "AED 410 – AED 490",
+          "bus": "AED 750 – AED 900"
+        },
+        "highlights": [
+          "Pristine luxury leather cabin with chilled mineral water",
+          "Live flight radar monitoring",
+          "Pre-assigned uniformed chauffeur"
+        ]
+      },
+      {
+        "id": "dubai-abu-dhabi-intercity",
+        "hub": "Dubai & Abu Dhabi",
+        "from": "Dubai Al Garhoud Head Office",
+        "to": "Abu Dhabi Downtown / ADGM Al Maryah Island",
+        "distanceKm": 142,
+        "estDuration": "75–90 mins",
+        "highway": "Sheikh Zayed Road (E11) Inter-Emirate Highway",
+        "basePrice": 650,
+        "priceRange": {
+          "sedan": "AED 650 – AED 800",
+          "premium-saloon": "AED 1,350 – AED 1,650",
+          "mpv": "AED 920 – AED 1,100",
+          "bus": "AED 1,650 – AED 2,100"
+        },
+        "highlights": [
+          "Smooth inter-emirate transit with high-speed Wi-Fi onboard",
+          "Executive cabin quietness for working en route",
+          "Return journey retainers available upon request"
+        ]
+      },
+      {
+        "id": "dxb-sharjah-saif",
+        "hub": "Dubai & Sharjah",
+        "from": "Dubai Intl Airport / Al Garhoud",
+        "to": "Sharjah Airport Intl Free Zone (SAIF) / Al Majaz",
+        "distanceKm": 18,
+        "estDuration": "20–30 mins",
+        "highway": "Al Ittihad Road (E11) & Sheikh Mohammed Bin Zayed Road (E311)",
+        "basePrice": 240,
+        "priceRange": {
+          "sedan": "AED 240 – AED 300",
+          "premium-saloon": "AED 480 – AED 600",
+          "mpv": "AED 340 – AED 420",
+          "bus": "AED 620 – AED 780"
+        },
+        "highlights": [
+          "Cross-emirate business corridor optimization",
+          "Corporate billing credit facility for registered enterprises",
+          "Door-to-door facility transit"
+        ]
+      },
+      {
+        "id": "dwc-expo-city-dubai",
+        "hub": "Dubai",
+        "from": "Al Maktoum Intl Airport (DWC)",
+        "to": "Expo City Dubai / Dubai South Business Park",
+        "distanceKm": 16,
+        "estDuration": "15–22 mins",
+        "highway": "Emirates Road (E611) & Expo Road (E77)",
+        "basePrice": 230,
+        "priceRange": {
+          "sedan": "AED 230 – AED 290",
+          "premium-saloon": "AED 460 – AED 560",
+          "mpv": "AED 330 – AED 410",
+          "bus": "AED 600 – AED 750"
+        },
+        "highlights": [
+          "Delegation shuttles and VIP conference transfers",
+          "Direct route to Dubai South logistics and exhibition zones",
+          "Luggage assistance for exhibition equipment"
+        ]
+      }
+    ]
+  }
+}

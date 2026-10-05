@@ -57,6 +57,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/india/estimator`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/india/academy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/uae`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -97,6 +109,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/uae/estimator`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/uae/academy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
     },
   ];
 

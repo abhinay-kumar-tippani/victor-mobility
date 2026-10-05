@@ -145,6 +145,55 @@ export default function ServicesPage() {
         {/* Tech Park & Strategic Corridors */}
         <CorridorMatrix region="india" />
 
+        {/* Route Estimator & Chauffeur Academy Feature Banner */}
+        <section className="py-12 bg-brand-soft-neutral/30 border-t border-brand-soft-neutral">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-2">
+                    Pricing Transparency
+                  </span>
+                  <h3 className="text-xl font-bold text-brand-indigo mb-2">
+                    Interactive Route &amp; Fare Estimator
+                  </h3>
+                  <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
+                    Review indicative point-to-point corporate tariffs and airport transfer costs for executive sedans, MPVs, and luxury coaches across our operational corridors.
+                  </p>
+                </div>
+                <Link
+                  href="/india/estimator"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
+                >
+                  <span>Launch Rate Estimator</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-2">
+                    Operational Standards
+                  </span>
+                  <h3 className="text-xl font-bold text-brand-indigo mb-2">
+                    Chauffeur Protocol Academy
+                  </h3>
+                  <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
+                    Discover the 5-pillar curriculum, 24-point pre-dispatch vehicle inspection audit, and 100% police background verification backing &ldquo;On Time Every Time.&rdquo;
+                  </p>
+                </div>
+                <Link
+                  href="/india/academy"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
+                >
+                  <span>Explore Academy Standards</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Operating Coverage Banner */}
         <section className="py-14 bg-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

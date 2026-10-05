@@ -1,0 +1,116 @@
+{
+  "title": "The Victor Chauffeur Protocol Academy",
+  "tagline": "On Time Every Time.",
+  "overview": "Excellence in executive mobility is engineered through disciplined training, verified credentials, and rigorous protocol adherence. Before any chauffeur represents Victor Mobility, they undergo mandatory certification covering precision scheduling, non-disclosure discretion, defensive telematics, and executive hospitality.",
+  "stats": [
+    { "label": "Police & BGV Verification", "value": "100%" },
+    { "label": "Pre-Dispatch Inspection Points", "value": "24 Points" },
+    { "label": "Complimentary Airport Wait Time", "value": "45–60 Mins" },
+    { "label": "Radar Punctuality Benchmark", "value": "15 Mins Early" }
+  ],
+  "curriculumModules": [
+    {
+      "id": "punctuality-radar",
+      "number": "01",
+      "title": "Radar Punctuality & Route Architecture",
+      "tagline": "Arrival 15 minutes before scheduled pickup is the Victor baseline.",
+      "description": "Chauffeurs are trained on dynamic route surveillance, live flight radar tracking, expressway corridor alternatives, and corporate campus gate navigation. They learn to anticipate peak-hour bottlenecks and flight schedule shifts before the client is impacted.",
+      "keyPractices": [
+        "Real-time radar flight monitoring for automatic delay compensation",
+        "Vehicle curbside positioning exactly 15 minutes prior to designated time",
+        "Primary and secondary corridor routing prepared prior to departure",
+        "Campus-specific security gate and dock entry protocols"
+      ]
+    },
+    {
+      "id": "etiquette-discretion",
+      "number": "02",
+      "title": "Discretion, Non-Disclosure & Executive Etiquette",
+      "tagline": "The quiet sanctuary of the cabin is strictly preserved.",
+      "description": "Every Victor chauffeur operates under strict corporate Non-Disclosure Agreements (NDAs). Training emphasizes respectful silence, professional communication only when addressed, discrete door-opening protocols, and luggage concierge handling.",
+      "keyPractices": [
+        "Zero unsolicited conversation during passenger transit",
+        "Confidentiality regarding passenger identity, phone calls, and discussions",
+        "Uniformity standards: Pressed black suit, formal tie, and polished shoes",
+        "Curbside luggage loading and passenger door opening sequence"
+      ]
+    },
+    {
+      "id": "cabin-sanitization",
+      "number": "03",
+      "title": "24-Point Cabin Audit & Ambient Comfort",
+      "tagline": "Climate preset to 22°C with tailored amenities in place.",
+      "description": "Prior to rolling out of the depot, each vehicle passes a 24-point cleanliness and amenity inspection. The cabin is vacuumed, leather conditioned, glass cleaned without chemical scent, and outfitted with passenger essentials.",
+      "keyPractices": [
+        "Odor-free, neutralized cabin environment with no artificial fragrances",
+        "Sealed mineral water bottles, tissue box, and umbrella in door pocket",
+        "Multi-pin fast chargers (USB-C and Lightning) tested and ready",
+        "Dual-zone climate control preset to 22°C (adjusted to passenger preference)"
+      ]
+    },
+    {
+      "id": "safety-bgv",
+      "number": "04",
+      "title": "Background Verification (BGV) & Night Escort Safety",
+      "tagline": "Verified identity with continuous telematics tracking.",
+      "description": "Safety is non-negotiable for enterprise and VIP clients. Victor enforces rigorous background checks, state police verification, drug & alcohol screening, and strict female passenger night-safety drop-off protocols.",
+      "keyPractices": [
+        "100% Police verification and dual residential address checks",
+        "Randomised medical, vision, and substance screening",
+        "Mandatory stay-at-curb protocol until female employees safely enter residence premises",
+        "SOS panic button integration monitored by 24/7 central control rooms"
+      ]
+    },
+    {
+      "id": "defensive-driving",
+      "number": "05",
+      "title": "Defensive Telematics & Smooth Ride Dynamics",
+      "tagline": "Passengers can read or type comfortably without centrifugal disruption.",
+      "description": "Chauffeurs master progressive braking, gentle throttle response, and safe highway lane changes. In-vehicle telematics track G-force deceleration and acceleration indices to ensure passengers can work uninterrupted.",
+      "keyPractices": [
+        "Progressive two-stage braking for jolt-free stops",
+        "Strict adherence to expressway speed limits and lane discipline",
+        "G-force telematics tracking for gentle cornering and acceleration",
+        "Wet weather and nighttime defensive driving simulation certification"
+      ]
+    }
+  ],
+  "auditChecklist": [
+    {
+      "category": "Exterior & Mechanical",
+      "items": [
+        "Spotless bodywork wash & streak-free windows",
+        "Tire pressure & tread depth inspected (>3mm)",
+        "Headlamps, brake lamps & indicators verified",
+        "Fastag / Salik toll transponder active with sufficient balance"
+      ]
+    },
+    {
+      "category": "Cabin Atmosphere",
+      "items": [
+        "Upholstery vacuumed & leather seats wiped down",
+        "Neutralized unscented air freshness",
+        "Climate control tested and pre-set to 22°C",
+        "Sunshades & rear privacy blinds functional"
+      ]
+    },
+    {
+      "category": "Passenger Amenities",
+      "items": [
+        "Two sealed mineral water bottles in console",
+        "Clean tissue box & hand sanitiser available",
+        "Multi-device charging cords (iOS & Android Type-C)",
+        "Complimentary full-size umbrella in trunk/door"
+      ]
+    },
+    {
+      "category": "Safety & Compliance",
+      "items": [
+        "First-aid medical kit & operational fire extinguisher",
+        "Valid commercial registration, insurance & fitness papers",
+        "Chauffeur corporate badge & verified ID displayed",
+        "GPS tracking unit connected to 24/7 Central Operations"
+      ]
+    }
+  ]
+}

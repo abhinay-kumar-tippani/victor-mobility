@@ -1,40 +1,37 @@
 # Handoff
 
-## Milestone: Phase 3 — Enterprise Corporate RFP Portal, Strategic Corridor Matrix & International SEO
+## Milestone: Phase 4 — Interactive Route & Fare Estimator + Chauffeur Protocol Academy
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Delivering dedicated enterprise RFP procurement infrastructure for multinational corporations in India (`/india/rfp`) and UAE (`/uae/rfp`), along with the interactive Strategic Corridor Matrix for tech parks and commercial zones.
+- **Milestone Context**: Implementing interactive corridor rate calculators and the Wheely-style Chauffeur Protocol Academy across India (`/india/estimator`, `/india/academy`) and UAE (`/uae/estimator`, `/uae/academy`).
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-Phase 3 strengthens Victor Mobility's corporate procurement capabilities, bridging executive limousine and employee transport services with Fortune 500 tender standards:
+Phase 4 introduces pricing transparency and operational substantiation to Victor Mobility, establishing parity with industry benchmarks (Wheely, ECO Mobility):
 
-1. **Corporate RFP & Tender Portals (`/india/rfp` and `/uae/rfp`)**:
-   - Structured procurement portals tailored for facility heads, HR transport committees, and procurement leads.
-   - Built around authentic operational parameters from the authorized 2024 Victor Brochure: BGV/Police verification, GPS telematics, shift rosters, female employee night-escort protocols, and fleet mix specifications.
-   - Embedded Schema.org JSON-LD structured data (`ContactPage`, `Organization`) on both regional RFP pages.
+1. **Interactive Route & Fare Estimator (`src/components/estimator/RouteFareEstimator.tsx`)**:
+   - Region-aware calculator adapting to India (INR ₹) and UAE (AED د.إ).
+   - Hub filter allowing instant switching between operating hubs (Hyderabad, Bengaluru, Pune, Dubai, Abu Dhabi, Sharjah).
+   - Corridor selection with exact expressway routing, transit distance (~km), and estimated travel duration.
+   - 4-Tier Fleet selection (Executive Sedan, Premium Saloon, Executive MPV, Luxury Coach) with luggage/passenger specs and hourly package rates.
+   - Dynamic price calculation displaying indicative corporate brackets (e.g. ₹1,600 – ₹1,900 or AED 220 – AED 280) with clear standard inclusions.
+   - Direct WhatsApp dispatch pre-filling route and estimated price range to regional desk (`+91 93965 46950` for India, `+971 52 455 2441` for UAE).
+   - "Copy Estimate Summary" clipboard tool with visual feedback.
+   - Dedicated pages: `/india/estimator` and `/uae/estimator`.
 
-2. **Interactive 4-Step Corporate RFP Builder (`src/components/rfp/CorporateRfpBuilder.tsx`)**:
-   - **Step 1: Corporate Profile & Facility Leads**: Company entity, facility director/procurement contact name, corporate email, phone, and operational city.
-   - **Step 2: Operational Contract Scope**: Commuter scale (50 to 5,000+ commuters/day), shift rosters (General, 2-shift, 24/7 IT/BPO 3-shift rotation), corridor notes.
-   - **Step 3: Fleet Mix & Compliance Standards**: Fleet selection (Executive Sedans, MPVs, Buses/Tempo Travelers, EVs) and 5 enterprise compliance standards (100% Police/BGV verification, GPS tracking & panic buttons, female passenger escort protocols, daily sanitization, ISO audit readiness).
-   - **Step 4: Formal Tender Document Review & Dispatch**: Formats a formal enterprise tender brief with one-click clipboard copy, prefilled WhatsApp dispatch (`+91 93965 46950` for India, `+971 52 455 2441` for UAE), and corporate email prefill. Clarifies that dispatch requests a commercial tender quote and is not an instant booking confirmation.
+2. **The Victor Chauffeur Protocol Academy (`src/components/academy/ChauffeurAcademy.tsx`)**:
+   - 5-Pillar Chauffeur Curriculum (Radar Punctuality, Non-Disclosure Discretion, 24-Point Cabin Audit, BGV & Night Safety Escorts, Defensive Telematics).
+   - Interactive 24-Point Pre-Dispatch Audit Checklist covering Exterior & Mechanical, Cabin Atmosphere, Passenger Amenities, and Safety & Compliance.
+   - Transparent Digital Chauffeur Badge Verification Card previewing driver ID, BGV status, defensive driving grade, and 99.4% on-time record.
+   - Dedicated pages: `/india/academy` and `/uae/academy`.
 
-3. **Strategic Corridor Matrix (`src/components/home/CorridorMatrix.tsx`)**:
-   - Interactive tabbed matrix showcasing tech hubs, expressways, fleet capabilities, and airport connectors for major operational zones:
-     - **India Hubs**: Hyderabad (HITEC City, Financial District, Gachibowli, Shamshabad Airport corridor), Bengaluru (Outer Ring Road, Whitefield, Electronic City, Kempegowda Airport corridor), Pune (Hinjawadi Phase 1-3, Magarpatta, Kharadi, Chakan industrial belt).
-     - **UAE Hubs**: Dubai (DIFC, Business Bay, Downtown, Dubai South / DWC, DXB Airport corridor), Abu Dhabi (ADGM Al Maryah Island, Yas Island, Industrial City ICAD), Sharjah (Sharjah Airport International Free Zone SAIF, Al Majaz, Hamriyah Free Zone).
-   - Embedded seamlessly on both `/india/services` and `/uae/services` alongside the RFP desks.
-
-4. **Header & Footer Corporate Integration**:
-   - "RFP Desk" link added to the main navigation menu (`Header.tsx`) adapting cleanly to `/india/rfp` and `/uae/rfp`.
-   - Dynamic `Footer.tsx` includes "Corporate RFP Desk" link under Quick Navigation and localized corporate details.
-
-5. **Static Generation & SEO**:
-   - Added `/india/rfp` and `/uae/rfp` to `src/app/sitemap.ts` (32 total static SSG pages).
-   - 100% static compilation (`○` and `●`) in Next.js 14.
+3. **Global Navigation & Services Integration**:
+   - Added "Estimator" and "Academy" to main navigation items (`Header.tsx`) across desktop and mobile.
+   - Added "Route & Fare Estimator" and "Chauffeur Academy" to corporate footer (`Footer.tsx`).
+   - Integrated dual feature promo cards into `/india/services` and `/uae/services`.
+   - Updated `sitemap.ts` to index all 36 static SSG routes.
 
 ---
 
@@ -44,10 +41,10 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across content models, RFP builder, and corridor matrix |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across content models, estimator, and academy |
 | **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
-| **Production Build** (`next build`) | **PASS (32/32 static pages)** | 100% SSG static compilation (`○` and `●`) |
-| **Phase 3 RFP & Corridor Suite** (`verify-phase3.mjs`) | **PASS (6/6 suites)** | India RFP 4-step tender builder, India mobile view, UAE RFP desk routing to Dubai HQ (`+971 52 455 2441`), Corridor Matrix tab switching, Header/Footer navigation links, Schema.org JSON-LD |
+| **Production Build** (`next build`) | **PASS (36/36 static pages)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 4 Estimator & Academy Suite** (`verify-phase4.mjs`) | **PASS (7/7 test suites)** | India Estimator calculation & WhatsApp link, India mobile view, UAE Limousine Estimator with AED pricing & Dubai desk, Chauffeur Academy curriculum tabs & 24-point audit, Academy mobile view, Global navigation links, Schema.org JSON-LD |
 
 ---
 
@@ -55,6 +52,8 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Screenshot Artifact | Location | Purpose |
 | :--- | :--- | :--- |
-| `phase3-india-rfp-desktop.png` | `docs/screenshots/` | Desktop India Corporate Mobility RFP Desk with 4-step interactive builder |
-| `phase3-india-rfp-mobile.png` | `docs/screenshots/` | Mobile view (390px) of India RFP Desk showing responsive touch controls |
-| `phase3-uae-rfp-desktop.png` | `docs/screenshots/` | Desktop UAE Enterprise RFP Desk tailored for Dubai Al Garhoud HQ desk |
+| `phase4-india-estimator-desktop.png` | `docs/screenshots/` | Desktop India Route & Fare Estimator with corridor calculation and fleet selector |
+| `phase4-india-estimator-mobile.png` | `docs/screenshots/` | Mobile view (390px) of India Estimator showing responsive touch controls |
+| `phase4-uae-estimator-desktop.png` | `docs/screenshots/` | Desktop UAE Limousine Estimator showing Maybach luxury bracket for Dubai Airport corridor |
+| `phase4-academy-desktop.png` | `docs/screenshots/` | Desktop Chauffeur Protocol Academy with 24-point audit and digital driver badge |
+| `phase4-academy-mobile.png` | `docs/screenshots/` | Mobile view (390px) of Chauffeur Academy |

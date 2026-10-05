@@ -28,8 +28,9 @@ export default function Header({ contact }: HeaderProps) {
   const navItems = [
     { label: "Services", href: `${basePrefix}/services`, hash: "#services" },
     { label: "Fleet", href: `${basePrefix}/fleet`, hash: "#fleet" },
-    { label: isUae ? "Presence" : "Network", href: isHomepage ? "#network" : `${basePrefix}#network` },
+    { label: "Estimator", href: `${basePrefix}/estimator`, hash: "#estimator" },
     { label: "RFP Desk", href: `${basePrefix}/rfp`, hash: "#rfp" },
+    { label: "Academy", href: `${basePrefix}/academy`, hash: "#academy" },
     { label: "About", href: `${basePrefix}/about`, hash: "#about" },
     { label: "Contact", href: `${basePrefix}/contact`, hash: "#contact" },
   ];

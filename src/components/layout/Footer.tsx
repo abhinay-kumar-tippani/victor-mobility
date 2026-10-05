@@ -67,6 +67,16 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/estimator`} className="hover:text-white transition-colors">
+                  Route &amp; Fare Estimator
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePrefix}/academy`} className="hover:text-white transition-colors">
+                  Chauffeur Academy
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
