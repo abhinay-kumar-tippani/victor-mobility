@@ -20,6 +20,7 @@ import {
   ShieldCheck,
   Sparkles,
   HelpCircle,
+  Check,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -50,6 +51,15 @@ const serviceVisualMap: Record<
     caption: string;
     highlights: { title: string; desc: string }[];
     recommendedComplementary: string[];
+    scenario: {
+      title: string;
+      subtitle: string;
+      steps: { step: string; detail: string }[];
+    };
+    practicalAnswers: {
+      question: string;
+      answer: string;
+    }[];
   }
 > = {
   "chauffeur-luxury": {
@@ -71,6 +81,38 @@ const serviceVisualMap: Record<
       },
     ],
     recommendedComplementary: ["airport-transfers", "event-transportation"],
+    scenario: {
+      title: "Executive Chauffeur Protocol",
+      subtitle: "Standard operating procedure for visiting dignitaries, executives, and VIP guests",
+      steps: [
+        {
+          step: "1. Flight Tracking & Terminal Greeting",
+          detail: "Chauffeurs track inbound flight status dynamically and meet passengers with a clean nameboard at the designated airport terminal arrival bay.",
+        },
+        {
+          step: "2. Executive Cabin Readiness",
+          detail: "Climate-controlled quiet cabin, immaculate leather upholstery, mobile charging cables, and bottled water verified before boarding.",
+        },
+        {
+          step: "3. Route Discretion & Privacy",
+          detail: "Chauffeurs observe strict non-intrusive protocol, route confidentiality, and optimal transit corridors across business districts.",
+        },
+        {
+          step: "4. Hourly Standby & Board Disposal",
+          detail: "Continuous vehicle standby outside corporate headquarters, hotel lobbies, or meeting venues for seamless multi-stop itineraries.",
+        },
+      ],
+    },
+    practicalAnswers: [
+      {
+        question: "How much luggage can an executive sedan accommodate?",
+        answer: "Executive sedans comfortably hold 2 large suitcases and 2 cabin bags. For travelling delegations with expanded luggage requirements, our MPV category provides expanded cargo capacity.",
+      },
+      {
+        question: "What waiting time is included for airport pickups?",
+        answer: "Airport bookings include complimentary waiting time from the actual landed flight time to allow for immigration and baggage collection.",
+      },
+    ],
   },
   "event-transportation": {
     imageSrc: "/images/india/hero.png",
@@ -91,6 +133,38 @@ const serviceVisualMap: Record<
       },
     ],
     recommendedComplementary: ["chauffeur-luxury", "bus-shuttle-transport"],
+    scenario: {
+      title: "Wedding & Occasion Logistics Coordination",
+      subtitle: "How we coordinate bride/groom arrivals, family transfers, and guest venue shuttles",
+      steps: [
+        {
+          step: "1. Unified Timetable & Route Mapping",
+          detail: "We coordinate all ceremony venues, hotel blocks, and airport arrival corridors into a cohesive vehicle movement schedule.",
+        },
+        {
+          step: "2. Couple & VIP Convoys",
+          detail: "Executive sedans for the couple and immediate family, detailed with punctual standby and decorated per occasion guidelines.",
+        },
+        {
+          step: "3. Guest Shuttles & Loop Transit",
+          detail: "Air-conditioned 22 & 44-seater shuttles running regular circuits between accommodation and banquet venues, keeping all guests on schedule.",
+        },
+        {
+          step: "4. Ceremony Overrun Handling",
+          detail: "On-ground route supervisors stay in direct communication with your wedding coordinator to absorb ceremony schedule extensions smoothly.",
+        },
+      ],
+    },
+    practicalAnswers: [
+      {
+        question: "Can we arrange multi-day wedding transportation?",
+        answer: "Yes. We offer coordinated multi-day arrangements spanning pre-wedding ceremonies, the main event, and post-reception guest airport drop-offs across Hyderabad, Bengaluru, and Pune.",
+      },
+      {
+        question: "How are last-minute ceremony delays managed?",
+        answer: "Our occasion fleet assignments include dedicated buffer windows and transparent overtime terms agreed upfront in your proposal, ensuring no vehicle departs prematurely.",
+      },
+    ],
   },
   "employee-transportation": {
     imageSrc: "/images/india/employee-shuttle.png",
@@ -111,6 +185,38 @@ const serviceVisualMap: Record<
       },
     ],
     recommendedComplementary: ["bus-shuttle-transport", "rent-a-car"],
+    scenario: {
+      title: "Workplace Commute Architecture",
+      subtitle: "How we engineer reliable shift transit for corporate and technology facilities",
+      steps: [
+        {
+          step: "1. Corridor & Cluster Analysis",
+          detail: "Employee home locations are grouped into optimized pickup hubs along major transit corridors to shorten commute duration.",
+        },
+        {
+          step: "2. Shift Roster Synchronization",
+          detail: "Vehicle timetables are calculated backward from office shift starts to ensure 100% on-time floor arrival.",
+        },
+        {
+          step: "3. Pre-Trip Vehicle Audits",
+          detail: "Working air conditioning, verified seatbelts, clean bus cabins, and driver fitness confirmed prior to first daily pickup.",
+        },
+        {
+          step: "4. Route Supervisor Liaison",
+          detail: "Direct communication line between Victor's dispatch supervisor and your HR/transport admin desk for immediate updates.",
+        },
+      ],
+    },
+    practicalAnswers: [
+      {
+        question: "What vehicle categories are deployed for workforce transit?",
+        answer: "We provide 22-seater and 44-seater commuter buses for primary employee routes, as well as MPVs for late-night or small-team shifts.",
+      },
+      {
+        question: "How do you handle shift changes or emergency roster adjustments?",
+        answer: "Our operations desk coordinates route revisions directly with your facility admin, communicating revised dispatch instructions immediately.",
+      },
+    ],
   },
   "airport-transfers": {
     imageSrc: "/images/india/hero.png",
@@ -131,6 +237,34 @@ const serviceVisualMap: Record<
       },
     ],
     recommendedComplementary: ["chauffeur-luxury", "rent-a-car"],
+    scenario: {
+      title: "Terminal Punctuality Protocol",
+      subtitle: "Seamless airport connections across Hyderabad (RGIA), Bengaluru (BLR), and Pune (PNQ)",
+      steps: [
+        {
+          step: "1. Live Flight Monitoring",
+          detail: "Arrival times are tracked dynamically so chauffeur arrival synchronizes precisely with your landing, even during flight delays.",
+        },
+        {
+          step: "2. Designated Terminal Greeting",
+          detail: "Chauffeur waits at designated commercial pickup bays with visible name paging and luggage assistance.",
+        },
+        {
+          step: "3. Corporate Expressway Routing",
+          detail: "Direct expressway and arterial corridor routing to major business hubs (Gachibowli, Whitefield, Hinjawadi).",
+        },
+      ],
+    },
+    practicalAnswers: [
+      {
+        question: "Which airports in India are covered?",
+        answer: "We provide scheduled terminal pickups and drops at Rajiv Gandhi International Airport (HYD), Kempegowda International Airport (BLR), and Pune International Airport (PNQ).",
+      },
+      {
+        question: "How is flight delay managed for airport arrivals?",
+        answer: "Our desk tracks your flight number in real time and automatically reschedules the chauffeur pickup time to match actual touchdown.",
+      },
+    ],
   },
   "bus-shuttle-transport": {
     imageSrc: "/images/india/employee-shuttle.png",
@@ -151,6 +285,34 @@ const serviceVisualMap: Record<
       },
     ],
     recommendedComplementary: ["employee-transportation", "event-transportation"],
+    scenario: {
+      title: "Campus & Venue Loop Operations",
+      subtitle: "Continuous group shuttle frequency between key transit hubs and corporate facilities",
+      steps: [
+        {
+          step: "1. Timetable & Loop Frequency Planning",
+          detail: "Loop frequency structured around peak arrival hours, shift overlaps, and metro connection windows.",
+        },
+        {
+          step: "2. Safe Boarding & Ergonomic Cabins",
+          detail: "Designated boarding zones, orderly passenger entry, high-back seats, and climate-controlled cabin environments.",
+        },
+        {
+          step: "3. Dispatch Redundancy",
+          detail: "Standby fleet readiness to maintain scheduled frequency during unexpected route traffic or peak passenger loads.",
+        },
+      ],
+    },
+    practicalAnswers: [
+      {
+        question: "Are bus shuttles suitable for multi-facility tech parks?",
+        answer: "Yes. We design high-frequency loop corridors connecting metro hubs, campus parking structures, and distinct facility buildings.",
+      },
+      {
+        question: "What passenger capacity options exist?",
+        answer: "We offer 22-seater and 44-seater air-conditioned commuter configurations based on route volume requirements.",
+      },
+    ],
   },
   "rent-a-car": {
     imageSrc: "/images/india/hero.png",
@@ -171,6 +333,34 @@ const serviceVisualMap: Record<
       },
     ],
     recommendedComplementary: ["airport-transfers", "chauffeur-luxury"],
+    scenario: {
+      title: "Dedicated Corporate Vehicle Allocation",
+      subtitle: "Flexible fleet deployment tailored for project teams and visiting leadership",
+      steps: [
+        {
+          step: "1. Scope & Duration Assessment",
+          detail: "Selection between daily, weekly, or monthly rental horizons based on your travel itinerary and team requirements.",
+        },
+        {
+          step: "2. Transparent Condition Audit",
+          detail: "Comprehensive vehicle condition report detailing exterior, interior, fuel level, and odometer reading before handover.",
+        },
+        {
+          step: "3. Professional Chauffeur or Handover",
+          detail: "Professional chauffeur assignment or verified self-drive handover subject to commercial documentation and terms.",
+        },
+      ],
+    },
+    practicalAnswers: [
+      {
+        question: "What documentation is required for vehicle rentals?",
+        answer: "Corporate rentals require an official authorization letter, billing GST details, and valid driver credentials where self-drive is selected.",
+      },
+      {
+        question: "Are inter-city journeys permitted?",
+        answer: "Yes. Inter-city itineraries across Telangana, Karnataka, and Maharashtra can be arranged with upfront toll and permit inclusions.",
+      },
+    ],
   },
 };
 
@@ -227,13 +417,13 @@ export default function ServiceDetailPage({ params }: PageProps) {
       <Header contact={content.contact} />
 
       <main id="main-content" className="flex-1 focus:outline-none">
-        {/* Breadcrumb Navigation & Hero Header */}
-        <section className="bg-brand-ink text-white py-14 sm:py-20 border-b border-brand-indigo/30 relative overflow-hidden">
+        {/* Breadcrumb & Service Hero Header */}
+        <section className="bg-brand-ink text-white pt-8 pb-14 sm:pb-20 border-b border-brand-indigo/30 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumbs */}
-            <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex items-center gap-2 text-xs font-semibold text-brand-soft-neutral/70">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            {/* Breadcrumb Navigation */}
+            <nav aria-label="Breadcrumb" className="text-xs text-brand-soft-neutral/70">
+              <ol className="flex items-center gap-2 flex-wrap">
                 <li>
                   <Link href="/india" className="hover:text-white transition-colors">
                     Home
@@ -340,6 +530,39 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   </div>
                 </div>
 
+                {/* Specific Journey Operational Scenario & Workflow */}
+                {visualData.scenario && (
+                  <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
+                    <div>
+                      <span className="text-xs uppercase tracking-widest font-bold text-brand-indigo block mb-1">
+                        Operational Workflow
+                      </span>
+                      <h3 className="text-xl font-bold text-brand-ink">
+                        {visualData.scenario.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-brand-ink/70">
+                        {visualData.scenario.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {visualData.scenario.steps.map((st) => (
+                        <div
+                          key={st.step}
+                          className="p-5 rounded-2xl bg-brand-warm-white/70 border border-brand-soft-neutral/80 space-y-2"
+                        >
+                          <h4 className="text-sm font-bold text-brand-indigo">
+                            {st.step}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
+                            {st.detail}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Coordination Information Checklist */}
                 {service.enquiryDetails && service.enquiryDetails.length > 0 && (
                   <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
@@ -374,6 +597,36 @@ export default function ServiceDetailPage({ params }: PageProps) {
                               {detail}
                             </span>
                           </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Practical Service Clarifications Q&A */}
+                {visualData.practicalAnswers && visualData.practicalAnswers.length > 0 && (
+                  <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-5">
+                    <div>
+                      <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-1">
+                        Common Clarifications
+                      </span>
+                      <h3 className="text-xl font-bold text-brand-ink">
+                        Practical arrangements for {service.title}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-3.5">
+                      {visualData.practicalAnswers.map((qa) => (
+                        <div
+                          key={qa.question}
+                          className="p-5 rounded-2xl bg-brand-warm-white/60 border border-brand-soft-neutral/70 space-y-1.5"
+                        >
+                          <h4 className="text-sm font-bold text-brand-ink">
+                            {qa.question}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
+                            {qa.answer}
+                          </p>
                         </div>
                       ))}
                     </div>

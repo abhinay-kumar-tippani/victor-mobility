@@ -97,6 +97,20 @@ export interface IndiaContent {
     description: string;
     coverage: string;
     cta: string;
+    story?: {
+      foundingVision: string;
+      leadershipRole: string;
+      leadershipName: string;
+      commitments: Array<{
+        title: string;
+        description: string;
+      }>;
+      audiences: Array<{
+        title: string;
+        tagline: string;
+        description: string;
+      }>;
+    };
   };
   customerJourneys?: CustomerJourneyItem[];
   services: ServiceItem[];

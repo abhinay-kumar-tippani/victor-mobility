@@ -1,6 +1,7 @@
 "use client";
 
-import { Award, CheckCircle, HelpCircle } from "lucide-react";
+import Link from "next/link";
+import { Award, CheckCircle, HelpCircle, ArrowRight } from "lucide-react";
 import type { IndiaContent } from "@/types/content";
 import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
@@ -51,6 +52,16 @@ export default function AboutSection({ content }: AboutSectionProps) {
                   </span>
                 </li>
               </ul>
+            </div>
+
+            <div className="mb-8">
+              <Link
+                href="/india/about"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue transition-colors"
+              >
+                <span>Read our full company story & leadership standards</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
             {/* Quality Standard Claim: Strictly honoured per sourceClaims.iso.enabled */}

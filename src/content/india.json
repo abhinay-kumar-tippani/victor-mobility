@@ -81,7 +81,47 @@
     "title": "Transport for the people you move.",
     "description": "Victor Mobility provides employee transportation, bus and shuttle transport, event travel, airport transfers, chauffeur services and vehicle rentals. Our India website brings together the services and fleet categories you can discuss with our team.",
     "coverage": "Hyderabad, Bengaluru and Pune",
-    "cta": "Tell us about your transport requirement."
+    "cta": "Tell us about your transport requirement.",
+    "story": {
+      "foundingVision": "Victor Mobility was established with a singular operational focus: to eliminate transportation delays and deliver disciplined, accountable mobility across India's premier commercial corridors. From our India Head Office in Gachibowli, Hyderabad, and operational branches in Bengaluru and Pune, we manage three essential transport dimensions under one uncompromising standard: 'On Time Every Time.'",
+      "leadershipName": "Mujeeb Ur Rehman Mohammed",
+      "leadershipRole": "Business Development Partner",
+      "commitments": [
+        {
+          "title": "Precision Scheduling & Timing Rigour",
+          "description": "Every journey is planned with deliberate buffer windows and monitored departure checkpoints. Whether synchronizing industrial shift rosters or meeting an international terminal arrival, punctuality is our primary discipline."
+        },
+        {
+          "title": "Driver Dignity & Verified Vetting",
+          "description": "Chauffeurs and bus captains carry verified commercial driver licenses, background verifications, and route familiarity. We prioritize professional demeanor, passenger safety, and fair working standards."
+        },
+        {
+          "title": "Cabin Cleanliness & Pre-Dispatch Checks",
+          "description": "Vehicles undergo pre-departure inspection covering climate control functionality, interior hygiene, and safety readiness before arriving at your pickup bay."
+        },
+        {
+          "title": "Transparent Commercial Governance",
+          "description": "Itemized written proposals detailing route kilometers, hourly allowances, and vehicle categories with zero hidden surcharges or surprise billing."
+        }
+      ],
+      "audiences": [
+        {
+          "title": "Executive & VIP Hospitality",
+          "tagline": "Chauffeur-Driven Discretion",
+          "description": "Discreet, high-touch mobility for board members, visiting dignitaries, and airport terminal connections featuring pristine executive saloons and quiet cabins."
+        },
+        {
+          "title": "Weddings & Private Occasions",
+          "tagline": "Coordinated Hospitality Logistics",
+          "description": "Multi-vehicle ceremonial convoys, VIP hotel-to-venue shuttles, and flexible itineraries that adapt smoothly to celebration schedules."
+        },
+        {
+          "title": "Corporate Workforce Commutes",
+          "tagline": "Punctual Shift & Campus Transit",
+          "description": "Roster-synchronized employee shuttles and tech campus loops operating daily across major corporate corridors with 22 and 44-seater group fleets."
+        }
+      ]
+    }
   },
   "services": [
     {
