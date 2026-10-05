@@ -16,68 +16,21 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import InteractiveFleetShowcase from "@/components/fleet/InteractiveFleetShowcase";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 
 export const metadata: Metadata = {
-  title: "Fleet Categories | Victor Mobility - Corporate & Executive Vehicles",
+  title: "Corporate & Executive Fleet Showcase | Victor Mobility India",
   description:
-    "Explore Victor Mobility's vehicle categories: Sedans, MPVs & Group Vehicles, Buses & Shuttles, and Executive Luxury. Tailored transport arrangements across Hyderabad, Bengaluru, and Pune.",
-};
-
-const categoryDetails: Record<
-  string,
-  {
-    icon: React.ElementType;
-    capacity: string;
-    useCases: string[];
-    idealFor: string;
-  }
-> = {
-  sedans: {
-    icon: Car,
-    capacity: "Up to 3-4 passengers",
-    useCases: [
-      "Executive city commutes",
-      "One-on-one airport transfers",
-      "Full-day corporate meetings",
-      "Intercity business travel",
-    ],
-    idealFor: "Individual business travelers, executives, and routine corporate station runs.",
-  },
-  mpvs: {
-    icon: Users,
-    capacity: "Up to 6-7 passengers",
-    useCases: [
-      "Project team transportation",
-      "Small delegation transfers",
-      "Airport runs with heavy luggage",
-      "Site visits & multi-stop schedules",
-    ],
-    idealFor: "Visiting corporate teams, families, and project managers requiring generous luggage room.",
-  },
-  buses: {
-    icon: Bus,
-    capacity: "22-seater and 44-seater configurations",
-    useCases: [
-      "Daily corporate employee commute",
-      "Campus & IT park circular shuttles",
-      "Conference delegate logistics",
-      "Event & venue guest transit",
-    ],
-    idealFor: "Enterprise workplace transit, factory shift moves, and conference coordination.",
-  },
-  luxury: {
-    icon: Crown,
-    capacity: "Premium executive configurations",
-    useCases: [
-      "VIP delegate & dignitary transport",
-      "High-profile event arrivals",
-      "Board of Directors mobility",
-      "Celebrations and special occasions",
-    ],
-    idealFor: "High-level corporate delegations, dignitaries, weddings, and premium hospitality.",
+    "Explore Victor Mobility's 2,000+ car & 500+ bus fleet architecture across Hyderabad, Bengaluru, and Pune. High-fidelity vehicle specs, cabin layout, luggage capacity, and instant corporate rate card calculator.",
+  alternates: {
+    canonical: "https://victor-mobility.vercel.app/india/fleet",
+    languages: {
+      "en-IN": "https://victor-mobility.vercel.app/india/fleet",
+      "en-AE": "https://victor-mobility.vercel.app/uae/fleet",
+    },
   },
 };
 
@@ -86,8 +39,47 @@ export default function FleetPage() {
   const media = mediaData as unknown as MediaContent;
   const luxuryAsset = media.assets.find((a) => a.id === "luxury-interior");
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Victor Mobility Commercial & Executive Fleet Architecture",
+    description:
+      "Enterprise fleet categories including Executive Sedans, MPVs, Luxury Limousines, and High-Capacity Buses across Hyderabad, Bengaluru, and Pune.",
+    numberOfItems: 4,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Executive Sedans",
+        description: "Swift Dzire, Tata Tigor, Honda City for daily employee commute and airport transfers.",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "MPVs & Group Vehicles",
+        description: "Toyota Innova Crysta, Force Urbania for project teams and family celebrations.",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Luxury & Limousines",
+        description: "Mercedes-Benz E/S-Class, BMW 7 Series for VIP dignitaries and board members.",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Buses & Corporate Shuttles",
+        description: "22-seater and 44-seater luxury coaches for corporate campus loops and event transit.",
+      },
+    ],
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header contact={content.contact} />
 
       <main id="main-content" className="flex-1 focus:outline-none">
@@ -98,14 +90,13 @@ export default function FleetPage() {
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
                 <Sparkles className="w-3.5 h-3.5 text-brand-violet" />
-                Fleet Categories & Specifications
+                Fleet Categories &amp; Virtual Inspection Desk
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Vehicles for Everyday Journeys & Special Occasions
+                Vehicles for Everyday Journeys &amp; Special Occasions
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                Victor Mobility structures its fleet into four core categories designed to cover every
-                scale of movement—from individual executive travel to multi-shift corporate bus shuttles.
+                Operating with direct access to over 2,000+ luxury cars and 500+ buses across Hyderabad, Bengaluru, and Pune. Meticulously maintained, GPS-monitored, and backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
             </div>
           </div>
@@ -133,7 +124,7 @@ export default function FleetPage() {
                     <span>Executive Standard</span>
                   </div>
                   <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    Premium Comfort & Professional Demeanor
+                    Premium Comfort &amp; Professional Demeanor
                   </h2>
                   <p className="text-xs sm:text-sm text-brand-soft-neutral/90 leading-relaxed">
                     Every passenger vehicle arranged through Victor Mobility undergoes rigorous pre-trip checks,
@@ -148,7 +139,7 @@ export default function FleetPage() {
           </section>
         )}
 
-        {/* Category Cards Section */}
+        {/* Interactive Fleet Showcase & Rate Card Section */}
         <section className="py-16 sm:py-24 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             {/* Guidance Callout */}
@@ -158,7 +149,7 @@ export default function FleetPage() {
               </div>
               <div className="space-y-1">
                 <h3 className="text-base font-bold text-brand-ink">
-                  Vehicle Allocation & Custom Selection
+                  Vehicle Allocation &amp; Custom Selection
                 </h3>
                 <p className="text-sm text-brand-ink/75 leading-relaxed">
                   {content.fleetNote}
@@ -166,83 +157,8 @@ export default function FleetPage() {
               </div>
             </div>
 
-            {/* Categories Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {content.fleetCategories.map((category) => {
-                const details = categoryDetails[category.id] || {
-                  icon: Car,
-                  capacity: "Custom allocation",
-                  useCases: ["Corporate transit", "Scheduled routes"],
-                  idealFor: "Corporate and event mobility.",
-                };
-                const IconComp = details.icon;
-
-                return (
-                  <article
-                    key={category.id}
-                    className="bg-white rounded-3xl p-8 border border-brand-soft-neutral shadow-sm hover:border-brand-indigo/30 transition-all flex flex-col justify-between"
-                  >
-                    <div className="space-y-6">
-                      <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
-                          <IconComp className="w-6 h-6" />
-                        </div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-brand-blue bg-brand-warm-white px-3 py-1.5 rounded-full border border-brand-soft-neutral">
-                          {details.capacity}
-                        </span>
-                      </div>
-
-                      <div>
-                        <h3 className="text-2xl font-bold text-brand-ink mb-2">
-                          {category.name}
-                        </h3>
-                        <p className="text-sm text-brand-indigo font-medium mb-3">
-                          {category.description}
-                        </p>
-                        <p className="text-xs text-brand-ink/70 leading-relaxed">
-                          {details.idealFor}
-                        </p>
-                      </div>
-
-                      {/* Typical Applications */}
-                      <div className="border-t border-brand-soft-neutral pt-4 space-y-2">
-                        <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/60 block">
-                          Recommended Applications
-                        </span>
-                        <ul className="space-y-1.5">
-                          {details.useCases.map((useCase) => (
-                            <li
-                              key={useCase}
-                              className="flex items-center gap-2 text-xs text-brand-ink/80"
-                            >
-                              <CheckCircle2 className="w-3.5 h-3.5 text-brand-violet shrink-0" />
-                              <span>{useCase}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="pt-6 mt-6 border-t border-brand-soft-neutral flex items-center justify-between">
-                      <Link
-                        href={`/india/contact?category=${category.id}`}
-                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-xl transition-colors shadow-sm"
-                      >
-                        <MessageSquare className="w-3.5 h-3.5" />
-                        <span>Enquire for {category.name}</span>
-                      </Link>
-
-                      <a
-                        href={content.contact.phoneHref}
-                        className="text-xs font-semibold text-brand-ink/70 hover:text-brand-indigo transition-colors"
-                      >
-                        Call desk
-                      </a>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+            {/* Interactive Showcase Component */}
+            <InteractiveFleetShowcase region="india" />
           </div>
         </section>
 

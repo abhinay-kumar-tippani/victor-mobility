@@ -3,24 +3,69 @@ import Link from "next/link";
 import { Car, ShieldCheck, Sparkles, MessageSquare, Phone, CheckCircle2, ArrowRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import FleetSection from "@/components/home/FleetSection";
+import InteractiveFleetShowcase from "@/components/fleet/InteractiveFleetShowcase";
 import uaeData from "@/content/uae.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 
 export const metadata: Metadata = {
-  title: "UAE Luxury Fleet | Victor Mobility UAE - Dubai & Abu Dhabi",
+  title: "UAE Luxury Fleet & Virtual Inspection Showcase | Victor Mobility UAE",
   description:
-    "Explore Victor Mobility UAE's executive fleet: Mercedes-Benz S-Class, BMW 7 Series, Mercedes-Maybach, Cadillac Escalade, Mercedes V-Class, and luxury coaches across Dubai.",
+    "Explore Victor Mobility UAE's executive fleet across Dubai and Abu Dhabi: Mercedes-Benz S-Class, BMW 7 Series, Mercedes-Maybach, Cadillac Escalade, and VIP Coaches. High-fidelity specs and instant corporate tariff generator.",
+  alternates: {
+    canonical: "https://victor-mobility.vercel.app/uae/fleet",
+    languages: {
+      "en-IN": "https://victor-mobility.vercel.app/india/fleet",
+      "en-AE": "https://victor-mobility.vercel.app/uae/fleet",
+    },
+  },
 };
 
 export default function UaeFleetPage() {
   const content = uaeData as unknown as IndiaContent;
   const media = mediaData as unknown as MediaContent;
-  const luxuryAsset = media.assets.find((a) => a.id === "luxury-interior");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Victor Mobility UAE Luxury Limousine & Executive Fleet",
+    description:
+      "Enterprise limousine and coach fleet categories including First Class Saloons, Ultra-Luxury Maybach, Executive SUVs, and VIP Coaches across Dubai and Abu Dhabi.",
+    numberOfItems: 4,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "First Class Saloons",
+        description: "Mercedes-Benz S-Class, BMW 7 Series for airport VIP and executive roadshows.",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Ultra-Luxury & VIP",
+        description: "Mercedes-Maybach S-Class for private jet arrivals and high-profile state delegations.",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Executive SUVs & MPVs",
+        description: "Cadillac Escalade, GMC Yukon, Mercedes-Benz V-Class for delegation convoys.",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Luxury Buses & VIP Coaches",
+        description: "22-seater and 44-seater luxury coaches for global summits and corporate loops.",
+      },
+    ],
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header contact={content.contact} />
 
       <main id="main-content" className="flex-1 focus:outline-none">
@@ -31,36 +76,34 @@ export default function UaeFleetPage() {
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
                 <Car className="w-3.5 h-3.5 text-brand-violet" />
-                UAE Executive Fleet
+                UAE Executive Fleet &amp; Virtual Inspection Desk
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Luxury Saloons, Executive SUVs & VIP Coaches
+                Luxury Saloons, Executive SUVs &amp; VIP Coaches
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                Operating with access to over 2,000+ luxury cars and 500+ buses across Dubai and Abu Dhabi. Meticulously maintained, fully sanitized, and ready for immediate deployment.
+                Operating with access to over 2,000+ luxury cars and 500+ buses across Dubai and Abu Dhabi. Meticulously maintained, fully sanitized, and ready for immediate deployment under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
             </div>
           </div>
         </section>
 
-        {/* Interactive Fleet Categories Component */}
-        <FleetSection
-          categories={content.fleetCategories}
-          fleetNote="UAE fleet specifications include Mercedes-Benz S-Class, BMW 7 Series, Mercedes-Maybach, Cadillac Escalade, and luxury coaches. Actual model assignment is confirmed upon reservation."
-          fleetModelDisplayDefault={true}
-          luxuryMedia={luxuryAsset}
-          mediaCaption={media.caption}
-        />
+        {/* Interactive Fleet Showcase & Rate Card Component */}
+        <section className="py-16 sm:py-24 bg-brand-warm-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <InteractiveFleetShowcase region="uae" />
+          </div>
+        </section>
 
         {/* Fleet Tiering & Luggage Specifications */}
-        <section className="py-16 sm:py-20 bg-brand-warm-white border-t border-brand-soft-neutral">
+        <section className="py-16 sm:py-20 bg-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-3xl">
               <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-                Capacity & Amenities
+                Capacity &amp; Amenities
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-3">
-                Vehicle Standards & Luggage Allowances
+                Vehicle Standards &amp; Luggage Allowances
               </h2>
               <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
                 Choose the optimal vehicle category based on passenger numbers, luggage volumes, and desired travel atmosphere.
@@ -68,42 +111,42 @@ export default function UaeFleetPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-sm">
+              <div className="bg-brand-warm-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-sm">
                   01
                 </div>
                 <h3 className="text-xl font-bold text-brand-ink">First Class Saloons</h3>
                 <p className="text-xs text-brand-ink/70">
-                  Mercedes-Benz S-Class & BMW 7 Series. Comfortably accommodates up to 3 passengers with 2 large suitcases and 2 cabin bags.
+                  Mercedes-Benz S-Class &amp; BMW 7 Series. Comfortably accommodates up to 3 passengers with 2 large suitcases and 2 cabin bags.
                 </p>
                 <div className="pt-3 border-t border-brand-soft-neutral text-xs text-brand-indigo font-semibold">
-                  Ideal for: Airport VIP, Executive Meetings & Board Travel
+                  Ideal for: Airport VIP, Executive Meetings &amp; Board Travel
                 </div>
               </div>
 
-              <div className="bg-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-sm">
+              <div className="bg-brand-warm-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-sm">
                   02
                 </div>
-                <h3 className="text-xl font-bold text-brand-ink">Executive SUVs & MPVs</h3>
+                <h3 className="text-xl font-bold text-brand-ink">Executive SUVs &amp; MPVs</h3>
                 <p className="text-xs text-brand-ink/70">
-                  Cadillac Escalade, GMC Yukon & Mercedes-Benz V-Class. Accommodates 5 to 7 passengers with up to 6 large suitcases.
+                  Cadillac Escalade, GMC Yukon &amp; Mercedes-Benz V-Class. Accommodates 5 to 7 passengers with up to 6 large suitcases.
                 </p>
                 <div className="pt-3 border-t border-brand-soft-neutral text-xs text-brand-indigo font-semibold">
-                  Ideal for: Family Occasions, Delegation Convoys & Golf Excursions
+                  Ideal for: Family Occasions, Delegation Convoys &amp; Golf Excursions
                 </div>
               </div>
 
-              <div className="bg-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-sm">
+              <div className="bg-brand-warm-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-sm">
                   03
                 </div>
-                <h3 className="text-xl font-bold text-brand-ink">Luxury Coaches & Shuttles</h3>
+                <h3 className="text-xl font-bold text-brand-ink">Luxury Coaches &amp; Shuttles</h3>
                 <p className="text-xs text-brand-ink/70">
                   22-seater VIP coaches and 44-seater luxury buses with generous undercarriage luggage bays and reclining executive seating.
                 </p>
                 <div className="pt-3 border-t border-brand-soft-neutral text-xs text-brand-indigo font-semibold">
-                  Ideal for: Trade Summits (GITEX/ADIPEC), Corporate Shuttles & Tours
+                  Ideal for: Trade Summits (GITEX/ADIPEC), Corporate Shuttles &amp; Tours
                 </div>
               </div>
             </div>
@@ -111,7 +154,7 @@ export default function UaeFleetPage() {
         </section>
 
         {/* CTA Bar */}
-        <section className="py-14 bg-white border-t border-brand-soft-neutral">
+        <section className="py-14 bg-brand-warm-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="space-y-2 max-w-xl">

@@ -1,39 +1,33 @@
-# Milestone: Phase 7 — Digital Executive Presentation Deck & Interactive Capability Brochure (/brochure)
+# Milestone: Phase 8 — Interactive Vehicle Fleet Showcase & Virtual Inspection Desk (/fleet)
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (All 16 Pages: Founder's Commitment, Fleet Scales, 6 Services, Chauffeur Academy, Commercial Governance, Multi-City Network).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Pages 3, 6, 7, 10: 2,000+ Luxury Cars, 500+ Buses, Executive Saloons, Luxury MPVs, First Class Coaches, Safety Standards).
 
 Scope completed in this milestone:
-1. Executive Slide Content Model (`src/content/brochure.json`):
-   - 8 comprehensive executive slides tailored for India (`/india/brochure`) and UAE (`/uae/brochure`):
-     - Slide 01: Executive Overview & Master Capabilities (2,000+ luxury cars, 500+ buses, 99.4% SLA).
-     - Slide 02: Founder Mohammed Jahangir's Vision & Operational Journey ("I am committed to providing unwavering service to my clients").
-     - Slide 03: 6 Core Service Portfolios (Employee Transport, Shuttles, Airport VIP, Chauffeur Luxury, Events, Strategic Retainers).
-     - Slide 04: Fleet Architecture & Safety Standards (Executive Saloon, Premium Business, MUV/MPV, High-Capacity Bus).
-     - Slide 05: Victor Chauffeur Protocol Academy (4-Tier Chauffeur Certification & Defensive Driving).
-     - Slide 06: Geographic Footprint & Operating Depots (Hyderabad HQ, Bengaluru, Pune, Dubai Al Garhoud).
-     - Slide 07: Commercial Governance & SLA Commitments (Transparent Billing, Fuel Indexing, Replacement Guarantee).
-     - Slide 08: Direct Leadership Contact & RFP Engagement.
+1. Rich Fleet Specifications Dataset (`src/content/fleet-specifications.json`):
+   - Detailed technical and amenities specifications for India (`/india/fleet`) and UAE (`/uae/fleet`):
+     - **India Fleet**: Executive Sedans (Swift Dzire, Tigor, City), MPVs & Group Vehicles (Innova Crysta, Marazzo, Urbania), Luxury & Limousines (Mercedes E/S-Class, BMW 7), Buses & Shuttles (22 & 44-seater luxury coaches, Volvo 9600).
+     - **UAE Fleet**: First Class Saloons (Mercedes S-Class, BMW 7), Ultra-Luxury VIP (Mercedes-Maybach), Executive SUVs & MPVs (Cadillac Escalade, GMC Yukon, V-Class), Luxury Buses & VIP Coaches.
+     - Accurate passenger seating capacities, luggage limits (large suitcases vs cabin bags), cabin architecture, 4-point safety/telematics checklists, and executive onboard amenities (Evian/Perrier water, Wi-Fi, multi-device fast chargers, umbrellas).
+     - Transparent benchmark tariff matrices for airport VIP transfers, 4hr/40km half-day, 8hr/80km full-day, outstation corridors, and corporate monthly shift retainers.
 
-2. Interactive Presentation Deck Component (`src/components/brochure/ExecutivePresentationDeck.tsx`):
-   - Dual viewing modes:
-     - Interactive Slide Deck mode: Slide-by-slide view with keyboard arrow navigation (`ArrowLeft`, `ArrowRight`, `PageUp`, `PageDown`), slide counter, and clickable slide pills.
-     - Full Document View mode: Sequential presentation cards for comprehensive executive review.
-   - Print-to-PDF `@media print` procurement styling (`window.print()` action, hiding site header/footer/control toolbar, page-break rules `print:break-after-page`).
-   - "Request Official PDF" WhatsApp messenger with prefilled tender inquiry.
+2. Interactive Vehicle Fleet Showcase & Inspection Desk Component (`src/components/fleet/InteractiveFleetShowcase.tsx`):
+   - **Dynamic Category Filter Tabs**: Filter between Sedans, MPVs, Luxury, Coaches, or View All.
+   - **Interactive Vehicle Inspection Modal**:
+     - Displays full cabin seating layout, luggage allowance details, enterprise safety and telematics protocols, onboard amenities, and recommended enterprise deployments.
+     - Accessible keyboard controls and focus handling.
+   - **Instant Corporate Rate Card & Tariff Estimator**:
+     - Real-time calculations based on Category, Duty Assignment, and Operating City (Hyderabad, Bengaluru, Pune / Dubai, Abu Dhabi).
+     - Generates prefilled WhatsApp procurement briefing with exact vehicle parameters.
+     - Strict adherence to transparency: Opening a WhatsApp draft is not simulating a booking confirmation.
 
-3. Dedicated Route Pages:
-   - `/india/brochure`: India Executive Capability Deck with Schema.org `DigitalDocument` JSON-LD structured data.
-   - `/uae/brochure`: UAE Limousine Capability Deck with Schema.org `DigitalDocument` JSON-LD structured data.
+3. Page Upgrades:
+   - Upgraded `src/app/india/fleet/page.tsx` and `src/app/uae/fleet/page.tsx` with full interactive showcase and Schema.org `ItemList` structured data.
 
-4. Global Navigation & Sitemap Updates:
-   - `Footer.tsx`: Added "Executive Deck & Brochure" link under Quick Navigation across both India and UAE portals.
-   - `src/app/sitemap.ts`: Indexed all 42 static SSG routes (100% static compilation).
-
-5. Automated Quality & Verification:
+4. Automated Quality & Verification:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 42/42 static pages compiled.
-   - Playwright verification suite (`scripts/verify-phase7.mjs`) — 100% pass across all 6 test suites.
+   - Production Build (`next build`) — 42/42 static routes compiled.
+   - Playwright verification suite (`scripts/verify-phase8.mjs`) — 100% pass across all 6 test suites.
    - Visual screenshots captured:
-     - `phase7-india-brochure-desktop.png`
-     - `phase7-india-brochure-mobile.png`
-     - `phase7-uae-brochure-desktop.png`
+     - `phase8-india-fleet-showcase-desktop.png`
+     - `phase8-india-fleet-showcase-mobile.png`
+     - `phase8-uae-fleet-showcase-desktop.png`

@@ -1,0 +1,368 @@
+{
+  "india": {
+    "headline": "India Commercial & Executive Fleet Architecture",
+    "subheadline": "2,000+ Cars & 500+ Buses across Hyderabad, Bengaluru, and Pune",
+    "tagline": "On Time Every Time.",
+    "categories": [
+      {
+        "id": "sedans",
+        "name": "Executive Sedans",
+        "categoryBadge": "Everyday & Business Mobility",
+        "popularModels": ["Swift Dzire", "Tata Tigor", "Honda City"],
+        "heroImage": "/images/india/hero.png",
+        "passengerCapacity": 4,
+        "passengerLabel": "Up to 4 Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 2,
+          "cabinBags": 2,
+          "description": "2 large suitcases (28\") + 2 compact cabin bags (22\") in trunk"
+        },
+        "cabinLayout": {
+          "seats": "Fabric or leatherette ergonomic seats with rear headrests",
+          "climate": "Dual-zone high-efficiency air conditioning",
+          "connectivity": "Rear USB charging ports & 12V auxiliary power"
+        },
+        "safetyTelematics": [
+          "Dual front SRS airbags & ABS with EBD",
+          "Real-time GPS telematics with 24/7 central tracking",
+          "In-cabin emergency SOS panic alert",
+          "Continuous speed monitoring (capped at 80 km/h per commercial norms)"
+        ],
+        "amenities": [
+          "Complimentary packaged mineral water",
+          "Multi-pin smartphone charging cables (Type-C / Lightning)",
+          "Tissue box & sanitized hand wipes",
+          "Daily pre-trip vehicle sanitization seal"
+        ],
+        "useCases": [
+          "Daily corporate employee commute",
+          "Point-to-point airport transfers (RGIA / BLR / PNQ)",
+          "Intra-city executive client visits",
+          "Full-day dedicated business disposal"
+        ],
+        "rateCard": {
+          "airportTransfer": "₹1,400 – ₹1,800",
+          "halfDay": "₹1,800 (4 hrs / 40 km)",
+          "fullDay": "₹3,200 (8 hrs / 80 km)",
+          "outstationPerKm": "₹14 – ₹16 / km",
+          "currency": "INR"
+        }
+      },
+      {
+        "id": "mpvs",
+        "name": "MPVs & Group Vehicles",
+        "categoryBadge": "Project Teams & Family Occasions",
+        "popularModels": ["Toyota Innova Crysta", "Mahindra Marazzo", "Force Urbania"],
+        "heroImage": "/images/india/hero.png",
+        "passengerCapacity": 7,
+        "passengerLabel": "6 to 7 Passengers (Up to 13 in Urbania)",
+        "luggageCapacity": {
+          "largeSuitcases": 4,
+          "cabinBags": 4,
+          "description": "4 large suitcases + 4 cabin bags with fold-down 3rd row capability"
+        },
+        "cabinLayout": {
+          "seats": "Plush captain chairs with individual armrests and reclining 3rd row",
+          "climate": "Independent rear roof-mounted AC vents with fan controls",
+          "connectivity": "Multiple USB fast chargers across all 3 rows"
+        },
+        "safetyTelematics": [
+          "Up to 7 SRS airbags and Vehicle Stability Control (VSC)",
+          "Emergency glass-break safety hammer and first-aid trauma kit",
+          "24/7 GPS telematics and geofence boundary alerts",
+          "Strict driver duty-hour logging to prevent driver fatigue"
+        ],
+        "amenities": [
+          "Chilled mineral water bottles & mints",
+          "Full-size umbrella in cabin",
+          "Luggage securing nets & clean boot mat",
+          "Multi-device fast charging hub"
+        ],
+        "useCases": [
+          "Project delivery team transport & technical site visits",
+          "Airport transfers with extensive international baggage",
+          "Wedding family convoys & guest logistics",
+          "Multi-city corridor travel (Hyderabad–Bengaluru, Pune–Mumbai)"
+        ],
+        "rateCard": {
+          "airportTransfer": "₹2,400 – ₹2,900",
+          "halfDay": "₹3,200 (4 hrs / 40 km)",
+          "fullDay": "₹5,400 (8 hrs / 80 km)",
+          "outstationPerKm": "₹20 – ₹24 / km",
+          "currency": "INR"
+        }
+      },
+      {
+        "id": "luxury",
+        "name": "Luxury & Limousines",
+        "categoryBadge": "Executive Hospitality & VIP Protocol",
+        "popularModels": ["Mercedes-Benz E-Class", "Mercedes-Benz S-Class", "BMW 7 Series"],
+        "heroImage": "/images/india/luxury-interior.png",
+        "passengerCapacity": 3,
+        "passengerLabel": "Up to 3 Executive Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 2,
+          "cabinBags": 2,
+          "description": "2 full-size hard-shell suitcases + 2 executive briefcase bags"
+        },
+        "cabinLayout": {
+          "seats": "Perforated Nappa leather seating with electric recline & lumbar support",
+          "climate": "Four-zone THERMOTRONIC automatic climate control",
+          "connectivity": "Wireless Qi charging pads & premium high-fidelity acoustic insulation"
+        },
+        "safetyTelematics": [
+          "9+ advanced SRS airbags & PRE-SAFE active protection systems",
+          "Senior chauffeur with Victor Protocol Academy clearance",
+          "Encrypted high-precision telematics with discrete tracking",
+          "Zero-distraction protocol with background-verified elite drivers"
+        ],
+        "amenities": [
+          "Chilled premium natural spring water & sanitizing towelettes",
+          "Current editions of national financial press & business dailies",
+          "Rear privacy roller blinds & ambient mood lighting",
+          "Universal multi-device magnetic cables"
+        ],
+        "useCases": [
+          "Board of Directors & C-Suite executive travel",
+          "Visiting foreign investor & state dignitary protocol",
+          "Luxury wedding bride & groom ceremonial arrival",
+          "High-profile product launches & gala awards transport"
+        ],
+        "rateCard": {
+          "airportTransfer": "₹6,500 – ₹8,500",
+          "halfDay": "₹8,000 (4 hrs / 40 km)",
+          "fullDay": "₹15,000 (8 hrs / 80 km)",
+          "outstationPerKm": "₹55 – ₹70 / km",
+          "currency": "INR"
+        }
+      },
+      {
+        "id": "buses",
+        "name": "Buses & Corporate Shuttles",
+        "categoryBadge": "Workplace Transit & Conference Logistics",
+        "popularModels": ["22-Seater Executive Coach", "44-Seater Luxury Bus", "Volvo 9600"],
+        "heroImage": "/images/india/hero.png",
+        "passengerCapacity": 44,
+        "passengerLabel": "22 or 44 Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 35,
+          "cabinBags": 44,
+          "description": "Massive underfloor luggage bays accommodating 35+ suitcases plus overhead racks"
+        },
+        "cabinLayout": {
+          "seats": "High-back pushback push-back pushback luxury seats with aisle armrests",
+          "climate": "High-tonnage roof-mounted central air conditioning duct system",
+          "connectivity": "Individual reading lamps and USB charging sockets per passenger pair"
+        },
+        "safetyTelematics": [
+          "Dual emergency exit doors, roof escape hatch & side window hammers",
+          "Central telematics speed governor locked at 80 km/h",
+          "On-board certified dry-chemical fire suppression system",
+          "CCTV cabin surveillance and reverse guidance camera"
+        ],
+        "amenities": [
+          "PA public address microphone system for tour leads & coordinators",
+          "Air suspension for smooth highway commuting",
+          "Sanitized headrest antimacassars & wide clear-view windows",
+          "First-aid emergency medical kit"
+        ],
+        "useCases": [
+          "Daily corporate employee shift transportation for IT/BPO tech campuses",
+          "Inter-facility metro feeder and campus circular shuttles",
+          "National conference & convention delegate transport",
+          "Outstation corporate offsites & annual team retreats"
+        ],
+        "rateCard": {
+          "airportTransfer": "₹5,500 – ₹8,500",
+          "halfDay": "₹6,500 (4 hrs / 40 km)",
+          "fullDay": "₹11,500 – ₹16,000 (8 hrs / 80 km)",
+          "outstationPerKm": "₹45 – ₹60 / km",
+          "currency": "INR"
+        }
+      }
+    ]
+  },
+  "uae": {
+    "headline": "UAE Luxury Limousine & Executive Fleet",
+    "subheadline": "First Class Chauffeur Vehicles & Luxury Coaches across Dubai and Abu Dhabi",
+    "tagline": "On Time Every Time.",
+    "categories": [
+      {
+        "id": "first-class",
+        "name": "First Class Saloons",
+        "categoryBadge": "Executive Chauffeur Limousine",
+        "popularModels": ["Mercedes-Benz S-Class (W223)", "BMW 7 Series (G70)"],
+        "heroImage": "/images/india/luxury-interior.png",
+        "passengerCapacity": 3,
+        "passengerLabel": "Up to 3 Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 2,
+          "cabinBags": 2,
+          "description": "2 large check-in suitcases + 2 executive cabin bags"
+        },
+        "cabinLayout": {
+          "seats": "Executive rear lounge seating with ventilation & massage functions",
+          "climate": "Four-zone automatic climate control with allergen filtration",
+          "connectivity": "High-speed in-cabin Wi-Fi & wireless smartphone charging"
+        },
+        "safetyTelematics": [
+          "RTA-licensed professional executive chauffeur",
+          "Radar flight synchronization (DXB, AUH, DWC)",
+          "Live GPS dispatch monitoring with Dubai Al Garhoud central control",
+          "Comprehensive commercial passenger insurance"
+        ],
+        "amenities": [
+          "Chilled premium bottled water (Evian / Perrier)",
+          "High-speed 5G mobile Wi-Fi onboard",
+          "Sanitized refreshment towelettes",
+          "Universal multi-device charging adapters"
+        ],
+        "useCases": [
+          "Airport VIP Terminal & Curbside Greeting (DXB / AUH)",
+          "DIFC, Downtown Dubai & Abu Dhabi ADGM financial roadshows",
+          "Diplomatic delegations & visiting corporate dignitaries",
+          "Full-day executive city disposal"
+        ],
+        "rateCard": {
+          "airportTransfer": "AED 450 – AED 550",
+          "halfDay": "AED 850 (5 hrs city disposal)",
+          "fullDay": "AED 1,400 (10 hrs city disposal)",
+          "outstationPerKm": "AED 4.5 / km (Inter-Emirate)",
+          "currency": "AED"
+        }
+      },
+      {
+        "id": "ultra-luxury",
+        "name": "Ultra-Luxury & VIP",
+        "categoryBadge": "Pinnacle State & Celebrity Protocol",
+        "popularModels": ["Mercedes-Maybach S-Class"],
+        "heroImage": "/images/india/luxury-interior.png",
+        "passengerCapacity": 2,
+        "passengerLabel": "Up to 2-3 Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 2,
+          "cabinBags": 2,
+          "description": "2 large designer suitcases + executive garment bags"
+        },
+        "cabinLayout": {
+          "seats": "First-Class reclining aircraft-style Ottoman seats with leg rests",
+          "climate": "Individual micro-climate zones with bespoke ambient air perfuming",
+          "connectivity": "Rear MBUX entertainment tablets & Burmester High-End 4D sound"
+        },
+        "safetyTelematics": [
+          "Senior VIP Protocol Chauffeur with diplomatic escort clearance",
+          "Pre-cleared VIP curbside access at private jet terminals",
+          "24/7 dedicated dispatch manager standby",
+          "Confidential route planning & discrete blacked-out privacy windows"
+        ],
+        "amenities": [
+          "Artisanal refreshments & chilled mineral water",
+          "Rear center console with folding business tables",
+          "Bespoke red-carpet arrival upon client request",
+          "Ultra-fast private Wi-Fi hotspot"
+        ],
+        "useCases": [
+          "Private jet VIP arrivals at Dubai South (DWC) and Al Bateen (AUH)",
+          "Royal weddings, luxury fashion galas & summit keynotes",
+          "Head of State & ultra-high-net-worth individual delegations",
+          "Luxury hotel-to-resort bespoke transfers"
+        ],
+        "rateCard": {
+          "airportTransfer": "AED 850 – AED 1,100",
+          "halfDay": "AED 1,600 (5 hrs city disposal)",
+          "fullDay": "AED 2,600 (10 hrs city disposal)",
+          "outstationPerKm": "AED 8.0 / km (Inter-Emirate)",
+          "currency": "AED"
+        }
+      },
+      {
+        "id": "executive-suvs",
+        "name": "Executive SUVs & MPVs",
+        "categoryBadge": "Spacious Delegation & Family Travel",
+        "popularModels": ["Cadillac Escalade", "GMC Yukon Denali", "Mercedes-Benz V-Class"],
+        "heroImage": "/images/india/hero.png",
+        "passengerCapacity": 6,
+        "passengerLabel": "5 to 7 Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 6,
+          "cabinBags": 6,
+          "description": "6 large suitcases + 6 carry-on trolleys in extended boot"
+        },
+        "cabinLayout": {
+          "seats": "Spacious 3-row seating with optional face-to-face conference arrangement",
+          "climate": "Tri-zone heavy-duty desert climate control",
+          "connectivity": "110V power outlets & multiple high-wattage USB-C fast ports"
+        },
+        "safetyTelematics": [
+          "RTA commercial permit with rigorous vehicle safety inspection",
+          "Advanced Surround Vision 360-degree safety cameras",
+          "GPS telematics linked to Dubai dispatch command room",
+          "Emergency roadside assistance coverage across all 7 Emirates"
+        ],
+        "amenities": [
+          "Bottled spring water and dry snacks",
+          "Deep tinted rear passenger privacy glass",
+          "Spacious conference table for en-route business meetings (V-Class)",
+          "Fast multi-phone charging ports"
+        ],
+        "useCases": [
+          "Corporate summit delegation shuttle between DIFC and Expo City",
+          "Golf tournament and desert resort group transfers",
+          "Family holiday transfers with multiple large luggage pieces",
+          "Inter-Emirate executive transport (Dubai to Abu Dhabi / Al Ain)"
+        ],
+        "rateCard": {
+          "airportTransfer": "AED 550 – AED 650",
+          "halfDay": "AED 950 (5 hrs city disposal)",
+          "fullDay": "AED 1,600 (10 hrs city disposal)",
+          "outstationPerKm": "AED 5.5 / km (Inter-Emirate)",
+          "currency": "AED"
+        }
+      },
+      {
+        "id": "coaches",
+        "name": "Luxury Buses & VIP Coaches",
+        "categoryBadge": "Conference Shuttles & Corporate Groups",
+        "popularModels": ["22-Seater VIP Coach", "44-Seater Luxury Bus"],
+        "heroImage": "/images/india/hero.png",
+        "passengerCapacity": 44,
+        "passengerLabel": "22 or 44 Passengers",
+        "luggageCapacity": {
+          "largeSuitcases": 40,
+          "cabinBags": 44,
+          "description": "Massive dedicated lower luggage compartments for 40+ suitcases"
+        },
+        "cabinLayout": {
+          "seats": "Ergonomic leather executive reclining seating with generous legroom",
+          "climate": "High-capacity dual compressor roof air conditioning",
+          "connectivity": "Individual USB charging ports at each seat pair"
+        },
+        "safetyTelematics": [
+          "RTA-licensed heavy commercial passenger bus driver",
+          "Mandatory speed limiter and lane departure alert",
+          "Comprehensive safety equipment, emergency exits, and medical kit",
+          "Direct dispatch radio communication with Dubai control room"
+        ],
+        "amenities": [
+          "Professional guide / coordinator PA microphone system",
+          "Dual LCD television monitors with HDMI presentation input",
+          "Chilled bottled water storage compartment",
+          "Pneumatic air suspension for ultra-smooth highway ride"
+        ],
+        "useCases": [
+          "Global summit delegate shuttles (Dubai World Trade Centre / ADNEC)",
+          "Hotel-to-convention center scheduled continuous loops",
+          "Corporate gala, incentive tour, and desert safari group transit",
+          "International delegation airport fleet convoys"
+        ],
+        "rateCard": {
+          "airportTransfer": "AED 1,100 – AED 1,600",
+          "halfDay": "AED 1,300 (5 hrs city disposal)",
+          "fullDay": "AED 2,200 (10 hrs city disposal)",
+          "outstationPerKm": "AED 7.5 / km (Inter-Emirate)",
+          "currency": "AED"
+        }
+      }
+    ]
+  }
+}
