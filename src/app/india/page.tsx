@@ -2,13 +2,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
 import CustomerJourneys from "@/components/home/CustomerJourneys";
-import ServicesSection from "@/components/home/ServicesSection";
-import EmployeeTransportFeature from "@/components/home/EmployeeTransportFeature";
+import VictorStandardSection from "@/components/home/VictorStandardSection";
 import FleetSection from "@/components/home/FleetSection";
-import SpecializedPathways from "@/components/home/SpecializedPathways";
-import CitiesSection from "@/components/home/CitiesSection";
-import AboutSection from "@/components/home/AboutSection";
-import EnquirySection from "@/components/home/EnquirySection";
+import VictorInActionSection from "@/components/home/VictorInActionSection";
+import IndiaPresenceMap from "@/components/home/IndiaPresenceMap";
+import PeopleSection from "@/components/home/PeopleSection";
+import ContactInvitationSection from "@/components/home/ContactInvitationSection";
 
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
@@ -19,23 +18,22 @@ export default function IndiaPage() {
   const media = mediaData as unknown as MediaContent;
 
   const heroAsset = media.assets.find((a) => a.id === "hero");
-  const employeeShuttleAsset = media.assets.find((a) => a.id === "employee-shuttle");
   const luxuryAsset = media.assets.find((a) => a.id === "luxury-interior");
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      {/* Crisp White Header with Intact Logo */}
+      {/* 1. Header with Intact Victor Logo and Direct Navigation */}
       <Header contact={content.contact} />
 
       <main id="main-content" className="flex-1 focus:outline-none">
-        {/* Cinematic Dark Hero */}
+        {/* 1. Hero: Cinematic Dark Hero with Authoritative Tagline */}
         <Hero
           content={content}
           heroMedia={heroAsset}
           mediaCaption={media.caption}
         />
 
-        {/* Three Tailored Customer Journeys */}
+        {/* 2. Three Ways to Travel with Victor: Compact Audience Entries */}
         {content.customerJourneys && (
           <CustomerJourneys
             journeys={content.customerJourneys}
@@ -43,16 +41,10 @@ export default function IndiaPage() {
           />
         )}
 
-        {/* Core Services Portfolio */}
-        <ServicesSection services={content.services} />
+        {/* 3. The Victor Standard: Four Substantiated Practices */}
+        <VictorStandardSection />
 
-        {/* Dedicated Employee Commute & Shuttles Spotlight */}
-        <EmployeeTransportFeature
-          media={employeeShuttleAsset}
-          mediaCaption={media.caption}
-        />
-
-        {/* Fleet Categories Selector */}
+        {/* 4. Fleet Preview: Category Selector with ARIA Tabs & Specifications */}
         <FleetSection
           categories={content.fleetCategories}
           fleetNote={content.fleetNote}
@@ -61,28 +53,23 @@ export default function IndiaPage() {
           mediaCaption={media.caption}
         />
 
-        {/* Tailored Airport, Event & Chauffeur Pathways */}
-        <SpecializedPathways />
+        {/* 5. Victor in Action: Documented Operational Case Story */}
+        <VictorInActionSection />
 
-        {/* Established Operating Network */}
-        <CitiesSection
-          cities={content.cities}
+        {/* 6. Our India Presence: Interactive Vector Map & Office Details */}
+        <IndiaPresenceMap
           offices={content.offices}
-        />
-
-        {/* About & FAQs */}
-        <AboutSection content={content} />
-
-        {/* Transparent WhatsApp Enquiry Desk */}
-        <EnquirySection
           contact={content.contact}
-          enquiry={content.enquiry}
-          services={content.services}
-          cities={content.cities}
         />
+
+        {/* 7. The People Behind Victor: Leadership & Operations Accountability */}
+        <PeopleSection contact={content.contact} />
+
+        {/* 8. Contact Invitation: Personal Closing & Direct Coordination Desk */}
+        <ContactInvitationSection contact={content.contact} />
       </main>
 
-      {/* Corporate Footer */}
+      {/* Corporate Footer with Verified Disclaimers and Operating Offices */}
       <Footer
         contact={content.contact}
         offices={content.offices}

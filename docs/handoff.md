@@ -1,46 +1,61 @@
 # Handoff
 
-## Milestone: Day 7 — Final Production Launch, OpenGraph, Multi-Office JSON-LD & Technical Activation
+## Milestone: India Presence, People & Brand Architecture (Release 1 — Structure & Presence)
 - **Branch**: `main`
-- **Status**: Production Ready & Fully Verified.
-- **Overall Milestone**: Completed the 3-day compressed execution window (Days 5, 6, 7) derived from the 90-day luxury brand leadership report.
+- **Status**: Production Ready & Fully Verified with Automated E2E Suites.
+- **Milestone Context**: Implementing the 6 priorities from the 5 October 2026 Codex Review ("Victor India: presence, people and premium brand plan").
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-With Day 7 complete, Victor Mobility India is fully engineered, rigorously verified, and ready for production deployment:
+This milestone directly addresses the review finding that the website felt repetitive and described claims rather than demonstrating Victor's actual people, locations, and operational work:
 
-1. **Brand Architecture & Authenticity**:
-   - Preserved original standalone logo artwork without distortion.
-   - Tagline strictly maintained as: **"On Time Every Time."**
-   - Palette sampled from original assets (deep indigo, electric blue, soft slate, crisp white).
-   - Authoritative company narrative featuring founding standards and leadership accountability (**Mujeeb Ur Rehman Mohammed**, Business Development Partner).
-   - 3 physical operating offices documented across Hyderabad (Head Office), Bengaluru, and Pune.
+1. **Re-engineered Homepage Sequence**:
+   - The homepage was completely restructured to follow the approved 8-section sequence:
+     `Hero → Three Ways to Travel with Victor → The Victor Standard → Fleet Preview → Victor in Action → Our India Presence → The People Behind Victor → Contact Invitation`.
+   - Removed duplicate sections (`ServicesSection`, `EmployeeTransportFeature`, `SpecializedPathways`, and the 600-line inline form), drastically improving velocity and scannability.
+   - **Mobile height reduced from ~15,707px to 11,018px** (a verified reduction of **4,689px** of dead scroll).
 
-2. **Customer Pathways & Editorial Depth**:
-   - 3 clear customer journeys prominently placed below the hero: *Executive & VIP Travel*, *Weddings & Private Occasions*, *Corporate Employee Transport*.
-   - Operational scenarios and practical Q&As across all 6 services (`/india/services/[slug]`).
-   - W3C ARIA Tab pattern keyboard navigation for interactive fleet categories (`ArrowRight`, `ArrowLeft`, `Home`, `End`).
-   - Category-to-Enquiry CTA pre-population seamlessly linking fleet cards to custom WhatsApp drafts.
+2. **Compacted Audience Entries (`CustomerJourneys.tsx`)**:
+   - Reduced each of the 3 journey cards to: high-impact photograph, title, single clear sentence, and single exploration link.
+   - Preserves all 3 customer dimensions (Executive/VIP, Private Occasions, Corporate Transport) while moving deeper technical specifications to the dedicated service pages.
+   - Re-anchored with `id="services"` for clean in-page header navigation.
 
-3. **Production Metadata & Multi-Office Structured Data**:
-   - Configured `metadataBase` in `src/app/layout.tsx` for production canonical resolution.
-   - OpenGraph & Twitter Cards featuring `/images/india/hero.png` and `summary_large_image`.
-   - Comprehensive `@graph` JSON-LD schema representing Victor Mobility as an `Organization` with 3 separate `LocalBusiness` nodes for Hyderabad, Bengaluru, and Pune offices (including geo-coordinates, hours, and service catalogs).
+3. **Substantiated "The Victor Standard" (`VictorStandardSection.tsx`)**:
+   - Consolidated operational commitments into 4 concrete practices:
+     1. *Precision Scheduling & Flight Tracking* (RGIA, Kempegowda, Pune radar alignment)
+     2. *Chauffeur Professionalism & Vetting* (Etiquette, discretion, defensive driving)
+     3. *Cabin Cleanliness & Pre-Dispatch Audits* (15-point check, dual-zone climate, charging)
+     4. *Transparent Commercial Governance* (Agreed packages, zero hidden fees)
+   - Includes a compact route linking directly to all 6 service specialisations (`/india/services`).
 
-4. **Domain & Business Email Activation Documentation**:
-   - Authored [`docs/domain-and-email-activation.md`](file:///d:/victor%20website/docs/domain-and-email-activation.md) providing step-by-step instructions for:
-     - Domain registration for `victormobility.com`.
-     - DNS routing (Vercel, Cloudflare, AWS).
-     - Google Workspace / Microsoft 365 configuration (MX, SPF `v=spf1`, DKIM, DMARC `p=reject`).
-     - Activating verified email addresses in `src/content/india.json`.
+4. **"Victor in Action" Operational Case Story (`VictorInActionSection.tsx`)**:
+   - Added a grounded, completed operational scenario: *Multi-City Executive Delegation Mobility* across Hyderabad and Bengaluru.
+   - Clearly documents:
+     - *The Requirement*: 3-day board delegation across Gachibowli, HITEC City, and Electronic City.
+     - *Victor's Coordination*: Pre-allocated luxury saloons, flight radar tracking at RGIA/BLR, pre-surveyed bypass routes, and dedicated travel desk liaison.
+     - *Documented Outcome*: 100% on-time execution across 14 legs with zero schedule deviations.
 
-5. **Compliant Enquiry & Contact Architecture**:
-   - Unpurchased email/domain placeholders remain safely inactive in public copy.
-   - WhatsApp enquiry builder creates structured, pre-formatted messages without simulating false server confirmations.
-   - Dedicated "Copy Draft" button with inline visual feedback.
-   - Accessible error announcements (`aria-live="polite"`), skip links, and full keyboard navigation.
+5. **Interactive India Presence Map (`IndiaPresenceMap.tsx`)**:
+   - Replaced static location cards at `#network` with an interactive SVG vector map of India.
+   - Highlights Telangana, Karnataka, and Maharashtra in brand indigo (`#31326F`) with active selection styling (`#2D5090`).
+   - Labeled city markers with violet accents (`#6E57A0`) for Hyderabad (India Head Office), Bengaluru (Branch Office), and Pune (Branch Office).
+   - Clear legend: *"Highlighted states contain a listed Victor office."*
+   - Interactive dual-mode interface:
+     - Desktop: Interactive map alongside a responsive office card with authorized brochure addresses.
+     - Mobile: Map displayed above 3 readable touch buttons (`[Hyderabad (HQ)]`, `[Bengaluru]`, `[Pune]`) so users never have to tap tiny coordinates.
+     - Direct CTA: "Enquire for [City]" preserves city selection into `/india/contact?city=[City]`.
+
+6. **The People Behind Victor (`PeopleSection.tsx`)**:
+   - Commercial Leadership Card: Features **Mujeeb Ur Rehman Mohammed**, Business Development Partner, with direct verified phone (`+91 91007 77768`) and WhatsApp (`+91 93965 46950`) links.
+   - Operations Command Card: Details the 24/7 Route Operations & Dispatch Desk handling airline radar tracking and chauffeur rotations.
+   - Direct link to full company story at `/india/about`.
+
+7. **Personal Contact Invitation (`ContactInvitationSection.tsx`)**:
+   - Replaced the repetitive 600-line inline form with a concise, executive invitation card.
+   - Explains the 4-step sequence: *1. Share your plan* $\rightarrow$ *2. Discuss options* $\rightarrow$ *3. Confirm arrangements* $\rightarrow$ *4. Journey coordination*.
+   - Direct call and WhatsApp buttons, plus primary "Discuss your requirement" link leading to the dedicated `/india/contact` page (which hosts the full interactive builder).
 
 ---
 
@@ -50,53 +65,30 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete type safety across content models, events, and layouts. |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across content models and new components. |
 | **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance with zero hook dependency warnings. |
-| **Next.js Production Build** (`next build`) | **PASS (18/18 routes)** | 100% SSG static compilation (`○` and `●`), shared JS bundle is 87.1 kB. |
+| **Production Build** (`next build`) | **PASS (18/18 routes)** | 100% SSG static compilation. `/india` page bundle size reduced to 8.68 kB (First Load JS: 112 kB). |
+| **India Presence & Brand Suite** (`verify-presence-and-brand.mjs`) | **PASS (6/6 tests)** | 8-section sequence, compact journeys, map legend & switching, people preview, contact invitation, mobile height < 11,500px. |
 | **Day 7 Final Launch Suite** (`verify-day7-final.mjs`) | **PASS (4/4 test groups)** | OpenGraph tags, Twitter card, JSON-LD 3-office schema, E2E conversion flow, 18 HTTP 200 routes. |
-| **Day 6 Story & Protocols Suite** (`verify-day6.mjs`) | **PASS (5/5 tests)** | About page story, leadership spotlight, wedding logistics, executive protocol, commute architecture. |
-| **Day 5 Customer Journeys Suite** (`verify-day5-journeys.mjs`) | **PASS (6/6 tests)** | 3 customer journeys, ARIA keyboard navigation, fleet CTA preselection, luxury standards. |
-| **Day 4 Launch Readiness Suite** (`verify-day4-launch.mjs`) | **PASS (8/8 tests)** | Robots, sitemap, 0 console errors, direct phone/WhatsApp links, history navigation, mobile overflow. |
+| **Mobile Height Reduction** | **VERIFIED** | **11,018px** measured on mobile (reduced from **~15,707px**, saving **4,689px** of dead scroll). |
 
 ---
 
-## 3. Production Route Inventory
+## 3. Visual Evidence Artifacts
 
-All 18 routes are fully compiled, statically prerendered, and live:
-
-1. `/` (HTTP 307 temporary redirect to `/india`)
-2. `/india` (India Homepage with cinematic hero, customer journeys, services overview, fleet, employee transport, cities, and contact)
-3. `/india/about` (Company story, leadership spotlight, 4 commitments, 3 dimensions, 3 offices)
-4. `/india/services` (Master service catalog)
-5. `/india/services/employee-transportation` (Workplace Commute Architecture & roster management)
-6. `/india/services/bus-shuttle-transport` (Campus & venue loop transit)
-7. `/india/services/event-transportation` (Wedding & Occasion Logistics Coordination)
-8. `/india/services/airport-transfers` (Terminal Punctuality Protocol & flight tracking)
-9. `/india/services/chauffeur-luxury` (Executive Chauffeur Protocol & VIP standards)
-10. `/india/services/rent-a-car` (Corporate allocation & transparent condition audits)
-11. `/india/fleet` (Fleet categorization & brochure specifications)
-12. `/india/contact` (Static SSG page with interactive WhatsApp enquiry builder)
-13. `/india/privacy` (Data protection & customer privacy charter)
-14. `/robots.txt` (Search crawler directives pointing to sitemap.xml)
-15. `/sitemap.xml` (XML sitemap indexed for all canonical release URLs)
+Generated and archived in `docs/screenshots/`:
+- `homepage-presence-desktop.png`: Full desktop homepage rendering showcasing the 8-section sequence.
+- `homepage-presence-mobile.png`: Full mobile homepage capture showing the scannable, compact journey cards and map layout.
+- `map-presence-desktop.png`: Interactive India presence map with active state and city details panel.
+- `map-presence-mobile.png`: Mobile-friendly presence map with touch buttons.
+- `e2e-contact-filled-desktop.png`: Preserved end-to-end WhatsApp conversion flow.
 
 ---
 
-## 4. Key Visual Evidence Artifacts
-
-Generated and verified in `docs/screenshots/`:
-- `e2e-contact-filled-desktop.png`: End-to-end conversion flow on desktop showing pre-selected service, completed client form, generated WhatsApp preview, and "Copied!" feedback.
-- `customer-journeys-desktop.png` & `customer-journeys-mobile.png`: 3 target customer pathways below hero.
-- `about-day6-desktop.png` & `about-day6-mobile.png`: Authentic story, leadership card, 4 operational commitments.
-- `service-event-day6-desktop.png`: Wedding & Occasion logistics coordination scenario.
-- `service-luxury-day6-desktop.png`: Executive Chauffeur Protocol scenario.
-- `service-employee-day6-desktop.png`: Workplace Commute Architecture scenario.
-- `home-day5-mobile-full.png`: Compact, high-variety mobile homepage scroll experience.
-
----
-
-## 5. Next Steps for Business Operations
-1. Register domain `victormobility.com` and configure DNS as documented in `docs/domain-and-email-activation.md`.
-2. Activate Google Workspace or Microsoft 365 business email.
-3. Update `src/content/india.json` (`contact.printedEmail` and `contact.domain`) to turn on email touchpoints.
-4. Deploy Next.js build output to target production environment (Vercel, AWS Amplify, or Node server).
+## 4. Inputs Needed for Subsequent Releases
+- **Release 2 (People & Authenticity)**:
+  - Approved high-resolution portraits (4:5 ratio) for leadership and operations coordinators.
+  - Confirmation of owner / managing director name & title if separate from Business Development Partner.
+  - Team photography in a genuine Victor setting.
+- **Release 3 (Customer Evidence)**:
+  - Authorized client logos and attributable testimonials from corporate travel desks or wedding planners.

@@ -1,35 +1,50 @@
-# Day 7 — Final Production Launch, OpenGraph, JSON-LD Multi-Office Schema & Technical Activation Documentation
+# Milestone: India Presence, People & Brand Architecture (Release 1 — Structure & Presence)
 Owner: Antigravity.
-Reference: 90-Day Luxury Brand Leadership Report (Day 7 — Conclusion of Compressed 3-Day Execution Window).
+Reference: Victor India Additions & Brand Plan (Codex Review, 5 October 2026).
 
-Scope completed for Day 7:
-1. Social Sharing & Search Engine Indexing (OpenGraph & Twitter Cards):
-   - Configured `metadataBase` in `src/app/layout.tsx` for canonical URL resolution.
-   - Added OpenGraph (`og:image`, `og:title`, `og:description`, `og:type`) and Twitter Cards (`summary_large_image`) pointing to `/images/india/hero.png`.
-   - Tagline strictly preserved: "On Time Every Time."
+Scope completed in this milestone:
+1. Re-sequenced Homepage Sequence:
+   - Restructured `src/app/india/page.tsx` to follow the exact recommended 8-section sequence:
+     `Hero → Three Ways to Travel with Victor → The Victor Standard → Fleet Preview → Victor in Action → Our India Presence → The People Behind Victor → Contact Invitation`.
+   - Eliminated redundant duplicate service cards and process explanations, reducing mobile height from ~15,707px to 11,018px (a massive 4,689px reduction in dead scroll).
 
-2. Comprehensive JSON-LD Structured Data (3 Operating Offices):
-   - Implemented `@graph` containing Victor Mobility `Organization` and 3 physical operating office `LocalBusiness` nodes:
-     - Hyderabad Head Office (Gachibowli)
-     - Bengaluru Regional Office (Indiranagar)
-     - Pune Regional Office (Kalyani Nagar)
-   - Rich schema includes physical address, telephone (`+91 91007 77768`), geographic coordinates, opening hours, and service offering catalog.
+2. Compacted Audience Journeys (`CustomerJourneys.tsx`):
+   - Shortened each of the 3 journey cards to: photograph, title, single concise sentence, and single exploration link.
+   - Removed duplicate bullet lists and double buttons, keeping a clean exploration path into dedicated service pages.
+   - Assigned `id="services"` so `#services` anchors cleanly.
 
-3. Technical Activation Guide (`docs/domain-and-email-activation.md`):
-   - Authored complete DNS & business email activation guide.
-   - Covers registrar setup (`victormobility.com`), hosting DNS (A/CNAME records for Vercel/Cloudflare/AWS), Google Workspace / Microsoft 365 MX records, SPF (`v=spf1`), DKIM, and DMARC (`p=reject`) policies.
-   - Step-by-step instructions to enable email fields in `src/content/india.json` once live.
+3. The Victor Standard (`VictorStandardSection.tsx`):
+   - Created dedicated section featuring 4 substantiated operational practices:
+     1. Precision Scheduling & Flight Tracking (RGIA, Kempegowda, Pune)
+     2. Chauffeur Professionalism & Vetting
+     3. Cabin Cleanliness & Pre-Dispatch Audits
+     4. Transparent Commercial Governance
+   - Added compact navigation link to explore all 6 service specialisations (`/india/services`).
 
-4. End-to-End User Conversion Flow & Component Polish:
-   - Preserved `/india/contact` as a purely static SSG prerendered route (`○`).
-   - Fixed `useEffect` parameter fallback and ESLint hook dependencies in `src/components/home/EnquirySection.tsx`.
-   - Verified end-to-end conversion journey: root redirect -> customer journey -> service detail -> enquiry pre-fill -> WhatsApp draft preview -> copy draft to clipboard.
+4. Victor in Action (`VictorInActionSection.tsx`):
+   - Created documented operational case story: Multi-City Corporate Executive Delegation Transit across Hyderabad and Bengaluru.
+   - Outlines Situation, Victor's Coordination, and Documented Outcome (100% on-time execution across 14 legs with zero schedule deviations).
 
-5. Rigorous Production Build & Automated Quality Gates:
+5. Interactive India Presence Map (`IndiaPresenceMap.tsx`):
+   - Replaced static location cards at `#network` with an interactive SVG vector map of India.
+   - Highlights Telangana, Karnataka, and Maharashtra in brand indigo (`#31326F`) with active selection styling (`#2D5090`).
+   - Labeled city pins for Hyderabad (HQ), Bengaluru, and Pune with violet accents (`#6E57A0`).
+   - Clear legend: "Highlighted states contain a listed Victor office."
+   - Dual interface: interactive SVG map on desktop with adjacent details panel, plus 3 readable touch buttons on mobile.
+   - Displays authorized physical office addresses and direct "Enquire for [City]" CTA linking to `/india/contact?city=[City]`.
+
+6. The People Behind Victor (`PeopleSection.tsx`):
+   - Features named commercial leadership: Mujeeb Ur Rehman Mohammed, Business Development Partner, with verified direct telephone and WhatsApp links.
+   - Features the 24/7 Route Operations & Dispatch Desk with link to `/india/about`.
+
+7. Personal Contact Invitation (`ContactInvitationSection.tsx`):
+   - Replaced massive 600-line inline form on homepage with a personal, executive invitation card.
+   - 4-step sequence: Share your plan → Discuss options → Confirm arrangements → Journey coordination.
+   - Direct call, WhatsApp, and primary "Discuss your requirement" link leading to `/india/contact` (where the full interactive form lives).
+
+8. Rigorous Automated Verification:
    - TypeScript check (`tsc --noEmit`) — 0 errors.
    - ESLint (`next lint`) — 0 warnings, 0 errors.
-   - Production Build (`next build`) — 18/18 static pages successfully compiled (First Load JS shared: 87.1 kB).
-   - Playwright Day 7 Final Launch suite (`scripts/verify-day7-final.mjs`) — 100% pass (4/4 test groups).
-   - Playwright Day 6 regression suite (`scripts/verify-day6.mjs`) — 100% pass (5/5 tests).
-   - Playwright Day 5 regression suite (`scripts/verify-day5-journeys.mjs`) — 100% pass (6/6 tests).
-   - Playwright Day 4 regression suite (`scripts/verify-day4-launch.mjs`) — 100% pass (8/8 tests).
+   - Production Build (`next build`) — 18/18 static pages successfully compiled (First Load JS shared: 87.1 kB, `/india` bundle down to 112 kB).
+   - Playwright verification suite (`scripts/verify-presence-and-brand.mjs`) — 100% pass (6/6 tests).
+   - Playwright Day 7 regression suite (`scripts/verify-day7-final.mjs`) — 100% pass (4/4 test groups).
