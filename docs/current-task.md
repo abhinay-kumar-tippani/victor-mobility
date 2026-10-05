@@ -1,50 +1,47 @@
-# Milestone: Phase 16 — Enterprise Master Rate Card & Contract Retainer Desk (/rate-card)
+# Milestone: Phase 17 — Enterprise Fleet Safety, IoT Telematics & Vehicle Audit Desk (/safety)
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 3, 4, 8, 10: Spot Rental Tariffs, Monthly Dedicated Retainers, Employee Commuter Shuttles, Outstation Travel, Master Services Agreement Governance).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 4, 6, 8, 10: Fleet Safety First, AIS-140 GPS Telematics, 50-Point Pre-Trip Vehicle Audits, Dual Tactical SOS Buttons, Speed Governors, Women Passenger Night Transit Safety).
 
 Scope completed in this milestone:
-1. Enterprise Rate Card & Retainer Dataset (`src/content/rate-card.json`):
-   - Detailed corporate tariff matrices, vehicle category specifications, and contract packages for India (`/india/rate-card`) and UAE (`/uae/rate-card`):
-     - **India Corporate Tariffs**:
-       - **Executive Sedan** (Dzire / Etios / Aura): 4h/40km (₹1,400), 8h/80km (₹2,400), 12h/120km (₹3,400), Extra km (₹14), Extra hr (₹150), Monthly Retainer (₹58,000 for 26D/2,600km), Outstation (₹13/km, min 250km/day + ₹400 bata).
-       - **Corporate MPV** (Innova Crysta / HyCross): 4h/40km (₹2,400), 8h/80km (₹4,200), 12h/120km (₹5,800), Extra km (₹22), Extra hr (₹250), Monthly Retainer (₹96,000 for 26D/2,600km), Outstation (₹20/km, min 300km/day + ₹500 bata).
-       - **Premium Luxury Saloon** (Camry Hybrid / BMW 5 Series / Mercedes E-Class): 4h/40km (₹4,500), 8h/80km (₹8,500), 12h/120km (₹12,000), Extra km (₹45), Extra hr (₹500), Monthly Retainer (₹1,85,000), Outstation (₹42/km + ₹800 bata).
-       - **Executive Minibus & Van** (Force Urbania / Luxury Tempo Traveller): 4h/40km (₹3,800), 8h/80km (₹6,800), Extra km (₹32), Extra hr (₹350), Monthly Retainer (₹1,45,000), Outstation (₹30/km + ₹600 bata).
-       - **High-Capacity Commuter Coach** (22 & 44-Seater AC Luxury Coach): 4h/40km (₹5,500), 8h/80km (₹9,800), Extra km (₹52), Extra hr (₹650), Fixed Route Campus Shuttles (₹1,65,000 – ₹2,40,000/mo).
-     - **UAE Limousine & Commercial Fleet Tariffs**:
-       - **First Class Saloon** (Mercedes-Benz S-Class / BMW 7 Series / Lexus ES): Half-Day 5h (AED 850), Full-Day 10h (AED 1,600), Monthly Dedicated Retainer (AED 24,000).
-       - **Ultra-Luxury Limousine** (Mercedes-Maybach S 680): Half-Day 5h (AED 1,800), Full-Day 10h (AED 3,400), Monthly Retainer (AED 48,000).
-       - **Executive SUV & MPV** (Cadillac Escalade / GMC Yukon / V-Class): Half-Day 5h (AED 1,150), Full-Day 10h (AED 2,100), Monthly Retainer (AED 32,000).
-       - **VIP Sprinter & Tourism Coach** (18 to 50 seats): Half-Day 5h (AED 1,950), Full-Day 10h (AED 3,600), Monthly Route Contract (AED 28,000 – AED 42,000).
-     - **Enterprise Volume Rebate Tiers**:
-       - Tier 1: 1–5 Vehicles (Standard Tariff, 30-day net credit, verified chauffeurs).
-       - Tier 2: 6–20 Vehicles (8% preferred volume rebate, depot hot-swap standby vehicle).
-       - Tier 3: 20+ Vehicles (15% strategic volume rebate, dedicated on-site campus fleet supervisor, custom HRMS API).
-     - **Transparent Inclusions & Disclosed Actuals**:
-       - Inclusions: Uniformed chauffeur, fuel, maintenance, AIS-140 GPS, 45-min replacement SLA, digital duty slip.
-       - Actuals: Fastag tolls, interstate taxes, airport parking, GST/VAT.
+1. Enterprise Safety & IoT Telematics Dataset (`src/content/safety.json`):
+   - Detailed inspection checklists, automotive IoT hardware specifications, and women safety transit protocols for India (`/india/safety`) and UAE (`/uae/safety`):
+     - **50-Point Pre-Trip Audit Modules**:
+       - *Mechanical & Powertrain Integrity*: Tyre tread depth (min 3.5mm), dual-circuit ABS brakes, OBD-II diagnostic scans, fluid & coolant levels, full exterior lighting & hazard flashers.
+       - *AIS-140 IoT & Security Hardware*: 10-second polling frequency GPS with dual-SIM failover, dual tactical emergency panic SOS buttons, microprocessor speed governor (sealed 80 km/h), dual-lens AI road dashcam, automated geofence deviation alarm.
+       - *Passenger Cabin Safety & First Aid*: 3-point inertia-reel seatbelts, certified 1kg dry powder fire extinguisher, emergency glass-breaking hammers, St. John Ambulance sterilized first aid kit, child safety door locks.
+       - *Cabin Sanitization & Chauffeur Fitness*: Zero-tolerance pre-shift digital alcohol breathalyzer log, formal uniform and commercial badge audit, HEPA air-conditioning filter sanitization, executive amenity staging, full cabin interior detailing.
+     - **Onboard IoT Hardware Stack**:
+       - AIS-140 Certified GPS Tracker (MoRTH compliant, encrypted satellite lock).
+       - Tactical Dual Panic SOS Buttons (<1.5s visual/audible alert to 24/7 Command Desk).
+       - Electronic Speed Governor (tamper-proof 80 km/h highway and 40 km/h campus speed capping).
+       - Dual-Lens AI Road & Safety Dashcam (forward traffic HD recording + fatigue micro-sleep sensor with physical cabin lens privacy shutter).
+     - **Women Passenger Night Transit Protocol (20:00 to 06:00)**:
+       - Step 01: Vetted Chauffeur Assignment (police background verified + escort badge certified).
+       - Step 02: Encrypted Live Geofence Route Sharing with passenger & corporate supervisor.
+       - Step 03: Illuminated Doorstep Drop (vehicle angled with headlamps lighting residential entrance).
+       - Step 04: Visual Handshake Confirmation prior to electronic duty slip closure.
 
-2. Interactive Enterprise Rate Card Desk Component (`src/components/ratecard/EnterpriseRateCardDesk.tsx`):
-   - **Category Specification & Standard Tariff Matrix**: Interactive selector chips for rapid switching between vehicle classes with local, monthly, and outstation rates.
-   - **Volume Rebate & Retainer Sizing Calculator**: Dynamic slider (1 to 30 vehicles) and horizon selector (Monthly vs Annual), computing gross tariff, applied volume rebate, net investment, and hot-swap backup fleet.
-   - **MSA & Corporate Governance**: 4-step institutional onboarding framework (KYC, Agreement, Credit Approval, Staging) + Tier perks grid.
+2. Interactive Fleet Safety Audit Desk Component (`src/components/safety/FleetSafetyAuditDesk.tsx`):
+   - **50-Point Pre-Trip Safety Audit Checklist**: Interactive category switching across mechanical, telematics, passenger cabin, and chauffeur hygiene modules with 100% certified pass specifications.
+   - **IoT Hardware Stack**: Deep-dive technical specification cards for AIS-140 trackers, SOS alarms, speed governors, and AI dashcams.
+   - **Women Passenger Night Safety Protocol**: Step-by-step illuminated visual workflow.
    - **Actions**:
-     - "Request Contract Schedule on WhatsApp" with prefilled fleet specifications and truthful inquiry disclaimer.
-     - "Print Tariff Dossier" (`window.print()`).
+     - "Request Safety Audit Dossier on WhatsApp" with prefilled audit specifications and honest inquiry disclaimer.
+     - "Print Audit Dossier" (`window.print()`).
 
 3. Dedicated Route Pages:
-   - `/india/rate-card`: India Enterprise Master Rate Card & Retainer Schedule with Schema.org `Service` structured data.
-   - `/uae/rate-card`: UAE Executive Limousine & Commercial Rate Card with Schema.org `Service` structured data.
+   - `/india/safety`: India Enterprise Fleet Safety & IoT Telematics Desk with Schema.org `Service` structured data.
+   - `/uae/safety`: UAE Executive Limousine Safety & RTA Telematics Desk with Schema.org `Service` structured data.
 
 4. Global Navigation & Cross-Linking:
-   - Added "Corporate Rate Card & Retainers" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **58 static pages**).
+   - Added "Fleet Safety & IoT Telematics" link under Navigation in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **60 static pages**).
 
 5. Automated Verification & Quality Gates:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 58/58 static pages compiled (`○` and `●`).
-   - Playwright verification suite (`scripts/verify-phase16.mjs`) — 100% pass across all 5 test suites.
+   - Production Build (`next build`) — 60/60 static pages compiled (`○` and `●`).
+   - Playwright verification suite (`scripts/verify-phase17.mjs`) — 100% pass across all 5 test suites.
    - Visual screenshots captured:
-     - `phase16-india-ratecard-desktop.png`
-     - `phase16-india-ratecard-mobile.png`
-     - `phase16-uae-ratecard-desktop.png`
+     - `phase17-india-safety-desktop.png`
+     - `phase17-india-safety-mobile.png`
+     - `phase17-uae-safety-desktop.png`

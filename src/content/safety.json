@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Fleet Safety, IoT Telematics & Vehicle Audit Desk",
+    "eyebrow": "AIS-140 Telematics · 50-Point Audits · Women Safety Protocols",
+    "description": "Comprehensive fleet safety architecture, onboard AIS-140 IoT telematics, pre-dispatch 50-point mechanical audits, and specialized night transit security protocols across Hyderabad, Bengaluru, and Pune.",
+    "auditCategories": [
+      {
+        "id": "mechanical",
+        "name": "Mechanical & Powertrain Integrity",
+        "icon": "wrench",
+        "checks": [
+          { "item": "Tyre Tread Depth", "spec": "Minimum 3.5mm tread depth across all 4 tyres + spare tyre inspected", "status": "Passed" },
+          { "item": "Braking System & ABS Calipers", "spec": "Dual-circuit hydraulic brake pads tested with zero spongy play", "status": "Passed" },
+          { "item": "OBD-II Diagnostic Scan", "spec": "Engine management check: Zero active DTC error codes or warning lights", "status": "Passed" },
+          { "item": "Fluid Levels & Coolant", "spec": "Engine oil, brake fluid, radiator coolant, and windshield washer topped up", "status": "Passed" },
+          { "item": "Exterior Lighting & Hazards", "spec": "High/low beam headlamps, LED indicators, brake lamps, and hazard flashers verified", "status": "Passed" }
+        ]
+      },
+      {
+        "id": "telematics",
+        "name": "AIS-140 IoT & Security Hardware",
+        "icon": "shield-check",
+        "checks": [
+          { "item": "AIS-140 GPS Telematics Unit", "spec": "10-second polling frequency with live satellite lock and dual SIM failover", "status": "Passed" },
+          { "item": "Emergency Panic SOS Buttons", "spec": "Dual tactile buttons (passenger row + driver console) pinging 24/7 Command Desk", "status": "Passed" },
+          { "item": "Speed Governor Calibration", "spec": "Microprocessor-controlled fuel cut limiter certified and sealed at 80 km/h", "status": "Passed" },
+          { "item": "Dual-Lens AI Dashcam", "spec": "Forward-facing road collision logging + cabin security sensor operational", "status": "Passed" },
+          { "item": "Geofencing Deviation Alarm", "spec": "Automated corridor perimeter telemetry alert to central dispatch desk", "status": "Passed" }
+        ]
+      },
+      {
+        "id": "passenger-safety",
+        "name": "Passenger Cabin Safety & First Aid",
+        "icon": "user-check",
+        "checks": [
+          { "item": "3-Point Inertia-Reel Seatbelts", "spec": "All passenger seats equipped with tested retractable lock seatbelts", "status": "Passed" },
+          { "item": "Certified Fire Extinguisher", "spec": "1 kg ABC dry powder extinguisher in accessible mount with valid pressure gauge", "status": "Passed" },
+          { "item": "Emergency Glass Breaking Hammers", "spec": "Dual fluorescent emergency window hammers mounted in bus/van passenger cabin", "status": "Passed" },
+          { "item": "Sterilized First Aid Kit", "spec": "St. John Ambulance standard medical dressings, antiseptic, and burn dressing", "status": "Passed" },
+          { "item": "Child Safety Door Locks", "spec": "Rear door child safety lock mechanisms tested and operational", "status": "Passed" }
+        ]
+      },
+      {
+        "id": "hygiene-chauffeur",
+        "name": "Cabin Sanitization & Chauffeur Fitness",
+        "icon": "sparkles",
+        "checks": [
+          { "item": "Pre-Shift Alcohol Breathalyzer", "spec": "Zero-tolerance digital breathalyzer test logged at depot dispatch gate", "status": "Passed" },
+          { "item": "Chauffeur Badge & Uniform Check", "spec": "Neat formal uniform, polished shoes, company photo ID, and commercial license badge", "status": "Passed" },
+          { "item": "Air-Conditioning HEPA Filtration", "spec": "AC blower filters sanitized with allergen-free cabin air circulation", "status": "Passed" },
+          { "item": "Executive In-Cabin Amenities", "spec": "Factory-sealed mineral water, sanitized tissue dispenser, and device fast chargers", "status": "Passed" },
+          { "item": "Full Cabin Detailing", "spec": "Vacuumed upholstery, sanitised leather armrests, and pristine floor mats", "status": "Passed" }
+        ]
+      }
+    ],
+    "telematicsHardware": [
+      {
+        "name": "AIS-140 Certified GPS Tracker",
+        "tagline": "Ministry of Road Transport & Highways Compliant",
+        "description": "Government-mandated automotive IoT device broadcasting encrypted location, speed, harsh braking, and battery health telemetry over dual-SIM cellular connectivity.",
+        "specs": ["10-second polling frequency", "Dual 4G eSIM with auto-failover", "Internal battery backup up to 8 hours", "Direct Vahan portal integration"]
+      },
+      {
+        "name": "Dual Tactical Panic SOS Buttons",
+        "tagline": "Instant Emergency Dispatch Escalation",
+        "description": "Concealed yet easily reachable tactile emergency buttons located in the passenger cabin and driver console. Pressing triggers instant visual and audio sirens at the 24/7 Victor Command Desk.",
+        "specs": ["Zero-lag cloud alert (<1.5s)", "Automated local police station ping", "Automated SMS to corporate transport manager", "Chauffeur two-way audio bridge activated"]
+      },
+      {
+        "name": "Electronic Speed Governor Unit",
+        "tagline": "Certified Highway & Campus Speed Capping",
+        "description": "Tamper-proof speed limiter unit calibrated to automotive safety standards, preventing unauthorized high-speed highway cruising and enforcing safe tech park campus driving.",
+        "specs": ["Certified 80 km/h highway speed cap", "Automated 40 km/h campus geofence cap", "Harsh acceleration monitoring", "RTO-certified calibration seal"]
+      },
+      {
+        "name": "Dual-Lens AI Road & Safety Dashcam",
+        "tagline": "Edge-AI Incident & Fatigue Monitoring",
+        "description": "High-definition wide-angle camera system capturing exterior traffic conditions while monitoring driver alertness, eye micro-sleep, and mobile phone distraction.",
+        "specs": ["1080p full HD infrared night vision", "Driver fatigue and yawning alert", "G-sensor shock incident auto-upload", "Physical privacy shutter for cabin lens"]
+      }
+    ],
+    "womenSafetyProtocol": {
+      "title": "Women Passenger Night Transit Protocol (20:00 to 06:00)",
+      "badge": "Escort Chauffeur Certified",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Chauffeur Credential Verification",
+          "description": "Only top-rated chauffeurs who have completed our Women Passenger Safety Certification and verified background police checks are assigned to night shift rosters."
+        },
+        {
+          "step": "02",
+          "title": "Encrypted Live Geofence Tracking",
+          "description": "A live encrypted tracking link is automatically dispatched via SMS/WhatsApp to the passenger and her corporate transport supervisor upon vehicle arrival."
+        },
+        {
+          "step": "03",
+          "title": "Illuminated Doorstep Drop Protocol",
+          "description": "At the residential drop point, the chauffeur parks in a well-illuminated position with vehicle headlights angled towards the residential gate or building entrance."
+        },
+        {
+          "step": "04",
+          "title": "Visual Handshake Trip Completion",
+          "description": "The chauffeur remains stationary until the passenger enters her residence, securely closes the door, and provides a visual or wave confirmation. Only then is the digital duty slip closed."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "How frequently are Victor Mobility vehicles subjected to the 50-point safety audit?",
+        "answer": "Every vehicle undergoes a rapid 20-point checklist before every single dispatch departure, and a comprehensive 50-point diagnostic audit every fortnight at our company maintenance depots in Hyderabad, Bengaluru, and Pune."
+      },
+      {
+        "question": "What happens when an employee presses the panic SOS button during a journey?",
+        "answer": "The panic button triggers a red flashing alert and audible siren at our 24/7 Command Operations Desk within 1.5 seconds. Our emergency controller immediately connects with the chauffeur, alerts local authorities, and dispatches our nearest supervisor hot-swap patrol unit."
+      },
+      {
+        "question": "Are your chauffeurs trained in emergency first aid and CPR?",
+        "answer": "Yes. Through the Victor Chauffeur Academy (/india/academy), all chauffeurs undergo certified first-aid training, CPR protocols, and basic emergency vehicle handling to assist passengers in unforeseen medical situations."
+      },
+      {
+        "question": "How do you ensure alcohol-free driving across your fleet?",
+        "answer": "We enforce a zero-tolerance policy. Chauffeurs must pass a digital breathalyzer test at the depot before collecting keys. Random on-route spot breathalyzer checks are also conducted by our mobile field supervisors."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Executive Fleet Safety, RTA Telematics & Security Audit Desk",
+    "eyebrow": "RTA Limousine Standards · IoT Telematics · VIP Security Protocols",
+    "description": "Institutional executive fleet safety governance, Dubai Roads & Transport Authority (RTA) telemetry integration, 50-point vehicle inspections, and sovereign diplomatic transit security across Dubai and Abu Dhabi.",
+    "auditCategories": [
+      {
+        "id": "mechanical",
+        "name": "Powertrain & Precision Luxury Engineering",
+        "icon": "wrench",
+        "checks": [
+          { "item": "High-Speed Tyre Safety & Pressure", "spec": "Continental / Michelin high-performance tyres inspected with certified TPMS sensors", "status": "Passed" },
+          { "item": "Active Brake Assist & Carbon Discs", "spec": "Mercedes / BMW OEM electronic brake pads and ABS telemetry verified", "status": "Passed" },
+          { "item": "Multi-Zone Climate Control Test", "spec": "AC cooling capability verified to deliver 19°C cabin comfort under 48°C desert heat", "status": "Passed" },
+          { "item": "Suspension & Air-Ride Dampers", "spec": "Airmatic / active dynamic suspension calibrated for whisper-quiet road absorption", "status": "Passed" },
+          { "item": "Exterior Lighting & VIP Strobe Systems", "spec": "Adaptive LED matrix headlamps, mirrors, and escort signals verified", "status": "Passed" }
+        ]
+      },
+      {
+        "id": "telematics",
+        "name": "RTA Telematics & Smart Limousine Tracking",
+        "icon": "shield-check",
+        "checks": [
+          { "item": "RTA Certified Telematics System", "spec": "Direct live telemetry integration with Dubai RTA Limousine Central Monitoring Unit", "status": "Passed" },
+          { "item": "Automated Salik Toll Transponder", "spec": "Windshield Salik tag active and synchronized with electronic trip meter", "status": "Passed" },
+          { "item": "Executive Emergency SOS Bridge", "spec": "Silent emergency signal linked directly to Dubai Police 999 integration & Victor Control", "status": "Passed" },
+          { "item": "High-Speed Highway Speed Limiter", "spec": "Calibrated in compliance with UAE Federal Traffic regulations (120 km/h / 140 km/h E11)", "status": "Passed" },
+          { "item": "Encrypted Cellular Wi-Fi Hotspot", "spec": "Dedicated 5G onboard Wi-Fi hotspot with enterprise-grade VPN encryption", "status": "Passed" }
+        ]
+      },
+      {
+        "id": "passenger-safety",
+        "name": "VIP Passenger Cabin Protection & Medical",
+        "icon": "user-check",
+        "checks": [
+          { "item": "Acoustic & Security Privacy Glass", "spec": "RTA-compliant legal tinted security windows with UV heat rejection", "status": "Passed" },
+          { "item": "Certified Fire Extinguisher Unit", "spec": "Automotive dry chemical extinguisher mounted per UAE civil defence standards", "status": "Passed" },
+          { "item": "Emergency Medical Trauma Kit", "spec": "Automated external defibrillator (AED) and sterilized medical trauma dressing", "status": "Passed" },
+          { "item": "Dual Side-Curtain Airbags", "spec": "Comprehensive multi-point passenger supplemental restraint system verified", "status": "Passed" },
+          { "item": "Secure Rear Privacy Sunblinds", "spec": "Electronic rear window and passenger door blinds functional", "status": "Passed" }
+        ]
+      },
+      {
+        "id": "hygiene-chauffeur",
+        "name": "Chauffeur Certification & Luxury Presentation",
+        "icon": "sparkles",
+        "checks": [
+          { "item": "RTA Limousine Chauffeur Permit", "spec": "Valid RTA commercial chauffeur ID with background criminal clearance", "status": "Passed" },
+          { "item": "Formal Attire & Grooming Audit", "spec": "Immaculate dark business suit, tie, polished shoes, and multi-lingual protocol badge", "status": "Passed" },
+          { "item": "Pre-Shift Breathalyzer & Fitness", "spec": "Mandatory digital alcohol check-in at Dubai Al Garhoud dispatch bay", "status": "Passed" },
+          { "item": "Luxury Amenities Staging", "spec": "Chilled bottled artisan water, refreshing towels, and premium device cables", "status": "Passed" },
+          { "item": "Ozone Interior Sanitization", "spec": "Deep-cleaned cabin with allergen-free purification prior to each VIP assignment", "status": "Passed" }
+        ]
+      }
+    ],
+    "telematicsHardware": [
+      {
+        "name": "RTA Smart Limousine Telematics Unit",
+        "tagline": "Dubai Roads & Transport Authority Integration",
+        "description": "Certified smart limousine telematics gateway providing direct telemetry to RTA Dubai, capturing accurate route tracking, meter logs, and chauffeur identity.",
+        "specs": ["Sub-5 second telemetry update", "Direct RTA central server feed", "Encrypted satellite location", "Automated Salik toll synchronization"]
+      },
+      {
+        "name": "Executive Emergency SOS Bridge",
+        "tagline": "Direct Central Control & Police Link",
+        "description": "Silent security distress bridge allowing executive passengers or chauffeurs to signal emergency response without drawing external attention.",
+        "specs": ["Encrypted silent cloud alert", "Automatic Dubai Police / Abu Dhabi Police bridge", "Command desk live audio patch", "Priority dispatch interception"]
+      },
+      {
+        "name": "Enterprise 5G In-Cabin Hotspot",
+        "tagline": "Secure Mobile Executive Office",
+        "description": "High-bandwidth dual-carrier 5G connectivity ensuring managing directors and board members conduct uninterrupted confidential video calls on the road.",
+        "specs": ["Dual 5G eSIM (Etisalat / du)", "WPA3 enterprise Wi-Fi security", "Multi-device high-speed streaming", "USB-C 65W PD laptop chargers"]
+      },
+      {
+        "name": "High-Speed Climate & Desert Telemetry",
+        "tagline": "Extreme Weather Monitoring",
+        "description": "Specialized sensor array monitoring cabin internal temperature, tire heat dissipation, and cooling performance during harsh UAE summer months.",
+        "specs": ["Live cabin temperature telemetry", "Real-time tire pressure & temperature", "Engine thermal safety cut-off", "Automatic secondary AC booster"]
+      }
+    ],
+    "womenSafetyProtocol": {
+      "title": "VIP Executive & Diplomatic Night Protocol",
+      "badge": "Diplomatic Chauffeur Certified",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Vetted Executive Chauffeur Assignment",
+          "description": "Chauffeurs assigned to international delegations, women executives, and diplomatic missions hold advanced security driving certifications."
+        },
+        {
+          "step": "02",
+          "title": "Discreet Flight & Schedule Tracking",
+          "description": "Real-time radar flight tracking for arrivals at DXB Terminal 1/2/3, Al Maktoum (DWC), and Abu Dhabi (AUH) with zero waiting penalty for flight delays."
+        },
+        {
+          "step": "03",
+          "title": "Secure Curbside & Porte-Cochère Drop",
+          "description": "Direct drop-off at designated hotel, embassy, or residential porte-cochère under active concierge supervision with luggage assistance."
+        },
+        {
+          "step": "04",
+          "title": "Electronic Duty Sign-Off",
+          "description": "Trip completion is recorded via encrypted tablet signature after safe entrance into the venue or residence is visually confirmed."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Are Victor Mobility vehicles compliant with Dubai RTA Limousine regulations?",
+        "answer": "Yes. 100% of our UAE fleet is licensed under RTA luxury limousine regulations, carrying authorized commercial plates, RTA telematics systems, and driven by RTA-certified chauffeurs."
+      },
+      {
+        "question": "How do you ensure executive safety during high-speed transit on the E11 highway?",
+        "answer": "All vehicles feature active lane-keeping assist, adaptive cruise control, dynamic stability control, and continuous tire pressure monitoring, with chauffeurs trained in defensive highway driving."
+      },
+      {
+        "question": "Can corporate clients request female chauffeurs for executive transfers?",
+        "answer": "Yes. Upon prior reservation, Victor Mobility provides certified professional female chauffeurs for corporate women executives, families, and diplomatic guests across Dubai and Abu Dhabi."
+      },
+      {
+        "question": "What is the procedure if a passenger accidentally leaves valuables inside the limousine?",
+        "answer": "All cabins undergo an immediate inspection by the chauffeur upon passenger drop-off. Any left items are logged with our 24/7 Dubai Dispatch Desk and returned via secure courier within 2 hours."
+      }
+    ]
+  }
+}
