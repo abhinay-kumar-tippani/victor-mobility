@@ -1,37 +1,38 @@
 # Handoff
 
-## Milestone: Phase 4 — Interactive Route & Fare Estimator + Chauffeur Protocol Academy
+## Milestone: Phase 5 — Corporate Client Portal & Shift Roster Telematics Dashboard
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Implementing interactive corridor rate calculators and the Wheely-style Chauffeur Protocol Academy across India (`/india/estimator`, `/india/academy`) and UAE (`/uae/estimator`, `/uae/academy`).
+- **Milestone Context**: Implementing interactive corporate client management portals and shift roster telematics dashboards for India (`/india/portal`) and UAE (`/uae/portal`).
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-Phase 4 introduces pricing transparency and operational substantiation to Victor Mobility, establishing parity with industry benchmarks (Wheely, ECO Mobility):
+Phase 5 equips Victor Mobility with an enterprise client software experience, demonstrating real-time fleet operations and contract governance to multinational clients:
 
-1. **Interactive Route & Fare Estimator (`src/components/estimator/RouteFareEstimator.tsx`)**:
-   - Region-aware calculator adapting to India (INR ₹) and UAE (AED د.إ).
-   - Hub filter allowing instant switching between operating hubs (Hyderabad, Bengaluru, Pune, Dubai, Abu Dhabi, Sharjah).
-   - Corridor selection with exact expressway routing, transit distance (~km), and estimated travel duration.
-   - 4-Tier Fleet selection (Executive Sedan, Premium Saloon, Executive MPV, Luxury Coach) with luggage/passenger specs and hourly package rates.
-   - Dynamic price calculation displaying indicative corporate brackets (e.g. ₹1,600 – ₹1,900 or AED 220 – AED 280) with clear standard inclusions.
-   - Direct WhatsApp dispatch pre-filling route and estimated price range to regional desk (`+91 93965 46950` for India, `+971 52 455 2441` for UAE).
-   - "Copy Estimate Summary" clipboard tool with visual feedback.
-   - Dedicated pages: `/india/estimator` and `/uae/estimator`.
+1. **Interactive Corporate Client Portal Dashboard (`src/components/portal/CorporatePortalDashboard.tsx`)**:
+   - **Enterprise Account Banner**: Dedicated corporate account identity (*Amazon Development Centre India* / *Emirates Global Investment Group*), contract details, active vehicle count, and direct Fleet Account Manager contact (Mujeeb Ur Rehman Mohammed in India, Rashid Al-Maktoum in UAE).
+   - **Tab 1: Live Shift Rosters & Telematics**:
+     - Interactive shift switching: Morning Login Shift, Evening Logout Shift, Night Graveyard Women Safety Escort Shift.
+     - Live telematics status: Vehicle plate, vetted chauffeur ID, speed governance index, 22°C cabin temperature, and GPS monitoring.
+     - Stop-by-stop sequencing: Completed stops, active vehicle location, and confirmed drop-off markers.
+     - Direct WhatsApp roster adjustment dispatcher to fleet desk (`+91 93965 46950` / `+971 52 455 2441`).
+   - **Tab 2: Monthly SLA Compliance Scorecard**:
+     - Audited performance metrics: 99.4% On-Time Dispatch Index, 100% Police & BGV Verification, 100% Female Night Escort Compliance, 4.92/5.0 Commuter Rating.
+     - Operational safeguards: 15-minute emergency breakdown hot-swap guarantee, automated speed alarms, and statutory labor law compliance.
+   - **Tab 3: Billing & Invoicing Reconciler**:
+     - Monthly billing statement breakdown: total trips, kilometers, fuel adjustments, and 5% GST/VAT tax reporting.
+     - One-click "Download Sample Statement" text file export.
+     - 100% GPS audit reconciliation badge.
 
-2. **The Victor Chauffeur Protocol Academy (`src/components/academy/ChauffeurAcademy.tsx`)**:
-   - 5-Pillar Chauffeur Curriculum (Radar Punctuality, Non-Disclosure Discretion, 24-Point Cabin Audit, BGV & Night Safety Escorts, Defensive Telematics).
-   - Interactive 24-Point Pre-Dispatch Audit Checklist covering Exterior & Mechanical, Cabin Atmosphere, Passenger Amenities, and Safety & Compliance.
-   - Transparent Digital Chauffeur Badge Verification Card previewing driver ID, BGV status, defensive driving grade, and 99.4% on-time record.
-   - Dedicated pages: `/india/academy` and `/uae/academy`.
+2. **Dedicated Route Pages**:
+   - `/india/portal`: India Corporate Client Portal & Shift Telematics Desk with Schema.org `WebApplication` structured data.
+   - `/uae/portal`: UAE Corporate Client Portal & Fleet Telematics Desk with Schema.org `WebApplication` structured data.
 
-3. **Global Navigation & Services Integration**:
-   - Added "Estimator" and "Academy" to main navigation items (`Header.tsx`) across desktop and mobile.
-   - Added "Route & Fare Estimator" and "Chauffeur Academy" to corporate footer (`Footer.tsx`).
-   - Integrated dual feature promo cards into `/india/services` and `/uae/services`.
-   - Updated `sitemap.ts` to index all 36 static SSG routes.
+3. **Global Navigation & Footer Updates**:
+   - `Footer.tsx`: Added "Client Telematics Portal" under Quick Navigation across both India and UAE portals.
+   - `src/app/sitemap.ts`: Indexed all 38 static SSG routes.
 
 ---
 
@@ -41,10 +42,10 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across content models, estimator, and academy |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across content models, portal dashboard, and routes |
 | **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
-| **Production Build** (`next build`) | **PASS (36/36 static pages)** | 100% SSG static compilation (`○` and `●`) |
-| **Phase 4 Estimator & Academy Suite** (`verify-phase4.mjs`) | **PASS (7/7 test suites)** | India Estimator calculation & WhatsApp link, India mobile view, UAE Limousine Estimator with AED pricing & Dubai desk, Chauffeur Academy curriculum tabs & 24-point audit, Academy mobile view, Global navigation links, Schema.org JSON-LD |
+| **Production Build** (`next build`) | **PASS (38/38 static pages)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 5 Portal Suite** (`verify-phase5.mjs`) | **PASS (5/5 test suites)** | India Corporate Portal shift rosters, Night escort protocol, WhatsApp roster adjustment, SLA 99.4% scorecard, Billing reconciler, UAE Portal Dubai delegation telemetry & VAT, Footer portal links, Schema.org WebApplication JSON-LD |
 
 ---
 
@@ -52,8 +53,6 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Screenshot Artifact | Location | Purpose |
 | :--- | :--- | :--- |
-| `phase4-india-estimator-desktop.png` | `docs/screenshots/` | Desktop India Route & Fare Estimator with corridor calculation and fleet selector |
-| `phase4-india-estimator-mobile.png` | `docs/screenshots/` | Mobile view (390px) of India Estimator showing responsive touch controls |
-| `phase4-uae-estimator-desktop.png` | `docs/screenshots/` | Desktop UAE Limousine Estimator showing Maybach luxury bracket for Dubai Airport corridor |
-| `phase4-academy-desktop.png` | `docs/screenshots/` | Desktop Chauffeur Protocol Academy with 24-point audit and digital driver badge |
-| `phase4-academy-mobile.png` | `docs/screenshots/` | Mobile view (390px) of Chauffeur Academy |
+| `phase5-india-portal-desktop.png` | `docs/screenshots/` | Desktop India Corporate Client Portal showing live shift rosters, telemetry, and account manager |
+| `phase5-india-portal-mobile.png` | `docs/screenshots/` | Mobile view (390px) of India Corporate Portal showing responsive telematics cards |
+| `phase5-uae-portal-desktop.png` | `docs/screenshots/` | Desktop UAE Corporate Client Portal tailored for Dubai delegation limousine fleets |

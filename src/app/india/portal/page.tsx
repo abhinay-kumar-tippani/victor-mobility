@@ -1,0 +1,101 @@
+import type { Metadata } from "next";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import CorporatePortalDashboard from "@/components/portal/CorporatePortalDashboard";
+import indiaData from "@/content/india.json";
+import mediaData from "@/content/media.json";
+import type { IndiaContent, MediaContent } from "@/types/content";
+import { Activity, ShieldCheck, CheckCircle2, Building2 } from "lucide-react";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Corporate Client Portal & Shift Telematics | Victor Mobility India",
+  description:
+    "Enterprise client mobility portal preview with live shift roster tracking, vehicle telematics, monthly SLA compliance scorecards, and billing reconciliation for corporate transport teams.",
+  alternates: {
+    canonical: "https://victor-mobility.vercel.app/india/portal",
+    languages: {
+      "en-IN": "https://victor-mobility.vercel.app/india/portal",
+      "en-AE": "https://victor-mobility.vercel.app/uae/portal",
+    },
+  },
+};
+
+export default function IndiaPortalPage() {
+  const content = indiaData as unknown as IndiaContent;
+  const media = mediaData as unknown as MediaContent;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Victor Mobility India Corporate Client Portal",
+    applicationCategory: "BusinessApplication",
+    description:
+      "Enterprise shift roster tracking, telematics monitoring, and SLA compliance scorecards for corporate employee transport.",
+    provider: {
+      "@type": "Organization",
+      name: content.companyName,
+      url: "https://victor-mobility.vercel.app/india",
+    },
+  };
+
+  return (
+    <div className="flex min-h-screen flex-col bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Header contact={content.contact} />
+
+      <main id="main-content" className="flex-1 focus:outline-none">
+        {/* Hero Section */}
+        <section className="bg-brand-ink text-white py-16 sm:py-24 border-b border-brand-indigo/30 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl space-y-4">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+                <Activity className="w-3.5 h-3.5 text-brand-violet" />
+                Enterprise Operations Software Preview
+              </span>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Corporate Client Portal &amp; Telematics
+              </h1>
+              <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
+                Experience real-time shift route monitoring, vehicle telemetry, monthly SLA scorecards, and billing transparency, engineered to uphold our baseline: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <span>Live GPS Shift Telematics</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>99.4% On-Time SLA Index</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-emerald-400" />
+                  <span>Dedicated Fleet Account Managers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Dashboard Section */}
+        <section className="py-12 sm:py-16 bg-brand-soft-neutral/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CorporatePortalDashboard region="india" />
+          </div>
+        </section>
+      </main>
+
+      <Footer
+        contact={content.contact}
+        offices={content.offices}
+        mediaCaption={media.caption}
+        isoEnabled={content.sourceClaims.iso?.enabled}
+      />
+    </div>
+  );
+}

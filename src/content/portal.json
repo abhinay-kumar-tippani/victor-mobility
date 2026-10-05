@@ -1,0 +1,189 @@
+{
+  "india": {
+    "clientName": "Amazon Development Centre India",
+    "facilityLocation": "Financial District Campus, Hyderabad & Whitefield Campus, Bengaluru",
+    "contractType": "Comprehensive 24/7 Corporate Employee Transport Retainer",
+    "accountManager": "Mujeeb Ur Rehman Mohammed",
+    "managerRole": "Business Development & Fleet Operations Lead",
+    "managerPhone": "+91 91007 77768",
+    "managerWhatsApp": "919396546950",
+    "slaScorecard": {
+      "onTimeIndex": "99.4%",
+      "onTimeTarget": "98.5%",
+      "bgvCompliance": "100%",
+      "bgvTarget": "100%",
+      "femaleEscortCompliance": "100%",
+      "femaleEscortTarget": "100%",
+      "cabinAuditPassRate": "99.8%",
+      "passengerSatisfaction": "4.92 / 5.0",
+      "activeVehiclesToday": "142 Vehicles",
+      "totalCommutersServed": "2,480 Daily Commuters"
+    },
+    "shiftRosters": [
+      {
+        "id": "shift-morning-01",
+        "name": "Morning Login Shift (Shift A)",
+        "window": "06:45 AM – 08:30 AM",
+        "routeCode": "HYD-COR-04 (Kondapur ➔ Gachibowli ➔ Financial District)",
+        "assignedVehicle": "Toyota Innova Crysta (TS 09 UB 4821)",
+        "driverName": "Ramesh V. (ID: VCH-IND-0342)",
+        "driverPhone": "+91 98765 12340",
+        "passengerCount": "6 / 6 Seats Occupied",
+        "currentStatus": "En Route — Arriving Campus Gate 3 in 8 Mins",
+        "statusColor": "emerald",
+        "telematics": {
+          "speed": "42 km/h (Limit: 50 km/h)",
+          "gpsSignal": "Optimal (100% Tracking)",
+          "cabinTemp": "22°C (Preset)",
+          "escortStatus": "Standard Shift (Daylight Protocol)"
+        },
+        "stops": [
+          { "stop": "Kondapur RTO Junction", "time": "06:50 AM", "status": "Completed" },
+          { "stop": "Kothaguda Reserve Forest", "time": "07:05 AM", "status": "Completed" },
+          { "stop": "Gachibowli ORR Junction", "time": "07:22 AM", "status": "Completed" },
+          { "stop": "Amazon Campus Financial District", "time": "07:45 AM", "status": "Approaching" }
+        ]
+      },
+      {
+        "id": "shift-evening-02",
+        "name": "Evening Logout Shift (Shift B)",
+        "window": "05:30 PM – 07:15 PM",
+        "routeCode": "BLR-COR-12 (Whitefield ITPB ➔ Marathahalli ➔ Bellandur)",
+        "assignedVehicle": "26-Seater Luxury Tempo Traveler (KA 03 AC 9120)",
+        "driverName": "Suresh Gowda (ID: VCH-IND-0198)",
+        "driverPhone": "+91 98765 56780",
+        "passengerCount": "24 / 26 Seats Occupied",
+        "currentStatus": "Boarding at Campus Bay 7 — Scheduled Departure 05:40 PM",
+        "statusColor": "amber",
+        "telematics": {
+          "speed": "0 km/h (Stationary at Bay)",
+          "gpsSignal": "Optimal (100% Tracking)",
+          "cabinTemp": "21.5°C",
+          "escortStatus": "Standard Shift"
+        },
+        "stops": [
+          { "stop": "Whitefield Campus Bay 7", "time": "05:35 PM", "status": "Boarding" },
+          { "stop": "Kundalahalli Gate", "time": "06:05 PM", "status": "Scheduled" },
+          { "stop": "Marathahalli Multiplex", "time": "06:25 PM", "status": "Scheduled" },
+          { "stop": "Bellandur Central Junction", "time": "06:55 PM", "status": "Scheduled" }
+        ]
+      },
+      {
+        "id": "shift-night-03",
+        "name": "Night Graveyard Roster (Shift C · Women Safety Protocol)",
+        "window": "11:00 PM – 12:45 AM",
+        "routeCode": "HYD-COR-09 (Hitec City ➔ Kukatpally ➔ Miyapur)",
+        "assignedVehicle": "Executive Sedan (TS 07 UA 1184)",
+        "driverName": "Mohammed Jahangeer (ID: VCH-IND-0511)",
+        "driverPhone": "+91 98765 99120",
+        "passengerCount": "3 Female Commuters",
+        "currentStatus": "Live Route Active — Security Escort Onboard",
+        "statusColor": "emerald",
+        "telematics": {
+          "speed": "48 km/h",
+          "gpsSignal": "Active & Monitored by 24/7 Operations",
+          "cabinTemp": "22°C",
+          "escortStatus": "Verified Security Guard Onboard (ID: SEC-8812)"
+        },
+        "stops": [
+          { "stop": "HITEC City Phase 2 Campus", "time": "11:15 PM", "status": "Completed" },
+          { "stop": "KPHB Colony Phase 3", "time": "11:42 PM", "status": "Dropped & Confirmed Inside Premises" },
+          { "stop": "Miyapur Allwyn Cross Roads", "time": "12:08 AM", "status": "Next Drop" }
+        ]
+      }
+    ],
+    "billingSummary": {
+      "month": "September 2026",
+      "invoiceNumber": "VM-INV-2026-09-HYD42",
+      "totalRoutesOperated": "4,180 Shift Trips",
+      "totalKilometers": "118,420 km",
+      "baseRetainerAmount": "₹28,45,000",
+      "fuelIndexAdjustment": "₹68,400 (Indexed against Diesel/EV benchmarks)",
+      "gstAmount": "₹1,45,670 (5% RCM Compliant)",
+      "netInvoicePayable": "₹30,59,070",
+      "paymentStatus": "Cleared via Corporate ECS",
+      "auditStatus": "Verified against GPS Telematics Logs"
+    }
+  },
+  "uae": {
+    "clientName": "Emirates Global Investment Group",
+    "facilityLocation": "DIFC Tower & Downtown Dubai Head Office",
+    "contractType": "Executive Limousine Retainer & VIP Delegation Mobility",
+    "accountManager": "Rashid Al-Maktoum / UAE Operations Desk",
+    "managerRole": "Senior Limousine Operations Director",
+    "managerPhone": "+971 52 455 2441",
+    "managerWhatsApp": "971524552441",
+    "slaScorecard": {
+      "onTimeIndex": "99.7%",
+      "onTimeTarget": "99.0%",
+      "bgvCompliance": "100%",
+      "bgvTarget": "100%",
+      "femaleEscortCompliance": "100%",
+      "femaleEscortTarget": "100%",
+      "cabinAuditPassRate": "100%",
+      "passengerSatisfaction": "4.96 / 5.0",
+      "activeVehiclesToday": "34 Luxury Limousines",
+      "totalCommutersServed": "180 Executive Transfers Daily"
+    },
+    "shiftRosters": [
+      {
+        "id": "uae-shift-01",
+        "name": "Executive Board Delegation (VIP Convoys)",
+        "window": "08:00 AM – 10:30 AM",
+        "routeCode": "DXB-VIP-01 (DXB Terminal 3 ➔ DIFC Gate Village ➔ Downtown)",
+        "assignedVehicle": "Mercedes-Maybach S-Class (Dubai Plate: D 40182)",
+        "driverName": "Rashid M. (ID: VCH-UAE-0812)",
+        "driverPhone": "+971 50 123 4567",
+        "passengerCount": "3 Executive Delegates",
+        "currentStatus": "VIP Curbside Pickup Cleared — En Route to DIFC",
+        "statusColor": "emerald",
+        "telematics": {
+          "speed": "78 km/h (Sheikh Zayed Road E11)",
+          "gpsSignal": "Optimal (100% Tracking)",
+          "cabinTemp": "20.5°C (Chilled)",
+          "escortStatus": "First Class Chauffeur Protocol"
+        },
+        "stops": [
+          { "stop": "DXB Terminal 3 VIP Curbside", "time": "08:15 AM", "status": "Completed" },
+          { "stop": "DIFC Gate Village", "time": "08:42 AM", "status": "Approaching" },
+          { "stop": "Downtown Address Sky View", "time": "09:30 AM", "status": "Scheduled" }
+        ]
+      },
+      {
+        "id": "uae-shift-02",
+        "name": "Inter-Emirate Financial Summit Convoy",
+        "window": "01:30 PM – 04:00 PM",
+        "routeCode": "UAE-COR-07 (Dubai Al Garhoud ➔ Abu Dhabi ADGM Al Maryah)",
+        "assignedVehicle": "Cadillac Escalade Executive SUV (Dubai Plate: P 77210)",
+        "driverName": "Tariq Aziz (ID: VCH-UAE-0644)",
+        "driverPhone": "+971 50 987 1120",
+        "passengerCount": "5 Senior Partners",
+        "currentStatus": "Highway Cruise Active (E11) — Free Wi-Fi Active",
+        "statusColor": "emerald",
+        "telematics": {
+          "speed": "115 km/h (Safe Cruise Compliance)",
+          "gpsSignal": "Optimal",
+          "cabinTemp": "21°C",
+          "escortStatus": "Inter-Emirate Permitted"
+        },
+        "stops": [
+          { "stop": "Dubai Al Garhoud Victor Depot", "time": "01:30 PM", "status": "Completed" },
+          { "stop": "Ghantoot Border Checkpoint", "time": "02:15 PM", "status": "Completed" },
+          { "stop": "Abu Dhabi ADGM Al Maryah Island", "time": "03:10 PM", "status": "Approaching" }
+        ]
+      }
+    ],
+    "billingSummary": {
+      "month": "September 2026",
+      "invoiceNumber": "VLL-INV-2026-09-DXB18",
+      "totalRoutesOperated": "480 Executive Chauffeur Transfers",
+      "totalKilometers": "34,800 km",
+      "baseRetainerAmount": "AED 185,000",
+      "fuelIndexAdjustment": "AED 0 (Fixed Corporate Agreement)",
+      "gstAmount": "AED 9,250 (5% UAE VAT)",
+      "netInvoicePayable": "AED 194,250",
+      "paymentStatus": "Cleared via Corporate Bank Wire",
+      "auditStatus": "RTA Limousine Log Reconciled"
+    }
+  }
+}

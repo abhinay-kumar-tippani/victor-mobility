@@ -77,6 +77,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/portal`} className="hover:text-white transition-colors font-semibold text-brand-violet">
+                  Client Telematics Portal
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
