@@ -1,49 +1,50 @@
 # Handoff
 
-## Milestone: Phase 17 — Enterprise Fleet Safety, IoT Telematics & Vehicle Audit Desk (/safety)
+## Milestone: Phase 18 — Enterprise Employee Shift Roster & Route Optimization Desk (/roster)
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Implementing interactive 50-Point Pre-Trip Vehicle Audit Simulator, AIS-140 IoT telematics hardware showcase, Women Passenger Night Safety Protocol, and emergency dispatch procedures for `/india/safety` and `/uae/safety`.
+- **Milestone Context**: Implementing interactive Shift Roster Manifest Inspector, nodal pickup stops timeline, geofenced route optimization rules, and Nodal vs Doorstep comparison matrix for `/india/roster` and `/uae/roster`.
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-Phase 17 equips corporate transport managers, risk & compliance directors, and enterprise HR heads with complete visibility into Victor Mobility's safety architecture:
+Phase 18 equips corporate facilities heads, enterprise HR, and transport dispatch managers with end-to-end employee shift roster planning tools:
 
-1. **Enterprise Safety & IoT Telematics Dataset (`src/content/safety.json`)**:
-   - Detailed inspection checklists, automotive IoT hardware specifications, and women safety transit protocols for India (`/india/safety`) and UAE (`/uae/safety`):
-     - **50-Point Pre-Trip Audit Modules**:
-       - *Mechanical & Powertrain Integrity*: Tyre tread depth (min 3.5mm), dual-circuit ABS brakes, OBD-II diagnostic scans, fluid & coolant levels, full exterior lighting & hazard flashers.
-       - *AIS-140 IoT & Security Hardware*: 10-second polling frequency GPS with dual-SIM failover, dual tactical emergency panic SOS buttons, microprocessor speed governor (sealed 80 km/h), dual-lens AI road dashcam, automated geofence deviation alarm.
-       - *Passenger Cabin Safety & First Aid*: 3-point inertia-reel seatbelts, certified 1kg dry powder fire extinguisher, emergency glass-breaking hammers, St. John Ambulance sterilized first aid kit, child safety door locks.
-       - *Cabin Sanitization & Chauffeur Fitness*: Zero-tolerance pre-shift digital alcohol breathalyzer log, formal uniform and commercial badge audit, HEPA air-conditioning filter sanitization, executive amenity staging, full cabin interior detailing.
-     - **Onboard IoT Hardware Stack**:
-       - AIS-140 Certified GPS Tracker (MoRTH compliant, encrypted satellite lock).
-       - Tactical Dual Panic SOS Buttons (<1.5s visual/audible alert to 24/7 Command Desk).
-       - Electronic Speed Governor (tamper-proof 80 km/h highway and 40 km/h campus speed capping).
-       - Dual-Lens AI Road & Safety Dashcam (forward traffic HD recording + fatigue micro-sleep sensor with physical cabin lens privacy shutter).
-     - **Women Passenger Night Transit Protocol (20:00 to 06:00)**:
-       - Step 01: Vetted Chauffeur Assignment (police background verified + escort badge certified).
-       - Step 02: Encrypted Live Geofence Route Sharing with passenger & corporate supervisor.
-       - Step 03: Illuminated Doorstep Drop (vehicle angled with headlamps lighting residential entrance).
-       - Step 04: Visual Handshake Confirmation prior to electronic duty slip closure.
+1. **Enterprise Shift Roster Dataset (`src/content/roster.json`)**:
+   - Detailed shift commute models, live nodal stop manifests, and route optimization rules for India (`/india/roster`) and UAE (`/uae/roster`):
+     - **Shift Commute Frameworks**:
+       - *General Corporate Day Shift* (09:00 AM Login | 06:00 PM Logout): 44-seater luxury coaches along major arterial corridors; 90–95% seating efficiency.
+       - *Morning Global Operations Shift* (06:00 AM Login | 03:00 PM Logout): 22-seater AC shuttles connecting suburban residential clusters.
+       - *Evening Technology & BPO Shift* (02:00 PM Login | 11:00 PM Logout): 22-seater shuttles + executive MPVs with doorstep drops for female employees.
+       - *24/7 Night Graveyard & Cloud Support* (10:00 PM Login | 07:00 AM Logout): Toyota Innova HyCross with 100% certified doorstep escort drops.
+     - **Authentic Shift Roster Manifests**:
+       - `VIC-ROST-HYD-041`: Hyderabad (Miyapur -> JNTU -> KPHB -> Raheja Mindspace Hitec City), 44-seater luxury coach (TS 09 UA 8842), 41 confirmed boardings (93.2% occupancy), scheduled nodal stop timeline.
+       - `VIC-ROST-BLR-108`: Bengaluru (Silk Board -> HSR -> Bellandur -> Ecoworld), 22-seater AC shuttle (KA 01 AH 5410), 20 confirmed boardings (90.9% occupancy).
+       - `VIC-ROST-PUN-072`: Pune (Aundh -> Baner -> Wakad -> Hinjawadi Phase 3 SEZ), Toyota Innova HyCross (MH 12 QX 9918), 11:00 PM logout drops with Visual Handshake status confirmation.
+       - `VIC-ROST-DXB-203`: Dubai (Marina -> JLT -> Barsha Heights -> Dubai Internet City), Mercedes VIP Sprinter (DXB L 49102), 16 confirmed boardings (88.9% occupancy).
+       - `VIC-ROST-AUH-114`: Abu Dhabi (Saadiyat -> Corniche -> Al Maryah Island ADGM), Mercedes S-Class, 100% executive occupancy.
+     - **Route Optimization Architecture**:
+       - Max 45-Minute Commute Window Guarantee.
+       - Geofenced Nodal Densification (1km radius clusters mapped to metro / society gates).
+       - AIS-140 Automated Choke-Point Bypasses.
+       - Nodal Staging (35% cost reduction) vs Doorstep Escort Drops matrix.
 
-2. **Interactive Fleet Safety Audit Desk Component (`src/components/safety/FleetSafetyAuditDesk.tsx`)**:
-   - **50-Point Pre-Trip Safety Audit Checklist**: Interactive category switching across mechanical, telematics, passenger cabin, and chauffeur hygiene modules with 100% certified pass specifications.
-   - **IoT Hardware Stack**: Deep-dive technical specification cards for AIS-140 trackers, SOS alarms, speed governors, and AI dashcams.
-   - **Women Passenger Night Safety Protocol**: Step-by-step illuminated visual workflow.
+2. **Interactive Employee Shift Roster Desk Component (`src/components/roster/EmployeeShiftRosterDesk.tsx`)**:
+   - **Live Roster Manifest Inspector**: Interactive chips switching between Hyderabad, Bengaluru, and Pune manifests displaying scheduled stop sequences, vehicle plates, assigned badged chauffeurs, and occupancy metrics.
+   - **Shift Commute Synchronization**: Timings, vehicle fleet allocations, and routing strategies for 4 standard enterprise shift windows.
+   - **Nodal Routing & Travel Optimization Rules**: Core mathematical routing rules and side-by-side Nodal vs Doorstep comparison matrix.
    - **Actions**:
-     - "Request Safety Audit Dossier on WhatsApp" with prefilled audit specifications and honest inquiry disclaimer.
-     - "Print Audit Dossier" (`window.print()`).
+     - "Request Route Optimization Study on WhatsApp" with prefilled roster parameters and truthful inquiry disclaimer.
+     - "Print Selected Manifest Dossier" (`window.print()`).
 
 3. **Dedicated Route Pages**:
-   - `/india/safety`: India Enterprise Fleet Safety & IoT Telematics Desk with Schema.org `Service` structured data.
-   - `/uae/safety`: UAE Executive Limousine Safety & RTA Telematics Desk with Schema.org `Service` structured data.
+   - `/india/roster`: India Employee Shift Roster & Route Optimization Desk with Schema.org `Service` structured data.
+   - `/uae/roster`: UAE Executive Shift Roster & Free Zone Logistics Desk with Schema.org `Service` structured data.
 
 4. **Global Navigation & Cross-Linking**:
-   - Added "Fleet Safety & IoT Telematics" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **60 static pages**).
+   - Added "Employee Shift Roster Desk" link under Navigation in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **62 static pages**).
 
 ---
 
@@ -53,10 +54,10 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across safety datasets, audit modules, and route pages |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across roster datasets, manifest tables, and route pages |
 | **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
-| **Production Build** (`next build`) | **PASS (60/60 static routes)** | 100% SSG static compilation (`○` and `●`) |
-| **Phase 17 Verification Suite** (`verify-phase17.mjs`) | **PASS (5/5 test suites)** | Page load, Schema.org JSON-LD, 50-point audit switching, IoT hardware showcase, WhatsApp link generation, UAE limousine safety desk, mobile 390px view |
+| **Production Build** (`next build`) | **PASS (62/62 static routes)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 18 Verification Suite** (`verify-phase18.mjs`) | **PASS (5/5 test suites)** | Page load, Schema.org JSON-LD, manifest switching, nodal stops, shift models, optimization rules, WhatsApp link generation, UAE Free Zone desk, mobile 390px view |
 
 ---
 
@@ -64,6 +65,6 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Screenshot Artifact | Location | Purpose |
 | :--- | :--- | :--- |
-| `phase17-india-safety-desktop.png` | `docs/screenshots/` | Desktop view of India Fleet Safety Desk with 50-point pre-trip vehicle audit checklist and IoT telematics metrics |
-| `phase17-india-safety-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column layout, touch controls, and safety audit cards |
-| `phase17-uae-safety-desktop.png` | `docs/screenshots/` | Desktop view of UAE Limousine Safety Desk with RTA telematics integration and VIP security protocols |
+| `phase18-india-roster-desktop.png` | `docs/screenshots/` | Desktop view of India Shift Roster Desk with live nodal stops sequence and occupancy metrics |
+| `phase18-india-roster-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column layout, touch controls, and shift manifest cards |
+| `phase18-uae-roster-desktop.png` | `docs/screenshots/` | Desktop view of UAE Free Zone Shift Roster Desk with Dubai Internet City and ADGM routes |

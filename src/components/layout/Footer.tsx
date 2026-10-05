@@ -137,6 +137,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/roster`} className="hover:text-white transition-colors text-indigo-400 font-semibold">
+                  Employee Shift Roster Desk
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>

@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Employee Shift Roster & Route Optimization Desk",
+    "eyebrow": "Nodal Transit Loops · Shift Synchronisation · Campus Commute",
+    "description": "Comprehensive employee shift roster planning, nodal pickup stops, geofenced route sequencing, and digital trip manifests designed for tech park campuses, GCCs, and 24/7 IT delivery centres.",
+    "shifts": [
+      {
+        "id": "general-day",
+        "name": "General Corporate Day Shift",
+        "login": "09:00 AM",
+        "logout": "06:00 PM",
+        "commuteType": "High-Capacity Commuter Coaches (44-Seater)",
+        "routingStrategy": "Nodal Arterial Highway Stops",
+        "avgTravelTime": "45–55 mins",
+        "occupancyTarget": "90–95% Seating Efficiency"
+      },
+      {
+        "id": "morning-support",
+        "name": "Morning Global Operations Shift",
+        "login": "06:00 AM",
+        "logout": "03:00 PM",
+        "commuteType": "22-Seater AC Luxury Shuttles",
+        "routingStrategy": "Residential Suburb Feeder Loops",
+        "avgTravelTime": "35–45 mins",
+        "occupancyTarget": "85–90% Seating Efficiency"
+      },
+      {
+        "id": "evening-logout",
+        "name": "Evening Technology & BPO Shift",
+        "login": "02:00 PM",
+        "logout": "11:00 PM",
+        "commuteType": "22-Seater Shuttles & Executive MPVs",
+        "routingStrategy": "Doorstep Drop for Female Employees",
+        "avgTravelTime": "40–50 mins",
+        "occupancyTarget": "80–85% Seating Efficiency"
+      },
+      {
+        "id": "night-graveyard",
+        "name": "24/7 Night Graveyard & Cloud Support",
+        "login": "10:00 PM",
+        "logout": "07:00 AM",
+        "commuteType": "Toyota Innova HyCross & Executive MPVs",
+        "routingStrategy": "100% Doorstep Security Escort Drops",
+        "avgTravelTime": "30–40 mins",
+        "occupancyTarget": "Dedicated 4–6 Passengers / Vehicle"
+      }
+    ],
+    "sampleManifests": [
+      {
+        "rosterId": "VIC-ROST-HYD-041",
+        "city": "Hyderabad",
+        "corridor": "Miyapur -> JNTU -> KPHB -> Raheja Mindspace Hitec City",
+        "shift": "General Corporate Day Shift (09:00 AM Inbound)",
+        "vehicleType": "44-Seater Air-Suspension Luxury Coach",
+        "plateNumber": "TS 09 UA 8842",
+        "chauffeur": "K. Venkateshwarlu (Badge #VIC-HYD-104)",
+        "supervisor": "M. Ramesh (On-Campus Fleet Lead)",
+        "capacity": 44,
+        "bookedSeats": 41,
+        "occupancyRate": "93.2%",
+        "stops": [
+          { "stopNo": 1, "location": "Miyapur Allwyn Junction", "scheduledTime": "07:50 AM", "boardings": 8, "status": "On Time" },
+          { "stopNo": 2, "location": "JNTU Metro Station Gate 2", "scheduledTime": "08:02 AM", "boardings": 12, "status": "On Time" },
+          { "stopNo": 3, "location": "KPHB Colony Phase 3", "scheduledTime": "08:14 AM", "boardings": 9, "status": "On Time" },
+          { "stopNo": 4, "location": "Malaysian Township Circle", "scheduledTime": "08:26 AM", "boardings": 6, "status": "On Time" },
+          { "stopNo": 5, "location": "Hitec City Flyover Entry", "scheduledTime": "08:38 AM", "boardings": 6, "status": "On Time" },
+          { "stopNo": 6, "location": "Raheja Mindspace Building 12 Promenade", "scheduledTime": "08:52 AM", "boardings": 0, "status": "Destination Drop" }
+        ]
+      },
+      {
+        "rosterId": "VIC-ROST-BLR-108",
+        "city": "Bengaluru",
+        "corridor": "Silk Board -> HSR Layout -> Bellandur -> Ecoworld Tech Park",
+        "shift": "Morning Global Operations Shift (08:30 AM Inbound)",
+        "vehicleType": "22-Seater AC Luxury Executive Shuttle",
+        "plateNumber": "KA 01 AH 5410",
+        "chauffeur": "S. Murugan (Badge #VIC-BLR-218)",
+        "supervisor": "A. Krishnappa (ORR Corridor Dispatch)",
+        "capacity": 22,
+        "bookedSeats": 20,
+        "occupancyRate": "90.9%",
+        "stops": [
+          { "stopNo": 1, "location": "Silk Board Junction Bus Bay", "scheduledTime": "07:35 AM", "boardings": 5, "status": "On Time" },
+          { "stopNo": 2, "location": "HSR BDA Complex", "scheduledTime": "07:48 AM", "boardings": 7, "status": "On Time" },
+          { "stopNo": 3, "location": "Agara Flyover Bus Stop", "scheduledTime": "07:58 AM", "boardings": 4, "status": "On Time" },
+          { "stopNo": 4, "location": "Bellandur Central Mall Decongested Service Road", "scheduledTime": "08:10 AM", "boardings": 4, "status": "On Time" },
+          { "stopNo": 5, "location": "Ecoworld Campus Bay 3", "scheduledTime": "08:24 AM", "boardings": 0, "status": "Destination Drop" }
+        ]
+      },
+      {
+        "rosterId": "VIC-ROST-PUN-072",
+        "city": "Pune",
+        "corridor": "Aundh -> Baner -> Wakad Bridge -> Hinjawadi Phase 3 SEZ",
+        "shift": "Evening Logout Shift (11:00 PM Outbound Drops)",
+        "vehicleType": "Executive MPV (Toyota Innova HyCross)",
+        "plateNumber": "MH 12 QX 9918",
+        "chauffeur": "D. Shinde (Women Safety Escort Certified)",
+        "supervisor": "P. Deshmukh (Pune Night Ops Desk)",
+        "capacity": 6,
+        "bookedSeats": 5,
+        "occupancyRate": "83.3%",
+        "stops": [
+          { "stopNo": 1, "location": "Embassy TechZone Phase 3", "scheduledTime": "11:05 PM", "boardings": 5, "status": "Campus Departure" },
+          { "stopNo": 2, "location": "Wakad Kaspate Vasti (Doorstep Drop)", "scheduledTime": "11:22 PM", "boardings": -1, "status": "Visual Handshake" },
+          { "stopNo": 3, "location": "Pimple Saudagar Rose Icon (Doorstep Drop)", "scheduledTime": "11:34 PM", "boardings": -2, "status": "Visual Handshake" },
+          { "stopNo": 4, "location": "Baner Pancard Club Road (Doorstep Drop)", "scheduledTime": "11:46 PM", "boardings": -1, "status": "Visual Handshake" },
+          { "stopNo": 5, "location": "Aundh Parihar Chowk (Doorstep Drop)", "scheduledTime": "11:58 PM", "boardings": -1, "status": "Final Drop Complete" }
+        ]
+      }
+    ],
+    "optimizationRules": [
+      {
+        "title": "45-Minute Travel Window SLA",
+        "description": "Routes are dynamically sequenced so that no individual employee spends more than 45 minutes inside transit from scheduled boarding to campus gate arrival."
+      },
+      {
+        "title": "Geofenced Nodal Densification",
+        "description": "High-density residential clusters within 1 km radius are mapped to prominent illuminated nodal stops (metro stations, gated society gates) to maximize vehicle occupancy."
+      },
+      {
+        "title": "Live AIS-140 Automated Choke-Point Bypasses",
+        "description": "Dispatch telemetry continuously monitors arterial highway congestion (such as Bengaluru Silk Board or Hyderabad Cyber Towers) and triggers pre-approved decongested detour routes."
+      },
+      {
+        "title": "100% Female Passenger Safety Handshake",
+        "description": "For any drops between 20:00 and 06:00, the route is ordered to ensure male colleagues are not dropped after the last female passenger, or verified security escort personnel are deployed."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do you handle employee roster changes and last-minute shift swaps?",
+        "answer": "Roster supervisors can upload CSV/Excel files or push automated HRMS webhook updates up to 2 hours prior to scheduled shift dispatch. Our system automatically recalculates seating and updates chauffeur digital route sheets."
+      },
+      {
+        "question": "What is the difference between Nodal Staging and Doorstep Commute?",
+        "answer": "Nodal staging pools employees at major secure transit junctions (e.g. metro stations or society gates), enabling 44-seater luxury coach deployment that lowers per-employee transport costs by 35%. Doorstep commute utilizes executive MPVs for late-night drops and executive personnel."
+      },
+      {
+        "question": "How do employees track their assigned bus or shuttle en route?",
+        "answer": "Employees receive an automated SMS/WhatsApp link 20 minutes before their scheduled pickup time containing the live vehicle GPS pin, vehicle registration number, chauffeur photo, and estimated arrival countdown."
+      },
+      {
+        "question": "Can Victor Mobility integrate with our enterprise HRMS software?",
+        "answer": "Yes. Our telematics gateway supports RESTful API and SFTP integrations with leading enterprise transport and HRMS software (SAP SuccessFactors, Darwinbox, MoveInSync, Routematic) for automated attendance and billing reconciliation."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Executive Shift Roster & Free Zone Corridor Logistics Desk",
+    "eyebrow": "DIFC · Internet City · Expo City · Abu Dhabi ADGM Convoys",
+    "description": "Synchronized corporate delegation transit schedules, free zone employee shuttle rosters, and cross-emirate executive convoys linking luxury residential districts to Dubai and Abu Dhabi commercial precincts.",
+    "shifts": [
+      {
+        "id": "financial-morning",
+        "name": "DIFC & ADGM Financial Market Inbound",
+        "login": "07:30 AM",
+        "logout": "05:30 PM",
+        "commuteType": "First Class Saloons & Executive MPVs",
+        "routingStrategy": "Executive Residence to Financial Towers",
+        "avgTravelTime": "25–35 mins",
+        "occupancyTarget": "VIP 1–3 Passengers"
+      },
+      {
+        "id": "freezone-campus",
+        "name": "Dubai Internet City & Media City Shuttle",
+        "login": "08:30 AM",
+        "logout": "06:00 PM",
+        "commuteType": "Luxury AC Passenger Coaches & Sprinters",
+        "routingStrategy": "Metro Hub to Free Zone Campus Loops",
+        "avgTravelTime": "15–25 mins",
+        "occupancyTarget": "85–95% Seating Efficiency"
+      },
+      {
+        "id": "inter-emirate",
+        "name": "Dubai — Abu Dhabi Executive Convoy",
+        "login": "09:00 AM",
+        "logout": "06:30 PM",
+        "commuteType": "Mercedes-Benz V-Class & S-Class Fleet",
+        "routingStrategy": "E11 Sheikh Zayed Road High-Speed Transit",
+        "avgTravelTime": "75–85 mins",
+        "occupancyTarget": "Dedicated Corporate Retainer"
+      }
+    ],
+    "sampleManifests": [
+      {
+        "rosterId": "VIC-ROST-DXB-203",
+        "city": "Dubai",
+        "corridor": "Dubai Marina -> JLT -> Barsha Heights -> Dubai Internet City",
+        "shift": "Free Zone Tech Corridor Shift (08:30 AM Inbound)",
+        "vehicleType": "Mercedes-Benz VIP Sprinter (18 Seats)",
+        "plateNumber": "DXB L 49102",
+        "chauffeur": "M. Farhan (RTA Limousine Certified)",
+        "supervisor": "T. Al-Mansoor (Dubai Fleet Operations)",
+        "capacity": 18,
+        "bookedSeats": 16,
+        "occupancyRate": "88.9%",
+        "stops": [
+          { "stopNo": 1, "location": "Dubai Marina Mall Valet Promenade", "scheduledTime": "07:45 AM", "boardings": 4, "status": "On Time" },
+          { "stopNo": 2, "location": "JLT Cluster D Transit Bay", "scheduledTime": "07:55 AM", "boardings": 5, "status": "On Time" },
+          { "stopNo": 3, "location": "Barsha Heights Metro Station Gate 1", "scheduledTime": "08:08 AM", "boardings": 4, "status": "On Time" },
+          { "stopNo": 4, "location": "TECOM Commercial Staging Bay", "scheduledTime": "08:18 AM", "boardings": 3, "status": "On Time" },
+          { "stopNo": 5, "location": "DIC Innovation Hub Building 3", "scheduledTime": "08:26 AM", "boardings": 0, "status": "Destination Drop" }
+        ]
+      },
+      {
+        "rosterId": "VIC-ROST-AUH-114",
+        "city": "Abu Dhabi",
+        "corridor": "Saadiyat Island -> Corniche -> Al Maryah Island ADGM",
+        "shift": "Sovereign & Banking Executive Inbound (08:00 AM)",
+        "vehicleType": "Mercedes-Benz S-Class Limousine",
+        "plateNumber": "AUH 5 78201",
+        "chauffeur": "R. Al-Zaabi (Diplomatic Protocol Badge)",
+        "supervisor": "H. Qureshi (Abu Dhabi Accounts Desk)",
+        "capacity": 3,
+        "bookedSeats": 3,
+        "occupancyRate": "100%",
+        "stops": [
+          { "stopNo": 1, "location": "Saadiyat Beach Residences Gate 2", "scheduledTime": "07:25 AM", "boardings": 1, "status": "On Time" },
+          { "stopNo": 2, "location": "Corniche Towers VIP Lobby", "scheduledTime": "07:42 AM", "boardings": 2, "status": "On Time" },
+          { "stopNo": 3, "location": "ADGM Square Tower 3 Porte-Cochère", "scheduledTime": "07:56 AM", "boardings": 0, "status": "Destination Drop" }
+        ]
+      }
+    ],
+    "optimizationRules": [
+      {
+        "title": "Automated Salik Gate Optimization",
+        "description": "Routing algorithms balance peak congestion delay along Sheikh Zayed Road (E11) versus decongested transit via Al Khail Road (E44) to guarantee on-time campus delivery."
+      },
+      {
+        "title": "RTA Telematics Compliance",
+        "description": "All trip milestones, passenger boardings, and odometer telemetry are automatically synchronized with the Dubai RTA centralized limousine gateway."
+      },
+      {
+        "title": "Onboard Mobile Office Standards",
+        "description": "Vehicles are configured with enterprise 5G dual-eSIM Wi-Fi hotspots and chilled bottled water, enabling executives to begin work during commute."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can you provide daily employee shuttles between Dubai residential areas and Free Zones?",
+        "answer": "Yes. We operate luxury air-conditioned coaches and Sprinter vans linking major residential clusters (Dubai Marina, JLT, Al Barsha) to Dubai Internet City, Media City, and JAFZA."
+      },
+      {
+        "question": "How do you coordinate morning Sheikh Zayed Road traffic congestion?",
+        "answer": "Our operations desk monitors live GPS telemetry and deploys 20-minute departure buffers during morning rush hours (07:30 to 09:30 AM), routing through arterial corridors when needed."
+      },
+      {
+        "question": "Can you provide multi-vehicle convoys for visiting corporate delegations?",
+        "answer": "Yes. We specialize in coordinated multi-vehicle executive convoys with lead escort cars, dedicated on-site dispatch managers, and luggage vans for summit delegates."
+      }
+    ]
+  }
+}
