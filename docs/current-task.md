@@ -1,64 +1,50 @@
-# Milestone: Phase 15 — Enterprise Tech Park & Commercial Corridor Transit Navigator (/corridors)
+# Milestone: Phase 16 — Enterprise Master Rate Card & Contract Retainer Desk (/rate-card)
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 4, 6, 8, 10: Dedicated Employee Transportation, Tech Park Commute Corridors, High-Occupancy Bus Shuttles, Women Passenger Night Escort Protocols).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 3, 4, 8, 10: Spot Rental Tariffs, Monthly Dedicated Retainers, Employee Commuter Shuttles, Outstation Travel, Master Services Agreement Governance).
 
 Scope completed in this milestone:
-1. Tech Park & Commercial Corridor Dataset (`src/content/tech-corridors.json`):
-   - Comprehensive corridor route guides, gate access protocols, peak congestion windows, and shift transit models for India (`/india/corridors`) and UAE (`/uae/corridors`):
-     - **India Tech Park Corridors**:
-       - **Hyderabad**:
-         - Hitec City & Madhapur IT Corridor (Raheja Mindspace, Cyber Gateway, Cyber Towers, V-Ascendas). RFID Boom Barrier & Commercial Cab Bay 3 Entry.
-         - Financial District & Gachibowli Hub (Wipro Circle, WaveRock SEZ, One West, CapitaLand). Smart Card Security Frisking & Passenger Drop Promenade.
-       - **Bengaluru**:
-         - Whitefield IT Export Corridor (ITPB, Prestige Shantiniketan, Brigade Tech Gardens). Commercial Transport Pass & Bus Terminal Bay.
-         - Outer Ring Road (ORR) Technology Belt (Ecospace, Ecoworld, Prestige Tech Park, Cessna). Dedicated HOV Drop-Off Bay.
-         - Manyata Embassy Business Park (Manyata Blocks D1–G4, L&T Tech Hub). Multi-Lane Commercial Staging Terminal.
-       - **Pune**:
-         - Rajiv Gandhi Infotech Park Hinjawadi (Phase 1, 2, 3 SEZ). MIDC High-Capacity Bus Staging & Campus Internal Loop Bay.
-         - Kharadi & Magarpatta Cybercity Belt (EON Free Zone, Magarpatta, WTC Pune). Township Security Pass & EON Pod Terminal.
-     - **UAE Commercial Corridors & Free Zones**:
-       - **Dubai**:
-         - DIFC & Downtown Dubai Commercial Precinct (DIFC Gate Precinct, Gate Village, Burj Daman, Emaar Square). Valet Lane & VIP Underpass Drop-Off.
-         - Dubai Internet City & Media City Free Zone (DIC Innovation Hub, DMC Amphitheatre, Knowledge Park). TECOM Commercial Staging Bay.
-         - Expo City Dubai & JAFZA Logistics Belt (DEC, JAFZA). Gate 4 Security Clearance & Dedicated Delegation Bay.
-       - **Abu Dhabi**:
-         - Abu Dhabi Global Market (ADGM Al Maryah Island, ADGM Square Towers 1–4, Rosewood Executive Plaza). VIP Porte-Cochère & Executive Staging.
-     - **Enterprise Shift Commute Models**:
-       - Standard Corporate General Shift (09:00 AM Login | 06:00 PM Logout) — 44-seater luxury coaches.
-       - 24/7 Rolling IT & BPO Shift Corridors (06:00 AM / 02:00 PM / 10:00 PM / 02:00 AM) — 22-seater shuttles + Innova HyCross.
-       - Women Passenger Night Escort Protocol (08:00 PM to 06:00 AM Night Drops) — GPS route monitoring, certified escort chauffeurs, safe doorstep drops.
+1. Enterprise Rate Card & Retainer Dataset (`src/content/rate-card.json`):
+   - Detailed corporate tariff matrices, vehicle category specifications, and contract packages for India (`/india/rate-card`) and UAE (`/uae/rate-card`):
+     - **India Corporate Tariffs**:
+       - **Executive Sedan** (Dzire / Etios / Aura): 4h/40km (₹1,400), 8h/80km (₹2,400), 12h/120km (₹3,400), Extra km (₹14), Extra hr (₹150), Monthly Retainer (₹58,000 for 26D/2,600km), Outstation (₹13/km, min 250km/day + ₹400 bata).
+       - **Corporate MPV** (Innova Crysta / HyCross): 4h/40km (₹2,400), 8h/80km (₹4,200), 12h/120km (₹5,800), Extra km (₹22), Extra hr (₹250), Monthly Retainer (₹96,000 for 26D/2,600km), Outstation (₹20/km, min 300km/day + ₹500 bata).
+       - **Premium Luxury Saloon** (Camry Hybrid / BMW 5 Series / Mercedes E-Class): 4h/40km (₹4,500), 8h/80km (₹8,500), 12h/120km (₹12,000), Extra km (₹45), Extra hr (₹500), Monthly Retainer (₹1,85,000), Outstation (₹42/km + ₹800 bata).
+       - **Executive Minibus & Van** (Force Urbania / Luxury Tempo Traveller): 4h/40km (₹3,800), 8h/80km (₹6,800), Extra km (₹32), Extra hr (₹350), Monthly Retainer (₹1,45,000), Outstation (₹30/km + ₹600 bata).
+       - **High-Capacity Commuter Coach** (22 & 44-Seater AC Luxury Coach): 4h/40km (₹5,500), 8h/80km (₹9,800), Extra km (₹52), Extra hr (₹650), Fixed Route Campus Shuttles (₹1,65,000 – ₹2,40,000/mo).
+     - **UAE Limousine & Commercial Fleet Tariffs**:
+       - **First Class Saloon** (Mercedes-Benz S-Class / BMW 7 Series / Lexus ES): Half-Day 5h (AED 850), Full-Day 10h (AED 1,600), Monthly Dedicated Retainer (AED 24,000).
+       - **Ultra-Luxury Limousine** (Mercedes-Maybach S 680): Half-Day 5h (AED 1,800), Full-Day 10h (AED 3,400), Monthly Retainer (AED 48,000).
+       - **Executive SUV & MPV** (Cadillac Escalade / GMC Yukon / V-Class): Half-Day 5h (AED 1,150), Full-Day 10h (AED 2,100), Monthly Retainer (AED 32,000).
+       - **VIP Sprinter & Tourism Coach** (18 to 50 seats): Half-Day 5h (AED 1,950), Full-Day 10h (AED 3,600), Monthly Route Contract (AED 28,000 – AED 42,000).
+     - **Enterprise Volume Rebate Tiers**:
+       - Tier 1: 1–5 Vehicles (Standard Tariff, 30-day net credit, verified chauffeurs).
+       - Tier 2: 6–20 Vehicles (8% preferred volume rebate, depot hot-swap standby vehicle).
+       - Tier 3: 20+ Vehicles (15% strategic volume rebate, dedicated on-site campus fleet supervisor, custom HRMS API).
+     - **Transparent Inclusions & Disclosed Actuals**:
+       - Inclusions: Uniformed chauffeur, fuel, maintenance, AIS-140 GPS, 45-min replacement SLA, digital duty slip.
+       - Actuals: Fastag tolls, interstate taxes, airport parking, GST/VAT.
 
-2. Interactive Tech Park Corridor Desk Component (`src/components/corridors/TechParkCorridorDesk.tsx`):
-   - **Corridor Commute Planner**:
-     - Operating City Hub selector (Hyderabad, Bengaluru, Pune / Dubai, Abu Dhabi).
-     - Tech Park / SEZ dropdown selector.
-     - Shift Roster Window radio buttons.
-     - Commuting Employees volume slider (50 to 1,500+ employees).
-   - **Dynamic Blueprint Output**:
-     - Live fleet sizing calculation: 44-seater luxury coach count + 22-seater shuttle count + 15% standby buffer vehicle staging.
-     - Estimated corridor loop routes.
-     - Route arterial guide, peak congestion buffers, and security gate entry pass protocols.
-   - **Tech Park Transit Profiles**:
-     - Detailed directory of all covered parks, routes, and security clearance procedures.
-   - **Shift Roster Models & FAQs**:
-     - Complete operational documentation and FAQs.
+2. Interactive Enterprise Rate Card Desk Component (`src/components/ratecard/EnterpriseRateCardDesk.tsx`):
+   - **Category Specification & Standard Tariff Matrix**: Interactive selector chips for rapid switching between vehicle classes with local, monthly, and outstation rates.
+   - **Volume Rebate & Retainer Sizing Calculator**: Dynamic slider (1 to 30 vehicles) and horizon selector (Monthly vs Annual), computing gross tariff, applied volume rebate, net investment, and hot-swap backup fleet.
+   - **MSA & Corporate Governance**: 4-step institutional onboarding framework (KYC, Agreement, Credit Approval, Staging) + Tier perks grid.
    - **Actions**:
-     - "Request Corridor Proposal on WhatsApp" with prefilled route study specifications.
-     - "Print Corridor Blueprint" (`window.print()`).
+     - "Request Contract Schedule on WhatsApp" with prefilled fleet specifications and truthful inquiry disclaimer.
+     - "Print Tariff Dossier" (`window.print()`).
 
 3. Dedicated Route Pages:
-   - `/india/corridors`: India Tech Park Corridors route page with Schema.org `Service` structured data.
-   - `/uae/corridors`: UAE Commercial Corridors & Free Zones route page with Schema.org `Service` structured data.
+   - `/india/rate-card`: India Enterprise Master Rate Card & Retainer Schedule with Schema.org `Service` structured data.
+   - `/uae/rate-card`: UAE Executive Limousine & Commercial Rate Card with Schema.org `Service` structured data.
 
 4. Global Navigation & Cross-Linking:
-   - Added "Tech Park Corridor Navigator" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **56 static pages**).
+   - Added "Corporate Rate Card & Retainers" link under Navigation in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **58 static pages**).
 
 5. Automated Verification & Quality Gates:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 56/56 static pages compiled (`○` and `●`).
-   - Playwright verification suite (`scripts/verify-phase15.mjs`) — 100% pass across all 5 test suites.
+   - Production Build (`next build`) — 58/58 static pages compiled (`○` and `●`).
+   - Playwright verification suite (`scripts/verify-phase16.mjs`) — 100% pass across all 5 test suites.
    - Visual screenshots captured:
-     - `phase15-india-corridors-desktop.png`
-     - `phase15-india-corridors-mobile.png`
-     - `phase15-uae-corridors-desktop.png`
+     - `phase16-india-ratecard-desktop.png`
+     - `phase16-india-ratecard-mobile.png`
+     - `phase16-uae-ratecard-desktop.png`

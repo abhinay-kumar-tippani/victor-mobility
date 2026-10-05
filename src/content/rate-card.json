@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Master Rate Card & Contract Retainer Schedule",
+    "eyebrow": "Corporate Mobility Tariffs · Hyderabad, Bengaluru, Pune",
+    "description": "Transparent corporate tariff structures, hourly rental slabs, dedicated monthly retainers, outstation transit rates, and enterprise volume discount tiers for corporate procurement and facilities transport desks.",
+    "currency": "INR",
+    "currencySymbol": "₹",
+    "categories": [
+      {
+        "id": "executive-sedan",
+        "name": "Executive Sedan",
+        "models": "Maruti Suzuki Dzire / Toyota Etios / Hyundai Aura",
+        "capacity": "4 Passengers · 2 Bags",
+        "bestFor": "Daily corporate local meetings, employee nodal drops, airport transfers",
+        "rates": {
+          "halfDay": "₹1,400 (4h / 40 km)",
+          "fullDay": "₹2,400 (8h / 80 km)",
+          "extendedDay": "₹3,400 (12h / 120 km)",
+          "extraKm": "₹14 / km",
+          "extraHour": "₹150 / hr",
+          "monthlyRetainer": "₹58,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "₹13 / km (Min 250 km/day)",
+          "driverBata": "₹400 / day"
+        }
+      },
+      {
+        "id": "corporate-mpv",
+        "name": "Corporate MPV",
+        "models": "Toyota Innova Crysta / Toyota Innova HyCross",
+        "capacity": "6–7 Passengers · 4 Bags",
+        "bestFor": "Leadership transit, site visits, visiting client delegations",
+        "rates": {
+          "halfDay": "₹2,400 (4h / 40 km)",
+          "fullDay": "₹4,200 (8h / 80 km)",
+          "extendedDay": "₹5,800 (12h / 120 km)",
+          "extraKm": "₹22 / km",
+          "extraHour": "₹250 / hr",
+          "monthlyRetainer": "₹96,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "₹20 / km (Min 300 km/day)",
+          "driverBata": "₹500 / day"
+        }
+      },
+      {
+        "id": "premium-saloon",
+        "name": "Premium Luxury Saloon",
+        "models": "Toyota Camry Hybrid / BMW 5 Series / Mercedes-Benz E-Class",
+        "capacity": "3 VIP Guests · 3 Bags",
+        "bestFor": "C-suite executive retainers, board members, VIP airport protocols",
+        "rates": {
+          "halfDay": "₹4,500 (4h / 40 km)",
+          "fullDay": "₹8,500 (8h / 80 km)",
+          "extendedDay": "₹12,000 (12h / 120 km)",
+          "extraKm": "₹45 / km",
+          "extraHour": "₹500 / hr",
+          "monthlyRetainer": "₹1,85,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "₹42 / km (Min 300 km/day)",
+          "driverBata": "₹800 / day"
+        }
+      },
+      {
+        "id": "luxury-minibus",
+        "name": "Executive Minibus & Commuter Van",
+        "models": "Force Urbania (12/17-Seater) / Luxury Tempo Traveller",
+        "capacity": "12–17 Passengers · Generous Luggage",
+        "bestFor": "Team project offsites, shift nodal feeds, mid-size delegation transfers",
+        "rates": {
+          "halfDay": "₹3,800 (4h / 40 km)",
+          "fullDay": "₹6,800 (8h / 80 km)",
+          "extendedDay": "₹9,500 (12h / 120 km)",
+          "extraKm": "₹32 / km",
+          "extraHour": "₹350 / hr",
+          "monthlyRetainer": "₹1,45,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "₹30 / km (Min 300 km/day)",
+          "driverBata": "₹600 / day"
+        }
+      },
+      {
+        "id": "commuter-coach",
+        "name": "High-Capacity Commuter Coach",
+        "models": "22 & 44-Seater Air-Suspension AC Luxury Commuter Coaches",
+        "capacity": "22–44 Passengers · Overhead Racks",
+        "bestFor": "Campus tech park shuttles, factory shift commute, summit transport",
+        "rates": {
+          "halfDay": "₹5,500 (4h / 40 km)",
+          "fullDay": "₹9,800 (8h / 80 km)",
+          "extendedDay": "₹14,000 (12h / 120 km)",
+          "extraKm": "₹52 / km",
+          "extraHour": "₹650 / hr",
+          "monthlyRetainer": "₹1,65,000 – ₹2,40,000 (Route Contract)",
+          "outstationPerKm": "₹48 / km (Min 350 km/day)",
+          "driverBata": "₹800 / day"
+        }
+      }
+    ],
+    "volumeTiers": [
+      {
+        "tierId": "tier-1",
+        "name": "Tier 1: Standard Corporate Retainer",
+        "fleetRange": "1 to 5 Dedicated Vehicles",
+        "rebate": "0% (Standard Tariff)",
+        "perks": [
+          "Standard 30-Day Net Credit Facility",
+          "Monthly consolidated electronic tax invoices delivered in 48 hours",
+          "24/7 dedicated dispatch support line",
+          "Verified chauffeur safety credential badge access"
+        ]
+      },
+      {
+        "tierId": "tier-2",
+        "name": "Tier 2: Enterprise Fleet Growth",
+        "fleetRange": "6 to 20 Dedicated Vehicles",
+        "rebate": "8% Preferred Volume Rebate",
+        "perks": [
+          "Priority dispatch staging during peak surge congestion",
+          "Dedicated spare standby vehicle permanently hot-swappable in hub depot",
+          "Disputed line-item freeze SLA (undisputed invoice cleared smoothly)",
+          "Custom quarterly business review (QBR) & route telemetry reports"
+        ]
+      },
+      {
+        "tierId": "tier-3",
+        "name": "Tier 3: Campus & Tech Park Master MSA",
+        "fleetRange": "20+ Dedicated Vehicles",
+        "rebate": "15% Strategic Volume Rebate",
+        "perks": [
+          "Dedicated on-site Victor Mobility Fleet Supervisor embedded at campus",
+          "Pre-assigned RFID tech park boom barrier windshield tags",
+          "Guaranteed 30-minute replacement SLA for any unforeseen mechanical snag",
+          "Custom telematics portal API webhook integration into corporate HRMS"
+        ]
+      }
+    ],
+    "inclusions": [
+      "Uniformed, background-verified professional chauffeur with commercial badge",
+      "Fuel, lubricants, regular vehicle detailing, and air-conditioning operations",
+      "Comprehensive commercial passenger motor liability insurance",
+      "AIS-140 GPS real-time telemetry, geofencing, and emergency SOS button",
+      "Breakdown replacement vehicle guaranteed within 45 minutes",
+      "Itemized digital duty slips with OTP passenger authentication"
+    ],
+    "exclusions": [
+      "Fastag electronic toll plaza charges (billed transparently at actual NHAI logs)",
+      "Interstate commercial vehicle border entry tax and permit fees (at actuals)",
+      "Airport VIP terminal curbside and commercial tech park parking tickets (at actuals)",
+      "Goods and Services Tax (GST) — 5% standard or 12% forward charge with ITC eligibility"
+    ],
+    "faqs": [
+      {
+        "question": "Are the rates on this rate card fixed or negotiable for long-term contracts?",
+        "answer": "The rates presented are our benchmark corporate tariffs. For long-term 12-month or multi-year Master Services Agreements (MSAs), our commercial team configures custom volume discounts up to 15% based on committed fleet size and shift route predictability."
+      },
+      {
+        "question": "What is included in the monthly dedicated vehicle retainer packages?",
+        "answer": "Monthly retainers cover 26 operational days per calendar month with a committed kilometre allowance (typically 2,600 km). Fuel, chauffeur salary, insurance, and routine servicing are fully included. Additional kilometres and hours are billed at contracted marginal rates."
+      },
+      {
+        "question": "How are Fastag highway tolls and airport parking fees accounted for?",
+        "answer": "All tolls and parking are tracked automatically via Fastag electronic transaction IDs and physical gate receipts. They are itemized line-by-line on your fortnightly or monthly billing dossier without manual markup."
+      },
+      {
+        "question": "Can our company onboard under 30-day net credit terms immediately?",
+        "answer": "Yes. Following standard vendor compliance check (GSTIN verification, PAN, and signed Master Services Agreement), enterprise accounts are granted 30-day net credit terms with fortnightly or monthly consolidated electronic invoices."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Executive Limousine & Commercial Fleet Rate Card",
+    "eyebrow": "Dubai & Abu Dhabi Corporate Chauffeur Tariffs",
+    "description": "Transparent executive limousine tariffs, hourly airport transfers, monthly dedicated executive retainers, and cross-emirate delegation transit schedules across Dubai, Abu Dhabi, and Northern Emirates.",
+    "currency": "AED",
+    "currencySymbol": "AED ",
+    "categories": [
+      {
+        "id": "first-class-saloon",
+        "name": "First Class Saloon",
+        "models": "Mercedes-Benz S-Class / BMW 7 Series / Lexus ES 300h",
+        "capacity": "3 VIP Passengers · 3 Bags",
+        "bestFor": "Executive meetings, financial corridor transit, DXB airport VIP transfers",
+        "rates": {
+          "halfDay": "AED 850 (5 Hours / 100 km)",
+          "fullDay": "AED 1,600 (10 Hours / 200 km)",
+          "extendedDay": "AED 2,200 (14 Hours / 280 km)",
+          "extraKm": "AED 5 / km",
+          "extraHour": "AED 150 / hr",
+          "monthlyRetainer": "AED 24,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "AED 6 / km (Dubai to Abu Dhabi / Al Ain)",
+          "driverBata": "AED 200 / day"
+        }
+      },
+      {
+        "id": "ultra-luxury",
+        "name": "Ultra-Luxury Flagship Limousine",
+        "models": "Mercedes-Maybach S 680 / Maybach GLS",
+        "capacity": "3 VIP Guests · 3 Bags",
+        "bestFor": "Ministerial delegations, sovereign wealth board meetings, luxury summits",
+        "rates": {
+          "halfDay": "AED 1,800 (5 Hours / 100 km)",
+          "fullDay": "AED 3,400 (10 Hours / 200 km)",
+          "extendedDay": "AED 4,800 (14 Hours / 280 km)",
+          "extraKm": "AED 10 / km",
+          "extraHour": "AED 300 / hr",
+          "monthlyRetainer": "AED 48,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "AED 12 / km (Inter-Emirate Transit)",
+          "driverBata": "AED 350 / day"
+        }
+      },
+      {
+        "id": "executive-suv",
+        "name": "Executive SUV & Luxury MPV",
+        "models": "Cadillac Escalade / GMC Yukon Denali / Mercedes-Benz V-Class",
+        "capacity": "6–7 Passengers · 5 Large Bags",
+        "bestFor": "Corporate executive groups, family office transfers, roadshow convoys",
+        "rates": {
+          "halfDay": "AED 1,150 (5 Hours / 100 km)",
+          "fullDay": "AED 2,100 (10 Hours / 200 km)",
+          "extendedDay": "AED 2,900 (14 Hours / 280 km)",
+          "extraKm": "AED 7 / km",
+          "extraHour": "AED 180 / hr",
+          "monthlyRetainer": "AED 32,000 (26 Days / 2,600 km)",
+          "outstationPerKm": "AED 8 / km (Dubai to Abu Dhabi)",
+          "driverBata": "AED 250 / day"
+        }
+      },
+      {
+        "id": "vip-coach",
+        "name": "Luxury Sprinter & Tourism Coach",
+        "models": "Mercedes-Benz VIP Sprinter (18 seats) / Luxury Coach (35–50 seats)",
+        "capacity": "18–50 Passengers · Cargo Compartment",
+        "bestFor": "Corporate summits, free zone employee shuttles, international delegations",
+        "rates": {
+          "halfDay": "AED 1,950 (5 Hours / 100 km)",
+          "fullDay": "AED 3,600 (10 Hours / 200 km)",
+          "extendedDay": "AED 4,800 (14 Hours / 280 km)",
+          "extraKm": "AED 12 / km",
+          "extraHour": "AED 250 / hr",
+          "monthlyRetainer": "AED 28,000 – AED 42,000 (Route Contract)",
+          "outstationPerKm": "AED 14 / km (Inter-Emirate)",
+          "driverBata": "AED 300 / day"
+        }
+      }
+    ],
+    "volumeTiers": [
+      {
+        "tierId": "tier-1",
+        "name": "Tier 1: Standard Executive Account",
+        "fleetRange": "1 to 3 Dedicated Limousines",
+        "rebate": "0% (Standard Benchmark)",
+        "perks": [
+          "Standard 30-Day Net Credit upon compliance onboarding",
+          "Monthly FTA 5% VAT compliant tax invoice",
+          "Chilled bottled water, mints, and onboard high-speed Wi-Fi",
+          "Automated Salik toll reconciliation"
+        ]
+      },
+      {
+        "tierId": "tier-2",
+        "name": "Tier 2: Corporate Corporate Retainer",
+        "fleetRange": "4 to 10 Dedicated Limousines",
+        "rebate": "7% Preferred Volume Rebate",
+        "perks": [
+          "Priority staging for morning DIFC & Downtown rush hour dispatches",
+          "Free upgrade to next vehicle tier upon chauffeur fleet availability",
+          "Dedicated account manager in Dubai Al Garhoud office",
+          "Complimentary flight delay buffer extended to 90 minutes"
+        ]
+      },
+      {
+        "tierId": "tier-3",
+        "name": "Tier 3: Sovereign & Global Enterprise MSA",
+        "fleetRange": "10+ Dedicated Fleet",
+        "rebate": "12% Preferred Volume Rebate",
+        "perks": [
+          "Dedicated 24/7 Dubai & Abu Dhabi fleet coordination desk",
+          "Permanent standby backup limousine staged in DIFC / Downtown",
+          "Custom vehicle branding and livery options upon formal authorization",
+          "Dedicated corporate credit facility with customized net terms"
+        ]
+      }
+    ],
+    "inclusions": [
+      "RTA-licensed, multilingual professional limousine chauffeur in formal attire",
+      "High-speed cellular onboard Wi-Fi and USB-C fast device chargers",
+      "Chilled premium bottled water and sanitizing amenities",
+      "Comprehensive UAE commercial passenger motor liability insurance",
+      "Live GPS flight tracking with curbside greeting at DXB / DWC / AUH",
+      "Itemized electronic duty slips with tablet digital signatures"
+    ],
+    "exclusions": [
+      "Salik electronic road toll gate fees (AED 4 per gate pass billed at actual RTA logs)",
+      "Airport terminal curbside and luxury hotel valet parking tickets (at actuals)",
+      "5% United Arab Emirates Federal Tax Authority (FTA) Value Added Tax"
+    ],
+    "faqs": [
+      {
+        "question": "How do Salik toll charges get billed for Dubai and Abu Dhabi journeys?",
+        "answer": "Each Salik toll gate is automatically captured through RTA electronic transponders at AED 4 per gate. They are itemized on your monthly invoice with timestamp, gate name, and vehicle plate number."
+      },
+      {
+        "question": "Are inter-emirate transit trips between Dubai and Abu Dhabi charged standard rates?",
+        "answer": "Inter-emirate trips between Dubai and Abu Dhabi are billed based on our transparent outstation tariff or fixed corridor packages, which include fuel and chauffeur services. Salik and Darb tolls are added at actual cost."
+      },
+      {
+        "question": "What is the procedure for setting up an enterprise monthly limousine retainer?",
+        "answer": "Corporate entities registered in the UAE provide their Trade License and TRN certificate. We execute a standard Master Services Agreement (MSA) granting 30-day net credit terms and assigning dedicated luxury vehicles with professional chauffeurs."
+      },
+      {
+        "question": "Can we hire vehicles for multi-day international delegations and exhibitions?",
+        "answer": "Yes. We specialize in multi-vehicle delegation convoys for events at Dubai World Trade Centre (DWTC), Expo City Dubai, and ADNEC Abu Dhabi with dedicated on-site dispatchers."
+      }
+    ]
+  }
+}

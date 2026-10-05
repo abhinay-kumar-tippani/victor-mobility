@@ -127,6 +127,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/rate-card`} className="hover:text-white transition-colors text-emerald-400 font-semibold">
+                  Corporate Rate Card &amp; Retainers
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
