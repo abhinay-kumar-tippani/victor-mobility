@@ -81,6 +81,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/india/brochure`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/uae`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -145,6 +151,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/uae/brochure`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
 

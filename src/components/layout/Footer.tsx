@@ -87,6 +87,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/brochure`} className="hover:text-white transition-colors text-amber-300 font-semibold">
+                  Executive Deck &amp; Brochure
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>

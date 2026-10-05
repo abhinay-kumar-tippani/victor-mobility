@@ -1,44 +1,39 @@
-# Milestone: Phase 6 — PWA Offline Mobile Package, Emergency Quick-Dial & Production Edge Security
+# Milestone: Phase 7 — Digital Executive Presentation Deck & Interactive Capability Brochure (/brochure)
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Pages 3, 4, 6, 7, 8, 12, 16) & Production Edge Security Standards.
+Reference: Authorized 2024 Victor Business Portfolio Brochure (All 16 Pages: Founder's Commitment, Fleet Scales, 6 Services, Chauffeur Academy, Commercial Governance, Multi-City Network).
 
 Scope completed in this milestone:
-1. PWA Web App Manifest (`public/manifest.json`):
-   - Configured full Progressive Web App installability on iOS and Android devices.
-   - Branded app name "Victor Mobility — On Time Every Time.", standalone display mode, `#0A1128` background and theme color.
-   - PWA app shortcuts: India Corporate RFP (`/india/rfp`), UAE Limousine RFP (`/uae/rfp`), Route Estimator (`/india/estimator`), and 24/7 Operations Desk (`/india/emergency`).
-   - Integrated PWA metadata in `src/app/layout.tsx` (`appleWebApp`, `manifest`, `themeColor: #0A1128`).
+1. Executive Slide Content Model (`src/content/brochure.json`):
+   - 8 comprehensive executive slides tailored for India (`/india/brochure`) and UAE (`/uae/brochure`):
+     - Slide 01: Executive Overview & Master Capabilities (2,000+ luxury cars, 500+ buses, 99.4% SLA).
+     - Slide 02: Founder Mohammed Jahangir's Vision & Operational Journey ("I am committed to providing unwavering service to my clients").
+     - Slide 03: 6 Core Service Portfolios (Employee Transport, Shuttles, Airport VIP, Chauffeur Luxury, Events, Strategic Retainers).
+     - Slide 04: Fleet Architecture & Safety Standards (Executive Saloon, Premium Business, MUV/MPV, High-Capacity Bus).
+     - Slide 05: Victor Chauffeur Protocol Academy (4-Tier Chauffeur Certification & Defensive Driving).
+     - Slide 06: Geographic Footprint & Operating Depots (Hyderabad HQ, Bengaluru, Pune, Dubai Al Garhoud).
+     - Slide 07: Commercial Governance & SLA Commitments (Transparent Billing, Fuel Indexing, Replacement Guarantee).
+     - Slide 08: Direct Leadership Contact & RFP Engagement.
 
-2. Production Edge Security & Headers:
-   - Configured enterprise HTTP security headers in `next.config.mjs` and `vercel.json`:
-     - `Strict-Transport-Security`: `max-age=63072000; includeSubDomains; preload` (HSTS).
-     - `X-Frame-Options`: `DENY` (Clickjacking protection).
-     - `X-Content-Type-Options`: `nosniff` (MIME sniffing prevention).
-     - `Referrer-Policy`: `strict-origin-when-cross-origin`.
-     - `Permissions-Policy`: `camera=(), microphone=(), geolocation=()`.
-     - Manifest caching and MIME-type mapping.
+2. Interactive Presentation Deck Component (`src/components/brochure/ExecutivePresentationDeck.tsx`):
+   - Dual viewing modes:
+     - Interactive Slide Deck mode: Slide-by-slide view with keyboard arrow navigation (`ArrowLeft`, `ArrowRight`, `PageUp`, `PageDown`), slide counter, and clickable slide pills.
+     - Full Document View mode: Sequential presentation cards for comprehensive executive review.
+   - Print-to-PDF `@media print` procurement styling (`window.print()` action, hiding site header/footer/control toolbar, page-break rules `print:break-after-page`).
+   - "Request Official PDF" WhatsApp messenger with prefilled tender inquiry.
 
-3. Emergency Chauffeur Quick-Dial & Helpline Component (`src/components/emergency/EmergencyQuickDial.tsx`):
-   - Offline-resilient emergency contact architecture for low-connectivity airport basements, late-night transit, or highway breakdowns:
-     - 24/7 Central Operations Control Room: `+91 91007 77768` (Direct telephone action).
-     - WhatsApp Fleet Operations Desk: `+91 93965 46950` (Prefilled emergency messenger).
-     - UAE Dubai Al Garhoud Reservation & Dispatch: `+971 52 455 2441` (Direct telephone & WhatsApp).
-     - 15-Minute Depot Hot-Swap Guarantee: Emergency vehicle replacement mobilized immediately from nearest operational hub.
-   - Priority Incident Coordination Form: Formats an emergency operational WhatsApp dispatch with vehicle plate, location/landmark, commuter volume, and nature of incident.
+3. Dedicated Route Pages:
+   - `/india/brochure`: India Executive Capability Deck with Schema.org `DigitalDocument` JSON-LD structured data.
+   - `/uae/brochure`: UAE Limousine Capability Deck with Schema.org `DigitalDocument` JSON-LD structured data.
 
-4. Dedicated Route Pages:
-   - `/india/emergency`: India 24/7 Operations & Emergency Quick-Dial Desk with Schema.org `ContactPage` structured data.
-   - `/uae/emergency`: UAE 24/7 Limousine Dispatch Desk with Schema.org `ContactPage` structured data.
+4. Global Navigation & Sitemap Updates:
+   - `Footer.tsx`: Added "Executive Deck & Brochure" link under Quick Navigation across both India and UAE portals.
+   - `src/app/sitemap.ts`: Indexed all 42 static SSG routes (100% static compilation).
 
-5. Global Navigation & Footer Updates:
-   - `Footer.tsx`: Added "24/7 Operations Desk" link under Quick Navigation across both India and UAE portals.
-   - `src/app/sitemap.ts`: Indexed all 40 static SSG routes (100% static compilation).
-
-6. Automated Quality & Verification:
+5. Automated Quality & Verification:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 40/40 static pages compiled.
-   - Playwright verification suite (`scripts/verify-phase6.mjs`) — 100% pass across all 7 test suites.
+   - Production Build (`next build`) — 42/42 static pages compiled.
+   - Playwright verification suite (`scripts/verify-phase7.mjs`) — 100% pass across all 6 test suites.
    - Visual screenshots captured:
-     - `phase6-india-emergency-desktop.png`
-     - `phase6-india-emergency-mobile.png`
-     - `phase6-uae-emergency-desktop.png`
+     - `phase7-india-brochure-desktop.png`
+     - `phase7-india-brochure-mobile.png`
+     - `phase7-uae-brochure-desktop.png`

@@ -1,0 +1,317 @@
+{
+  "india": {
+    "title": "Victor Mobility — Executive Capability Deck & Company Profile",
+    "subtitle": "Corporate Employee Transportation, Executive Chauffeur Services & Strategic Fleet Management",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Mobility Pvt. Ltd.",
+    "slides": [
+      {
+        "slideNo": "01",
+        "title": "Corporate Mobility Partner of Choice",
+        "subtitle": "Executive Overview & Master Capabilities",
+        "content": "Victor Mobility is a premier corporate mobility enterprise providing end-to-end employee transit networks, executive limousine services, IT campus bus shuttles, and luxury event logistics across India's primary commercial corridors.",
+        "metrics": [
+          { "label": "Operational Fleet", "value": "2,000+ Cars" },
+          { "label": "Bus & Shuttle Network", "value": "500+ Buses" },
+          { "label": "Primary Tech Hubs", "value": "3 Megacities" },
+          { "label": "On-Time Dispatch SLA", "value": "99.4%" }
+        ]
+      },
+      {
+        "slideNo": "02",
+        "title": "Founder's Vision & Operational Journey",
+        "subtitle": "A Decade of Disciplined Service & Integrity",
+        "content": "Founded by Mohammed Jahangir, Victor Mobility was built on an uncompromising pledge: 'I am committed to providing unwavering service to my clients.' Starting with personal executive allocations, Victor has expanded into a multi-city mobility infrastructure managing thousands of daily corporate commuters with punctuality, safety, and transparency.",
+        "quote": "Our baseline is simple and absolute: On Time Every Time. We do not just provide transport; we safeguard our clients' operational productivity.",
+        "founder": "Mohammed Jahangir, Founder & Managing Director"
+      },
+      {
+        "slideNo": "03",
+        "title": "6 Core Service Portfolios",
+        "subtitle": "End-to-End Enterprise Transit Architecture",
+        "services": [
+          {
+            "name": "Employee Transportation",
+            "desc": "24/7 round-the-clock shift transit for IT/BPO campuses with GPS tracking and female employee security escorts."
+          },
+          {
+            "name": "Bus & Campus Shuttles",
+            "desc": "High-capacity 22 to 50-seater executive coaches for corporate campuses, tech parks, and venue loops."
+          },
+          {
+            "name": "Airport VIP Transfers",
+            "desc": "Flight radar tracking with 45–60 min complimentary wait times and professional terminal curbside greetings."
+          },
+          {
+            "name": "Chauffeur & Luxury Travel",
+            "desc": "First Class and Premium saloons for board members, visiting delegations, and senior executives."
+          },
+          {
+            "name": "Event Transportation",
+            "desc": "Coordinated multi-vehicle convoys for large-scale corporate summits, conferences, and private occasions."
+          },
+          {
+            "name": "Corporate Car Rentals",
+            "desc": "Flexible monthly and long-term fleet allocations with statutory compliance, maintenance, and insurance."
+          }
+        ]
+      },
+      {
+        "slideNo": "04",
+        "title": "Multi-Tier Fleet Architecture",
+        "subtitle": "Pristine, Inspected & Technologically Equipped",
+        "tiers": [
+          {
+            "category": "Executive Sedans",
+            "models": "Toyota Etios, Maruti Dzire",
+            "spec": "Ideal for point-to-point commuter shifts & executive city transfers."
+          },
+          {
+            "category": "Premium Saloons",
+            "models": "Toyota Camry, Mercedes-Benz E-Class, BMW 5 Series",
+            "spec": "Tailored for senior directors, dignitaries, and VIP delegations."
+          },
+          {
+            "category": "Executive MPVs & SUVs",
+            "models": "Toyota Innova Crysta, Toyota Innova Hycross",
+            "spec": "The industry benchmark for comfort, safety, and luggage capacity."
+          },
+          {
+            "category": "Luxury Coaches & Tempo Travelers",
+            "models": "12–26 Seater Tempo Travelers, 35–45 Seater AC Coaches",
+            "spec": "Large-scale daily employee transit and inter-campus connectivity."
+          }
+        ]
+      },
+      {
+        "slideNo": "05",
+        "title": "The Victor Standard & Chauffeur Academy",
+        "subtitle": "Wheely-Style Training, Discretion & Safety Protocol",
+        "standards": [
+          {
+            "title": "100% Police Verification & BGV",
+            "desc": "Rigorous background verification, address checks, and drug/alcohol screening before roster assignment."
+          },
+          {
+            "title": "24-Point Pre-Dispatch Audit",
+            "desc": "Mechanical, tire tread, clean cabin, dual-zone climate preset to 22°C, and amenity checks prior to rollout."
+          },
+          {
+            "title": "Women Safety Night Escort Protocol",
+            "desc": "Mandatory security guard onboard and stay-at-curb sign-off until female employees safely enter premises."
+          },
+          {
+            "title": "Telemetry & Speed Governance",
+            "desc": "In-vehicle GPS speed governors (50 km/h city / 80 km/h expressway) and 24/7 central operations monitoring."
+          }
+        ]
+      },
+      {
+        "slideNo": "06",
+        "title": "PAN-India Presence & Cross-Border Scale",
+        "subtitle": "Primary Operations in Telangana, Karnataka & Maharashtra",
+        "locations": [
+          {
+            "city": "Hyderabad (Head Office)",
+            "address": "2-48/3&5, VSGGC/4th Floor, Telecom Nagar, Gachibowli, Hyderabad - 500032",
+            "focus": "HITEC City, Financial District, Gachibowli, RGIA Airport Corridor"
+          },
+          {
+            "city": "Bengaluru (Branch Office)",
+            "address": "#22 Hamsa Mansion, B-Block, 4th Main Road, Cybela Greens, Maragondanahalli, Bengaluru - 560036",
+            "focus": "Outer Ring Road, Whitefield (ITPB), Electronic City, Kempegowda Airport Corridor"
+          },
+          {
+            "city": "Pune (Branch Office)",
+            "address": "Opp. Giga Space, Viman Nagar, Pune - 411014",
+            "focus": "Hinjawadi Infotech Park, Magarpatta, Kharadi, Pune Airport Corridor"
+          },
+          {
+            "city": "Dubai (UAE Regional Head Office)",
+            "address": "65th Street, Al Garhoud, Near Dubai International Airport, Dubai, UAE",
+            "focus": "DIFC, Downtown, Dubai Marina, DXB Airport VIP transfers"
+          }
+        ]
+      },
+      {
+        "slideNo": "07",
+        "title": "Commercial Governance & Invoicing",
+        "subtitle": "Audited Billing, Tax Invoicing & SLA Commitments",
+        "commercials": [
+          "Statutory 5% GST (RCM / ITC transport billing compliant)",
+          "Monthly computerized billing statements reconciled against GPS telematics logs",
+          "Indexed fuel adjustment benchmarks protecting commercial budgets",
+          "15-Minute emergency breakdown vehicle replacement guarantee",
+          "Dedicated Fleet Account Manager assigned to every enterprise contract"
+        ]
+      },
+      {
+        "slideNo": "08",
+        "title": "Corporate Engagement & Tender Submission",
+        "subtitle": "Let Us Elevate Your Corporate Mobility Operations",
+        "contact": {
+          "phone": "+91 91007 77768",
+          "whatsapp": "+91 93965 46950",
+          "email": "operations@victormobility.com",
+          "web": "https://victor-mobility.vercel.app/india",
+          "rfpUrl": "/india/rfp"
+        }
+      }
+    ]
+  },
+  "uae": {
+    "title": "Victor Luxury Limousine — Executive Corporate Presentation Deck",
+    "subtitle": "Chauffeur Limousine Services, Airport VIP Protocol & Global Summit Delegations",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Luxury Limousine LLC",
+    "slides": [
+      {
+        "slideNo": "01",
+        "title": "UAE Luxury Mobility Partner of Choice",
+        "subtitle": "First Class Limousine & VIP Concierge Services",
+        "content": "Victor Luxury Limousine LLC provides first-class chauffeur limousine transportation, radar-linked airport transfers (DXB, AUH, DWC), high-profile diplomatic delegations, and corporate retainers across Dubai, Abu Dhabi, and Sharjah.",
+        "metrics": [
+          { "label": "Operational Fleet", "value": "2,000+ Cars" },
+          { "label": "Luxury Bus Network", "value": "500+ Buses" },
+          { "label": "Emirates Hubs", "value": "Dubai & Abu Dhabi" },
+          { "label": "RTA Certified Dispatch", "value": "100%" }
+        ]
+      },
+      {
+        "slideNo": "02",
+        "title": "Founder's International Commitment",
+        "subtitle": "Excellence Engineered for High-Profile Travellers",
+        "content": "Founded by Mohammed Jahangir, Victor's UAE operations at 65th Street, Al Garhoud, Dubai, embody world-class standards in executive discretion, immaculate fleet presentation, and airport terminal punctuality.",
+        "quote": "I am committed to providing unwavering service to my clients. In Dubai and across the Emirates, we uphold the standard of luxury mobility: On Time Every Time.",
+        "founder": "Mohammed Jahangir, Founder & Managing Director"
+      },
+      {
+        "slideNo": "03",
+        "title": "UAE Luxury Services Catalog",
+        "subtitle": "Tailored for Dignitaries, Executives & Visiting Delegations",
+        "services": [
+          {
+            "name": "Chauffeur & Luxury Limousine",
+            "desc": "First Class Mercedes S-Class, Maybach, and BMW 7 Series with uniformed, multilingual executive chauffeurs."
+          },
+          {
+            "name": "Airport VIP Transfers",
+            "desc": "Radar flight tracking at DXB, AUH, and DWC airports with 60-minute complimentary waiting and curbside concierge."
+          },
+          {
+            "name": "Corporate Events & Delegations",
+            "desc": "Coordinated VIP convoys and delegation transfers for global conferences (GITEX, COP summits, World Government Summit)."
+          },
+          {
+            "name": "Corporate Employee Transport",
+            "desc": "Executive shuttle and coach services for multinational headquarters and free-zone corporate campuses."
+          },
+          {
+            "name": "Tourism & City Excursions",
+            "desc": "Custom private itineraries covering Burj Khalifa, Palm Jumeirah, Sheikh Zayed Grand Mosque, and desert resorts."
+          },
+          {
+            "name": "Rent-A-Car & Fleet Leasing",
+            "desc": "Monthly luxury car leasing and corporate allocation with full maintenance and insurance."
+          }
+        ]
+      },
+      {
+        "slideNo": "04",
+        "title": "UAE Ultra-Luxury Fleet Showcase",
+        "subtitle": "The Benchmark of Comfort, Quietness & Style",
+        "tiers": [
+          {
+            "category": "First Class Saloons",
+            "models": "Mercedes-Benz S-Class, BMW 7 Series, Lexus ES",
+            "spec": "The executive standard for diplomatic and corporate travel."
+          },
+          {
+            "category": "Ultra-Luxury Limousines",
+            "models": "Mercedes-Maybach S-Class",
+            "spec": "Unrivalled luxury, privacy partitions, and VIP legroom."
+          },
+          {
+            "category": "Executive SUVs & MPVs",
+            "models": "Cadillac Escalade, GMC Yukon, Mercedes-Benz V-Class",
+            "spec": "Spacious luxury travel for executive delegations and family convoys."
+          },
+          {
+            "category": "Luxury Coaches & Minibuses",
+            "models": "Mercedes-Benz Sprinter (18-seater), Luxury Coaches (35–50 seats)",
+            "spec": "High-volume conference transfers and international delegations."
+          }
+        ]
+      },
+      {
+        "slideNo": "05",
+        "title": "The Victor Chauffeur Protocol & RTA Standards",
+        "subtitle": "Discretion, Non-Disclosure & Ambient Luxury",
+        "standards": [
+          {
+            "title": "RTA Certified Chauffeurs",
+            "desc": "100% compliant with Dubai Road and Transport Authority (RTA) executive limousine licensing."
+          },
+          {
+            "title": "24-Point Cabin Audit & 22°C Climate",
+            "desc": "Immaculate leather cabins, unscented air, chilled mineral water, and multi-device fast chargers."
+          },
+          {
+            "title": "Discretion & Non-Disclosure (NDA)",
+            "desc": "Absolute passenger privacy guaranteed for confidential business discussions and executive calls."
+          },
+          {
+            "title": "Salik Toll & Express Routing",
+            "desc": "Seamless transit across Sheikh Zayed Road (E11) and inter-emirate highways with Salik clearance included."
+          }
+        ]
+      },
+      {
+        "slideNo": "06",
+        "title": "Dubai Al Garhoud Head Office & Corridors",
+        "subtitle": "Strategic Presence Adjacent to Dubai International Airport",
+        "locations": [
+          {
+            "city": "Dubai (UAE Regional Head Office)",
+            "address": "65th Street, Al Garhoud, Near Dubai International Airport, Dubai, UAE",
+            "focus": "DXB Airport, Downtown Dubai, DIFC, Dubai South (DWC), Palm Jumeirah"
+          },
+          {
+            "city": "Abu Dhabi Corridor",
+            "address": "Abu Dhabi Global Market (ADGM) Al Maryah Island & Downtown",
+            "focus": "Inter-emirate VIP transfers, Yas Island, and government ministry routes"
+          },
+          {
+            "city": "Sharjah Corridor",
+            "address": "Sharjah Airport International Free Zone (SAIF) & Al Majaz",
+            "focus": "Cross-emirate commerce, Expo Centre Sharjah, and cargo ports"
+          }
+        ]
+      },
+      {
+        "slideNo": "07",
+        "title": "Corporate Limousine Billing & VAT",
+        "subtitle": "Transparent Invoicing & Corporate Retainers",
+        "commercials": [
+          "5% UAE VAT statutory tax invoices issued for corporate tax compliance",
+          "Dedicated corporate credit facilities for registered multinational enterprises",
+          "Flexible hourly retainers (5-Hour Executive, 10-Hour Full Day packages)",
+          "Full inter-emirate transit coverage with Salik road toll clearance included",
+          "Direct concierge dispatch via Dubai reservation desk"
+        ]
+      },
+      {
+        "slideNo": "08",
+        "title": "UAE Reservation & Corporate RFP Desk",
+        "subtitle": "Reserve Your First Class Limousine Journey Today",
+        "contact": {
+          "phone": "+971 52 455 2441",
+          "whatsapp": "+971 52 455 2441",
+          "email": "info@victorluxurylimousine.com",
+          "web": "https://victor-mobility.vercel.app/uae",
+          "rfpUrl": "/uae/rfp"
+        }
+      }
+    ]
+  }
+}
