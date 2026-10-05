@@ -142,6 +142,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/due-diligence`} className="hover:text-white transition-colors text-teal-400 font-semibold">
+                  Vendor Due Diligence &amp; KYC Vault
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>

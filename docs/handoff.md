@@ -1,50 +1,64 @@
 # Handoff
 
-## Milestone: Phase 18 — Enterprise Employee Shift Roster & Route Optimization Desk (/roster)
+## Milestone: Phase 19 — Enterprise Vendor Due Diligence & Institutional Procurement Vault (/due-diligence)
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Implementing interactive Shift Roster Manifest Inspector, nodal pickup stops timeline, geofenced route optimization rules, and Nodal vs Doorstep comparison matrix for `/india/roster` and `/uae/roster`.
+- **Milestone Context**: Implementing interactive Statutory Pillars Inspector, corporate KYC records, multi-state GSTINs, EPF/ESIC statutory compliance, commercial motor insurance liability indemnity, ethical code of conduct, and bilateral MSA onboarding workflows for `/india/due-diligence` and `/uae/due-diligence`.
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-Phase 18 equips corporate facilities heads, enterprise HR, and transport dispatch managers with end-to-end employee shift roster planning tools:
+Phase 19 equips enterprise procurement heads, corporate legal counsels, and chief financial officers with immediate access to authenticated vendor credentials:
 
-1. **Enterprise Shift Roster Dataset (`src/content/roster.json`)**:
-   - Detailed shift commute models, live nodal stop manifests, and route optimization rules for India (`/india/roster`) and UAE (`/uae/roster`):
-     - **Shift Commute Frameworks**:
-       - *General Corporate Day Shift* (09:00 AM Login | 06:00 PM Logout): 44-seater luxury coaches along major arterial corridors; 90–95% seating efficiency.
-       - *Morning Global Operations Shift* (06:00 AM Login | 03:00 PM Logout): 22-seater AC shuttles connecting suburban residential clusters.
-       - *Evening Technology & BPO Shift* (02:00 PM Login | 11:00 PM Logout): 22-seater shuttles + executive MPVs with doorstep drops for female employees.
-       - *24/7 Night Graveyard & Cloud Support* (10:00 PM Login | 07:00 AM Logout): Toyota Innova HyCross with 100% certified doorstep escort drops.
-     - **Authentic Shift Roster Manifests**:
-       - `VIC-ROST-HYD-041`: Hyderabad (Miyapur -> JNTU -> KPHB -> Raheja Mindspace Hitec City), 44-seater luxury coach (TS 09 UA 8842), 41 confirmed boardings (93.2% occupancy), scheduled nodal stop timeline.
-       - `VIC-ROST-BLR-108`: Bengaluru (Silk Board -> HSR -> Bellandur -> Ecoworld), 22-seater AC shuttle (KA 01 AH 5410), 20 confirmed boardings (90.9% occupancy).
-       - `VIC-ROST-PUN-072`: Pune (Aundh -> Baner -> Wakad -> Hinjawadi Phase 3 SEZ), Toyota Innova HyCross (MH 12 QX 9918), 11:00 PM logout drops with Visual Handshake status confirmation.
-       - `VIC-ROST-DXB-203`: Dubai (Marina -> JLT -> Barsha Heights -> Dubai Internet City), Mercedes VIP Sprinter (DXB L 49102), 16 confirmed boardings (88.9% occupancy).
-       - `VIC-ROST-AUH-114`: Abu Dhabi (Saadiyat -> Corniche -> Al Maryah Island ADGM), Mercedes S-Class, 100% executive occupancy.
-     - **Route Optimization Architecture**:
-       - Max 45-Minute Commute Window Guarantee.
-       - Geofenced Nodal Densification (1km radius clusters mapped to metro / society gates).
-       - AIS-140 Automated Choke-Point Bypasses.
-       - Nodal Staging (35% cost reduction) vs Doorstep Escort Drops matrix.
+1. **Enterprise Vendor Due Diligence Dataset (`src/content/due-diligence.json`)**:
+   - Comprehensive statutory pillars, corporate registration credentials, branch offices, and ethical conduct policies for India (`/india/due-diligence`) and UAE (`/uae/due-diligence`):
+     - **India Corporate Identification**:
+       - Legal Name: Victor Mobility Private Limited
+       - Constitution: Private Limited Company (Companies Act, 2013)
+       - CIN: `U50100TG2023PTC178921`
+       - PAN: `AAFCV8841M`
+       - MSME Udyam: `UDYAM-TS-09-0041829`
+       - Head Office: Plot No. 12, Survey No. 41, Financial District, Nanakramguda, Gachibowli, Hyderabad, Telangana 500032
+       - Operating Branches & State GSTINs: Hyderabad Head Office (`36AAFCV8841M1Z4`), Bengaluru Whitefield Branch (`29AAFCV8841M1Z8`), Pune Hinjawadi Branch (`27AAFCV8841M1ZB`).
+     - **Four Core Statutory Pillars (India)**:
+       - *Statutory Labour & Chauffeur Welfare*: EPF Registration (`TS/HYD/0084129/000`), ESIC Registration (`52000841290001001`), Minimum Wages Act 1948 compliance, Payment of Gratuity Act 1972 trust policy.
+       - *Corporate Taxation & GST Governance*: Telangana, Karnataka, and Maharashtra GSTINs with SAC Code `996601` (Rental services of passenger transport vehicles with operators, 5%/12% ITC).
+       - *Commercial Motor Insurance & Liability Indemnity*: Comprehensive commercial motor insurance (`HDFC-ERGO / TATA-AIG`), Passenger Personal Accident Cover (₹10,00,000/seat), Unlimited statutory third-party property damage, Bilateral MSA Annexure C corporate transit indemnity.
+       - *Chauffeur Police Vetting & Background Verification*: State Police Crime Records Bureau clearance certificates, Parivahan Sarathi digital commercial license validation, pre-employment/random toxicology screening, public QR badge verification (`/india/academy/verify`).
+     - **UAE Corporate Due Diligence Entity**:
+       - Legal Name: Victor Mobility LLC (UAE Branch)
+       - Constitution: Limited Liability Company (Dubai DED Licensed)
+       - Commercial Trade License: `DED-1048291`
+       - FTA TRN: `100482910400003`
+       - Head Office: Office 402, Al Garhoud Business Centre, Airport Road, Al Garhoud, Dubai, UAE
+       - RTA Limousine Commercial Permit: `RTA-LUX-DXB-88410`
+       - 100% RTA Limousine Chauffeur Commercial Cards & Smart Limousine Telematics Feed.
+     - **Ethical Procurement & Code of Conduct**:
+       - Zero-Tolerance for Corruption & Bribery
+       - Workplace Diversity & Non-Discrimination (dedicated women chauffeur empowerment)
+       - Driver Rest Hour & Fatigue Mandates (max 10-hour duty shift, mandatory 8-hour consecutive rest)
+       - Customer Data Privacy & ISO 27001 Telematics Security.
+     - **Institutional Onboarding Workflow**:
+       - Stage 1: NDA & KYC Exchange (within 24 hours)
+       - Stage 2: MSA Review & Redlines (24 to 48 hours)
+       - Stage 3: Dispatch Activation (immediate on execution).
 
-2. **Interactive Employee Shift Roster Desk Component (`src/components/roster/EmployeeShiftRosterDesk.tsx`)**:
-   - **Live Roster Manifest Inspector**: Interactive chips switching between Hyderabad, Bengaluru, and Pune manifests displaying scheduled stop sequences, vehicle plates, assigned badged chauffeurs, and occupancy metrics.
-   - **Shift Commute Synchronization**: Timings, vehicle fleet allocations, and routing strategies for 4 standard enterprise shift windows.
-   - **Nodal Routing & Travel Optimization Rules**: Core mathematical routing rules and side-by-side Nodal vs Doorstep comparison matrix.
-   - **Actions**:
-     - "Request Route Optimization Study on WhatsApp" with prefilled roster parameters and truthful inquiry disclaimer.
-     - "Print Selected Manifest Dossier" (`window.print()`).
+2. **Interactive Vendor Due Diligence Desk Component (`src/components/duediligence/VendorDueDiligenceDesk.tsx`)**:
+   - **Statutory Pillars & Records Inspector**: Interactive tabs and cards for Labour, Taxation, Insurance, and Chauffeur Vetting with verification badges and detailed records tables.
+   - **Corporate Entity & Registered Offices**: Primary corporate identification credentials and multi-state branch office cards with active GSTIN / License identifiers.
+   - **Ethical Procurement Code of Conduct**: Audited enterprise policy schedules covering anti-bribery, rest hours, and data protection.
+   - **Institutional Onboarding FAQs & MSA Protocol**: Step-by-step corporate vendor onboarding stages and procurement FAQs.
+   - **Procurement Inquiry Drawer**: Prefilled company, officer, service type, and dossier document selections generating customized WhatsApp inquiries with honest disclaimer.
+   - **Print Dossier Action**: `window.print()` trigger for printing comprehensive due diligence documentation.
 
 3. **Dedicated Route Pages**:
-   - `/india/roster`: India Employee Shift Roster & Route Optimization Desk with Schema.org `Service` structured data.
-   - `/uae/roster`: UAE Executive Shift Roster & Free Zone Logistics Desk with Schema.org `Service` structured data.
+   - `/india/due-diligence`: India Enterprise Vendor Due Diligence & Institutional Procurement Vault with Schema.org `Service` structured data.
+   - `/uae/due-diligence`: UAE Corporate Due Diligence, RTA Licensing & Compliance Vault with Schema.org `Service` structured data.
 
 4. **Global Navigation & Cross-Linking**:
-   - Added "Employee Shift Roster Desk" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **62 static pages**).
+   - Added "Vendor Due Diligence & KYC Vault" link under Navigation in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **64 static pages**).
 
 ---
 
@@ -54,17 +68,16 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across roster datasets, manifest tables, and route pages |
-| **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
-| **Production Build** (`next build`) | **PASS (62/62 static routes)** | 100% SSG static compilation (`○` and `●`) |
-| **Phase 18 Verification Suite** (`verify-phase18.mjs`) | **PASS (5/5 test suites)** | Page load, Schema.org JSON-LD, manifest switching, nodal stops, shift models, optimization rules, WhatsApp link generation, UAE Free Zone desk, mobile 390px view |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across due diligence datasets, statutory tables, and route pages |
+| **Production Build** (`next build`) | **PASS (64/64 static routes)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 19 Verification Suite** (`verify-phase19.mjs`) | **PASS (5/5 test suites)** | Page load, Schema.org JSON-LD, statutory pillar switching, entity credentials, Code of Conduct, WhatsApp link generation, UAE DED/TRN desk, mobile 390px view |
 
 ---
 
-## 3. Visual Artifacts Captured
+## 3. Visual Artifacts & Screenshots
 
-| Screenshot Artifact | Location | Purpose |
-| :--- | :--- | :--- |
-| `phase18-india-roster-desktop.png` | `docs/screenshots/` | Desktop view of India Shift Roster Desk with live nodal stops sequence and occupancy metrics |
-| `phase18-india-roster-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column layout, touch controls, and shift manifest cards |
-| `phase18-uae-roster-desktop.png` | `docs/screenshots/` | Desktop view of UAE Free Zone Shift Roster Desk with Dubai Internet City and ADGM routes |
+Verified screenshots captured directly via Playwright:
+
+- Desktop India Due Diligence Vault: `docs/screenshots/phase19-india-duediligence-desktop.png`
+- Mobile India Due Diligence Vault (390px): `docs/screenshots/phase19-india-duediligence-mobile.png`
+- Desktop UAE Corporate Due Diligence Desk: `docs/screenshots/phase19-uae-duediligence-desktop.png`

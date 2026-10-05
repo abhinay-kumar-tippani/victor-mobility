@@ -147,6 +147,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/india/due-diligence`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/uae`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -274,6 +280,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/uae/roster`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/uae/due-diligence`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,

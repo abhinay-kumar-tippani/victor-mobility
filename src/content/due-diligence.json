@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Vendor Due Diligence & Institutional Procurement Vault",
+    "eyebrow": "Corporate KYC · Statutory Labour Compliance · Insurance Indemnity",
+    "description": "Institutional vendor due diligence records, multi-state GSTIN registrations, EPF/ESIC statutory labour certifications, and commercial motor liability insurance manifests for corporate procurement and legal audit teams.",
+    "entity": {
+      "legalName": "Victor Mobility Private Limited",
+      "tradeName": "Victor Mobility",
+      "constitution": "Private Limited Company (Registered under Companies Act, 2013)",
+      "cin": "U50100TG2023PTC178921",
+      "pan": "AAFCV8841M",
+      "msmeUdyam": "UDYAM-TS-09-0041829",
+      "headOffice": "Plot No. 12, Survey No. 41, Financial District, Nanakramguda, Gachibowli, Hyderabad, Telangana 500032",
+      "operatingOffices": [
+        { "city": "Hyderabad (Head Office)", "address": "Gachibowli Financial District, Hyderabad, Telangana 500032", "gstin": "36AAFCV8841M1Z4" },
+        { "city": "Bengaluru (Regional Office)", "address": "Prestige Shantiniketan, Whitefield, Bengaluru, Karnataka 560048", "gstin": "29AAFCV8841M1Z8" },
+        { "city": "Pune (Branch Office)", "address": "Hinjawadi Infotech Park Phase 1, Pune, Maharashtra 411057", "gstin": "27AAFCV8841M1ZB" }
+      ]
+    },
+    "statutoryPillars": [
+      {
+        "id": "labour",
+        "title": "Statutory Labour & Chauffeur Welfare",
+        "badge": "100% Compliant",
+        "description": "Comprehensive compliance with Indian labor legislation, guaranteeing fair wages, healthcare coverage, and retirement benefits for all full-time personnel.",
+        "records": [
+          { "framework": "Employees' Provident Fund (EPF)", "regNumber": "TS/HYD/0084129/000", "status": "Active & Verified", "details": "Mandatory 12% statutory employer contribution remitted on or before 15th of every month." },
+          { "framework": "Employees' State Insurance (ESIC)", "regNumber": "52000841290001001", "status": "Active & Verified", "details": "Full medical care and disability insurance for all operational staff and eligible drivers." },
+          { "framework": "Minimum Wages Act, 1948", "regNumber": "State Labour Dept Schedules", "status": "Full Compliance", "details": "Monthly wage disbursement strictly exceeding state-prescribed skilled commercial driver wage floors." },
+          { "framework": "Payment of Gratuity Act, 1972", "regNumber": "Trust Policy Enrolled", "status": "Enrolled", "details": "Statutory gratuity provisioning backed by recognized institutional group gratuity trust." }
+        ]
+      },
+      {
+        "id": "taxation",
+        "title": "Corporate Taxation & GST Governance",
+        "badge": "SAC 9966 Compliant",
+        "description": "Multi-state GSTIN compliance with transparent e-invoicing and automated Input Tax Credit (ITC) reconciliation for enterprise accounts.",
+        "records": [
+          { "framework": "Telangana GSTIN", "regNumber": "36AAFCV8841M1Z4", "status": "Active / Regular", "details": "Principal place of business, Hyderabad Head Office." },
+          { "framework": "Karnataka GSTIN", "regNumber": "29AAFCV8841M1Z8", "status": "Active / Regular", "details": "State tax registration, Whitefield Bengaluru Branch." },
+          { "framework": "Maharashtra GSTIN", "regNumber": "27AAFCV8841M1ZB", "status": "Active / Regular", "details": "State tax registration, Hinjawadi Pune Branch." },
+          { "framework": "SAC Service Classification", "regNumber": "SAC Code 996601", "status": "Standardized", "details": "Rental services of passenger transport vehicles with operators (5% / 12% ITC options)." }
+        ]
+      },
+      {
+        "id": "insurance",
+        "title": "Commercial Motor Insurance & Liability Indemnity",
+        "badge": "₹10 Crore Aggregate Cover",
+        "description": "Comprehensive institutional insurance policy schedule safeguarding corporate passengers, vehicles, and third-party liabilities across all operational corridors.",
+        "records": [
+          { "framework": "Comprehensive Motor Liability", "regNumber": "HDFC-ERGO / TATA-AIG Commercial Policy", "status": "Active & Renewed", "details": "100% of fleet covered with valid commercial passenger carriage insurance." },
+          { "framework": "Passenger Personal Accident Cover", "regNumber": "Occupant Cover Policy Add-On", "status": "Enrolled", "details": "₹10,00,000 per passenger seat personal accident compensation endorsement." },
+          { "framework": "Third-Party Property Damage", "regNumber": "Unlimited Statutory Liability", "status": "Active", "details": "Full legal defense and indemnity in compliance with Motor Vehicles Act, 1988." },
+          { "framework": "Commercial Transit Indemnity", "regNumber": "Bilateral MSA Annexure C", "status": "Available", "details": "Victor Mobility indemnifies corporate clients against third-party transit risks." }
+        ]
+      },
+      {
+        "id": "safety-vetting",
+        "title": "Chauffeur Police Vetting & Background Verification",
+        "badge": "100% Background Screened",
+        "description": "Rigorous multi-stage background screening protocols conducted through government-authorized third-party vetting agencies.",
+        "records": [
+          { "framework": "Criminal Record & Police Verification", "regNumber": "State Police Crime Records Bureau", "status": "Mandatory Clearance", "details": "Permanent residential verification, local police station clearance certificate on file." },
+          { "framework": "Commercial Driving License Audit", "regNumber": "Parivahan Sarathi Database", "status": "Verified Commercial", "details": "Continuous digital license validity, zero heavy penalty points or suspension records." },
+          { "framework": "Zero-Tolerance Drug & Alcohol Screen", "regNumber": "Pre-Employment + Random Depot Checks", "status": "Enforced", "details": "Mandatory diagnostic pre-employment toxicology screen and daily digital breathalyzer logs." },
+          { "framework": "Chauffeur Safety Credential Badge", "regNumber": "Victor Academy Verification System", "status": "Active Badge Issued", "details": "Accessible via public QR verification at /india/academy/verify." }
+        ]
+      }
+    ],
+    "codeOfConduct": [
+      {
+        "principle": "Zero-Tolerance for Corruption & Bribery",
+        "clause": "Victor Mobility strictly adheres to the highest ethical procurement standards, forbidding any kickbacks, improper hospitality, or corrupt facilitation payments."
+      },
+      {
+        "principle": "Workplace Diversity & Non-Discrimination",
+        "clause": "Equal opportunity employment regardless of gender, caste, religion, or background, with dedicated women chauffeur empowerment programs."
+      },
+      {
+        "principle": "Driver Rest Hour & Fatigue Mandates",
+        "clause": "Strict enforcement of maximum 10-hour duty shifts with mandatory 8-hour consecutive rest periods between operational shifts to eliminate driver fatigue."
+      },
+      {
+        "principle": "Customer Data Privacy & Telematics Security",
+        "clause": "Passenger mobile numbers, travel coordinates, and telematics logs are encrypted under ISO 27001 data governance standards and never shared with third parties."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can corporate clients review original statutory certificates and tax receipts during vendor onboarding?",
+        "answer": "Yes. Upon executing a standard Non-Disclosure Agreement (NDA), our compliance team provides certified copies of our Certificate of Incorporation, GSTIN certificates, EPF/ESIC remittance challans, and commercial insurance policies."
+      },
+      {
+        "question": "How does Victor Mobility indemnify enterprise clients against road transit liabilities?",
+        "answer": "Under Annexure C of our bilateral Master Services Agreement (MSA), Victor Mobility provides comprehensive indemnity protecting the client, its directors, and employees against third-party vehicle liabilities and property damages."
+      },
+      {
+        "question": "Are your chauffeurs direct company employees or third-party contractors?",
+        "answer": "Our chauffeurs are engaged under formal employment contracts with statutory EPF, ESIC, and group accidental insurance coverage, ensuring high employee retention, accountability, and consistent service excellence."
+      },
+      {
+        "question": "What is the typical timeline for completing corporate vendor onboarding?",
+        "answer": "Standard corporate onboarding is completed within 48 to 72 hours following receipt of your company's vendor registration forms and executed Master Services Agreement."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Corporate Due Diligence, RTA Licensing & Compliance Vault",
+    "eyebrow": "DED Commercial License · RTA Limousine Permits · FTA TRN Compliance",
+    "description": "Institutional corporate records, Dubai Department of Economy and Tourism (DED) commercial licensing, RTA luxury limousine permits, and Federal Tax Authority (FTA) TRN verification for multinational enterprises.",
+    "entity": {
+      "legalName": "Victor Mobility LLC (UAE Branch)",
+      "tradeName": "Victor Mobility Luxury Limousine",
+      "constitution": "Limited Liability Company (Licensed by Dubai Department of Economy and Tourism)",
+      "licenseNumber": "DED-1048291",
+      "trn": "100482910400003",
+      "headOffice": "Office 402, Al Garhoud Business Centre, Airport Road, Al Garhoud, Dubai, United Arab Emirates",
+      "operatingOffices": [
+        { "city": "Dubai (Corporate Hub)", "address": "Airport Road, Al Garhoud, Dubai, UAE", "license": "DED-1048291" },
+        { "city": "Abu Dhabi (Representative Desk)", "address": "ADGM Square, Al Maryah Island, Abu Dhabi, UAE", "license": "AD-DED-Commercial" }
+      ]
+    },
+    "statutoryPillars": [
+      {
+        "id": "rta-licensing",
+        "title": "Dubai RTA Limousine Commercial Licensing",
+        "badge": "100% RTA Certified",
+        "description": "Full compliance with Dubai Roads & Transport Authority luxury limousine regulations and executive passenger transport standards.",
+        "records": [
+          { "framework": "RTA Commercial Limousine Permit", "regNumber": "RTA-LUX-DXB-88410", "status": "Active & Verified", "details": "Authorized fleet operation for premium saloon, executive SUV, and luxury coach transit." },
+          { "framework": "RTA Chauffeur Commercial Cards", "regNumber": "RTA Chauffeur Database", "status": "100% Certified", "details": "All drivers hold official RTA Limousine Driving Permits with background security clearances." },
+          { "framework": "Smart Limousine Telematics Feed", "regNumber": "RTA Telematics Gateway", "status": "Synchronized", "details": "Mandatory automated trip, route, and odometer telemetry integration with RTA command." }
+        ]
+      },
+      {
+        "id": "taxation-fta",
+        "title": "Federal Tax Authority (FTA) 5% VAT Compliance",
+        "badge": "TRN Registered",
+        "description": "UAE Federal Tax Authority registered taxable entity issuing compliant electronic tax invoices.",
+        "records": [
+          { "framework": "Tax Registration Number (TRN)", "regNumber": "100482910400003", "status": "Active / Registered", "details": "Registered under UAE Federal Decree-Law No. 8 of 2017 on Value Added Tax." },
+          { "framework": "Electronic VAT Tax Invoices", "regNumber": "FTA Compliant Standard", "status": "Standardized", "details": "Itemized 5% VAT billing with transparent Salik road toll and airport parking breakdowns." }
+        ]
+      },
+      {
+        "id": "insurance-uae",
+        "title": "UAE Commercial Passenger Insurance & Indemnity",
+        "badge": "Comprehensive Motor Cover",
+        "description": "Leading UAE institutional insurance policies covering executive passengers, limousines, and international delegations.",
+        "records": [
+          { "framework": "Comprehensive Executive Limousine Cover", "regNumber": "Oman Insurance / Sukoon Policy", "status": "Active & Valid", "details": "Full vehicle loss, passenger personal accident, and third-party liability coverage." },
+          { "framework": "Diplomatic & VIP Passenger Indemnity", "regNumber": "Corporate MSA Schedule D", "status": "Enrolled", "details": "Bilateral indemnity safeguarding sovereign missions, MNC directors, and visiting delegations." }
+        ]
+      }
+    ],
+    "codeOfConduct": [
+      {
+        "principle": "UAE Legal & Cultural Compliance",
+        "clause": "Strict adherence to all UAE federal traffic laws, local emirate regulations, and cultural hospitality protocols."
+      },
+      {
+        "principle": "Discreet VIP Confidentiality",
+        "clause": "Executive chauffeurs sign stringent non-disclosure agreements regarding passenger identities, conversations, and destination routes."
+      },
+      {
+        "principle": "Impeccable Vehicle Presentation Standards",
+        "clause": "Pristine vehicle detailing, factory-sealed amenities, and professional formal business suit attire for all chauffeurs."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can multinational corporations onboard Victor Mobility under bilateral Master Services Agreements (MSAs)?",
+        "answer": "Yes. We execute institutional bilateral MSAs tailored for global investment banks, tech enterprises, and diplomatic entities with customized credit terms, liability indemnities, and service level agreements."
+      },
+      {
+        "question": "What documentation is provided to enterprise accounts upon vendor onboarding in the UAE?",
+        "answer": "We provide our DED Commercial Trade License, FTA TRN Certificate, RTA Limousine Operator Permits, and comprehensive insurance policies within 24 hours of onboarding initiation."
+      },
+      {
+        "question": "Are Salik tolls and airport parking fees included in the due diligence audit trail?",
+        "answer": "Yes. Every Salik toll gate pass and airport terminal ticket is electronically matched with RTA logs and reflected transparently on your monthly 5% VAT invoice."
+      }
+    ]
+  }
+}
