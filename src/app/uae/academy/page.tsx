@@ -99,6 +99,13 @@ export default function UaeAcademyPage() {
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-4">
               <Link
+                href="/uae/academy/verify"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Verify RTA Driver Badge</span>
+              </Link>
+              <Link
                 href="/uae/estimator"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs font-bold transition-all shadow-md"
               >

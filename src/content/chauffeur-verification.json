@@ -1,0 +1,184 @@
+{
+  "india": {
+    "title": "Chauffeur Credential & Safety Badge Verification Desk",
+    "subtitle": "Victor Chauffeur Protocol Academy — Registry of Certified Drivers",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Mobility Pvt. Ltd.",
+    "headline": "Real-Time Chauffeur Security, Police Clearance & Protocol Verification",
+    "description": "Enterprise clients, HR mobility teams, and corporate security officers can instantly audit driver safety credentials, police background clearances, alcohol sobriety logs, and women passenger safety ratings across Hyderabad, Bengaluru, and Pune.",
+    "sampleBadges": ["VIC-HYD-4821", "VIC-BLR-1092", "VIC-PUN-3314"],
+    "records": [
+      {
+        "badgeId": "VIC-HYD-4821",
+        "name": "Rameshwar K.",
+        "role": "Master Executive Chauffeur",
+        "academyLevel": "Level 4 — Protocol Master",
+        "experience": "8+ Years Dedicated Corporate Service",
+        "city": "Hyderabad (Head Office Depot)",
+        "assignedFleet": "First Class Saloons & Luxury Limousines (Mercedes E/S-Class)",
+        "policeClearance": {
+          "status": "Verified & Active",
+          "authority": "Telangana State Police CCTNS Verification",
+          "validity": "Valid through Dec 2026",
+          "criminalRecord": "Clear / Zero Incidents"
+        },
+        "medicalExam": {
+          "status": "Cleared",
+          "visionScore": "6/6 Corrected Vision",
+          "cardioFitness": "Certified Fit for Commercial Passenger Transport",
+          "lastExamDate": "15 August 2026"
+        },
+        "sobrietyLog": {
+          "status": "100% Compliant",
+          "reading": "0.00% BAC (Zero-Tolerance Protocol)",
+          "testingCadence": "Mandatory Pre-Trip Digital Breathalyzer"
+        },
+        "womenSafetyRating": {
+          "status": "Certified Night Escort Driver",
+          "rating": "5.0 / 5.0 Safety Score",
+          "protocols": "Drop-to-Doorstep Escort, Safe-Arrival Confirmation, Active SOS Link"
+        },
+        "defensiveDrivingScore": "99.4%"
+      },
+      {
+        "badgeId": "VIC-BLR-1092",
+        "name": "Siddharth N.",
+        "role": "Senior Airport & Executive Chauffeur",
+        "academyLevel": "Level 3 — Executive Chauffeur",
+        "experience": "6+ Years Corporate & Airport Service",
+        "city": "Bengaluru (Branch Office Depot)",
+        "assignedFleet": "Executive MPVs & Sedans (Innova Crysta / Honda City)",
+        "policeClearance": {
+          "status": "Verified & Active",
+          "authority": "Karnataka State Police Criminal Verification",
+          "validity": "Valid through Nov 2026",
+          "criminalRecord": "Clear / Zero Incidents"
+        },
+        "medicalExam": {
+          "status": "Cleared",
+          "visionScore": "6/6 Vision",
+          "cardioFitness": "Certified Fit for Long-Shift Commuting",
+          "lastExamDate": "02 September 2026"
+        },
+        "sobrietyLog": {
+          "status": "100% Compliant",
+          "reading": "0.00% BAC (Zero-Tolerance Protocol)",
+          "testingCadence": "Pre-Shift Depot Testing"
+        },
+        "womenSafetyRating": {
+          "status": "Certified Night Escort Driver",
+          "rating": "4.9 / 5.0 Safety Score",
+          "protocols": "BIAL Curbside Clearance, Continuous GPS Telematics, No-Detour Lock"
+        },
+        "defensiveDrivingScore": "98.8%"
+      },
+      {
+        "badgeId": "VIC-PUN-3314",
+        "name": "Anil M.",
+        "role": "Campus Shuttle Fleet Captain",
+        "academyLevel": "Level 3 — Heavy Commercial Shuttle Lead",
+        "experience": "7+ Years Group Commute Transit",
+        "city": "Pune (Branch Office Depot)",
+        "assignedFleet": "High-Capacity Executive Coaches (22 & 44-Seater Buses)",
+        "policeClearance": {
+          "status": "Verified & Active",
+          "authority": "Maharashtra State Police Verification",
+          "validity": "Valid through Oct 2026",
+          "criminalRecord": "Clear / Zero Incidents"
+        },
+        "medicalExam": {
+          "status": "Cleared",
+          "visionScore": "6/6 Vision",
+          "cardioFitness": "Commercial Heavy Vehicle Fitness Certified",
+          "lastExamDate": "20 July 2026"
+        },
+        "sobrietyLog": {
+          "status": "100% Compliant",
+          "reading": "0.00% BAC (Zero-Tolerance Protocol)",
+          "testingCadence": "Dual Depot Breathalyzer Signoff"
+        },
+        "womenSafetyRating": {
+          "status": "Campus Transit Safety Certified",
+          "rating": "4.9 / 5.0 Safety Score",
+          "protocols": "CCTV Cabin Surveillance, Emergency Roof Hatch, Speed Limiter (80 km/h)"
+        },
+        "defensiveDrivingScore": "99.1%"
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE RTA Chauffeur Credential & Security Verification Desk",
+    "subtitle": "Victor Chauffeur Protocol Academy — Dubai & Abu Dhabi Roster",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Luxury Limousine LLC",
+    "headline": "RTA Certified Limousine Chauffeurs & Diplomatic Protocol Verification",
+    "description": "Verify RTA limousine permits, flight radar terminal certifications, diplomatic motorcade clearances, and background verification records for Victor's executive chauffeur team across Dubai and Abu Dhabi.",
+    "sampleBadges": ["VIC-DXB-9021", "VIC-AUH-7712"],
+    "records": [
+      {
+        "badgeId": "VIC-DXB-9021",
+        "name": "Tariq A.",
+        "role": "VIP Protocol Limousine Chauffeur",
+        "academyLevel": "Level 4 — Diplomatic & VIP Specialist",
+        "experience": "5+ Years Luxury Limousine Service",
+        "city": "Dubai (Al Garhoud UAE Head Office)",
+        "assignedFleet": "Mercedes-Maybach & Mercedes-Benz S-Class",
+        "policeClearance": {
+          "status": "Verified & Active",
+          "authority": "Dubai Police Good Conduct Clearance",
+          "validity": "Valid through Jan 2027",
+          "criminalRecord": "Clear / Zero Violations"
+        },
+        "medicalExam": {
+          "status": "Cleared",
+          "visionScore": "6/6 Vision",
+          "cardioFitness": "RTA Luxury Commercial Driver Health Fit",
+          "lastExamDate": "10 September 2026"
+        },
+        "sobrietyLog": {
+          "status": "100% Compliant",
+          "reading": "0.00% BAC (Strict UAE Zero-Tolerance Standard)",
+          "testingCadence": "Pre-Duty Depot Inspection"
+        },
+        "womenSafetyRating": {
+          "status": "First Class Executive Protocol Certified",
+          "rating": "5.0 / 5.0 Dignitary Score",
+          "protocols": "Discreet Executive Demeanor, Tarmac VIP Access, Red-Carpet Curbside Greeting"
+        },
+        "defensiveDrivingScore": "99.6%"
+      },
+      {
+        "badgeId": "VIC-AUH-7712",
+        "name": "Farhan K.",
+        "role": "State Summit & Delegation Chauffeur",
+        "academyLevel": "Level 4 — Summit Motorcade Captain",
+        "experience": "6+ Years Diplomatic Mobility",
+        "city": "Abu Dhabi Operations Desk",
+        "assignedFleet": "Cadillac Escalade & Executive MPVs (Mercedes V-Class)",
+        "policeClearance": {
+          "status": "Verified & Active",
+          "authority": "Abu Dhabi Police Security Clearance",
+          "validity": "Valid through Dec 2026",
+          "criminalRecord": "Clear / Zero Violations"
+        },
+        "medicalExam": {
+          "status": "Cleared",
+          "visionScore": "6/6 Vision",
+          "cardioFitness": "Certified Commercial Passenger Transport Fit",
+          "lastExamDate": "25 August 2026"
+        },
+        "sobrietyLog": {
+          "status": "100% Compliant",
+          "reading": "0.00% BAC (Zero-Tolerance Protocol)",
+          "testingCadence": "Pre-Duty Verification"
+        },
+        "womenSafetyRating": {
+          "status": "Diplomatic Convoy Protocol Certified",
+          "rating": "5.0 / 5.0 Protocol Score",
+          "protocols": "ADNEC & Presidential Flight Terminal Clearance, Motorcade Lane Discipline"
+        },
+        "defensiveDrivingScore": "99.3%"
+      }
+    ]
+  }
+}

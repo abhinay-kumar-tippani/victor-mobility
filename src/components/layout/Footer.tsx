@@ -77,6 +77,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/academy/verify`} className="hover:text-white transition-colors text-emerald-400 font-semibold">
+                  Chauffeur Verification Desk
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/portal`} className="hover:text-white transition-colors font-semibold text-brand-violet">
                   Client Telematics Portal
                 </Link>
