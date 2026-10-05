@@ -8,7 +8,7 @@
   "hero": {
     "eyebrow": "VICTOR MOBILITY · INDIA",
     "title": "On Time Every Time.",
-    "description": "Employee transportation, airport transfers and event travel—with vehicles for everyday journeys and special occasions.",
+    "description": "Chauffeur travel, special occasions and employee transport across Hyderabad, Bengaluru and Pune.",
     "primaryCta": {
       "label": "Discuss your requirement",
       "href": "/india/contact"
@@ -18,6 +18,65 @@
       "href": "/india/fleet"
     }
   },
+  "customerJourneys": [
+    {
+      "id": "executive-vip",
+      "title": "Executive & VIP Travel",
+      "eyebrow": "Executive Hospitality",
+      "tagline": "Punctual airport arrivals, board meeting itineraries, and executive mobility.",
+      "description": "Tailored for senior executives, visiting delegations, and high-profile travellers demanding confidentiality, pristine cabins, and route precision across Hyderabad, Bengaluru, and Pune.",
+      "serviceSlug": "chauffeur-luxury",
+      "serviceTitle": "Chauffeur & Luxury Travel",
+      "category": "Luxury & Limousines",
+      "imageSrc": "/images/india/luxury-interior.png",
+      "imageAlt": "Executive luxury cabin with refined leather seating",
+      "keyPoints": [
+        "Flight schedule alignment & terminal greeting",
+        "Executive saloons & luxury cabins",
+        "Hourly & full-day dedicated itineraries"
+      ],
+      "ctaLabel": "Explore VIP Travel",
+      "enquiryService": "Chauffeur & Luxury Travel"
+    },
+    {
+      "id": "weddings-occasions",
+      "title": "Weddings & Private Occasions",
+      "eyebrow": "Celebrations & Events",
+      "tagline": "Family convoys, couple arrivals, and coordinated guest transfers.",
+      "description": "Seamless multi-vehicle logistics for destination weddings, family celebrations, and gala events with dedicated route coordination connecting hotels, ceremony venues, and airports.",
+      "serviceSlug": "event-transportation",
+      "serviceTitle": "Event Transportation",
+      "category": "MPVs & Group Vehicles",
+      "imageSrc": "/images/india/hero.png",
+      "imageAlt": "Premium vehicle convoy prepared for special occasions",
+      "keyPoints": [
+        "Couple & VIP guest coordination",
+        "Multi-venue ceremony & hotel shuttles",
+        "Coordinated MPV and group dispatch"
+      ],
+      "ctaLabel": "Explore Occasion Travel",
+      "enquiryService": "Event Transportation"
+    },
+    {
+      "id": "corporate-employee",
+      "title": "Corporate Employee Transport",
+      "eyebrow": "Workplace Mobility",
+      "tagline": "Daily shift rosters, corridor routing, and reliable employee shuttles.",
+      "description": "Managed employee commute solutions configured around shift rosters, attendance punctuality, and route corridors with 22 and 44-seater group shuttles across tech corridors.",
+      "serviceSlug": "employee-transportation",
+      "serviceTitle": "Employee Transportation",
+      "category": "Buses & Shuttles",
+      "imageSrc": "/images/india/employee-shuttle.png",
+      "imageAlt": "Modern 22 and 44-seater corporate employee commuter coach",
+      "keyPoints": [
+        "Shift roster & floor timing alignment",
+        "Corridor planning & hub pickups",
+        "22 & 44-seater air-conditioned shuttles"
+      ],
+      "ctaLabel": "Explore Employee Commute",
+      "enquiryService": "Employee Transportation"
+    }
+  ],
   "about": {
     "title": "Transport for the people you move.",
     "description": "Victor Mobility provides employee transportation, bus and shuttle transport, event travel, airport transfers, chauffeur services and vehicle rentals. Our India website brings together the services and fleet categories you can discuss with our team.",
@@ -28,6 +87,7 @@
     {
       "slug": "employee-transportation",
       "title": "Employee Transportation",
+      "badge": "Workplace Commute Solutions",
       "shortDescription": "Transport for daily employee travel and workplace shuttles.",
       "description": "Discuss your employee commute and shuttle requirements with Victor. Share your operating locations, shift timings and approximate passenger numbers so the team can plan a suitable transport arrangement.",
       "source": "Brochure cover and page 3",
@@ -42,6 +102,7 @@
     {
       "slug": "bus-shuttle-transport",
       "title": "Bus & Shuttle Transport",
+      "badge": "Group & Campus Shuttles",
       "shortDescription": "Group transport for workplaces, venues and scheduled travel.",
       "description": "Explore bus and shuttle options for moving groups between offices, pickup points and event venues. Tell the team your route, schedule and expected passenger count to discuss an appropriate vehicle category.",
       "source": "Brochure cover and page 10",
@@ -55,6 +116,7 @@
     {
       "slug": "event-transportation",
       "title": "Event Transportation",
+      "badge": "Weddings, Galas & Summits",
       "shortDescription": "Vehicle arrangements for conferences, celebrations and event guests.",
       "description": "Coordinate your event travel requirements with Victor, from guest arrivals and departures to group and VIP transfers. Share event dates, locations and the approximate number of passengers.",
       "source": "Brochure page 3",
@@ -69,6 +131,7 @@
     {
       "slug": "airport-transfers",
       "title": "Airport Transfers",
+      "badge": "Terminal Punctuality",
       "shortDescription": "Pickup and drop-off arrangements for airport journeys.",
       "description": "Arrange transport to or from the airport. Share your pickup and drop-off locations, travel date and time, passenger count and luggage requirements so the team can discuss a suitable option.",
       "source": "Brochure page 3",
@@ -83,6 +146,7 @@
     {
       "slug": "chauffeur-luxury",
       "title": "Chauffeur & Luxury Travel",
+      "badge": "Executive & VIP Travel",
       "shortDescription": "Chauffeur-driven travel for business and special occasions.",
       "description": "Discuss executive, luxury and limousine transport for business trips, events and special occasions. Ask the team to confirm suitable vehicle options for your location, dates and requirements.",
       "source": "Brochure page 3 and current user service description",
@@ -97,6 +161,7 @@
     {
       "slug": "rent-a-car",
       "title": "Rent-A-Car",
+      "badge": "Flexible Fleet Rental",
       "shortDescription": "Vehicle rental enquiries for your travel plans.",
       "description": "Enquire about vehicle rental and self-drive options listed in Victor's brochure. Share your location, rental dates and preferred category; the team will confirm applicable availability, terms and requirements.",
       "source": "Brochure cover and page 3 (self-drive)",

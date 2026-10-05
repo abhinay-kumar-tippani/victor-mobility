@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
@@ -17,12 +18,14 @@ import {
   MapPin,
   Clock,
   ShieldCheck,
+  Sparkles,
+  HelpCircle,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
-import type { IndiaContent, MediaContent, ServiceItem } from "@/types/content";
+import type { IndiaContent, MediaContent } from "@/types/content";
 
 interface PageProps {
   params: {
@@ -37,6 +40,138 @@ const serviceIcons: Record<string, React.ElementType> = {
   "airport-transfers": Plane,
   "chauffeur-luxury": Car,
   "rent-a-car": KeyRound,
+};
+
+const serviceVisualMap: Record<
+  string,
+  {
+    imageSrc: string;
+    imageAlt: string;
+    caption: string;
+    highlights: { title: string; desc: string }[];
+    recommendedComplementary: string[];
+  }
+> = {
+  "chauffeur-luxury": {
+    imageSrc: "/images/india/luxury-interior.png",
+    imageAlt: "Executive luxury cabin with refined leather seating and ambient lighting",
+    caption: "Executive luxury cabin with refined leather seating. Vehicle imagery is illustrative.",
+    highlights: [
+      {
+        title: "Discretion & Executive Etiquette",
+        desc: "Experienced, courteous chauffeurs trained in executive etiquette, non-intrusive service, and strict passenger confidentiality.",
+      },
+      {
+        title: "Cabin Comfort & Amenities",
+        desc: "Pristine, climate-controlled interiors with quiet acoustic insulation, mobile charging access, and bottled water upon request.",
+      },
+      {
+        title: "Airport & Roadshow Coordination",
+        desc: "Active flight monitoring for airport pickups and dedicated hourly disposal for multi-stop corporate board schedules.",
+      },
+    ],
+    recommendedComplementary: ["airport-transfers", "event-transportation"],
+  },
+  "event-transportation": {
+    imageSrc: "/images/india/hero.png",
+    imageAlt: "Premium vehicle fleet arranged for special celebrations and corporate events",
+    caption: "Coordinated fleet for weddings, private celebrations, and conferences. Vehicle imagery is illustrative.",
+    highlights: [
+      {
+        title: "Weddings & Family Celebrations",
+        desc: "Dedicated couple transport, guest shuttles connecting hotels and ceremony venues, and coordinated multi-vehicle family convoys.",
+      },
+      {
+        title: "Corporate Summits & Delegations",
+        desc: "Multi-vehicle logistics for conferences, trade summits, and visiting VIP delegations with central dispatch supervision.",
+      },
+      {
+        title: "Flexible Multi-Point Schedules",
+        desc: "Itinerary planning that adapts smoothly to ceremony overruns, flight schedule changes, and multi-venue hops.",
+      },
+    ],
+    recommendedComplementary: ["chauffeur-luxury", "bus-shuttle-transport"],
+  },
+  "employee-transportation": {
+    imageSrc: "/images/india/employee-shuttle.png",
+    imageAlt: "Modern 22 and 44-seater corporate commuter bus shuttle",
+    caption: "Workplace commute shuttles and daily employee transport coaches. Vehicle imagery is illustrative.",
+    highlights: [
+      {
+        title: "Shift Roster Synchronization",
+        desc: "Designed around plant and office shift timings to guarantee punctual floor coverage and minimize worker wait times.",
+      },
+      {
+        title: "Route & Corridor Optimization",
+        desc: "Corridor mapping with designated hub pickups and campus drops, reducing transit duration across tech corridors.",
+      },
+      {
+        title: "22 & 44-Seater Group Fleet",
+        desc: "Air-conditioned commuter buses maintained under regular service schedules with verified commercial driver assignments.",
+      },
+    ],
+    recommendedComplementary: ["bus-shuttle-transport", "rent-a-car"],
+  },
+  "airport-transfers": {
+    imageSrc: "/images/india/hero.png",
+    imageAlt: "Airport transfer sedan and MPV vehicles",
+    caption: "Punctual terminal connections across Hyderabad, Bengaluru, and Pune. Vehicle imagery is illustrative.",
+    highlights: [
+      {
+        title: "Flight Arrival & Departure Monitoring",
+        desc: "Real-time alignment with flight schedules at RGIA (Hyderabad), Kempegowda (BLR), and Pune (PNQ) airports.",
+      },
+      {
+        title: "Terminal Meet & Luggage Support",
+        desc: "Designated pickup bay greetings with luggage assistance for stress-free transitions from arrivals to city destinations.",
+      },
+      {
+        title: "Individual & Delegation Capacity",
+        desc: "Sedan choices for solo business travellers and spacious MPVs for families and luggage-heavy delegation arrivals.",
+      },
+    ],
+    recommendedComplementary: ["chauffeur-luxury", "rent-a-car"],
+  },
+  "bus-shuttle-transport": {
+    imageSrc: "/images/india/employee-shuttle.png",
+    imageAlt: "Group bus shuttle for campus and venue loops",
+    caption: "Air-conditioned group shuttle transport. Vehicle imagery is illustrative.",
+    highlights: [
+      {
+        title: "Campus & Inter-Facility Loops",
+        desc: "Continuous loop transit connecting corporate campuses, metro stations, and parking facilities.",
+      },
+      {
+        title: "Comfort & Air-Conditioning",
+        desc: "Equipped with climate control, high-back ergonomic seating, and spacious center aisles for comfortable transit.",
+      },
+      {
+        title: "Dedicated Dispatch Supervision",
+        desc: "Assigned route supervisors monitoring timetable adherence and vehicle readiness before scheduled dispatch.",
+      },
+    ],
+    recommendedComplementary: ["employee-transportation", "event-transportation"],
+  },
+  "rent-a-car": {
+    imageSrc: "/images/india/hero.png",
+    imageAlt: "Fleet of sedans and MPVs available for flexible rental terms",
+    caption: "Flexible vehicle rental and dedicated mobility arrangements. Vehicle imagery is illustrative.",
+    highlights: [
+      {
+        title: "Flexible Rental Horizons",
+        desc: "Short-term daily bookings, extended weekend travel, and tailored monthly corporate vehicle allocation.",
+      },
+      {
+        title: "Chauffeur or Self-Drive Options",
+        desc: "Choose between professional chauffeur-driven mobility or verified self-drive vehicles subject to documentation.",
+      },
+      {
+        title: "Transparent Commercial Terms",
+        desc: "Clear upfront proposals specifying kilometre allowances, fuel terms, and vehicle inspection protocols.",
+      },
+    ],
+    recommendedComplementary: ["airport-transfers", "chauffeur-luxury"],
+  },
 };
 
 export async function generateStaticParams() {
@@ -78,8 +213,11 @@ export default function ServiceDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const otherServices = content.services.filter(
-    (s) => s.published && s.slug !== service.slug
+  const visualData = serviceVisualMap[service.slug] || serviceVisualMap["employee-transportation"];
+
+  // Select 2 complementary services based on recommendation, or fallback
+  const complementaryServices = content.services.filter(
+    (s) => s.published && visualData.recommendedComplementary.includes(s.slug)
   );
 
   const IconComponent = serviceIcons[service.slug] || Briefcase;
@@ -117,7 +255,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
                 <IconComponent className="w-3.5 h-3.5 text-brand-violet" />
-                <span>Enterprise Service Profile</span>
+                <span>{service.badge || "Corporate Mobility Solution"}</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 {service.title}
@@ -130,29 +268,81 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </section>
 
         {/* Detailed Service Overview & Planning Guide */}
-        <section className="py-16 sm:py-24 bg-brand-warm-white">
+        <section className="py-14 sm:py-20 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
               {/* Main Content Column */}
-              <div className="lg:col-span-8 space-y-10">
+              <div className="lg:col-span-8 space-y-8 sm:space-y-10">
+                {/* Visual Editorial Image Card */}
+                <div className="rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-sm bg-white">
+                  <div className="relative aspect-[16/9] w-full bg-brand-ink">
+                    <Image
+                      src={visualData.imageSrc}
+                      alt={visualData.imageAlt}
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 66vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/75 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-4 right-4 text-xs text-white/90">
+                      <span className="font-semibold block">{service.title} Experience</span>
+                      <span className="text-[11px] text-brand-soft-neutral/80 italic">{visualData.caption}</span>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Editorial Description */}
-                <div className="bg-white rounded-3xl p-8 sm:p-10 border border-brand-soft-neutral shadow-sm space-y-6">
+                <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-4">
                   <h2 className="text-2xl font-bold text-brand-ink">
                     Service Scope & Planning Overview
                   </h2>
-                  <p className="text-base text-brand-ink/85 leading-relaxed">
+                  <p className="text-sm sm:text-base text-brand-ink/85 leading-relaxed">
                     {service.description}
                   </p>
-                  <p className="text-sm text-brand-ink/75 leading-relaxed">
-                    Victor Mobility coordinates corporate routes, scheduling, driver alignment, and dispatch
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed pt-2 border-t border-brand-soft-neutral/70">
+                    Victor Mobility coordinates vehicle allocation, scheduling, driver alignment, and dispatch
                     supervision to ensure your journey aligns with the company commitment:{" "}
                     <strong className="text-brand-indigo font-bold">&ldquo;On Time Every Time.&rdquo;</strong>
                   </p>
                 </div>
 
+                {/* Experiential Highlights / Standards */}
+                <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
+                  <div>
+                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-1">
+                      Service Standards
+                    </span>
+                    <h3 className="text-xl font-bold text-brand-ink">
+                      What to expect on this journey
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-4">
+                    {visualData.highlights.map((item) => (
+                      <div
+                        key={item.title}
+                        className="p-5 rounded-2xl bg-brand-warm-white/70 border border-brand-soft-neutral/80 flex items-start gap-3.5"
+                      >
+                        <div className="w-8 h-8 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo shrink-0 mt-0.5">
+                          <CheckCircle2 className="w-4 h-4 text-brand-violet" />
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-bold text-brand-ink mb-1">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-brand-ink/70 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Key Coordination Information Checklist */}
                 {service.enquiryDetails && service.enquiryDetails.length > 0 && (
-                  <div className="bg-white rounded-3xl p-8 sm:p-10 border border-brand-soft-neutral shadow-sm space-y-6">
+                  <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                         <Clock className="w-5 h-5" />
@@ -190,8 +380,19 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   </div>
                 )}
 
+                {/* Pricing & Proposal Reassurance */}
+                <div className="p-5 rounded-2xl bg-white border border-brand-soft-neutral/80 flex items-start gap-3.5">
+                  <div className="w-8 h-8 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo shrink-0 mt-0.5">
+                    <HelpCircle className="w-4 h-4 text-brand-blue" />
+                  </div>
+                  <div className="text-xs text-brand-ink/75 leading-relaxed">
+                    <strong className="text-brand-ink block mb-0.5">Transparent Quotation Process</strong>
+                    Quotations are tailored according to route distance, schedule duration, and vehicle category. Our desk provides clear written proposals with no hidden surcharges.
+                  </div>
+                </div>
+
                 {/* Operational Coverage Guarantee */}
-                <div className="bg-white rounded-3xl p-8 sm:p-10 border border-brand-soft-neutral shadow-sm space-y-6">
+                <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                       <MapPin className="w-5 h-5" />
@@ -206,18 +407,17 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     </div>
                   </div>
 
-                  <p className="text-sm text-brand-ink/80 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
                     This service is coordinated actively across Victor Mobility&apos;s established operating cities:{" "}
                     <strong>Hyderabad</strong>, <strong>Bengaluru</strong>, and <strong>Pune</strong>, as well as their
-                    immediate industrial corridors and airport routes. For custom multi-city itineraries or corporate expansions,
-                    our team confirms specific vehicle allocation upon review.
+                    immediate industrial corridors and airport routes.
                   </p>
                 </div>
               </div>
 
               {/* Sidebar Action Card */}
               <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-                <div className="bg-brand-ink text-white rounded-3xl p-8 border border-brand-indigo/30 space-y-6 shadow-md">
+                <div className="bg-brand-ink text-white rounded-3xl p-7 sm:p-8 border border-brand-indigo/30 space-y-6 shadow-md">
                   <div className="space-y-2">
                     <span className="text-xs font-bold uppercase tracking-widest text-brand-violet block">
                       Direct Engagement
@@ -256,7 +456,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-brand-violet shrink-0" />
-                      <span>No automated spam or premature bookings</span>
+                      <span>Direct confirmation with vehicle & driver details</span>
                     </div>
                   </div>
                 </div>
@@ -276,16 +476,16 @@ export default function ServiceDetailPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Other Services Navigation */}
-        <section className="py-16 bg-white border-t border-brand-soft-neutral">
+        {/* Tailored Complementary Services Navigation */}
+        <section className="py-14 sm:py-16 bg-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo block mb-1">
-                  Explore More Solutions
+                  Complementary Solutions
                 </span>
                 <h3 className="text-2xl font-bold text-brand-ink">
-                  Other Services in Victor Portfolio
+                  Frequently Paired with {service.title}
                 </h3>
               </div>
               <Link
@@ -297,24 +497,27 @@ export default function ServiceDetailPage({ params }: PageProps) {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {otherServices.slice(0, 5).map((other) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+              {complementaryServices.map((other) => (
                 <Link
                   key={other.slug}
                   href={`/india/services/${other.slug}`}
-                  className="p-5 rounded-2xl bg-brand-warm-white hover:bg-white border border-brand-soft-neutral hover:border-brand-indigo/30 transition-all duration-150 group flex flex-col justify-between"
+                  className="p-6 rounded-2xl bg-brand-warm-white hover:bg-white border border-brand-soft-neutral hover:border-brand-indigo/30 transition-all duration-150 group flex flex-col justify-between"
                 >
                   <div>
-                    <h4 className="text-sm font-bold text-brand-ink group-hover:text-brand-indigo transition-colors mb-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-1">
+                      {other.badge || "Mobility Option"}
+                    </span>
+                    <h4 className="text-lg font-bold text-brand-ink group-hover:text-brand-indigo transition-colors mb-2">
                       {other.title}
                     </h4>
-                    <p className="text-xs text-brand-ink/70 line-clamp-2">
+                    <p className="text-xs sm:text-sm text-brand-ink/70 leading-relaxed">
                       {other.shortDescription}
                     </p>
                   </div>
-                  <div className="pt-3 mt-3 border-t border-brand-soft-neutral/60 flex items-center justify-between text-[11px] font-bold text-brand-indigo">
-                    <span>Details</span>
-                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                  <div className="pt-4 mt-4 border-t border-brand-soft-neutral/60 flex items-center justify-between text-xs font-bold text-brand-indigo">
+                    <span>Explore {other.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </Link>
               ))}

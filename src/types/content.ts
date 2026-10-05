@@ -1,6 +1,23 @@
+export interface CustomerJourneyItem {
+  id: string;
+  title: string;
+  eyebrow: string;
+  tagline: string;
+  description: string;
+  serviceSlug: string;
+  serviceTitle: string;
+  category: string;
+  imageSrc: string;
+  imageAlt: string;
+  keyPoints: string[];
+  ctaLabel: string;
+  enquiryService: string;
+}
+
 export interface ServiceItem {
   slug: string;
   title: string;
+  badge?: string;
   shortDescription: string;
   description: string;
   source: string;
@@ -81,6 +98,7 @@ export interface IndiaContent {
     coverage: string;
     cta: string;
   };
+  customerJourneys?: CustomerJourneyItem[];
   services: ServiceItem[];
   cities: CityItem[];
   brochureExpansionCities: Array<{

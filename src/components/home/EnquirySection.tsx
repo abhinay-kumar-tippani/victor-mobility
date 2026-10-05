@@ -43,6 +43,7 @@ export default function EnquirySection({
   const [selectedService, setSelectedService] = useState(
     preselectedService || publishedServices[0]?.title || "Employee Transportation"
   );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState(
     preselectedCity || publishedCities[0]?.name || "Hyderabad"
   );
@@ -68,6 +69,10 @@ export default function EnquirySection({
       const params = new URLSearchParams(window.location.search);
       const sParam = params.get("service");
       const cParam = params.get("city");
+      const catParam = params.get("category");
+      if (catParam) {
+        setSelectedCategory(catParam);
+      }
       if (sParam) {
         const matchedService = publishedServices.find(
           (s) => s.slug === sParam || s.title.toLowerCase() === sParam.toLowerCase()
@@ -93,6 +98,23 @@ export default function EnquirySection({
       const detail = customEvent.detail;
       if (!detail) return;
 
+      if (detail.category) {
+        setSelectedCategory(detail.category);
+        // If no explicit service provided, intelligently map to matching service
+        if (!detail.service) {
+          const catLower = detail.category.toLowerCase();
+          if (catLower.includes("luxury")) {
+            setSelectedService("Chauffeur & Luxury Travel");
+          } else if (catLower.includes("bus")) {
+            setSelectedService("Bus & Shuttle Transport");
+          } else if (catLower.includes("mpv")) {
+            setSelectedService("Event Transportation");
+          } else if (catLower.includes("sedan")) {
+            setSelectedService("Chauffeur & Luxury Travel");
+          }
+        }
+      }
+
       if (detail.service) {
         const matchedService = publishedServices.find(
           (s) => s.slug === detail.service || s.title.toLowerCase() === detail.service?.toLowerCase()
@@ -114,14 +136,6 @@ export default function EnquirySection({
           setSelectedCity("Other");
           setCustomCity(detail.city);
         }
-      }
-
-      if (detail.category) {
-        setRequirementText((prev) => {
-          const categoryNote = `Enquiry for ${detail.category} category.`;
-          if (prev.includes(categoryNote)) return prev;
-          return prev ? `${prev}\n${categoryNote}` : categoryNote;
-        });
       }
 
       if (detail.note) {
@@ -164,13 +178,14 @@ export default function EnquirySection({
       `*Transport Requirement Enquiry*`,
       `*Victor Mobility Pvt. Ltd.*`,
       `--------------------------------`,
-      `*Representative:* ${fullName.trim() || "[Your Name]"}`,
+      `*Contact Name:* ${fullName.trim() || "[Your Name]"}`,
       `*Service:* ${selectedService}`,
-      `*Operating Hub:* ${cityDisplay}`,
-      `*Requirement Scope:*`,
+      ...(selectedCategory ? [`*Vehicle Category:* ${selectedCategory}`] : []),
+      `*City / Region:* ${cityDisplay}`,
+      `*Journey Details:*`,
       requirementText.trim() || "[Shift timings, route corridor, passenger count or dates]",
       `--------------------------------`,
-      `Prepared via Victor Mobility Website`,
+      `Prepared via Victor Mobility Requirement Desk`,
     ];
     return lines.join("\n");
   };
@@ -269,7 +284,7 @@ export default function EnquirySection({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Form & Live Draft */}
           <div className="lg:col-span-7 bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-sm">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-brand-soft-neutral">
+            <div className="flex items-center justify-between mb-4 pb-4 border-b border-brand-soft-neutral">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
                   <MessageSquare className="w-4 h-4" />
@@ -283,6 +298,20 @@ export default function EnquirySection({
               </span>
             </div>
 
+            {selectedCategory && (
+              <div className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-indigo/10 border border-brand-indigo/25 text-xs font-semibold text-brand-indigo">
+                <span>Preferred Category: <strong>{selectedCategory}</strong></span>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory(null)}
+                  className="w-4 h-4 rounded-full bg-brand-indigo/20 hover:bg-brand-indigo hover:text-white flex items-center justify-center text-[10px] transition-colors ml-1"
+                  aria-label="Remove category filter"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+
             <form onSubmit={handleContinueWhatsApp} noValidate className="space-y-6">
               {/* Name Field: Unified matching ID for label htmlFor and input id */}
               <div>
@@ -291,7 +320,7 @@ export default function EnquirySection({
                   className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                 >
                   <User className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Full Name or Company Representative *</span>
+                  <span>Your Name or Company *</span>
                 </label>
                 <input
                   id="enquiry-name-input"
@@ -304,7 +333,7 @@ export default function EnquirySection({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-                  placeholder="e.g. Rahul Sharma (HR / Facilities Manager)"
+                  placeholder="e.g. Rahul Sharma or Acme Corp"
                   className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                     nameError
                       ? "border-red-500 focus:ring-2 focus:ring-red-400"
@@ -327,7 +356,7 @@ export default function EnquirySection({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <Briefcase className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Select Service *</span>
+                    <span>Service Needed *</span>
                   </label>
                   <select
                     id={serviceId}
@@ -349,7 +378,7 @@ export default function EnquirySection({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <MapPin className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Operating City *</span>
+                    <span>City or Region *</span>
                   </label>
                   <select
                     id={cityId}
@@ -410,7 +439,7 @@ export default function EnquirySection({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink cursor-pointer"
                   >
                     <FileText className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Requirement Details *</span>
+                    <span>Journey or Schedule Details *</span>
                   </label>
                   {currentServiceObj && currentServiceObj.enquiryDetails.length > 0 && (
                     <span className="text-[11px] text-brand-indigo font-medium hidden sm:inline-block">
@@ -468,7 +497,10 @@ export default function EnquirySection({
                     )}
                   </button>
                 </div>
-                <pre className="text-xs font-mono text-brand-ink/80 whitespace-pre-wrap bg-brand-warm-white p-3 rounded-lg border border-brand-soft-neutral max-h-36 overflow-y-auto">
+                <pre
+                  id="enquiry-whatsapp-preview"
+                  className="text-xs font-mono text-brand-ink/80 whitespace-pre-wrap bg-brand-warm-white p-3 rounded-lg border border-brand-soft-neutral max-h-36 overflow-y-auto"
+                >
                   {draftMessage}
                 </pre>
               </div>
@@ -558,15 +590,15 @@ export default function EnquirySection({
               <ul className="space-y-2.5 text-xs text-brand-ink/75">
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                  <span>No simulated booking confirmations or automatic billing.</span>
+                  <span>Enquiry received directly by our operations desk for route and capacity review.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                  <span>Requirements evaluated for route safety, capacity, and driver dispatch.</span>
+                  <span>Tailored vehicle options, route schedule, and clear terms discussed with you.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                  <span>Official written proposals provided for corporate and scheduled transport.</span>
+                  <span>Direct confirmation with dedicated chauffeur and vehicle dispatch details.</span>
                 </li>
               </ul>
             </div>

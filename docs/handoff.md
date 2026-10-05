@@ -1,91 +1,90 @@
 # Handoff
 
-## Milestone: UX & Hierarchy Optimization (Experience Review Implementation)
+## Milestone: Day 5 — Luxury Brand Leadership & Three Customer Journeys
 - **Branch**: `main`
-- **Status**: Completed, verified with automated end-to-end tests, and captured across desktop and mobile.
+- **Status**: Completed, verified with automated end-to-end test suites, and captured across desktop and mobile.
 
 ---
 
-## 1. UX & Hierarchy Enhancements (Based on Codex Experience Review)
+## 1. Executive Summary & Strategy Execution
 
-In response to the experience inspection and report (`victor-experience-report.md`), six major architectural and visual hierarchy improvements were implemented:
+Following the luxury brand leadership analysis and compressed into an accelerated 3-day delivery window, Day 5 establishes Victor Mobility as a unified premium mobility brand serving three unmistakable customer segments without sacrificing corporate commute reliability:
 
-1. **Clear, Distinct Homepage Sequence**:
-   - Replaced repetitive card layouts with a clear narrative answering visitor questions in sequence:
-     1. *What can you arrange?* — Compact **Services Overview** (`#services`) with 6 scannable cards linking directly to `/india/services/[slug]` and quick "Discuss" triggers. Height reduced from ~2,860px to 1,804px on mobile.
-     2. *Workplace Transport Spotlight* — **Employee Transport Feature** (`#employee-transport`) brought early, introducing the first vehicle imagery (workplace bus) on screen 2 (Y: 2,835px vs previous ~4,643px).
-     3. *Which option suits me?* — **Fleet Categories** (`#fleet`) with dynamic image and data switching.
-     4. *Specialized Journeys* — New **Specialized Pathways** (`#pathways`) highlighting Airport Transfers, Event Transportation, Chauffeur & Luxury, and Rentals.
-     5. *Where do you operate & who coordinates?* — **Operating Network** (`#cities`) with concise 3-city focus (*Hyderabad. Bengaluru. Pune.*), 3-step dispatch process, and named Business Development Partner Mujeeb Ur Rehman Mohammed.
-     6. *Why trust Victor?* — **About & FAQs** (`#about`) answering brochure-backed operational questions.
-     7. *How do I start?* — **Requirement Desk** (`#contact`) with interactive WhatsApp enquiry builder.
-
-2. **Synchronized Fleet Visuals & Data**:
-   - Resolved the vehicle image mismatch in `src/components/home/FleetSection.tsx`. Switching categories now dynamically updates both the copy and vehicle visual:
-     - `Sedans`: Sedan crop from hero image, 3–4 passenger capacity.
-     - `MPVs & Group Vehicles`: MPV crop from hero image, 6–7 passenger capacity.
-     - `Buses & Shuttles`: Dedicated `employee-shuttle.png` image, 22 & 44-seater shuttles.
-     - `Luxury & Limousines`: Dedicated `luxury-interior.png` executive cabin visual.
-
-3. **Streamlined Mobile Contact Page (`/india/contact`)**:
-   - Removed redundant dark hero banner and domain configuration notices that pushed form fields below the fold.
-   - First input (`enquiry-name-input`) now starts at **423px** on a 390×844 mobile viewport (previously **~1,153px**), immediately visible and actionable on the first screen without scrolling.
-
-4. **Showing the Real Business & Transparent Process**:
-   - Named partner Mujeeb Ur Rehman Mohammed (Business Development Partner) featured with direct verified call (`+91 91007 77768`) and WhatsApp (`+91 93965 46950`) touchpoints.
-   - 3-step structured engagement workflow: *1. Share Scope -> 2. Review Proposal -> 3. Punctual Dispatch*.
-   - Transparent enquiry notices explaining that WhatsApp opens a prefilled draft rather than simulating booking confirmation.
-
-5. **Plain English & Removing Internal Labels**:
-   - Headings updated to approved brochure copy:
-     - *"Transport for work, travel and events"*
-     - *"Employee transport, planned around your team"*
-     - *"Find the right vehicle category"*
-     - *"Hyderabad. Bengaluru. Pune."*
-     - *"Tell us what you need to arrange"*
-   - Removed internal labels (`"Dedicated Vehicle Category"`, `"Page 10"`, `"Category ID"`).
+1. **Executive & VIP Travel**: High-touch chauffeur travel, airport terminal transfers, dignitary delegations (`/india/services/chauffeur-luxury`).
+2. **Weddings & Private Occasions**: Coordinated multi-vehicle family convoys, guest shuttles, and milestone celebrations (`/india/services/event-transportation`).
+3. **Corporate Employee Transport**: Punctual shift-rostered employee shuttles and tech campus commute operations (`/india/services/employee-transportation` & `bus-shuttle-transport`).
 
 ---
 
-## 2. Key UX Measurements & Comparisons
+## 2. Key Implementations & Bug Fixes
 
-| Measurement (390×844 Mobile) | Before Optimization | After Optimization | Improvement |
-| :--- | :--- | :--- | :--- |
-| **Mobile Homepage Total Height** | ~13,915 px | **13,063 px** | ~852 px saved, higher content density |
-| **Services Section Height** | ~2,860 px | **1,804 px** | **~1,056 px (37%) more compact** |
-| **First Major Vehicle Image (Bus) Y-Position** | ~4,643 px (>5 screens) | **2,835 px** (arrives screen 2) | **1,808 px earlier arrival** |
-| **Contact Page First Field Y-Position** | ~1,153 px (below fold) | **423 px** (above fold) | **730 px higher — visible immediately** |
-| **Fleet Tab Visual Switching** | Static luxury image only | Dynamic (Bus, Sedan, MPV, Luxury) | **100% synchronized** |
+### 1. Three Customer Journeys Showcase (`CustomerJourneys.tsx`)
+- Placed prominently below the Hero section on the homepage.
+- Each journey features high-resolution editorial imagery, distinctive badges, value propositions, key service commitments, and dual actions:
+  - **"Explore Journey →"**: Direct navigation to dedicated service detail pages.
+  - **"Discuss Requirement"**: Seamless pre-configuration and scroll to the Requirement Desk (`#contact`).
+
+### 2. Fleet-to-Enquiry CTA Bug Fix (P1 Finding)
+- **Problem**: In previous iterations, clicking "Enquire About Luxury & Limousines" in the fleet section scrolled down to `#contact`, but left the service dropdown stuck on the default `"Employee Transportation"`.
+- **Solution**:
+  - `FleetSection.tsx` now passes `{ category, service: recommendedService }` via `selectEnquiryOption`.
+  - `EnquirySection.tsx` synchronizes `selectedCategory` state and automatically maps the category to the matching service (`Luxury & Limousines` -> `Chauffeur & Luxury Travel`).
+  - Added an interactive **Preferred Category Badge** with a dismiss action (`✕`) allowing visitors to clear or adjust the filter.
+  - WhatsApp message draft preview now cleanly incorporates `*Vehicle Category:* [selectedCategory]`.
+
+### 3. W3C ARIA Tab Pattern Keyboard Navigation
+- Enhanced `FleetSection.tsx` tabs with full W3C ARIA tablist keyboard navigation (`ArrowRight`, `ArrowLeft`, `ArrowDown`, `ArrowUp`, `Home`, `End`).
+- Focus moves dynamically with active tab changes, ensuring compliance with accessibility standards.
+
+### 4. Tailored Service Detail Pages
+- Replaced generic `"Enterprise Service Profile"` badges with service-specific markers:
+  - `Chauffeur & Luxury Travel`: `Executive & VIP Travel`
+  - `Event Transportation`: `Weddings, Galas & Summits`
+  - `Employee Transportation`: `Workplace Commute Solutions`
+  - `Bus & Shuttle Transport`: `Group & Campus Shuttles`
+  - `Airport Transfers`: `Terminal Punctuality`
+  - `Rent-A-Car`: `Flexible Fleet Rental`
+- Integrated dedicated editorial vehicle photography (`luxury-interior.png`, `employee-shuttle.png`, `hero.png`).
+- Added 3 practical "Service Standards" highlights and upfront transparent quotation guidance.
+- Replaced the repetitive 6-card footer dump with intelligent 2-complementary service pairing (e.g. Luxury pairs with Airport Transfers & Event Transportation).
+
+### 5. Streamlined WhatsApp Enquiry Experience
+- Replaced negative robotic disclaimers (`"No simulated booking confirmations or automatic billing"`) with a clear, positive 3-step transparent engagement explanation:
+  - Step 1: Submit your transport parameters.
+  - Step 2: Receive tailored written proposals with vehicle options.
+  - Step 3: Verified dispatch with confirmed driver and vehicle details.
+- Primary CTA states `"Continue on WhatsApp"` with clear explanation of draft generation.
 
 ---
 
-## 3. Complete Verification Suite & Results
+## 3. Automated Verification & Quality Audit
 
-1. **TypeScript Type Check**: `npm run type-check` (`tsc --noEmit`) — **PASSED** (0 errors).
-2. **ESLint**: `npm run lint` (`next lint`) — **PASSED** (0 warnings, 0 errors).
-3. **Production Build**: `npm run build` — **PASSED** (18 static pages generated).
-4. **Automated Verification Suites**:
-   - `scripts/verify-day4-launch.mjs`: **100% PASSED** (Sitemap 200, Robots 200, 0 console errors, verified phone/WhatsApp links, history navigation, 360px/390px overflow).
-   - `scripts/verify-day3.mjs`: **100% PASSED** (Skip link, JSON-LD, ARIA tabs, form validation error states, copy draft confirmation).
-   - `scripts/verify-day2.mjs`: **100% PASSED** (All 14 routes return HTTP 200, 404 test on invalid slug, breakpoint resize cleanup, label association, content baseline).
-   - `scripts/verify-ux-improvements.mjs`: **100% PASSED** (All quantitative measurements verified via Playwright).
+All checks executed against production build (`next build`):
+
+| Test Suite / Quality Gate | Result | Notes |
+| :--- | :--- | :--- |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Full static type safety across content models and components. |
+| **ESLint** (`next lint`) | **PASS (0 warnings)** | Clean code standards and import rules. |
+| **Production Build** (`next build`) | **PASS (18 routes)** | All 18 routes statically compiled (SSG/Static). |
+| **Day 5 Verification Suite** (`verify-day5-journeys.mjs`) | **PASS (6/6 tests)** | Customer journeys, ARIA tabs, fleet-to-enquiry CTA bug fix, WhatsApp preview, and luxury service page verified. |
+| **Day 4 Launch Suite** (`verify-day4-launch.mjs`) | **PASS (8/8 tests)** | Robots, sitemap, 0 console errors across all routes, phone/WhatsApp links, history navigation, mobile overflow. |
+| **Day 3 Interaction Suite** (`verify-day3.mjs`) | **PASS (7/7 tests)** | JSON-LD schema, skip link, inline validation error alerts, draft copy feedback. |
+| **Day 2 Architecture Suite** (`verify-day2.mjs`) | **PASS (16/16 tests)** | 14 route status codes, 404 guard, breakpoint resize cleanup, label associations. |
 
 ---
 
 ## 4. Evidence Artifacts & Screenshots
 
 Visual evidence archived in `docs/screenshots/` and root artifacts:
-- `contact-mobile-fold.png` — Contact page above-the-fold at 390×844 showing first input visible immediately.
-- `home-desktop.png` — Hero and direct pathways on desktop (1440×900).
-- `section-services-desktop.png` & `section-services-mobile.png` — Compact service cards.
-- `section-employee-transport-desktop.png` & `section-employee-transport-mobile.png` — Early bus imagery and commute points.
-- `section-fleet-desktop.png` & `section-fleet-mobile.png` — Synchronized fleet tab switcher.
-- `section-contact-desktop.png` & `section-contact-mobile.png` — Streamlined WhatsApp enquiry builder.
-- `home-mobile-full.png` — Full mobile page capture.
+- `customer-journeys-desktop.png`: Customer Journeys 3-card grid on desktop.
+- `customer-journeys-mobile.png`: Customer Journeys responsive layout on mobile (390×844).
+- `fleet-day5-desktop.png` & `fleet-day5-mobile.png`: Fleet category switcher with keyboard navigation and synchronized visuals.
+- `enquiry-day5-desktop.png` & `enquiry-day5-mobile.png`: Enquiry section showing active "Preferred Category: Luxury & Limousines" badge and updated WhatsApp draft preview.
+- `service-luxury-desktop.png` & `service-luxury-mobile.png`: Dedicated Chauffeur & Luxury service detail page featuring luxury interior photography, standards, and smart pairing.
+- `home-day5-mobile-full.png`: Complete mobile page capture demonstrating balanced hierarchy.
 
 ---
 
-## 5. Launch Readiness Status
-- **Ready for Production Deployment**: Yes.
-- **Rollback Commit**: `3115bfb`
-
+## 5. Branch & Deployment Status
+- **Current Branch**: `main`
+- **Deployment Status**: Production Ready.

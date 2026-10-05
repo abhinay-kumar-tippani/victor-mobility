@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Car, Users, Bus, Sparkles, Check, ArrowRight, Info, CheckCircle2 } from "lucide-react";
+import { Car, Users, Bus, Sparkles, ArrowRight, Info, CheckCircle2 } from "lucide-react";
 import type { FleetCategory, MediaAsset } from "@/types/content";
 import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
@@ -30,6 +30,7 @@ interface CategoryVisualData {
   headline: string;
   capacityText: string;
   planningInputs: string[];
+  recommendedService: string;
 }
 
 const categoryVisuals: Record<string, CategoryVisualData> = {
@@ -40,6 +41,7 @@ const categoryVisuals: Record<string, CategoryVisualData> = {
     badge: "Executive Sedan",
     headline: "Comfortable Saloons for Individual & Business Travel",
     capacityText: "Up to 3–4 passengers · 2 luggage bags",
+    recommendedService: "Chauffeur & Luxury Travel",
     planningInputs: [
       "Passenger count and luggage requirements",
       "Point-to-point business travel or airport route",
@@ -53,6 +55,7 @@ const categoryVisuals: Record<string, CategoryVisualData> = {
     badge: "Team Transit MPV",
     headline: "Spacious Multi-Utility Vehicles for Corporate Teams",
     capacityText: "Up to 6–7 passengers · Generous baggage space",
+    recommendedService: "Event Transportation",
     planningInputs: [
       "Visiting delegation or project team headcount",
       "Multi-stop pickups and site visit schedules",
@@ -66,6 +69,7 @@ const categoryVisuals: Record<string, CategoryVisualData> = {
     badge: "Workplace & Venue Shuttles",
     headline: "Air-Conditioned Buses for Workplaces, Events & Shuttles",
     capacityText: "22-seater & 44-seater configurations",
+    recommendedService: "Bus & Shuttle Transport",
     planningInputs: [
       "Shift roster timings and office arrival windows",
       "Route corridor stops and total employee count",
@@ -79,6 +83,7 @@ const categoryVisuals: Record<string, CategoryVisualData> = {
     badge: "Executive Luxury",
     headline: "Premium Chauffeur-Driven Travel for VIPs & Delegations",
     capacityText: "VIP seating · Climate controlled executive cabin",
+    recommendedService: "Chauffeur & Luxury Travel",
     planningInputs: [
       "Occasion, hospitality, or dignitary delegation scope",
       "Full-day chauffeur service or event schedule",
@@ -93,11 +98,34 @@ export default function FleetSection({
   mediaCaption,
 }: FleetSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(categories[0]?.id || "sedans");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const currentCategory = categories.find((c) => c.id === activeTab) || categories[0];
   const Icon = categoryIcons[currentCategory?.id || "sedans"] || Car;
   const currentVisual =
     categoryVisuals[currentCategory?.id || "sedans"] || categoryVisuals.sedans;
+
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let nextIndex = -1;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      nextIndex = (index + 1) % categories.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      nextIndex = (index - 1 + categories.length) % categories.length;
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === "End") {
+      e.preventDefault();
+      nextIndex = categories.length - 1;
+    }
+
+    if (nextIndex >= 0) {
+      setActiveTab(categories[nextIndex].id);
+      tabRefs.current[nextIndex]?.focus();
+    }
+  };
 
   return (
     <section
@@ -135,12 +163,15 @@ export default function FleetSection({
           aria-label="Fleet vehicle categories"
           className="flex flex-wrap gap-2 sm:gap-3 p-1.5 bg-brand-warm-white rounded-xl border border-brand-soft-neutral mb-8 max-w-3xl"
         >
-          {categories.map((cat) => {
+          {categories.map((cat, idx) => {
             const TabIcon = categoryIcons[cat.id] || Car;
             const isActive = cat.id === activeTab;
             return (
               <button
                 key={cat.id}
+                ref={(el) => {
+                  tabRefs.current[idx] = el;
+                }}
                 role="tab"
                 id={`fleet-tab-${cat.id}`}
                 aria-selected={isActive}
@@ -148,6 +179,7 @@ export default function FleetSection({
                 tabIndex={isActive ? 0 : -1}
                 type="button"
                 onClick={() => setActiveTab(cat.id)}
+                onKeyDown={(e) => handleKeyDown(e, idx)}
                 className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-150 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                   isActive
                     ? "bg-brand-indigo text-white shadow-sm"
@@ -220,7 +252,10 @@ export default function FleetSection({
               <button
                 type="button"
                 onClick={() =>
-                  selectEnquiryOption({ category: currentCategory.name })
+                  selectEnquiryOption({
+                    category: currentCategory.name,
+                    service: currentVisual.recommendedService,
+                  })
                 }
                 className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-3 rounded-xl shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >

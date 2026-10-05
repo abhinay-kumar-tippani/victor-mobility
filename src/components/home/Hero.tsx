@@ -13,11 +13,11 @@ interface HeroProps {
 
 export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
   const quickLinks = [
-    { label: "Employee Transportation", href: "#employee-transport" },
-    { label: "Bus & Shuttle", href: "#services" },
-    { label: "Event Fleet", href: "#services" },
-    { label: "Airport Transfers", href: "#services" },
-    { label: "Chauffeur & Luxury", href: "#fleet" },
+    { label: "Executive & VIP Travel", href: "/india/services/chauffeur-luxury" },
+    { label: "Weddings & Occasions", href: "/india/services/event-transportation" },
+    { label: "Employee Commute", href: "/india/services/employee-transportation" },
+    { label: "Airport Transfers", href: "/india/services/airport-transfers" },
+    { label: "Fleet Categories", href: "#fleet" },
   ];
 
   return (

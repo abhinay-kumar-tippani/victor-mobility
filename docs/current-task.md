@@ -1,26 +1,36 @@
-# Day 4 — Launch Verification, SEO Crawlers, Cross-Device Polish & Final Handoff
+# Day 5 — Luxury Brand Leadership & Three Customer Journeys
 Owner: Antigravity.
-Read AGENTS.md, docs/brief.md, docs/design.md, docs/four-day-plan.md, and docs/full-plan.md.
+Reference: 90-Day Luxury Brand Leadership Report (Compressed into 3-Day Execution Window).
 
-Scope completed for Day 4:
-1. SEO Crawlers & Sitemap Generation:
-   - Dynamic `src/app/sitemap.ts` generating `/sitemap.xml` listing all canonical release routes (`/india`, `/india/services`, all 6 dynamic service detail pages, `/india/fleet`, `/india/about`, `/india/contact`, `/india/privacy`).
-   - Dynamic `src/app/robots.ts` generating `/robots.txt` referencing `sitemap.xml` with allow-all crawling directives.
+Scope completed for Day 5:
+1. Three Distinct Customer Journeys:
+   - Added `CustomerJourneys.tsx` prominently beneath the Hero on the homepage.
+   - Distinct value propositions and standards for:
+     1. Executive & VIP Travel (`/india/services/chauffeur-luxury`)
+     2. Weddings & Private Occasions (`/india/services/event-transportation`)
+     3. Corporate Employee Transport (`/india/services/employee-transportation` & `bus-shuttle-transport`)
+   - Preserved all 6 brochure services and operational baseline.
 
-2. Link Integrity & Channel Audit:
-   - Verified 100% of telephone links format to `tel:+919100777768`.
-   - Verified 100% of WhatsApp links format to `https://wa.me/919396546950`.
-   - Verified zero active `mailto:` links pointing to draft domains.
-   - Verified zero broken internal links across all pages.
+2. Fleet CTA to Enquiry Connection Bug Fix (P1):
+   - Resolved bug where clicking "Enquire About Luxury & Limousines" left "Employee Transportation" preselected.
+   - `FleetSection.tsx` now passes `{ category, service }` to `selectEnquiryOption`.
+   - `EnquirySection.tsx` synchronizes `selectedCategory` state, automatically updates `selectedService` to matching service, renders active category filter badge with dismiss action (`✕`), and updates WhatsApp draft.
 
-3. Browser History & Responsive Viewports:
-   - Verified browser back and forward navigation preserves history cleanly across multiple route depth levels.
-   - Tested responsive mobile rendering at 360px and 390px viewports with zero horizontal overflow.
+3. W3C ARIA Tab Accessibility:
+   - Fully implemented W3C ARIA Tab pattern keyboard navigation in `FleetSection.tsx` (`ArrowRight`, `ArrowLeft`, `ArrowDown`, `ArrowUp`, `Home`, `End`).
+   - Dynamic focus shifting and tab selection verified via automated Playwright tests.
 
-4. Quality Verification & Build:
+4. Tailored Service Detail Pages:
+   - Replaced generic "Enterprise Service Profile" badge with service-specific badges (`Executive & VIP Travel`, `Weddings, Galas & Summits`, `Workplace Commute Solutions`, `Terminal Punctuality`, etc.).
+   - Integrated editorial imagery for each service (`luxury-interior.png`, `employee-shuttle.png`, `hero.png`).
+   - Added 3 practical "Service Standards" highlights and transparent quotation notices.
+   - Implemented smart 2-complementary service recommendations.
+
+5. Quality & Launch Verification:
    - TypeScript check (`tsc --noEmit`) — 0 errors
    - ESLint (`next lint`) — 0 warnings, 0 errors
    - Production Build (`next build`) — 18 static pages generated
+   - Playwright Day 5 verification suite (`scripts/verify-day5-journeys.mjs`) — 100% pass (6/6 tests)
    - Playwright Day 4 launch verification suite (`scripts/verify-day4-launch.mjs`) — 100% pass
    - Playwright Day 3 verification suite (`scripts/verify-day3.mjs`) — 100% pass
    - Playwright Day 2 regression suite (`scripts/verify-day2.mjs`) — 100% pass

@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
+import CustomerJourneys from "@/components/home/CustomerJourneys";
 import ServicesSection from "@/components/home/ServicesSection";
 import EmployeeTransportFeature from "@/components/home/EmployeeTransportFeature";
 import FleetSection from "@/components/home/FleetSection";
@@ -33,6 +34,14 @@ export default function IndiaPage() {
           heroMedia={heroAsset}
           mediaCaption={media.caption}
         />
+
+        {/* Three Tailored Customer Journeys */}
+        {content.customerJourneys && (
+          <CustomerJourneys
+            journeys={content.customerJourneys}
+            mediaCaption={media.caption}
+          />
+        )}
 
         {/* Core Services Portfolio */}
         <ServicesSection services={content.services} />
