@@ -82,6 +82,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/emergency`} className="hover:text-white transition-colors text-rose-300 font-semibold">
+                  24/7 Operations Desk
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>

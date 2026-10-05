@@ -1,43 +1,44 @@
-# Milestone: Phase 5 — Corporate Client Portal & Shift Roster Telematics Dashboard
+# Milestone: Phase 6 — PWA Offline Mobile Package, Emergency Quick-Dial & Production Edge Security
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Pages 6, 7, 8, 12, 16) & Fortune 500 Enterprise Transport SLA Standards.
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Pages 3, 4, 6, 7, 8, 12, 16) & Production Edge Security Standards.
 
 Scope completed in this milestone:
-1. Enterprise Portal Data Architecture (`src/content/portal.json`):
-   - Structured corporate mobility management dataset modeling tier-one enterprise accounts (*Amazon Development Centre India* across Hyderabad & Bengaluru; *Emirates Global Investment Group* across Dubai & Abu Dhabi).
-   - Dedicated Account Manager profile: Mujeeb Ur Rehman Mohammed (India) and Rashid Al-Maktoum (UAE) with direct phone and WhatsApp dispatch.
-   - Comprehensive SLA Scorecard (99.4% on-time dispatch rate, 100% BGV driver verification, 100% night female security escort compliance, 4.92/5.0 commuter satisfaction).
-   - 3 Active shift rosters with stop-by-stop sequencing, vehicle assignments, driver IDs, and live telematics (speed, GPS, cabin temp 22°C).
-   - Monthly Billing Statement summary (Trips, kilometers, fuel adjustments, GST/VAT breakdown, ECS reconciliation).
+1. PWA Web App Manifest (`public/manifest.json`):
+   - Configured full Progressive Web App installability on iOS and Android devices.
+   - Branded app name "Victor Mobility — On Time Every Time.", standalone display mode, `#0A1128` background and theme color.
+   - PWA app shortcuts: India Corporate RFP (`/india/rfp`), UAE Limousine RFP (`/uae/rfp`), Route Estimator (`/india/estimator`), and 24/7 Operations Desk (`/india/emergency`).
+   - Integrated PWA metadata in `src/app/layout.tsx` (`appleWebApp`, `manifest`, `themeColor: #0A1128`).
 
-2. Interactive Corporate Client Portal Dashboard (`src/components/portal/CorporatePortalDashboard.tsx`):
-   - Tab 1: **Live Shift Rosters & Telematics**:
-     - Interactive shift switching (Morning Login Shift, Evening Logout Shift, Night Graveyard Women Safety Escort Shift).
-     - Roster Overview: Assigned vehicle, vetted driver details, passenger counts, and live vehicle operational status.
-     - Telematics Panel: Speed governance tracking, GPS tracking, cabin climate preset, and escort security confirmation.
-     - Stop Progress Tracker: Completed, current, and scheduled stops with confirmation markers ("Dropped & Confirmed Inside Premises").
-     - Roster Adjustment Dispatch: Formats an automated WhatsApp amendment request to the dedicated Fleet Account Manager.
-   - Tab 2: **Monthly SLA Compliance Scorecard**:
-     - Contractual performance KPIs (99.4% on-time index vs 98.5% target, 100% BGV verification, 100% escort compliance).
-     - Audited operational safeguards (24-hour hot-swap breakdown guarantee, telemetry speed governance, statutory ESI/PF labor compliance).
-   - Tab 3: **Billing & Invoicing Reconciler**:
-     - Monthly statement itemization (base retainer, fuel index adjustment, 5% GST/VAT transport invoicing).
-     - One-click "Download Sample Statement" text file export.
-     - 100% GPS telematics audit reconciliation badge.
+2. Production Edge Security & Headers:
+   - Configured enterprise HTTP security headers in `next.config.mjs` and `vercel.json`:
+     - `Strict-Transport-Security`: `max-age=63072000; includeSubDomains; preload` (HSTS).
+     - `X-Frame-Options`: `DENY` (Clickjacking protection).
+     - `X-Content-Type-Options`: `nosniff` (MIME sniffing prevention).
+     - `Referrer-Policy`: `strict-origin-when-cross-origin`.
+     - `Permissions-Policy`: `camera=(), microphone=(), geolocation=()`.
+     - Manifest caching and MIME-type mapping.
 
-3. Dedicated Route Pages:
-   - `/india/portal`: India Corporate Client Portal & Shift Telematics Desk with Schema.org `WebApplication` structured data.
-   - `/uae/portal`: UAE Corporate Client Portal & Fleet Telematics Desk with Schema.org `WebApplication` structured data.
+3. Emergency Chauffeur Quick-Dial & Helpline Component (`src/components/emergency/EmergencyQuickDial.tsx`):
+   - Offline-resilient emergency contact architecture for low-connectivity airport basements, late-night transit, or highway breakdowns:
+     - 24/7 Central Operations Control Room: `+91 91007 77768` (Direct telephone action).
+     - WhatsApp Fleet Operations Desk: `+91 93965 46950` (Prefilled emergency messenger).
+     - UAE Dubai Al Garhoud Reservation & Dispatch: `+971 52 455 2441` (Direct telephone & WhatsApp).
+     - 15-Minute Depot Hot-Swap Guarantee: Emergency vehicle replacement mobilized immediately from nearest operational hub.
+   - Priority Incident Coordination Form: Formats an emergency operational WhatsApp dispatch with vehicle plate, location/landmark, commuter volume, and nature of incident.
 
-4. Global Navigation & Footer Updates:
-   - `Footer.tsx`: Added "Client Telematics Portal" under Quick Navigation across both India and UAE portals.
-   - `src/app/sitemap.ts`: Indexed all 38 static SSG routes (priorities up to 0.95).
+4. Dedicated Route Pages:
+   - `/india/emergency`: India 24/7 Operations & Emergency Quick-Dial Desk with Schema.org `ContactPage` structured data.
+   - `/uae/emergency`: UAE 24/7 Limousine Dispatch Desk with Schema.org `ContactPage` structured data.
 
-5. Automated Quality & Verification:
+5. Global Navigation & Footer Updates:
+   - `Footer.tsx`: Added "24/7 Operations Desk" link under Quick Navigation across both India and UAE portals.
+   - `src/app/sitemap.ts`: Indexed all 40 static SSG routes (100% static compilation).
+
+6. Automated Quality & Verification:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 38/38 static pages compiled.
-   - Playwright verification suite (`scripts/verify-phase5.mjs`) — 100% pass across all 5 test suites.
+   - Production Build (`next build`) — 40/40 static pages compiled.
+   - Playwright verification suite (`scripts/verify-phase6.mjs`) — 100% pass across all 7 test suites.
    - Visual screenshots captured:
-     - `phase5-india-portal-desktop.png`
-     - `phase5-india-portal-mobile.png`
-     - `phase5-uae-portal-desktop.png`
+     - `phase6-india-emergency-desktop.png`
+     - `phase6-india-emergency-mobile.png`
+     - `phase6-uae-emergency-desktop.png`

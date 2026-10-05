@@ -1,0 +1,57 @@
+{
+  "name": "Victor Mobility — On Time Every Time.",
+  "short_name": "Victor Mobility",
+  "description": "Enterprise corporate mobility, employee transport networks, and executive chauffeur services across India and the United Arab Emirates.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0A1128",
+  "theme_color": "#0A1128",
+  "scope": "/",
+  "categories": ["business", "travel", "productivity"],
+  "icons": [
+    {
+      "src": "/brand/victor-original.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/victor-original.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "India Corporate RFP",
+      "short_name": "India RFP",
+      "description": "Submit a corporate employee transport tender in India",
+      "url": "/india/rfp",
+      "icons": [{ "src": "/brand/victor-original.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "UAE Limousine RFP",
+      "short_name": "UAE RFP",
+      "description": "Submit an executive limousine tender in Dubai & UAE",
+      "url": "/uae/rfp",
+      "icons": [{ "src": "/brand/victor-original.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Route Fare Estimator",
+      "short_name": "Estimator",
+      "description": "Calculate indicative corridor rates",
+      "url": "/india/estimator",
+      "icons": [{ "src": "/brand/victor-original.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "24/7 Operations Desk",
+      "short_name": "Emergency Desk",
+      "description": "Emergency chauffeur quick-dial and operations helpline",
+      "url": "/india/emergency",
+      "icons": [{ "src": "/brand/victor-original.png", "sizes": "192x192" }]
+    }
+  ]
+}

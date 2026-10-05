@@ -49,6 +49,12 @@ export const metadata: Metadata = {
       "Corporate transport, employee shuttles, and luxury travel across Hyderabad, Bengaluru, and Pune.",
     images: ["/images/india/hero.png"],
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Victor Mobility",
+  },
   robots: {
     index: true,
     follow: true,
@@ -56,7 +62,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#31326F",
+  themeColor: "#0A1128",
   width: "device-width",
   initialScale: 1,
 };
