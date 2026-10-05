@@ -217,39 +217,68 @@ export default function EnquirySection({
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
+  const currentServiceObj = publishedServices.find((s) => s.title === selectedService);
+
+  const getRequirementPlaceholder = () => {
+    switch (selectedService) {
+      case "Airport Transfers":
+        return "Flight number, terminal, travel date & time, passenger count and luggage volume...";
+      case "Employee Transportation":
+        return "Shift roster timings, office location, transit corridors, and estimated employee count...";
+      case "Bus & Shuttle Transport":
+        return "Pickup points, campus/venue route, expected passenger count, and shuttle schedule...";
+      case "Event Transportation":
+        return "Event dates, venue locations, VIP or guest group counts, and transit itinerary...";
+      case "Chauffeur & Luxury Travel":
+        return "Occasion, preferred vehicle category, dates, and itinerary requirements...";
+      case "Rent-A-Car":
+        return "Rental duration, preferred vehicle type, self-drive or chauffeur preference...";
+      default:
+        return "Detail your requirements: passenger count, shift timings, pickup/drop locations, or dates...";
+    }
+  };
+
   return (
     <section
       id="contact"
       tabIndex={-1}
-      className="py-20 sm:py-28 bg-white border-b border-brand-soft-neutral focus:outline-none"
+      className={`${
+        isStandalonePage ? "pt-6 pb-14 sm:pt-10 sm:pb-20" : "py-14 sm:py-20"
+      } bg-white border-b border-brand-soft-neutral focus:outline-none`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="text-xs uppercase tracking-widest font-bold text-brand-blue mb-3">
-            Direct Requirement Desk
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight mb-4">
-            Discuss Your Requirement with Our Operations Team
-          </h2>
-          <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
-            Fill in your transport scope below to prepare a structured WhatsApp enquiry directly for our Business Development Partner, or call our Hyderabad desk directly.
+        <div className={`max-w-3xl ${isStandalonePage ? "mb-6 sm:mb-8" : "mb-8 sm:mb-12"}`}>
+          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+            Requirement Desk
+          </span>
+          {isStandalonePage ? (
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
+              Tell us what you need to arrange
+            </h1>
+          ) : (
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
+              Tell us what you need to arrange
+            </h2>
+          )}
+          <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+            Fill in your transport details below to prepare a structured WhatsApp enquiry, or call our operations desk directly.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Form & Live Draft */}
-          <div className="lg:col-span-7 bg-brand-warm-white rounded-2xl p-8 sm:p-10 border border-brand-soft-neutral shadow-sm">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-brand-soft-neutral">
+          <div className="lg:col-span-7 bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-sm">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-brand-soft-neutral">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
                   <MessageSquare className="w-4 h-4" />
                 </div>
-                <span className="font-bold text-base text-brand-ink">
+                <span className="font-bold text-sm sm:text-base text-brand-ink">
                   WhatsApp Enquiry Builder
                 </span>
               </div>
-              <span className="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800">
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
                 Direct WhatsApp Draft
               </span>
             </div>
@@ -375,13 +404,20 @@ export default function EnquirySection({
 
               {/* Requirement Details */}
               <div>
-                <label
-                  htmlFor={reqId}
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
-                >
-                  <FileText className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Requirement Details *</span>
-                </label>
+                <div className="flex items-center justify-between mb-2">
+                  <label
+                    htmlFor={reqId}
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink cursor-pointer"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-brand-blue" />
+                    <span>Requirement Details *</span>
+                  </label>
+                  {currentServiceObj && currentServiceObj.enquiryDetails.length > 0 && (
+                    <span className="text-[11px] text-brand-indigo font-medium hidden sm:inline-block">
+                      Include: {currentServiceObj.enquiryDetails.slice(0, 3).join(", ")}
+                    </span>
+                  )}
+                </div>
                 <textarea
                   id={reqId}
                   required
@@ -392,7 +428,7 @@ export default function EnquirySection({
                   value={requirementText}
                   onChange={(e) => setRequirementText(e.target.value)}
                   onBlur={() => setTouched((prev) => ({ ...prev, requirement: true }))}
-                  placeholder="Detail your requirements: passenger count, daily shift timings, pickup/drop locations, or event dates..."
+                  placeholder={getRequirementPlaceholder()}
                   className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none resize-none transition-all ${
                     requirementError
                       ? "border-red-500 focus:ring-2 focus:ring-red-400"
@@ -437,11 +473,11 @@ export default function EnquirySection({
                 </pre>
               </div>
 
-              {/* Helper Notice regarding WhatsApp behaviour */}
-              <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-xs text-amber-900 leading-relaxed">
-                <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+              {/* Helper Notice regarding WhatsApp behaviour per Codex recommendation */}
+              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-soft-neutral/40 border border-brand-soft-neutral text-xs text-brand-ink/80 leading-relaxed">
+                <Info className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
                 <div>
-                  <strong>Notice:</strong> {enquiry.helperText} Opening WhatsApp prepares a draft and does not confirm a booking or guarantee vehicle reservation. Our team will review availability and discuss arrangements with you.
+                  Continue to WhatsApp to review and send your enquiry. Our team will confirm options and arrangements with you.
                 </div>
               </div>
 

@@ -4,6 +4,7 @@ import Hero from "@/components/home/Hero";
 import ServicesSection from "@/components/home/ServicesSection";
 import EmployeeTransportFeature from "@/components/home/EmployeeTransportFeature";
 import FleetSection from "@/components/home/FleetSection";
+import SpecializedPathways from "@/components/home/SpecializedPathways";
 import CitiesSection from "@/components/home/CitiesSection";
 import AboutSection from "@/components/home/AboutSection";
 import EnquirySection from "@/components/home/EnquirySection";
@@ -50,6 +51,9 @@ export default function IndiaPage() {
           luxuryMedia={luxuryAsset}
           mediaCaption={media.caption}
         />
+
+        {/* Tailored Airport, Event & Chauffeur Pathways */}
+        <SpecializedPathways />
 
         {/* Established Operating Network */}
         <CitiesSection

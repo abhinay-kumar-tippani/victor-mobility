@@ -1,54 +1,65 @@
 # Handoff
 
-## Milestone: Day 4 — Launch Verification, SEO Crawlers, Cross-Device Polish & Final Handoff
+## Milestone: UX & Hierarchy Optimization (Experience Review Implementation)
 - **Branch**: `main`
-- **Status**: Completed, fully verified across all 4 delivery milestones, and ready for deployment.
+- **Status**: Completed, verified with automated end-to-end tests, and captured across desktop and mobile.
 
 ---
 
-## 1. Complete Scope Delivery Overview
+## 1. UX & Hierarchy Enhancements (Based on Codex Experience Review)
 
-Across the 4-day delivery plan, the India website for **Victor Mobility Pvt. Ltd.** has been scaffolded, engineered, and polished with zero deviations from the authoritative brand artwork, source data, and delivery constraints:
+In response to the experience inspection and report (`victor-experience-report.md`), six major architectural and visual hierarchy improvements were implemented:
 
-1. **Brand Identity & Standalone Artwork**:
-   - Master original logo from `public/brand/victor-original.png` displayed intact with exact tagline *"On Time Every Time."* via non-destructive CSS/SVG viewport (`src/components/brand/BrandLogo.tsx`).
-   - Exact hex tokens applied from `src/content/brand.json`:
-     - Indigo `#31326F`, Blue `#2D5090`, Violet `#6E57A0`, Ink `#15162F`, Warm White `#F6F5F2`, Soft Neutral `#E5E4EA`.
-   - Temporary redirect `/` -> `/india` active in `next.config.mjs` and `src/app/page.tsx`, preserving root for future global selector.
+1. **Clear, Distinct Homepage Sequence**:
+   - Replaced repetitive card layouts with a clear narrative answering visitor questions in sequence:
+     1. *What can you arrange?* — Compact **Services Overview** (`#services`) with 6 scannable cards linking directly to `/india/services/[slug]` and quick "Discuss" triggers. Height reduced from ~2,860px to 1,804px on mobile.
+     2. *Workplace Transport Spotlight* — **Employee Transport Feature** (`#employee-transport`) brought early, introducing the first vehicle imagery (workplace bus) on screen 2 (Y: 2,835px vs previous ~4,643px).
+     3. *Which option suits me?* — **Fleet Categories** (`#fleet`) with dynamic image and data switching.
+     4. *Specialized Journeys* — New **Specialized Pathways** (`#pathways`) highlighting Airport Transfers, Event Transportation, Chauffeur & Luxury, and Rentals.
+     5. *Where do you operate & who coordinates?* — **Operating Network** (`#cities`) with concise 3-city focus (*Hyderabad. Bengaluru. Pune.*), 3-step dispatch process, and named Business Development Partner Mujeeb Ur Rehman Mohammed.
+     6. *Why trust Victor?* — **About & FAQs** (`#about`) answering brochure-backed operational questions.
+     7. *How do I start?* — **Requirement Desk** (`#contact`) with interactive WhatsApp enquiry builder.
 
-2. **Published Core Routes (App Router, SSG)**:
-   - `/` — Temporary redirect to `/india`
-   - `/india` — Responsive homepage with dark cinematic hero, service pathways, employee transport feature, fleet categories, operating cities, about, and WhatsApp enquiry desk.
-   - `/india/services` — Portfolio overview of all 6 brochure services with scope details and enquiry actions.
-   - `/india/services/[slug]` — Dynamic route with `generateStaticParams()` covering all 6 services (`employee-transportation`, `bus-shuttle-transport`, `event-transportation`, `airport-transfers`, `chauffeur-luxury`, `rent-a-car`), 404 for unknown slugs, dynamic metadata, and sidebar CTAs.
-   - `/india/fleet` — Dedicated vehicle categories (Sedans, MPVs, Buses, Luxury) with passenger capacity guidance, illustrative luxury interior image, and authoritative note.
-   - `/india/about` — Corporate story, operating pillars, established operating offices (Hyderabad Head Office, Bengaluru Branch, Pune Branch), and verified brochure FAQs.
-   - `/india/contact` — Interactive requirement desk with WhatsApp draft generator prefilling service, city, and requirement details, URL parameter prefill, direct call option, and office details.
-   - `/india/privacy` — Plain-language privacy notice detailing enquiry data handling, WhatsApp end-to-end handoff, and zero marketing resale.
+2. **Synchronized Fleet Visuals & Data**:
+   - Resolved the vehicle image mismatch in `src/components/home/FleetSection.tsx`. Switching categories now dynamically updates both the copy and vehicle visual:
+     - `Sedans`: Sedan crop from hero image, 3–4 passenger capacity.
+     - `MPVs & Group Vehicles`: MPV crop from hero image, 6–7 passenger capacity.
+     - `Buses & Shuttles`: Dedicated `employee-shuttle.png` image, 22 & 44-seater shuttles.
+     - `Luxury & Limousines`: Dedicated `luxury-interior.png` executive cabin visual.
 
-3. **SEO & Crawlers**:
-   - Dynamic `/sitemap.xml` generated via `src/app/sitemap.ts` listing all 12 public routes.
-   - Dynamic `/robots.txt` generated via `src/app/robots.ts` with allow-all directives and sitemap reference.
-   - JSON-LD Structured Data in `src/app/layout.tsx` for `Organization` and `LocalBusiness` rich snippets.
-   - OpenGraph and Twitter card metadata configured with locale `en_IN`.
+3. **Streamlined Mobile Contact Page (`/india/contact`)**:
+   - Removed redundant dark hero banner and domain configuration notices that pushed form fields below the fold.
+   - First input (`enquiry-name-input`) now starts at **423px** on a 390×844 mobile viewport (previously **~1,153px**), immediately visible and actionable on the first screen without scrolling.
 
-4. **Accessibility (WCAG 2.1 AA) & Motion**:
-   - Skip to main content link (`#main-content`) at the top of the document.
-   - Accessible modal navigation drawer with focus containment, background inertness, and breakpoint resize auto-cleanup.
-   - ARIA tablist semantics in vehicle fleet categories (`role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`, `role="tabpanel"`).
-   - Inline form validation alerts (`role="alert"`) with error icons and `aria-invalid`/`aria-describedby` associations.
-   - Reduced-motion support (`motion-reduce:animate-none` and programmatic scrolling falling back to `behavior: "auto"`).
+4. **Showing the Real Business & Transparent Process**:
+   - Named partner Mujeeb Ur Rehman Mohammed (Business Development Partner) featured with direct verified call (`+91 91007 77768`) and WhatsApp (`+91 93965 46950`) touchpoints.
+   - 3-step structured engagement workflow: *1. Share Scope -> 2. Review Proposal -> 3. Punctual Dispatch*.
+   - Transparent enquiry notices explaining that WhatsApp opens a prefilled draft rather than simulating booking confirmation.
 
-5. **Contact & Communication Disclaimers**:
-   - Direct telephone line: `+91 91007 77768` (`tel:+919100777768`).
-   - Direct WhatsApp enquiry desk: `+91 93965 46950` (`https://wa.me/919396546950`).
-   - Contact Person: Mujeeb Ur Rehman Mohammed, Business Development Partner.
-   - WhatsApp opening explicitly labelled as preparing a message draft and never simulates an automated booking confirmation.
-   - Draft email and domain (`victormobility.com`) remain inactive pending domain purchase.
+5. **Plain English & Removing Internal Labels**:
+   - Headings updated to approved brochure copy:
+     - *"Transport for work, travel and events"*
+     - *"Employee transport, planned around your team"*
+     - *"Find the right vehicle category"*
+     - *"Hyderabad. Bengaluru. Pune."*
+     - *"Tell us what you need to arrange"*
+   - Removed internal labels (`"Dedicated Vehicle Category"`, `"Page 10"`, `"Category ID"`).
 
 ---
 
-## 2. Complete Verification Suite & Results
+## 2. Key UX Measurements & Comparisons
+
+| Measurement (390×844 Mobile) | Before Optimization | After Optimization | Improvement |
+| :--- | :--- | :--- | :--- |
+| **Mobile Homepage Total Height** | ~13,915 px | **13,063 px** | ~852 px saved, higher content density |
+| **Services Section Height** | ~2,860 px | **1,804 px** | **~1,056 px (37%) more compact** |
+| **First Major Vehicle Image (Bus) Y-Position** | ~4,643 px (>5 screens) | **2,835 px** (arrives screen 2) | **1,808 px earlier arrival** |
+| **Contact Page First Field Y-Position** | ~1,153 px (below fold) | **423 px** (above fold) | **730 px higher — visible immediately** |
+| **Fleet Tab Visual Switching** | Static luxury image only | Dynamic (Bus, Sedan, MPV, Luxury) | **100% synchronized** |
+
+---
+
+## 3. Complete Verification Suite & Results
 
 1. **TypeScript Type Check**: `npm run type-check` (`tsc --noEmit`) — **PASSED** (0 errors).
 2. **ESLint**: `npm run lint` (`next lint`) — **PASSED** (0 warnings, 0 errors).
@@ -57,25 +68,24 @@ Across the 4-day delivery plan, the India website for **Victor Mobility Pvt. Ltd
    - `scripts/verify-day4-launch.mjs`: **100% PASSED** (Sitemap 200, Robots 200, 0 console errors, verified phone/WhatsApp links, history navigation, 360px/390px overflow).
    - `scripts/verify-day3.mjs`: **100% PASSED** (Skip link, JSON-LD, ARIA tabs, form validation error states, copy draft confirmation).
    - `scripts/verify-day2.mjs`: **100% PASSED** (All 14 routes return HTTP 200, 404 test on invalid slug, breakpoint resize cleanup, label association, content baseline).
+   - `scripts/verify-ux-improvements.mjs`: **100% PASSED** (All quantitative measurements verified via Playwright).
 
 ---
 
-## 3. Evidence Artifacts & Screenshots
+## 4. Evidence Artifacts & Screenshots
 
-All visual evidence has been captured and archived under `docs/screenshots/`:
-- `home-desktop.png` & `home-mobile.png`
-- `services-desktop.png` & `services-mobile.png`
-- `service-detail-desktop.png` & `service-detail-mobile.png`
-- `fleet-desktop.png` & `fleet-mobile.png`
-- `about-desktop.png` & `about-mobile.png`
-- `contact-desktop.png` & `contact-mobile.png`
-- `privacy-desktop.png` & `privacy-mobile.png`
-- `enquiry-validation-error.png`
-- `enquiry-ready-copied.png`
-- `desktop-full.png` & `mobile-full.png`
+Visual evidence archived in `docs/screenshots/` and root artifacts:
+- `contact-mobile-fold.png` — Contact page above-the-fold at 390×844 showing first input visible immediately.
+- `home-desktop.png` — Hero and direct pathways on desktop (1440×900).
+- `section-services-desktop.png` & `section-services-mobile.png` — Compact service cards.
+- `section-employee-transport-desktop.png` & `section-employee-transport-mobile.png` — Early bus imagery and commute points.
+- `section-fleet-desktop.png` & `section-fleet-mobile.png` — Synchronized fleet tab switcher.
+- `section-contact-desktop.png` & `section-contact-mobile.png` — Streamlined WhatsApp enquiry builder.
+- `home-mobile-full.png` — Full mobile page capture.
 
 ---
 
-## 4. Launch Readiness Status
+## 5. Launch Readiness Status
 - **Ready for Production Deployment**: Yes.
 - **Rollback Commit**: `3115bfb`
+
