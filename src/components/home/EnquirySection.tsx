@@ -25,6 +25,7 @@ interface EnquirySectionProps {
   preselectedService?: string;
   preselectedCity?: string;
   isStandalonePage?: boolean;
+  companyName?: string;
 }
 
 export default function EnquirySection({
@@ -35,9 +36,13 @@ export default function EnquirySection({
   preselectedService,
   preselectedCity,
   isStandalonePage = false,
+  companyName,
 }: EnquirySectionProps) {
+  const isUae = contact.whatsappDigits?.startsWith("971");
+  const effectiveCompany =
+    companyName || (isUae ? "Victor Luxury Limousine LLC (Victor Mobility UAE)" : "Victor Mobility Pvt. Ltd.");
   const publishedServices = services.filter((s) => s.published);
-  const publishedCities = cities.filter((c: CityItem) => c.published);
+  const publishedCities = cities.filter((c: any) => c.published);
   const [fullName, setFullName] = useState("");
   const [selectedService, setSelectedService] = useState(
     preselectedService || publishedServices[0]?.title || "Employee Transportation"
@@ -175,7 +180,7 @@ export default function EnquirySection({
   const generateWhatsAppMessage = () => {
     const lines = [
       `*Transport Requirement Enquiry*`,
-      `*Victor Mobility Pvt. Ltd.*`,
+      `*${effectiveCompany}*`,
       `--------------------------------`,
       `*Contact Name:* ${fullName.trim() || "[Your Name]"}`,
       `*Service:* ${selectedService}`,
@@ -385,9 +390,9 @@ export default function EnquirySection({
                     onChange={(e) => setSelectedCity(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
                   >
-                    {publishedCities.map((c) => (
+                    {publishedCities.map((c: any) => (
                       <option key={c.name} value={c.name}>
-                        {c.name} ({c.state})
+                        {c.name}{c.state ? ` (${c.state})` : c.emirate ? ` (${c.emirate})` : ""}
                       </option>
                     ))}
                     <option value="Other">Other City / Inter-City</option>

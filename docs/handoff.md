@@ -1,50 +1,50 @@
 # Handoff
 
-## Milestone: Founder Jahangir Integration, 2010–2024 Milestones, Client Case Studies & Esteemed Clientele
+## Milestone: Phase 2 — UAE Expansion & Global Gateway
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Integrating authentic leadership facts, company history, and client trust from the authorized 2024 Victor Business Portfolio Brochure.
+- **Milestone Context**: Activating Phase 2 cross-border expansion to the United Arab Emirates (`/uae/*`) and the editorial Global Gateway portal at root (`/`), with an accessible Region Switcher across all portals.
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-This milestone directly solves the "empty feeling" by introducing authentic company leadership, verifiable history, and tangible customer evidence:
+Phase 2 transitions Victor Mobility from an India-only presence into an international executive mobility brand, grounded completely in the authorized 2024 Victor Business Portfolio Brochure:
 
-1. **Meet our Founder & Visionary (Brochure Page 5)**:
-   - Spotlight on **Jahangir — Founder & Director**, who established Victor in 2010 with 15+ years of operational and logistics leadership.
-   - Quote: *"I am committed to providing unwavering service to my clients."*
-   - Generated high-end professional AI executive portrait (`/images/india/founder-jahangir.jpg`).
-   - Published across both the Homepage (`PeopleSection.tsx`) and the About page (`/india/about`).
+1. **Global Gateway Root Portal (`/`)**:
+   - Replaced temporary phase-one redirect with a high-impact editorial Global Gateway.
+   - Master Victor Mobility branding and authoritative tagline *"On Time Every Time."*
+   - Dual portal cards:
+     - 🇮🇳 **Victor Mobility India** (`/india`): Hyderabad, Bengaluru, Pune corporate hubs, PAN-India corridors.
+     - 🇦🇪 **Victor Mobility UAE** (`/uae`): Dubai Al Garhoud Head Office (Near DXB Airport), Abu Dhabi, Sharjah.
+   - Founder Jahangir's international commitment quote: *"I am committed to providing unwavering service to my clients."*
 
-2. **Company Evolution Timeline (2010 – 2024) (Brochure Page 4)**:
-   - Added a verifiable milestone timeline covering Victor's growth:
-     - **2010**: Incorporation under Indian Companies Act 1956 in Hyderabad.
-     - **2012**: Awarded first tier-1 MNC employee commute contracts.
-     - **2015**: Fleet scaled past 800+ managed vehicles.
-     - **2018**: Fleet expanded past 1,500+ vehicles to serve multi-metro demand.
-     - **2020**: Implemented WHO health protocols and sanitization during COVID-19.
-     - **2023**: Pan-India presence established in Hyderabad, Bengaluru, and Pune.
-     - **2024**: Fleet sustainability pledge targeting 15%–30% electric vehicles (EVs).
+2. **Global Region Switcher in Navigation**:
+   - Accessible desktop dropdown (`button[aria-label="Select Operating Region"]`) with flags 🇮🇳/🇦🇪 and active indicators.
+   - Mobile navigation drawer toggle pill for effortless region switching.
+   - Dynamically adapts all navigation routes, phone links, and logo targets without duplicate header trees.
 
-3. **Interactive Client Case Studies (`VictorInActionSection.tsx`)**:
-   - Built an interactive 3-tab case study showcase covering all 3 customer dimensions:
-     1. *Corporate Employee Transport*: Campus Workforce Transit Architecture (1,200+ commuters, 99.8% on-time floor arrival).
-     2. *Executive Chauffeur & VIP Travel*: International Board Delegation Mobility (14 movements, 100% punctual airport pickups).
-     3. *Weddings & Occasion Logistics*: Destination Celebration Convoy Management (450 guests, 6 venues, 12 shuttles).
-   - Fully editable data model in `src/content/india.json` for easy future updates by the team.
+3. **UAE Content Architecture (`src/content/uae.json`)**:
+   - Authorized UAE facts from Page 3, 4, 6, 7, 8 & 12 of the 2024 Brochure:
+     - **Head Office**: 65th Street, Al Garhoud, Near Dubai International Airport, Dubai, United Arab Emirates.
+     - **Phone & WhatsApp**: `+971 52 455 2441`.
+     - **Email**: `info@victorluxurylimousine.com`.
+     - **Entity**: Victor Luxury Limousine LLC.
+     - **Operational Scale**: 2,000+ luxury cars and 500+ buses capability across Dubai, Abu Dhabi, and Sharjah corridors.
+     - **6 Services**: Chauffeur & Luxury Limousine, Airport VIP Transfers (DXB/AUH/DWC radar tracking), Corporate Events & Delegations, Corporate Employee Transport, Tourism & City Excursions, Rent-A-Car & Leasing.
+     - **5 Fleet Categories**: First Class Saloons (S-Class, BMW 7), Ultra-Luxury (Maybach S-Class), Executive SUVs (Escalade, Yukon), Executive MPVs (V-Class), Luxury Buses & Coaches (22 to 50-seaters).
 
-4. **Esteemed Clientele Trust Grid (Brochure Page 9)**:
-   - Integrated the 12 corporate client brands featured in the brochure:
-     **Amazon, Google, JPMorgan Chase, Oracle, Wipro, Teleperformance, OTIS, Godrej, HDFC Bank, Synchrony, Synechron, TATA Docomo**.
-   - Showcased in trust strips on both the Homepage and the About page.
+4. **Complete UAE Portal Pages (`/uae/*`)**:
+   - `/uae`: UAE Homepage (Hero, 3 Customer Journeys, Victor Standard, Fleet Preview, UAE Presence, Founder Jahangir, Contact CTA).
+   - `/uae/services`: UAE Services Catalog.
+   - `/uae/services/[slug]`: 6 SSG static detail pages.
+   - `/uae/fleet`: UAE Fleet page with 5 vehicle categories and luggage allowances.
+   - `/uae/about`: UAE About page featuring Founder Jahangir, Dubai Head Office, and UAE FAQs.
+   - `/uae/contact`: UAE Contact page with interactive WhatsApp builder prefilling inquiries for `wa.me/971524552441` with `Victor Luxury Limousine LLC`.
+   - `/uae/privacy`: UAE Privacy Notice incorporating UAE Federal Decree-Law No. 45 of 2021 (PDPL) and Dubai registered address.
 
-5. **Commitment to Passenger Safety (Brochure Page 11)**:
-   - Added the 4-pillar safety framework to the About page:
-     1. Comprehensive Driver Verification (BGV & Police Clearance Certificate).
-     2. Female Passenger Safety Protocols (Escorts and real-time trip monitoring).
-     3. Defensive Driving & Speed Governance (Mandatory seatbelts, lane discipline, hands-free kits).
-     4. Pre-Trip Vehicle Audits (Dual-zone AC, tyre safety, sanitization).
+5. **SEO & Sitemap Coverage**:
+   - `src/app/sitemap.ts` updated to index all 30 static pages (Global root, India routes, and UAE routes).
 
 ---
 
@@ -55,18 +55,19 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
 | **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across content models and new components |
-| **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance with zero hook dependency warnings |
-| **Production Build** (`next build`) | **PASS (18/18 routes)** | 100% SSG static compilation (`○` and `●`) |
-| **Presence, Founder & Case Studies Suite** (`verify-presence-and-brand.mjs`) | **PASS (7/7 tests)** | 8-section sequence, 3 case study tabs, map switching, founder portrait & quote, 2010–2024 milestones, safety commitments |
-| **Day 7 Final Launch Suite** (`verify-day7-final.mjs`) | **PASS (4/4 test groups)** | OpenGraph tags, Twitter card, JSON-LD 3-office schema, E2E conversion flow, 18 HTTP 200 routes |
+| **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
+| **Production Build** (`next build`) | **PASS (30/30 static pages)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 2 UAE & Global Gateway Suite** (`verify-phase2-uae.mjs`) | **PASS (11/11 tests)** | Gateway cards, India/UAE navigation, Header region switcher, UAE homepage, services, fleet, about, contact WhatsApp builder, privacy PDPL notice, mobile drawer |
 
 ---
 
-## 3. Visual Evidence Artifacts
+## 3. Visual Artifacts Captured
 
-Generated and archived in `docs/screenshots/`:
-- `founder-portrait-homepage.png`: Homepage showcasing Founder Jahangir, his quote, and the 24/7 Operations Control Room.
-- `case-studies-desktop.png`: Interactive 3-tab case studies with metrics and the 12-brand esteemed clientele trust grid.
-- `about-page-founder-milestones.png`: About page featuring Founder Jahangir, 2010–2024 milestones, and safety protocols.
-- `map-presence-desktop.png`: Interactive India presence map with active state and city details panel.
-- `homepage-presence-mobile.png`: Mobile-friendly rendering of the full homepage.
+| Screenshot Artifact | Location | Purpose |
+| :--- | :--- | :--- |
+| `phase2-gateway-desktop.png` | `docs/screenshots/` | Desktop Global Gateway at root `/` with dual India & UAE cards |
+| `phase2-gateway-mobile.png` | `docs/screenshots/` | Mobile view (390px) of Global Gateway |
+| `phase2-uae-home-desktop.png` | `docs/screenshots/` | UAE Homepage with Dubai/Abu Dhabi/Sharjah highlights & localized pathways |
+| `phase2-uae-home-mobile.png` | `docs/screenshots/` | Mobile view of UAE Homepage |
+| `phase2-uae-fleet-desktop.png` | `docs/screenshots/` | UAE Fleet Showcase with First Class, Maybach, Escalade, V-Class, and Coaches |
+| `phase2-uae-contact-desktop.png` | `docs/screenshots/` | UAE Contact page with WhatsApp builder prefilling to `+971 52 455 2441` |

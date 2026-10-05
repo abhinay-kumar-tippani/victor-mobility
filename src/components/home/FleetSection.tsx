@@ -17,8 +17,13 @@ interface FleetSectionProps {
 
 const categoryIcons: Record<string, typeof Car> = {
   sedans: Car,
+  "first-class": Car,
+  "ultra-luxury": Sparkles,
+  "executive-suvs": Car,
+  "executive-vans": Users,
   mpvs: Users,
   buses: Bus,
+  coaches: Bus,
   luxury: Sparkles,
 };
 
@@ -48,6 +53,62 @@ const categoryVisuals: Record<string, CategoryVisualData> = {
       "Date, pickup time, and local itinerary",
     ],
   },
+  "first-class": {
+    imageSrc: "/images/india/hero.png",
+    imageAlt: "First Class Saloons in Dubai",
+    objectPosition: "28% 65%",
+    badge: "First Class Saloons",
+    headline: "Mercedes-Benz S-Class & BMW 7 Series for Executive Transit",
+    capacityText: "Up to 3 passengers · 2 large bags",
+    recommendedService: "Chauffeur & Luxury Limousine",
+    planningInputs: [
+      "DXB or AUH terminal arrival flight tracking",
+      "Hourly or full-day executive standby",
+      "Inter-emirate travel corridors",
+    ],
+  },
+  "ultra-luxury": {
+    imageSrc: "/images/india/luxury-interior.png",
+    imageAlt: "Ultra-Luxury & VIP Limousines in UAE",
+    objectPosition: "center",
+    badge: "Ultra-Luxury & VIP",
+    headline: "Mercedes-Maybach S-Class for Heads of State & VIP Delegations",
+    capacityText: "Pinnacle VIP comfort · Climate-controlled cabin",
+    recommendedService: "Chauffeur & Luxury Limousine",
+    planningInputs: [
+      "VIP protocol and dignitary reception details",
+      "Dedicated full-day chauffeur standby",
+      "Security entourage accommodation",
+    ],
+  },
+  "executive-suvs": {
+    imageSrc: "/images/india/hero.png",
+    imageAlt: "Executive SUVs in UAE",
+    objectPosition: "28% 65%",
+    badge: "Executive SUVs",
+    headline: "Cadillac Escalade & GMC Yukon Denali for Spacious Travel",
+    capacityText: "Up to 6 passengers · 5 large suitcases",
+    recommendedService: "Chauffeur & Luxury Limousine",
+    planningInputs: [
+      "Airport arrival with international luggage",
+      "Private family or delegation excursions",
+      "Multi-city transit between Dubai and Abu Dhabi",
+    ],
+  },
+  "executive-vans": {
+    imageSrc: "/images/india/employee-shuttle.png",
+    imageAlt: "Executive MPVs in UAE",
+    objectPosition: "72% 65%",
+    badge: "Executive MPVs",
+    headline: "Mercedes-Benz V-Class for Corporate Teams & Delegations",
+    capacityText: "Up to 6–7 passengers · Generous baggage room",
+    recommendedService: "Corporate Events & Delegations",
+    planningInputs: [
+      "Summit delegation headcount and timetable",
+      "Hotel-to-exhibition loop schedules",
+      "VIP group luggage coordination",
+    ],
+  },
   mpvs: {
     imageSrc: "/images/india/hero.png",
     imageAlt: "Spacious passenger MPV for team and group travel",
@@ -74,6 +135,20 @@ const categoryVisuals: Record<string, CategoryVisualData> = {
       "Shift roster timings and office arrival windows",
       "Route corridor stops and total employee count",
       "Conference or venue transit coordination",
+    ],
+  },
+  coaches: {
+    imageSrc: "/images/india/employee-shuttle.png",
+    imageAlt: "Luxury buses and coaches in UAE",
+    objectPosition: "center",
+    badge: "Luxury Buses & Coaches",
+    headline: "22-Seater & 44-Seater Luxury Coaches for Summits & Events",
+    capacityText: "22 to 50 passenger seating configurations",
+    recommendedService: "Corporate Events & Delegations",
+    planningInputs: [
+      "Conference delegate numbers and hotel loops",
+      "Exhibition transfer timetable (GITEX, ADIPEC)",
+      "Dedicated route marshaling requirements",
     ],
   },
   luxury: {

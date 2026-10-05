@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "region": "uae",
+  "countryName": "United Arab Emirates",
+  "companyName": "Victor Mobility UAE",
+  "legalEntityName": "Victor Luxury Limousine LLC",
+  "tagline": "On Time Every Time.",
+  "contentBasis": "Operational details, addresses, and contacts authorized from Victor's 2024 Business Portfolio Brochure.",
+  "currency": "AED",
+  "hero": {
+    "eyebrow": "VICTOR MOBILITY · UNITED ARAB EMIRATES",
+    "title": "On Time Every Time.",
+    "description": "Executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi.",
+    "primaryCta": {
+      "label": "Discuss your UAE itinerary",
+      "href": "/uae/contact"
+    },
+    "secondaryCta": {
+      "label": "Explore UAE fleet",
+      "href": "/uae/fleet"
+    }
+  },
+  "customerJourneys": [
+    {
+      "id": "uae-vip-chauffeur",
+      "title": "VIP Chauffeur & Limousine",
+      "eyebrow": "Executive Hospitality",
+      "tagline": "Discreet, punctual chauffeur transit for corporate executives and private guests.",
+      "description": "Premium chauffeured services for business leaders, financial delegations, and high-profile travellers navigating Dubai International Financial Centre (DIFC), Downtown, and Abu Dhabi.",
+      "serviceSlug": "chauffeur-luxury",
+      "serviceTitle": "Chauffeur & Luxury Limousine",
+      "category": "First Class Saloons",
+      "imageSrc": "/images/india/luxury-interior.png",
+      "imageAlt": "Executive cabin with luxury leather seating in Dubai",
+      "keyPoints": [
+        "Flight radar monitoring at DXB & AUH",
+        "Discreet, multilingual professional chauffeurs",
+        "Hourly & full-day dedicated executive standby"
+      ],
+      "ctaLabel": "Explore VIP Limousine",
+      "enquiryService": "Chauffeur & Luxury Limousine"
+    },
+    {
+      "id": "uae-airport-vip",
+      "title": "DXB & AUH Airport VIP Protocol",
+      "eyebrow": "Airport Transfers",
+      "tagline": "Terminal arrival meet-and-assist with guaranteed curbside luxury pickup.",
+      "description": "Stress-free airport transfers connecting Dubai International (DXB), Al Maktoum (DWC), and Zayed International (AUH) with luxury hotel corridors and corporate headquarters.",
+      "serviceSlug": "airport-transfers",
+      "serviceTitle": "Airport VIP Transfers",
+      "category": "First Class Saloons",
+      "imageSrc": "/images/india/hero.png",
+      "imageAlt": "Luxury airport limousine transfer in Dubai",
+      "keyPoints": [
+        "Terminal meet-and-assist greeting",
+        "Complimentary 60-minute flight delay buffer",
+        "Spacious luggage accommodation for international travel"
+      ],
+      "ctaLabel": "Explore Airport Transfers",
+      "enquiryService": "Airport VIP Transfers"
+    },
+    {
+      "id": "uae-events-delegations",
+      "title": "Summits, Galas & Corporate Delegations",
+      "eyebrow": "Events & Delegations",
+      "tagline": "Multi-vehicle logistics for international trade summits, expos, and private occasions.",
+      "description": "Synchronized fleet coordination for global conferences (GITEX, ADIPEC, Arabian Travel Market), state delegations, and destination celebrations across Dubai and Abu Dhabi.",
+      "serviceSlug": "event-transportation",
+      "serviceTitle": "Corporate Events & Delegations",
+      "category": "Executive Vans & MPVs",
+      "imageSrc": "/images/india/employee-shuttle.png",
+      "imageAlt": "Executive van and coach fleet for Dubai events",
+      "keyPoints": [
+        "Venue loop transit & exhibition shuttles",
+        "Dedicated on-ground route marshals",
+        "Executive MPVs and luxury coach allocation"
+      ],
+      "ctaLabel": "Explore Event Logistics",
+      "enquiryService": "Corporate Events & Delegations"
+    }
+  ],
+  "services": [
+    {
+      "slug": "chauffeur-luxury",
+      "title": "Chauffeur & Luxury Limousine",
+      "badge": "First Class Travel",
+      "shortDescription": "Chauffeur-driven luxury travel for business executives and discerning clients across Dubai and Abu Dhabi.",
+      "description": "Experience first-class luxury limousine travel with our fleet of pristine Mercedes-Benz S-Class, BMW 7 Series, and Mercedes-Maybach sedans. Dedicated chauffeurs trained in executive etiquette and route discretion provide seamless hourly standby and inter-emirate transit.",
+      "source": "Brochure page 3 & page 6",
+      "enquiryDetails": ["Pickup location", "Hourly or transfer requirement", "Vehicle tier preference", "Itinerary details"],
+      "published": true
+    },
+    {
+      "slug": "airport-transfers",
+      "title": "Airport VIP Transfers",
+      "badge": "Terminal Punctuality",
+      "shortDescription": "Punctual airport arrivals and departures across DXB, DWC, and Abu Dhabi (AUH).",
+      "description": "Terminal meet-and-assist service with live radar flight tracking. Your chauffeur awaits at the arrival terminal with a personalized nameboard, assisting with luggage and providing direct curbside boarding.",
+      "source": "Brochure page 3 & page 12",
+      "enquiryDetails": ["Airport terminal (DXB/DWC/AUH)", "Flight number", "Passenger count", "Luggage requirements"],
+      "published": true
+    },
+    {
+      "slug": "event-transportation",
+      "title": "Corporate Events & Delegations",
+      "badge": "Summit Coordination",
+      "shortDescription": "Transportation management for conferences, trade summits, and destination galas.",
+      "description": "Tailored fleet logistics for high-profile global summits including GITEX, ADIPEC, and international corporate conferences. From VIP convoys to multi-coach hotel loops, our operations team ensures synchronized timing.",
+      "source": "Brochure page 3 & page 7",
+      "enquiryDetails": ["Event dates & venue", "Delegation size", "Vehicle categories", "Schedule timetable"],
+      "published": true
+    },
+    {
+      "slug": "employee-transportation",
+      "title": "Corporate Employee Transport",
+      "badge": "Workforce Mobility",
+      "shortDescription": "Scheduled commute and campus shuttle services for corporate organisations in the UAE.",
+      "description": "Reliable staff mobility solutions managing corporate office routes, free-zone campus shuttles, and inter-city team transfers across Dubai, Sharjah, and Abu Dhabi.",
+      "source": "Brochure page 3 & page 6",
+      "enquiryDetails": ["Office / Free Zone location", "Shift timings", "Daily commuter count", "Route corridors"],
+      "published": true
+    },
+    {
+      "slug": "tourism-travel",
+      "title": "Tourism & City Excursions",
+      "badge": "Private Tours",
+      "shortDescription": "Curated private excursions across Dubai, Abu Dhabi landmarks, and cultural heritage sites.",
+      "description": "Explore the Emirates in comfort with private chauffeured day tours covering Burj Khalifa, Palm Jumeirah, Sheikh Zayed Grand Mosque, and desert retreats.",
+      "source": "Brochure page 6 & page 7",
+      "enquiryDetails": ["Tour duration", "Destinations", "Passenger count", "Special requests"],
+      "published": true
+    },
+    {
+      "slug": "rent-a-car",
+      "title": "Rent-A-Car & Fleet Leasing",
+      "badge": "Flexible Leasing",
+      "shortDescription": "Short-term luxury rental and corporate fleet leasing across the United Arab Emirates.",
+      "description": "Flexible vehicle rental and long-term corporate allocation from our diverse UAE fleet. Transparent terms, comprehensive insurance, and prompt vehicle delivery.",
+      "source": "Brochure page 3 & page 6",
+      "enquiryDetails": ["Rental duration", "Vehicle category", "Self-drive or chauffeur preference", "Pickup location"],
+      "published": true
+    }
+  ],
+  "cities": [
+    {
+      "name": "Dubai",
+      "emirate": "Dubai",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Brochure page 6, 8, 12"
+    },
+    {
+      "name": "Abu Dhabi",
+      "emirate": "Abu Dhabi",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Brochure page 4, 6"
+    },
+    {
+      "name": "Sharjah",
+      "emirate": "Sharjah",
+      "kind": "corridor-operating-city",
+      "published": true,
+      "source": "Brochure page 6 (corridors)"
+    }
+  ],
+  "offices": [
+    {
+      "city": "Dubai",
+      "label": "U.A.E. Head Office",
+      "address": "65th Street, Al Garhoud, Near Dubai International Airport, Dubai, United Arab Emirates.",
+      "source": "Brochure page 12",
+      "published": true
+    }
+  ],
+  "fleetCategories": [
+    {
+      "id": "first-class",
+      "name": "First Class Saloons",
+      "description": "Executive chauffeur travel for business leaders.",
+      "brochureModels": ["Mercedes-Benz S-Class", "BMW 7 Series"],
+      "source": "Brochure page 6 & UAE fleet standard"
+    },
+    {
+      "id": "ultra-luxury",
+      "name": "Ultra-Luxury & VIP",
+      "description": "Pinnacle hospitality and state delegation transport.",
+      "brochureModels": ["Mercedes-Maybach S-Class"],
+      "source": "Brochure page 6"
+    },
+    {
+      "id": "executive-suvs",
+      "name": "Executive SUVs",
+      "description": "Spacious luxury travel with generous luggage room.",
+      "brochureModels": ["Cadillac Escalade", "GMC Yukon Denali"],
+      "source": "Brochure page 6"
+    },
+    {
+      "id": "executive-vans",
+      "name": "Executive MPVs",
+      "description": "Premium travel for delegations and executive groups.",
+      "brochureModels": ["Mercedes-Benz V-Class"],
+      "source": "Brochure page 6"
+    },
+    {
+      "id": "coaches",
+      "name": "Luxury Buses & Coaches",
+      "description": "Group passenger transit for summits and corporate tours.",
+      "brochureModels": ["22-Seater VIP Coach", "44-Seater Luxury Bus"],
+      "source": "Brochure page 6 (500+ busses fleet capability)"
+    }
+  ],
+  "contact": {
+    "name": "UAE Operations & Reservation Desk",
+    "role": "Client Services & Fleet Coordination",
+    "phoneDisplay": "+971 52 455 2441",
+    "phoneHref": "tel:+971524552441",
+    "whatsappDisplay": "+971 52 455 2441",
+    "whatsappDigits": "971524552441",
+    "whatsappBaseUrl": "https://wa.me/971524552441",
+    "printedEmail": "info@victorluxurylimousine.com",
+    "emailEnabled": true,
+    "printedDomain": "victorluxurylimousine.com",
+    "domainPurchased": true
+  },
+  "founder": {
+    "name": "Jahangir",
+    "role": "Founder & Director",
+    "experience": "15+ Years Industry Leadership",
+    "quote": "I am committed to providing unwavering service to my clients.",
+    "imageSrc": "/images/india/founder-jahangir.jpg",
+    "bio": "Guiding Victor's international expansion into the United Arab Emirates, founder Jahangir brings two decades of logistics and luxury transportation expertise to Dubai and Abu Dhabi, delivering seamless chauffeur and corporate fleet services across borders."
+  },
+  "faqs": [
+    {
+      "question": "Which airports are covered in the UAE?",
+      "answer": "We provide full terminal meet-and-assist at Dubai International Airport (DXB), Al Maktoum International Airport (DWC), and Zayed International Airport in Abu Dhabi (AUH)."
+    },
+    {
+      "question": "Can I arrange inter-emirate travel between Dubai and Abu Dhabi?",
+      "answer": "Yes. We operate regular executive chauffeur transfers and dedicated full-day standby between Dubai, Abu Dhabi, Sharjah, and other Emirates."
+    },
+    {
+      "question": "How do I confirm a reservation in Dubai?",
+      "answer": "Share your itinerary requirements via our WhatsApp booking desk or direct calling line (+971 52 455 2441). Our reservation team confirms vehicle availability and formal booking confirmation."
+    },
+    {
+      "question": "What is the fleet capacity in the UAE?",
+      "answer": "According to our authorized operational capabilities, Victor supports access to a fleet capacity of over 2,000+ luxury cars and 500+ buses across the UAE."
+    }
+  ]
+}

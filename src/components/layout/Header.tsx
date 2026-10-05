@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, MessageSquare } from "lucide-react";
+import { Menu, X, Phone, MessageSquare, Globe, ChevronDown } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import { selectEnquiryOption } from "@/lib/enquiryEvents";
@@ -14,19 +14,23 @@ interface HeaderProps {
 
 export default function Header({ contact }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [regionDropdownOpen, setRegionDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const isHomepage = pathname === "/india" || pathname === "/";
+  const isUae = pathname.startsWith("/uae");
+  const basePrefix = isUae ? "/uae" : "/india";
+  const isHomepage = pathname === basePrefix || pathname === "/";
 
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const drawerRef = useRef<HTMLDivElement | null>(null);
+  const regionDropdownRef = useRef<HTMLDivElement | null>(null);
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
   const navItems = [
-    { label: "Services", href: "/india/services", hash: "#services" },
-    { label: "Fleet", href: "/india/fleet", hash: "#fleet" },
-    { label: "Network", href: isHomepage ? "#network" : "/india#network" },
-    { label: "About", href: "/india/about", hash: "#about" },
-    { label: "Contact", href: "/india/contact", hash: "#contact" },
+    { label: "Services", href: `${basePrefix}/services`, hash: "#services" },
+    { label: "Fleet", href: `${basePrefix}/fleet`, hash: "#fleet" },
+    { label: isUae ? "Presence" : "Network", href: isHomepage ? "#network" : `${basePrefix}#network` },
+    { label: "About", href: `${basePrefix}/about`, hash: "#about" },
+    { label: "Contact", href: `${basePrefix}/contact`, hash: "#contact" },
   ];
 
   // Helper to close menu and clean up
@@ -193,7 +197,7 @@ export default function Header({ contact }: HeaderProps) {
         <div className="flex items-center justify-between h-20 sm:h-24">
           {/* Logo container: Crisp white background, non-destructive viewport for enlarged tagline & Pegasus */}
           <Link
-            href="/india"
+            href={basePrefix}
             className="flex items-center group py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded"
             aria-label="Victor Mobility - Home"
           >
@@ -220,8 +224,55 @@ export default function Header({ contact }: HeaderProps) {
             })}
           </nav>
 
-          {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop CTAs & Region Switcher */}
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Global Region Selector Dropdown */}
+            <div className="relative" ref={regionDropdownRef}>
+              <button
+                type="button"
+                onClick={() => setRegionDropdownOpen(!regionDropdownOpen)}
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-brand-soft-neutral bg-brand-warm-white/80 hover:bg-brand-soft-neutral/50 text-xs font-bold text-brand-ink transition-colors"
+                aria-expanded={regionDropdownOpen}
+                aria-label="Select Operating Region"
+              >
+                <Globe className="w-3.5 h-3.5 text-brand-indigo" />
+                <span>{isUae ? "🇦🇪 UAE" : "🇮🇳 India"}</span>
+                <ChevronDown className="w-3 h-3 text-brand-ink/50" />
+              </button>
+
+              {regionDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg border border-brand-soft-neutral p-1.5 z-50">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-ink/50 px-2 py-1 block">
+                    Select Region
+                  </span>
+                  <Link
+                    href="/india"
+                    onClick={() => setRegionDropdownOpen(false)}
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold ${
+                      !isUae
+                        ? "bg-brand-warm-white text-brand-indigo font-bold"
+                        : "text-brand-ink hover:bg-brand-warm-white"
+                    }`}
+                  >
+                    <span>🇮🇳 India</span>
+                    {!isUae && <span className="text-[10px] text-brand-indigo font-bold">Active</span>}
+                  </Link>
+                  <Link
+                    href="/uae"
+                    onClick={() => setRegionDropdownOpen(false)}
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold ${
+                      isUae
+                        ? "bg-brand-warm-white text-brand-indigo font-bold"
+                        : "text-brand-ink hover:bg-brand-warm-white"
+                    }`}
+                  >
+                    <span>🇦🇪 UAE</span>
+                    {isUae && <span className="text-[10px] text-brand-indigo font-bold">Active</span>}
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <a
               href={contact.phoneHref}
               className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3 py-2 rounded-lg border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
@@ -231,7 +282,7 @@ export default function Header({ contact }: HeaderProps) {
               <span>{contact.phoneDisplay}</span>
             </a>
             <Link
-              href="/india/contact"
+              href={`${basePrefix}/contact`}
               className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
             >
               Discuss Requirement
@@ -298,6 +349,38 @@ export default function Header({ contact }: HeaderProps) {
               </button>
             </div>
 
+            {/* Region Switcher on Mobile */}
+            <div className="p-3 bg-brand-warm-white rounded-xl border border-brand-soft-neutral flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/70 flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-brand-indigo" />
+                <span>Region:</span>
+              </span>
+              <div className="flex items-center gap-1.5">
+                <Link
+                  href="/india"
+                  onClick={() => closeMenu(false)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
+                    !isUae
+                      ? "bg-brand-indigo text-white shadow-2xs"
+                      : "bg-white text-brand-ink border border-brand-soft-neutral"
+                  }`}
+                >
+                  🇮🇳 India
+                </Link>
+                <Link
+                  href="/uae"
+                  onClick={() => closeMenu(false)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
+                    isUae
+                      ? "bg-brand-indigo text-white shadow-2xs"
+                      : "bg-white text-brand-ink border border-brand-soft-neutral"
+                  }`}
+                >
+                  🇦🇪 UAE
+                </Link>
+              </div>
+            </div>
+
             <div className="space-y-1 divide-y divide-brand-soft-neutral">
               {navItems.map((item) => (
                 <Link
@@ -310,7 +393,7 @@ export default function Header({ contact }: HeaderProps) {
                 </Link>
               ))}
               <Link
-                href="/india/privacy"
+                href={`${basePrefix}/privacy`}
                 onClick={() => closeMenu(false)}
                 className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo py-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
               >
@@ -320,7 +403,7 @@ export default function Header({ contact }: HeaderProps) {
 
             <div className="pt-4 space-y-3">
               <Link
-                href="/india/contact"
+                href={`${basePrefix}/contact`}
                 onClick={() => closeMenu(false)}
                 className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3 px-4 rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
@@ -337,7 +420,7 @@ export default function Header({ contact }: HeaderProps) {
             </div>
 
             <div className="pt-2 text-xs text-brand-ink/60 text-center">
-              Hyderabad · Bengaluru · Pune
+              {isUae ? "Dubai · Abu Dhabi · Sharjah" : "Hyderabad · Bengaluru · Pune"}
             </div>
           </div>
         </div>

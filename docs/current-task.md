@@ -1,52 +1,49 @@
-# Milestone: Founder Integration, 2010–2024 Milestones, Case Studies & Esteemed Clientele
+# Milestone: Phase 2 — UAE Expansion & Global Gateway
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure & User Directive (5 October 2026).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (Pages 3, 4, 6, 7, 8, 12) & AGENTS.md Phase 2 Directive.
 
 Scope completed in this milestone:
-1. Founder & Visionary Spotlight (from Brochure Page 5):
-   - Integrated **Jahangir, Founder & Director**, with 15+ years of operational and logistics leadership.
-   - Incorporated his authorized quote: "I am committed to providing unwavering service to my clients."
-   - Generated high-resolution, professional AI executive portrait (`/images/india/founder-jahangir.jpg`).
-   - Showcased on both the Homepage (`PeopleSection.tsx`) and the About page (`/india/about`).
+1. Global Gateway Root Portal (`/`):
+   - Replaced temporary phase-one redirect with a high-impact editorial Global Operations Gateway at `/`.
+   - Displays master Victor Mobility branding, authoritative tagline "On Time Every Time.", and dual destination cards:
+     - 🇮🇳 Victor Mobility India (`/india`) — Corporate Employee Transport & Executive Mobility (Hyderabad, Bengaluru, Pune).
+     - 🇦🇪 Victor Mobility UAE (`/uae`) — Executive Limousine & Airport VIP Transfers (Dubai Al Garhoud HQ, Abu Dhabi, Sharjah).
+   - Features Founder Jahangir's international commitment quote and legal links to both regional operations.
 
-2. Company Evolution & Milestones (from Brochure Page 4):
-   - Added a detailed 2010–2024 milestone timeline to `india.json` and the About page:
-     - 2010: Incorporation in Hyderabad under Indian Companies Act 1956.
-     - 2012: First tier-1 MNC enterprise employee commute contracts.
-     - 2015: Fleet scaled past 800+ managed vehicles.
-     - 2018: Fleet scaled past 1,500+ managed vehicles.
-     - 2020: Standardized WHO hygiene and passenger health protocols during COVID-19.
-     - 2023: Pan-India metropolitan branch presence established across Hyderabad, Bengaluru, and Pune.
-     - 2024: Environmental stewardship pledge targeting 15%–30% fleet electrification (EVs).
+2. Global Region Switcher across All Portals:
+   - Built an accessible Region Switcher in the navigation header on both desktop (dropdown with flags 🇮🇳/🇦🇪 and active indicators) and mobile (toggle pill in drawer).
+   - Dynamically adapts navigation links, phone contact buttons, and logo targets based on current operating region without duplicate headers.
 
-3. Interactive Client Case Studies (from User Directive):
-   - Enhanced `VictorInActionSection.tsx` into an interactive 3-tab case study showcase covering all 3 customer dimensions:
-     1. Corporate Employee Transport: Campus Workforce Transit Architecture (1,200+ commuters, 99.8% on-time floor arrival).
-     2. Executive Chauffeur & VIP Travel: International Board Delegation Mobility (14 movements, 100% punctual terminal pickups).
-     3. Weddings & Occasion Logistics: Destination Celebration Convoy Management (450 guests, 6 venues, 12 shuttles).
-   - Structured as editable operational baselines that the user can customize.
+3. UAE Content Model (`src/content/uae.json`):
+   - Factual grounding directly from the 2024 Brochure:
+     - Head Office: 65th Street, Al Garhoud, Near Dubai International Airport, Dubai, United Arab Emirates.
+     - Registered Telephone & WhatsApp: `+971 52 455 2441`.
+     - Official Email: `info@victorluxurylimousine.com`.
+     - Legal Entity: Victor Luxury Limousine LLC.
+     - Operational scale: 2,000+ luxury cars and 500+ buses capability across Dubai, Abu Dhabi, and Sharjah corridors.
+     - 6 UAE Services: Chauffeur & Luxury Limousine, Airport VIP Transfers (DXB/AUH/DWC), Corporate Events & Delegations, Corporate Employee Transport, Tourism & City Excursions, Rent-A-Car & Leasing.
+     - 5 UAE Fleet Tiers: First Class Saloons (S-Class, BMW 7), Ultra-Luxury (Maybach S-Class), Executive SUVs (Escalade, Yukon), Executive MPVs (V-Class), Luxury Buses & Coaches (22 to 50-seaters).
 
-4. Esteemed Clientele Trust Grid (from Brochure Page 9):
-   - Added the 12 corporate client brands featured in the brochure:
-     Amazon, Google (Alphabet Corporation), JPMorgan Chase, Oracle, Wipro, Teleperformance, OTIS, Godrej, HDFC Bank, Synchrony, Synechron, and TATA Docomo.
-   - Displayed in trust strips on both the Homepage and the About page with standard legal trademark disclaimers.
+4. UAE Multi-Route Architecture (`/uae/*`):
+   - `/uae`: UAE Homepage featuring Hero with localized quick links, 3 UAE Customer Journeys, The Victor Standard, UAE Fleet Showcase, UAE Presence Network, Founder Jahangir, and Contact Invitation.
+   - `/uae/services`: UAE Services catalog.
+   - `/uae/services/[slug]`: Dynamic static routes pre-rendered via `generateStaticParams()` for all 6 UAE services.
+   - `/uae/fleet`: UAE Fleet page with 5 vehicle categories and luggage allowances.
+   - `/uae/about`: UAE About page featuring Founder Jahangir, Dubai Head Office, and UAE FAQs.
+   - `/uae/contact`: Interactive UAE WhatsApp enquiry builder with dynamic company name (`Victor Luxury Limousine LLC`) and direct routing to `+971 52 455 2441`.
+   - `/uae/privacy`: UAE Privacy Notice referencing UAE Federal Decree-Law No. 45 of 2021 regarding Personal Data Protection (PDPL) and Dubai registered address.
 
-5. Commitment to Passenger Safety (from Brochure Page 11):
-   - Added the 4-pillar safety framework to the About page:
-     1. Comprehensive Driver Background Verification (BGV & Police Clearance Certificate).
-     2. Female Passenger Safety Protocols (Escorts and real-time trip monitoring).
-     3. Defensive Driving & Speed Governance (Mandatory seatbelts, lane discipline, hands-free kits).
-     4. Pre-Trip Vehicle Quality Audits (Dual-zone AC, tyre safety, sanitization).
+5. SEO & Sitemap Updates:
+   - Updated `src/app/sitemap.ts` to index all 30 static pages (Global root, India routes, and UAE routes).
 
 6. Automated Quality & Verification:
    - TypeScript check (`tsc --noEmit`) — 0 errors.
-   - ESLint (`next lint`) — 0 warnings, 0 errors.
-   - Production Build (`next build`) — 18/18 static pages successfully compiled.
-   - Playwright verification suite (`scripts/verify-presence-and-brand.mjs`) — 100% pass (7/7 tests).
+   - Production Build (`next build`) — 30/30 static pages successfully compiled.
+   - Playwright verification suite (`scripts/verify-phase2-uae.mjs`) — 100% pass (11/11 tests).
    - Visual screenshots captured:
-     - `founder-portrait-homepage.png`
-     - `case-studies-desktop.png`
-     - `about-page-founder-milestones.png`
-     - `homepage-presence-desktop.png`
-     - `homepage-presence-mobile.png`
-     - `map-presence-desktop.png`
+     - `phase2-gateway-desktop.png`
+     - `phase2-gateway-mobile.png`
+     - `phase2-uae-home-desktop.png`
+     - `phase2-uae-home-mobile.png`
+     - `phase2-uae-fleet-desktop.png`
+     - `phase2-uae-contact-desktop.png`

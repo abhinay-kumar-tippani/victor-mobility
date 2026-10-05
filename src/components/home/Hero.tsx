@@ -12,13 +12,25 @@ interface HeroProps {
 }
 
 export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
-  const quickLinks = [
-    { label: "Executive & VIP Travel", href: "/india/services/chauffeur-luxury" },
-    { label: "Weddings & Occasions", href: "/india/services/event-transportation" },
-    { label: "Employee Commute", href: "/india/services/employee-transportation" },
-    { label: "Airport Transfers", href: "/india/services/airport-transfers" },
-    { label: "Fleet Categories", href: "#fleet" },
-  ];
+  const isUae = content.region === "uae";
+  const cityHighlights = isUae
+    ? "Dubai · Abu Dhabi · Sharjah"
+    : "Hyderabad · Bengaluru · Pune";
+
+  const quickLinks = isUae
+    ? [
+        { label: "VIP Limousine", href: "/uae/services/chauffeur-luxury" },
+        { label: "Airport Transfers", href: "/uae/services/airport-transfers" },
+        { label: "Conferences & Galas", href: "/uae/services/event-transportation" },
+        { label: "UAE Fleet Tiers", href: "#fleet" },
+      ]
+    : [
+        { label: "Executive & VIP Travel", href: "/india/services/chauffeur-luxury" },
+        { label: "Weddings & Occasions", href: "/india/services/event-transportation" },
+        { label: "Employee Commute", href: "/india/services/employee-transportation" },
+        { label: "Airport Transfers", href: "/india/services/airport-transfers" },
+        { label: "Fleet Categories", href: "#fleet" },
+      ];
 
   return (
     <section className="relative bg-brand-ink text-white overflow-hidden">
@@ -84,7 +96,7 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-violet" />
-              <span>Hyderabad · Bengaluru · Pune</span>
+              <span>{cityHighlights}</span>
             </div>
             <div className="text-[11px] text-brand-soft-neutral/80 italic">
               {mediaCaption}

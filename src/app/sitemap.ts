@@ -1,11 +1,19 @@
 import type { MetadataRoute } from "next";
 import indiaData from "@/content/india.json";
+import uaeData from "@/content/uae.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const publishedServices = indiaData.services.filter((s) => s.published);
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://victor-mobility.vercel.app";
+  const publishedIndiaServices = indiaData.services.filter((s) => s.published);
+  const publishedUaeServices = uaeData.services.filter((s) => s.published);
 
-  const staticRoutes: MetadataRoute.Sitemap = [
+  const globalRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
     {
       url: `${baseUrl}/india`,
       lastModified: new Date(),
@@ -42,14 +50,57 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/uae`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/uae/services`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/uae/fleet`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/uae/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/uae/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/uae/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = publishedServices.map((service) => ({
+  const indiaServiceRoutes: MetadataRoute.Sitemap = publishedIndiaServices.map((service) => ({
     url: `${baseUrl}/india/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  const uaeServiceRoutes: MetadataRoute.Sitemap = publishedUaeServices.map((service) => ({
+    url: `${baseUrl}/uae/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...globalRoutes, ...indiaServiceRoutes, ...uaeServiceRoutes];
 }
