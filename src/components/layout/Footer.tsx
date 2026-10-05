@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, MessageSquare } from "lucide-react";
 import type { ContactData, OfficeItem } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
@@ -19,6 +20,9 @@ export default function Footer({
   mediaCaption,
   isoEnabled = false,
 }: FooterProps) {
+  const pathname = usePathname();
+  const isUae = pathname?.startsWith("/uae");
+  const basePrefix = isUae ? "/uae" : "/india";
   const publishedOffices = offices.filter((o) => o.published);
 
   return (
@@ -33,7 +37,9 @@ export default function Footer({
             </div>
 
             <p className="text-sm text-brand-soft-neutral/80 leading-relaxed max-w-sm">
-              Dedicated corporate mobility, employee shuttle networks, airport transfers, and executive travel across Hyderabad, Bengaluru, and Pune.
+              {isUae
+                ? "Dedicated executive limousine services, DXB/AUH airport VIP protocol, global summits, and enterprise fleet leasing across Dubai and Abu Dhabi."
+                : "Dedicated corporate mobility, employee shuttle networks, airport transfers, and executive travel across Hyderabad, Bengaluru, and Pune."}
             </p>
 
             {/* Strictly honour isoEnabled flag; no hardcoded bypass */}
@@ -51,37 +57,37 @@ export default function Footer({
             </h4>
             <ul className="space-y-2.5 text-sm text-brand-soft-neutral/80">
               <li>
-                <Link href="/india/services" className="hover:text-white transition-colors">
+                <Link href={`${basePrefix}/services`} className="hover:text-white transition-colors">
                   Services Overview
                 </Link>
               </li>
               <li>
-                <Link href="/india/services/employee-transportation" className="hover:text-white transition-colors">
-                  Employee Commute
+                <Link href={`${basePrefix}/rfp`} className="hover:text-white transition-colors font-semibold text-brand-violet">
+                  Corporate RFP Desk
                 </Link>
               </li>
               <li>
-                <Link href="/india/fleet" className="hover:text-white transition-colors">
+                <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
               </li>
               <li>
-                <Link href="/india#network" className="hover:text-white transition-colors">
-                  Cities & Network
+                <Link href={isUae ? `${basePrefix}#network` : `${basePrefix}#network`} className="hover:text-white transition-colors">
+                  {isUae ? "Emirates Network" : "Cities & Network"}
                 </Link>
               </li>
               <li>
-                <Link href="/india/about" className="hover:text-white transition-colors">
+                <Link href={`${basePrefix}/about`} className="hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/india/contact" className="hover:text-white transition-colors">
+                <Link href={`${basePrefix}/contact`} className="hover:text-white transition-colors">
                   Requirement Desk
                 </Link>
               </li>
               <li>
-                <Link href="/india/privacy" className="hover:text-white transition-colors">
+                <Link href={`${basePrefix}/privacy`} className="hover:text-white transition-colors">
                   Privacy Notice
                 </Link>
               </li>

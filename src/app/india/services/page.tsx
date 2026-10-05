@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CorridorMatrix from "@/components/home/CorridorMatrix";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -140,6 +141,9 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Tech Park & Strategic Corridors */}
+        <CorridorMatrix region="india" />
 
         {/* Operating Coverage Banner */}
         <section className="py-14 bg-white border-t border-brand-soft-neutral">

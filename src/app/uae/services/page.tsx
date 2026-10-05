@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CorridorMatrix from "@/components/home/CorridorMatrix";
 import uaeData from "@/content/uae.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -139,6 +140,9 @@ export default function UaeServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Strategic UAE Commercial Corridors */}
+        <CorridorMatrix region="uae" />
 
         {/* CTA Bar */}
         <section className="py-14 bg-white border-t border-brand-soft-neutral">

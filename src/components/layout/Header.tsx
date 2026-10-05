@@ -29,6 +29,7 @@ export default function Header({ contact }: HeaderProps) {
     { label: "Services", href: `${basePrefix}/services`, hash: "#services" },
     { label: "Fleet", href: `${basePrefix}/fleet`, hash: "#fleet" },
     { label: isUae ? "Presence" : "Network", href: isHomepage ? "#network" : `${basePrefix}#network` },
+    { label: "RFP Desk", href: `${basePrefix}/rfp`, hash: "#rfp" },
     { label: "About", href: `${basePrefix}/about`, hash: "#about" },
     { label: "Contact", href: `${basePrefix}/contact`, hash: "#contact" },
   ];
