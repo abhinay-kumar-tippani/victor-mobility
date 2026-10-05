@@ -16,6 +16,8 @@ import {
   HeartHandshake,
   ArrowRight,
   ShieldCheck,
+  Quote,
+  Calendar,
   Check,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
@@ -27,7 +29,7 @@ import type { IndiaContent, MediaContent } from "@/types/content";
 export const metadata: Metadata = {
   title: "About Us | Victor Mobility - Corporate & Luxury Transport Partner",
   description:
-    "Discover Victor Mobility Pvt. Ltd.: our company story, leadership, operating discipline, and verified network across Hyderabad, Bengaluru, and Pune. On Time Every Time.",
+    "Discover Victor Mobility Pvt. Ltd.: our founder Jahangir, company history since 2010, leadership, operating discipline, and verified network across Hyderabad, Bengaluru, and Pune. On Time Every Time.",
 };
 
 export default function AboutPage() {
@@ -36,6 +38,10 @@ export default function AboutPage() {
   const publishedOffices = content.offices.filter((o) => o.published);
   const isoClaim = content.sourceClaims.iso;
   const story = content.about.story;
+  const founder = content.founder;
+  const milestones = content.milestones || [];
+  const clientele = content.esteemedClientele || [];
+  const safety = content.safetyCommitments || [];
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -63,204 +69,188 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Founding Story & Accountable Leadership */}
-        <section className="py-16 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-              {/* Left Column: Founding Vision Narrative */}
-              <div className="lg:col-span-7 space-y-6">
-                <div>
-                  <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-                    Our Origin & Purpose
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-4">
-                    Disciplined transport management for India&apos;s commercial hubs
-                  </h2>
-                  <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed">
-                    {story?.foundingVision || content.about.description}
-                  </p>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white border border-brand-soft-neutral space-y-3">
-                  <h3 className="text-base font-bold text-brand-ink flex items-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-brand-indigo" />
-                    <span>The Victor Operating Promise</span>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                    We recognize that transport failure disrupts business reputations, employee shifts, and celebratory
-                    milestones. That is why our operations desk plans verified travel buffers, inspects vehicles prior to dispatch,
-                    and provides direct human communication from enquiry to destination.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column: Accountable Leadership Card */}
-              <div className="lg:col-span-5">
-                <div className="bg-white rounded-3xl p-8 border border-brand-soft-neutral shadow-sm space-y-6">
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-brand-indigo block mb-1">
-                      Operations & Commercial Leadership
+        {/* Meet our Founder and Visionary (Brochure Page 5) */}
+        {founder && (
+          <section className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 items-center">
+                {/* Founder Portrait Column */}
+                <div className="lg:col-span-5 relative aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-full min-h-[380px] bg-brand-ink">
+                  <Image
+                    src={founder.imageSrc}
+                    alt={`Portrait of ${founder.name}, ${founder.role} of Victor Mobility`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent lg:hidden" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white lg:hidden">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1">
+                      {founder.role}
                     </span>
-                    <h3 className="text-xl font-bold text-brand-ink">
-                      {story?.leadershipName || content.contact.name}
-                    </h3>
-                    <p className="text-xs text-brand-ink/60 font-semibold">
-                      {story?.leadershipRole || content.contact.role}
+                    <h3 className="text-xl font-bold">{founder.name}</h3>
+                  </div>
+                </div>
+
+                {/* Founder Narrative Column */}
+                <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 space-y-6">
+                  <div>
+                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+                      Meet our Founder & Visionary
+                    </span>
+                    <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+                      {founder.name}
+                    </h2>
+                    <p className="text-xs sm:text-sm font-semibold text-brand-indigo mt-1">
+                      {founder.role} · {founder.experience}
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                    Responsible for corporate client partnerships, service agreements, and operational dispatch standards
-                    across our Hyderabad, Bengaluru, and Pune corridors.
-                  </p>
-
-                  <div className="space-y-3 pt-3 border-t border-brand-soft-neutral">
-                    <a
-                      href={content.contact.phoneHref}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-brand-warm-white hover:bg-brand-soft-neutral/60 transition-colors group"
-                    >
-                      <div className="w-9 h-9 rounded-lg bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo group-hover:text-brand-blue">
-                        <Phone className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] uppercase font-bold text-brand-ink/50 block">Direct Calling Line</span>
-                        <span className="text-sm font-bold text-brand-ink">{content.contact.phoneDisplay}</span>
-                      </div>
-                    </a>
-
-                    <a
-                      href={`${content.contact.whatsappBaseUrl}?text=Hello%20Mujeeb,%20I%20would%20like%20to%20discuss%20a%20transport%20requirement%20with%20Victor%20Mobility.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 hover:bg-emerald-100/70 transition-colors group border border-emerald-200"
-                    >
-                      <div className="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
-                        <MessageSquare className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] uppercase font-bold text-emerald-800 block">Direct WhatsApp Desk</span>
-                        <span className="text-sm font-bold text-emerald-950">{content.contact.whatsappDisplay}</span>
-                      </div>
-                    </a>
+                  <div className="p-4 sm:p-5 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex items-start gap-3">
+                    <Quote className="w-5 h-5 text-brand-indigo shrink-0 mt-1" />
+                    <p className="text-sm sm:text-base font-semibold italic text-brand-ink">
+                      &ldquo;{founder.quote}&rdquo;
+                    </p>
                   </div>
 
-                  <p className="text-[11px] text-brand-ink/50 italic">
-                    Available during business hours for corporate agreements and urgent travel arrangements.
+                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
+                    {founder.bio}
                   </p>
+
+                  <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center gap-6 text-xs text-brand-ink/70">
+                    <div className="flex items-center gap-2">
+                      <Award className="w-4 h-4 text-brand-blue" />
+                      <span className="font-semibold">Established 2010 in Hyderabad</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-brand-indigo" />
+                      <span className="font-semibold">Registered under Indian Companies Act 1956</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* Four Operational Commitments */}
-        <section className="py-16 sm:py-20 bg-white border-b border-brand-soft-neutral">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-                Operational Discipline
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-3">
-                Four commitments we hold ourselves accountable to
-              </h2>
-              <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-                Rather than generic declarations, our standard is built on repeatable, verifiable operating procedures.
-              </p>
-            </div>
+        {/* Company Evolution & Milestones (Brochure Page 4) */}
+        {milestones.length > 0 && (
+          <section className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+              <div className="max-w-3xl">
+                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+                  Company Evolution (2010 – 2024)
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
+                  A decade of disciplined growth and operational milestones.
+                </h2>
+                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                  Founded in Hyderabad with a focus on enterprise reliability, Victor Mobility has systematically expanded into a multi-city mobility provider across India.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              {story?.commitments.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className="p-7 sm:p-8 rounded-3xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo font-bold text-xs">
-                        0{idx + 1}
-                      </div>
-                      <h3 className="text-lg font-bold text-brand-ink">{item.title}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {milestones.map((m) => (
+                  <div
+                    key={m.year + m.title}
+                    className="p-6 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col justify-between space-y-4 shadow-2xs hover:shadow-sm transition-all"
+                  >
+                    <div className="space-y-2">
+                      <span className="text-2xl font-extrabold text-brand-indigo block">
+                        {m.year}
+                      </span>
+                      <h3 className="text-base font-bold text-brand-ink">
+                        {m.title}
+                      </h3>
+                      <p className="text-xs text-brand-ink/75 leading-relaxed">
+                        {m.description}
+                      </p>
                     </div>
-                    <p className="text-sm text-brand-ink/75 leading-relaxed">
+                    <div className="pt-3 border-t border-brand-soft-neutral/70 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-blue">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Verified Milestone</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Commitment to Safety (Brochure Page 11) */}
+        {safety.length > 0 && (
+          <section className="py-16 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+              <div className="max-w-3xl">
+                <span className="text-xs uppercase tracking-widest font-bold text-brand-indigo block mb-2">
+                  Safety First
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-3">
+                  Our Uncompromising Commitment to Safety
+                </h2>
+                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                  At Victor Mobility, passenger security and chauffeur professionalism form the foundation of our daily operations.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {safety.map((item, idx) => (
+                  <div
+                    key={item.title}
+                    className="bg-white p-6 rounded-2xl border border-brand-soft-neutral shadow-2xs space-y-3"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-brand-indigo/10 text-brand-indigo flex items-center justify-center font-bold text-xs">
+                      0{idx + 1}
+                    </div>
+                    <h3 className="text-sm font-bold text-brand-ink">{item.title}</h3>
+                    <p className="text-xs text-brand-ink/70 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Optional ISO claim conditionally rendered strictly if enabled */}
-            {isoClaim?.enabled && (
-              <div className="mt-8 p-6 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-indigo/10 text-brand-indigo flex items-center justify-center shrink-0">
-                  <Award className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold text-brand-ink">{isoClaim.text}</h3>
-                  <p className="text-xs text-brand-ink/70">
-                    Quality management systems adhering to international standards.
-                  </p>
-                </div>
+                ))}
               </div>
-            )}
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
 
-        {/* Three Managed Customer Dimensions */}
-        <section className="py-16 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs uppercase tracking-widest font-bold text-brand-indigo block mb-2">
-                Portfolio Breadth
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-3">
-                Three distinct customer journeys. One standard.
-              </h2>
-              <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-                We cater to diverse travel needs with dedicated fleet categories and tailored coordination workflows.
+        {/* Esteemed Clientele (Brochure Page 9) */}
+        {clientele.length > 0 && (
+          <section className="py-16 bg-white border-b border-brand-soft-neutral">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+              <div className="text-center max-w-2xl mx-auto space-y-2">
+                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
+                  Enterprise Client Relationships
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">
+                  Trusted by Over 30+ Multinational Corporations
+                </h2>
+                <p className="text-xs sm:text-sm text-brand-ink/70">
+                  Providing enterprise employee transportation, VIP delegation transit, and reliable corporate mobility.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                {clientele.map((client) => (
+                  <div
+                    key={client}
+                    className="bg-brand-warm-white/70 rounded-xl py-3.5 px-4 text-center border border-brand-soft-neutral shadow-2xs hover:border-brand-indigo transition-colors"
+                  >
+                    <span className="text-xs font-bold text-brand-ink tracking-tight">
+                      {client}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-[10px] text-brand-ink/50 text-center">
+                *All corporate trademarks and brand names are properties of their respective organizations and represent client partnerships.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {story?.audiences.map((aud, idx) => {
-                const serviceLinks = [
-                  "/india/services/chauffeur-luxury",
-                  "/india/services/event-transportation",
-                  "/india/services/employee-transportation",
-                ];
-                return (
-                  <div
-                    key={aud.title}
-                    className="bg-white rounded-3xl p-7 sm:p-8 border border-brand-soft-neutral shadow-sm flex flex-col justify-between"
-                  >
-                    <div className="space-y-3">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block">
-                        {aud.tagline}
-                      </span>
-                      <h3 className="text-xl font-bold text-brand-ink">{aud.title}</h3>
-                      <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                        {aud.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-6 mt-6 border-t border-brand-soft-neutral">
-                      <Link
-                        href={serviceLinks[idx] || "/india/services"}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue transition-colors"
-                      >
-                        <span>Learn about this service</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Established Operating Offices */}
-        <section id="network" className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral">
+        <section id="network" className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-2xl space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo block">
@@ -270,7 +260,7 @@ export default function AboutPage() {
                 Established India Operating Network
               </h2>
               <p className="text-base text-brand-ink/75 leading-relaxed">
-                Victor Mobility maintains authorized physical presence across India&apos;s leading commercial and technology
+                Victor Mobility maintains verified physical presence across India&apos;s leading commercial and technology
                 centers. Contact our branch teams directly for local allocations.
               </p>
             </div>
@@ -279,14 +269,14 @@ export default function AboutPage() {
               {publishedOffices.map((office) => (
                 <div
                   key={office.city}
-                  className="bg-brand-warm-white rounded-3xl p-8 border border-brand-soft-neutral flex flex-col justify-between"
+                  className="bg-white rounded-3xl p-8 border border-brand-soft-neutral flex flex-col justify-between shadow-2xs"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
+                      <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                         <MapPin className="w-5 h-5" />
                       </div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-white px-3 py-1 rounded-full border border-brand-soft-neutral">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-warm-white px-3 py-1 rounded-full border border-brand-soft-neutral">
                         {office.label}
                       </span>
                     </div>
@@ -318,7 +308,7 @@ export default function AboutPage() {
 
         {/* Frequently Asked Questions */}
         {content.faqs && content.faqs.length > 0 && (
-          <section className="py-16 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral">
+          <section className="py-16 sm:py-20 bg-white border-b border-brand-soft-neutral">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
               <div className="text-center space-y-3">
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
@@ -337,7 +327,7 @@ export default function AboutPage() {
                 {content.faqs.map((faq) => (
                   <div
                     key={faq.question}
-                    className="bg-white rounded-2xl p-6 sm:p-7 border border-brand-soft-neutral shadow-sm space-y-2"
+                    className="bg-brand-warm-white rounded-2xl p-6 sm:p-7 border border-brand-soft-neutral shadow-2xs space-y-2"
                   >
                     <h3 className="text-base font-bold text-brand-ink">
                       {faq.question}
@@ -353,7 +343,7 @@ export default function AboutPage() {
         )}
 
         {/* CTA Section */}
-        <section className="py-14 bg-white">
+        <section className="py-14 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="space-y-3 max-w-xl">

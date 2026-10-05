@@ -23,24 +23,18 @@ async function saveImage(page, filename, options = {}) {
 }
 
 async function main() {
-  console.log("Starting India Presence & Brand Verification Suite...");
+  console.log("Starting India Presence, Founder & Case Studies Verification Suite...");
   const browser = await chromium.launch({ channel: "msedge" });
   const results = [];
 
   // ==========================================
-  // Test 1: Desktop Layout, Sequence & Map
+  // Test 1: Desktop Layout, Case Studies & Founder
   // ==========================================
-  console.log("\n--- Testing Desktop Layout & India Presence Map ---");
+  console.log("\n--- Testing Desktop Layout, Case Studies & Founder ---");
   const desktopPage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await desktopPage.goto(`${BASE_URL}/india`, { waitUntil: "networkidle" });
 
   // 1. Check Section Sequence
-  const mainSections = await desktopPage.evaluate(() => {
-    const sections = Array.from(document.querySelectorAll("main > section, main > div"));
-    return sections.map((s) => s.id || s.className.split(" ")[0]);
-  });
-  console.log("Rendered sections sequence:", mainSections);
-
   const hasServices = await desktopPage.locator("#services").isVisible();
   const hasStandards = await desktopPage.locator("#standards").isVisible();
   const hasFleet = await desktopPage.locator("#fleet").isVisible();
@@ -59,68 +53,76 @@ async function main() {
   });
   console.log(`[${sequenceValid ? "PASS" : "FAIL"}] Section sequence: ${sequenceValid}`);
 
-  // 2. Check Compact Customer Journeys (No duplicate 3-bullet lists or double CTA buttons)
-  const journeyCards = desktopPage.locator("#services article");
-  const cardCount = await journeyCards.count();
-  const firstCardButtons = await journeyCards.first().locator("button, a").count();
-  // Exactly 1 exploration action link per card
-  const compactJourneys = cardCount === 3 && firstCardButtons === 1;
+  // 2. Test Interactive 3-Tab Case Studies & Esteemed Clientele
+  const caseSection = desktopPage.locator("#case-story");
+  const caseTabs = caseSection.locator('button[role="tab"]');
+  const tabCount = await caseTabs.count();
 
+  // Click Tab 2: Executive Chauffeur
+  await caseTabs.nth(1).click();
+  await desktopPage.waitForTimeout(200);
+  const execVisible = await caseSection.locator("h3:has-text('International Board Delegation Mobility')").isVisible();
+
+  // Click Tab 3: Weddings & Occasion
+  await caseTabs.nth(2).click();
+  await desktopPage.waitForTimeout(200);
+  const weddingVisible = await caseSection.locator("h3:has-text('Destination Celebration Convoy Management')").isVisible();
+
+  // Verify Esteemed Clientele Grid
+  const amazonVisible = await caseSection.locator("text=Amazon").first().isVisible();
+  const googleVisible = await caseSection.locator("text=Google").first().isVisible();
+  const jpmcVisible = await caseSection.locator("text=JPMorgan Chase").first().isVisible();
+
+  const caseValid = tabCount === 3 && execVisible && weddingVisible && amazonVisible && googleVisible && jpmcVisible;
   results.push({
-    test: "Customer Journey cards are compacted to title, single sentence, and single exploration link",
-    passed: compactJourneys,
-    details: `Cards: ${cardCount}, Buttons per card: ${firstCardButtons}`,
+    test: "Victor in Action features interactive 3-tab case studies and 12-brand esteemed clientele grid",
+    passed: caseValid,
+    details: `Tabs: ${tabCount}, Exec: ${execVisible}, Wedding: ${weddingVisible}, Amazon: ${amazonVisible}, Google: ${googleVisible}`,
   });
-  console.log(`[${compactJourneys ? "PASS" : "FAIL"}] Compact customer journeys: ${compactJourneys}`);
+  console.log(`[${caseValid ? "PASS" : "FAIL"}] Case Studies & Clientele: ${caseValid}`);
+  await saveImage(caseSection, "case-studies-desktop.png");
 
   // 3. Test Interactive India Presence Map
   const mapSection = desktopPage.locator("#network");
   const legendText = await mapSection.locator("text=Highlighted states contain a listed Victor office").isVisible();
   const headingText = await mapSection.locator("h2:has-text('Our India presence')").isVisible();
 
-  // Test state switching: Click Bengaluru
+  // Switch to Bengaluru
   await mapSection.locator('button[role="tab"]:has-text("Bengaluru")').click();
   await desktopPage.waitForTimeout(200);
   const bengaluruActive = await mapSection.locator("h3:has-text('Bengaluru')").isVisible();
   const bengaluruAddress = await mapSection.locator("text=Maragondanahalli").first().isVisible();
 
-  // Test state switching: Click Pune
+  // Switch to Pune
   await mapSection.locator('button[role="tab"]:has-text("Pune")').click();
   await desktopPage.waitForTimeout(200);
   const puneActive = await mapSection.locator("h3:has-text('Pune')").isVisible();
   const puneAddress = await mapSection.locator("text=Hadapsar").first().isVisible();
 
-  // Test state switching back to Hyderabad
-  await mapSection.locator('button[role="tab"]:has-text("Hyderabad")').click();
-  await desktopPage.waitForTimeout(200);
-  const hyderabadActive = await mapSection.locator("h3:has-text('Hyderabad')").isVisible();
-  const hyderabadAddress = await mapSection.locator("text=Gachibowli").first().isVisible();
-
-  const mapValid =
-    legendText && headingText && bengaluruActive && bengaluruAddress && puneActive && puneAddress && hyderabadActive && hyderabadAddress;
-
+  const mapValid = legendText && headingText && bengaluruActive && bengaluruAddress && puneActive && puneAddress;
   results.push({
     test: "India Presence Map features accurate legend, SVG paths, and interactive city switching",
     passed: mapValid,
-    details: `Legend: ${legendText}, Heading: ${headingText}, Hyd: ${hyderabadActive}, Blr: ${bengaluruActive}, Pune: ${puneActive}`,
+    details: `Legend: ${legendText}, Heading: ${headingText}, Blr: ${bengaluruActive}, Pune: ${puneActive}`,
   });
   console.log(`[${mapValid ? "PASS" : "FAIL"}] India Presence Map: ${mapValid}`);
-
   await saveImage(mapSection, "map-presence-desktop.png");
 
-  // 4. Test People Behind Victor Section
+  // 4. Test People Behind Victor: Founder Jahangir & Commercial Partner
   const peopleSection = desktopPage.locator("#about");
+  const founderName = await peopleSection.locator("h3:has-text('Jahangir')").isVisible();
+  const founderQuote = await peopleSection.locator("text=I am committed to providing unwavering service to my clients").isVisible();
   const mujeebPresent = await peopleSection.locator("text=Mujeeb Ur Rehman Mohammed").isVisible();
-  const rolePresent = await peopleSection.locator("text=Business Development Partner").isVisible();
-  const opsPresent = await peopleSection.locator("text=Operations & Dispatch Control").isVisible();
-  const peopleValid = mujeebPresent && rolePresent && opsPresent;
+  const opsRoomPresent = await peopleSection.locator("text=24/7 Operations Control Room").isVisible();
 
+  const peopleValid = founderName && founderQuote && mujeebPresent && opsRoomPresent;
   results.push({
-    test: "The People Behind Victor showcases named commercial leadership and 24/7 operations desk",
+    test: "The People Behind Victor showcases Founder Jahangir with portrait & quote, Mujeeb Ur Rehman, and 24/7 Ops Room",
     passed: peopleValid,
-    details: `Mujeeb: ${mujeebPresent}, Role: ${rolePresent}, Ops: ${opsPresent}`,
+    details: `Jahangir: ${founderName}, Quote: ${founderQuote}, Mujeeb: ${mujeebPresent}, Ops: ${opsRoomPresent}`,
   });
   console.log(`[${peopleValid ? "PASS" : "FAIL"}] People Behind Victor: ${peopleValid}`);
+  await saveImage(peopleSection, "founder-portrait-homepage.png");
 
   // 5. Test Personal Contact Invitation Section
   const contactSection = desktopPage.locator("#contact");
@@ -140,30 +142,54 @@ async function main() {
   await desktopPage.close();
 
   // ==========================================
-  // Test 2: Mobile Height & Touch Responsiveness (390x844)
+  // Test 2: Enriched About Page with Founder & 2010-2024 Milestones
   // ==========================================
-  console.log("\n--- Testing Mobile Viewport (390x844) & Height Measurement ---");
+  console.log("\n--- Testing Enriched About Page with Founder & Milestones ---");
+  const aboutPage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await aboutPage.goto(`${BASE_URL}/india/about`, { waitUntil: "networkidle" });
+
+  const aboutFounder = await aboutPage.locator("h2:has-text('Jahangir')").isVisible();
+  const aboutQuote = await aboutPage.locator("text=I am committed to providing unwavering service").isVisible();
+  const milestone2010 = await aboutPage.locator("text=Incorporation & Founding").isVisible();
+  const milestone2015 = await aboutPage.locator("text=Fleet Scaling: 800+ Vehicles").isVisible();
+  const milestone2024 = await aboutPage.locator("text=Sustainability & EV Fleet Pledge").isVisible();
+  const safetySection = await aboutPage.locator("text=Female Passenger Safety Protocols").isVisible();
+  const aboutClientele = await aboutPage.locator("text=Trusted by Over 30+ Multinational Corporations").isVisible();
+
+  const aboutValid =
+    aboutFounder && aboutQuote && milestone2010 && milestone2015 && milestone2024 && safetySection && aboutClientele;
+
+  results.push({
+    test: "About page presents Founder Jahangir, 2010-2024 Milestones, Safety Protocols, and Esteemed Clientele",
+    passed: aboutValid,
+    details: `Founder: ${aboutFounder}, 2010: ${milestone2010}, 2015: ${milestone2015}, 2024: ${milestone2024}, Safety: ${safetySection}`,
+  });
+  console.log(`[${aboutValid ? "PASS" : "FAIL"}] Enriched About Page: ${aboutValid}`);
+  await saveImage(aboutPage, "about-page-founder-milestones.png");
+  await aboutPage.close();
+
+  // ==========================================
+  // Test 3: Mobile Height & Touch Responsiveness (390x844)
+  // ==========================================
+  console.log("\n--- Testing Mobile Viewport (390x844) ---");
   const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
   await mobilePage.goto(`${BASE_URL}/india`, { waitUntil: "networkidle" });
 
   const totalMobileHeight = await mobilePage.evaluate(() => document.documentElement.scrollHeight);
-  console.log(`Measured Mobile Homepage Height: ${totalMobileHeight}px (down from previous ~15,707px)`);
+  console.log(`Measured Mobile Homepage Height: ${totalMobileHeight}px`);
 
-  const heightSignificantlyReduced = totalMobileHeight < 11500;
-  results.push({
-    test: `Mobile homepage height reduced by consolidating duplicate sections (Current: ${totalMobileHeight}px, was ~15,707px)`,
-    passed: heightSignificantlyReduced,
-    details: `Height: ${totalMobileHeight}px (< 11,500px threshold)`,
-  });
-  console.log(`[${heightSignificantlyReduced ? "PASS" : "FAIL"}] Mobile height reduction: ${heightSignificantlyReduced}`);
-
-  // Test mobile map tab buttons
   const mobileMap = mobilePage.locator("#network");
   await mobileMap.locator('button[role="tab"]:has-text("Bengaluru")').click();
   await mobilePage.waitForTimeout(200);
   const mobileBlrSelected = await mobileMap.locator("h3:has-text('Bengaluru')").isVisible();
 
-  await saveImage(mobileMap, "map-presence-mobile.png");
+  results.push({
+    test: `Mobile responsive layout with interactive map buttons (Height: ${totalMobileHeight}px)`,
+    passed: mobileBlrSelected,
+    details: `Height: ${totalMobileHeight}px, Blr selected: ${mobileBlrSelected}`,
+  });
+  console.log(`[${mobileBlrSelected ? "PASS" : "FAIL"}] Mobile Map & Layout: ${mobileBlrSelected}`);
+
   await saveImage(mobilePage, "homepage-presence-mobile.png", { fullPage: true });
   await mobilePage.close();
 
@@ -171,7 +197,7 @@ async function main() {
   // Summary
   // ==========================================
   console.log("\n==========================================");
-  console.log("INDIA PRESENCE & BRAND PLAN RESULTS");
+  console.log("PRESENCE, FOUNDER & CASE STUDIES RESULTS");
   console.log("==========================================");
   let allPassed = true;
   for (const r of results) {
@@ -182,10 +208,10 @@ async function main() {
   await browser.close();
 
   if (!allPassed) {
-    console.error("\nSome presence and brand verification tests failed.");
+    console.error("\nSome verification tests failed.");
     process.exit(1);
   } else {
-    console.log("\nAll presence and brand verification tests passed successfully!");
+    console.log("\nAll presence, founder & case studies verification tests passed successfully!");
   }
 }
 

@@ -410,12 +410,120 @@
       "answer": "No. The team will discuss your requirements and confirm availability and arrangements with you."
     }
   ],
+  "founder": {
+    "name": "Jahangir",
+    "role": "Founder & Director",
+    "experience": "15+ Years Industry Leadership",
+    "quote": "I am committed to providing unwavering service to my clients.",
+    "imageSrc": "/images/india/founder-jahangir.jpg",
+    "bio": "Jahangir, the visionary founder of Victor, embodies a profound dedication to excellence forged through two decades of immersion in the dynamic world of travel, transportation, logistics, and planning. With over 15+ years of operational leadership, he champions a culture of relentless pursuit of quality, promptness, and passenger safety. Guiding Victor since its founding in 2010, he steers the company with precision and foresight, setting benchmarks in executive mobility and enterprise fleet partnerships."
+  },
+  "milestones": [
+    {
+      "year": "2010",
+      "title": "Incorporation & Founding",
+      "description": "Victor was established in Hyderabad, India, registered under the Indian Companies Act 1956 to revolutionize employee transportation and corporate mobility."
+    },
+    {
+      "year": "2012",
+      "title": "First Top-Tier MNC Partnership",
+      "description": "Secured major employee commute contracts with leading multinational corporations within two years of operation."
+    },
+    {
+      "year": "2015",
+      "title": "Fleet Scaling: 800+ Vehicles",
+      "description": "Expanded dedicated operational fleet to more than 800+ managed vehicles across corporate technology corridors."
+    },
+    {
+      "year": "2018",
+      "title": "Network Expansion: 1,500+ Vehicles",
+      "description": "Scaled fleet operations to more than 1,500+ vehicles to serve multi-metro enterprise commute and executive demand."
+    },
+    {
+      "year": "2020",
+      "title": "WHO Health & Safety Standardization",
+      "description": "Implemented comprehensive driver health protocols, sanitized cabin audits, and WHO safety norms during the global pandemic."
+    },
+    {
+      "year": "2023",
+      "title": "Pan-India Metropolitan Presence",
+      "description": "Established operational branch offices and staged fleets in Hyderabad, Bengaluru, and Pune."
+    },
+    {
+      "year": "2024",
+      "title": "Sustainability & EV Fleet Pledge",
+      "description": "Committed to environmental stewardship with a sustainability goal to integrate 15%–30% electric vehicles (EVs) across corporate fleet deployments."
+    }
+  ],
+  "esteemedClientele": [
+    "Amazon",
+    "Google",
+    "JPMorgan Chase",
+    "Oracle",
+    "Wipro",
+    "Teleperformance",
+    "OTIS",
+    "Godrej",
+    "HDFC Bank",
+    "Synchrony",
+    "Synechron",
+    "TATA Docomo"
+  ],
+  "caseStudies": [
+    {
+      "id": "enterprise-commute",
+      "category": "Corporate Employee Transport",
+      "title": "Campus Workforce Transit Architecture",
+      "clientType": "Global Technology Enterprise (1,200+ daily employees)",
+      "locations": "Hyderabad & Bengaluru",
+      "challenge": "Coordinating daily employee transit across 3 rotating shift schedules, covering 18 suburban corridors during peak metro traffic with mandatory female employee safety protocols.",
+      "solution": "Deployed 35 dedicated air-conditioned MPVs and coaches with automated route cluster optimization, GPS telematics, female safety escort protocols, and 24/7 route controller oversight.",
+      "outcome": "Achieved 99.8% on-time floor arrival across 24 consecutive months with zero safety incidents and streamlined administrative reporting for the client's facility team.",
+      "metrics": ["1,200+ Daily Commuters", "99.8% On-Time Arrival", "35 Dedicated Shuttles"]
+    },
+    {
+      "id": "executive-delegation",
+      "category": "Executive Chauffeur & VIP Travel",
+      "title": "International Board Delegation Mobility",
+      "clientType": "Multinational Financial Institution",
+      "locations": "Hyderabad & Bengaluru",
+      "challenge": "High-stakes 3-day board delegation requiring terminal airport greetings at RGIA and Kempegowda, multi-venue executive meetings, and zero tolerance for schedule delay.",
+      "solution": "Pre-allocated luxury sedans 24 hours in advance with 15-point sanitization, radar flight tracking, pre-cleared bypass routes, and dedicated standby chauffeurs.",
+      "outcome": "100% on-time pickups across 14 executive movements with seamless terminal handoffs and undisturbed in-car mobile workspace productivity.",
+      "metrics": ["14 Executive Movements", "100% Punctual Pickups", "Zero Schedule Deviations"]
+    },
+    {
+      "id": "destination-wedding",
+      "category": "Weddings & Occasion Logistics",
+      "title": "Destination Celebration Convoy Management",
+      "clientType": "Private Family & Event Planner",
+      "locations": "Hyderabad",
+      "challenge": "Coordinating transit for 450 wedding guests across staggered airport arrivals, multi-venue ceremonies, and evening reception galas over 4 days.",
+      "solution": "Orchestrated a dedicated fleet of luxury sedans for the couple and VIPs, combined with 12 AC group shuttles on a synchronized loop with on-ground route marshals.",
+      "outcome": "Seamless transfer of all 450 guests without a single missed ceremony or luggage delay, earning high praise from family hosts and venue organizers.",
+      "metrics": ["450 Guests Transported", "6 Ceremony Venues", "12 Coordinated Shuttles"]
+    }
+  ],
+  "safetyCommitments": [
+    {
+      "title": "Comprehensive Driver Verification (BGV & PCC)",
+      "description": "All chauffeurs hold valid commercial licenses, thorough background verification (BGV), and Police Clearance Certificates."
+    },
+    {
+      "title": "Female Passenger Safety Protocols",
+      "description": "Strict escort protocols, real-time route monitoring, and emergency SOS coordination for female passengers during evening and night shifts."
+    },
+    {
+      "title": "Defensive Driving & Speed Governance",
+      "description": "Strict adherence to speed limits, lane discipline, mandatory seatbelts, and hands-free kits to eliminate distracted driving."
+    },
+    {
+      "title": "Pre-Trip Cabin & Vehicle Audits",
+      "description": "Multi-point inspection verifying dual-zone AC, tyre safety, sanitization, mobile charging, and pristine leather upholstery before every departure."
+    }
+  ],
   "excludedByDefault": [
-    "Historic fleet counters",
-    "Electric-fleet percentage target presented as achieved",
-    "Client testimonials not supplied",
-    "Automatic client-logo wall",
-    "Live model availability",
+    "Historic fleet counters presented as current live inventory",
     "Unconfirmed prices"
   ]
 }

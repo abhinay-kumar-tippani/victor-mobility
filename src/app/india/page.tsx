@@ -53,8 +53,11 @@ export default function IndiaPage() {
           mediaCaption={media.caption}
         />
 
-        {/* 5. Victor in Action: Documented Operational Case Story */}
-        <VictorInActionSection />
+        {/* 5. Victor in Action: Documented Operational Case Studies & Esteemed Clientele */}
+        <VictorInActionSection
+          caseStudies={content.caseStudies}
+          esteemedClientele={content.esteemedClientele}
+        />
 
         {/* 6. Our India Presence: Interactive Vector Map & Office Details */}
         <IndiaPresenceMap
@@ -62,8 +65,11 @@ export default function IndiaPage() {
           contact={content.contact}
         />
 
-        {/* 7. The People Behind Victor: Leadership & Operations Accountability */}
-        <PeopleSection contact={content.contact} />
+        {/* 7. The People Behind Victor: Founder, Leadership & Operations Accountability */}
+        <PeopleSection
+          contact={content.contact}
+          founder={content.founder}
+        />
 
         {/* 8. Contact Invitation: Personal Closing & Direct Coordination Desk */}
         <ContactInvitationSection contact={content.contact} />

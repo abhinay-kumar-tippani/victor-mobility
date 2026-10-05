@@ -139,6 +139,36 @@ export interface IndiaContent {
     question: string;
     answer: string;
   }>;
+  founder?: {
+    name: string;
+    role: string;
+    experience: string;
+    quote: string;
+    imageSrc: string;
+    bio: string;
+  };
+  milestones?: Array<{
+    year: string;
+    quarter?: string;
+    title: string;
+    description: string;
+  }>;
+  esteemedClientele?: string[];
+  caseStudies?: Array<{
+    id: string;
+    category: string;
+    title: string;
+    clientType: string;
+    locations: string;
+    challenge: string;
+    solution: string;
+    outcome: string;
+    metrics: string[];
+  }>;
+  safetyCommitments?: Array<{
+    title: string;
+    description: string;
+  }>;
 }
 
 export interface MediaAsset {
