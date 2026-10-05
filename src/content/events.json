@@ -1,0 +1,122 @@
+{
+  "india": {
+    "title": "Mega-Event & Summit Transit Logistics Desk",
+    "subtitle": "Conferences, High-Profile Delegations & Grand Ceremonial Occasions",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Mobility Pvt. Ltd.",
+    "headline": "Flawless Multi-Vehicle Staging for India's Grandest Gatherings",
+    "description": "Orchestrating synchronized vehicle motorcades, airport arrivals, and venue shuttle loops across Hyderabad, Bengaluru, and Pune. Backed by on-site ground marshals, 24/7 radio dispatch, and direct access to 2,000+ luxury cars and 500+ buses.",
+    "eventTypes": [
+      {
+        "id": "corporate-summit",
+        "name": "Global Tech Summits & Annual Conferences",
+        "description": "Continuous hotel-to-convention-center loops, keynote speaker transfers, and VIP airport motorcades for 200 to 5,000+ delegates.",
+        "recommendedFleet": "10-25 Executive Buses + 8-15 MPVs + 4 VIP Saloons",
+        "keyHubs": "Hitec City (Hyderabad), Whitefield / Manyata (Bengaluru), Magarpatta (Pune)"
+      },
+      {
+        "id": "luxury-wedding",
+        "name": "Luxury Destination Weddings & Private Galas",
+        "description": "Ceremonial bride & groom arrivals, coordinated multi-venue family convoys, and punctual airport reception for out-of-town guests.",
+        "recommendedFleet": "1-2 First Class Limousines + 6-12 Luxury MPVs + 2-4 Mini-Coaches",
+        "keyHubs": "Palace Venues, Luxury Star Hotels & Heritage Resorts"
+      },
+      {
+        "id": "diplomatic-delegation",
+        "name": "Diplomatic Convoys & C-Suite Delegations",
+        "description": "High-security motorcades, discreet executive chauffeurs, flight radar terminal sync, and zero-delay protocol for foreign dignitaries.",
+        "recommendedFleet": "Mercedes S-Class & E-Class + Escort Innova Crysta / Urbania",
+        "keyHubs": "International Airports (RGIA, BLR) & Government Enclaves"
+      },
+      {
+        "id": "campus-offsite",
+        "name": "Enterprise Annual Meets & Offsites",
+        "description": "Mass-movement logistics transporting full departmental teams to resorts, golf retreats, and off-site campuses with synchronized departures.",
+        "recommendedFleet": "15-40 High-Capacity 44-Seater Luxury Buses",
+        "keyHubs": "City Outstation Corridors & Expressway Retreats"
+      }
+    ],
+    "playbookPhases": [
+      {
+        "phase": "01",
+        "title": "Route & Bay Reconnaissance",
+        "description": "Site visits to airport terminals, venue pickup bays, and driveways to secure staging clearances and establish vehicle loop timings."
+      },
+      {
+        "phase": "02",
+        "title": "Fleet Staging & Mechanical Checks",
+        "description": "All scheduled vehicles assembled at nearest depot 3 hours prior; complete sanitization, fuel top-up, and communications test."
+      },
+      {
+        "phase": "03",
+        "title": "On-Site Ground Marshals & Dispatch",
+        "description": "Dedicated uniformed coordinators stationed at key passenger exit points managing boarding queues and driver departures via radio."
+      },
+      {
+        "phase": "04",
+        "title": "Incident Hot-Swap & Reconciliation",
+        "description": "Dedicated standby vehicles stationed nearby for instant hot-swap; comprehensive post-event digital manifest signoff."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Diplomatic Summit & VIP Motorcade Logistics",
+    "subtitle": "World Government Summit, COP, GITEX & State Delegation Mobility",
+    "tagline": "On Time Every Time.",
+    "companyName": "Victor Luxury Limousine LLC",
+    "headline": "First-Class Motorcades & Summit Transit across Dubai & Abu Dhabi",
+    "description": "Delivering discreet, RTA-certified limousine motorcades, VIP private jet terminal greetings, and large-scale convention shuttle networks across Dubai World Trade Centre (DWTC), Expo City, and ADNEC Abu Dhabi.",
+    "eventTypes": [
+      {
+        "id": "diplomatic-summit",
+        "name": "Global Summits & Inter-Governmental Delegations",
+        "description": "High-security motorcades with Mercedes-Maybach, S-Class, and Cadillac Escalades coordinating with VIP protocol officers and embassy attachés.",
+        "recommendedFleet": "Mercedes-Maybach + S-Class Saloons + Cadillac Escalades",
+        "keyHubs": "Dubai World Trade Centre, Expo City Dubai, ADNEC Abu Dhabi"
+      },
+      {
+        "id": "corporate-expo",
+        "name": "Major Trade Expos & Financial Forums",
+        "description": "Seamless hotel-to-expo continuous shuttles, corporate board delegations, and speaker transfers during peak congress hours.",
+        "recommendedFleet": "22-Seater VIP Coaches + Mercedes V-Class Executive Vans",
+        "keyHubs": "DIFC, Downtown Dubai & Al Bateen (Abu Dhabi)"
+      },
+      {
+        "id": "royal-wedding",
+        "name": "High-Society Weddings & Celebrity Galas",
+        "description": "Pinnacle hospitality transport with red-carpet curbside greeting, pristine luxury saloons, and coordinated luxury group transit.",
+        "recommendedFleet": "First Class Limousines + Luxury Sprinter / VIP Coaches",
+        "keyHubs": "Jumeirah Beach Resorts, Emirates Palace, Yas Island"
+      },
+      {
+        "id": "private-jet-transfers",
+        "name": "FBO Private Jet & Helipad Connections",
+        "description": "Tarmac and FBO lounge pickups at Dubai South (DWC), DXB VIP Terminal, and Al Bateen Executive Airport.",
+        "recommendedFleet": "Mercedes-Maybach S-Class & BMW 7 Series",
+        "keyHubs": "DWC VIP Terminal, Jetex FBO, Al Bateen Airport"
+      }
+    ],
+    "playbookPhases": [
+      {
+        "phase": "01",
+        "title": "Diplomatic & FBO Protocol Liaison",
+        "description": "Pre-coordinating tarmac clearances, diplomatic convoy permits, and VIP curbside priority parking at major Dubai & Abu Dhabi venues."
+      },
+      {
+        "phase": "02",
+        "title": "Immaculate Fleet Assembly & Detailing",
+        "description": "Full fleet detailing at Dubai Al Garhoud depot with multi-point safety verification and VIP cabin amenities staging."
+      },
+      {
+        "phase": "03",
+        "title": "Central Dispatch Radar Command",
+        "description": "Real-time radar flight and highway monitoring with direct radio link to motorcade lead chauffeurs."
+      },
+      {
+        "phase": "04",
+        "title": "Standby Escort & 24/7 Redundancy",
+        "description": "Standby luxury saloons positioned at strategic highway junctions for immediate zero-delay hot-swap assurance."
+      }
+    ]
+  }
+}

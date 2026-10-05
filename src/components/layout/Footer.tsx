@@ -97,6 +97,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/events`} className="hover:text-white transition-colors text-purple-300 font-semibold">
+                  Event &amp; Summit Logistics
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
