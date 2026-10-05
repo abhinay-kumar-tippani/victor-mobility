@@ -1,52 +1,51 @@
 # Handoff
 
-## Milestone: Phase 12 — Enterprise SLA & Statutory Compliance Vault (/sla)
+## Milestone: Phase 13 — VIP Airport Concierge & Flight Protocol Desk (/protocol)
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Implementing interactive Enterprise SLA Benchmarks, dynamic SLA & Fleet Calculator, 4-tier operational escalation matrix, statutory compliance vault, and WhatsApp contract review generator for India (`/india/sla`) and UAE (`/uae/sla`).
+- **Milestone Context**: Implementing interactive Airport Protocol Desk, live digital tablet placard preview, terminal staging guides across India (RGIA, KIA, PNQ) and UAE (DXB, DWC, AUH), and WhatsApp flight brief generator for `/india/protocol` and `/uae/protocol`.
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-Phase 12 provides enterprise procurement teams, corporate travel managers, and HR directors with a contract-grade SLA benchmark and compliance inspection desk:
+Phase 13 delivers an executive aviation protocol and airport staging planner designed for corporate concierges, visiting dignitaries, and travel managers:
 
-1. **Enterprise SLA Dataset (`src/content/sla.json`)**:
-   - Comprehensive SLA metrics and compliance registries across India and UAE hubs:
-     - **Five Core SLA Pillars**:
-       - 99.4% (India) / 99.6% (UAE) On-Time Departure Guarantee backed by 45-min pre-dispatch staging.
-       - 20-Minute (India) / 15-Minute (UAE) Emergency Breakdown Hot-Swap Dispatch with 100% fare waiver penalty pledge.
-       - 12-Point Pre-Dispatch Cabin Readiness & Sanitization Audit Score.
-       - Zero-Tolerance Sobriety (0.00% BAC digital breathalyzer) & CCTNS / Dubai Police CID vetting.
-       - Transparent Invoicing under SAC 9966 (India GST input credit) / FTA 5% VAT with 30-day net credit terms.
-     - **4-Tier Operational Escalation Matrix**:
-       - Level 1: Ground Marshal / On-Site Dispatcher (< 5 min response).
-       - Level 2: City Operations Duty Manager (< 15 min response).
-       - Level 3: Regional Head of Fleet & Safety (< 30 min response).
-       - Level 4: Business Development Partner (Mujeeb Ur Rehman Mohammed, < 60 min response).
-     - **Statutory Compliance Vault**:
-       - Verified CIN, GSTIN, PAN, and MCA registrations.
-       - Commercial Passenger Tourist Permits (AITP) & Dubai RTA Luxury Franchise.
-       - Commercial Motor Fleet Insurance with ₹50,00,000 / AED 5,000,000 Third-Party Passenger Liability.
-       - Labor Compliance: EPF, ESIC, Minimum Wages Act, UAE MoHRE & WPS.
+1. **Aviation & Airport Protocol Dataset (`src/content/protocol.json`)**:
+   - Authorized terminal pickup bays and flight tracking protocols across India and UAE hubs:
+     - **India Hubs**:
+       - Rajiv Gandhi International Airport (RGIA, Hyderabad): Terminal 1 Commercial Bay 4 & Aeromall Level 1 VIP parking; CIP/VIP Executive Lounge Tarmac Liaison.
+       - Kempegowda International Airport (KIA, Bengaluru): Terminal 1 Domestic; Terminal 2 Garden Terminal Arrivals Plaza.
+       - Pune International Airport (PNQ): New Integrated Terminal Gate 2.
+     - **UAE Hubs**:
+       - Dubai International Airport (DXB): Terminal 3 Emirates Limousine Valet Lane 2; Terminal 1 Arrivals; Al Majlis VIP Pavilion Royal Protocol.
+       - Al Maktoum International Airport (DWC, Dubai South): Jetex, Falcon, and ExecuJet VIP FBO Private Jet Tarmac Aprons.
+       - Zayed International Airport (AUH, Abu Dhabi): Terminal A VIP Express Curbside.
+   - 4 White-Glove Protocol Standards:
+     - Real-Time ADS-B Radar Flight Telemetry (60 mins complimentary wait buffer).
+     - High-Contrast Digital Tablet Paging at arrivals gates.
+     - 100% Chauffeur-Assisted Porterage & Luggage Stowage.
+     - Pre-Cooled Luxury Cabins (21°C India / 20°C UAE) with chilled water, mints, fast chargers, and 5G Wi-Fi hotspot.
+   - Fleet Luggage Capacity Matrix preventing boot capacity overruns.
 
-2. **Interactive SLA & Fleet Calculator Component (`src/components/sla/EnterpriseSlaDesk.tsx`)**:
-   - Tabbed Explorer: Core SLA Commitments, Interactive SLA & Fleet Calculator, Escalation Matrix, Statutory Compliance Vault, and Procurement FAQs.
-   - Dynamic Sliders: Monthly Trip Volume (10 to 1,000+ trips) and Dedicated Fleet Size (1 to 50+ vehicles).
-   - Dynamic Outputs: On-Time Target, Hot-Swap SLA, Standby Fleet Allocation (+X backup units), Ground Marshal ratio, and Governance audit cadence.
-   - Compliance Actions:
-     - "Print Calculated SLA Dossier" (`window.print()`).
-     - "Discuss SLA on WhatsApp" with prefilled configuration parameters and explicit inquiry disclosure.
-     - "Request Vendor Pack via WhatsApp".
+2. **Interactive Protocol Configurator Component (`src/components/protocol/AirportProtocolDesk.tsx`)**:
+   - Airport & Terminal selection.
+   - Flight Number, Guest Name, and Organization inputs.
+   - Fleet Class & Passenger/Luggage sliders with reactive boot capacity warning.
+   - **Interactive Digital Tablet Placard Mockup**: Live visual rendering of the iPad placard held by the chauffeur with guest name in gold lettering and flight/bay badges.
+   - **Curbside Staging Blueprint**: Pickup bays, curbside instructions, and transit time estimates.
+   - Actions:
+     - "Print Flight Protocol Blueprint" (`window.print()`).
+     - "Dispatch Protocol Brief on WhatsApp" prefilling flight, guest name, vehicle class, and terminal bays with explicit inquiry disclosure.
 
 3. **Dedicated Route Pages**:
-   - `/india/sla`: India Enterprise Service Level Agreement & Quality Assurance Desk with Schema.org `Service` structured data.
-   - `/uae/sla`: UAE Corporate SLA & RTA Regulatory Framework with Schema.org `Service` structured data.
+   - `/india/protocol`: India VIP Airport Concierge & Flight Protocol Desk with Schema.org `Service` and `Airport` structured data.
+   - `/uae/protocol`: UAE Airport VIP Concierge & FBO Protocol Desk with Schema.org `Service` and `Airport` structured data.
 
 4. **Global Navigation & Cross-Linking**:
-   - Integrated vendor governance banner across `/india/rfp` and `/uae/rfp`.
-   - Added "Enterprise SLA & Compliance" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **50 static pages**).
+   - Cross-linked from Service Detail pages (`/india/services/airport-transfers` and `/uae/services/airport-transfers`).
+   - Quick Navigation link in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **52 static pages**).
 
 ---
 
@@ -56,10 +55,10 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across SLA datasets, calculator components, and route pages |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across protocol datasets, tablet preview, and route pages |
 | **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
-| **Production Build** (`next build`) | **PASS (50/50 static routes)** | 100% SSG static compilation (`○` and `●`) |
-| **Phase 12 Verification Suite** (`verify-phase12.mjs`) | **PASS (5/5 test suites)** | Page load, 5 core pillars, interactive SLA calculator, tier switching, WhatsApp link generation, escalation matrix, compliance vault, UAE RTA framework, mobile 390px responsive view, Schema.org `Service` JSON-LD |
+| **Production Build** (`next build`) | **PASS (52/52 static routes)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 13 Verification Suite** (`verify-phase13.mjs`) | **PASS (5/5 test suites)** | Page load, live tablet placard reactive update, WhatsApp protocol dispatch link, terminal staging guide (HYD, BLR, PNQ), UAE FBO desk (DXB, DWC, AUH), mobile 390px view, Schema.org `Service` JSON-LD |
 
 ---
 
@@ -67,6 +66,6 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Screenshot Artifact | Location | Purpose |
 | :--- | :--- | :--- |
-| `phase12-india-sla-desktop.png` | `docs/screenshots/` | Desktop view of India Enterprise SLA Desk with 5 core reliability pillars, metric badges, and interactive tabs |
-| `phase12-india-sla-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column card flow, touch controls, and sticky tab bar |
-| `phase12-uae-sla-desktop.png` | `docs/screenshots/` | Desktop view of UAE Corporate SLA & RTA Regulatory Framework with Dubai RTA benchmarks and VAT compliance |
+| `phase13-india-protocol-desktop.png` | `docs/screenshots/` | Desktop view of India Airport Protocol Desk with interactive configurator and live digital tablet placard preview |
+| `phase13-india-protocol-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column layout, touch controls, and tablet mockup |
+| `phase13-uae-protocol-desktop.png` | `docs/screenshots/` | Desktop view of UAE Airport VIP Concierge & FBO Protocol Desk covering DXB, Al Majlis VIP, and DWC Jetex FBO |

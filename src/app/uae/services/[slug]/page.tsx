@@ -184,6 +184,31 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                   )}
                 </div>
 
+                {/* Dedicated Airport Protocol Desk Link for Airport Transfers */}
+                {service.slug === "airport-transfers" && (
+                  <div className="bg-slate-950 text-white rounded-3xl p-7 border border-slate-800 shadow-xl space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div>
+                        <span className="text-xs uppercase tracking-widest font-bold text-amber-400 block mb-1">
+                          VIP Aviation Protocol
+                        </span>
+                        <h3 className="text-lg font-bold text-white">
+                          UAE Airport VIP Concierge &amp; FBO Protocol Desk
+                        </h3>
+                        <p className="text-xs text-slate-300 mt-1">
+                          Explore Dubai DXB (T1/T2/T3, Al Majlis VIP), DWC Jetex FBO, and Abu Dhabi AUH terminal pickup bays with live flight radar tracking.
+                        </p>
+                      </div>
+                      <Link
+                        href="/uae/protocol"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shrink-0"
+                      >
+                        Open UAE Protocol Desk &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
                 {/* Other UAE Services */}
                 <div className="space-y-4">
                   <h2 className="text-lg font-bold text-brand-ink">

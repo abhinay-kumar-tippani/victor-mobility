@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "VIP Airport Concierge & Flight Protocol Desk",
+    "eyebrow": "Executive Aviation & Terminal Protocol · India",
+    "description": "Flawless airport arrivals, terminal paging, and curbside executive chauffeur staging across Hyderabad (RGIA), Bengaluru (KIA), and Pune (PNQ).",
+    "protocolStandards": [
+      {
+        "id": "telemetry",
+        "title": "Live ADS-B Flight Telemetry Tracking",
+        "subtitle": "Zero-Stress Delay Buffer",
+        "metric": "60 Mins Complimentary Waiting",
+        "description": "Our dispatch control center tracks real-time radar telemetry for all inbound domestic and international flights. Chauffeur staging dynamically adjusts to early touchdowns or delayed arrivals without extra fees.",
+        "badge": "Active Flight Sync"
+      },
+      {
+        "id": "placard",
+        "title": "High-Contrast Digital Tablet Paging",
+        "subtitle": "Pristine Terminal Meeting Standard",
+        "metric": "Curbside / Arrivals Gate Paging",
+        "description": "Uniformed chauffeurs in dark business suits display high-visibility illuminated digital tablets featuring passenger name, corporate logo, and flight number at the designated terminal greeting bay.",
+        "badge": "Executive Paging"
+      },
+      {
+        "id": "porterage",
+        "title": "Curbside Porterage & Luggage Liaison",
+        "subtitle": "Baggage Handling Protocol",
+        "metric": "100% Chauffeur Assisted",
+        "description": "Complete assistance from terminal exit to vehicle boot. Chauffeurs handle trolley transfer, ensure secure baggage stowage, and verify baggage count before departure.",
+        "badge": "Full Porterage"
+      },
+      {
+        "id": "hospitality",
+        "title": "Sanitized Executive Cabin Amenities",
+        "subtitle": "Post-Flight Refreshment",
+        "metric": "Pre-Cooled 21°C Cabin",
+        "description": "Chilled bottled mineral water, refreshing mints, sanitized hand towelettes, multi-device fast-charging cords (USB-C & Lightning), and high-speed onboard Wi-Fi hotspot ready upon embarkation.",
+        "badge": "VIP Amenities"
+      }
+    ],
+    "airports": [
+      {
+        "code": "HYD",
+        "name": "Rajiv Gandhi International Airport (RGIA)",
+        "city": "Hyderabad",
+        "terminals": [
+          {
+            "name": "Terminal 1 (Domestic & International Arrivals)",
+            "pickupBay": "Arrivals Gate 4 / Aeromall Dedicated Commercial Staging Bay",
+            "curbsideInstructions": "Chauffeur holds digital placard directly outside Passenger Arrival Exit Bay 4. Dedicated vehicle staged at Aeromall Level 1 VIP parking with immediate curbside pull-up.",
+            "averageTransitToTechCorridor": "35–45 minutes to Gachibowli & Hitec City via PVNR Expressway and ORR."
+          },
+          {
+            "name": "CIP / VIP Executive Lounge (Tarmac Liaison)",
+            "pickupBay": "VIP Protocol Terminal Gate",
+            "curbsideInstructions": "Direct tarmac liaison and protocol escort for high-ranking dignitaries and private charter passengers.",
+            "averageTransitToTechCorridor": "30–40 minutes to Financial District via Nehru Outer Ring Road."
+          }
+        ]
+      },
+      {
+        "code": "BLR",
+        "name": "Kempegowda International Airport (KIA)",
+        "city": "Bengaluru",
+        "terminals": [
+          {
+            "name": "Terminal 1 (Domestic Commercial)",
+            "pickupBay": "Arrivals Curbside Pillar 11–12 / Dedicated Cab Bay 2",
+            "curbsideInstructions": "Paging at T1 Arrivals Hall exit. Vehicle staged in Commercial Fast-Track lane with immediate bay dispatch.",
+            "averageTransitToTechCorridor": "45–60 minutes to Hebbal / Manyata; 75–90 minutes to Whitefield & Electronic City via Bellary Road."
+          },
+          {
+            "name": "Terminal 2 (The Garden Terminal - International & Premium Domestic)",
+            "pickupBay": "T2 Arrivals Plaza / Ground Transportation Center Pillar 5",
+            "curbsideInstructions": "Uniformed chauffeur awaits at the Arrival Hall exit promenade adjacent to the indoor waterfall garden. Vehicle positioned at T2 Dedicated VIP Bay.",
+            "averageTransitToTechCorridor": "50–65 minutes to Central Business District via Elevated Expressway."
+          }
+        ]
+      },
+      {
+        "code": "PNQ",
+        "name": "Pune International Airport (PNQ)",
+        "city": "Pune",
+        "terminals": [
+          {
+            "name": "Integrated Terminal Building (New Terminal)",
+            "pickupBay": "Arrivals Gate 2 / Dedicated VIP Commercial Pickup Bay",
+            "curbsideInstructions": "Chauffeur greets at Arrival Exit Gate 2 with tablet placard. Vehicle parked in Multi-Level Car Parking (MLCP) staging bay with 3-minute curbside arrival.",
+            "averageTransitToTechCorridor": "35–50 minutes to Hinjawadi IT Park / Kharadi / Magarpatta via Airport Road."
+          }
+        ]
+      }
+    ],
+    "fleetCapacities": [
+      {
+        "classId": "luxury-saloon",
+        "className": "Luxury VIP Saloon",
+        "models": "Mercedes-Benz S-Class, BMW 7 Series, Mercedes-Maybach",
+        "passengers": "Up to 3 Guests",
+        "luggage": "2 Large Check-in (28\") + 2 Cabin Bags",
+        "amenities": "Rear Reclining Executive Seats, Climate Control, Chilled Bottled Water, Wi-Fi"
+      },
+      {
+        "classId": "executive-sedan",
+        "className": "Executive Business Sedan",
+        "models": "Mercedes-Benz E-Class, BMW 5 Series, Toyota Camry Hybrid",
+        "passengers": "Up to 3 Guests",
+        "luggage": "2 Large Check-in + 2 Cabin Bags",
+        "amenities": "Spacious Rear Legroom, Fast Phone Chargers, Sanitized Cabin, Leather Seating"
+      },
+      {
+        "classId": "premium-mpv",
+        "className": "Premium Executive MPV",
+        "models": "Toyota Innova HyCross, Toyota Vellfire, Force Urbania",
+        "passengers": "Up to 5 Guests",
+        "luggage": "4 Large Check-in (28\") + 4 Cabin Bags",
+        "amenities": "Captain Ottoman Chairs, Ample Boot Space, Individual AC Vents, USB-C at Every Seat"
+      },
+      {
+        "classId": "vip-coach",
+        "className": "Luxury Passenger Shuttle Coach",
+        "models": "22-Seater & 44-Seater AC Luxury Executive Coach",
+        "passengers": "Up to 20 / 40 Delegation Guests",
+        "luggage": "Dedicated Underfloor Luggage Bays (Up to 30+ Bags)",
+        "amenities": "Air Suspension, PA Microphone System, High-Back Pushback Reclining Seats"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What happens if our inbound flight is delayed or rescheduled?",
+        "answer": "Our automated dispatch system syncs continuously with airport flight radars. Chauffeur staging is automatically updated to the actual landing time with 60 minutes of complimentary waiting after touchdown."
+      },
+      {
+        "question": "Where exactly will the chauffeur greet the visiting executive at Hyderabad RGIA?",
+        "answer": "For commercial flights at RGIA Hyderabad, your chauffeur awaits directly outside Arrivals Gate 4 holding a digital tablet with the passenger's name and company logo. For CIP/VIP lounge users, protocol liaison is staged at the VIP gate."
+      },
+      {
+        "question": "Can Victor Mobility accommodate large group arrivals with significant luggage?",
+        "answer": "Yes. Our Toyota Innova HyCross and Vellfire MPVs accommodate up to 4 large suitcases, and our luxury 22 and 44-seater coaches feature dedicated cavernous underfloor luggage bays for conference delegations."
+      },
+      {
+        "question": "Are your chauffeurs trained in executive airport hospitality?",
+        "answer": "All Victor Mobility airport chauffeurs are certified by our Chauffeur Protocol Academy (/india/academy), trained in baggage porterage, defensive airport driving, English/Hindi etiquette, and discreet client hospitality."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Airport VIP Concierge & FBO Protocol Desk",
+    "eyebrow": "Terminal 1, 2, 3 · Al Majlis VIP · DWC Jetex FBO · Dubai & Abu Dhabi",
+    "description": "Distinguished airport protocol for royal dignitaries, private jet arrivals, executive delegations, and luxury hotel concierges across Dubai (DXB, DWC) and Abu Dhabi (AUH).",
+    "protocolStandards": [
+      {
+        "id": "telemetry",
+        "title": "Dubai Radar ADS-B Flight Monitoring",
+        "subtitle": "Dynamic Touchdown Alignment",
+        "metric": "60 Mins Complimentary Waiting",
+        "description": "Continuous tracking of all incoming flights into DXB, DWC, and AUH. Chauffeur dispatch automatically synchronizes with real-time touchdown times, taxiing, and immigration clearance.",
+        "badge": "ADS-B Real-Time"
+      },
+      {
+        "id": "placard",
+        "title": "Gold-Standard Illuminated Paging",
+        "subtitle": "Exclusive Terminal Arrival Protocol",
+        "metric": "Terminal / Al Majlis / FBO Meet",
+        "description": "Multilingual chauffeurs in bespoke black suits greet clients with high-resolution digital tablet placards bearing the guest's name, embassy seal, or corporate insignia.",
+        "badge": "VIP Paging"
+      },
+      {
+        "id": "porterage",
+        "title": "White-Glove Tarmac & Curbside Porterage",
+        "subtitle": "Complete Luggage Concierge",
+        "metric": "Full VIP Assistance",
+        "description": "Chauffeurs handle all baggage transfers from terminal or FBO lounge straight to the limousine trunk with white gloves, ensuring pristine care of luxury luggage.",
+        "badge": "White-Glove"
+      },
+      {
+        "id": "hospitality",
+        "title": "Pre-Cooled Luxury Cabin & Chilled Refreshments",
+        "subtitle": "Arabian Executive Hospitality",
+        "metric": "Pre-Cooled to 20°C",
+        "description": "Chilled sparkling and still bottled mineral water, premium dates, refreshing moist towels, onboard high-speed 5G Wi-Fi, and universal device charging ports ready at entry.",
+        "badge": "Royal Hospitality"
+      }
+    ],
+    "airports": [
+      {
+        "code": "DXB",
+        "name": "Dubai International Airport (DXB)",
+        "city": "Dubai",
+        "terminals": [
+          {
+            "name": "Terminal 3 (Emirates Airlines First & Business Arrivals)",
+            "pickupBay": "Arrivals Valet Bay / Dedicated Limousine Curbside Lane 2",
+            "curbsideInstructions": "Chauffeur awaits in the T3 Arrival Hall opposite Costa Coffee with digital tablet. Limousine positioned at Terminal 3 VIP Limousine Staging Bay with immediate curbside pick-up.",
+            "averageTransitToTechCorridor": "15–20 minutes to Downtown Dubai, DIFC & Business Bay via Airport Road & D89."
+          },
+          {
+            "name": "Terminal 1 (International Airlines Arrivals)",
+            "pickupBay": "Arrivals Concourse B Meeting Area / Commercial Limousine Bay",
+            "curbsideInstructions": "Paging at the central T1 passenger exit gate. Vehicle staged at T1 Pre-Booked Limousine Lane.",
+            "averageTransitToTechCorridor": "20–25 minutes to Sheikh Zayed Road commercial towers."
+          },
+          {
+            "name": "Al Majlis VIP Pavilion (Government & Royal Protocol)",
+            "pickupBay": "Al Majlis Private Courtyard Driveway",
+            "curbsideInstructions": "Direct tarmac liaison and exclusive curbside arrival at Al Majlis VIP Pavilion with seamless diplomatic bag handling.",
+            "averageTransitToTechCorridor": "15 minutes to Dubai World Trade Centre (DWTC) and DIFC."
+          }
+        ]
+      },
+      {
+        "code": "DWC",
+        "name": "Al Maktoum International Airport (DWC / Jetex / Falcon FBO)",
+        "city": "Dubai South",
+        "terminals": [
+          {
+            "name": "Jetex / ExecuJet / DC Aviation VIP FBO Terminals",
+            "pickupBay": "FBO Private Tarmac Apron & VIP Lounge Porte-Cochère",
+            "curbsideInstructions": "Chauffeur positioned at the private jet lounge reception or tarmac curbside upon aircraft door opening. Immediate luggage loading onto Mercedes-Maybach or S-Class.",
+            "averageTransitToTechCorridor": "25–35 minutes to Dubai Marina, JBR, Palm Jumeirah & Expo City Dubai."
+          }
+        ]
+      },
+      {
+        "code": "AUH",
+        "name": "Zayed International Airport (AUH)",
+        "city": "Abu Dhabi",
+        "terminals": [
+          {
+            "name": "Terminal A (Flagship Terminal - Etihad & Global Airlines)",
+            "pickupBay": "Terminal A Ground Transportation Center / VIP Valet Curbside",
+            "curbsideInstructions": "Chauffeur welcomes passenger at Terminal A Arrivals Walkway. Limousine staged in VIP express lane for swift departure.",
+            "averageTransitToTechCorridor": "25–30 minutes to Abu Dhabi Global Market (ADGM) & Corniche."
+          }
+        ]
+      }
+    ],
+    "fleetCapacities": [
+      {
+        "classId": "luxury-saloon",
+        "className": "Royal & VIP Limousine",
+        "models": "Mercedes-Maybach S 680, Mercedes-Benz S-Class, BMW 7 Series",
+        "passengers": "Up to 3 VIP Guests",
+        "luggage": "2 Large Check-in (28\") + 2 Cabin Bags",
+        "amenities": "First-Class Rear Executive Recliners, Rear Seat Entertainment, Chilled Refreshments, Wi-Fi"
+      },
+      {
+        "classId": "executive-sedan",
+        "className": "Executive Corporate Saloon",
+        "models": "Mercedes-Benz E-Class, BMW 5 Series, Lexus ES 300h",
+        "passengers": "Up to 3 Guests",
+        "luggage": "2 Large Check-in + 2 Cabin Bags",
+        "amenities": "Climate Pre-Cooled 20°C, Silent Cabin, Fast Phone Chargers, RTA Certified Chauffeur"
+      },
+      {
+        "classId": "premium-mpv",
+        "className": "VIP Luxury Van & MPV",
+        "models": "Mercedes-Benz V-Class, Luxury VIP Sprinter Van",
+        "passengers": "Up to 6 Guests",
+        "luggage": "6 Large Check-in (28\") + 6 Cabin Bags",
+        "amenities": "Face-to-Face Conference Seating, Ambient Lighting, Burmester Sound, Generous Luggage Bay"
+      },
+      {
+        "classId": "vip-coach",
+        "className": "Summit & Delegation Luxury Coach",
+        "models": "35-Seater & 50-Seater Mercedes-Benz Luxury Tourism Coach",
+        "passengers": "Up to 45 Delegation Members",
+        "luggage": "Dedicated Underfloor Luggage Compartments (Up to 50+ Bags)",
+        "amenities": "Tour Guide Microphone, Euro 6 Engine, Reclining Ergonomic Seats, Overhead Racks"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can Victor Mobility pick up directly from private jet FBO terminals at DWC or DXB?",
+        "answer": "Yes. We maintain security accreditation and tarmac clearance access across all Dubai Fixed Base Operators (FBOs) including Jetex, ExecuJet, Falcon Aviation, and DC Aviation at DWC and DXB."
+      },
+      {
+        "question": "How are flight delays handled at Dubai International Airport (DXB)?",
+        "answer": "We track real-time ADS-B radar flight telemetry. If your flight is delayed or held in air traffic holding patterns, chauffeur reporting is adjusted automatically with 60 minutes of complimentary waiting post-touchdown."
+      },
+      {
+        "question": "Is airport parking or Salik toll included in Victor Mobility's UAE transfers?",
+        "answer": "All airport terminal staging fees, premium valet access, and Dubai Salik road tolls are fully transparent, itemized on electronic tax invoices, and compliant with FTA VAT regulations."
+      },
+      {
+        "question": "Are chauffeurs credentialed to meet dignitaries inside Al Majlis VIP Pavilion?",
+        "answer": "Yes. Our VIP protocol chauffeurs hold Dubai Police CID clearances and RTA luxury transport permits, authorized to service state delegations, diplomats, and royal guests at Al Majlis."
+      }
+    ]
+  }
+}

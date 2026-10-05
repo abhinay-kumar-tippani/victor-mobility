@@ -563,6 +563,31 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   </div>
                 )}
 
+                {/* Dedicated Airport Protocol Desk Link for Airport Transfers */}
+                {service.slug === "airport-transfers" && (
+                  <div className="bg-slate-950 text-white rounded-3xl p-7 sm:p-9 border border-slate-800 shadow-xl space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div>
+                        <span className="text-xs uppercase tracking-widest font-bold text-amber-400 block mb-1">
+                          Executive Aviation Protocol
+                        </span>
+                        <h3 className="text-xl font-bold text-white">
+                          VIP Airport Concierge &amp; Flight Protocol Desk
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mt-1">
+                          Track real-time flight telemetry, customize digital tablet paging placards, and review terminal pickup bays across Hyderabad RGIA, Bengaluru KIA, and Pune PNQ.
+                        </p>
+                      </div>
+                      <Link
+                        href="/india/protocol"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shrink-0"
+                      >
+                        Open Flight Protocol Desk &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Coordination Information Checklist */}
                 {service.enquiryDetails && service.enquiryDetails.length > 0 && (
                   <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
