@@ -1,51 +1,66 @@
 # Handoff
 
-## Milestone: Phase 14 — Corporate Billing, GST/VAT Invoicing & Duty Slip Desk (/billing)
+## Milestone: Phase 15 — Enterprise Tech Park & Commercial Corridor Transit Navigator (/corridors)
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
-- **Milestone Context**: Implementing interactive Digital Duty Slip Inspector, GST/VAT & Input Tax Credit (ITC) Reconciler, corporate credit terms, and WhatsApp billing onboarding for `/india/billing` and `/uae/billing`.
+- **Milestone Context**: Implementing interactive Tech Park Corridor & Fleet Planner, shift commute roster models, commercial gate access protocols, and dynamic fleet mix sizing calculator for `/india/corridors` and `/uae/corridors`.
 
 ---
 
 ## 1. Executive Summary & Deliverables
 
-Phase 14 equips corporate procurement heads, CFOs, and accounts payable teams with complete financial transparency and tax compliance tools:
+Phase 15 provides corporate transport directors, facility managers, and enterprise HR operations with end-to-end corridor commute intelligence:
 
-1. **Tax Framework & Corporate Billing Dataset (`src/content/billing.json`)**:
-   - Comprehensive taxation and credit manifests across India and UAE hubs:
-     - **India Tax Framework**:
-       - SAC Code 996601: Rental Services of Passenger Transport Vehicles With Operators.
-       - 5% GST (standard passenger transit) vs 12% GST Forward Charge with 100% Input Tax Credit (ITC) eligibility for commercial business entities.
-       - Multi-state GSTIN compliance across Telangana (36), Karnataka (29), and Maharashtra (27).
-     - **UAE Tax Framework**:
-       - Federal Tax Authority (FTA) TRN: 100482910400003.
-       - Standard 5% Commercial VAT on passenger chauffeur mobility.
-       - Transparent Dubai Salik toll and airport parking reconciliation.
-     - **Corporate Credit Governance**:
-       - 30-Day Net Corporate Credit terms upon standard vendor onboarding.
-       - Monthly/fortnightly consolidated tax invoices delivered within 48 hours of month-end.
-       - Disputed line-item freeze SLA ensuring uninterrupted fleet dispatches.
-     - **Authentic Sample Duty Slips**:
-       - `VIC-DS-8841`: Deloitte Global Services (Toyota Innova HyCross, K. Venkatesh, 88 km, Fastag tolls, AIS-140 GPS verified, passenger OTP authenticated).
-       - `VIC-DS-9102`: Amazon Development Centre India (44-Seater Luxury AC Coach, S. Anand Murthy, 46 km, roster supervisor manifest sign-off).
-       - `VIC-DXB-7721`: Standard Chartered Bank UAE (Mercedes-Benz S-Class, M. Farhan Al-Mansoor, 55 km, Salik tolls, electronic tablet signature).
-       - `VIC-AUH-4109`: Abu Dhabi Investment Council (Mercedes-Maybach S 680, T. Rashid, 160 km, protocol officer confirmation).
+1. **Tech Park & Commercial Corridor Dataset (`src/content/tech-corridors.json`)**:
+   - Comprehensive route guides, gate access protocols, peak congestion windows, and shift transit models for India (`/india/corridors`) and UAE (`/uae/corridors`):
+     - **India Tech Park Corridors**:
+       - **Hyderabad**:
+         - Hitec City & Madhapur IT Corridor (Raheja Mindspace, Cyber Gateway, Cyber Towers, V-Ascendas). RFID Boom Barrier & Commercial Cab Bay 3 Entry.
+         - Financial District & Gachibowli Hub (Wipro Circle, WaveRock SEZ, One West, CapitaLand). Smart Card Security Frisking & Passenger Drop Promenade.
+       - **Bengaluru**:
+         - Whitefield IT Export Corridor (ITPB, Prestige Shantiniketan, Brigade Tech Gardens). Commercial Transport Pass & Bus Terminal Bay.
+         - Outer Ring Road (ORR) Technology Belt (Ecospace, Ecoworld, Prestige Tech Park, Cessna). Dedicated HOV Drop-Off Bay.
+         - Manyata Embassy Business Park (Manyata Blocks D1–G4, L&T Tech Hub). Multi-Lane Commercial Staging Terminal.
+       - **Pune**:
+         - Rajiv Gandhi Infotech Park Hinjawadi (Phase 1, 2, 3 SEZ). MIDC High-Capacity Bus Staging & Campus Internal Loop Bay.
+         - Kharadi & Magarpatta Cybercity Belt (EON Free Zone, Magarpatta, WTC Pune). Township Security Pass & EON Pod Terminal.
+     - **UAE Commercial Corridors & Free Zones**:
+       - **Dubai**:
+         - DIFC & Downtown Dubai Commercial Precinct (DIFC Gate Precinct, Gate Village, Burj Daman, Emaar Square). Valet Lane & VIP Underpass Drop-Off.
+         - Dubai Internet City & Media City Free Zone (DIC Innovation Hub, DMC Amphitheatre, Knowledge Park). TECOM Commercial Staging Bay.
+         - Expo City Dubai & JAFZA Logistics Belt (DEC, JAFZA). Gate 4 Security Clearance & Dedicated Delegation Bay.
+       - **Abu Dhabi**:
+         - Abu Dhabi Global Market (ADGM Al Maryah Island, ADGM Square Towers 1–4, Rosewood Executive Plaza). VIP Porte-Cochère & Executive Staging.
+     - **Enterprise Shift Commute Models**:
+       - Standard Corporate General Shift (09:00 AM Login | 06:00 PM Logout) — 44-seater luxury coaches.
+       - 24/7 Rolling IT & BPO Shift Corridors (06:00 AM / 02:00 PM / 10:00 PM / 02:00 AM) — 22-seater shuttles + Innova HyCross.
+       - Women Passenger Night Escort Protocol (08:00 PM to 06:00 AM Night Drops) — GPS route monitoring, certified escort chauffeurs, safe doorstep drops.
 
-2. **Interactive Corporate Billing Desk Component (`src/components/billing/CorporateBillingDesk.tsx`)**:
-   - **Digital Duty Slip Audit Inspector**: Interactive sample chips to toggle between executive retainers and campus commuter manifests with full start/end odometer readings, GPS telematics badges, and toll documentation.
-   - **Interactive GST / VAT & ITC Reconciler**: Dynamic sliders for monthly transit expenditure (₹25,000 to ₹25,00,000+ / AED 2,500 to AED 250,000+), automatically calculating Billed Tax, Input Tax Credit (ITC) savings, Net Corporate Cost, and 30-day working capital float.
-   - **Corporate Credit Terms Grid**: Explicit 30-day terms, payment channels (NEFT/RTGS/Corporate Debit), and dispute resolution protocols.
+2. **Interactive Tech Park Corridor Desk Component (`src/components/corridors/TechParkCorridorDesk.tsx`)**:
+   - **Corridor Commute Planner**:
+     - Operating City Hub selector (Hyderabad, Bengaluru, Pune / Dubai, Abu Dhabi).
+     - Tech Park / SEZ dropdown selector.
+     - Shift Roster Window radio buttons.
+     - Commuting Employees volume slider (50 to 1,500+ employees).
+   - **Dynamic Blueprint Output**:
+     - Live fleet sizing calculation: 44-seater luxury coach count + 22-seater shuttle count + 15% standby buffer vehicle staging.
+     - Estimated corridor loop routes.
+     - Route arterial guide, peak congestion buffers, and security gate entry pass protocols.
+   - **Tech Park Transit Profiles**:
+     - Detailed directory of all covered parks, routes, and security clearance procedures.
+   - **Shift Roster Models & FAQs**:
+     - Complete operational documentation and FAQs.
    - **Actions**:
-     - "Print Duty Slip Dossier" (`window.print()`).
-     - "Open Corporate Account on WhatsApp" with prefilled spend, tax category, and credit preferences.
+     - "Request Corridor Proposal on WhatsApp" with prefilled route study specifications.
+     - "Print Corridor Blueprint" (`window.print()`).
 
 3. **Dedicated Route Pages**:
-   - `/india/billing`: India Corporate Billing, GST Invoicing & Digital Duty Slip Desk with Schema.org `Service` structured data.
-   - `/uae/billing`: UAE Corporate Billing, FTA VAT & Electronic Invoicing Desk with Schema.org `Service` structured data.
+   - `/india/corridors`: India Tech Park Corridors route page with Schema.org `Service` structured data.
+   - `/uae/corridors`: UAE Commercial Corridors & Free Zones route page with Schema.org `Service` structured data.
 
 4. **Global Navigation & Cross-Linking**:
-   - Added "Corporate Billing & Invoicing" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **54 static pages**).
+   - Added "Tech Park Corridor Navigator" link under Navigation in `src/components/layout/Footer.tsx`.
+   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **56 static pages**).
 
 ---
 
@@ -55,10 +70,10 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Quality Gate / Test Suite | Result | Details |
 | :--- | :--- | :--- |
-| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across billing datasets, tax reconcilers, and route pages |
+| **TypeScript Type Check** (`tsc --noEmit`) | **PASS (0 errors)** | Complete static type safety across corridors datasets, planner desks, and route pages |
 | **ESLint** (`next lint`) | **PASS (0 warnings)** | 100% clean rule compliance |
-| **Production Build** (`next build`) | **PASS (54/54 static routes)** | 100% SSG static compilation (`○` and `●`) |
-| **Phase 14 Verification Suite** (`verify-phase14.mjs`) | **PASS (5/5 test suites)** | Page load, SAC 9966 compliance, duty slip inspector switching, GST/VAT & ITC calculator, WhatsApp link generation, UAE FTA VAT desk, mobile 390px view |
+| **Production Build** (`next build`) | **PASS (56/56 static routes)** | 100% SSG static compilation (`○` and `●`) |
+| **Phase 15 Verification Suite** (`verify-phase15.mjs`) | **PASS (5/5 test suites)** | Page load, Schema.org JSON-LD, city switching, explorer profiles, dynamic fleet mix calculation, WhatsApp link generation, UAE commercial hubs, mobile 390px view |
 
 ---
 
@@ -66,6 +81,6 @@ All checks executed against the optimized Next.js 14 production build (`next bui
 
 | Screenshot Artifact | Location | Purpose |
 | :--- | :--- | :--- |
-| `phase14-india-billing-desktop.png` | `docs/screenshots/` | Desktop view of India Billing Desk with Digital Duty Slip Inspector showing Deloitte Global trip manifest |
-| `phase14-india-billing-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column layout, touch controls, and duty slip card |
-| `phase14-uae-billing-desktop.png` | `docs/screenshots/` | Desktop view of UAE Corporate Billing Desk with Standard Chartered UAE trip manifest and FTA VAT compliance |
+| `phase15-india-corridors-desktop.png` | `docs/screenshots/` | Desktop view of India Tech Park Corridors Desk with dynamic fleet mix calculation (44-seater coaches + 22-seater shuttles + standby buffer) |
+| `phase15-india-corridors-mobile.png` | `docs/screenshots/` | Mobile view (390px) showing responsive single-column layout, touch controls, and corridor blueprint card |
+| `phase15-uae-corridors-desktop.png` | `docs/screenshots/` | Desktop view of UAE Commercial Corridors & Free Zones Desk with DIFC, DIC, and ADGM transit hubs |

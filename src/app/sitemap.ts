@@ -123,6 +123,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/india/corridors`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/uae`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -226,6 +232,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/uae/billing`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/uae/corridors`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,

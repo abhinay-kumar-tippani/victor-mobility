@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Tech Park & Commercial Corridor Transit Navigator",
+    "eyebrow": "Nodal Commute & Shift Corridors · Hyderabad, Bengaluru, Pune",
+    "description": "Comprehensive route guides, security gate entry protocols, shift roster transit models, and high-occupancy bus shuttle corridors connecting residential suburbs to major IT and business parks.",
+    "cities": [
+      {
+        "id": "hyderabad",
+        "name": "Hyderabad",
+        "tagline": "India Head Office & Premier IT Corridors",
+        "hubs": [
+          {
+            "id": "hitec-city",
+            "name": "Hitec City & Madhapur IT Corridor",
+            "parks": ["Raheja Mindspace", "Cyber Gateway", "Cyber Towers", "V-Ascendas IT Park"],
+            "transitTime": "30–45 mins from Kukatpally / Miyapur / Kondapur",
+            "peakWindows": "08:15 – 09:45 AM (Inbound) | 05:45 – 07:30 PM (Outbound)",
+            "gateProtocol": "Automated RFID Boom Barrier & Commercial Cab Bay 3 Entry",
+            "recommendedFleet": "22-Seater AC Luxury Shuttles & Force Urbania nodal feeds",
+            "corridorRoute": "Miyapur Metro -> JNTU -> KPHB Colony -> Hitec City Flyover -> Mindspace Circle"
+          },
+          {
+            "id": "financial-district",
+            "name": "Financial District & Gachibowli Hub",
+            "parks": ["Wipro Circle", "WaveRock SEZ", "One West", "CapitaLand IT Park"],
+            "transitTime": "25–40 mins from Manikonda / Nanakramguda / Tellapur",
+            "peakWindows": "08:30 – 10:00 AM (Inbound) | 06:00 – 08:00 PM (Outbound)",
+            "gateProtocol": "Smart Card Security Frisking & Designated Passenger Drop Promenade",
+            "recommendedFleet": "44-Seater AC Executive Shuttles & Corporate MPVs",
+            "corridorRoute": "Gachibowli Junction -> Nehru Outer Ring Road (ORR) -> Nanakramguda -> WaveRock Bay"
+          }
+        ]
+      },
+      {
+        "id": "bengaluru",
+        "name": "Bengaluru",
+        "tagline": "Silicon Valley Tech Parks & High-Capacity Shuttles",
+        "hubs": [
+          {
+            "id": "whitefield",
+            "name": "Whitefield IT Export Corridor",
+            "parks": ["International Tech Park Bangalore (ITPB)", "Prestige Shantiniketan", "Brigade Tech Gardens"],
+            "transitTime": "40–60 mins from Marathahalli / Indiranagar / KR Puram",
+            "peakWindows": "07:45 – 09:30 AM (Inbound) | 05:30 – 07:45 PM (Outbound)",
+            "gateProtocol": "Commercial Transport Pass & Staged Ground Bus Terminal Bay",
+            "recommendedFleet": "44-Seater Air-Suspension Commuter Coaches",
+            "corridorRoute": "Old Airport Road -> Marathahalli Underpass -> Kundalahalli Gate -> ITPB Main Terminal"
+          },
+          {
+            "id": "outer-ring-road",
+            "name": "Outer Ring Road (ORR) Technology Belt",
+            "parks": ["Ecospace", "Ecoworld", "Prestige Tech Park", "Cessna Business Park"],
+            "transitTime": "35–55 mins from Silk Board / HSR Layout / Sarjapur",
+            "peakWindows": "08:00 – 10:00 AM (Inbound) | 06:00 – 08:30 PM (Outbound)",
+            "gateProtocol": "Service Lane Dedicated High-Occupancy Vehicle (HOV) Drop-Off Bay",
+            "recommendedFleet": "22 & 44-Seater AC Luxury Shuttles with AIS-140 GPS tracking",
+            "corridorRoute": "HSR BDA Complex -> Agara Flyover -> Bellandur Decongested Service Road -> Ecoworld"
+          },
+          {
+            "id": "manyata",
+            "name": "Manyata Embassy Business Park (North Bengaluru)",
+            "parks": ["Manyata Tech Park (Blocks D1–G4)", "L&T Tech Hub"],
+            "transitTime": "30–45 mins from Hebbal / Yelahanka / Kalyan Nagar",
+            "peakWindows": "08:15 – 09:45 AM (Inbound) | 05:45 – 07:30 PM (Outbound)",
+            "gateProtocol": "Gate 1 & Gate 2 Multi-Lane Commercial Staging Terminal",
+            "recommendedFleet": "44-Seater High-Capacity Corporate Commuter Coaches",
+            "corridorRoute": "Hebbal Flyover -> Outer Ring Road Elevated Expressway -> Manyata Gate 1 Staging"
+          }
+        ]
+      },
+      {
+        "id": "pune",
+        "name": "Pune",
+        "tagline": "Automotive & IT SEZ Transit Corridors",
+        "hubs": [
+          {
+            "id": "hinjawadi",
+            "name": "Rajiv Gandhi Infotech Park (Hinjawadi Phase 1, 2, 3)",
+            "parks": ["Hinjawadi Phase 1 (Wipro Circle)", "Phase 2 (Infosys Circle)", "Phase 3 (Megapolis / Embassy TechZone)"],
+            "transitTime": "35–55 mins from Wakad / Pimple Saudagar / Aundh / Baner",
+            "peakWindows": "07:30 – 09:30 AM (Inbound) | 05:00 – 08:00 PM (Outbound)",
+            "gateProtocol": "MIDC High-Capacity Bus Staging & Campus Internal Loop Bay",
+            "recommendedFleet": "44-Seater AC Coaches & Force Urbania 17-Seater Nodal Shuttles",
+            "corridorRoute": "Wakad Bridge -> Hinjawadi Shivaji Chowk Flyover -> Phase 1 Circle -> Phase 3 SEZ Bay"
+          },
+          {
+            "id": "kharadi-magarpatta",
+            "name": "Kharadi & Magarpatta Cybercity Belt",
+            "parks": ["EON Free Zone Kharadi", "Magarpatta Cybercity", "World Trade Center Pune"],
+            "transitTime": "30–45 mins from Viman Nagar / Hadapsar / Kalyani Nagar",
+            "peakWindows": "08:00 – 10:00 AM (Inbound) | 05:45 – 07:45 PM (Outbound)",
+            "gateProtocol": "Private Township Security Pass & EON Pod Drop-off Terminal",
+            "recommendedFleet": "22-Seater Shuttles & Executive MPVs",
+            "corridorRoute": "Nagar Road -> Kharadi Bypass -> EON Free Zone Cluster A/B Bus Terminal"
+          }
+        ]
+      }
+    ],
+    "shiftModels": [
+      {
+        "modelId": "general-day",
+        "name": "Standard Corporate General Shift",
+        "timings": "09:00 AM Login | 06:00 PM Logout",
+        "description": "High-volume synchronized transit utilizing 44-seater luxury coaches along major arterial corridors to minimize per-seat commute costs.",
+        "fleetRecommendation": "44-Seater AC Luxury Passenger Coaches with designated hub nodal pickups."
+      },
+      {
+        "modelId": "rolling-bpo",
+        "name": "24/7 Rolling IT & BPO Shift Corridors",
+        "timings": "06:00 AM / 02:00 PM / 10:00 PM / 02:00 AM",
+        "description": "Continuous corridor loops catering to round-the-clock tech support, cloud operations, and global customer delivery teams.",
+        "fleetRecommendation": "22-Seater AC Shuttles + Toyota Innova HyCross nodal drops."
+      },
+      {
+        "modelId": "night-escort",
+        "name": "Women Passenger Night Escort Protocol",
+        "timings": "08:00 PM to 06:00 AM Night Drops",
+        "description": "Mandatory security escort protocol for women employees: GPS route monitoring, panic button telemetry, safe doorstep drops, and verified escort chauffeurs.",
+        "fleetRecommendation": "GPS-monitored Executive MPVs with Certified Night Escort Badge Chauffeurs."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do you manage peak hour congestion on Bengaluru's Outer Ring Road or Hinjawadi Pune?",
+        "answer": "Our corridor dispatch operations team runs pre-shift traffic telemetry. Chauffeurs depart staging depots with 45-minute buffers and utilize monitored decongested arterial slip roads to guarantee on-time campus arrival."
+      },
+      {
+        "question": "Can Victor Mobility manage commercial security gate passes for major tech parks?",
+        "answer": "Yes. Our vehicles carry pre-registered RFID windshield tags and commercial transport permits required for direct access into parks such as Mindspace Hyderabad, Manyata Bengaluru, and EON Kharadi."
+      },
+      {
+        "question": "How does the Women Passenger Night Escort Protocol operate?",
+        "answer": "For pickups and drops between 08:00 PM and 06:00 AM, vehicles are assigned verified chauffeurs who hold our Women Safety Escort Badge (/india/academy/verify). Chauffeurs remain stationary at the employee's residential gate until safe indoor entry is visually confirmed."
+      },
+      {
+        "question": "Can we configure custom nodal pickup points in residential clusters?",
+        "answer": "Yes. We configure geofenced nodal pickup stops at major residential societies, metro stations, and highway junctions, optimizing route coverage and employee commute efficiency."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Commercial Corridor & Free Zone Transit Navigator",
+    "eyebrow": "DIFC, Business Bay, DIC, DWC & Abu Dhabi ADGM",
+    "description": "Precision executive transit guides across Dubai's financial corridors, media and internet free zones, and Abu Dhabi's sovereign investment hubs.",
+    "cities": [
+      {
+        "id": "dubai",
+        "name": "Dubai",
+        "tagline": "Global Financial & Innovation Corridors",
+        "hubs": [
+          {
+            "id": "difc-downtown",
+            "name": "DIFC & Downtown Dubai Commercial Precinct",
+            "parks": ["DIFC Gate Precinct", "Gate Village", "Burj Daman", "Emaar Square Downtown"],
+            "transitTime": "15–25 mins from Business Bay / Dubai Marina / Jumeirah",
+            "peakWindows": "08:00 – 09:30 AM (Inbound) | 05:30 – 07:30 PM (Outbound)",
+            "gateProtocol": "DIFC Valet Lane & VIP Underpass Executive Drop-Off",
+            "recommendedFleet": "Mercedes-Benz E-Class, BMW 5 Series, Lexus ES 300h",
+            "corridorRoute": "Sheikh Zayed Road (E11) -> Financial Centre Road Exit -> DIFC Gate 4 VIP Drop"
+          },
+          {
+            "id": "dic-dmc",
+            "name": "Dubai Internet City & Media City Free Zone",
+            "parks": ["DIC Innovation Hub", "Dubai Media City Amphitheatre Precinct", "Dubai Knowledge Park"],
+            "transitTime": "20–35 mins from Downtown / Dubai Hills / Palm Jumeirah",
+            "peakWindows": "08:15 – 09:45 AM (Inbound) | 05:45 – 07:30 PM (Outbound)",
+            "gateProtocol": "TECOM Commercial Vehicle Staging Bay & Building Valet Bays",
+            "recommendedFleet": "Mercedes-Benz V-Class, VIP Sprinter, Executive Sedans",
+            "corridorRoute": "Al Khail Road (E44) -> Hessa Street Exit -> DIC Building 3 Commercial Staging Bay"
+          },
+          {
+            "id": "expo-jafza",
+            "name": "Expo City Dubai & JAFZA Logistics Belt",
+            "parks": ["Expo City Dubai Exhibition Centre (DEC)", "Jebel Ali Free Zone Authority (JAFZA)"],
+            "transitTime": "25–40 mins from Dubai Marina / JBR / Al Barsha",
+            "peakWindows": "07:30 – 09:00 AM (Inbound) | 05:00 – 07:00 PM (Outbound)",
+            "gateProtocol": "JAFZA Gate 4 Security Clearance & Dedicated Delegation Bay",
+            "recommendedFleet": "35 & 50-Seater Mercedes-Benz Luxury Tourism Coaches",
+            "corridorRoute": "Sheikh Mohammed Bin Zayed Road (E311) -> Expo Road (D57) -> JAFZA Gate 4"
+          }
+        ]
+      },
+      {
+        "id": "abu-dhabi",
+        "name": "Abu Dhabi",
+        "tagline": "Sovereign Wealth & Government Corridors",
+        "hubs": [
+          {
+            "id": "adgm",
+            "name": "Abu Dhabi Global Market (ADGM) · Al Maryah Island",
+            "parks": ["ADGM Square Towers 1–4", "Rosewood Executive Plaza", "Cleveland Clinic Precinct"],
+            "transitTime": "20–35 mins from Corniche / Yas Island / Saadiyat",
+            "peakWindows": "08:00 – 09:30 AM (Inbound) | 05:00 – 07:00 PM (Outbound)",
+            "gateProtocol": "Al Maryah VIP Porte-Cochère & ADGM Square Executive Staging",
+            "recommendedFleet": "Mercedes-Maybach S 680, Mercedes-Benz S-Class, BMW 7 Series",
+            "corridorRoute": "Sheikh Zayed Tunnel -> Al Maryah Island Bridge -> ADGM Tower 2 Executive Curbside"
+          }
+        ]
+      }
+    ],
+    "shiftModels": [
+      {
+        "modelId": "executive-banking",
+        "name": "DIFC & ADGM Investment Banking Retainer",
+        "timings": "07:30 AM to 08:30 PM Extended Executive Retainers",
+        "description": "Continuous dedicated chauffeur service for managing directors, partners, and visiting international delegations between luxury residences, client offices, and airports.",
+        "fleetRecommendation": "Mercedes-Benz S-Class & Maybach with RTA-certified professional chauffeurs."
+      },
+      {
+        "modelId": "tech-shuttle",
+        "name": "Internet City & Free Zone Campus Commute",
+        "timings": "08:30 AM Inbound | 06:00 PM Outbound",
+        "description": "Consolidated employee shuttle service between Dubai Metro stations (DIC / Internet City Metro) and campus office towers.",
+        "fleetRecommendation": "Luxury AC Passenger Coaches & VIP Sprinter Vans."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do you coordinate Sheikh Zayed Road traffic during morning rush hours?",
+        "answer": "Our Dubai fleet operations team utilizes live GPS corridor telemetry and pre-assigned departure windows, routing via Al Khail Road (E44) or Dubai Water Canal corridors when E11 experiences congestion."
+      },
+      {
+        "question": "Can you handle inter-emirate staff shuttles between Dubai and Abu Dhabi?",
+        "answer": "Yes. We operate daily executive convoys along the E11 highway connecting Dubai Downtown and Abu Dhabi ADGM / Corniche, equipped with onboard Wi-Fi and comfortable leather recliners."
+      },
+      {
+        "question": "Are Salik tolls included in corridor transit proposals?",
+        "answer": "All Salik electronic gate charges are tracked through automated RTA logs, itemized transparently, and reflected on monthly FTA 5% VAT invoices without manual markup."
+      }
+    ]
+  }
+}

@@ -122,6 +122,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/corridors`} className="hover:text-white transition-colors text-amber-400 font-semibold">
+                  Tech Park Corridor Navigator
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
