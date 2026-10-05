@@ -152,6 +152,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/roadshows`} className="hover:text-white transition-colors text-amber-400 font-semibold">
+                  Executive Roadshows &amp; Delegations
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>

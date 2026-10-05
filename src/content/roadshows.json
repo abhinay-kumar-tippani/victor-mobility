@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Multi-City Corporate Roadshows & Investor Delegation Transit Desk",
+    "eyebrow": "C-Suite Missions · IPO & Investor Roadshows · Multi-City Synchronization",
+    "description": "Precision transit orchestration for institutional investor roadshows, private equity due diligence tours, and C-Suite executive delegations across Hyderabad, Bengaluru, and Pune.",
+    "spocModel": {
+      "title": "Dedicated Central Roadshow SPOC",
+      "description": "A single senior roadshow project director coordinates all multi-city vehicle staging, real-time flight telemetry, tarmac reception, and meeting schedule revisions.",
+      "slaHighlights": [
+        "Single Point of Contact (SPOC) assigned 48 hours prior to mission start",
+        "Live commercial flight and private FBO tracking with automated runway staging",
+        "Direct liaison with executive assistants and investor relations desks",
+        "Instant schedule adjustments via 24/7 dedicated dispatch channel"
+      ]
+    },
+    "roadshowTiers": [
+      {
+        "id": "ipo-investor",
+        "name": "Institutional Investor & IPO Roadshow",
+        "badge": "Financial Roadshows",
+        "tagline": "Back-to-back equity analyst and institutional investor huddles",
+        "vehicleType": "Toyota Innova HyCross / Camry Hybrid",
+        "dailyHours": "12–14 Hours Dedicated",
+        "recommendedDelegation": "2–4 Principals + Investment Bankers",
+        "features": [
+          "4 to 6 scheduled multi-stop investor meetings per day",
+          "High-speed 5G mobile Wi-Fi hotspot for real-time deck presentations",
+          "Shadow standby vehicle available in principal operational zone",
+          "Chauffeurs trained in strict confidentiality and Non-Disclosure Agreements"
+        ]
+      },
+      {
+        "id": "csuite-board",
+        "name": "C-Suite Board & Global Executive Tour",
+        "badge": "Leadership Delegations",
+        "tagline": "Annual board retreats, plant inaugurations, and GCC site reviews",
+        "vehicleType": "Mercedes E-Class / S-Class / Toyota Vellfire",
+        "dailyHours": "Full-Day Dedicated Standby",
+        "recommendedDelegation": "Board of Directors & C-Level Executives",
+        "features": [
+          "Tarmac greeting, VIP terminal luggage transfer, and hotel staging",
+          "Dedicated executive motorcade with badged master chauffeurs",
+          "Bespoke in-cabin amenities: Himalayan water, international adaptors, mints",
+          "24/7 central flight dispatch monitoring for dynamic departure updates"
+        ]
+      },
+      {
+        "id": "pe-diligence",
+        "name": "Private Equity & Factory Diligence Convoy",
+        "badge": "Operational Audits",
+        "tagline": "Multi-location factory inspections and industrial park audits",
+        "vehicleType": "Executive MPVs + Mercedes VIP Sprinter Convoy",
+        "dailyHours": "10–12 Hours Dedicated",
+        "recommendedDelegation": "6–16 Audit Partners & Technical Teams",
+        "features": [
+          "Inter-state transit connecting industrial belts and technology SEZs",
+          "Coordinated multi-vehicle convoy with real-time telematics sync",
+          "Site-access protocol assistance for industrial plants and cleanrooms",
+          "Consolidated single-invoice corporate settlement with SAC 9966 ITC"
+        ]
+      }
+    ],
+    "sampleItineraries": [
+      {
+        "id": "hyd-tech-bio",
+        "city": "Hyderabad",
+        "routeTitle": "Hyderabad Financial District & Genome Valley Roadshow",
+        "duration": "1 Day (08:00 AM – 09:30 PM)",
+        "stops": [
+          { "time": "08:00 AM", "location": "Rajiv Gandhi International Airport (HYD)", "action": "FBO Terminal Greeting & Luggage Handshake" },
+          { "time": "09:30 AM", "location": "Nanakramguda Financial District", "action": "Global Investment Bank Analyst Presentation" },
+          { "time": "12:00 PM", "location": "Raheja Mindspace Hitec City", "action": "GCC Leadership Roundtable & Executive Lunch" },
+          { "time": "02:30 PM", "location": "Knowledge City Madhapur", "action": "Institutional Shareholder Meeting" },
+          { "time": "04:30 PM", "location": "Genome Valley Biotech Hub", "action": "R&D Facility Tour & Senior Management Briefing" },
+          { "time": "07:30 PM", "location": "Taj Falaknuma Palace", "action": "Investor Delegation Dinner" },
+          { "time": "09:30 PM", "location": "HYD Airport Terminal 1", "action": "VIP Departure Staging & Terminal Escort" }
+        ]
+      },
+      {
+        "id": "blr-gcc-cloud",
+        "city": "Bengaluru",
+        "routeTitle": "Bengaluru Tech Corridor & Global Capability Center Roadshow",
+        "duration": "1 Day (07:30 AM – 09:00 PM)",
+        "stops": [
+          { "time": "07:30 AM", "location": "Kempegowda International Airport (BLR)", "action": "Terminal 2 Greeting & Executive Cabin Dispatch" },
+          { "time": "09:00 AM", "location": "Whitefield Prestige Tech Cloud", "action": "Enterprise Software Engineering Center Review" },
+          { "time": "11:45 AM", "location": "Outer Ring Road (Ecoworld Bellandur)", "action": "Venture Capital Partner Huddle & Working Lunch" },
+          { "time": "02:30 PM", "location": "Manyata Tech Park Nagawara", "action": "Cloud Infrastructure Facility Inspection" },
+          { "time": "05:00 PM", "location": "UB City Vittal Mallya Road", "action": "Private Equity Advisory Committee Meeting" },
+          { "time": "07:00 PM", "location": "The Leela Palace Bengaluru", "action": "Cocktail Reception & Delegation Dinner" },
+          { "time": "09:00 PM", "location": "BLR Airport Executive Lounge Gate", "action": "Scheduled Flight Departure" }
+        ]
+      },
+      {
+        "id": "pun-mfg-auto",
+        "city": "Pune",
+        "routeTitle": "Pune Automotive & Industrial Diligence Tour",
+        "duration": "1 Day (08:30 AM – 08:30 PM)",
+        "stops": [
+          { "time": "08:30 AM", "location": "Pune International Airport (PNQ)", "action": "VIP Gate Meet & Chauffeur Staging" },
+          { "time": "09:45 AM", "location": "Hinjawadi Infotech Park Phase 1", "action": "Automotive Telematics Center Audit" },
+          { "time": "12:15 PM", "location": "Talegaon Industrial Corridor", "action": "Advanced Manufacturing Plant Inspection" },
+          { "time": "03:00 PM", "location": "Chakan MIDC Phase 2", "action": "EV Battery & Component Factory Due Diligence" },
+          { "time": "05:30 PM", "location": "Senapati Bapat Road Corporate Tower", "action": "Executive Board Wrap-Up Session" },
+          { "time": "07:00 PM", "location": "JW Marriott Senapati Bapat Road", "action": "Executive Delegation Dinner" },
+          { "time": "08:30 PM", "location": "PNQ Airport Departure Bay", "action": "Departure Coordination" }
+        ]
+      }
+    ],
+    "onboardAmenities": [
+      { "item": "Secure 5G In-Cabin Wi-Fi", "detail": "High-bandwidth dedicated connection for seamless video conferences, financial model reviews, and deck updates." },
+      { "item": "Himalayan Mineral & Sparkling Water", "detail": "Factory-sealed premium glass bottles, eco-friendly napkins, and fresh mints." },
+      { "item": "International Multi-Pin Fast Charging", "detail": "USB-C PD 65W charging ports supporting Apple MacBook, Dell XPS, iPhone, and Android devices." },
+      { "item": "Executive Privacy & Quiet Cabin", "detail": "Acoustic insulation, rear privacy blinds, and anti-eavesdropping protocol enforced for confidential calls." },
+      { "item": "Sanitization & Executive Grooming Kit", "detail": "Certified organic hand sanitizers, wet wipes, and emergency umbrella service." },
+      { "item": "Daily Financial Press & News Access", "detail": "Mint, The Economic Times, and Financial Times available on board upon request." }
+    ],
+    "securityAndNda": {
+      "title": "Bilateral Non-Disclosure & Route Confidentiality",
+      "statement": "Every Victor Mobility roadshow chauffeur executes an institutional Non-Disclosure Agreement (NDA). All trip destinations, executive names, phone calls, and discussion materials inside the cabin remain strictly privileged and protected."
+    },
+    "faqs": [
+      {
+        "question": "Can Victor Mobility coordinate a multi-city roadshow across Hyderabad, Bengaluru, and Pune under one contract?",
+        "answer": "Yes. We offer turnkey Pan-India roadshow coordination. Your executive team works with a single dedicated Roadshow Project Manager who synchronizes vehicles, flight schedules, and chauffeur briefings across all three cities under one unified Master Services Agreement (MSA) and consolidated billing invoice."
+      },
+      {
+        "question": "What happens if our investor meeting runs late or the itinerary changes spontaneously?",
+        "answer": "All Victor Mobility roadshow packages are dedicated full-day retainers. Your chauffeur and vehicle remain exclusively on standby throughout the day. Your dedicated central SPOC adjusts subsequent stops in real-time and monitors alternate routes to recover time."
+      },
+      {
+        "question": "Do you provide shadow standby vehicles during high-stakes C-Suite or IPO roadshows?",
+        "answer": "Yes. For mission-critical IPO roadshows and sovereign missions, we can deploy a dedicated shadow standby vehicle that mirrors the principal motorcade along key arterial corridors, guaranteeing 100% mechanical redundancy with zero transit delay."
+      },
+      {
+        "question": "How do you coordinate with private jet / FBO terminals?",
+        "answer": "Our airport protocol marshals coordinate directly with local General Aviation / FBO authorities at Hyderabad (GMR VIP Gate), Bengaluru (BIAL General Aviation), and Pune, ensuring airside meet-and-greets and tarmac vehicle staging where authorized."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Executive Roadshow & Sovereign Delegation Transit Coordinator",
+    "eyebrow": "DIFC & ADGM Investor Tours · VIP Delegations · Dubai & Abu Dhabi",
+    "description": "Precision executive mobility for sovereign wealth fund delegations, global banking roadshows, and international trade missions across Dubai and Abu Dhabi.",
+    "spocModel": {
+      "title": "Dedicated UAE Roadshow Director",
+      "description": "Senior bilingual roadshow coordinator managing cross-emirate transit, private jet terminal handshakes, and DIFC / ADGM security protocols.",
+      "slaHighlights": [
+        "Dedicated UAE roadshow controller available 24/7 on direct WhatsApp line",
+        "Dubai South VIP FBO and DXB Executive Terminal greeting authorization",
+        "Cross-Emirate transit optimization with integrated Salik road toll management",
+        "Discreet diplomatic security protocol compliance"
+      ]
+    },
+    "roadshowTiers": [
+      {
+        "id": "difc-adgm",
+        "name": "DIFC to ADGM Cross-Emirate Financial Roadshow",
+        "badge": "Sovereign & Banking",
+        "tagline": "Back-to-back investor roadshows connecting Dubai and Abu Dhabi financial hubs",
+        "vehicleType": "Mercedes S-Class / BMW 7-Series / Mercedes V-Class",
+        "dailyHours": "Full-Day Dedicated Cross-Emirate",
+        "recommendedDelegation": "Investment Banking Teams & Sovereign Wealth Partners",
+        "features": [
+          "Seamless E11 Sheikh Zayed Road transit between Dubai and Abu Dhabi",
+          "Automated Salik and Darb electronic toll gate clearance",
+          "Dedicated bilingual chauffeur fluent in English and Arabic protocol",
+          "In-cabin high-speed Wi-Fi and chilled refreshments"
+        ]
+      },
+      {
+        "id": "sovereign-mission",
+        "name": "Diplomatic & Sovereign Delegation Convoy",
+        "badge": "State Delegations",
+        "tagline": "Ministerial visits, international trade delegations, and summit motorcades",
+        "vehicleType": "Mercedes S-Class Convoy + Mercedes VIP Sprinter",
+        "dailyHours": "24/7 Dedicated Delegation Retainer",
+        "recommendedDelegation": "Ministers, Ambassadors & Trade Envoys",
+        "features": [
+          "Dubai South / Al Maktoum VIP FBO tarmac reception",
+          "Lead and chase vehicle coordination with real-time GPS telemetry",
+          "Direct liaison with embassy protocol and hotel security teams",
+          "100% compliant RTA luxury limousine commercial certification"
+        ]
+      }
+    ],
+    "sampleItineraries": [
+      {
+        "id": "uae-financial-axis",
+        "city": "Dubai & Abu Dhabi",
+        "routeTitle": "Dubai DIFC to Abu Dhabi ADGM Financial Axis",
+        "duration": "1 Day (08:00 AM – 09:00 PM)",
+        "stops": [
+          { "time": "08:00 AM", "location": "Dubai International Airport (DXB) / Al Maktoum FBO", "action": "Executive Terminal Meet & Greet" },
+          { "time": "09:30 AM", "location": "DIFC Gate Village, Dubai", "action": "Global Asset Management Investor Presentation" },
+          { "time": "12:00 PM", "location": "Downtown Dubai (Burj Daman)", "action": "Private Equity Luncheon & Partner Huddle" },
+          { "time": "02:00 PM", "location": "Sheikh Zayed Road (E11 Corridor)", "action": "Transit to Abu Dhabi with Onboard Mobile Briefing" },
+          { "time": "03:45 PM", "location": "ADGM Square, Al Maryah Island Abu Dhabi", "action": "Sovereign Wealth Fund Strategic Review" },
+          { "time": "06:30 PM", "location": "Emirates Palace Mandarin Oriental Abu Dhabi", "action": "Delegation Dinner & Closing Protocol" },
+          { "time": "09:00 PM", "location": "AUH / DXB Executive Departure", "action": "Terminal Drop-Off & Boarding" }
+        ]
+      }
+    ],
+    "onboardAmenities": [
+      { "item": "High-Speed In-Cabin 5G Wi-Fi", "detail": "Ultra-fast connection ensuring seamless video calls across Dubai and Abu Dhabi corridors." },
+      { "item": "Chilled Premium Bottled Water & Mints", "detail": "Factory-sealed local and sparkling waters with refreshing towels." },
+      { "item": "Universal Fast Charging Hub", "detail": "Multi-device wireless and wired fast charging stations." },
+      { "item": "Confidential Privacy Glass", "detail": "Factory tinted executive privacy glazing with rear sunblinds." }
+    ],
+    "securityAndNda": {
+      "title": "UAE Diplomatic & Corporate Privacy Protocol",
+      "statement": "All UAE chauffeurs sign strict non-disclosure agreements under UAE federal confidentiality guidelines, ensuring absolute discretion for VIP passengers and sovereign dignitaries."
+    },
+    "faqs": [
+      {
+        "question": "Can Victor Mobility manage cross-emirate travel between Dubai and Abu Dhabi seamlessly?",
+        "answer": "Yes. Our luxury fleet is fully licensed by Dubai RTA and Abu Dhabi Department of Transport with integrated Salik and Darb electronic toll systems, guaranteeing smooth non-stop transit along Sheikh Zayed Road (E11)."
+      },
+      {
+        "question": "Do you provide airport tarmac greeting at Dubai South (DWC) and DXB Executive Terminals?",
+        "answer": "Yes. We coordinate directly with Jet Aviation, ExecuJet, and Dnata VIP terminals for authorized curbside greeting and airside handling where permitted."
+      }
+    ]
+  }
+}
