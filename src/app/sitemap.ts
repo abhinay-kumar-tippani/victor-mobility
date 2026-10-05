@@ -105,6 +105,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/india/sla`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/uae`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -190,6 +196,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/uae/events`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/uae/sla`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,

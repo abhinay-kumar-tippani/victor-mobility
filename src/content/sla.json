@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "india": {
+    "title": "Enterprise Service Level Agreement (SLA) & Quality Assurance",
+    "eyebrow": "Contractual Performance & Operational Benchmarks",
+    "description": "Rigorous, verifiable transit benchmarks designed for Fortune 500 transport managers, facility directors, and procurement heads across Hyderabad, Bengaluru, and Pune.",
+    "corePillars": [
+      {
+        "id": "punctuality",
+        "title": "99.4% On-Time Arrival Guarantee",
+        "target": "99.4%",
+        "metric": "On-Time Dispatch & Bay Arrival",
+        "buffer": "45-minute pre-reporting depot staging",
+        "description": "Vehicles are pre-assigned and staged 45 minutes prior to designated reporting time with GPS geo-fence departure confirmation.",
+        "remedy": "Automated incident logging and immediate dispatch of secondary standby vehicle upon 10-minute threshold breach."
+      },
+      {
+        "id": "hot-swap",
+        "title": "20-Minute Breakdown Replacement",
+        "target": "< 20 Mins",
+        "metric": "Emergency Hot-Swap Dispatch",
+        "buffer": "Dedicated standby buffer fleet at core hubs",
+        "description": "In the rare event of mechanical malfunction or puncture, an equivalent or higher-category vehicle is dispatched from the nearest corridor hub.",
+        "remedy": "100% fare credit waiver for the impacted leg plus dedicated priority Ground Marshal escort."
+      },
+      {
+        "id": "hygiene",
+        "title": "12-Point Pre-Dispatch Cabin Readiness",
+        "target": "100%",
+        "metric": "Pre-Trip Quality Audit Score",
+        "buffer": "Completed prior to every gate exit",
+        "description": "Mandatory checklist verification covering dual-zone air conditioning, sanitized upholstery, functional seatbelts, first-aid kit, and clean exterior.",
+        "remedy": "Immediate vehicle recall and penalty score applied if any safety or cleanliness parameter fails pre-inspection."
+      },
+      {
+        "id": "chauffeur",
+        "title": "Zero-Tolerance Sobriety & Verified Vetting",
+        "target": "0.00% BAC",
+        "metric": "Pre-Shift Digital Breathalyzer",
+        "buffer": "Verified daily at dispatch depot",
+        "description": "Daily digital sobriety log, active police CCTNS background verification, valid commercial passenger license endorsement, and POSH training.",
+        "remedy": "Immediate driver deboarding, permanent roster debarment, and replacement chauffeur assigned within 15 minutes."
+      },
+      {
+        "id": "billing",
+        "title": "Transparent Invoicing & SAC 9966 Compliance",
+        "target": "100%",
+        "metric": "Digital Duty Slip Reconciliation",
+        "buffer": "Consolidated monthly tax invoice",
+        "description": "Odometer and GPS-verified trip logs with clear toll/parking documentation. GST-compliant tax invoices under SAC 9966 for 100% input tax credit.",
+        "remedy": "Disputed line-item freeze with undisputed invoice clearance within standard 30-day corporate credit terms."
+      }
+    ],
+    "escalationHierarchy": [
+      {
+        "level": "Level 1 — Operational",
+        "role": "Ground Marshal / Hub Dispatcher",
+        "sla": "< 5 Minutes",
+        "channel": "Two-Way Radio & Direct Dispatch Line",
+        "scope": "Live traffic re-routing, gate access coordination, instant driver check-in"
+      },
+      {
+        "level": "Level 2 — Tactical",
+        "role": "City Operations Duty Manager",
+        "sla": "< 15 Minutes",
+        "channel": "Dedicated Control Desk Phone & WhatsApp",
+        "scope": "Standby vehicle hot-swap authorization, route detour management, driver substitution"
+      },
+      {
+        "level": "Level 3 — Regional",
+        "role": "Regional Head of Fleet & Safety",
+        "sla": "< 30 Minutes",
+        "channel": "Direct Priority Mobile & Escalation Email",
+        "scope": "Corridor-wide fleet redistribution, regulatory authority liaison, incident root-cause review"
+      },
+      {
+        "level": "Level 4 — Executive",
+        "role": "Business Development Partner (Mujeeb Ur Rehman Mohammed)",
+        "sla": "< 60 Minutes",
+        "channel": "Executive Mobile & Corporate Account Desk",
+        "scope": "Contractual SLA penalty credit signoff, senior corporate client review, quarterly service audit"
+      }
+    ],
+    "statutoryCompliance": [
+      {
+        "title": "Corporate Incorporation & Tax",
+        "status": "Active & Verified",
+        "items": ["CIN Registered (Ministry of Corporate Affairs)", "Active GSTIN Registration (Telangana, Karnataka, Maharashtra)", "Permanent Account Number (PAN) Compliance", "SAC Code 996601 Passenger Transport Registration"]
+      },
+      {
+        "title": "Commercial Transport & Permits",
+        "status": "100% Compliant",
+        "items": ["All-India Tourist Permit (AITP) for Interstate Convoys", "Commercial Yellow Plate Registration across entire fleet", "Quarterly Fitness Certification & High-Security Number Plates", "AIS-140 GPS Telematics & Emergency Panic Buttons Installed"]
+      },
+      {
+        "title": "Comprehensive Insurance & Liability",
+        "status": "Comprehensive Coverage",
+        "items": ["Commercial Vehicle Comprehensive Motor Insurance", "₹50,00,000 Third-Party Passenger Liability Endorsement", "Driver Workmen's Compensation Coverage", "Cashless Tie-ups with Tier-1 Commercial Garages"]
+      },
+      {
+        "title": "Driver Statutory & Labor Standards",
+        "status": "Audited Quarterly",
+        "items": ["EPF (Employees' Provident Fund) & ESIC Compliance", "Minimum Wages Act Mandate Compliance", "Annual Medical Fitness & Audiometry Certification", "Telangana & Karnataka Police CCTNS Criminal Background Clearance"]
+      }
+    ],
+    "serviceTiers": [
+      {
+        "tierId": "executive",
+        "name": "Executive & VIP Protocol",
+        "targetAudience": "Board Members, CXOs, Visiting Delegates & Dignitaries",
+        "recommendedFleet": "Mercedes-Benz E-Class/S-Class, BMW 5/7 Series, Toyota Vellfire/Camry",
+        "onTimeTarget": "99.8%",
+        "bufferAllocation": "1 Dedicated Backup Vehicle per 3 VIP missions",
+        "hotSwapTarget": "< 15 Minutes",
+        "dedicatedManager": "Assigned Senior VIP Concierge"
+      },
+      {
+        "tierId": "employee",
+        "name": "Enterprise Employee Commute",
+        "targetAudience": "Tech Corridor Shift Rosters, BPO 24/7 Operations & Campuses",
+        "recommendedFleet": "22 & 44-Seater AC Luxury Shuttles, Force Urbania, Tempo Travellers",
+        "onTimeTarget": "99.4%",
+        "bufferAllocation": "1 Standby Bus per 10 scheduled routes",
+        "hotSwapTarget": "< 20 Minutes",
+        "dedicatedManager": "On-Site Corridor Hub Controller"
+      },
+      {
+        "tierId": "events",
+        "name": "Mega-Event & Summit Convoys",
+        "targetAudience": "Annual General Meetings, Global Tech Conferences, Luxury Weddings",
+        "recommendedFleet": "Coordinated Motorcades: Sedans, MPVs, and Luxury Passenger Coaches",
+        "onTimeTarget": "99.6%",
+        "bufferAllocation": "+2 Staged Hot-Swap Vehicles at Venue Bays",
+        "hotSwapTarget": "< 10 Minutes (On-Site)",
+        "dedicatedManager": "Uniformed Ground Marshals with Two-Way Radio"
+      },
+      {
+        "tierId": "airport",
+        "name": "Dedicated Airport Transfers",
+        "targetAudience": "Frequent Business Flyers, Flight Crews, Expatriate Relocations",
+        "recommendedFleet": "Executive Saloons & Premium MPVs with Ample Luggage Capacity",
+        "onTimeTarget": "99.7%",
+        "bufferAllocation": "Pre-staged at Airport Holding Parking Bays",
+        "hotSwapTarget": "< 15 Minutes",
+        "dedicatedManager": "Airport Tarmac & Terminal Meet & Greet Liaison"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What happens if a vehicle arrives late due to severe traffic or road closure?",
+        "answer": "Our GPS telematics algorithms constantly monitor corridor congestion. If a delayed arrival is anticipated past the 10-minute threshold, our control center dispatches a secondary standby vehicle from a closer staging hub, ensuring zero interruption to the corporate schedule."
+      },
+      {
+        "question": "How are corporate SLA credits or penalties calculated and reconciled?",
+        "answer": "All trips are tracked via automated digital GPS stamps. In the event of an SLA default verified against telematics data, a pre-agreed contractual credit rebate is applied directly against the monthly consolidated invoice under Level 4 Partner signoff."
+      },
+      {
+        "question": "Can enterprise clients audit Victor Mobility's driver background and vehicle fitness records?",
+        "answer": "Yes. Corporate HR and compliance teams have access to our digital Chauffeur Badge Verification Desk (/india/academy/verify) and can request physical or notarized compliance dossiers prior to contract execution."
+      },
+      {
+        "question": "What are Victor Mobility's standard corporate billing and credit terms?",
+        "answer": "We offer 30-day net credit terms for verified corporate entities subject to standard vendor onboarding. Consolidated GST-compliant monthly invoices are delivered alongside itemized digital trip logs."
+      }
+    ]
+  },
+  "uae": {
+    "title": "UAE Corporate SLA & RTA Regulatory Quality Framework",
+    "eyebrow": "Contractual Performance Benchmarks · Dubai & Abu Dhabi",
+    "description": "Precision service level agreements built for multinational corporations, luxury hotel concierges, government summits, and diplomatic missions operating in Dubai and Abu Dhabi.",
+    "corePillars": [
+      {
+        "id": "punctuality",
+        "title": "99.6% On-Time Protocol Guarantee",
+        "target": "99.6%",
+        "metric": "On-Time Chauffeur Dispatch",
+        "buffer": "40-minute pre-reporting terminal & hotel staging",
+        "description": "Chauffeurs report to Dubai International Airport (DXB), DWC, or hotel valet bays 40 minutes prior to pickup with flight status synchronization.",
+        "remedy": "Immediate escalation and standby limousine reassignment from our Dubai Al Garhoud central operations hub."
+      },
+      {
+        "id": "hot-swap",
+        "title": "15-Minute Urban Hot-Swap SLA",
+        "target": "< 15 Mins",
+        "metric": "Dubai Urban Corridor Replacement",
+        "buffer": "Standby limousines staged across Downtown, DIFC & Dubai Marina",
+        "description": "Instant deployment of equivalent or superior luxury vehicles across core Dubai and Abu Dhabi commercial corridors.",
+        "remedy": "Complimentary journey waiver plus VIP priority upgrade on next executive booking."
+      },
+      {
+        "id": "hygiene",
+        "title": "VIP Cabin Sanitization & Climate Standard",
+        "target": "100%",
+        "metric": "Pre-Trip Luxury Audit",
+        "buffer": "Verified before every client assignment",
+        "description": "Pre-cooled cabin set to 21°C, sanitized fine-grain leather seating, complimentary bottled water, onboard Wi-Fi, and spotless exterior presentation.",
+        "remedy": "Vehicle immediately pulled from active roster if luxury standards deviate from RTA luxury guidelines."
+      },
+      {
+        "id": "chauffeur",
+        "title": "RTA Certified Chauffeur & CID Clearance",
+        "target": "100%",
+        "metric": "RTA Commercial Luxury Permit",
+        "buffer": "Annual biometric & background verification",
+        "description": "Fully accredited Dubai RTA limousine chauffeurs with CID security clearance, multilingual etiquette training, and zero-tolerance road safety adherence.",
+        "remedy": "Immediate removal from client roster and substitute RTA-certified chauffeur dispatched."
+      },
+      {
+        "id": "billing",
+        "title": "FTA Compliant VAT Invoicing & Corporate Credit",
+        "target": "100%",
+        "metric": "Tax Invoice with TRN Verification",
+        "buffer": "Consolidated monthly billing statement",
+        "description": "Fully compliant UAE Federal Tax Authority (FTA) 5% VAT invoices with electronic receipt breakdown and 30-day corporate credit accounts.",
+        "remedy": "Line-item verification window with dedicated billing account manager."
+      }
+    ],
+    "escalationHierarchy": [
+      {
+        "level": "Level 1 — Operational",
+        "role": "Dubai Fleet Controller",
+        "sla": "< 5 Minutes",
+        "channel": "Direct Dispatch Radio & WhatsApp Desk",
+        "scope": "Real-time Sheikh Zayed Road traffic monitoring, terminal paging, gate clearances"
+      },
+      {
+        "level": "Level 2 — Tactical",
+        "role": "UAE Operations Duty Manager",
+        "sla": "< 15 Minutes",
+        "channel": "Al Garhoud Hub Command Center",
+        "scope": "Standby fleet authorization, inter-emirate route diversion, VIP flight arrival adjustments"
+      },
+      {
+        "level": "Level 3 — Regional",
+        "role": "Head of UAE Fleet & VIP Services",
+        "sla": "< 30 Minutes",
+        "channel": "Executive Escalation Line",
+        "scope": "Diplomatic delegation support, luxury hotel concierge escalations, protocol liaison"
+      },
+      {
+        "level": "Level 4 — Executive",
+        "role": "Managing Director / Business Development Partner",
+        "sla": "< 60 Minutes",
+        "channel": "Executive Leadership Desk",
+        "scope": "Enterprise corporate contract signoff, quarterly governance audits, bespoke SLA structuring"
+      }
+    ],
+    "statutoryCompliance": [
+      {
+        "title": "UAE Commercial Licensing",
+        "status": "Active & Verified",
+        "items": ["Dubai Economy & Tourism (DET) Commercial License", "Dubai RTA Approved Luxury Passenger Transport Franchise", "UAE Federal Tax Authority (FTA) VAT Registration (TRN Active)", "Registered Operational Office at Al Garhoud, Dubai"]
+      },
+      {
+        "title": "RTA Vehicle Registration & Telematics",
+        "status": "100% RTA Certified",
+        "items": ["RTA Commercial Luxury Limousine Code Plates", "Annual RTA Technical Vehicle Fitness & Safety Inspection", "Integrated RTA Telematics & Smart Fare Meters", "Euro 6 Low-Emission & Hybrid Fleet Compliance"]
+      },
+      {
+        "title": "Comprehensive Fleet Liability Insurance",
+        "status": "Full Commercial Coverage",
+        "items": ["Comprehensive Commercial Limousine Fleet Insurance", "AED 5,000,000 Third-Party Passenger Liability Coverage", "UAE & Oman Cross-Border Transport Insurance Extension", "24/7 AAA Emergency Roadside Recovery Assistance"]
+      },
+      {
+        "title": "Chauffeur Statutory & MoHRE Standards",
+        "status": "MoHRE & CID Audited",
+        "items": ["Valid UAE Residence Visas under Victor Mobility Sponsorship", "RTA Professional Chauffeur Permit & Annual Medical Exam", "Dubai Police CID Criminal Background Clearance", "Mandatory UAE Labor Law (MoHRE) & Wage Protection System (WPS)"]
+      }
+    ],
+    "serviceTiers": [
+      {
+        "tierId": "executive",
+        "name": "VIP Limousine & Diplomatic Protocol",
+        "targetAudience": "Royal Families, State Delegations, C-Suite Executives, Luxury Concierges",
+        "recommendedFleet": "Mercedes-Maybach S 680, Mercedes-Benz S-Class, BMW 7 Series",
+        "onTimeTarget": "99.9%",
+        "bufferAllocation": "1 Dedicated Standby Vehicle per VIP Delegation",
+        "hotSwapTarget": "< 10 Minutes (Dubai Urban)",
+        "dedicatedManager": "Assigned Diplomatic Protocol Officer"
+      },
+      {
+        "tierId": "corporate",
+        "name": "Corporate Mobility & DIFC Transfers",
+        "targetAudience": "Investment Banks, Law Firms, Consulting Executives across DIFC & Downtown",
+        "recommendedFleet": "Mercedes-Benz E-Class, BMW 5 Series, Lexus ES 300h",
+        "onTimeTarget": "99.5%",
+        "bufferAllocation": "Staged at DIFC & Business Bay staging hubs",
+        "hotSwapTarget": "< 15 Minutes",
+        "dedicatedManager": "Corporate Account Liaison Desk"
+      },
+      {
+        "tierId": "events",
+        "name": "DWTC & Expo City Summit Logistics",
+        "targetAudience": "Major Conferences (GITEX, Arab Health, COP Summits), Gala Galas",
+        "recommendedFleet": "Luxury VIP Sprinter Vans, Mercedes V-Class, Luxury Passenger Coaches",
+        "onTimeTarget": "99.7%",
+        "bufferAllocation": "+2 Staged Limousines at Venue Reserved Bay",
+        "hotSwapTarget": "< 10 Minutes (On-Site)",
+        "dedicatedManager": "On-Site Ground Marshals with Two-Way Comms"
+      },
+      {
+        "tierId": "airport",
+        "name": "DXB & DWC Airport VIP Fast-Track",
+        "targetAudience": "First/Business Class International Travelers, Private Jet FBO Terminals",
+        "recommendedFleet": "Mercedes-Benz S-Class, Cadillac Escalade, Range Rover",
+        "onTimeTarget": "99.8%",
+        "bufferAllocation": "Pre-positioned at DXB Terminal 1, 2, 3 & DWC Al Maktoum FBO",
+        "hotSwapTarget": "< 10 Minutes",
+        "dedicatedManager": "Airport Tarmac & Baggage Concierge"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are Victor Mobility's UAE vehicles fully licensed by Dubai RTA?",
+        "answer": "Yes. Our entire UAE fleet operates under official Dubai RTA Luxury Limousine commercial franchise permits, with RTA-approved telematics, calibrated digital meters, and fully credentialed RTA chauffeurs."
+      },
+      {
+        "question": "How do you handle airport arrivals if flights are delayed into DXB?",
+        "answer": "Our dispatch team monitors live ADS-B flight telemetry for all commercial and private aviation arrivals. Chauffeur dispatch times automatically adjust to actual touchdown times with complimentary 60-minute terminal buffer waiting."
+      },
+      {
+        "question": "Do you support cross-border transfers between Dubai, Abu Dhabi, and Oman?",
+        "answer": "Yes. We offer coordinated inter-emirate transfers between Dubai, Abu Dhabi, and the Northern Emirates, as well as insured cross-border transit to Muscat, Oman with appropriate commercial insurance extensions."
+      },
+      {
+        "question": "How do corporate clients establish credit accounts in the UAE?",
+        "answer": "Corporate entities can submit their trade license and TRN certificate to our corporate accounts desk for 30-day net billing terms backed by automated FTA-compliant monthly electronic invoices."
+      }
+    ]
+  }
+}

@@ -7,6 +7,7 @@ import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 import { FileSpreadsheet, ShieldCheck, CheckCircle2, Building2, Phone } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Corporate RFP & Tender Desk | Victor Mobility India",
@@ -98,6 +99,23 @@ export default function IndiaRfpPage() {
               services={content.services}
               companyName={content.companyName}
             />
+          </div>
+        </section>
+
+        {/* Enterprise SLA & Compliance Framework Banner */}
+        <section className="bg-slate-900 border-y border-slate-800 py-6 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Vendor Governance &amp; SLA</span>
+              <p className="text-sm font-semibold text-white mt-0.5">Need Contractual SLA Benchmarks or Statutory Compliance Records?</p>
+              <p className="text-xs text-slate-400">Review our 99.4% on-time guarantee, 20-min emergency hot-swap, and GST SAC 9966 invoicing terms.</p>
+            </div>
+            <Link
+              href="/india/sla"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shrink-0"
+            >
+              Explore SLA &amp; Compliance Desk &rarr;
+            </Link>
           </div>
         </section>
 

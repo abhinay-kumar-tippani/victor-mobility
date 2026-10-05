@@ -107,6 +107,11 @@ export default function Footer({
                 </Link>
               </li>
               <li>
+                <Link href={`${basePrefix}/sla`} className="hover:text-white transition-colors text-amber-400 font-semibold">
+                  Enterprise SLA &amp; Compliance
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/fleet`} className="hover:text-white transition-colors">
                   Fleet Categories
                 </Link>
