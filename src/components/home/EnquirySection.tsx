@@ -37,8 +37,7 @@ export default function EnquirySection({
   isStandalonePage = false,
 }: EnquirySectionProps) {
   const publishedServices = services.filter((s) => s.published);
-  const publishedCities = cities.filter((c) => c.published);
-
+  const publishedCities = cities.filter((c: CityItem) => c.published);
   const [fullName, setFullName] = useState("");
   const [selectedService, setSelectedService] = useState(
     preselectedService || publishedServices[0]?.title || "Employee Transportation"
@@ -67,8 +66,8 @@ export default function EnquirySection({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      const sParam = params.get("service");
-      const cParam = params.get("city");
+      const sParam = params.get("service") || preselectedService;
+      const cParam = params.get("city") || preselectedCity;
       const catParam = params.get("category");
       if (catParam) {
         setSelectedCategory(catParam);
@@ -147,7 +146,7 @@ export default function EnquirySection({
     return () => {
       window.removeEventListener("victor:select-enquiry", handleEnquirySelection);
     };
-  }, [publishedServices, publishedCities]);
+  }, [publishedServices, publishedCities, preselectedService, preselectedCity]);
 
   const cityDisplay = selectedCity === "Other" && customCity.trim() ? customCity.trim() : selectedCity;
 
