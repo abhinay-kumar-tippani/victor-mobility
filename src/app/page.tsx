@@ -110,7 +110,7 @@ export default function GlobalGatewayPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-brand-violet shrink-0" />
-                  <span><strong>Desk:</strong> +91 91009 13324 (24/7 Operations Control)</span>
+                  <span><strong>Desk:</strong> +91 91007 77768 (24/7 Operations Control)</span>
                 </div>
               </div>
             </div>
@@ -190,6 +190,9 @@ export default function GlobalGatewayPage() {
       {/* Global Gateway Footer */}
       <footer className="relative z-10 border-t border-brand-indigo/25 bg-brand-ink/90 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-brand-soft-neutral/60 space-y-4">
         <div className="flex flex-wrap items-center justify-center gap-6">
+          <Link href="/markets" className="text-brand-violet hover:text-white font-bold transition-colors">
+            🌐 Global Regional Operations Gateway (/markets)
+          </Link>
           <Link href="/india" className="hover:text-white transition-colors">
             India Operations
           </Link>

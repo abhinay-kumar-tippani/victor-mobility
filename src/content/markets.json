@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "title": "Global Regional Operations Gateway & Cross-Border Fleet Network",
+  "eyebrow": "International Mobility Network · India & United Arab Emirates",
+  "description": "Unified executive transportation infrastructure connecting India's premier technology corridors with the UAE's premier commercial and financial centers.",
+  "regions": [
+    {
+      "id": "india",
+      "country": "India",
+      "flag": "🇮🇳",
+      "title": "Victor Mobility India",
+      "legalEntity": "Victor Mobility Private Limited",
+      "registration": "CIN: U50100TG2023PTC178921 · PAN: AAFCV8841M",
+      "headquarters": "Financial District, Nanakramguda, Hyderabad, Telangana",
+      "operatingHubs": ["Hyderabad (Head Office)", "Bengaluru (Regional Office)", "Pune (Branch Office)"],
+      "currency": "INR (₹)",
+      "primaryServices": [
+        "Dedicated Employee Shift Transportation",
+        "Arterial Tech Park Bus & Shuttles",
+        "Executive Chauffeur & Luxury Retainers",
+        "Airport VIP Protocol & Delegations",
+        "Multi-City Investor Roadshows"
+      ],
+      "complianceHighlights": [
+        "100% EPF & ESIC Statutory Labour Compliance",
+        "Multi-State GSTIN SAC 9966 Automated E-Invoicing",
+        "Certified AIS-140 GPS Telematics with Dual SOS Panic Buttons",
+        "₹10 Crore Aggregate Commercial Motor Insurance"
+      ],
+      "portalUrl": "/india",
+      "rfpUrl": "/india/rfp",
+      "rateCardUrl": "/india/rate-card"
+    },
+    {
+      "id": "uae",
+      "country": "United Arab Emirates",
+      "flag": "🇦🇪",
+      "title": "Victor Mobility UAE",
+      "legalEntity": "Victor Mobility LLC (UAE Branch)",
+      "registration": "DED License: DED-1048291 · FTA TRN: 100482910400003",
+      "headquarters": "Airport Road, Al Garhoud Business Centre, Dubai, UAE",
+      "operatingHubs": ["Dubai (Corporate Hub)", "Abu Dhabi (Representative Desk)"],
+      "currency": "AED (Dirhams)",
+      "primaryServices": [
+        "First-Class Executive Limousine Transit",
+        "Cross-Emirate DIFC to ADGM Financial Axis",
+        "Airport VIP FBO Tarmac Meet-and-Assist",
+        "Global Summits & Diplomatic Motorcades",
+        "Corporate Executive Fleet Leasing"
+      ],
+      "complianceHighlights": [
+        "100% Dubai RTA Commercial Limousine Permits",
+        "Federal Tax Authority (FTA) 5% VAT Invoicing",
+        "Automated Salik Road Toll & Airport Gate Reconciliation",
+        "Comprehensive UAE Commercial Motor Liability Cover"
+      ],
+      "portalUrl": "/uae",
+      "rfpUrl": "/uae/rfp",
+      "rateCardUrl": "/uae/rate-card"
+    }
+  ],
+  "crossBorderSynergies": [
+    {
+      "title": "Unified Bilateral Master Services Agreement (MSA)",
+      "description": "Multinational corporations can execute a single bilateral enterprise contract governing executive travel across both India and UAE entities."
+    },
+    {
+      "title": "Consolidated Multi-Currency Corporate Billing",
+      "description": "Streamlined accounting with local tax compliance in INR (with GST SAC 9966 ITC) and AED (with FTA 5% VAT), eliminating foreign exchange friction."
+    },
+    {
+      "title": "Global Duty of Care & Centralized Telematics",
+      "description": "Enterprise security heads access a single telemetry dashboard monitoring VIP delegations across Hyderabad, Bengaluru, Pune, Dubai, and Abu Dhabi."
+    },
+    {
+      "title": "Dedicated Global Account Director",
+      "description": "A single senior relationship manager oversees cross-border executive travel, private jet FBO transfers, and investor roadshow itineraries."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can multinational companies onboard Victor Mobility under a single global vendor contract?",
+      "answer": "Yes. We offer cross-border Master Services Agreements (MSAs) that legally bind and cover service deliveries across both our Indian operating entity (Victor Mobility Pvt. Ltd.) and our UAE branch (Victor Mobility LLC), with standardized SLA guarantees and unified credit terms."
+    },
+    {
+      "question": "How do you coordinate executive travel for teams flying between India and the UAE?",
+      "answer": "Our airport protocol teams provide synchronized departure and arrival handshakes. Your executive is escorted to the terminal in Hyderabad or Bengaluru, and upon touchdown in Dubai or Abu Dhabi, our UAE chauffeur is staged airside or curbside with luggage assistance."
+    },
+    {
+      "question": "What currencies are supported for corporate billing?",
+      "answer": "Corporate retainers are invoiced locally in Indian Rupees (₹ INR) for Indian operations with full GST Input Tax Credit (ITC) compliance, and in UAE Dirhams (AED) for UAE operations with compliant Federal Tax Authority (FTA) 5% VAT invoices."
+    }
+  ]
+}

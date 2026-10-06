@@ -271,6 +271,21 @@ export default function Header({ contact }: HeaderProps) {
                     <span>🇦🇪 UAE</span>
                     {isUae && <span className="text-[10px] text-brand-indigo font-bold">Active</span>}
                   </Link>
+                  <div className="border-t border-brand-soft-neutral/70 my-1 pt-1">
+                    <Link
+                      href="/markets"
+                      onClick={() => setRegionDropdownOpen(false)}
+                      className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-brand-indigo hover:bg-brand-warm-white"
+                    >
+                      <span className="flex items-center gap-1.5 font-bold">
+                        <span>🌐</span>
+                        <span>All Global Markets</span>
+                      </span>
+                      <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-brand-indigo/10 text-brand-indigo font-bold">
+                        Gateway
+                      </span>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -361,8 +376,8 @@ export default function Header({ contact }: HeaderProps) {
                 <Link
                   href="/india"
                   onClick={() => closeMenu(false)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
-                    !isUae
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${
+                    !isUae && pathname !== "/markets"
                       ? "bg-brand-indigo text-white shadow-2xs"
                       : "bg-white text-brand-ink border border-brand-soft-neutral"
                   }`}
@@ -372,13 +387,25 @@ export default function Header({ contact }: HeaderProps) {
                 <Link
                   href="/uae"
                   onClick={() => closeMenu(false)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${
                     isUae
                       ? "bg-brand-indigo text-white shadow-2xs"
                       : "bg-white text-brand-ink border border-brand-soft-neutral"
                   }`}
                 >
                   🇦🇪 UAE
+                </Link>
+                <Link
+                  href="/markets"
+                  onClick={() => closeMenu(false)}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${
+                    pathname === "/markets"
+                      ? "bg-brand-indigo text-white shadow-2xs"
+                      : "bg-white text-brand-indigo border border-brand-indigo/30"
+                  }`}
+                  title="Global Regional Gateway"
+                >
+                  🌐 Global
                 </Link>
               </div>
             </div>

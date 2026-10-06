@@ -57,6 +57,11 @@ export default function Footer({
             </h4>
             <ul className="space-y-2.5 text-sm text-brand-soft-neutral/80">
               <li>
+                <Link href="/markets" className="hover:text-white transition-colors text-purple-300 font-semibold flex items-center gap-1.5">
+                  <span>🌐 Global Regional Gateway</span>
+                </Link>
+              </li>
+              <li>
                 <Link href={`${basePrefix}/services`} className="hover:text-white transition-colors">
                   Services Overview
                 </Link>

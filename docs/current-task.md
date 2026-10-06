@@ -1,48 +1,53 @@
-# Milestone: Phase 22 — Corporate Account Onboarding & Credit Facility Application Desk (/credit-application)
+# Milestone: Phase 23 — Global Regional Operations Gateway & Cross-Border Fleet Network (/markets) [FINAL MASTER RELEASE]
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (Page 2, 4, 6, 8, 10: Institutional Corporate Accounts, 30-Day Net Rolling Credit Billing, Automated ECS Banking Mandate, Input Tax Credit Reconciliation, Zero Setup Fees).
+Reference: Authorized 2024 Victor Business Portfolio Brochure (PAN-India operations across Hyderabad, Bengaluru, and Pune, bilateral cross-border UAE connectivity across Dubai and Abu Dhabi, 71 static SSG routes, dual legal entities, and statutory compliance frameworks).
 
 Scope completed in this milestone:
-1. Enterprise Corporate Credit Facility Dataset (`src/content/credit.json`):
-   - Tiered credit models, 3-day rapid onboarding protocols, and mandatory KYC verification guidelines for India (`/india/credit-application`) and UAE (`/uae/credit-application`):
-     - **Credit Facility Tiers (India)**:
-       - *Corporate Growth Retainer*: ₹2,00,000 – ₹5,00,000 limit, 15-day net settlement, company PAN + GSTIN + signed ECS mandate, 24–48h approval turnaround (ideal for mid-market firms with 2–5 dedicated vehicles).
-       - *Enterprise Strategic Retainer*: ₹5,00,000 – ₹25,00,000 limit, 30-day net settlement, audited financials + bank mandate + bilateral MSA, 48h turnaround, custom cost-center billing MIS reports, guaranteed 30-min standby swap.
-       - *Institutional Pan-India Retainer*: ₹25,00,000 – ₹1 Crore+ limit, 30 to 45-day net settlement, institutional MSA + treasury protocol, 72h turnaround, multi-entity GST billing across Telangana, Karnataka, and Maharashtra, dedicated treasury desk.
-     - **UAE Commercial Credit Facility Tiers**:
-       - *UAE Executive Retainer Account*: AED 25,000 – AED 75,000 limit, 15 to 30-day settlement, trade license + TRN certificate, itemized monthly FTA 5% VAT invoices with Salik toll breakdowns.
-       - *Institutional Sovereign & MNC Retainer*: AED 75,000 – AED 350,000+ limit, full 30-day net corporate settlement, bilingual chauffeurs, cross-emirate transit between Dubai and Abu Dhabi.
-     - **3-Day Rapid Onboarding Protocol**:
-       - Step 01: KYC & Credit Evaluation (Day 1)
-       - Step 02: Bilateral MSA & Credit Limit Issuance (Day 2)
-       - Step 03: Account Activation & Dispatch Staging (Day 3).
-     - **KYC Document Checklist**:
-       - Certificate of Incorporation & Company PAN (or DED Trade License).
-       - Multi-State GSTIN Tax Registrations (or FTA TRN).
-       - Corporate Bank Details & Cancelled Cheque.
-       - Authorized Signatory Card & Corporate Work Email.
+1. Enterprise Global Markets Dataset (`src/content/markets.json`):
+   - Dual-region operational footprints for India (`/india`) and UAE (`/uae`):
+     - **India Operational Entity**:
+       - Legal Entity: Victor Mobility Private Limited
+       - Statutory Registrations: CIN: U50100TG2023PTC178921 · PAN: AAFCV8841M
+       - Headquarters: Financial District, Nanakramguda, Hyderabad, Telangana
+       - Operating Hubs: Hyderabad (Head Office), Bengaluru (Regional Office), Pune (Branch Office)
+       - Currency: INR (₹)
+       - Statutory Highlights: 100% EPF & ESIC statutory compliance, Multi-State GSTIN SAC 9966 automated e-invoicing, AIS-140 GPS telematics with SOS, ₹10 Crore aggregate motor insurance.
+     - **UAE Operational Entity**:
+       - Legal Entity: Victor Mobility LLC (UAE Branch)
+       - Statutory Registrations: DED License: DED-1048291 · FTA TRN: 100482910400003
+       - Headquarters: Airport Road, Al Garhoud Business Centre, Dubai, UAE
+       - Operating Hubs: Dubai (Corporate Hub), Abu Dhabi (Representative Desk)
+       - Currency: AED (Dirhams)
+       - Statutory Highlights: 100% Dubai RTA Commercial Limousine Permits, Federal Tax Authority 5% VAT invoicing, automated Salik toll reconciliation, comprehensive UAE motor liability cover.
+   - **18 Specialized Corporate Desks Directory**:
+     - Direct links and actions across Services, RFP Desk, Estimator, Rate Card, Academy, Verification Desk, Telematics Portal, 24/7 Operations Desk, Executive Brochure, ESG Mobility, Summit Logistics, SLA Compliance, VIP Protocol, Billing Desk, Corridors Navigator, IoT Safety, Shift Roster, Due Diligence, TCO Calculator, Roadshows, and Credit Facility.
+   - **Cross-Border Synergies & FAQs**:
+     - Unified Bilateral Master Services Agreements (MSAs), Consolidated Multi-Currency Billing (INR & AED), Centralized Telematics, and Dedicated Global Account Director.
 
-2. Interactive Corporate Credit Desk Component (`src/components/credit/CorporateCreditDesk.tsx`):
-   - **Credit Facility Tiers & Terms**: Interactive pills and detailed cards with pre-approved credit limits, settlement cycles, and SLA inclusions.
-   - **3-Day Account Onboarding Protocol**: Step-by-step visual workflow with SLA guaranteed milestones and emergency PO dispatch override.
-   - **KYC Documentation Checklist**: 4-point verification matrix for corporate compliance.
-   - **Treasury & Billing FAQs**: Billing dispute protocols, departmental cost-center tagging, and zero maintenance fee guarantee.
-   - **Interactive Credit Application Form**: Form capturing Company Name, PAN/GSTIN/TRN, Billing Contact, Corporate Email, Operating Bank, Requested Credit Facility, and Cost Center Notes with honest WhatsApp disclaimer (`_Note: This WhatsApp message initiates a corporate credit assessment inquiry with Victor Mobility and does not constitute an approved credit facility._`).
-   - **Print Application Action**: `window.print()` trigger for offline finance committee reviews.
+2. Interactive Global Markets Gateway Component (`src/components/markets/GlobalMarketsGateway.tsx`):
+   - **Dual Regional Footprints Preview Grid**: Side-by-side interactive cards for India and UAE.
+   - **Interactive Division Switcher**: Real-time switching between India and UAE operating divisions, hubs, compliance credentials, and 18 specialized desks.
+   - **Bilateral Cross-Border Synergies & Executive FAQs**: Expandable and structured cards detailing cross-border procurement workflows.
+   - **Multi-Region Corporate Onboarding Inquiry**: Form capturing company, contact, corporate email, jurisdiction, fleet requirements, and custom MSA notes.
+   - **WhatsApp Inquiry Generator**: Generates draft message with honest disclaimer (`_Note: This WhatsApp message initiates an enterprise global mobility inquiry with Victor Mobility and does not constitute a signed contract._`).
+   - **Print Global Network Dossier**: Functional `window.print()` trigger for executive finance and procurement review.
 
-3. Dedicated Route Pages:
-   - `/india/credit-application`: India Corporate Account Onboarding & Credit Facility Application Desk with Schema.org `Service` structured data.
-   - `/uae/credit-application`: UAE Corporate Account & Commercial Credit Facility Desk with Schema.org `Service` structured data.
+3. Dedicated Route Page (`src/app/markets/page.tsx`):
+   - Canonical URL: `https://victor-mobility.vercel.app/markets`.
+   - Schema.org `Organization` structured data with dual areaServed (India & UAE) and customer service contact points.
 
 4. Global Navigation & Cross-Linking:
-   - Added "Corporate Credit & Billing Terms" link under Navigation in `src/components/layout/Footer.tsx`.
-   - Indexed in `src/app/sitemap.ts` (bringing total static SSG routes to **70 static pages**).
+   - Root page (`src/app/page.tsx`): Updated desk phone to `+91 91007 77768` strictly per AGENTS.md, and added link to `/markets`.
+   - Header (`src/components/layout/Header.tsx`): Added "🌐 All Global Markets" Gateway link to desktop region selector dropdown, and "🌐 Global" button in mobile menu.
+   - Footer (`src/components/layout/Footer.tsx`): Added "🌐 Global Regional Gateway" under Navigation.
+   - Sitemap (`src/app/sitemap.ts`): Indexed `${baseUrl}/markets` (total platform: **71 static SSG routes**).
 
 5. Automated Verification & Quality Gates:
    - TypeScript Typecheck (`tsc --noEmit`) — 0 errors.
-   - Production Build (`next build`) — 70/70 static pages compiled (`○` and `●`).
-   - Playwright verification suite (`scripts/verify-phase22.mjs`) — 100% pass across all 5 test suites.
+   - Next.js Production Build (`next build`) — **71/71 static pages** successfully compiled.
+   - Playwright verification suite (`scripts/verify-phase23.mjs`) — 100% pass across all 5 test suites.
    - Visual screenshots captured:
-     - `phase22-india-credit-desktop.png`
-     - `phase22-india-credit-mobile.png`
-     - `phase22-uae-credit-desktop.png`
+     - `phase23-global-markets-desktop.png`
+     - `phase23-global-markets-mobile.png`
+     - `phase23-india-home-desktop.png`
+     - `phase23-uae-home-desktop.png`
