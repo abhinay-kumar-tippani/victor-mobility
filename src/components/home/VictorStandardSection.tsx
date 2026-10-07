@@ -44,25 +44,29 @@ export default function VictorStandardSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 2x2 Authoritative Standard Framework */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {standards.map((std, idx) => {
             const Icon = std.icon;
             return (
               <div
                 key={std.title}
-                className="bg-brand-warm-white rounded-2xl p-6 border border-brand-soft-neutral flex flex-col justify-between"
+                className="bg-white rounded-2xl p-7 sm:p-8 border border-brand-soft-neutral border-l-4 border-l-brand-indigo shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo mb-4 shadow-xs">
-                    <Icon className="w-5 h-5" />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo shadow-2xs">
+                      <Icon className="w-5 h-5 text-brand-blue" />
+                    </div>
+                    <span className="text-xs font-bold text-brand-violet uppercase tracking-widest px-2.5 py-1 rounded-full bg-brand-warm-white border border-brand-soft-neutral">
+                      Standard 0{idx + 1}
+                    </span>
                   </div>
-                  <span className="text-[10px] font-bold text-brand-violet uppercase tracking-wider block mb-1">
-                    Standard 0{idx + 1}
-                  </span>
-                  <h3 className="text-base font-bold text-brand-ink mb-2">
+
+                  <h3 className="text-lg font-bold text-brand-ink mb-2">
                     {std.title}
                   </h3>
-                  <p className="text-xs text-brand-ink/70 leading-relaxed">
+                  <p className="text-sm text-brand-ink/75 leading-relaxed">
                     {std.description}
                   </p>
                 </div>
@@ -72,16 +76,16 @@ export default function VictorStandardSection() {
         </div>
 
         {/* Compact route to all 6 services */}
-        <div className="mt-10 p-5 rounded-2xl bg-brand-warm-white/70 border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-xs text-brand-ink/80">
+        <div className="mt-10 p-6 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-sm font-medium text-brand-ink/80">
             Looking for specific fleet allocations or workplace commute corridors?
           </p>
           <Link
             href="/india/services"
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue"
+            className="inline-flex items-center gap-1.5 text-xs font-bold bg-white hover:bg-brand-indigo hover:text-white text-brand-indigo px-4 py-2.5 rounded-xl border border-brand-soft-neutral transition-colors shadow-2xs"
           >
             <span>Explore all 6 service specialisations</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>

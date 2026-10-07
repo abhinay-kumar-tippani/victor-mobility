@@ -1,5 +1,11 @@
 {
   "schemaVersion": 1,
+  "businessResources": [
+    {"title":"Plan your transport","links":[["rfp","Request a corporate proposal"],["estimator","Route and fare estimator"],["rate-card","Rate cards and retainers"],["tco-calculator","Fleet cost comparison"],["brochure","Company profile"]]},
+    {"title":"Coordinate travel","links":[["corridors","Travel corridors"],["roster","Shift planning"],["events","Event transport"],["roadshows","Multi-city roadshows"],["protocol","Airport arrivals"],["emergency","Operations contact"]]},
+    {"title":"Company and standards","links":[["academy","Chauffeur training"],["academy/verify","Chauffeur verification information"],["safety","Fleet safety"],["esg","Sustainability"],["sla","Service agreements"],["due-diligence","Company documents"]]},
+    {"title":"Accounts and tools","links":[["billing","Billing information"],["credit-application","Corporate account enquiries"],["portal","Portal demonstration"],["contact","Speak with our team"]]}
+  ],
   "region": "india",
   "countryName": "India",
   "companyName": "Victor Mobility Pvt. Ltd.",

@@ -6,12 +6,11 @@ import uaeData from "@/content/uae.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 import { Activity, ShieldCheck, CheckCircle2, Building2 } from "lucide-react";
-import Link from "next/link";
+
 
 export const metadata: Metadata = {
-  title: "UAE Corporate Client Portal & Fleet Telematics | Victor Mobility UAE",
-  description:
-    "Enterprise client mobility portal preview with executive limousine flight monitoring, delegation shift rosters, monthly SLA scorecards, and VAT billing reconciliation for UAE enterprises.",
+  title: "Corporate Portal Demonstration | Victor Mobility UAE",
+  description: "Interactive portal demonstration using fictional examples. No live tracking, client records, measured performance or payable invoices.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/uae/portal",
     languages: {
@@ -30,8 +29,7 @@ export default function UaePortalPage() {
     "@type": "WebApplication",
     name: "Victor Mobility UAE Corporate Client Portal",
     applicationCategory: "BusinessApplication",
-    description:
-      "Executive limousine delegation tracking, flight radar telematics, and SLA compliance scorecards in Dubai and the UAE.",
+    description: "Interactive portal demonstration using fictional examples. No live tracking, client records, measured performance or payable invoices.",
     provider: {
       "@type": "Organization",
       name: content.companyName,
@@ -55,27 +53,27 @@ export default function UaePortalPage() {
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
                 <Activity className="w-3.5 h-3.5 text-brand-violet" />
-                Dubai Limousine Operations Software
+                Portal demonstration — sample data
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                UAE Corporate Client Portal
+                UAE Portal Demonstration
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Experience real-time executive delegation monitoring, flight radar telematics, monthly SLA scorecards, and VAT billing transparency backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Explore example roster, reporting and statement layouts. This preview is not connected to live operations or customer accounts.
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>RTA Certified Limousine Telematics</span>
+                  <span>Fictional roster examples</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>99.7% On-Time SLA Record</span>
+                  <span>No measured performance data</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-emerald-400" />
-                  <span>Dubai Al Garhoud Head Office Desk</span>
+                  <span>No account or booking created</span>
                 </div>
               </div>
             </div>

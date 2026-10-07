@@ -3,9 +3,9 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Car, Users, Bus, Sparkles, ArrowRight, Info, CheckCircle2 } from "lucide-react";
 import type { FleetCategory, MediaAsset } from "@/types/content";
-import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface FleetSectionProps {
   categories: FleetCategory[];
@@ -172,6 +172,7 @@ export default function FleetSection({
   fleetNote,
   mediaCaption,
 }: FleetSectionProps) {
+  const basePrefix = usePathname().startsWith("/uae") ? "/uae" : "/india";
   const [activeTab, setActiveTab] = useState<string>(categories[0]?.id || "sedans");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -224,7 +225,7 @@ export default function FleetSection({
           </div>
 
           <Link
-            href="/india/fleet"
+            href={`${basePrefix}/fleet`}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0"
           >
             <span>Explore full fleet guide</span>
@@ -236,7 +237,7 @@ export default function FleetSection({
         <div
           role="tablist"
           aria-label="Fleet vehicle categories"
-          className="flex flex-wrap gap-2 sm:gap-3 p-1.5 bg-brand-warm-white rounded-xl border border-brand-soft-neutral mb-8 max-w-3xl"
+          className="flex overflow-x-auto no-scrollbar gap-2 sm:gap-3 p-1.5 bg-brand-warm-white rounded-xl border border-brand-soft-neutral mb-8 max-w-3xl"
         >
           {categories.map((cat, idx) => {
             const TabIcon = categoryIcons[cat.id] || Car;
@@ -255,7 +256,7 @@ export default function FleetSection({
                 type="button"
                 onClick={() => setActiveTab(cat.id)}
                 onKeyDown={(e) => handleKeyDown(e, idx)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-150 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-150 min-h-[44px] shrink-0 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                   isActive
                     ? "bg-brand-indigo text-white shadow-sm"
                     : "text-brand-ink/70 hover:text-brand-ink hover:bg-white"
@@ -275,8 +276,8 @@ export default function FleetSection({
           aria-labelledby={`fleet-tab-${currentCategory.id}`}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
         >
-          {/* Left: Category Specifications & Planning Guidance */}
-          <div className="lg:col-span-6 bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral flex flex-col justify-between">
+          {/* Left / Below: Category Specifications & Planning Guidance */}
+          <div className="order-2 lg:order-1 lg:col-span-6 bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral flex flex-col justify-between">
             <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -323,28 +324,22 @@ export default function FleetSection({
               </div>
             </div>
 
-            <div className="pt-5 mt-5 border-t border-brand-soft-neutral flex items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={() =>
-                  selectEnquiryOption({
-                    category: currentCategory.name,
-                    service: currentVisual.recommendedService,
-                  })
-                }
-                className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-3 rounded-xl shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+            <div className="pt-5 mt-5 border-t border-brand-soft-neutral flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <Link
+                href={`${basePrefix}/contact?category=${encodeURIComponent(currentCategory.name)}&service=${encodeURIComponent(currentVisual.recommendedService)}`}
+                className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-3 rounded-xl shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <span>Enquire About {currentCategory.name}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-              <span className="text-[11px] text-brand-ink/50 text-right">
+              </Link>
+              <span className="text-[11px] text-brand-ink/50 text-left sm:text-right">
                 Per-location availability
               </span>
             </div>
           </div>
 
-          {/* Right: Dynamic Category-Specific Image */}
-          <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-brand-soft-neutral shadow-md flex flex-col justify-end min-h-[320px] sm:min-h-[380px] bg-brand-ink group">
+          {/* Right / Top on Mobile: Dynamic Category-Specific Image */}
+          <div className="order-1 lg:order-2 lg:col-span-6 relative rounded-2xl overflow-hidden border border-brand-soft-neutral shadow-md flex flex-col justify-end min-h-[260px] sm:min-h-[340px] lg:min-h-[380px] bg-brand-ink group">
             <Image
               key={currentCategory.id}
               src={currentVisual.imageSrc}
@@ -356,18 +351,18 @@ export default function FleetSection({
               className="object-cover group-hover:scale-102 transition-all duration-300"
             />
 
-            {/* Consistent dark ink backdrop ensuring readable contrast */}
-            <div className="relative z-10 w-full p-6 text-white bg-gradient-to-t from-brand-ink via-brand-ink/95 to-brand-ink/80 sm:to-brand-ink/70">
-              <span className="text-[11px] uppercase tracking-widest font-bold text-brand-violet block mb-1">
+            {/* Consistent dark ink backdrop ensuring readable contrast without obscuring photo */}
+            <div className="relative z-10 w-full p-4 sm:p-6 text-white bg-gradient-to-t from-brand-ink/90 via-brand-ink/60 to-transparent">
+              <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block mb-1">
                 {currentVisual.badge}
               </span>
               <h4 className="text-base sm:text-lg font-bold text-white mb-1 leading-snug">
                 {currentVisual.headline}
               </h4>
-              <p className="text-xs text-brand-soft-neutral/85 leading-relaxed">
+              <p className="text-xs text-brand-soft-neutral/85 leading-relaxed hidden sm:block">
                 Commercial permits, professional demeanor, and vehicle condition verified before dispatch.
               </p>
-              <p className="text-[11px] text-brand-soft-neutral/60 italic pt-1.5">
+              <p className="text-xs text-brand-soft-neutral/70 italic pt-1">
                 {mediaCaption}
               </p>
             </div>

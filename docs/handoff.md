@@ -1,6 +1,71 @@
 # Handoff
 
-## Milestone: Phase 23 — Global Regional Operations Gateway & Cross-Border Fleet Network (/markets) [FINAL MASTER PRODUCTION RELEASE]
+## 6 October 2026 — Codex fixes for the six UI/UX findings
+
+Status: implemented locally, preserving existing uncommitted work. No commit, push or Vercel deployment was performed. This entry describes the checks for this fix pass; older milestone claims below are historical.
+
+- Enquiry query defaults now initialise on navigation, without resetting visitor service/city edits, custom-city text or a removed vehicle category on each keystroke.
+- Fleet enquiries use real contact links carrying category and service; shared links respect India/UAE routes.
+- Retained the pending 1280px desktop-header breakpoint. Reduced primary navigation to five destinations, restored one close button inside the mobile dialog, and fixed the backdrop's containing block and viewport height.
+- Portal pages, metadata, roster/scorecard/statement views and sample download consistently describe a demonstration. Removed apparent real customer identities, vehicle/driver assignments, live telemetry, invented performance statistics and payable amounts. No sample roster is sent to operations.
+- Replaced the schematic map with simplified geographic state/UT boundaries, three office-state highlights and approximate city markers. City buttons work with keyboard activation and expose pressed state; office details and enquiry links update together. No perpetual marker animation. See `docs/map-attribution.md`.
+- Grouped footer navigation and added `/india/business` and `/uae/business` directories so specialist resources remain accessible without dominating primary navigation.
+
+Validation against the local production build:
+
+- TypeScript: passed. ESLint: no warnings/errors. Next production build: all 73 routes generated. Used local Node entry points because the shell's `npm` shim points to a missing npm installation.
+- Homepage overflow checks at 320, 390, 768, 1024, 1280 and 1440px: no horizontal document overflow.
+- Mobile menu: open/close, Shift+Tab/Tab containment, Escape, restored trigger focus, background inertness and scrollable 320×640 layout checked.
+- Fleet → contact: Sedans/category and recommended service retained. Visitor changes to Airport Transfers/Pune and subsequent typing persisted; category removal persisted. Map → contact: Bengaluru prefilled. Other-city input remained editable and appeared in the draft preview.
+- Map: desktop Pune and keyboard Bengaluru selection updated the matching office and contact URL. Desktop/mobile screenshots inspected.
+- Portal: both example shifts and all three view selectors exercised. Download link's actual text payload and `DEMO-…` filename verified; in-app browser download-event capture timed out, so OS save completion is not certified.
+- All 42 India/UAE business-directory destinations exist in the prerender manifest.
+- Reduced-motion handling for the changed menu was checked in source; OS-level reduced-motion emulation, screen-reader speech, actual calls and WhatsApp sending were not performed.
+
+Evidence: `docs/screenshots/codex-ui-fixes/` (desktop home/map/business/portal and mobile home/menu/map/enquiry/portal/footer). Scope is these six findings, not a fresh factual certification of every specialist page or the pre-existing company claims.
+
+Release: changes are ready for the normal GitHub/Vercel release workflow. The workspace has no linked `.vercel/project.json`; live-site verification remains a post-deployment step.
+
+---
+
+## Milestone: Comprehensive UI/UX Audit & Enterprise Redesign Implementation
+- **Branch**: `main`
+- **Status**: Production Ready & Fully Verified with Automated E2E Suites.
+- **Platform Scale**: **71 Static SSG Routes**, zero horizontal overflows across 8 viewports (320px–1920px), complete enterprise design system alignment.
+
+---
+
+### Executive Summary & Key Results
+A comprehensive, end-to-end visual and functional UI/UX audit was conducted across 8 viewports:
+- Small Mobile (320px)
+- Mobile (375px, 390px, 430px)
+- Tablet (768px, 1024px)
+- Desktop (1440px)
+- Large Desktop (1920px)
+
+Across 10 core routes (`/india`, `/india/contact`, `/india/services`, `/india/services/employee-transportation`, `/india/fleet`, `/india/about`, `/india/rfp`, `/india/estimator`, `/markets`, `/`).
+
+#### Key Solved Issues:
+1. **P0 131px Horizontal Overflow on 1024px Tablets**: Expanded desktop navigation breakpoint in `Header.tsx` from `lg:flex` (1024px) to `xl:flex` (1280px), collapsing the 1155px wide navigation into an accessible drawer on 1024px screens. **Result: 0px overflow across all 71 pages.**
+2. **P0 Logo Artifact Line Removal**: Fixed `<image>` raster bleeding in `BrandLogo.tsx` by introducing an explicit SVG `<clipPath id="victor-logo-viewport-clip">` and `overflow-hidden` container. The original Pegasus logo, ®, and "On Time Every Time." tagline remain 100% intact without scanner lines.
+3. **P0 Broken Enquiry CustomEvent on Homepage**: Eliminated orphaned `selectEnquiryOption` dispatch on pages without `#enquiry` element by replacing with direct `<Link href="/india/contact">` preserving query parameters.
+4. **P1 Footer 1100px Imbalance & Rainbow Links**: Redesigned `Footer.tsx` into an authoritative 4-column enterprise architecture. Removed disparate colored links (`text-purple-300`, `text-amber-400`, `text-emerald-400`, etc.) and unified typography to `text-brand-soft-neutral/75 hover:text-white`.
+5. **P1 Fleet Tab Wrapping & Image Hierarchy**: Fleet category selector on mobile now features touch-friendly horizontal swipe (`no-scrollbar shrink-0`). On mobile, the vehicle image renders above vehicle specifications so tab changes immediately display the updated vehicle photograph above the fold.
+6. **P1 India Network Map Mobile Hierarchy**: On mobile screens (`< lg`), city selector tabs and registered address cards are prioritized above the vector map (`order-1 lg:order-2`), providing instant contact details and direct calling options without scrolling through a 550px map.
+7. **P1 Missing Key Points on Customer Journeys**: Rendered bulleted `keyPoints` checklists on card faces for Corporate, VIP, and Wedding journeys from `india.json`.
+8. **P2 WCAG Touch Targets & Typography Contrast**: All buttons, links, and chips upgraded to `min-h-[44px]` touch targets. Disclaimers standardized to readable `text-xs`.
+
+#### Quality Gates & Automated Verification:
+| Check | Command | Status |
+| :--- | :--- | :--- |
+| **TypeScript Validation** | `npm run type-check` | **PASS (0 errors)** |
+| **ESLint Static Analysis** | `npm run lint` | **PASS (0 warnings, 0 errors)** |
+| **Production Build** | `npm run build` | **PASS (71/71 static pages compiled)** |
+| **Playwright Audit Suite** | `node scripts/audit-ui-ux.mjs` | **PASS (0 horizontal overflows across 8 viewports)** |
+
+---
+
+## Milestone: Phase 23 — Global Regional Operations Gateway & Cross-Border Fleet Network (/markets)
 - **Branch**: `main`
 - **Status**: Production Ready & Fully Verified with Automated E2E Suites.
 - **Platform Scale**: **71 Static SSG Routes**, dual-regional legal architectures (India & UAE), 18 specialized corporate operations desks, and 100% compliance with AGENTS.md.

@@ -99,7 +99,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
               <div className="pt-3 border-t border-brand-soft-neutral flex flex-wrap items-center gap-3">
                 <a
                   href={contact.phoneHref}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-brand-indigo bg-brand-warm-white hover:bg-brand-indigo hover:text-white px-3.5 py-2 rounded-xl border border-brand-soft-neutral transition-colors"
+                  className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold text-brand-indigo bg-brand-warm-white hover:bg-brand-indigo hover:text-white px-4 py-2.5 rounded-xl border border-brand-soft-neutral transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>{contact.phoneDisplay}</span>
@@ -109,7 +109,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
                   href={`https://wa.me/${contact.whatsappDigits}?text=Hello%20Mujeeb,%20I%20would%20like%20to%20discuss%20travel%20requirements%20with%20Victor%20Mobility.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3.5 py-2 rounded-xl border border-emerald-200 transition-colors"
+                  className="min-h-[44px] inline-flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-xl border border-emerald-200 transition-colors"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
                   <span>WhatsApp Desk</span>
@@ -124,6 +124,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
                   src="/images/india/operations-control.jpg"
                   alt="Victor Mobility 24/7 Operations and Dispatch Control Room"
                   fill
+                  priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover"
                 />
@@ -145,7 +146,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
                 <div className="pt-2 flex items-center justify-between">
                   <Link
                     href="/india/about"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue transition-colors"
+                    className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue transition-colors"
                   >
                     <span>Read our full company story & 2010–2024 milestones</span>
                     <ArrowRight className="w-4 h-4" />

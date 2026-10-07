@@ -28,9 +28,7 @@ export default function Header({ contact }: HeaderProps) {
   const navItems = [
     { label: "Services", href: `${basePrefix}/services`, hash: "#services" },
     { label: "Fleet", href: `${basePrefix}/fleet`, hash: "#fleet" },
-    { label: "Estimator", href: `${basePrefix}/estimator`, hash: "#estimator" },
-    { label: "RFP Desk", href: `${basePrefix}/rfp`, hash: "#rfp" },
-    { label: "Academy", href: `${basePrefix}/academy`, hash: "#academy" },
+    { label: "For businesses", href: `${basePrefix}/business`, hash: "#business" },
     { label: "About", href: `${basePrefix}/about`, hash: "#about" },
     { label: "Contact", href: `${basePrefix}/contact`, hash: "#contact" },
   ];
@@ -56,9 +54,9 @@ export default function Header({ contact }: HeaderProps) {
     }
   };
 
-  // Auto-close menu when resized to desktop (>= 1024px)
+  // Auto-close menu when resized to desktop (>= 1280px)
   useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1024px)");
+    const mql = window.matchMedia("(min-width: 1280px)");
     const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
       if (e.matches && mobileMenuOpen) {
         closeMenu(false);
@@ -194,7 +192,7 @@ export default function Header({ contact }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-soft-neutral shadow-sm transition-all duration-200">
+    <header className="sticky top-0 z-50 bg-white border-b border-brand-soft-neutral shadow-sm transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24">
           {/* Logo container: Crisp white background, non-destructive viewport for enlarged tagline & Pegasus */}
@@ -203,11 +201,11 @@ export default function Header({ contact }: HeaderProps) {
             className="flex items-center group py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded"
             aria-label="Victor Mobility - Home"
           >
-            <BrandLogo className="w-48 sm:w-56 h-12 sm:h-14 transition-transform duration-150 group-hover:scale-102" />
+            <BrandLogo className="w-44 sm:w-52 xl:w-56 h-11 sm:h-13 xl:h-14 transition-transform duration-150 group-hover:scale-102" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
+          <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 whitespace-nowrap" aria-label="Main Navigation">
             {navItems.map((item) => {
               const active = pathname === item.href;
               return (
@@ -227,7 +225,7 @@ export default function Header({ contact }: HeaderProps) {
           </nav>
 
           {/* Desktop CTAs & Region Switcher */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3 whitespace-nowrap shrink-0">
             {/* Global Region Selector Dropdown */}
             <div className="relative" ref={regionDropdownRef}>
               <button
@@ -307,10 +305,10 @@ export default function Header({ contact }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex xl:hidden items-center gap-2">
             <a
               href={contact.phoneHref}
-              className="p-2.5 text-brand-indigo rounded-lg hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
               aria-label={`Call ${contact.phoneDisplay}`}
             >
               <Phone className="w-5 h-5" />
@@ -325,7 +323,7 @@ export default function Header({ contact }: HeaderProps) {
                   setMobileMenuOpen(true);
                 }
               }}
-              className="p-2.5 text-brand-ink rounded-lg hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className={`min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-ink rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors ${mobileMenuOpen ? "invisible" : ""}`}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
@@ -339,7 +337,7 @@ export default function Header({ contact }: HeaderProps) {
       {/* Mobile Drawer with Focus Containment */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-x-0 top-20 sm:top-24 bottom-0 z-40 bg-brand-ink/40 backdrop-blur-sm"
+          className="xl:hidden fixed inset-x-0 top-20 sm:top-24 bottom-0 z-40 bg-brand-ink/40 backdrop-blur-sm"
           onClick={() => closeMenu(true)}
           aria-hidden={!mobileMenuOpen}
         >
@@ -349,23 +347,13 @@ export default function Header({ contact }: HeaderProps) {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
-            className="bg-white border-b border-brand-soft-neutral px-6 pt-4 pb-8 space-y-4 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto animate-in slide-in-from-top-2 duration-200"
+            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-4 shadow-xl max-h-[calc(100dvh-5rem)] sm:max-h-[calc(100dvh-6rem)] overflow-y-auto animate-in slide-in-from-top-2 duration-200 motion-reduce:animate-none"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-2 border-b border-brand-soft-neutral">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-blue">
-                Menu
-              </span>
-              <button
-                type="button"
-                onClick={() => closeMenu(true)}
-                className="p-1.5 text-brand-ink/70 hover:text-brand-ink rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-indigo"
-                aria-label="Close menu"
-              >
-                <X className="w-5 h-5" />
-              </button>
+            <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-2">
+              <span className="text-sm font-semibold text-brand-ink">Menu</span>
+              <button type="button" onClick={() => closeMenu(true)} aria-label="Close menu" className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-brand-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo"><X className="w-5 h-5" /></button>
             </div>
-
             {/* Region Switcher on Mobile */}
             <div className="p-3 bg-brand-warm-white rounded-xl border border-brand-soft-neutral flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/70 flex items-center gap-1.5">

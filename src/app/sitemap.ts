@@ -348,5 +348,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...globalRoutes, ...indiaServiceRoutes, ...uaeServiceRoutes];
+  return [...globalRoutes, ...indiaServiceRoutes, ...uaeServiceRoutes,
+    ...["india", "uae"].map((region) => ({ url: `${baseUrl}/${region}/business`, changeFrequency: "monthly" as const, priority: 0.7 }))];
 }

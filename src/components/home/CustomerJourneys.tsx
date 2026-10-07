@@ -62,19 +62,31 @@ export default function CustomerJourneys({ journeys, mediaCaption }: CustomerJou
                       </span>
                     </div>
 
-                    <div className="absolute bottom-2 right-3 text-[10px] text-white/70 italic">
+                    <div className="absolute bottom-2 right-3 text-xs text-white/75 italic">
                       {mediaCaption}
                     </div>
                   </div>
 
-                  {/* Card Editorial: Title & Single Clear Sentence */}
-                  <div className="p-5 sm:p-6 space-y-2">
+                  {/* Card Editorial: Title, Tagline & Tangible Key Highlights */}
+                  <div className="p-5 sm:p-6 space-y-3">
                     <h3 className="text-lg sm:text-xl font-bold text-brand-ink tracking-tight">
                       {journey.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
                       {journey.tagline}
                     </p>
+
+                    {/* Verified Tangible Deliverables */}
+                    {journey.keyPoints && journey.keyPoints.length > 0 && (
+                      <ul className="pt-2 space-y-1.5 border-t border-brand-soft-neutral/70">
+                        {journey.keyPoints.map((point) => (
+                          <li key={point} className="flex items-start gap-2 text-xs text-brand-ink/80">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
 
@@ -82,7 +94,7 @@ export default function CustomerJourneys({ journeys, mediaCaption }: CustomerJou
                 <div className="p-5 sm:p-6 pt-0 mt-auto">
                   <Link
                     href={`/india/services/${journey.serviceSlug}`}
-                    className="w-full inline-flex items-center justify-between text-xs font-bold uppercase tracking-wider bg-brand-warm-white hover:bg-brand-indigo hover:text-white text-brand-indigo py-3 px-4 rounded-xl border border-brand-soft-neutral transition-colors group-hover:border-brand-indigo"
+                    className="w-full inline-flex items-center justify-between text-xs font-bold bg-brand-warm-white hover:bg-brand-indigo hover:text-white text-brand-indigo py-3 px-4 rounded-xl border border-brand-soft-neutral transition-colors group-hover:border-brand-indigo"
                   >
                     <span>{journey.ctaLabel}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

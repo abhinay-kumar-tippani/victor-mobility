@@ -1,8 +1,38 @@
-# Milestone: Phase 23 — Global Regional Operations Gateway & Cross-Border Fleet Network (/markets) [FINAL MASTER RELEASE]
+# Current follow-up: Codex UI/UX fixes — 6 October 2026
+
+User authorised implementation of all six review findings. Enquiry state, fleet routing, responsive menu, portal demo honesty, geographic India map and navigation grouping are implemented locally. See the newest entry in `docs/handoff.md` for exact validation scope, screenshots and deployment status. Existing uncommitted edits were preserved.
+
+---
+
+# Milestone: Comprehensive UI/UX Audit & Enterprise Redesign Implementation
 Owner: Antigravity.
-Reference: Authorized 2024 Victor Business Portfolio Brochure (PAN-India operations across Hyderabad, Bengaluru, and Pune, bilateral cross-border UAE connectivity across Dubai and Abu Dhabi, 71 static SSG routes, dual legal entities, and statutory compliance frameworks).
+Reference: Comprehensive multi-device visual & functional UI/UX audit and systematic enterprise redesign (8 viewports: 320px, 375px, 390px, 430px, 768px, 1024px, 1440px, 1920px across all 71 routes).
 
 Scope completed in this milestone:
+1. P0 Tablet Breakpoint & Horizontal Overflow Resolution:
+   - Upgraded desktop header breakpoint from `lg:flex` (1024px) to `xl:flex` (1280px) in `Header.tsx`, resolving the 131px navigation overflow across all 71 routes.
+2. P0 Logo Artifacts & Tagline Integrity:
+   - Added SVG `<clipPath id="victor-logo-viewport-clip">` in `BrandLogo.tsx` eliminating scanner line artifacts while preserving Pegasus artwork, ®, and "On Time Every Time." tagline.
+3. P0 Enquiry Route & Button Accessibility:
+   - Fixed broken custom event dispatches on pages without an `#enquiry` section, replacing with direct links preserving query parameters.
+4. P1 Visual Hierarchy & Component Modernization:
+   - FleetSection: Horizontal swipe tabs with vehicle photo prioritized above specifications on mobile.
+   - VictorStandardSection: Modernized 2x2 executive framework with left indigo accent borders.
+   - VictorInActionSection: Cleaned button stacking and elevated typography.
+   - CustomerJourneys: Rendered concrete `keyPoints` checklists from `india.json`.
+   - IndiaPresenceMap: Office details & address prioritized above the 550px vector map on mobile.
+   - PeopleSection: Priority image loading and 44px min-height buttons.
+   - ContactInvitationSection: Standardized 44px buttons, mobile full-width stretching, dynamic WhatsApp display.
+   - Footer: Restructured into balanced 4-column enterprise layout with unified typography and logical grouping.
+5. Automated Verification & Quality Gates:
+   - `npm run type-check`: 0 errors.
+   - `npm run lint`: 0 warnings, 0 errors.
+   - `npm run build`: 71/71 static pages compiled successfully.
+   - Playwright UI/UX audit: 0 horizontal overflows across all 8 viewports.
+
+---
+
+# Milestone: Phase 23 — Global Regional Operations Gateway & Cross-Border Fleet Network (/markets) [FINAL MASTER RELEASE]
 1. Enterprise Global Markets Dataset (`src/content/markets.json`):
    - Dual-region operational footprints for India (`/india`) and UAE (`/uae`):
      - **India Operational Entity**:

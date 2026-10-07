@@ -82,10 +82,10 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full md:w-auto">
                 <Link
                   href="/india/contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white hover:bg-brand-warm-white text-brand-ink py-3 px-6 rounded-xl transition-colors shadow-xs"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white hover:bg-brand-warm-white text-brand-ink py-3 px-6 rounded-xl transition-colors shadow-xs text-center"
                 >
                   <span>Discuss your requirement</span>
                   <ArrowRight className="w-4 h-4 text-brand-indigo" />
@@ -95,24 +95,24 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
                   href={`https://wa.me/${contact.whatsappDigits}?text=Hello%20Mujeeb,%20I%20would%20like%20to%20discuss%20travel%20requirements%20with%20Victor%20Mobility.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-600 py-3 px-5 rounded-xl transition-colors"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 py-3 px-5 rounded-xl transition-colors text-center shadow-xs"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp (+91 93965 46950)</span>
+                  <span>WhatsApp ({contact.whatsappDisplay})</span>
                 </a>
 
                 <a
                   href={contact.phoneHref}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-white/90 hover:text-white bg-white/10 hover:bg-white/20 py-3 px-4 rounded-xl border border-white/15 transition-colors"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold text-white/95 hover:text-white bg-white/10 hover:bg-white/20 py-3 px-4 rounded-xl border border-white/20 transition-colors text-center"
                 >
-                  <Phone className="w-3.5 h-3.5" />
+                  <Phone className="w-3.5 h-3.5 text-brand-violet" />
                   <span>Call {contact.phoneDisplay}</span>
                 </a>
               </div>
             </div>
 
             {/* Note on WhatsApp action */}
-            <p className="text-center text-[11px] text-white/60">
+            <p className="text-center text-xs text-white/70">
               Visiting our dedicated enquiry desk prepares a detailed WhatsApp draft for you to review and send directly.
             </p>
           </div>

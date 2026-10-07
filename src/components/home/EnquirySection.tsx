@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useId, useEffect } from "react";
+import { Suspense, useState, useId, useEffect, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   MessageSquare,
   Phone,
@@ -28,7 +29,15 @@ interface EnquirySectionProps {
   companyName?: string;
 }
 
-export default function EnquirySection({
+export default function EnquirySection(props: EnquirySectionProps) {
+  return (
+    <Suspense fallback={<div className="min-h-[480px] p-8" role="status">Loading enquiry form…</div>}>
+      <EnquiryForm {...props} />
+    </Suspense>
+  );
+}
+
+function EnquiryForm({
   contact,
   enquiry,
   services,
@@ -41,8 +50,9 @@ export default function EnquirySection({
   const isUae = contact.whatsappDigits?.startsWith("971");
   const effectiveCompany =
     companyName || (isUae ? "Victor Luxury Limousine LLC (Victor Mobility UAE)" : "Victor Mobility Pvt. Ltd.");
-  const publishedServices = services.filter((s) => s.published);
-  const publishedCities = cities.filter((c: any) => c.published);
+  const publishedServices = useMemo(() => services.filter((s) => s.published), [services]);
+  const publishedCities = useMemo(() => cities.filter((c) => c.published), [cities]);
+  const query = useSearchParams().toString();
   const [fullName, setFullName] = useState("");
   const [selectedService, setSelectedService] = useState(
     preselectedService || publishedServices[0]?.title || "Employee Transportation"
@@ -67,16 +77,13 @@ export default function EnquirySection({
   const customCityId = useId();
   const reqId = useId();
 
-  // Read URL search params and listen for selection events from in-page links
+  // Apply defaults on navigation only. Subsequent edits belong to the visitor.
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
+      const params = new URLSearchParams(query);
       const sParam = params.get("service") || preselectedService;
       const cParam = params.get("city") || preselectedCity;
       const catParam = params.get("category");
-      if (catParam) {
-        setSelectedCategory(catParam);
-      }
+      setSelectedCategory(catParam || null);
       if (sParam) {
         const matchedService = publishedServices.find(
           (s) => s.slug === sParam || s.title.toLowerCase() === sParam.toLowerCase()
@@ -96,7 +103,10 @@ export default function EnquirySection({
           setCustomCity(cParam);
         }
       }
-    }
+  }, [query, publishedServices, publishedCities, preselectedService, preselectedCity]);
+
+  // Legacy in-page entry points remain independent of query initialization.
+  useEffect(() => {
     const handleEnquirySelection = (e: Event) => {
       const customEvent = e as CustomEvent<EnquirySelectionEvent>;
       const detail = customEvent.detail;
@@ -151,7 +161,7 @@ export default function EnquirySection({
     return () => {
       window.removeEventListener("victor:select-enquiry", handleEnquirySelection);
     };
-  }, [publishedServices, publishedCities, preselectedService, preselectedCity]);
+  }, [publishedServices, publishedCities]);
 
   const cityDisplay = selectedCity === "Other" && customCity.trim() ? customCity.trim() : selectedCity;
 

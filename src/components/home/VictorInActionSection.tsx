@@ -119,7 +119,7 @@ export default function VictorInActionSection({
         </div>
 
         {/* Tab Selector for 3 Audiences */}
-        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white border border-brand-soft-neutral shadow-2xs max-w-3xl">
+        <div className="flex overflow-x-auto no-scrollbar gap-2 p-1.5 rounded-2xl bg-white border border-brand-soft-neutral shadow-2xs max-w-3xl" role="tablist">
           {studies.map((s, idx) => {
             const isSelected = activeTab === idx;
             return (
@@ -129,7 +129,7 @@ export default function VictorInActionSection({
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => setActiveTab(idx)}
-                className={`flex-1 min-w-[200px] py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center ${
+                className={`flex-1 min-w-[140px] sm:min-w-[180px] py-2.5 px-3 sm:px-4 rounded-xl text-xs font-bold transition-all text-center shrink-0 ${
                   isSelected
                     ? "bg-brand-indigo text-white shadow-xs"
                     : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-warm-white"
@@ -146,7 +146,7 @@ export default function VictorInActionSection({
           {/* Header Row */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-brand-soft-neutral">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-brand-indigo mb-1.5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo mb-1.5">
                 <Icon className="w-3.5 h-3.5 text-brand-blue" />
                 <span>{current.category}</span>
               </span>
@@ -218,7 +218,7 @@ export default function VictorInActionSection({
 
             <Link
               href="/india/contact"
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue"
             >
               <span>Discuss a similar requirement</span>
               <ArrowRight className="w-4 h-4" />
@@ -232,25 +232,25 @@ export default function VictorInActionSection({
             <span className="text-xs uppercase tracking-widest font-bold text-brand-ink/70">
               Trusted by 30+ Enterprise Partners & MNCs
             </span>
-            <span className="text-[11px] text-brand-ink/50 italic">
+            <span className="text-xs text-brand-ink/50 italic">
               From authorized company brochure
             </span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
             {clients.map((client) => (
               <div
                 key={client}
-                className="bg-white rounded-xl py-3 px-4 text-center border border-brand-soft-neutral shadow-2xs hover:border-brand-indigo transition-colors"
+                className="bg-white rounded-xl py-3.5 px-4 text-center border border-brand-soft-neutral/80 shadow-2xs hover:border-brand-indigo/50 hover:shadow-xs transition-all duration-150 flex items-center justify-center min-h-[52px]"
               >
-                <span className="text-xs font-bold text-brand-ink tracking-tight">
+                <span className="text-xs sm:text-sm font-extrabold tracking-tight text-brand-ink/90">
                   {client}
                 </span>
               </div>
             ))}
           </div>
 
-          <p className="text-[10px] text-brand-ink/55 text-center pt-1">
+          <p className="text-xs text-brand-ink/55 text-center pt-1">
             *All brand names are properties of their respective organizations and represent client relationships and employee transit partnerships.
           </p>
         </div>

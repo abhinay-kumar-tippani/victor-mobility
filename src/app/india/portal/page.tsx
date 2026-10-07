@@ -6,12 +6,11 @@ import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 import { Activity, ShieldCheck, CheckCircle2, Building2 } from "lucide-react";
-import Link from "next/link";
+
 
 export const metadata: Metadata = {
-  title: "Corporate Client Portal & Shift Telematics | Victor Mobility India",
-  description:
-    "Enterprise client mobility portal preview with live shift roster tracking, vehicle telematics, monthly SLA compliance scorecards, and billing reconciliation for corporate transport teams.",
+  title: "Corporate Portal Demonstration | Victor Mobility India",
+  description: "Interactive portal demonstration using fictional examples. No live tracking, client records, measured performance or payable invoices.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/portal",
     languages: {
@@ -30,8 +29,7 @@ export default function IndiaPortalPage() {
     "@type": "WebApplication",
     name: "Victor Mobility India Corporate Client Portal",
     applicationCategory: "BusinessApplication",
-    description:
-      "Enterprise shift roster tracking, telematics monitoring, and SLA compliance scorecards for corporate employee transport.",
+    description: "Interactive portal demonstration using fictional examples. No live tracking, client records, measured performance or payable invoices.",
     provider: {
       "@type": "Organization",
       name: content.companyName,
@@ -55,27 +53,27 @@ export default function IndiaPortalPage() {
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
                 <Activity className="w-3.5 h-3.5 text-brand-violet" />
-                Enterprise Operations Software Preview
+                Portal demonstration — sample data
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Corporate Client Portal &amp; Telematics
+                Corporate Portal Demonstration
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Experience real-time shift route monitoring, vehicle telemetry, monthly SLA scorecards, and billing transparency, engineered to uphold our baseline: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Explore example roster, reporting and statement layouts. This preview is not connected to live operations or customer accounts.
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Live GPS Shift Telematics</span>
+                  <span>Fictional roster examples</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>99.4% On-Time SLA Index</span>
+                  <span>No measured performance data</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-emerald-400" />
-                  <span>Dedicated Fleet Account Managers</span>
+                  <span>No account or booking created</span>
                 </div>
               </div>
             </div>
