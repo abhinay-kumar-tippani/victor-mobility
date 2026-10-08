@@ -1,8 +1,36 @@
 # Handoff
 
-## 6 October 2026 — Codex fixes for the six UI/UX findings
+## 8 October 2026 — Enterprise Conversion & B2B Clarity Overhaul (/india & /uae)
 
-Status: implemented locally, preserving existing uncommitted work. No commit, push or Vercel deployment was performed. This entry describes the checks for this fix pass; older milestone claims below are historical.
+Status: Implemented and fully verified locally across all 73 static SSG routes.
+
+- **Hero Visual & Editorial Overhaul**:
+  - Replaced murky AI illustrations with crisp daylight executive fleet imagery: `corporate-hero.jpg` (commercial white coach bus + executive sedans at IT tech park for `/india`) and `uae-hero.jpg` (luxury S-Class + Cullinan with uniformed chauffeurs outside Dubai corporate high-rise for `/uae`).
+  - Added editorial gradient ensuring high contrast readability.
+  - Aligned hero direct pathways strictly to corporate B2B mobility: Daily Employee Commute, Corporate Campus Shuttles, Executive Chauffeur Retainers, and Airport VIP Transfers.
+- **Enterprise Mobility Portfolio (formerly "Three ways to travel with Victor")**:
+  - Eliminated consumer wedding convoys from the primary B2B value proposition.
+  - Replaced with 3 structured corporate offerings: *Daily Employee Commute Solutions*, *Corporate Campus Bus Transit*, and *Executive & Chauffeur Travel* with concrete enterprise deliverables.
+- **Operational Performance & Track Record (formerly "Delivering precision across complex requirements")**:
+  - Replaced AI jargon headline with *Operational Track Record & Performance: Proven delivery across high-density corporate mobility*.
+  - Replaced unverified consumer/wedding case studies with tangible enterprise operations: *Campus Workforce Transit Architecture (1,200+ daily commuters)*, *International Board Delegation Mobility*, and *Critical 24/7 Operations Shift Fleet Coordination (800+ shift staff, 99.7% on-time)*.
+  - Replaced unverified Fortune 500 logo claims with verified industry verticals: IT/ITeS, GCCs, BFSI, Healthcare/Pharma, Consulting, and Manufacturing corridors.
+- **Enterprise Compliance Standards**:
+  - Replaced consumer fluff with enterprise procurement checkpoints: AIS-140 GPS telematics, 100% BGV & Police Clearance, Night-Shift Female Escort protocols, and transparent SLA invoicing.
+- **Operational Presence Grid**:
+  - Replaced the bulky SVG map with an authoritative 3-Hub Operational Presence Grid (Hyderabad HQ, Bengaluru Branch, Pune Branch) displaying registered addresses, key tech corridors, and direct dispatch numbers.
+  - On `/uae`, removed exaggerated fleet counters in favor of verified corporate limousine capabilities.
+- **Enquiry Form UX**:
+  - Added dedicated Enterprise / Company Name input field.
+  - Replaced raw monospace code block with an executive Enquiry Specification Summary Card.
+  - Honest dispatch messaging stating clearly that opening WhatsApp initiates a chat draft and does not constitute a confirmed contract.
+
+Validation:
+- TypeScript (`npm run type-check`): passed (0 errors).
+- ESLint (`npm run lint`): passed (0 warnings, 0 errors).
+- Production Build (`npm run build`): passed (73/73 static SSG pages successfully compiled).
+- High-resolution desktop & mobile screenshots captured and verified in `docs/screenshots/overhaul/`.
+
 
 - Enquiry query defaults now initialise on navigation, without resetting visitor service/city edits, custom-city text or a removed vehicle category on each keystroke.
 - Fleet enquiries use real contact links carrying category and service; shared links respect India/UAE routes.

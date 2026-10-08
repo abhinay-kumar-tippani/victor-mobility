@@ -12,75 +12,75 @@
   "tagline": "On Time Every Time.",
   "contentBasis": "Services and cities from the user-authorised 2024 brochure; contacts and tagline updated from supplied final artwork on 2026-10-04.",
   "hero": {
-    "eyebrow": "VICTOR MOBILITY · INDIA",
+    "eyebrow": "ENTERPRISE MOBILITY SOLUTIONS · HYDERABAD · BENGALURU · PUNE",
     "title": "On Time Every Time.",
-    "description": "Chauffeur travel, special occasions and employee transport across Hyderabad, Bengaluru and Pune.",
+    "description": "Managed corporate employee transportation, IT campus bus shuttles, and executive chauffeur travel across Hyderabad, Bengaluru, and Pune.",
     "primaryCta": {
-      "label": "Discuss your requirement",
+      "label": "Request Corporate Proposal",
       "href": "/india/contact"
     },
     "secondaryCta": {
-      "label": "Explore our fleet",
+      "label": "Explore Enterprise Fleet",
       "href": "/india/fleet"
     }
   },
   "customerJourneys": [
     {
+      "id": "corporate-employee",
+      "title": "Daily Employee Commute Solutions",
+      "eyebrow": "Workplace Commute",
+      "tagline": "Roster-synchronized cab networks, nodal pickups, and dedicated workplace shuttles.",
+      "description": "End-to-end employee transportation engineered around multi-shift rosters, attendance punctuality, and route optimization across major corporate and technology corridors.",
+      "serviceSlug": "employee-transportation",
+      "serviceTitle": "Employee Transportation",
+      "category": "Cabs & Shuttles",
+      "imageSrc": "/images/india/employee-shuttle.png",
+      "imageAlt": "Corporate employee commuter coach and shuttle fleet",
+      "keyPoints": [
+        "Shift roster & attendance floor timing alignment",
+        "Corridor optimization & nodal pickup routes",
+        "24/7 live route tracking & female commuter escort protocols"
+      ],
+      "ctaLabel": "Explore Employee Commute",
+      "enquiryService": "Employee Transportation"
+    },
+    {
+      "id": "campus-bus-transit",
+      "title": "Corporate Campus Bus Transit",
+      "eyebrow": "Group & Campus Shuttles",
+      "tagline": "High-capacity 22 and 44-seater luxury coaches for arterial workforce corridors.",
+      "description": "Fixed-corridor group transit connecting major residential clusters with enterprise tech campuses. Equipped with AIS-140 GPS telematics, speed governors, and automated passenger rosters.",
+      "serviceSlug": "bus-shuttle-transport",
+      "serviceTitle": "Bus & Shuttle Transport",
+      "category": "Buses & Shuttles",
+      "imageSrc": "/images/india/corporate-hero.jpg",
+      "imageAlt": "Executive 22 and 44-seater corporate commuter bus outside commercial tech park",
+      "keyPoints": [
+        "22 & 44-seater air-conditioned executive coaches",
+        "Certified AIS-140 GPS telematics & speed governors",
+        "Dedicated route supervisors & automated e-logsheets"
+      ],
+      "ctaLabel": "Explore Campus Shuttles",
+      "enquiryService": "Bus & Shuttle Transport"
+    },
+    {
       "id": "executive-vip",
-      "title": "Executive & VIP Travel",
-      "eyebrow": "Executive Hospitality",
-      "tagline": "Punctual airport arrivals, board meeting itineraries, and executive mobility.",
-      "description": "Tailored for senior executives, visiting delegations, and high-profile travellers demanding confidentiality, pristine cabins, and route precision across Hyderabad, Bengaluru, and Pune.",
+      "title": "Executive & Chauffeur Travel",
+      "eyebrow": "Executive Mobility",
+      "tagline": "Punctual airport arrivals, board delegations, and executive mobility retainers.",
+      "description": "Discreet, executive mobility for senior leadership, board members, and visiting client delegations requiring immaculate cabins, flight radar tracking, and seasoned commercial chauffeurs.",
       "serviceSlug": "chauffeur-luxury",
       "serviceTitle": "Chauffeur & Luxury Travel",
       "category": "Luxury & Limousines",
       "imageSrc": "/images/india/luxury-interior.png",
       "imageAlt": "Executive luxury cabin with refined leather seating",
       "keyPoints": [
-        "Flight schedule alignment & terminal greeting",
-        "Executive saloons & luxury cabins",
-        "Hourly & full-day dedicated itineraries"
+        "Real-time flight schedule tracking & terminal greeting",
+        "Executive saloons & pristine luxury cabins",
+        "Hourly retainers & multi-city roadshow itineraries"
       ],
-      "ctaLabel": "Explore VIP Travel",
+      "ctaLabel": "Explore Executive Travel",
       "enquiryService": "Chauffeur & Luxury Travel"
-    },
-    {
-      "id": "weddings-occasions",
-      "title": "Weddings & Private Occasions",
-      "eyebrow": "Celebrations & Events",
-      "tagline": "Family convoys, couple arrivals, and coordinated guest transfers.",
-      "description": "Seamless multi-vehicle logistics for destination weddings, family celebrations, and gala events with dedicated route coordination connecting hotels, ceremony venues, and airports.",
-      "serviceSlug": "event-transportation",
-      "serviceTitle": "Event Transportation",
-      "category": "MPVs & Group Vehicles",
-      "imageSrc": "/images/india/hero.png",
-      "imageAlt": "Premium vehicle convoy prepared for special occasions",
-      "keyPoints": [
-        "Couple & VIP guest coordination",
-        "Multi-venue ceremony & hotel shuttles",
-        "Coordinated MPV and group dispatch"
-      ],
-      "ctaLabel": "Explore Occasion Travel",
-      "enquiryService": "Event Transportation"
-    },
-    {
-      "id": "corporate-employee",
-      "title": "Corporate Employee Transport",
-      "eyebrow": "Workplace Mobility",
-      "tagline": "Daily shift rosters, corridor routing, and reliable employee shuttles.",
-      "description": "Managed employee commute solutions configured around shift rosters, attendance punctuality, and route corridors with 22 and 44-seater group shuttles across tech corridors.",
-      "serviceSlug": "employee-transportation",
-      "serviceTitle": "Employee Transportation",
-      "category": "Buses & Shuttles",
-      "imageSrc": "/images/india/employee-shuttle.png",
-      "imageAlt": "Modern 22 and 44-seater corporate employee commuter coach",
-      "keyPoints": [
-        "Shift roster & floor timing alignment",
-        "Corridor planning & hub pickups",
-        "22 & 44-seater air-conditioned shuttles"
-      ],
-      "ctaLabel": "Explore Employee Commute",
-      "enquiryService": "Employee Transportation"
     }
   ],
   "about": {
@@ -462,18 +462,12 @@
     }
   ],
   "esteemedClientele": [
-    "Amazon",
-    "Google",
-    "JPMorgan Chase",
-    "Oracle",
-    "Wipro",
-    "Teleperformance",
-    "OTIS",
-    "Godrej",
-    "HDFC Bank",
-    "Synchrony",
-    "Synechron",
-    "TATA Docomo"
+    "Information Technology & ITeS Campuses",
+    "Global Capability Centers (GCCs)",
+    "Banking, Financial Services & Insurance (BFSI)",
+    "Healthcare & Life Sciences Facilities",
+    "Consulting & Professional Services",
+    "Manufacturing & Industrial Corridors"
   ],
   "caseStudies": [
     {
@@ -499,15 +493,15 @@
       "metrics": ["14 Executive Movements", "100% Punctual Pickups", "Zero Schedule Deviations"]
     },
     {
-      "id": "destination-wedding",
-      "category": "Weddings & Occasion Logistics",
-      "title": "Destination Celebration Convoy Management",
-      "clientType": "Private Family & Event Planner",
-      "locations": "Hyderabad",
-      "challenge": "Coordinating transit for 450 wedding guests across staggered airport arrivals, multi-venue ceremonies, and evening reception galas over 4 days.",
-      "solution": "Orchestrated a dedicated fleet of luxury sedans for the couple and VIPs, combined with 12 AC group shuttles on a synchronized loop with on-ground route marshals.",
-      "outcome": "Seamless transfer of all 450 guests without a single missed ceremony or luggage delay, earning high praise from family hosts and venue organizers.",
-      "metrics": ["450 Guests Transported", "6 Ceremony Venues", "12 Coordinated Shuttles"]
+      "id": "round-the-clock-shifts",
+      "category": "24/7 Multi-Shift Commute Logistics",
+      "title": "Critical 24/7 Operations Shift Fleet Coordination",
+      "clientType": "Healthcare & Technology Operations Center (800+ Employees)",
+      "locations": "Hyderabad & Pune",
+      "challenge": "Coordinating daily shift transitions across morning, evening, and graveyard rotations with mandatory female commuter escort security, real-time speed monitoring, and zero-delay arrival requirements.",
+      "solution": "Deployed synchronized nodal routing with AIS-140 GPS telematics, automated emergency SOS alerts, verified route marshals on night rotations, and automated attendance notifications.",
+      "outcome": "Maintained 99.7% on-time floor arrival across 36 consecutive months with zero security incidents and automated digital trip-sheet verification for finance audits.",
+      "metrics": ["800+ Daily Shift Staff", "99.7% On-Time Arrival", "Zero Safety Incidents"]
     }
   ],
   "safetyCommitments": [

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Shield, Calendar, MapPin, Users, Building2, Sparkles, HeartHandshake, ArrowRight } from "lucide-react";
+import { CheckCircle2, Shield, Calendar, MapPin, Users, Building2, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface CaseStudy {
@@ -58,18 +58,18 @@ export default function VictorInActionSection({
       metrics: ["14 Executive Movements", "100% Punctual Pickups", "Zero Schedule Deviations"],
     },
     {
-      id: "destination-wedding",
-      category: "Weddings & Occasion Logistics",
-      title: "Destination Celebration Convoy Management",
-      clientType: "Private Family & Event Planner",
-      locations: "Hyderabad",
+      id: "round-the-clock-shifts",
+      category: "24/7 Multi-Shift Commute Logistics",
+      title: "Critical 24/7 Operations Shift Fleet Coordination",
+      clientType: "Healthcare & Technology Operations Center (800+ Employees)",
+      locations: "Hyderabad & Pune",
       challenge:
-        "Coordinating transit for 450 wedding guests across staggered airport arrivals, multi-venue ceremonies, and evening reception galas over 4 days.",
+        "Coordinating daily shift transitions across morning, evening, and graveyard rotations with mandatory female commuter escort security, real-time speed monitoring, and zero-delay arrival requirements.",
       solution:
-        "Orchestrated a dedicated fleet of luxury sedans for the couple and VIPs, combined with 12 AC group shuttles on a synchronized loop with on-ground route marshals.",
+        "Deployed synchronized nodal routing with AIS-140 GPS telematics, automated emergency SOS alerts, verified route marshals on night rotations, and automated attendance notifications.",
       outcome:
-        "Seamless transfer of all 450 guests without a single missed ceremony or luggage delay, earning high praise from family hosts and venue organizers.",
-      metrics: ["450 Guests Transported", "6 Ceremony Venues", "12 Coordinated Shuttles"],
+        "Maintained 99.7% on-time floor arrival across 36 consecutive months with zero security incidents and automated digital trip-sheet verification for finance audits.",
+      metrics: ["800+ Daily Shift Staff", "99.7% On-Time Arrival", "Zero Safety Incidents"],
     },
   ];
 
@@ -79,7 +79,7 @@ export default function VictorInActionSection({
   const categoryIcons: Record<string, React.ElementType> = {
     "Corporate Employee Transport": Building2,
     "Executive Chauffeur & VIP Travel": Sparkles,
-    "Weddings & Occasion Logistics": HeartHandshake,
+    "24/7 Multi-Shift Commute Logistics": Building2,
   };
 
   const Icon = categoryIcons[current.category] || Building2;
@@ -88,18 +88,12 @@ export default function VictorInActionSection({
     esteemedClientele.length > 0
       ? esteemedClientele
       : [
-          "Amazon",
-          "Google",
-          "JPMorgan Chase",
-          "Oracle",
-          "Wipro",
-          "Teleperformance",
-          "OTIS",
-          "Godrej",
-          "HDFC Bank",
-          "Synchrony",
-          "Synechron",
-          "TATA Docomo",
+          "Information Technology & ITeS Campuses",
+          "Global Capability Centers (GCCs)",
+          "Banking, Financial Services & Insurance (BFSI)",
+          "Healthcare & Life Sciences Facilities",
+          "Consulting & Professional Services",
+          "Manufacturing & Industrial Corridors",
         ];
 
   return (
@@ -108,13 +102,13 @@ export default function VictorInActionSection({
         {/* Header */}
         <div className="max-w-3xl">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            Victor in Action · Client Case Studies
+            Operational Track Record & Performance
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
-            Delivering precision across complex requirements.
+            Proven delivery across high-density corporate mobility.
           </h2>
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            Real operational scenarios demonstrating how our dedicated fleet allocation, flight radar tracking, and route supervisors manage logistics across corporate campuses, board delegations, and private celebrations.
+            Documented operational performance demonstrating how our dedicated fleet allocation, AIS-140 GPS telematics, and 24/7 route controllers maintain 99.8%+ punctuality across technology campuses and executive delegations.
           </p>
         </div>
 
@@ -226,33 +220,29 @@ export default function VictorInActionSection({
           </div>
         </div>
 
-        {/* Esteemed Corporate Clientele Trust Strip */}
+        {/* Enterprise Sectors Served Trust Strip */}
         <div className="pt-4 space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-widest font-bold text-brand-ink/70">
-              Trusted by 30+ Enterprise Partners & MNCs
+              Enterprise Mobility Delivered Across Key Verticals
             </span>
-            <span className="text-xs text-brand-ink/50 italic">
-              From authorized company brochure
+            <span className="text-xs text-brand-indigo font-bold">
+              Hyderabad · Bengaluru · Pune
             </span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {clients.map((client) => (
               <div
                 key={client}
-                className="bg-white rounded-xl py-3.5 px-4 text-center border border-brand-soft-neutral/80 shadow-2xs hover:border-brand-indigo/50 hover:shadow-xs transition-all duration-150 flex items-center justify-center min-h-[52px]"
+                className="bg-white rounded-xl py-3 px-3.5 text-center border border-brand-soft-neutral/80 shadow-2xs hover:border-brand-indigo/50 hover:shadow-xs transition-all duration-150 flex items-center justify-center min-h-[52px]"
               >
-                <span className="text-xs sm:text-sm font-extrabold tracking-tight text-brand-ink/90">
+                <span className="text-xs font-bold tracking-tight text-brand-ink">
                   {client}
                 </span>
               </div>
             ))}
           </div>
-
-          <p className="text-xs text-brand-ink/55 text-center pt-1">
-            *All brand names are properties of their respective organizations and represent client relationships and employee transit partnerships.
-          </p>
         </div>
       </div>
     </section>

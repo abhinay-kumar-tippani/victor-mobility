@@ -82,7 +82,7 @@ export default function UaeFleetPage() {
                 Luxury Saloons, Executive SUVs &amp; VIP Coaches
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                Operating with access to over 2,000+ luxury cars and 500+ buses across Dubai and Abu Dhabi. Meticulously maintained, fully sanitized, and ready for immediate deployment under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Operating premium executive fleets comprising first-class saloons, luxury SUVs, and VIP group coaches across Dubai and Abu Dhabi. Meticulously maintained, fully sanitized, and ready for deployment under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
             </div>
           </div>

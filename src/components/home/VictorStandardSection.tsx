@@ -1,46 +1,80 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Clock, ShieldCheck, Sparkles, FileText, ArrowRight } from "lucide-react";
 
 export default function VictorStandardSection() {
-  const standards = [
-    {
-      icon: Clock,
-      title: "Precision Scheduling & Flight Tracking",
-      description:
-        "Real-time flight monitoring at RGIA (HYD), Kempegowda (BLR), and Pune (PNQ). Chauffeurs arrive 15 minutes before landing with complimentary waiting allowances.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Chauffeur Professionalism & Vetting",
-      description:
-        "Experienced, background-verified professionals trained in executive etiquette, discretion, defensive driving, and optimal city bypass routes.",
-    },
-    {
-      icon: Sparkles,
-      title: "Cabin Cleanliness & Pre-Dispatch Audits",
-      description:
-        "Rigorous multi-point vehicle checks before every assignment covering dual-zone climate control, leather upholstery, mobile charging, and sanitization.",
-    },
-    {
-      icon: FileText,
-      title: "Transparent Commercial Governance",
-      description:
-        "Pre-agreed corporate terms, clear hourly and distance packages, and formal billing with zero unexpected surcharges.",
-    },
-  ];
+  const pathname = usePathname();
+  const isUae = pathname.startsWith("/uae");
+  const prefix = isUae ? "/uae" : "/india";
+
+  const standards = isUae
+    ? [
+        {
+          icon: Clock,
+          title: "Precision Flight Radar & Curbside Staging",
+          description:
+            "Real-time flight tracking at DXB, DWC, and AUH. Chauffeurs stage 20 minutes prior to landing with complimentary waiting allowances and VIP terminal nameboard greetings.",
+        },
+        {
+          icon: ShieldCheck,
+          title: "RTA Certified Executive Chauffeurs",
+          description:
+            "100% Dubai RTA licensed, professionally trained chauffeurs fluent in English, vetted for VIP executive etiquette, protocol discretion, and route navigation.",
+        },
+        {
+          icon: Sparkles,
+          title: "Pristine Cabin Luxury & Pre-Dispatch Audits",
+          description:
+            "Rigorous multi-point vehicle checks before every assignment covering dual-zone climate control, leather upholstery, mobile charging, and sanitization.",
+        },
+        {
+          icon: FileText,
+          title: "Transparent Commercial Governance & Billing",
+          description:
+            "Pre-agreed corporate retainer terms, transparent hourly packages, automated Salik toll reconciliation, and formal FTA VAT invoicing.",
+        },
+      ]
+    : [
+        {
+          icon: Clock,
+          title: "Precision Shift Scheduling & Buffer Management",
+          description:
+            "Real-time corridor monitoring and flight tracking at RGIA, Kempegowda, and Pune. Shift vehicles stage 15 minutes prior to roster timing with monitored departure windows.",
+        },
+        {
+          icon: ShieldCheck,
+          title: "100% Background-Verified Chauffeurs (BGV & PCC)",
+          description:
+            "Mandatory commercial driver license verification, comprehensive Police Clearance Certificates (PCC), defensive driving training, and route familiarity.",
+        },
+        {
+          icon: Sparkles,
+          title: "AIS-140 GPS Telematics & Female Safety Escorts",
+          description:
+            "Government-certified AIS-140 GPS units with dual SOS panic buttons, speed governors (80 km/h), pre-trip cabin hygiene audits, and verified night-shift female security protocols.",
+        },
+        {
+          icon: FileText,
+          title: "Transparent Commercial Governance & SLA Billing",
+          description:
+            "Pre-agreed corporate Master Services Agreements (MSAs), automated electronic trip sheets (e-logsheets), GST e-invoicing (SAC 9966), and zero unexpected surcharges.",
+        },
+      ];
 
   return (
     <section id="standards" className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            The Victor Standard
+            Safety & Operational Rigour
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
-            Why organisations and families trust our delivery.
+            Enterprise compliance and safety standards you can audit.
           </h2>
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            Market leadership is built on repeatable operational discipline. We enforce four tangible standards across every executive transfer, occasion convoy, and workplace shuttle.
+            Market leadership is built on repeatable operational discipline. We enforce four tangible compliance standards across every employee shuttle, corporate coach, and executive movement.
           </p>
         </div>
 
@@ -75,16 +109,16 @@ export default function VictorStandardSection() {
           })}
         </div>
 
-        {/* Compact route to all 6 services */}
+        {/* Compact route to all services */}
         <div className="mt-10 p-6 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-sm font-medium text-brand-ink/80">
             Looking for specific fleet allocations or workplace commute corridors?
           </p>
           <Link
-            href="/india/services"
+            href={`${prefix}/services`}
             className="inline-flex items-center gap-1.5 text-xs font-bold bg-white hover:bg-brand-indigo hover:text-white text-brand-indigo px-4 py-2.5 rounded-xl border border-brand-soft-neutral transition-colors shadow-2xs"
           >
-            <span>Explore all 6 service specialisations</span>
+            <span>Explore all service specialisations</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

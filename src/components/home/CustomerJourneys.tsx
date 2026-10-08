@@ -2,41 +2,51 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Sparkles, HeartHandshake, Building2 } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowRight, Sparkles, Building2, Bus, Users, Plane } from "lucide-react";
 import type { CustomerJourneyItem } from "@/types/content";
 
 interface CustomerJourneysProps {
   journeys: CustomerJourneyItem[];
-  mediaCaption: string;
+  mediaCaption?: string;
 }
 
 const journeyIcons: Record<string, React.ElementType> = {
-  "executive-vip": Sparkles,
-  "weddings-occasions": HeartHandshake,
   "corporate-employee": Building2,
+  "campus-bus-transit": Bus,
+  "executive-vip": Sparkles,
+  "uae-vip-chauffeur": Sparkles,
+  "uae-airport-vip": Plane,
+  "uae-events-delegations": Users,
 };
 
-export default function CustomerJourneys({ journeys, mediaCaption }: CustomerJourneysProps) {
+export default function CustomerJourneys({ journeys }: CustomerJourneysProps) {
+  const pathname = usePathname();
+  const isUae = pathname.startsWith("/uae");
+  const prefix = isUae ? "/uae" : "/india";
+
   return (
     <section id="services" className="py-12 sm:py-16 bg-brand-warm-white border-b border-brand-soft-neutral">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-10">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            Tailored Pathways
+            Enterprise Mobility Portfolio
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-2">
-            Three ways to travel with Victor.
+            Tailored transport solutions for organisations and teams.
           </h2>
           <p className="text-sm text-brand-ink/75 leading-relaxed">
-            Choose your journey type for tailored vehicle categories, dedicated protocols, and scheduled precision across Hyderabad, Bengaluru, and Pune.
+            {isUae
+              ? "Dedicated fleet deployments, airport terminal protocols, and scheduled precision across Dubai and Abu Dhabi."
+              : "Dedicated fleet deployments, roster-aligned punctuality, and route governance across Hyderabad, Bengaluru, and Pune."}
           </p>
         </div>
 
         {/* 3 Compact Customer Journey Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {journeys.map((journey) => {
-            const Icon = journeyIcons[journey.id] || Sparkles;
+            const Icon = journeyIcons[journey.id] || Building2;
 
             return (
               <article
@@ -60,10 +70,6 @@ export default function CustomerJourneys({ journeys, mediaCaption }: CustomerJou
                         <Icon className="w-3 h-3 text-brand-blue" />
                         <span>{journey.eyebrow}</span>
                       </span>
-                    </div>
-
-                    <div className="absolute bottom-2 right-3 text-xs text-white/75 italic">
-                      {mediaCaption}
                     </div>
                   </div>
 
@@ -93,7 +99,7 @@ export default function CustomerJourneys({ journeys, mediaCaption }: CustomerJou
                 {/* Single Exploration Action Link */}
                 <div className="p-5 sm:p-6 pt-0 mt-auto">
                   <Link
-                    href={`/india/services/${journey.serviceSlug}`}
+                    href={`${prefix}/services/${journey.serviceSlug}`}
                     className="w-full inline-flex items-center justify-between text-xs font-bold bg-brand-warm-white hover:bg-brand-indigo hover:text-white text-brand-indigo py-3 px-4 rounded-xl border border-brand-soft-neutral transition-colors group-hover:border-brand-indigo"
                   >
                     <span>{journey.ctaLabel}</span>

@@ -8,6 +8,7 @@ import {
   Send,
   Info,
   User,
+  Building2,
   Briefcase,
   MapPin,
   FileText,
@@ -54,6 +55,7 @@ function EnquiryForm({
   const publishedCities = useMemo(() => cities.filter((c) => c.published), [cities]);
   const query = useSearchParams().toString();
   const [fullName, setFullName] = useState("");
+  const [company, setCompany] = useState("");
   const [selectedService, setSelectedService] = useState(
     preselectedService || publishedServices[0]?.title || "Employee Transportation"
   );
@@ -114,7 +116,6 @@ function EnquiryForm({
 
       if (detail.category) {
         setSelectedCategory(detail.category);
-        // If no explicit service provided, intelligently map to matching service
         if (!detail.service) {
           const catLower = detail.category.toLowerCase();
           if (catLower.includes("luxury")) {
@@ -193,7 +194,8 @@ function EnquiryForm({
       `*${effectiveCompany}*`,
       `--------------------------------`,
       `*Contact Name:* ${fullName.trim() || "[Your Name]"}`,
-      `*Service:* ${selectedService}`,
+      ...(company.trim() ? [`*Company / Enterprise:* ${company.trim()}`] : []),
+      `*Service Required:* ${selectedService}`,
       ...(selectedCategory ? [`*Vehicle Category:* ${selectedCategory}`] : []),
       `*City / Region:* ${cityDisplay}`,
       `*Journey Details:*`,
@@ -300,15 +302,15 @@ function EnquiryForm({
           <div className="lg:col-span-7 bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-sm">
             <div className="flex items-center justify-between mb-4 pb-4 border-b border-brand-soft-neutral">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
-                  <MessageSquare className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-lg bg-brand-indigo text-white flex items-center justify-center">
+                  <Briefcase className="w-4 h-4" />
                 </div>
                 <span className="font-bold text-sm sm:text-base text-brand-ink">
-                  WhatsApp Enquiry Builder
+                  Corporate Requirement Specification Desk
                 </span>
               </div>
-              <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
-                Direct WhatsApp Draft
+              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                Direct Operations Desk
               </span>
             </div>
 
@@ -327,39 +329,60 @@ function EnquiryForm({
             )}
 
             <form onSubmit={handleContinueWhatsApp} noValidate className="space-y-6">
-              {/* Name Field: Unified matching ID for label htmlFor and input id */}
-              <div>
-                <label
-                  htmlFor="enquiry-name-input"
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
-                >
-                  <User className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Your Name or Company *</span>
-                </label>
-                <input
-                  id="enquiry-name-input"
-                  name="fullName"
-                  type="text"
-                  required
-                  aria-required="true"
-                  aria-invalid={!!nameError}
-                  aria-describedby={nameError ? "name-error" : undefined}
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-                  placeholder="e.g. Rahul Sharma or Acme Corp"
-                  className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
-                    nameError
-                      ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                      : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
-                  }`}
-                />
-                {nameError && (
-                  <p id="name-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600 font-semibold">
-                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                    <span>{nameError}</span>
-                  </p>
-                )}
+              {/* Contact & Company Fields (2-column on tablet/desktop) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    htmlFor="enquiry-name-input"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
+                  >
+                    <User className="w-3.5 h-3.5 text-brand-blue" />
+                    <span>Your Name & Designation *</span>
+                  </label>
+                  <input
+                    id="enquiry-name-input"
+                    name="fullName"
+                    type="text"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!nameError}
+                    aria-describedby={nameError ? "name-error" : undefined}
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+                    placeholder="e.g. Rahul Sharma (Facility Head)"
+                    className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                      nameError
+                        ? "border-red-500 focus:ring-2 focus:ring-red-400"
+                        : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                    }`}
+                  />
+                  {nameError && (
+                    <p id="name-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600 font-semibold">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{nameError}</span>
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="enquiry-company-input"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
+                  >
+                    <Building2 className="w-3.5 h-3.5 text-brand-blue" />
+                    <span>Company / Enterprise Name</span>
+                  </label>
+                  <input
+                    id="enquiry-company-input"
+                    name="company"
+                    type="text"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    placeholder="e.g. Acme Tech Park Ltd."
+                    className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
+                  />
+                </div>
               </div>
 
               {/* Service & City (2-column on tablet/desktop) */}
@@ -486,17 +509,17 @@ function EnquiryForm({
                 )}
               </div>
 
-              {/* Live Preview Box with Copy Button */}
-              <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/60">
-                    Draft WhatsApp Message Preview:
+              {/* Requirement Summary Box */}
+              <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/70">
+                    Enquiry Specification Summary:
                   </span>
                   <button
                     type="button"
                     onClick={handleCopyDraft}
-                    className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded bg-brand-warm-white hover:bg-brand-soft-neutral text-brand-ink/80 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
-                    aria-label="Copy draft WhatsApp message to clipboard"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded bg-brand-warm-white hover:bg-brand-soft-neutral text-brand-ink/80 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                    aria-label="Copy draft enquiry specification to clipboard"
                   >
                     {copied ? (
                       <>
@@ -506,24 +529,44 @@ function EnquiryForm({
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5 text-brand-indigo" />
-                        <span>Copy Draft</span>
+                        <span>Copy Summary</span>
                       </>
                     )}
                   </button>
                 </div>
-                <pre
-                  id="enquiry-whatsapp-preview"
-                  className="text-xs font-mono text-brand-ink/80 whitespace-pre-wrap bg-brand-warm-white p-3 rounded-lg border border-brand-soft-neutral max-h-36 overflow-y-auto"
-                >
-                  {draftMessage}
-                </pre>
+
+                <div className="p-3.5 bg-brand-warm-white rounded-lg border border-brand-soft-neutral/70 space-y-2 text-xs text-brand-ink/85">
+                  <div className="flex flex-wrap gap-2 items-center">
+                    <span className="px-2.5 py-1 rounded-md bg-white font-bold text-brand-indigo border border-brand-soft-neutral/60 shadow-2xs">
+                      {selectedService}
+                    </span>
+                    {selectedCategory && (
+                      <span className="px-2.5 py-1 rounded-md bg-white font-semibold text-brand-blue border border-brand-soft-neutral/60 shadow-2xs">
+                        {selectedCategory}
+                      </span>
+                    )}
+                    <span className="px-2.5 py-1 rounded-md bg-white font-medium text-brand-ink/80 border border-brand-soft-neutral/60 shadow-2xs">
+                      {cityDisplay}
+                    </span>
+                  </div>
+                  {company.trim() && (
+                    <p className="text-[11px] text-brand-ink/70">
+                      Organization: <strong className="text-brand-ink">{company.trim()}</strong>
+                    </p>
+                  )}
+                  {requirementText.trim() && (
+                    <p className="text-xs text-brand-ink/80 line-clamp-2 italic pt-1 border-t border-brand-soft-neutral/50">
+                      &ldquo;{requirementText.trim()}&rdquo;
+                    </p>
+                  )}
+                </div>
               </div>
 
-              {/* Helper Notice regarding WhatsApp behaviour per Codex recommendation */}
+              {/* Helper Notice regarding WhatsApp behaviour */}
               <div className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-soft-neutral/40 border border-brand-soft-neutral text-xs text-brand-ink/80 leading-relaxed">
                 <Info className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
                 <div>
-                  Continue to WhatsApp to review and send your enquiry. Our team will confirm options and arrangements with you.
+                  Clicking below prepares and opens your requirement directly with our Operations Desk on WhatsApp. You can review before sending.
                 </div>
               </div>
 

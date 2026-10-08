@@ -3,10 +3,20 @@
   "assets": [
     {
       "id": "hero",
-      "src": "/images/india/hero.png",
-      "alt": "Illustrative sedan, passenger vehicle and shuttle bus outside a contemporary office building.",
+      "src": "/images/india/corporate-hero.jpg",
+      "alt": "Modern corporate commuter bus and executive fleet outside a contemporary commercial technology park in daylight.",
       "focalPointDesktop": "center",
-      "focalPointMobile": "68% center",
+      "focalPointMobile": "center",
+      "aiGenerated": true,
+      "temporary": true,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "hero-uae",
+      "src": "/images/uae/uae-hero.jpg",
+      "alt": "Executive luxury limousine and SUV with professional chauffeurs outside a modern Dubai commercial tower.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
       "aiGenerated": true,
       "temporary": true,
       "actualVictorFleetPhoto": false

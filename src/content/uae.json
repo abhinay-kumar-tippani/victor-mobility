@@ -12,11 +12,11 @@
     "title": "On Time Every Time.",
     "description": "Executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi.",
     "primaryCta": {
-      "label": "Discuss your UAE itinerary",
+      "label": "Request Corporate Proposal",
       "href": "/uae/contact"
     },
     "secondaryCta": {
-      "label": "Explore UAE fleet",
+      "label": "Explore Executive Fleet",
       "href": "/uae/fleet"
     }
   },
@@ -49,7 +49,7 @@
       "serviceSlug": "airport-transfers",
       "serviceTitle": "Airport VIP Transfers",
       "category": "First Class Saloons",
-      "imageSrc": "/images/india/hero.png",
+      "imageSrc": "/images/uae/uae-hero.jpg",
       "imageAlt": "Luxury airport limousine transfer in Dubai",
       "keyPoints": [
         "Terminal meet-and-assist greeting",

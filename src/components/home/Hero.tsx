@@ -17,19 +17,27 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
     ? "Dubai · Abu Dhabi · Sharjah"
     : "Hyderabad · Bengaluru · Pune";
 
+  const defaultHeroSrc = isUae
+    ? "/images/uae/uae-hero.jpg"
+    : "/images/india/corporate-hero.jpg";
+
+  const heroImageSrc = isUae
+    ? "/images/uae/uae-hero.jpg"
+    : (heroMedia?.src && !heroMedia.src.includes("hero.png") ? heroMedia.src : defaultHeroSrc);
+
   const quickLinks = isUae
     ? [
-        { label: "VIP Limousine", href: "/uae/services/chauffeur-luxury" },
-        { label: "Airport Transfers", href: "/uae/services/airport-transfers" },
-        { label: "Conferences & Galas", href: "/uae/services/event-transportation" },
+        { label: "Executive Limousine Retainers", href: "/uae/services/chauffeur-luxury" },
+        { label: "Airport VIP Terminal Protocol", href: "/uae/services/airport-transfers" },
+        { label: "Corporate Delegations & Summits", href: "/uae/services/event-transportation" },
         { label: "UAE Fleet Tiers", href: "#fleet" },
       ]
     : [
-        { label: "Executive & VIP Travel", href: "/india/services/chauffeur-luxury" },
-        { label: "Weddings & Occasions", href: "/india/services/event-transportation" },
-        { label: "Employee Commute", href: "/india/services/employee-transportation" },
-        { label: "Airport Transfers", href: "/india/services/airport-transfers" },
-        { label: "Fleet Categories", href: "#fleet" },
+        { label: "Daily Employee Commute", href: "/india/services/employee-transportation" },
+        { label: "Corporate Campus Shuttles", href: "/india/services/bus-shuttle-transport" },
+        { label: "Executive Chauffeur Retainers", href: "/india/services/chauffeur-luxury" },
+        { label: "Airport VIP Transfers", href: "/india/services/airport-transfers" },
+        { label: "Enterprise Fleet", href: "#fleet" },
       ];
 
   return (
@@ -37,16 +45,16 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={heroMedia?.src || "/images/india/hero.png"}
-          alt={heroMedia?.alt || "Victor Mobility luxury vehicles and corporate transport"}
+          src={heroImageSrc}
+          alt={heroMedia?.alt || "Victor Mobility corporate transportation fleet"}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[68%_center] lg:object-center opacity-75 sm:opacity-85"
+          className="object-cover object-[70%_center] lg:object-center opacity-80 sm:opacity-90"
         />
-        {/* Dark editorial gradient for desktop left space readability, subtle vignette on mobile */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/90 sm:via-brand-ink/75 to-transparent lg:w-3/5" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-transparent to-brand-ink/30 sm:hidden" />
+        {/* Crisp editorial gradient for readability while showing clean corporate fleet */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/90 sm:via-brand-ink/80 to-transparent lg:w-3/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-transparent to-brand-ink/40 sm:hidden" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
@@ -70,7 +78,7 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
           {/* Dual CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
             <Link
-              href={content.hero.primaryCta.href || "/india/contact"}
+              href={content.hero.primaryCta.href || `${isUae ? "/uae" : "/india"}/contact`}
               className="inline-flex items-center justify-center gap-2 text-sm font-bold bg-white text-brand-indigo hover:bg-brand-warm-white hover:text-brand-blue px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-150 group focus:outline-none focus:ring-2 focus:ring-white"
             >
               <span>{content.hero.primaryCta.label}</span>
@@ -88,14 +96,15 @@ export default function Hero({ content, heroMedia, mediaCaption }: HeroProps) {
           <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-white/15 text-xs text-brand-soft-neutral">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-brand-violet" />
-              <span>Dedicated Enterprise Fleet</span>
+              <span>{isUae ? "Dubai RTA Licensed Limousines" : "AIS-140 GPS & 24/7 Operations Control"}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-violet" />
+              <span>100% Background-Verified Chauffeurs</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-violet" />
               <span>{cityHighlights}</span>
-            </div>
-            <div className="text-xs text-brand-soft-neutral/80 italic">
-              {mediaCaption}
             </div>
           </div>
         </div>

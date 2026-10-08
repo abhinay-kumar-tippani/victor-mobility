@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageSquare, Phone, ArrowRight, Calendar, Users, CheckCircle, ShieldCheck } from "lucide-react";
 import type { ContactData } from "@/types/content";
 
@@ -7,11 +10,17 @@ interface ContactInvitationSectionProps {
 }
 
 export default function ContactInvitationSection({ contact }: ContactInvitationSectionProps) {
+  const pathname = usePathname();
+  const isUae = pathname.startsWith("/uae");
+  const prefix = isUae ? "/uae" : "/india";
+
   const steps = [
     {
       num: "01",
       title: "Share your plan",
-      desc: "Specify dates, passenger count, pickup corridors, or occasion requirements.",
+      desc: isUae
+        ? "Specify travel dates, passenger count, flight details, or itinerary requirements."
+        : "Specify shift rosters, employee count, pickup corridors, or fleet requirements.",
     },
     {
       num: "02",
@@ -31,7 +40,7 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
   ];
 
   return (
-    <section id="contact" tabIndex={-1} className="py-16 sm:py-24 bg-white focus:outline-none">
+    <section id="contact-invitation" tabIndex={-1} className="py-16 sm:py-24 bg-white focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl">
           {/* Subtle background glow */}
@@ -47,7 +56,9 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
                 Ready to coordinate your travel?
               </h2>
               <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
-                Connect directly with our management desk for corporate employee transport, executive airport transfers, or wedding occasion logistics across Hyderabad, Bengaluru, and Pune.
+                {isUae
+                  ? "Connect directly with our management desk for executive limousine retainers, airport VIP transfers, or corporate delegation logistics across Dubai and Abu Dhabi."
+                  : "Connect directly with our management desk for corporate employee transport, campus bus shuttles, or executive chauffeur travel across Hyderabad, Bengaluru, and Pune."}
               </p>
             </div>
 
@@ -78,16 +89,16 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
                   {contact.name}
                 </h4>
                 <p className="text-xs text-white/70">
-                  {contact.role} · Victor Mobility Pvt. Ltd.
+                  {contact.role} · {isUae ? "Victor Mobility UAE" : "Victor Mobility Pvt. Ltd."}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full md:w-auto">
                 <Link
-                  href="/india/contact"
+                  href={`${prefix}/contact`}
                   className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white hover:bg-brand-warm-white text-brand-ink py-3 px-6 rounded-xl transition-colors shadow-xs text-center"
                 >
-                  <span>Discuss your requirement</span>
+                  <span>Request Corporate Proposal</span>
                   <ArrowRight className="w-4 h-4 text-brand-indigo" />
                 </Link>
 

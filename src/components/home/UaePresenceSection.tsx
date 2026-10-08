@@ -60,8 +60,8 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
               <Car className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-2xl font-extrabold text-brand-ink block">2,000+</span>
-              <span className="text-xs text-brand-ink/70">Luxury & Executive Fleet Capability</span>
+              <span className="text-base font-extrabold text-brand-ink block">100% RTA Licensed</span>
+              <span className="text-xs text-brand-ink/70">Commercial Limousine Fleet Compliance</span>
             </div>
           </div>
 
@@ -70,8 +70,8 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
               <Bus className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-2xl font-extrabold text-brand-ink block">500+</span>
-              <span className="text-xs text-brand-ink/70">Luxury Buses & Shuttles Fleet Capability</span>
+              <span className="text-base font-extrabold text-brand-ink block">DXB · AUH · DWC</span>
+              <span className="text-xs text-brand-ink/70">VIP Airport Meet & Curbside Staging</span>
             </div>
           </div>
 
@@ -80,8 +80,8 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-2xl font-extrabold text-brand-ink block">24/7</span>
-              <span className="text-xs text-brand-ink/70">Airport VIP & Terminal Flight Radar Desk</span>
+              <span className="text-base font-extrabold text-brand-ink block">24/7 Dispatch Desk</span>
+              <span className="text-xs text-brand-ink/70">Live Flight Radar & Chauffeur Tracking</span>
             </div>
           </div>
         </div>

@@ -96,7 +96,7 @@ export default function FleetPage() {
                 Vehicles for Everyday Journeys &amp; Special Occasions
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                Operating with direct access to over 2,000+ luxury cars and 500+ buses across Hyderabad, Bengaluru, and Pune. Meticulously maintained, GPS-monitored, and backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Operating dedicated corporate fleets comprising executive sedans, MPVs, and luxury air-conditioned coaches across Hyderabad, Bengaluru, and Pune. Meticulously maintained, GPS-monitored, and backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
             </div>
           </div>

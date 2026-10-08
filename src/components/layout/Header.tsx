@@ -300,7 +300,7 @@ export default function Header({ contact }: HeaderProps) {
               href={`${basePrefix}/contact`}
               className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
             >
-              Discuss Requirement
+              Request Proposal
             </Link>
           </div>
 
@@ -425,7 +425,7 @@ export default function Header({ contact }: HeaderProps) {
                 className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3 px-4 rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <MessageSquare className="w-4 h-4" />
-                Discuss Requirement
+                Request Corporate Proposal
               </Link>
               <a
                 href={contact.phoneHref}

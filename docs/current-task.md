@@ -1,6 +1,6 @@
-# Current follow-up: Codex UI/UX fixes — 6 October 2026
-
-User authorised implementation of all six review findings. Enquiry state, fleet routing, responsive menu, portal demo honesty, geographic India map and navigation grouping are implemented locally. See the newest entry in `docs/handoff.md` for exact validation scope, screenshots and deployment status. Existing uncommitted edits were preserved.
+# Current Task: Enterprise Conversion & B2B Clarity Overhaul — 8 October 2026
+Owner: Antigravity.
+Scope: Comprehensive enterprise UX and positioning overhaul across `/india` and `/uae` homepages, aligning visual assets, messaging hierarchy, compliance checkpoints, and inquiry flows to enterprise procurement and facility decision-makers. All 73 static SSG routes fully verified.
 
 ---
 
