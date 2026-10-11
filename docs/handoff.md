@@ -1,5 +1,50 @@
 # Handoff
 
+## 11 October 2026 — Font Rendering Resolution & Multi-Tier Fallback Architecture
+
+Status: Implemented and fully verified locally across all 73 static SSG routes and headless Chromium diagnostic tests.
+
+- **Root Cause Identified**:
+  - Tailwind's `fontFamily.sans` was configured with `["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"]`.
+  - In standard CSS variables specification, when `var(--font-sans)` is evaluated without an inner fallback and the custom property is not yet defined on an element, the comma-separated declaration becomes invalid at computed-value time. The browser discards the declaration and defaults to its root serif engine ("Times New Roman").
+  - Furthermore, relying solely on `next/font/google` build-time download without a CDN fallback meant any network interruption during compilation or on CDN edge delivery left the property undefined.
+- **Implementation & Resolution**:
+  1. **Direct Google Fonts CDN Import**: Added `@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');` at the top of `src/app/globals.css`.
+  2. **Direct Class Injection**: Applied `${manrope.className}` directly to `<body className={`${manrope.className} ...`}>` in `src/app/layout.tsx`, ensuring Next.js's self-hosted `@font-face` class is bound to the document root.
+  3. **Resilient CSS Fallback Syntax**: Updated `tailwind.config.ts` to `var(--font-sans, 'Manrope'), 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`.
+  4. **Base Layer Explicit Typography**: Explicitly assigned `font-family` on `body` in `globals.css` ensuring full coverage across all HTML tags, inputs, and buttons.
+- **Verification**:
+  - TypeScript: passed (0 errors).
+  - ESLint: passed (0 warnings, 0 errors).
+  - Production build (`npm run build`): passed (73/73 static SSG pages).
+  - Headless Chromium diagnostics (`scripts/diagnose-font.mjs`): confirmed `body`, `h1`, and `p` computed font-family correctly resolves to `__Manrope_73ee6c` with Google Fonts CDN 200 OK fallback.
+
+---
+
+## 8 October 2026 — Hero Section 6 Core Services Bento Matrix Overhaul (Option 2 Implementation)
+
+Status: Implemented and fully verified locally across all 73 static SSG routes.
+
+- **100% Image-Free Dark Executive Canvas**:
+  - Replaced background image container in `src/components/home/Hero.tsx` with a high-end dark canvas featuring subtle ambient indigo/violet glows and an enterprise micro-grid texture.
+  - Eliminated LCP image load latency and visual ambiguity.
+- **2-Column Split-Screen Hero Architecture**:
+  - **Left Column:** Authoritative brand tagline ("On Time Every Time."), regional value statement, dual corporate CTAs ("Request Corporate Proposal" + "Explore Enterprise Fleet"), and operational trust credentials (AIS-140 GPS, 100% BGV Chauffeurs).
+  - **Right Column:** A 2×3 Bento Matrix Grid featuring all 6 core transportation services directly above the fold:
+    - *India (`/india`):* Employee Transportation, Bus & Shuttle Transport, Event Transportation, Airport Transfers, Chauffeur & Luxury Travel, Rent-A-Car.
+    - *UAE (`/uae`):* Chauffeur & Luxury Limousine, Airport VIP Transfers, Corporate Events & Delegations, Corporate Employee Transport, Tourism & City Excursions, Rent-A-Car & Fleet Leasing.
+    - Each card includes custom Lucide iconography, service title, badge tag, short description, hover state transitions, and direct links to `/services/[slug]`.
+- **Statutory Trust & Governance Ribbon**:
+  - Transformed the under-hero strip into an enterprise compliance banner displaying CIN/DED registrations, EPF/ESIC status, GST SAC 9966 automated e-invoicing / FTA VAT, and 24/7 direct operations control room dispatch numbers.
+
+Validation:
+- TypeScript (`npm run type-check`): passed (0 errors).
+- ESLint (`npm run lint`): passed (0 warnings, 0 errors).
+- Production Build (`npm run build`): passed (73/73 static SSG routes compiled).
+- High-resolution desktop and mobile screenshots captured and verified in `docs/screenshots/overhaul/`.
+
+---
+
 ## 8 October 2026 — Enterprise Conversion & B2B Clarity Overhaul (/india & /uae)
 
 Status: Implemented and fully verified locally across all 73 static SSG routes.

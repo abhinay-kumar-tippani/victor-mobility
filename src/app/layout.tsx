@@ -147,7 +147,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body className="min-h-screen bg-white font-sans text-brand-ink antialiased">
+      <body className={`${manrope.className} min-h-screen bg-white font-sans text-brand-ink antialiased`}>
         {/* Accessible Skip Link */}
         <a
           href="#main-content"

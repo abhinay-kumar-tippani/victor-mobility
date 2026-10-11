@@ -22,7 +22,16 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
+        sans: [
+          "var(--font-sans, 'Manrope')",
+          "Manrope",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "'Segoe UI'",
+          "Roboto",
+          "sans-serif",
+        ],
       },
     },
   },
