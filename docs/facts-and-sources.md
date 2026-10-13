@@ -24,8 +24,8 @@ Dubai/UAE belongs to phase two.
 
 ## Contacts
 Use the finalized card's +91 91007 77768 for calls and +91 93965 46950 for WhatsApp.
-The card names Mujeeb Ur Rehman Mohammed, Business Development Partner.
-Its printed mujeeburrehman@victormobility.com and victormobility.com are retained as draft fields because the user says the domain is not purchased.
+The card names Mujeeb Ur Rahman Mohammed, Business Development Partner.
+Its printed mujeeburrahman@victormobility.com and victormobility.com are retained as draft fields because the user says the domain is not purchased.
 The older brochure prints info@victorluxurylimousine.com and victorluxurylimousine.com; retain only as historical source notes, not active navigation.
 
 ## Other claims

@@ -1,7 +1,7 @@
 # Domain & Business Email Activation Guide
 **Target Domain**: `victormobility.com`  
-**Contact Representative**: Mujeeb Ur Rehman Mohammed, Business Development Partner  
-**Target Email**: `mujeeburrehman@victormobility.com`
+**Contact Representative**: Mujeeb Ur Rahman Mohammed, Sr. Manager - Business Development and Operations  
+**Target Email**: `mujeeburrahman@victormobility.com`
 
 ---
 
@@ -48,11 +48,11 @@ Once the domain is connected and SSL/TLS certificate is provisioned:
 
 ---
 
-## 3. Business Email Provisioning (`mujeeburrehman@victormobility.com`)
+## 3. Business Email Provisioning (`mujeeburrahman@victormobility.com`)
 
 1. **Email Service Provider**:
    - Set up **Google Workspace** or **Microsoft 365** for `victormobility.com`.
-   - Create user account: `mujeeburrehman@victormobility.com`.
+   - Create user account: `mujeeburrahman@victormobility.com`.
 
 2. **Add Required DNS Records**:
    - **MX Records** (for Google Workspace):
@@ -72,7 +72,7 @@ Once the domain is connected and SSL/TLS certificate is provisioned:
      ```json
      "contact": {
        "emailEnabled": true,
-       "printedEmail": "mujeeburrehman@victormobility.com"
+       "printedEmail": "mujeeburrahman@victormobility.com"
      }
      ```
    - This activates verified email links across the Contact page and Footer without user confusion.

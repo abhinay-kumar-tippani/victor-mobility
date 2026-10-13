@@ -112,12 +112,12 @@ async function main() {
   const peopleSection = desktopPage.locator("#about");
   const founderName = await peopleSection.locator("h3:has-text('Jahangir')").isVisible();
   const founderQuote = await peopleSection.locator("text=I am committed to providing unwavering service to my clients").isVisible();
-  const mujeebPresent = await peopleSection.locator("text=Mujeeb Ur Rehman Mohammed").isVisible();
+  const mujeebPresent = await peopleSection.locator("text=Mujeeb Ur Rahman Mohammed").isVisible();
   const opsRoomPresent = await peopleSection.locator("text=24/7 Operations Control Room").isVisible();
 
   const peopleValid = founderName && founderQuote && mujeebPresent && opsRoomPresent;
   results.push({
-    test: "The People Behind Victor showcases Founder Jahangir with portrait & quote, Mujeeb Ur Rehman, and 24/7 Ops Room",
+    test: "The People Behind Victor showcases Founder Jahangir with portrait & quote, Mujeeb Ur Rahman, and 24/7 Ops Room",
     passed: peopleValid,
     details: `Jahangir: ${founderName}, Quote: ${founderQuote}, Mujeeb: ${mujeebPresent}, Ops: ${opsRoomPresent}`,
   });

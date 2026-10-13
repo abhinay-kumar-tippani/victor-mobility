@@ -37,7 +37,7 @@ async function main() {
   const indiaPortalTitle = await desktopPage.title();
   const hasPortalHero = await desktopPage.getByRole("heading", { name: "Corporate Client Portal & Telematics" }).count();
   const hasClientName = await desktopPage.getByText("Amazon Development Centre India").count();
-  const hasManager = await desktopPage.getByText("Mujeeb Ur Rehman Mohammed").count();
+  const hasManager = await desktopPage.getByText("Mujeeb Ur Rahman Mohammed").count();
 
   // Test Shift Roster Tab (Switch to Night Escort Shift)
   await desktopPage.getByRole("button", { name: /Night Graveyard Roster/i }).click();

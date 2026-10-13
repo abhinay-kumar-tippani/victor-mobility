@@ -40,7 +40,7 @@ async function main() {
   const hasPhilosophy = aboutHeading.includes("Punctual mobility built on trust and accountability");
 
   // Check Leadership Card
-  const leadershipName = await aboutPage.locator("h3:has-text('Mujeeb Ur Rehman Mohammed')").isVisible();
+  const leadershipName = await aboutPage.locator("h3:has-text('Mujeeb Ur Rahman Mohammed')").isVisible();
   const leadershipRole = await aboutPage.locator("text=Business Development Partner").first().isVisible();
   const directPhoneLink = await aboutPage.locator('a[href="tel:+919100777768"]').first().isVisible();
   const directWhatsappLink = await aboutPage.locator('a[href*="9396546950"]').first().isVisible();

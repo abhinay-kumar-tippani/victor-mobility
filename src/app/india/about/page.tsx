@@ -354,7 +354,7 @@ export default function AboutPage() {
                   Discuss Your Transport Arrangement
                 </h3>
                 <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
-                  Speak directly with our Business Development Partner, Mujeeb Ur Rehman Mohammed,
+                  Speak directly with our Business Development Partner, Mujeeb Ur Rahman Mohammed,
                   to structure an agreement or itinerary for your organization or special occasion.
                 </p>
               </div>

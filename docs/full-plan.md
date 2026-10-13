@@ -124,7 +124,7 @@ Source notes are recorded in docs/facts-and-sources.md.
 The final card supplies:
 - Calls: +91 91007 77768.
 - WhatsApp: +91 93965 46950.
-- Mujeeb Ur Rehman Mohammed, Business Development Partner.
+- Mujeeb Ur Rahman Mohammed, Business Development Partner.
 
 The card's email/domain are stored as editable draft values because the domain is not yet purchased. They are inactive by default.
 The older brochure email/domain are source notes only.

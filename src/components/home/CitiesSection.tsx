@@ -133,7 +133,7 @@ export default function CitiesSection({ cities, offices, contact }: CitiesSectio
               <span>Operations & Development</span>
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-white">
-              {contact?.name || "Mujeeb Ur Rehman Mohammed"}
+              {contact?.name || "Mujeeb Ur Rahman Mohammed"}
             </h4>
             <p className="text-xs text-brand-soft-neutral/80 leading-relaxed">
               {contact?.role || "Business Development Partner"} · Direct discussion for corporate master agreements, shift contracts, and urgent fleet requirements.
