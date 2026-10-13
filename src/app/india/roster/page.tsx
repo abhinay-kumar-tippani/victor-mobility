@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Enterprise Employee Shift Roster & Route Optimization Desk | Victor Mobility India',
   description:
-    'Comprehensive employee shift roster planning, nodal pickup staging, 45-minute commute windows, and digital trip manifests in Hyderabad, Bengaluru, and Pune.',
+    'Comprehensive employee shift roster planning, nodal pickup staging, 45-minute commute windows, and digital trip manifests across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/roster',
     languages: {

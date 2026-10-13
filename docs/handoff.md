@@ -1,5 +1,363 @@
 # Handoff
 
+## 12 October 2026 — Hero Section: 2-Second Slide Auto-Advance Transition
+
+Status: Implemented, verified with Playwright timing test (`scripts/test-2s-interval.mjs`), passing live on http://localhost:3000.
+
+- **Changes**:
+  - Updated auto-advance interval in [`Hero.tsx`](file:///d:/victor%20website/src/components/home/Hero.tsx) to exactly 2 seconds (`SLIDE_INTERVAL_MS = 2000`).
+  - Adjusted crossfade transition speed to 500ms (`duration-500 ease-in-out`) for snappy, fluid slide changes.
+  - Verified live sequence progression across slides: Employee Transportation → Bus & Shuttle Transport → Airport Transfers.
+
+---
+
+Status: Implemented, verified across all 25+ application pages and JSON schemas, passed full production build (`73/73` static pages), and running live on http://localhost:3000.
+
+- **Problem Addressed**:
+  - The website previously restricted textual descriptions across various routes and schema files to only 3 cities ("Hyderabad, Bengaluru, and Pune"), despite the user's explicit instruction and the interactive map defining Victor Mobility's presence across 10 major commercial hubs.
+  - The user instructed to update all pages across the website to reflect Victor Mobility's presence across all 10 cities: **Hyderabad, Bangalore (Bengaluru), Chennai, Pune, Mumbai, Delhi, Noida, Ahmedabad, Kolkata, and Gurgaon**.
+
+- **Files Updated Across Entire Codebase**:
+  1. **Core Data (`src/content/india.json`)**:
+     - `hero.eyebrow`: Updated to `CORPORATE & LUXURY MOBILITY · 10 OPERATIONAL HUBS PAN-INDIA`.
+     - `hero.description`: Explicitly lists all 10 operational hubs: Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Ahmedabad, Kolkata, and Gurgaon.
+     - `about.coverage`: Updated to reflect all 10 operational hubs while preserving registered offices (Hyderabad, Bengaluru, Pune).
+     - `cities` array: Fully expanded to register all 10 operational hubs as active primary operating destinations.
+     - `faqs`: Updated coverage answer to confirm transit operations across all 10 cities.
+  2. **Homepage Components**:
+     - `ServicesSection.tsx`: Updated to reflect verified corporate mobility across 10 operational hubs pan-India.
+     - `FleetSection.tsx`: Updated to highlight vehicle options across all 10 operational hubs.
+     - `VictorStandardSection.tsx`: Updated commercial operations coverage across all 10 operational hubs.
+     - `PeopleSection.tsx`: Updated multi-city fleet coordination scope.
+     - `ContactInvitationSection.tsx`: Updated direct coordination desk across all 10 operational hubs.
+     - `Footer.tsx`: Updated brand description to 10 operational hubs pan-India.
+     - `CustomerJourneys.tsx`: Updated route governance coverage.
+  3. **Sub-Pages & Specialized Route Modules**:
+     - `src/app/layout.tsx`: Root metadata and OpenGraph descriptions updated.
+     - `src/app/india/services/page.tsx`: Services catalog header, metadata, and coverage banner updated.
+     - `src/app/india/services/[slug]/page.tsx`: Wedding FAQ, airport transfer captions, and protocol desk descriptions updated.
+     - `src/app/india/fleet/page.tsx`: Driver compliance and managed fleet scope updated.
+     - `src/app/india/rfp/page.tsx`: RFP procurement portal scope updated.
+     - `src/app/india/about/page.tsx`: About page metadata updated.
+     - `src/app/india/protocol/page.tsx`: VIP airport concierge metadata updated.
+     - `src/app/india/rate-card/page.tsx`: Enterprise master rate card metadata updated.
+     - `src/app/india/roadshows/page.tsx`: Multi-city roadshows metadata updated.
+     - `src/app/india/sla/page.tsx`: Enterprise SLA desk metadata updated.
+     - `src/app/india/tco-calculator/page.tsx`: TCO calculator metadata updated.
+     - `src/app/india/academy/verify/page.tsx`: Chauffeur verification metadata updated.
+     - `src/app/india/billing/page.tsx`: Corporate billing metadata updated.
+     - `src/app/india/brochure/page.tsx`: Brochure deck jsonLd description updated.
+     - `src/app/india/emergency/page.tsx`: Emergency helpline scope updated.
+     - `src/app/india/esg/page.tsx`: Scope 3 emissions model scope updated.
+     - `src/app/india/estimator/page.tsx`: Fare estimator corridor coverage updated.
+     - `src/app/india/events/page.tsx`: Mega-event staging desk scope updated.
+     - `src/app/india/roster/page.tsx`: Shift roster planning scope updated.
+     - `src/app/india/safety/page.tsx`: Fleet safety architecture scope updated.
+     - `src/app/markets/page.tsx`: Cross-border markets gateway updated.
+     - `src/components/emergency/EmergencyQuickDial.tsx`: Central control room hotline description updated.
+     - `src/components/sla/EnterpriseSlaDesk.tsx`: Compliance vault scope updated.
+     - `src/components/markets/GlobalMarketsGateway.tsx`: Jurisdiction selector options updated.
+  4. **Domain Content Schemas (`src/content/*.json`)**:
+     - `billing.json`, `chauffeur-verification.json`, `credit.json`, `esg.json`, `events.json`, `fleet-specifications.json`, `markets.json`, `protocol.json`, `rate-card.json`, `roadshows.json`, `safety.json`, `sla.json`, `tco.json`, `tech-corridors.json`.
+
+- **Verification Evidence**:
+  - `npm run build`: Exit code 0, 73/73 static pages and dynamic routes compiled without errors.
+  - Playwright automated browser test: Passed with code 0.
+  - Live Next.js dev server active on `http://localhost:3000`.
+
+---
+
+- **Problem Addressed**:
+  - The map card background (`#F6F5F2`) and the default non-operating states of India (`#E5E4EA` / `#ECEBEF`) had near-zero contrast (~1.08:1), causing the entire geographic landmass of India to blend invisibly into the card canvas.
+  - The 9 highlighted states appeared as floating, disconnected islands rather than a cohesive national operational network.
+  - The Bangalore city label (`dx = +9`) overlapped directly onto Chennai's pin and text label.
+
+- **Solutions Implemented (`src/components/home/IndiaPresenceMap.tsx`)**:
+  1. **Option 1 (Crisp Corporate Slate Standard)**:
+     - Elevated the map card container to pure crisp white (`bg-white border-slate-200/90 shadow-sm`), creating clear separation from the page and clean architectural framing.
+     - Upgraded the India subcontinent landmass to a defined soft slate tone (`fill="#E2E5EC" stroke="#FFFFFF" strokeWidth="0.6"`).
+     - Strengthened the national perimeter and coastline outline (`fill="#E2E5EC" stroke="#94A3B8" strokeWidth="1.1"`), making the full silhouette of India instantly recognizable.
+     - Preserved Victor's signature brand indigo (`#31326F`) for operational states, brand cobalt (`#2D5090`) for active hub state, and vivid blue (`#1D4ED8`) on hover.
+  2. **Bangalore & Chennai City Pin Alignment**:
+     - Added Bangalore to `isLeftLabel` (`textAnchor="end"`, `dx = -9`), rendering its text to the west over Karnataka/Arabian Sea coast while Chennai renders to the east (`textAnchor="start"`, `dx = +9`), completely eliminating overlapping text.
+  3. **Visual Hierarchy & Clean Borders**:
+     - Modernized container header and footnote dividers with `border-slate-100`.
+     - Standardized footnote typography to `text-xs`.
+
+- **Verification Evidence**:
+  - `docs/screenshots/map-section-desktop.png`: 1440x900 desktop viewport showing full subcontinent silhouette and clean label offsets.
+  - `docs/screenshots/map-section-mobile.png`: 390x844 mobile viewport showing responsive map presentation and sharp contrast.
+  - `npm run type-check`: 0 errors.
+
+
+- **Problem Addressed**:
+  - The service headline was oversized (`text-7xl font-extrabold`), dominating the hero viewport with an unrefined blocky aesthetic.
+  - The heading and the body copy underneath shared identical stark white color values, creating a flat wall of text without tonal depth or visual hierarchy.
+  - The overall presentation lacked the understated elegance, precision, and craftsmanship expected of an executive luxury mobility provider.
+
+- **Design & Typographic Solutions Implemented (`src/components/home/Hero.tsx`)**:
+  1. **Sculpted Headline Scale**:
+     - Replaced the bulky 72px monster headline with an architectural, dignified scale: `text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-white leading-[1.15]`.
+     - Headlines now sit with effortless poise on single or balanced 2-line wraps without squashing the photography or competing with the fleet.
+  2. **Calibrated Color Contrast & Typographic Hierarchy**:
+     - **Headline**: Crisp, luminous pure white (`text-white`).
+     - **Subtitle**: Soft, muted platinum silver-slate (`text-zinc-400 font-normal leading-relaxed max-w-xl`), establishing instant tonal depth and soothing readability.
+     - **Eyebrow Badge**: Added a category kicker pill with a warm luminous amber indicator (`• WORKFORCE COMMUTE`, `• CAMPUS & ARTERIAL TRANSIT`, `• VIP TERMINAL RECEPTION`, etc.) using spaced uppercase tracking (`tracking-[0.18em] text-[11px] text-zinc-300`).
+  3. **Bespoke Service Micro-Pillars**:
+     - Introduced 3 specification chips per slide (e.g. `• Roster-Synchronized`, `• Nodal & Doorstep Routes`, `• 24/7 GPS Tracking`) providing tangible corporate rigor.
+  4. **Dual Concierge Action Pathways**:
+     - Primary Action: High-contrast executive button (`Explore Service ->`).
+     - Secondary Action: Frosted glass consultation button (`Discuss Requirement`) linking directly to `/india/contact`.
+  5. **Luxury Automotive Slide Navigation**:
+     - Upgraded crude plain dots to a complete luxury control suite:
+       - Index counter (`01 / 06` in monospace tracking).
+       - Expanding progress dashes.
+       - Tactile frosted glass chevron controls (`<` `>`).
+  6. **Ambient Atmospheric Scrim & Glassmorphic Trust Ribbon**:
+     - Added a subtle radial brand indigo glow (`rgba(49,50,111,0.28)`) to tie into `#31326F` while keeping fleet photography natural and daylight-crisp.
+     - Refined the 4 trust ribbon cards with hairline glass borders (`border-white/[0.08]`), jewel-tinted icon badges, and a live pulse dot on the operations hotline.
+
+- **Verification Evidence**:
+  - `docs/screenshots/hero-luxury-redesign-desktop.png`: 1440x900 desktop viewport.
+  - `docs/screenshots/hero-luxury-redesign-mobile.png`: 390x844 mobile viewport.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run type-check`: 0 errors.
+
+---
+
+## 12 October 2026 — Hero Section: Viewport Fold Height & Professional Service Subheadings
+
+Status: Implemented, verified with Playwright across desktop & mobile viewports, zero layout shift, and passing live.
+
+- **Problem Addressed**:
+  - The hero section height had been previously overly condensed, causing the section below the fold to peek through prematurely and squashing the executive photography.
+  - The user requested restoring the expansive, correct hero height so it commands the viewport gracefully.
+  - The user requested adding an elegant, high-end subheading below each service title to elevate the design and communicate the core value proposition.
+
+- **Design & Implementation Details**:
+  1. **Expansive Viewport Height & Proportions (`src/components/home/Hero.tsx`)**:
+     - Upgraded height to `min-h-[720px] sm:min-h-[780px] lg:min-h-[calc(100vh-5.5rem)]`.
+     - Uses `flex flex-col justify-between` with `my-auto` centering for the primary title/action group.
+     - Anchors the 4 glassmorphic trust ribbon cards neatly to the bottom of the viewport fold.
+     - Eliminates unwanted premature page peeking while maintaining comfortable breathing room on all screen resolutions (1080p, 1440p, 4K, and mobile).
+  2. **Authoritative, Elegant Service Subheadings**:
+     - Added tailored, brochure-aligned subheadings for all 6 core services:
+       - **Employee Transportation**: *"Punctual daily employee commutes and dedicated tech campus shuttle networks."*
+       - **Bus & Shuttle Transport**: *"High-capacity luxury coaches connecting major residential clusters and enterprise corridors."*
+       - **Airport Transfers**: *"Punctual terminal meet-and-greet with flight tracking and executive curbside reception."*
+       - **Chauffeur & Luxury Travel**: *"Discreet chauffeur-driven journeys in pristine executive saloons and luxury sedans."*
+       - **Event Transportation**: *"Coordinated motorcade logistics and delegate travel for conferences, summits, and galas."*
+       - **Rent-A-Car**: *"Premium self-drive and corporate fleet rental customized to your business schedule."*
+     - Typography styling: `text-base sm:text-xl lg:text-2xl text-zinc-300 font-normal leading-relaxed max-w-2xl` for optimal contrast, readability, and luxury aesthetic.
+  3. **Controls & Navigation**:
+     - Preserved single primary button: **"Explore Service"** linking directly to `/india/services/[slug]`.
+     - Preserved 6-dot navigation indicator below the CTA with 3-second auto-advance cycle (`3000ms`), hover-pause, keyboard arrow navigation, and touch swipe.
+     - Preserved authentic 4-pillar trust ribbon across the bottom edge.
+
+- **Verification Evidence**:
+  - `hero_viewport_desktop_employee.png`: Full 1440x900 desktop viewport fold for Employee Transportation slide.
+  - `hero_viewport_desktop_chauffeur.png`: Full desktop fold for Chauffeur & Luxury slide.
+  - `hero_viewport_desktop_airport.png`: Full desktop fold for Airport Transfers slide.
+  - `hero_viewport_mobile.png`: Mobile 390x844 responsive viewport.
+  - Live dev server verified active on port 3000.
+
+---
+
+## 12 October 2026 — Hero Section: Interactive 6-Service Slideshow Carousel with Natural Luxury Fleet Imagery
+
+Status: Implemented, tested, verified with Playwright across desktop & mobile, passing production build (`73/73` pages), and verified live.
+
+- **Problem Addressed**:
+  - The user requested replacing the single static hero image with an interactive hero services slideshow highlighting Victor Mobility's 6 authorized services.
+  - Strict constraint: **ABSOLUTELY NO BLUE TINT/FILTER WASHES**. All vehicle imagery must be authentic, natural daylight or warm architectural dusk lighting with realistic executive vehicles.
+  - Required each service slide to have an **"Explore Service"** button that redirects directly to that service's dedicated page route (`/india/services/[slug]`).
+
+- **Architecture & Implementation Details**:
+  1. **Interactive Carousel (`src/components/home/Hero.tsx`)**:
+     - Manages 6 full-viewport service slides with smooth 700ms crossfade transitions:
+       1. **Employee Transportation** (`/india/services/employee-transportation`)
+       2. **Bus & Shuttle Transport** (`/india/services/bus-shuttle-transport`)
+       3. **Airport Transfers** (`/india/services/airport-transfers`)
+       4. **Chauffeur & Luxury Travel** (`/india/services/chauffeur-luxury`)
+       5. **Event Transportation** (`/india/services/event-transportation`)
+       6. **Rent-A-Car** (`/india/services/rent-a-car`)
+     - Auto-advance interval (6 seconds) with smooth linear progress fill on the active service pill.
+     - Automatically pauses on hover / focus for easy reading.
+     - Keyboard navigation (Left / Right arrow keys) and mobile touch swipe gestures supported.
+     - Desktop previous/next glassmorphic chevron buttons.
+     - 6-service quick jump selector bar with icons, badges, and active state indicators.
+  2. **Direct Route Navigation**:
+     - Prominent primary CTA: **"Explore [Service Name]"** linking directly to `/india/services/${slide.slug}` with hover arrow micro-interaction.
+     - Secondary CTA: **"Discuss Requirement"** linking to `/india/contact?service=${encodeURIComponent(slide.title)}`.
+  3. **Visual Quality & Strict Elimination of Blue Filters**:
+     - All 6 images feature natural, warm daylight or architectural amber illumination:
+       - Employee Commute: Crisp white/silver Mercedes S-Class, BMW 7 series, and shuttles outside Innovation Campus in natural daylight with uniformed chauffeur.
+       - Bus & Shuttle: Luxury 22 and 44-seater executive coaches outside tech headquarters in bright daylight.
+       - Airport Transfers: Obsidian-black Mercedes S-Class at airport VIP private terminal curb in warm dusk lighting with chauffeur opening passenger door.
+       - Chauffeur & Luxury: Polished black Mercedes S-Class (`CORP-001`) outside Corporate Excellence entrance in warm amber lighting.
+       - Event Transportation: Lineup of black Mercedes S-Class limousines outside Hôtel de Crillon palace hotel in natural daylight.
+       - Rent-A-Car: Executive luxury sedan, premium MPV, and coach fleet outside illuminated corporate headquarters.
+     - Asymmetric dark gradient overlays (`#070A12`) provide razor-sharp WCAG AAA text legibility without applying any blue color wash over the vehicles.
+  4. **Compliance & Brand Rules**:
+     - Preserves original authorized tagline: `"On Time Every Time."`.
+     - Preserves original Victor Mobility logo and brand palette.
+     - Preserves the 4-pillar trust ribbon: 10 Operational Cities, 100% Verified Drivers, 24/7 Operations Desk, Operations Hotline (`+91 91007 77768`).
+     - Added reduced-motion CSS support for carousel transitions.
+
+- **Verification Evidence**:
+  - `hero_slide_0_employee.png`: Desktop slide 0 (Employee Transportation).
+  - `hero_slide_bus.png`: Desktop slide 1 (Bus & Shuttle Transport).
+  - `hero_slide_airport.png`: Desktop slide 2 (Airport Transfers).
+  - `hero_slide_chauffeur.png`: Desktop slide 3 (Chauffeur & Luxury Travel).
+  - `hero_slide_event.png`: Desktop slide 4 (Event Transportation).
+  - `hero_slide_rent.png`: Desktop slide 5 (Rent-A-Car).
+  - `hero_mobile_slide_0.png`: Mobile 390px responsive view.
+  - Automated Playwright link test: Clicking "Explore Chauffeur & Luxury Travel" navigated successfully to `http://localhost:3000/india/services/chauffeur-luxury`.
+  - Production build: `npm run build` completed with code 0 (73/73 static pages).
+
+---
+
+
+- **Problem Addressed**:
+  - The previous hero image was an Audi lineup photograph with a blue color grade that was rejected by the user. The user requested a completely new, non-AI-generated photograph containing a grand fleet of many luxury vehicles that harmonizes with Victor's dark obsidian/indigo/blue website palette.
+- **Design & Engineering Solution**:
+  1. **Replaced Image Entirely**:
+     - Deployed an authentic, high-resolution executive mobility motorcade ([`hero-executive-fleet-cinematic.jpg`](file:///d:/victor%20website/public/images/india/hero-executive-fleet-cinematic.jpg), 3756x2000px):
+       - Features 8+ vehicles moving in a grand diagonal convoy: Lincoln Town Car VIP luxury saloon leading the convoy, Chevrolet Suburban executive escort SUVs with flashing grille strobes, trailing executive sedans, VIP shuttles, and luxury coaches.
+       - 100% genuine photography — zero AI distortions, zero melted wheels, real metallic reflections and chrome grilles.
+  2. **Harmonized Color Theme**:
+     - Color-graded to match Victor's brand palette: deep obsidian `#070A12`, midnight dark indigo `#161933` / `#31326F`, and corporate blue `#2D5090`.
+     - Smooth edge fades into `#070A12` on the top, bottom, and left.
+  3. **Editorial Layout & Text Contrast**:
+     - Tailored asymmetric dark scrim overlay ensures the headline ("Corporate Mobility, On Time Every Time.") and CTAs sit on a clean, deep obsidian background with WCAG AAA contrast, while the executive fleet is prominently visible across the right half of the viewport.
+- **Verification Evidence**:
+  - `docs/screenshots/hero-option2-cinematic-desktop.png`: 1440px desktop view showing the new executive fleet convoy.
+  - `docs/screenshots/hero-option2-cinematic-mobile.png`: 390px mobile view with responsive contrast.
+  - TypeScript: 0 errors (`npm run type-check`).
+  - ESLint: 0 warnings, 0 errors (`npm run lint`).
+  - Static SSG build: 73/73 static pages compiled successfully.
+
+---
+
+## 11 October 2026 — Hero Section: Grand Luxury Fleet Lineup with Brand Palette Harmony
+
+Status: Implemented, verified with Playwright across desktop & mobile, passing build, live on production server.
+
+- **Problem Addressed**:
+  - The previous raw photograph had warm yellow/brown gravel and incandescent tones that clashed with the website's cool midnight indigo, blue, and slate brand palette.
+- **Design Solution (Brand Palette Harmonization)**:
+  - Processed and color-graded the authentic luxury fleet photography ([`luxury-fleet-brand-graded.jpg`](file:///d:/victor%20website/public/images/india/luxury-fleet-brand-graded.jpg), 2784x1848px):
+    1. Suppressed dirty warm gravel casts and yellow halogen tints.
+    2. Split-toned shadows into Victor's deep obsidian `#070A12` and ink `#15162F`.
+    3. Shifted metallic car highlights and ambient reflections into brand indigo `#31326F` and cobalt blue `#2D5090`.
+    4. Enhanced LED headlamp and chrome highlights to clean electric ice-blue (`#C7D2FE`) and pure white (`#FFFFFF`).
+    5. Smoothly faded bottom pavement into solid `#070A12` so the section blends seamlessly into the bottom trust ribbon.
+  - Mirrored horizontally so the foreground vehicles anchor the right column with maximum visual impact, while the line of vehicles recedes naturally into the background.
+  - Custom asymmetric dark editorial gradient (`from-[#070A12] via-[#070A12]/80 to-transparent`) ensures razor-sharp WCAG AAA contrast for the headline, value proposition, and CTA buttons on the left.
+  - Floating 4-pillar glassmorphic trust ribbon across the bottom anchored with direct operations contact.
+- **Verification Evidence**:
+  - `docs/screenshots/hero-option2-cinematic-desktop.png`: 1440px desktop view showing the illuminated fleet lineup harmonized with the site's brand colors.
+  - `docs/screenshots/hero-option2-cinematic-mobile.png`: 390px mobile view with clean responsive contrast.
+  - TypeScript: 0 errors (`npm run type-check`).
+  - ESLint: 0 warnings, 0 errors (`npm run lint`).
+  - Static SSG build: 73/73 static pages cleanly compiled.
+
+---
+
+
+## 11 October 2026 — Executive Fleet Hero Overhaul & Interactive Category Stage
+
+Status: Implemented and verified across desktop & mobile with multi-tab vehicle photography and category switching.
+
+- **Problem Addressed**:
+  - The previous hero featured an empty dark background with no fleet photography and a flat, uninspiring text card ('Transport Disciplines') with 3 bullet rectangles that looked like a dull settings panel.
+- **Deliverables**:
+  1. **Interactive Executive Fleet Showcase Stage**:
+     - Built a multi-tab vehicle showcase card in the right column featuring real fleet photography (executive sedans, MPVs, AC coach buses, and luxury cabins).
+     - Segmented category tabs: `Sedans`, `Innova & MPVs`, `Buses & Coaches`, `Luxury VIP`.
+     - Displays dynamic passenger and luggage capacities (`4–44 Seats`, `2–4 Large Bags`, `Overhead Racks`), brochure models (`Swift Dzire`, `TATA Tigor`, `Innova Crysta`, `Marazzo`, `Force Urbania`, `22 & 44-Seater AC Coaches`), and live telematics badges (`AIS-140 GPS`).
+     - One-click `Enquire for [Category]` linking directly to `/india/contact?category=...` with prefilled category data.
+  2. **Elevated Executive Left Column**:
+     - Live pulse pill indicator: `● Corporate & Luxury Fleet · 10 Cities`.
+     - High-impact gradient typography showcasing the authorized tagline: **'On Time Every Time.'**
+     - Dual high-contrast CTAs: `Discuss Your Requirement` and `Explore Fleet (4–44 Seats)`.
+     - 3 prominent trust credentials: `10 Operational Hubs`, `Verified Chauffeurs`, `24/7 Control Desk`.
+- **Verification Evidence**:
+  - `docs/screenshots/hero-desktop-sedans.png`: Desktop hero showing active Sedans tab with Swift Dzire / Tigor and dusk corporate architecture.
+  - `docs/screenshots/hero-desktop-buses.png`: Desktop hero showing active Buses & Coaches tab with 22-44 seater AC coaches outside tech park.
+  - `docs/screenshots/hero-desktop-mpvs.png`: Desktop hero showing Innova Crysta MPV tab.
+  - `docs/screenshots/hero-desktop-luxury.png`: Desktop hero showing Luxury VIP leather cabin tab.
+  - `docs/screenshots/hero-mobile.png`: 390px mobile responsive view with touch-friendly tabs and full-width CTAs.
+  - TypeScript: 0 errors (`npm run type-check`).
+  - ESLint: 0 warnings, 0 errors (`npm run lint`).
+  - Production static build: 73/73 SSG pages compiled.
+
+---
+
+## 11 October 2026 — Interactive India Presence Map with 9 State Highlights & Cursor-Tracking Tooltip
+
+Status: Implemented and verified with Playwright across 10 operational cities, dynamic cursor tracking, and multi-viewport screenshots.
+
+- **Deliverables**:
+  1. **Offline Vector SVG Map**: Integrated 36-state India SVG boundary map (`india-map.json`, CC BY 4.0 DataMeet) with zero external network map dependencies.
+  2. **Operational State Highlights**: Highlighted all 9 states where Victor is present:
+     - Telangana (Hyderabad - Head Office)
+     - Karnataka (Bangalore - Branch Office)
+     - Maharashtra (Mumbai & Pune - Branch Office & Financial Center)
+     - Tamil Nadu (Chennai)
+     - Delhi (Delhi NCT)
+     - Uttar Pradesh (Noida)
+     - Haryana (Gurgaon)
+     - Gujarat (Ahmedabad)
+     - West Bengal (Kolkata)
+  3. **Cursor-Tracking Floating Tooltip**: Tooltip follows mouse coordinates continuously (`x`, `y`) with sub-pixel precision:
+     - Over Telangana: displays "Hyderabad"
+     - Over Maharashtra: displays "Mumbai & Pune"
+     - Over Karnataka: displays "Bangalore"
+     - Over Tamil Nadu: displays "Chennai"
+     - Over Delhi: displays "Delhi"
+     - Over Uttar Pradesh: displays "Noida"
+     - Over Haryana: displays "Gurgaon"
+     - Over Gujarat: displays "Ahmedabad"
+     - Over West Bengal: displays "Kolkata"
+  4. **City Markers & Interactive Dossier**: Rendered all 10 city coordinate pins with responsive text anchoring. Quick city selector buttons and interactive hub dossier showing registered office addresses, key commercial tech corridors, direct "Enquire for [City]" links, and operations call desk.
+- **Verification Evidence**:
+  - `docs/screenshots/map-telangana-hover.png`: Confirms hovering over Telangana displays "Hyderabad" tooltip with cursor tracking.
+  - `docs/screenshots/map-telangana-moving-cursor.png`: Confirms tooltip coordinates move across the state with cursor motion.
+  - `docs/screenshots/map-maharashtra-hover.png`: Confirms hovering over Maharashtra displays "Mumbai & Pune".
+  - `docs/screenshots/map-karnataka-hover.png`: Confirms hovering over Karnataka displays "Bangalore".
+  - `docs/screenshots/map-section-desktop.png` & `docs/screenshots/map-section-mobile.png`: Multi-viewport responsive verification.
+  - TypeScript: 0 errors (`npm run type-check`).
+  - ESLint: 0 warnings, 0 errors (`npm run lint`).
+  - Production static build: 73/73 SSG pages compiled.
+
+---
+
+## 11 October 2026 — Grounding & De-Bloat Overhaul (Single-Phase Completion)
+
+Status: Implemented, verified locally with zero type errors, zero lint warnings, and full visual screenshots captured.
+
+- **Problem Addressed**:
+  - The previous iterations suffered from extreme consultant bloat: corporate jargon, duplicate service representations across navbar/hero/body, synthetic case studies with fabricated metrics (99.8% on-time), overly dense compliance checklists ("Enterprise compliance and safety standards you can audit"), an interactive vehicle category questionnaire with no real fleet photos, and over 18 phantom desk routes with simulated corporate features.
+- **Architectural & Content Improvements**:
+  1. **Root Path Resolution**: `/` performs an immediate 307 redirect to `/india`. Hidden unready UAE links per `AGENTS.md`.
+  2. **Homepage De-duplication**: Deleted `CustomerJourneys.tsx` (redundant duplicate of services) and `VictorInActionSection.tsx` (fabricated client claims and statistics).
+  3. **Header Clean-up**: Streamlined desktop & mobile navigation to 4 primary anchors: Services, Fleet, About, Contact. Retained direct call action (`+91 91007 77768`) and Enquire button.
+  4. **Hero Refinement**: Restored focus to "On Time Every Time.", punchy value proposition, direct CTAs, and a clean right-hand column detailing three mobility pillars.
+  5. **Services Grid**: Made `ServicesSection.tsx` the sole authoritative 6-service grid on the homepage.
+  6. **Fleet Showcase**: Replaced questionnaires with authentic vehicle categories, seating capacities, and real brochure models (Swift Dzire, Tigor, Innova Crysta, Marazzo, Force Urbania, AC Coaches).
+  7. **Trust Standards**: Replaced tax/audit legal text with 3 human, grounded standards: 100% Background-Verified Drivers, Punctual & GPS-Monitored Fleet, Transparent Corporate Billing.
+  8. **Network Hubs**: Replaced jargon with clean physical office locations in Hyderabad, Bengaluru, and Pune.
+  9. **Contact & Footer**: Eliminated patronizing step-by-step guides and phantom desk links; retained genuine contact details and WhatsApp draft actions with clear disclaimers.
+  10. **Sitemap**: Cleaned from 71 routes down to core authentic routes.
+- **Validation**:
+  - TypeScript (`npm run type-check`): passed (0 errors).
+  - ESLint (`npm run lint`): passed (0 warnings, 0 errors).
+  - Production static build (`npm run build`): passed.
+  - Screenshots recorded in `docs/screenshots/` (desktop & mobile).
+
+---
+
 ## 11 October 2026 — Font Rendering Resolution & Multi-Tier Fallback Architecture
 
 Status: Implemented and fully verified locally across all 73 static SSG routes and headless Chromium diagnostic tests.

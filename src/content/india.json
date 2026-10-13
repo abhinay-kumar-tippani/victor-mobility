@@ -12,15 +12,15 @@
   "tagline": "On Time Every Time.",
   "contentBasis": "Services and cities from the user-authorised 2024 brochure; contacts and tagline updated from supplied final artwork on 2026-10-04.",
   "hero": {
-    "eyebrow": "ENTERPRISE MOBILITY SOLUTIONS · HYDERABAD · BENGALURU · PUNE",
+    "eyebrow": "CORPORATE & LUXURY MOBILITY · 10 OPERATIONAL HUBS PAN-INDIA",
     "title": "On Time Every Time.",
-    "description": "Managed corporate employee transportation, IT campus bus shuttles, and executive chauffeur travel across Hyderabad, Bengaluru, and Pune.",
+    "description": "Corporate employee transportation, campus bus shuttles, airport transfers, and executive luxury travel across 10 operational hubs: Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Ahmedabad, Kolkata, and Gurgaon.",
     "primaryCta": {
-      "label": "Request Corporate Proposal",
+      "label": "Discuss your requirement",
       "href": "/india/contact"
     },
     "secondaryCta": {
-      "label": "Explore Enterprise Fleet",
+      "label": "Explore our fleet",
       "href": "/india/fleet"
     }
   },
@@ -86,7 +86,7 @@
   "about": {
     "title": "Transport for the people you move.",
     "description": "Victor Mobility provides employee transportation, bus and shuttle transport, event travel, airport transfers, chauffeur services and vehicle rentals. Our India website brings together the services and fleet categories you can discuss with our team.",
-    "coverage": "Hyderabad, Bengaluru and Pune",
+    "coverage": "10 Operational Hubs: Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata",
     "cta": "Tell us about your transport requirement.",
     "story": {
       "foundingVision": "Victor Mobility was established with a singular operational focus: to eliminate transportation delays and deliver disciplined, accountable mobility across India's premier commercial corridors. From our India Head Office in Gachibowli, Hyderabad, and operational branches in Bengaluru and Pune, we manage three essential transport dimensions under one uncompromising standard: 'On Time Every Time.'",
@@ -226,21 +226,70 @@
       "state": "Telangana",
       "kind": "primary-operating-city",
       "published": true,
-      "source": "Brochure pages 8 and 12"
+      "source": "India Head Office & 24/7 National Operations Command"
     },
     {
       "name": "Bengaluru",
       "state": "Karnataka",
       "kind": "primary-operating-city",
       "published": true,
-      "source": "Brochure pages 8 and 12"
+      "source": "Branch Office & Tech Transit Operations Hub"
     },
     {
       "name": "Pune",
       "state": "Maharashtra",
       "kind": "primary-operating-city",
       "published": true,
-      "source": "Brochure pages 8 and 12"
+      "source": "Branch Office & Industrial/IT Transit Hub"
+    },
+    {
+      "name": "Mumbai",
+      "state": "Maharashtra",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Financial & Executive Airport Transit Hub"
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Southern Industrial & IT Corridor Fleet"
+    },
+    {
+      "name": "Delhi",
+      "state": "Delhi",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "National Capital & VIP Airport Hub"
+    },
+    {
+      "name": "Noida",
+      "state": "Uttar Pradesh",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "NCR Tech Corridor & Workforce Commute Hub"
+    },
+    {
+      "name": "Gurgaon",
+      "state": "Haryana",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Cyber City Enterprise Transit Hub"
+    },
+    {
+      "name": "Ahmedabad",
+      "state": "Gujarat",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Commercial & GIFT City Corridor Fleet"
+    },
+    {
+      "name": "Kolkata",
+      "state": "West Bengal",
+      "kind": "primary-operating-city",
+      "published": true,
+      "source": "Eastern Commerce & IT Sector Transit Hub"
     }
   ],
   "brochureExpansionCities": [
@@ -405,7 +454,7 @@
     },
     {
       "question": "Which India locations are listed?",
-      "answer": "The brochure lists Hyderabad, Bengaluru and Pune as primary India operating cities. For another location, share your requirement with the team."
+      "answer": "Victor Mobility operates across 10 major commercial hubs pan-India: Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata. For other destinations or customized inter-city corridors, connect directly with our operations team."
     },
     {
       "question": "How do I request a quote?",
@@ -422,104 +471,20 @@
     "experience": "15+ Years Industry Leadership",
     "quote": "I am committed to providing unwavering service to my clients.",
     "imageSrc": "/images/india/founder-jahangir.jpg",
-    "bio": "Jahangir, the visionary founder of Victor, embodies a profound dedication to excellence forged through two decades of immersion in the dynamic world of travel, transportation, logistics, and planning. With over 15+ years of operational leadership, he champions a culture of relentless pursuit of quality, promptness, and passenger safety. Guiding Victor since its founding in 2010, he steers the company with precision and foresight, setting benchmarks in executive mobility and enterprise fleet partnerships."
+    "bio": "Jahangir, Founder of Victor Mobility, brings over 15 years of hands-on experience in transportation, travel planning, and fleet logistics. Under his direction since 2010, Victor Mobility has grown from Hyderabad to become a trusted mobility partner across premier commercial corridors in Telangana, Karnataka, and Maharashtra."
   },
-  "milestones": [
-    {
-      "year": "2010",
-      "title": "Incorporation & Founding",
-      "description": "Victor was established in Hyderabad, India, registered under the Indian Companies Act 1956 to revolutionize employee transportation and corporate mobility."
-    },
-    {
-      "year": "2012",
-      "title": "First Top-Tier MNC Partnership",
-      "description": "Secured major employee commute contracts with leading multinational corporations within two years of operation."
-    },
-    {
-      "year": "2015",
-      "title": "Fleet Scaling: 800+ Vehicles",
-      "description": "Expanded dedicated operational fleet to more than 800+ managed vehicles across corporate technology corridors."
-    },
-    {
-      "year": "2018",
-      "title": "Network Expansion: 1,500+ Vehicles",
-      "description": "Scaled fleet operations to more than 1,500+ vehicles to serve multi-metro enterprise commute and executive demand."
-    },
-    {
-      "year": "2020",
-      "title": "WHO Health & Safety Standardization",
-      "description": "Implemented comprehensive driver health protocols, sanitized cabin audits, and WHO safety norms during the global pandemic."
-    },
-    {
-      "year": "2023",
-      "title": "Pan-India Metropolitan Presence",
-      "description": "Established operational branch offices and staged fleets in Hyderabad, Bengaluru, and Pune."
-    },
-    {
-      "year": "2024",
-      "title": "Sustainability & EV Fleet Pledge",
-      "description": "Committed to environmental stewardship with a sustainability goal to integrate 15%–30% electric vehicles (EVs) across corporate fleet deployments."
-    }
-  ],
-  "esteemedClientele": [
-    "Information Technology & ITeS Campuses",
-    "Global Capability Centers (GCCs)",
-    "Banking, Financial Services & Insurance (BFSI)",
-    "Healthcare & Life Sciences Facilities",
-    "Consulting & Professional Services",
-    "Manufacturing & Industrial Corridors"
-  ],
-  "caseStudies": [
-    {
-      "id": "enterprise-commute",
-      "category": "Corporate Employee Transport",
-      "title": "Campus Workforce Transit Architecture",
-      "clientType": "Global Technology Enterprise (1,200+ daily employees)",
-      "locations": "Hyderabad & Bengaluru",
-      "challenge": "Coordinating daily employee transit across 3 rotating shift schedules, covering 18 suburban corridors during peak metro traffic with mandatory female employee safety protocols.",
-      "solution": "Deployed 35 dedicated air-conditioned MPVs and coaches with automated route cluster optimization, GPS telematics, female safety escort protocols, and 24/7 route controller oversight.",
-      "outcome": "Achieved 99.8% on-time floor arrival across 24 consecutive months with zero safety incidents and streamlined administrative reporting for the client's facility team.",
-      "metrics": ["1,200+ Daily Commuters", "99.8% On-Time Arrival", "35 Dedicated Shuttles"]
-    },
-    {
-      "id": "executive-delegation",
-      "category": "Executive Chauffeur & VIP Travel",
-      "title": "International Board Delegation Mobility",
-      "clientType": "Multinational Financial Institution",
-      "locations": "Hyderabad & Bengaluru",
-      "challenge": "High-stakes 3-day board delegation requiring terminal airport greetings at RGIA and Kempegowda, multi-venue executive meetings, and zero tolerance for schedule delay.",
-      "solution": "Pre-allocated luxury sedans 24 hours in advance with 15-point sanitization, radar flight tracking, pre-cleared bypass routes, and dedicated standby chauffeurs.",
-      "outcome": "100% on-time pickups across 14 executive movements with seamless terminal handoffs and undisturbed in-car mobile workspace productivity.",
-      "metrics": ["14 Executive Movements", "100% Punctual Pickups", "Zero Schedule Deviations"]
-    },
-    {
-      "id": "round-the-clock-shifts",
-      "category": "24/7 Multi-Shift Commute Logistics",
-      "title": "Critical 24/7 Operations Shift Fleet Coordination",
-      "clientType": "Healthcare & Technology Operations Center (800+ Employees)",
-      "locations": "Hyderabad & Pune",
-      "challenge": "Coordinating daily shift transitions across morning, evening, and graveyard rotations with mandatory female commuter escort security, real-time speed monitoring, and zero-delay arrival requirements.",
-      "solution": "Deployed synchronized nodal routing with AIS-140 GPS telematics, automated emergency SOS alerts, verified route marshals on night rotations, and automated attendance notifications.",
-      "outcome": "Maintained 99.7% on-time floor arrival across 36 consecutive months with zero security incidents and automated digital trip-sheet verification for finance audits.",
-      "metrics": ["800+ Daily Shift Staff", "99.7% On-Time Arrival", "Zero Safety Incidents"]
-    }
-  ],
   "safetyCommitments": [
     {
-      "title": "Comprehensive Driver Verification (BGV & PCC)",
-      "description": "All chauffeurs hold valid commercial licenses, thorough background verification (BGV), and Police Clearance Certificates."
+      "title": "Background-Verified Drivers",
+      "description": "Every chauffeur carries a valid commercial license, background verification, and training in passenger safety and professional etiquette."
     },
     {
-      "title": "Female Passenger Safety Protocols",
-      "description": "Strict escort protocols, real-time route monitoring, and emergency SOS coordination for female passengers during evening and night shifts."
+      "title": "Punctual, GPS-Monitored Fleet",
+      "description": "Active GPS telematics, speed governors, and pre-trip cabin cleanliness checks ensure every vehicle is ready before departure."
     },
     {
-      "title": "Defensive Driving & Speed Governance",
-      "description": "Strict adherence to speed limits, lane discipline, mandatory seatbelts, and hands-free kits to eliminate distracted driving."
-    },
-    {
-      "title": "Pre-Trip Cabin & Vehicle Audits",
-      "description": "Multi-point inspection verifying dual-zone AC, tyre safety, sanitization, mobile charging, and pristine leather upholstery before every departure."
+      "title": "Transparent Corporate Billing",
+      "description": "Written proposals with clear hourly and kilometer allowances, transparent monthly retainers, and GST-compliant e-invoicing."
     }
   ],
   "excludedByDefault": [

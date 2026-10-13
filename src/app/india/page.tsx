@@ -1,10 +1,9 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import CustomerJourneys from "@/components/home/CustomerJourneys";
-import VictorStandardSection from "@/components/home/VictorStandardSection";
+import ServicesSection from "@/components/home/ServicesSection";
 import FleetSection from "@/components/home/FleetSection";
-import VictorInActionSection from "@/components/home/VictorInActionSection";
+import VictorStandardSection from "@/components/home/VictorStandardSection";
 import IndiaPresenceMap from "@/components/home/IndiaPresenceMap";
 import PeopleSection from "@/components/home/PeopleSection";
 import ContactInvitationSection from "@/components/home/ContactInvitationSection";
@@ -22,60 +21,48 @@ export default function IndiaPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      {/* 1. Header with Intact Victor Logo and Direct Navigation */}
+      {/* 1. Clean Header with Intact Victor Logo & 4 Essential Routes */}
       <Header contact={content.contact} />
 
       <main id="main-content" className="flex-1 focus:outline-none">
-        {/* 1. Hero: Cinematic Dark Hero with Authoritative Tagline */}
+        {/* 1. Hero: Authoritative Brand Tagline, Focused Value Statement & Dual CTAs */}
         <Hero
           content={content}
           heroMedia={heroAsset}
           mediaCaption={media.caption}
         />
 
-        {/* 2. Three Ways to Travel with Victor: Compact Audience Entries */}
-        {content.customerJourneys && (
-          <CustomerJourneys
-            journeys={content.customerJourneys}
-            mediaCaption={media.caption}
-          />
-        )}
+        {/* 2. Services: The 6 Authentic Transport Services (Shown ONCE, Clean & Direct) */}
+        <ServicesSection services={content.services} />
 
-        {/* 3. The Victor Standard: Four Substantiated Practices */}
-        <VictorStandardSection />
-
-        {/* 4. Fleet Preview: Category Selector with ARIA Tabs & Specifications */}
+        {/* 3. Fleet: Real Brochure Models (Dzire, Tigor, Innova, Urbania, Coaches) & Seating Capacities */}
         <FleetSection
           categories={content.fleetCategories}
           fleetNote={content.fleetNote}
-          fleetModelDisplayDefault={content.fleetModelDisplayDefault}
           luxuryMedia={luxuryAsset}
           mediaCaption={media.caption}
         />
 
-        {/* 5. Victor in Action: Documented Operational Case Studies & Esteemed Clientele */}
-        <VictorInActionSection
-          caseStudies={content.caseStudies}
-          esteemedClientele={content.esteemedClientele}
-        />
+        {/* 4. The Victor Standard: 3 Grounded Trust Pillars (Verified Drivers, Punctual Fleet, Transparent Billing) */}
+        <VictorStandardSection />
 
-        {/* 6. Our India Presence: Interactive Vector Map & Office Details */}
+        {/* 5. Regional Operating Hubs: Hyderabad (Gachibowli), Bengaluru & Pune */}
         <IndiaPresenceMap
           offices={content.offices}
           contact={content.contact}
         />
 
-        {/* 7. The People Behind Victor: Founder, Leadership & Operations Accountability */}
+        {/* 6. Leadership & Operations Accountability: Founder Jahangir & Commercial Lead Mujeeb */}
         <PeopleSection
           contact={content.contact}
           founder={content.founder}
         />
 
-        {/* 8. Contact Invitation: Personal Closing & Direct Coordination Desk */}
+        {/* 7. Direct Coordination Desk: Instant WhatsApp & Phone Actions */}
         <ContactInvitationSection contact={content.contact} />
       </main>
 
-      {/* Corporate Footer with Verified Disclaimers and Operating Offices */}
+      {/* Corporate Footer with Verified Operating Hubs & Legal Attribution */}
       <Footer
         contact={content.contact}
         offices={content.offices}

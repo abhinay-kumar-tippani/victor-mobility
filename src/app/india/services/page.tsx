@@ -23,7 +23,7 @@ import type { IndiaContent, MediaContent } from "@/types/content";
 export const metadata: Metadata = {
   title: "Services | Victor Mobility - Corporate & Group Transport Solutions",
   description:
-    "Explore Victor Mobility's complete transport portfolio: employee commuting, bus shuttles, airport transfers, event transport, luxury chauffeur, and rental arrangements across Hyderabad, Bengaluru, and Pune.",
+    "Explore Victor Mobility's complete transport portfolio: employee commuting, bus shuttles, airport transfers, event transport, luxury chauffeur, and rental arrangements across 10 operational hubs pan-India.",
 };
 
 const serviceIcons: Record<string, React.ElementType> = {
@@ -59,7 +59,7 @@ export default function ServicesPage() {
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
                 From daily employee shift shuttles to executive airport transfers and large-scale event logistics,
-                Victor Mobility provides dependable vehicle arrangements across Hyderabad, Bengaluru, and Pune.
+                Victor Mobility provides dependable vehicle arrangements across 10 operational hubs pan-India.
               </p>
             </div>
           </div>
@@ -162,10 +162,10 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <Link
-                  href="/india/estimator"
+                  href="/india/contact?intent=corporate-tariffs"
                   className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
                 >
-                  <span>Launch Rate Estimator</span>
+                  <span>Request Corporate Tariff Proposal</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -176,17 +176,17 @@ export default function ServicesPage() {
                     Operational Standards
                   </span>
                   <h3 className="text-xl font-bold text-brand-indigo mb-2">
-                    Chauffeur Protocol Academy
+                    Verified Chauffeur & Safety Rigour
                   </h3>
                   <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
-                    Discover the 5-pillar curriculum, 24-point pre-dispatch vehicle inspection audit, and 100% police background verification backing &ldquo;On Time Every Time.&rdquo;
+                    Discover our 100% background-checked drivers, 24/7 telematics monitoring, and transparent corporate governance backing &ldquo;On Time Every Time.&rdquo;
                   </p>
                 </div>
                 <Link
-                  href="/india/academy"
+                  href="/india/about"
                   className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
                 >
-                  <span>Explore Academy Standards</span>
+                  <span>Read Safety &amp; Governance Standards</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -203,10 +203,10 @@ export default function ServicesPage() {
                   Authorised India Coverage
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Operating in Hyderabad, Bengaluru & Pune
+                  Operating across 10 Operational Hubs Pan-India
                 </h3>
                 <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
-                  Victor Mobility coordinates scheduled transportation across our primary operating cities.
+                  Victor Mobility coordinates scheduled transportation across Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata.
                   Tell our team your route corridors, shift timings, or travel schedules for custom planning.
                 </p>
               </div>

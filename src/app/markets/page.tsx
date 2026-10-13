@@ -9,7 +9,7 @@ import mediaData from '@/content/media.json';
 export const metadata: Metadata = {
   title: 'Global Regional Operations Gateway & Cross-Border Fleet Network | Victor Mobility',
   description:
-    'Unified executive transportation infrastructure connecting India\'s premier technology corridors (Hyderabad, Bengaluru, Pune) with UAE commercial and financial centres (Dubai, Abu Dhabi). Master bilateral service agreements, dual currency invoicing, and dedicated cross-border operations.',
+    'Unified executive transportation infrastructure connecting India\'s 10 major commercial hubs (including Hyderabad, Bengaluru, Mumbai, Delhi, and Pune) with UAE commercial and financial centres (Dubai, Abu Dhabi). Master bilateral service agreements, dual currency invoicing, and dedicated cross-border operations.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/markets',
   },

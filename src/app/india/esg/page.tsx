@@ -10,7 +10,7 @@ import { Leaf, ShieldCheck, CheckCircle2, TrendingDown } from "lucide-react";
 export const metadata: Metadata = {
   title: "Corporate ESG & Green Commute Carbon Calculator | Victor Mobility India",
   description:
-    "Model Scope 3 employee commute emission reductions, EV fleet transitions, and high-capacity shared transit carbon offsets across Hyderabad, Bengaluru, and Pune.",
+    "Model Scope 3 employee commute emission reductions, EV fleet transitions, and high-capacity shared transit carbon offsets across 10 operational hubs pan-India.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/esg",
     languages: {
@@ -62,7 +62,7 @@ export default function IndiaEsgPage() {
                 Decarbonizing Corporate Commutes
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Empowering enterprise procurement and ESG leaders across Hyderabad, Bengaluru, and Pune to model, audit, and systematically reduce Scope 3 employee transit emissions under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Empowering enterprise procurement and ESG leaders across 10 operational hubs pan-India to model, audit, and systematically reduce Scope 3 employee transit emissions under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">

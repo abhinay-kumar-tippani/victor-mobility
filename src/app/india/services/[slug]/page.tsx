@@ -158,7 +158,7 @@ const serviceVisualMap: Record<
     practicalAnswers: [
       {
         question: "Can we arrange multi-day wedding transportation?",
-        answer: "Yes. We offer coordinated multi-day arrangements spanning pre-wedding ceremonies, the main event, and post-reception guest airport drop-offs across Hyderabad, Bengaluru, and Pune.",
+        answer: "Yes. We offer coordinated multi-day arrangements spanning pre-wedding ceremonies, the main event, and post-reception guest airport drop-offs across all 10 operational hubs pan-India.",
       },
       {
         question: "How are last-minute ceremony delays managed?",
@@ -221,11 +221,11 @@ const serviceVisualMap: Record<
   "airport-transfers": {
     imageSrc: "/images/india/hero.png",
     imageAlt: "Airport transfer sedan and MPV vehicles",
-    caption: "Punctual terminal connections across Hyderabad, Bengaluru, and Pune. Vehicle imagery is illustrative.",
+    caption: "Punctual terminal connections across 10 operational hubs pan-India. Vehicle imagery is illustrative.",
     highlights: [
       {
         title: "Flight Arrival & Departure Monitoring",
-        desc: "Real-time alignment with flight schedules at RGIA (Hyderabad), Kempegowda (BLR), and Pune (PNQ) airports.",
+        desc: "Real-time alignment with flight schedules at RGIA (Hyderabad), Kempegowda (BLR), Mumbai (BOM), Delhi (DEL), and Pune (PNQ) airports.",
       },
       {
         title: "Terminal Meet & Luggage Support",
@@ -239,7 +239,7 @@ const serviceVisualMap: Record<
     recommendedComplementary: ["chauffeur-luxury", "rent-a-car"],
     scenario: {
       title: "Terminal Punctuality Protocol",
-      subtitle: "Seamless airport connections across Hyderabad (RGIA), Bengaluru (BLR), and Pune (PNQ)",
+      subtitle: "Seamless airport connections across all 10 operational hubs including Hyderabad, Bengaluru, Mumbai, Delhi, Chennai, and Pune",
       steps: [
         {
           step: "1. Live Flight Monitoring",
@@ -575,7 +575,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                           VIP Airport Concierge &amp; Flight Protocol Desk
                         </h3>
                         <p className="text-xs sm:text-sm text-slate-300 max-w-xl mt-1">
-                          Track real-time flight telemetry, customize digital tablet paging placards, and review terminal pickup bays across Hyderabad RGIA, Bengaluru KIA, and Pune PNQ.
+                          Track real-time flight telemetry, customize digital tablet paging placards, and review terminal pickup bays across our 10 operational airport corridors.
                         </p>
                       </div>
                       <Link

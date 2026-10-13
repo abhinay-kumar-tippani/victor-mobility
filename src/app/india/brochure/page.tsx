@@ -29,7 +29,7 @@ export default function IndiaBrochurePage() {
     "@type": "DigitalDocument",
     name: "Victor Mobility India Executive Capability Deck",
     description:
-      "Enterprise slide deck and procurement brochure covering corporate employee transport, executive chauffeur fleet, and operations infrastructure across Hyderabad, Bengaluru, and Pune.",
+      "Enterprise slide deck and procurement brochure covering corporate employee transport, executive chauffeur fleet, and operations infrastructure across 10 operational hubs pan-India.",
     publisher: {
       "@type": "Organization",
       name: content.companyName,

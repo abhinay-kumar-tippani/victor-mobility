@@ -36,11 +36,12 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
           {/* Card 1: Founder & Visionary (col-span-5) */}
           {founder && (
             <div className="lg:col-span-5 bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-xs flex flex-col">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-ink">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-200">
                 <Image
                   src={founder.imageSrc}
                   alt={`Portrait of ${founder.name}, ${founder.role} of Victor Mobility`}
                   fill
+                  priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-top"
                 />
@@ -93,7 +94,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
               </div>
 
               <p className="text-xs text-brand-ink/75 leading-relaxed">
-                Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across Hyderabad, Bengaluru, and Pune.
+                Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India.
               </p>
 
               <div className="pt-3 border-t border-brand-soft-neutral flex flex-wrap items-center gap-3">

@@ -119,7 +119,7 @@ Immediate Operations Room review for nearest depot replacement vehicle dispatch 
             </h4>
             <p className="text-xs text-brand-slate mt-1 leading-relaxed">
               {isIndia
-                ? "Direct hotline to Hyderabad, Bengaluru, and Pune central fleet controllers for live route updates and dispatch support."
+                ? "Direct hotline to central fleet controllers across 10 operational hubs pan-India for live route updates and dispatch support."
                 : "Direct hotline to Dubai Al Garhoud operations desk for DXB airport arrivals, VIP transfers, and inter-emirate routing."}
             </p>
           </div>

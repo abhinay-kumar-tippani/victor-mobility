@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'VIP Airport Concierge & Flight Protocol Desk | Victor Mobility India',
   description:
-    'Executive airport protocol across Hyderabad (RGIA), Bengaluru (KIA T1/T2), and Pune (PNQ). Live flight telemetry tracking, digital tablet greeting, and executive chauffeur staging.',
+    'Executive airport protocol across 10 operational airport hubs pan-India including Hyderabad (RGIA), Bengaluru (BLR), Mumbai (BOM), Delhi (DEL), and Pune (PNQ). Live flight telemetry tracking, digital tablet greeting, and executive chauffeur staging.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/protocol',
     languages: {

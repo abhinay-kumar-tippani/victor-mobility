@@ -1,0 +1,323 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow" cx="75%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1E1B4B" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#0F172A" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="1" />
+    </radialGradient>
+
+    <radialGradient id="indigoBloom" cx="68%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#312E81" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="cyanBloom" cx="82%" cy="38%" r="30%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.25" />
+      <stop offset="60%" stop-color="#0891B2" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="violetBloom" cx="60%" cy="65%" r="28%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Node Glow Filters -->
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1" />
+      <feGaussianBlur stdDeviation="14" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowIndigo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Arc Line Gradients -->
+    <linearGradient id="arcHydBlr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#6366F1" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="arcHydBom" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#A855F7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.85" />
+    </linearGradient>
+
+    <linearGradient id="arcHydDel" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#C084FC" stop-opacity="0.85" />
+    </linearGradient>
+
+    <linearGradient id="gridLineFade" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#312E81" stop-opacity="0.05" />
+      <stop offset="60%" stop-color="#4F46E5" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Glass HUD Pattern -->
+    <linearGradient id="hudGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Obsidian Background -->
+  <rect width="1920" height="1080" fill="#070A12" />
+  <rect width="1920" height="1080" fill="url(#bgGlow)" />
+  <rect width="1920" height="1080" fill="url(#indigoBloom)" />
+  <rect width="1920" height="1080" fill="url(#cyanBloom)" />
+  <rect width="1920" height="1080" fill="url(#violetBloom)" />
+
+  <!-- ========================================== -->
+  <!-- 3D ISOMETRIC PERSPECTIVE MATRIX GRID PLANE -->
+  <!-- ========================================== -->
+  <g opacity="0.45" transform="translate(680, 260)">
+    <!-- Perspective Ground Grid Lines (X-Axis) -->
+    <path d="M 0 380 L 1100 380" stroke="url(#gridLineFade)" stroke-width="1" />
+    <path d="M 40 440 L 1140 440" stroke="url(#gridLineFade)" stroke-width="1.2" />
+    <path d="M 90 510 L 1190 510" stroke="url(#gridLineFade)" stroke-width="1.4" />
+    <path d="M 150 590 L 1250 590" stroke="url(#gridLineFade)" stroke-width="1.6" />
+    <path d="M 220 680 L 1320 680" stroke="url(#gridLineFade)" stroke-width="1.8" />
+    <path d="M 300 780 L 1400 780" stroke="url(#gridLineFade)" stroke-width="2" />
+
+    <!-- Perspective Ray Lines (Receding to vanishing point) -->
+    <path d="M 100 280 L -100 850" stroke="#3730A3" stroke-opacity="0.25" stroke-width="1" />
+    <path d="M 220 280 L 80 850" stroke="#3730A3" stroke-opacity="0.3" stroke-width="1" />
+    <path d="M 360 280 L 280 850" stroke="#4F46E5" stroke-opacity="0.35" stroke-width="1" />
+    <path d="M 520 280 L 500 850" stroke="#4F46E5" stroke-opacity="0.4" stroke-width="1.2" />
+    <path d="M 700 280 L 740 850" stroke="#4F46E5" stroke-opacity="0.45" stroke-width="1.4" />
+    <path d="M 880 280 L 980 850" stroke="#38BDF8" stroke-opacity="0.4" stroke-width="1.2" />
+    <path d="M 1040 280 L 1200 850" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1" />
+
+    <!-- Isometric Matrix Crosshairs -->
+    <g stroke="#818CF8" stroke-width="1" opacity="0.4">
+      <path d="M 495 500 L 505 500 M 500 495 L 500 505" />
+      <path d="M 695 500 L 705 500 M 700 495 L 700 505" />
+      <path d="M 275 580 L 285 580 M 280 575 L 280 585" />
+      <path d="M 735 670 L 745 670 M 740 665 L 740 675" />
+      <path d="M 495 670 L 505 670 M 500 665 L 500 675" />
+    </g>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- CONNECTED MOBILITY TOPOLOGY & TRANSIT ARCS -->
+  <!-- ========================================== -->
+  <!-- City Coordinates (Right 55% of canvas):
+       Hyderabad (Primary HQ Hub): (1320, 560)
+       Bengaluru (Tech Corridor): (1350, 750)
+       Chennai (Auto/Port Hub): (1490, 770)
+       Pune (Auto/IT Hub): (1160, 610)
+       Mumbai (Financial Hub): (1110, 550)
+       Ahmedabad (Transit Node): (1070, 430)
+       Delhi NCR / Gurgaon / Noida: (1240, 270)
+       Kolkata (East Corridor): (1620, 430)
+  -->
+
+  <g id="transit-routes" fill="none">
+    <!-- Secondary Network Mesh Webbing (Low opacity) -->
+    <path d="M 1070 430 L 1240 270" stroke="#4338CA" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="4 4" />
+    <path d="M 1240 270 L 1620 430" stroke="#4338CA" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="4 4" />
+    <path d="M 1620 430 L 1320 560" stroke="#4338CA" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 4" />
+    <path d="M 1070 430 L 1110 550" stroke="#4338CA" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 4" />
+    <path d="M 1350 750 L 1490 770" stroke="#4338CA" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="4 4" />
+
+    <!-- PRIMARY TRANSIT ARCS (Curved, Glowing Bezier Corridors) -->
+    <!-- Hyderabad -> Bengaluru -->
+    <path d="M 1320 560 Q 1310 660 1350 750" stroke="url(#arcHydBlr)" stroke-width="2.8" filter="url(#glowCyan)" />
+    <!-- Hyderabad -> Mumbai -->
+    <path d="M 1320 560 Q 1200 530 1110 550" stroke="url(#arcHydBom)" stroke-width="2.8" filter="url(#glowIndigo)" />
+    <!-- Mumbai -> Pune -->
+    <path d="M 1110 550 Q 1130 585 1160 610" stroke="#38BDF8" stroke-width="2.5" filter="url(#glowCyan)" />
+    <!-- Pune -> Hyderabad -->
+    <path d="M 1160 610 Q 1230 600 1320 560" stroke="#818CF8" stroke-width="2" />
+    <!-- Hyderabad -> Delhi NCR -->
+    <path d="M 1320 560 Q 1310 400 1240 270" stroke="url(#arcHydDel)" stroke-width="3" filter="url(#glowCyan)" />
+    <!-- Hyderabad -> Chennai -->
+    <path d="M 1320 560 Q 1430 670 1490 770" stroke="#38BDF8" stroke-width="2.4" filter="url(#glowIndigo)" />
+
+    <!-- Outer Regional Rings / Orbitals -->
+    <ellipse cx="1320" cy="560" rx="340" ry="240" stroke="#6366F1" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="6 8" />
+    <ellipse cx="1320" cy="560" rx="480" ry="340" stroke="#38BDF8" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="3 9" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- HIGH-SPEED MOBILITY TRANSIT PULSES (PACKETS)-->
+  <!-- ========================================== -->
+  <g id="transit-pulses" fill="#FFFFFF">
+    <!-- Pulses on Hyd-Blr corridor -->
+    <circle cx="1328" cy="650" r="4" fill="#38BDF8" filter="url(#glowCyan)" />
+    <circle cx="1342" cy="710" r="3" fill="#FFFFFF" />
+
+    <!-- Pulses on Hyd-Delhi corridor -->
+    <circle cx="1295" cy="450" r="4.5" fill="#38BDF8" filter="url(#glowCyan)" />
+    <circle cx="1265" cy="350" r="3" fill="#A855F7" />
+
+    <!-- Pulses on Hyd-Mumbai corridor -->
+    <circle cx="1215" cy="542" r="3.5" fill="#38BDF8" filter="url(#glowCyan)" />
+
+    <!-- Pulses on Hyd-Chennai corridor -->
+    <circle cx="1410" cy="670" r="3.5" fill="#818CF8" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- SMART MOBILITY CITY NODES (HUBS)          -->
+  <!-- ========================================== -->
+  <!-- 1. HYDERABAD (Central Command Hub) -->
+  <g transform="translate(1320, 560)">
+    <!-- Radar Pulse Waves -->
+    <circle r="46" fill="none" stroke="#6366F1" stroke-opacity="0.25" stroke-width="1.2" />
+    <circle r="32" fill="none" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="4 3" />
+    <circle r="18" fill="#1E1B4B" stroke="#38BDF8" stroke-width="2" filter="url(#glowCyan)" />
+    <circle r="8" fill="#FFFFFF" />
+    <!-- Label Badge -->
+    <g transform="translate(26, -14)">
+      <rect x="0" y="0" width="138" height="34" rx="8" fill="#0B132B" fill-opacity="0.85" stroke="#38BDF8" stroke-opacity="0.6" stroke-width="1" />
+      <circle cx="14" cy="17" r="4" fill="#10B981" />
+      <text x="26" y="16" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5">HYDERABAD</text>
+      <text x="26" y="27" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="500">HEADQUARTERS</text>
+    </g>
+  </g>
+
+  <!-- 2. BENGALURU (Tech Park Hub) -->
+  <g transform="translate(1350, 750)">
+    <circle r="24" fill="none" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1" />
+    <circle r="12" fill="#1E1B4B" stroke="#818CF8" stroke-width="2" filter="url(#glowIndigo)" />
+    <circle r="5" fill="#38BDF8" />
+    <g transform="translate(20, -10)">
+      <rect x="0" y="0" width="126" height="30" rx="6" fill="#0B132B" fill-opacity="0.85" stroke="#6366F1" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="12" cy="15" r="3.5" fill="#38BDF8" />
+      <text x="22" y="15" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">BENGALURU</text>
+      <text x="22" y="24" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="8">BRANCH OFFICE</text>
+    </g>
+  </g>
+
+  <!-- 3. MUMBAI & PUNE (Western Financial & Auto Hubs) -->
+  <g transform="translate(1110, 550)">
+    <circle r="20" fill="none" stroke="#818CF8" stroke-opacity="0.3" stroke-width="1" />
+    <circle r="11" fill="#1E1B4B" stroke="#38BDF8" stroke-width="2" filter="url(#glowCyan)" />
+    <circle r="5" fill="#FFFFFF" />
+    <g transform="translate(-118, -12)">
+      <rect x="0" y="0" width="104" height="28" rx="6" fill="#0B132B" fill-opacity="0.85" stroke="#38BDF8" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="12" cy="14" r="3.5" fill="#38BDF8" />
+      <text x="22" y="14" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">MUMBAI</text>
+      <text x="22" y="23" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="8">BRANCH OFFICE</text>
+    </g>
+  </g>
+
+  <g transform="translate(1160, 610)">
+    <circle r="14" fill="none" stroke="#6366F1" stroke-opacity="0.3" stroke-width="1" />
+    <circle r="8" fill="#1E1B4B" stroke="#818CF8" stroke-width="1.8" />
+    <circle r="3.5" fill="#A855F7" />
+    <text x="14" y="5" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">PUNE</text>
+  </g>
+
+  <!-- 4. DELHI NCR (Gurgaon / Noida Corridor) -->
+  <g transform="translate(1240, 270)">
+    <circle r="22" fill="none" stroke="#C084FC" stroke-opacity="0.35" stroke-width="1" />
+    <circle r="12" fill="#1E1B4B" stroke="#A855F7" stroke-width="2" filter="url(#glowIndigo)" />
+    <circle r="5" fill="#38BDF8" />
+    <g transform="translate(18, -12)">
+      <rect x="0" y="0" width="134" height="30" rx="6" fill="#0B132B" fill-opacity="0.85" stroke="#A855F7" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="12" cy="15" r="3.5" fill="#C084FC" />
+      <text x="22" y="15" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">DELHI NCR</text>
+      <text x="22" y="24" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="8">GURGAON · NOIDA</text>
+    </g>
+  </g>
+
+  <!-- 5. CHENNAI (Southern Automotive Hub) -->
+  <g transform="translate(1490, 770)">
+    <circle r="16" fill="none" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1" />
+    <circle r="9" fill="#1E1B4B" stroke="#38BDF8" stroke-width="1.8" />
+    <circle r="4" fill="#38BDF8" />
+    <text x="16" y="5" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">CHENNAI</text>
+  </g>
+
+  <!-- 6. AHMEDABAD & KOLKATA (Western & Eastern Corridors) -->
+  <g transform="translate(1070, 430)">
+    <circle r="8" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.5" />
+    <circle r="3" fill="#818CF8" />
+    <text x="-75" y="4" fill="#CBD5E1" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="500">AHMEDABAD</text>
+  </g>
+
+  <g transform="translate(1620, 430)">
+    <circle r="8" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.5" />
+    <circle r="3" fill="#818CF8" />
+    <text x="14" y="4" fill="#CBD5E1" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="500">KOLKATA</text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- FLOATING TELEMETRY HUD / STATUS CARDS     -->
+  <!-- ========================================== -->
+  <g transform="translate(1520, 140)">
+    <!-- Glassmorphic HUD Container -->
+    <rect width="320" height="136" rx="14" fill="url(#hudGlass)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1" />
+    <!-- Ambient Inner Glow -->
+    <rect width="320" height="2" rx="1" fill="#38BDF8" fill-opacity="0.6" />
+
+    <!-- Telemetry Header -->
+    <g transform="translate(20, 26)">
+      <circle cx="6" cy="6" r="4" fill="#10B981" />
+      <text x="18" y="10" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">LIVE TELEMETICS FEED</text>
+    </g>
+
+    <!-- Metrics Row 1 -->
+    <g transform="translate(20, 56)">
+      <text x="0" y="10" fill="#64748B" font-family="system-ui, -apple-system, sans-serif" font-size="10">Active Transit Hubs</text>
+      <text x="0" y="26" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">10 Cities Synchronized</text>
+    </g>
+
+    <!-- Metrics Row 2 -->
+    <g transform="translate(170, 56)">
+      <text x="0" y="10" fill="#64748B" font-family="system-ui, -apple-system, sans-serif" font-size="10">Compliance Standard</text>
+      <text x="0" y="26" fill="#38BDF8" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">AIS-140 GPS &amp; SOS</text>
+    </g>
+
+    <!-- Status Ticker -->
+    <g transform="translate(20, 108)">
+      <rect width="280" height="18" rx="4" fill="#000000" fill-opacity="0.3" />
+      <text x="8" y="13" fill="#94A3B8" font-family="monospace" font-size="9">● ROUTE OPTIMIZATION ACTIVE · ZERO GAPS</text>
+    </g>
+  </g>
+
+  <!-- Deep Asymmetric Gradient Shield on Left (Ensures 100% WCAG AAA Text Contrast) -->
+  <rect width="900" height="1080" fill="url(#textShieldGradient)" />
+  <defs>
+    <linearGradient id="textShieldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#070A12" stop-opacity="1" />
+      <stop offset="65%" stop-color="#070A12" stop-opacity="0.96" />
+      <stop offset="85%" stop-color="#070A12" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Subtle Ambient Corner Vignettes -->
+  <rect width="1920" height="120" fill="url(#topVignette)" />
+  <defs>
+    <linearGradient id="topVignette" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#070A12" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect y="960" width="1920" height="120" fill="url(#bottomVignette)" />
+  <defs>
+    <linearGradient id="bottomVignette" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#070A12" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#070A12" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>

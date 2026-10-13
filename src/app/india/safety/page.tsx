@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Enterprise Fleet Safety, IoT Telematics & Vehicle Audit Desk | Victor Mobility India',
   description:
-    'AIS-140 GPS telematics, dual tactical panic SOS buttons, speed governors, 50-point pre-trip vehicle audits, and women passenger night safety protocols in Hyderabad, Bengaluru, and Pune.',
+    'AIS-140 GPS telematics, dual tactical panic SOS buttons, speed governors, 50-point pre-trip vehicle audits, and women passenger night safety protocols across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/safety',
     languages: {

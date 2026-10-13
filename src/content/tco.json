@@ -3,7 +3,7 @@
   "india": {
     "title": "Enterprise Fleet TCO & CAPEX vs OPEX Transition Desk",
     "eyebrow": "Corporate Financial Modeling · Zero CAPEX Fleet Transition",
-    "description": "Institutional Total Cost of Ownership (TCO) financial model comparing company-owned fleet depreciation, fragmented taxi vendor overheads, and Victor Mobility's managed contract retainers across Hyderabad, Bengaluru, and Pune.",
+    "description": "Institutional Total Cost of Ownership (TCO) financial model comparing company-owned fleet depreciation, fragmented taxi vendor overheads, and Victor Mobility's managed contract retainers across 10 operational hubs pan-India.",
     "currency": "₹",
     "currencyCode": "INR",
     "fuelPricePerLitre": 95,
@@ -145,7 +145,7 @@
       },
       {
         "question": "What is the guaranteed turnaround time if a vehicle undergoes unexpected mechanical failure?",
-        "answer": "We maintain a 15% dedicated hot-standby fleet across Hyderabad, Bengaluru, and Pune. If an active vehicle experiences a mechanical issue, our 24/7 central dispatch triggers an immediate replacement vehicle with a badged chauffeur to arrive within 30 to 45 minutes."
+        "answer": "We maintain a 15% dedicated hot-standby fleet across our 10 operational hubs pan-India. If an active vehicle experiences a mechanical issue, our 24/7 central dispatch triggers an immediate replacement vehicle with a badged chauffeur to arrive within 30 to 45 minutes."
       },
       {
         "question": "Can enterprise clients audit monthly distance telemetry and fuel consumption logs?",

@@ -11,7 +11,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Chauffeur Credential & Safety Badge Verification | Victor Mobility India",
   description:
-    "Audit Victor Mobility chauffeur credentials, police background clearances, medical exams, and sobriety logs across Hyderabad, Bengaluru, and Pune.",
+    "Audit Victor Mobility chauffeur credentials, police background clearances, medical exams, and sobriety logs across 10 operational hubs pan-India.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/academy/verify",
     languages: {

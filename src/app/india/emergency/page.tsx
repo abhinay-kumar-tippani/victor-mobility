@@ -11,7 +11,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "24/7 Operations Desk & Emergency Quick-Dial | Victor Mobility India",
   description:
-    "Instant telephone quick-dial and priority emergency fleet hot-swap helpline for Hyderabad, Bengaluru, and Pune operations. 24/7 central control room support.",
+    "Instant telephone quick-dial and priority emergency fleet hot-swap helpline across 10 operational hubs pan-India. 24/7 central control room support.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/emergency",
     languages: {

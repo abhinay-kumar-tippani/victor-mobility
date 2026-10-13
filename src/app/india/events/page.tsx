@@ -10,7 +10,7 @@ import { Calendar, ShieldCheck, CheckCircle2, Radio, Bus } from "lucide-react";
 export const metadata: Metadata = {
   title: "Mega-Event & Summit Transit Logistics Staging Desk | Victor Mobility India",
   description:
-    "Orchestrate multi-vehicle motorcades, tech summit shuttle networks, and luxury wedding guest convoys across Hyderabad, Bengaluru, and Pune. 2,000+ cars and 500+ buses capability.",
+    "Orchestrate multi-vehicle motorcades, tech summit shuttle networks, and luxury wedding guest convoys across 10 operational hubs pan-India. 2,000+ cars and 500+ buses capability.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/events",
     languages: {
@@ -62,7 +62,7 @@ export default function IndiaEventsPage() {
                 Flawless Multi-Vehicle Staging
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Orchestrating synchronized vehicle convoys, keynote VIP arrivals, and campus shuttle loops across Hyderabad, Bengaluru, and Pune, executed under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Orchestrating synchronized vehicle convoys, keynote VIP arrivals, and campus shuttle loops across 10 operational hubs pan-India, executed under: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">

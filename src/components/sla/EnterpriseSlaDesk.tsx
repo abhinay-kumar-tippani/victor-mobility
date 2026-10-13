@@ -522,7 +522,7 @@ export default function EnterpriseSlaDesk({
             <div className="pb-4 border-b border-slate-800 mb-6">
               <h2 className="text-2xl font-bold text-white">Statutory & Regulatory Compliance Vault</h2>
               <p className="text-sm text-slate-400 mt-1">
-                Verified commercial licenses, tax registrations, passenger liability insurance, and labor law compliance across {isIndia ? 'India (Hyderabad, Bengaluru, Pune)' : 'UAE (Dubai RTA)'}.
+                Verified commercial licenses, tax registrations, passenger liability insurance, and labor law compliance across {isIndia ? 'India (10 Operational Hubs)' : 'UAE (Dubai RTA)'}.
               </p>
             </div>
 

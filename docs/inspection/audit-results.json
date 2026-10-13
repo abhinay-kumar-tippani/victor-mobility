@@ -1,0 +1,676 @@
+[
+  {
+    "route": "home",
+    "url": "http://localhost:3002/india",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      }
+    ]
+  },
+  {
+    "route": "services-list",
+    "url": "http://localhost:3002/india/services",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 1018ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "service-detail",
+    "url": "http://localhost:3002/india/services/employee-transportation",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 1018ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 2140ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "fleet",
+    "url": "http://localhost:3002/india/fleet",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 1018ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 2140ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 743ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "about",
+    "url": "http://localhost:3002/india/about",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 1018ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 2140ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 743ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 409ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "warning",
+        "text": "Image with src \"/images/india/founder-jahangir.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      }
+    ]
+  },
+  {
+    "route": "contact",
+    "url": "http://localhost:3002/india/contact",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 1018ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 2140ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 743ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 409ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "warning",
+        "text": "Image with src \"/images/india/founder-jahangir.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "privacy",
+    "url": "http://localhost:3002/india/privacy",
+    "viewport": "desktop",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 1018ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 2140ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 743ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 409ms"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "warning",
+        "text": "Image with src \"/images/india/founder-jahangir.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] rebuilding"
+      },
+      {
+        "type": "log",
+        "text": "[Fast Refresh] done in 439ms"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "home",
+    "url": "http://localhost:3002/india",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "services-list",
+    "url": "http://localhost:3002/india/services",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "service-detail",
+    "url": "http://localhost:3002/india/services/employee-transportation",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "fleet",
+    "url": "http://localhost:3002/india/fleet",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "about",
+    "url": "http://localhost:3002/india/about",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "warning",
+        "text": "Image with src \"/images/india/founder-jahangir.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      }
+    ]
+  },
+  {
+    "route": "contact",
+    "url": "http://localhost:3002/india/contact",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "warning",
+        "text": "Image with src \"/images/india/founder-jahangir.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  },
+  {
+    "route": "privacy",
+    "url": "http://localhost:3002/india/privacy",
+    "viewport": "mobile",
+    "status": 200,
+    "hasHorizontalOverflow": false,
+    "consoleLogs": [
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "warning",
+        "text": "Image with src \"/images/india/founder-jahangir.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "type": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ]
+  }
+]

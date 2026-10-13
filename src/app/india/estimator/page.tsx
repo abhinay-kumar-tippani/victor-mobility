@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Route & Fare Estimator | Victor Mobility India",
   description:
-    "Calculate indicative point-to-point and airport corridor rates for executive sedans, MPVs, and luxury coaches across Hyderabad, Bengaluru, and Pune.",
+    "Calculate indicative point-to-point and airport corridor rates for executive sedans, MPVs, and luxury coaches across 10 operational hubs pan-India.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/estimator",
     languages: {
@@ -62,7 +62,7 @@ export default function IndiaEstimatorPage() {
                 India Route &amp; Fare Estimator
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Review indicative travel distances, expressway routes, and corporate rate brackets for Hyderabad, Bengaluru, and Pune transit corridors, powered by our punctuality baseline: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Review indicative travel distances, expressway routes, and corporate rate brackets for transit corridors across our 10 operational hubs pan-India, powered by our punctuality baseline: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">

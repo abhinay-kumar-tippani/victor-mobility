@@ -3,10 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, MessageSquare, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
-import { selectEnquiryOption } from "@/lib/enquiryEvents";
 
 interface HeaderProps {
   contact: ContactData;
@@ -14,26 +13,20 @@ interface HeaderProps {
 
 export default function Header({ contact }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [regionDropdownOpen, setRegionDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const isUae = pathname.startsWith("/uae");
-  const basePrefix = isUae ? "/uae" : "/india";
-  const isHomepage = pathname === basePrefix || pathname === "/";
+  const basePrefix = pathname.startsWith("/uae") ? "/uae" : "/india";
 
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const drawerRef = useRef<HTMLDivElement | null>(null);
-  const regionDropdownRef = useRef<HTMLDivElement | null>(null);
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
   const navItems = [
-    { label: "Services", href: `${basePrefix}/services`, hash: "#services" },
-    { label: "Fleet", href: `${basePrefix}/fleet`, hash: "#fleet" },
-    { label: "For businesses", href: `${basePrefix}/business`, hash: "#business" },
-    { label: "About", href: `${basePrefix}/about`, hash: "#about" },
-    { label: "Contact", href: `${basePrefix}/contact`, hash: "#contact" },
+    { label: "Services", href: `${basePrefix}/services` },
+    { label: "Fleet", href: `${basePrefix}/fleet` },
+    { label: "About", href: `${basePrefix}/about` },
+    { label: "Contact", href: `${basePrefix}/contact` },
   ];
 
-  // Helper to close menu and clean up
   const closeMenu = (restoreTriggerFocus = true) => {
     setMobileMenuOpen(false);
     document.body.style.overflow = "unset";
@@ -54,9 +47,9 @@ export default function Header({ contact }: HeaderProps) {
     }
   };
 
-  // Auto-close menu when resized to desktop (>= 1280px)
+  // Auto-close menu when resized to desktop (>= 1024px)
   useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1280px)");
+    const mql = window.matchMedia("(min-width: 1024px)");
     const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
       if (e.matches && mobileMenuOpen) {
         closeMenu(false);
@@ -90,7 +83,6 @@ export default function Header({ contact }: HeaderProps) {
     if (mobileMenuOpen) {
       lastActiveElementRef.current = document.activeElement as HTMLElement | null;
 
-      // Lock scrolling and make background content inert
       document.body.style.overflow = "hidden";
       if (mainEl) {
         mainEl.setAttribute("inert", "");
@@ -101,7 +93,6 @@ export default function Header({ contact }: HeaderProps) {
         footerEl.setAttribute("aria-hidden", "true");
       }
 
-      // Move focus into the first interactive element inside drawer
       setTimeout(() => {
         if (drawerRef.current) {
           const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
@@ -113,7 +104,6 @@ export default function Header({ contact }: HeaderProps) {
         }
       }, 50);
 
-      // Keyboard trap and Escape listener
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") {
           e.preventDefault();
@@ -147,7 +137,6 @@ export default function Header({ contact }: HeaderProps) {
       window.addEventListener("keydown", handleKeyDown);
       return () => {
         window.removeEventListener("keydown", handleKeyDown);
-        // Robust cleanup on unmount
         document.body.style.overflow = "unset";
         if (mainEl) {
           mainEl.removeAttribute("inert");
@@ -171,41 +160,21 @@ export default function Header({ contact }: HeaderProps) {
     }
   }, [mobileMenuOpen]);
 
-  const handleNavClick = (href: string) => {
-    closeMenu(false);
-
-    if (href.startsWith("#") && isHomepage) {
-      if (href === "#contact") {
-        selectEnquiryOption({});
-        return;
-      }
-      const targetId = href.replace("#", "");
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        targetElement.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
-        setTimeout(() => {
-          targetElement.focus();
-        }, prefersReduced ? 50 : 350);
-      }
-    }
-  };
-
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-brand-soft-neutral shadow-sm transition-all duration-200">
+    <header className="sticky top-0 z-50 bg-white border-b border-brand-soft-neutral shadow-xs transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-24">
-          {/* Logo container: Crisp white background, non-destructive viewport for enlarged tagline & Pegasus */}
+        <div className="flex items-center justify-between h-20 sm:h-22">
+          {/* Logo container: Crisp white background, intact Victor Artwork & Tagline */}
           <Link
             href={basePrefix}
             className="flex items-center group py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded"
             aria-label="Victor Mobility - Home"
           >
-            <BrandLogo className="w-44 sm:w-52 xl:w-56 h-11 sm:h-13 xl:h-14 transition-transform duration-150 group-hover:scale-102" />
+            <BrandLogo className="w-44 sm:w-52 h-11 sm:h-13 transition-transform duration-150 group-hover:scale-102" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 whitespace-nowrap" aria-label="Main Navigation">
+          {/* Desktop Navigation: Simple, 4 authentic routes */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 whitespace-nowrap" aria-label="Main Navigation">
             {navItems.map((item) => {
               const active = pathname === item.href;
               return (
@@ -224,73 +193,11 @@ export default function Header({ contact }: HeaderProps) {
             })}
           </nav>
 
-          {/* Desktop CTAs & Region Switcher */}
-          <div className="hidden xl:flex items-center gap-3 whitespace-nowrap shrink-0">
-            {/* Global Region Selector Dropdown */}
-            <div className="relative" ref={regionDropdownRef}>
-              <button
-                type="button"
-                onClick={() => setRegionDropdownOpen(!regionDropdownOpen)}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-brand-soft-neutral bg-brand-warm-white/80 hover:bg-brand-soft-neutral/50 text-xs font-bold text-brand-ink transition-colors"
-                aria-expanded={regionDropdownOpen}
-                aria-label="Select Operating Region"
-              >
-                <Globe className="w-3.5 h-3.5 text-brand-indigo" />
-                <span>{isUae ? "🇦🇪 UAE" : "🇮🇳 India"}</span>
-                <ChevronDown className="w-3 h-3 text-brand-ink/50" />
-              </button>
-
-              {regionDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg border border-brand-soft-neutral p-1.5 z-50">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-ink/50 px-2 py-1 block">
-                    Select Region
-                  </span>
-                  <Link
-                    href="/india"
-                    onClick={() => setRegionDropdownOpen(false)}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold ${
-                      !isUae
-                        ? "bg-brand-warm-white text-brand-indigo font-bold"
-                        : "text-brand-ink hover:bg-brand-warm-white"
-                    }`}
-                  >
-                    <span>🇮🇳 India</span>
-                    {!isUae && <span className="text-[10px] text-brand-indigo font-bold">Active</span>}
-                  </Link>
-                  <Link
-                    href="/uae"
-                    onClick={() => setRegionDropdownOpen(false)}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold ${
-                      isUae
-                        ? "bg-brand-warm-white text-brand-indigo font-bold"
-                        : "text-brand-ink hover:bg-brand-warm-white"
-                    }`}
-                  >
-                    <span>🇦🇪 UAE</span>
-                    {isUae && <span className="text-[10px] text-brand-indigo font-bold">Active</span>}
-                  </Link>
-                  <div className="border-t border-brand-soft-neutral/70 my-1 pt-1">
-                    <Link
-                      href="/markets"
-                      onClick={() => setRegionDropdownOpen(false)}
-                      className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-brand-indigo hover:bg-brand-warm-white"
-                    >
-                      <span className="flex items-center gap-1.5 font-bold">
-                        <span>🌐</span>
-                        <span>All Global Markets</span>
-                      </span>
-                      <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-brand-indigo/10 text-brand-indigo font-bold">
-                        Gateway
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
+          {/* Desktop CTAs: Direct Call & Request Quote */}
+          <div className="hidden lg:flex items-center gap-4 whitespace-nowrap shrink-0">
             <a
               href={contact.phoneHref}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3 py-2 rounded-lg border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3.5 py-2.5 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               title={`Call ${contact.phoneDisplay}`}
             >
               <Phone className="w-3.5 h-3.5" />
@@ -298,14 +205,14 @@ export default function Header({ contact }: HeaderProps) {
             </a>
             <Link
               href={`${basePrefix}/contact`}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-lg shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-xl shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
             >
-              Request Proposal
+              Enquire
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex xl:hidden items-center gap-2">
+          {/* Mobile Menu Actions */}
+          <div className="flex lg:hidden items-center gap-2">
             <a
               href={contact.phoneHref}
               className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
@@ -316,14 +223,8 @@ export default function Header({ contact }: HeaderProps) {
             <button
               ref={menuButtonRef}
               type="button"
-              onClick={() => {
-                if (mobileMenuOpen) {
-                  closeMenu(true);
-                } else {
-                  setMobileMenuOpen(true);
-                }
-              }}
-              className={`min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-ink rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors ${mobileMenuOpen ? "invisible" : ""}`}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-ink rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
@@ -334,10 +235,10 @@ export default function Header({ contact }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer with Focus Containment */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className="xl:hidden fixed inset-x-0 top-20 sm:top-24 bottom-0 z-40 bg-brand-ink/40 backdrop-blur-sm"
+          className="lg:hidden fixed inset-x-0 top-20 sm:top-22 bottom-0 z-40 bg-brand-ink/40 backdrop-blur-xs"
           onClick={() => closeMenu(true)}
           aria-hidden={!mobileMenuOpen}
         >
@@ -347,63 +248,27 @@ export default function Header({ contact }: HeaderProps) {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
-            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-4 shadow-xl max-h-[calc(100dvh-5rem)] sm:max-h-[calc(100dvh-6rem)] overflow-y-auto animate-in slide-in-from-top-2 duration-200 motion-reduce:animate-none"
+            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-5 shadow-xl max-h-[calc(100dvh-5rem)] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-2">
-              <span className="text-sm font-semibold text-brand-ink">Menu</span>
-              <button type="button" onClick={() => closeMenu(true)} aria-label="Close menu" className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-brand-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo"><X className="w-5 h-5" /></button>
-            </div>
-            {/* Region Switcher on Mobile */}
-            <div className="p-3 bg-brand-warm-white rounded-xl border border-brand-soft-neutral flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/70 flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-brand-indigo" />
-                <span>Region:</span>
-              </span>
-              <div className="flex items-center gap-1.5">
-                <Link
-                  href="/india"
-                  onClick={() => closeMenu(false)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${
-                    !isUae && pathname !== "/markets"
-                      ? "bg-brand-indigo text-white shadow-2xs"
-                      : "bg-white text-brand-ink border border-brand-soft-neutral"
-                  }`}
-                >
-                  🇮🇳 India
-                </Link>
-                <Link
-                  href="/uae"
-                  onClick={() => closeMenu(false)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${
-                    isUae
-                      ? "bg-brand-indigo text-white shadow-2xs"
-                      : "bg-white text-brand-ink border border-brand-soft-neutral"
-                  }`}
-                >
-                  🇦🇪 UAE
-                </Link>
-                <Link
-                  href="/markets"
-                  onClick={() => closeMenu(false)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${
-                    pathname === "/markets"
-                      ? "bg-brand-indigo text-white shadow-2xs"
-                      : "bg-white text-brand-indigo border border-brand-indigo/30"
-                  }`}
-                  title="Global Regional Gateway"
-                >
-                  🌐 Global
-                </Link>
-              </div>
+            <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-3">
+              <span className="text-sm font-bold text-brand-ink">Navigation</span>
+              <button
+                type="button"
+                onClick={() => closeMenu(true)}
+                aria-label="Close menu"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-brand-indigo focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            <div className="space-y-1 divide-y divide-brand-soft-neutral">
+            <nav className="space-y-1 divide-y divide-brand-soft-neutral/70">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => closeMenu(false)}
                   className="block text-base font-semibold text-brand-ink hover:text-brand-indigo py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
                 >
                   {item.label}
@@ -416,28 +281,28 @@ export default function Header({ contact }: HeaderProps) {
               >
                 Privacy Notice
               </Link>
-            </div>
+            </nav>
 
-            <div className="pt-4 space-y-3">
+            <div className="pt-2 space-y-3">
               <Link
                 href={`${basePrefix}/contact`}
                 onClick={() => closeMenu(false)}
-                className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3 px-4 rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo shadow-xs"
               >
                 <MessageSquare className="w-4 h-4" />
-                Request Corporate Proposal
+                <span>Discuss Your Requirement</span>
               </Link>
               <a
                 href={contact.phoneHref}
-                className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-2.5 px-4 rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <Phone className="w-4 h-4" />
-                Call {contact.phoneDisplay}
+                <span>Call {contact.phoneDisplay}</span>
               </a>
             </div>
 
-            <div className="pt-2 text-xs text-brand-ink/60 text-center">
-              {isUae ? "Dubai · Abu Dhabi · Sharjah" : "Hyderabad · Bengaluru · Pune"}
+            <div className="pt-2 text-xs text-brand-ink/60 text-center font-medium">
+              Hyderabad · Bengaluru · Pune
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Multi-City Corporate Roadshows & Investor Delegation Transit Desk | Victor Mobility India',
   description:
-    'Precision transit orchestration for institutional investor roadshows, private equity due diligence tours, and C-Suite executive delegations across Hyderabad, Bengaluru, and Pune.',
+    'Precision transit orchestration for institutional investor roadshows, private equity due diligence tours, and C-Suite executive delegations across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/roadshows',
     languages: {

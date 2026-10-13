@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Corporate Billing, GST Invoicing & Digital Duty Slip Desk | Victor Mobility India',
   description:
-    'Transparent corporate billing, SAC 9966 GST invoices, 100% Input Tax Credit (ITC) compliance, and digital GPS duty slips across Hyderabad, Bengaluru, and Pune.',
+    'Transparent corporate billing, SAC 9966 GST invoices, 100% Input Tax Credit (ITC) compliance, and digital GPS duty slips across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/billing',
     languages: {

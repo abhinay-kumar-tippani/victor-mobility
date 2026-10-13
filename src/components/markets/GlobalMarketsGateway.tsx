@@ -576,7 +576,7 @@ export default function GlobalMarketsGateway({
                       className="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-800 text-white text-sm focus:border-indigo-500 focus:outline-none"
                     >
                       <option value="Both India & UAE Cross-Border Account">Both India &amp; UAE Cross-Border Account</option>
-                      <option value="India Operations (Hyderabad, Bengaluru, Pune)">India Operations (Hyderabad, Bengaluru, Pune)</option>
+                      <option value="India Operations (10 Major Commercial Hubs)">India Operations (10 Major Commercial Hubs)</option>
                       <option value="UAE Operations (Dubai, Abu Dhabi)">UAE Operations (Dubai, Abu Dhabi)</option>
                     </select>
                   </div>

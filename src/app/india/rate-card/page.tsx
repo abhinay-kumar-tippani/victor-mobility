@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Enterprise Master Rate Card, Tariff Schedule & Retainers | Victor Mobility India',
   description:
-    'Transparent corporate ground mobility tariffs, hourly rental slabs, monthly dedicated vehicle retainers, and volume discounts across Hyderabad, Bengaluru, and Pune.',
+    'Transparent corporate ground mobility tariffs, hourly rental slabs, monthly dedicated vehicle retainers, and volume discounts across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/rate-card',
     languages: {

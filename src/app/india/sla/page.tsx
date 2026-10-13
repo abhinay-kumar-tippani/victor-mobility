@@ -12,7 +12,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Enterprise Service Level Agreement (SLA) & Quality Assurance | Victor Mobility India',
   description:
-    'Review Victor Mobility enterprise transit SLAs, 99.4% on-time guarantee, 20-minute hot-swap replacement, statutory GST/labor compliance, and 4-tier escalation across Hyderabad, Bengaluru, and Pune.',
+    'Review Victor Mobility enterprise transit SLAs, 99.4% on-time guarantee, 20-minute hot-swap replacement, statutory GST/labor compliance, and 4-tier escalation across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/sla',
     languages: {

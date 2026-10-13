@@ -39,7 +39,7 @@ export default function CustomerJourneys({ journeys }: CustomerJourneysProps) {
           <p className="text-sm text-brand-ink/75 leading-relaxed">
             {isUae
               ? "Dedicated fleet deployments, airport terminal protocols, and scheduled precision across Dubai and Abu Dhabi."
-              : "Dedicated fleet deployments, roster-aligned punctuality, and route governance across Hyderabad, Bengaluru, and Pune."}
+              : "Dedicated fleet deployments, roster-aligned punctuality, and route governance across 10 operational hubs pan-India."}
           </p>
         </div>
 

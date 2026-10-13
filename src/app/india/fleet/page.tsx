@@ -24,7 +24,7 @@ import type { IndiaContent, MediaContent } from "@/types/content";
 export const metadata: Metadata = {
   title: "Corporate & Executive Fleet Showcase | Victor Mobility India",
   description:
-    "Explore Victor Mobility's 2,000+ car & 500+ bus fleet architecture across Hyderabad, Bengaluru, and Pune. High-fidelity vehicle specs, cabin layout, luggage capacity, and instant corporate rate card calculator.",
+    "Explore Victor Mobility's managed fleet across 10 operational hubs pan-India. Executive sedans, MPVs, and luxury air-conditioned coaches for corporate commutes and special occasions.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/fleet",
     languages: {
@@ -44,7 +44,7 @@ export default function FleetPage() {
     "@type": "ItemList",
     name: "Victor Mobility Commercial & Executive Fleet Architecture",
     description:
-      "Enterprise fleet categories including Executive Sedans, MPVs, Luxury Limousines, and High-Capacity Buses across Hyderabad, Bengaluru, and Pune.",
+      "Enterprise fleet categories including Executive Sedans, MPVs, Luxury Limousines, and High-Capacity Buses across 10 operational hubs pan-India.",
     numberOfItems: 4,
     itemListElement: [
       {
@@ -90,13 +90,13 @@ export default function FleetPage() {
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
                 <Sparkles className="w-3.5 h-3.5 text-brand-violet" />
-                Fleet Categories &amp; Virtual Inspection Desk
+                Fleet Categories &amp; Seating Capacities
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Vehicles for Everyday Journeys &amp; Special Occasions
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                Operating dedicated corporate fleets comprising executive sedans, MPVs, and luxury air-conditioned coaches across Hyderabad, Bengaluru, and Pune. Meticulously maintained, GPS-monitored, and backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Operating dedicated corporate fleets comprising executive sedans, MPVs, and luxury air-conditioned coaches across 10 operational hubs pan-India. Meticulously maintained, GPS-monitored, and backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function FleetPage() {
                 <h3 className="text-base font-bold text-brand-ink">Driver Compliance</h3>
                 <p className="text-xs text-brand-ink/75 leading-relaxed">
                   Professional chauffeurs with commercial driving permits, verified backgrounds, and route
-                  familiarity across Hyderabad, Bengaluru, and Pune.
+                  familiarity across all 10 operational hubs pan-India.
                 </p>
               </div>
 

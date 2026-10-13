@@ -11,7 +11,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Enterprise Fleet TCO & CAPEX vs OPEX Transition Desk | Victor Mobility India',
   description:
-    'Institutional Total Cost of Ownership (TCO) financial model comparing company-owned fleet depreciation, fragmented taxi vendor overheads, and Victor Mobility managed contract retainers in Hyderabad, Bengaluru, and Pune.',
+    'Institutional Total Cost of Ownership (TCO) financial model comparing company-owned fleet depreciation, fragmented taxi vendor overheads, and Victor Mobility managed contract retainers across 10 operational hubs pan-India.',
   alternates: {
     canonical: 'https://victor-mobility.vercel.app/india/tco-calculator',
     languages: {

@@ -3,8 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Car, Users, Bus, Sparkles, ArrowRight, Info, CheckCircle2 } from "lucide-react";
+import { Car, Users, Bus, Sparkles, ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import type { FleetCategory, MediaAsset } from "@/types/content";
 
 interface FleetSectionProps {
@@ -17,153 +16,78 @@ interface FleetSectionProps {
 
 const categoryIcons: Record<string, typeof Car> = {
   sedans: Car,
-  "first-class": Car,
-  "ultra-luxury": Sparkles,
-  "executive-suvs": Car,
-  "executive-vans": Users,
   mpvs: Users,
   buses: Bus,
-  coaches: Bus,
   luxury: Sparkles,
 };
 
-interface CategoryVisualData {
-  imageSrc: string;
-  imageAlt: string;
-  objectPosition: string;
+interface CategoryDisplayData {
   badge: string;
   headline: string;
-  capacityText: string;
-  planningInputs: string[];
-  recommendedService: string;
+  models: string[];
+  capacity: string;
+  uses: string;
+  features: string[];
+  imageSrc: string;
+  imageAlt: string;
 }
 
-const categoryVisuals: Record<string, CategoryVisualData> = {
+const fleetDetails: Record<string, CategoryDisplayData> = {
   sedans: {
+    badge: "Executive Sedans",
+    headline: "Comfortable Saloons for Commutes & Business Travel",
+    models: ["Maruti Swift Dzire", "Tata Tigor"],
+    capacity: "Up to 3–4 Passengers · 2 Luggage Bags",
+    uses: "Daily employee commute, airport transfers, and point-to-point city travel.",
+    features: [
+      "Fuel-efficient, air-conditioned comfortable cabins",
+      "Real-time GPS telematics with speed governance",
+      "Verified commercial drivers with route familiarity",
+    ],
     imageSrc: "/images/india/hero.png",
     imageAlt: "Executive sedan for business travel and airport transfers",
-    objectPosition: "28% 65%",
-    badge: "Executive Sedan",
-    headline: "Comfortable Saloons for Individual & Business Travel",
-    capacityText: "Up to 3–4 passengers · 2 luggage bags",
-    recommendedService: "Chauffeur & Luxury Travel",
-    planningInputs: [
-      "Passenger count and luggage requirements",
-      "Point-to-point business travel or airport route",
-      "Date, pickup time, and local itinerary",
-    ],
-  },
-  "first-class": {
-    imageSrc: "/images/india/hero.png",
-    imageAlt: "First Class Saloons in Dubai",
-    objectPosition: "28% 65%",
-    badge: "First Class Saloons",
-    headline: "Mercedes-Benz S-Class & BMW 7 Series for Executive Transit",
-    capacityText: "Up to 3 passengers · 2 large bags",
-    recommendedService: "Chauffeur & Luxury Limousine",
-    planningInputs: [
-      "DXB or AUH terminal arrival flight tracking",
-      "Hourly or full-day executive standby",
-      "Inter-emirate travel corridors",
-    ],
-  },
-  "ultra-luxury": {
-    imageSrc: "/images/india/luxury-interior.png",
-    imageAlt: "Ultra-Luxury & VIP Limousines in UAE",
-    objectPosition: "center",
-    badge: "Ultra-Luxury & VIP",
-    headline: "Mercedes-Maybach S-Class for Heads of State & VIP Delegations",
-    capacityText: "Pinnacle VIP comfort · Climate-controlled cabin",
-    recommendedService: "Chauffeur & Luxury Limousine",
-    planningInputs: [
-      "VIP protocol and dignitary reception details",
-      "Dedicated full-day chauffeur standby",
-      "Security entourage accommodation",
-    ],
-  },
-  "executive-suvs": {
-    imageSrc: "/images/india/hero.png",
-    imageAlt: "Executive SUVs in UAE",
-    objectPosition: "28% 65%",
-    badge: "Executive SUVs",
-    headline: "Cadillac Escalade & GMC Yukon Denali for Spacious Travel",
-    capacityText: "Up to 6 passengers · 5 large suitcases",
-    recommendedService: "Chauffeur & Luxury Limousine",
-    planningInputs: [
-      "Airport arrival with international luggage",
-      "Private family or delegation excursions",
-      "Multi-city transit between Dubai and Abu Dhabi",
-    ],
-  },
-  "executive-vans": {
-    imageSrc: "/images/india/employee-shuttle.png",
-    imageAlt: "Executive MPVs in UAE",
-    objectPosition: "72% 65%",
-    badge: "Executive MPVs",
-    headline: "Mercedes-Benz V-Class for Corporate Teams & Delegations",
-    capacityText: "Up to 6–7 passengers · Generous baggage room",
-    recommendedService: "Corporate Events & Delegations",
-    planningInputs: [
-      "Summit delegation headcount and timetable",
-      "Hotel-to-exhibition loop schedules",
-      "VIP group luggage coordination",
-    ],
   },
   mpvs: {
+    badge: "MPVs & Group Vehicles",
+    headline: "Spacious Multi-Utility Vehicles for Teams & Delegations",
+    models: ["Toyota Innova Crysta", "Mahindra Marazzo", "Force Urbania"],
+    capacity: "Up to 6–7 Passengers · 4–5 Suitcases",
+    uses: "Visiting executive delegations, project teams, multi-stop site visits, and family travel.",
+    features: [
+      "Reclining captain seats with generous legroom",
+      "Ample boot capacity for airport international baggage",
+      "Smooth highway stability for intercity corporate travel",
+    ],
     imageSrc: "/images/india/hero.png",
     imageAlt: "Spacious passenger MPV for team and group travel",
-    objectPosition: "72% 65%",
-    badge: "Team Transit MPV",
-    headline: "Spacious Multi-Utility Vehicles for Corporate Teams",
-    capacityText: "Up to 6–7 passengers · Generous baggage space",
-    recommendedService: "Event Transportation",
-    planningInputs: [
-      "Visiting delegation or project team headcount",
-      "Multi-stop pickups and site visit schedules",
-      "Luggage accommodation for airport transfers",
-    ],
   },
   buses: {
+    badge: "Buses & Shuttles",
+    headline: "Air-Conditioned Coaches for Campuses & Events",
+    models: ["22-Seater Executive Bus", "44-Seater Luxury Coach"],
+    capacity: "22 to 44 Passengers",
+    uses: "Daily IT workforce transit, corporate campus loops, and conference attendee shuttles.",
+    features: [
+      "High-capacity air-conditioned group transit",
+      "Certified speed governors & emergency exit safety",
+      "Dedicated route management for office shift timings",
+    ],
     imageSrc: "/images/india/employee-shuttle.png",
     imageAlt: "Corporate employee shuttle bus for workplace and venue transit",
-    objectPosition: "center",
-    badge: "Workplace & Venue Shuttles",
-    headline: "Air-Conditioned Buses for Workplaces, Events & Shuttles",
-    capacityText: "22-seater & 44-seater configurations",
-    recommendedService: "Bus & Shuttle Transport",
-    planningInputs: [
-      "Shift roster timings and office arrival windows",
-      "Route corridor stops and total employee count",
-      "Conference or venue transit coordination",
-    ],
-  },
-  coaches: {
-    imageSrc: "/images/india/employee-shuttle.png",
-    imageAlt: "Luxury buses and coaches in UAE",
-    objectPosition: "center",
-    badge: "Luxury Buses & Coaches",
-    headline: "22-Seater & 44-Seater Luxury Coaches for Summits & Events",
-    capacityText: "22 to 50 passenger seating configurations",
-    recommendedService: "Corporate Events & Delegations",
-    planningInputs: [
-      "Conference delegate numbers and hotel loops",
-      "Exhibition transfer timetable (GITEX, ADIPEC)",
-      "Dedicated route marshaling requirements",
-    ],
   },
   luxury: {
+    badge: "Luxury & Limousines",
+    headline: "Premium Chauffeur-Driven Travel for VIP Dignitaries",
+    models: ["Executive Business Saloons", "Premium Hospitality Fleet"],
+    capacity: "Pinnacle Executive Comfort",
+    uses: "Board members, international delegations, corporate summits, and luxury hospitality.",
+    features: [
+      "Immaculate leather cabins with dual-zone climate control",
+      "Experienced executive chauffeurs trained in VIP protocol",
+      "Flight radar tracking with personalized terminal greeting",
+    ],
     imageSrc: "/images/india/luxury-interior.png",
     imageAlt: "Luxury vehicle interior with executive leather seating",
-    objectPosition: "center",
-    badge: "Executive Luxury",
-    headline: "Premium Chauffeur-Driven Travel for VIPs & Delegations",
-    capacityText: "VIP seating · Climate controlled executive cabin",
-    recommendedService: "Chauffeur & Luxury Travel",
-    planningInputs: [
-      "Occasion, hospitality, or dignitary delegation scope",
-      "Full-day chauffeur service or event schedule",
-      "Preferred executive vehicle category",
-    ],
   },
 };
 
@@ -172,14 +96,12 @@ export default function FleetSection({
   fleetNote,
   mediaCaption,
 }: FleetSectionProps) {
-  const basePrefix = usePathname().startsWith("/uae") ? "/uae" : "/india";
   const [activeTab, setActiveTab] = useState<string>(categories[0]?.id || "sedans");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const currentCategory = categories.find((c) => c.id === activeTab) || categories[0];
   const Icon = categoryIcons[currentCategory?.id || "sedans"] || Car;
-  const currentVisual =
-    categoryVisuals[currentCategory?.id || "sedans"] || categoryVisuals.sedans;
+  const currentData = fleetDetails[currentCategory?.id || "sedans"] || fleetDetails.sedans;
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     let nextIndex = -1;
@@ -207,7 +129,7 @@ export default function FleetSection({
     <section
       id="fleet"
       tabIndex={-1}
-      className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral focus:outline-none"
+      className="py-14 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral focus:outline-none"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -217,15 +139,15 @@ export default function FleetSection({
               Vehicle Categories
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
-              Find the right vehicle category
+              Our Managed Fleet
             </h2>
             <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-              Review vehicle options tailored for daily workplace commutes, visiting delegations, and executive hospitality.
+              Explore vehicle options suited for daily employee travel, visiting delegations, and executive events across all 10 operational hubs pan-India.
             </p>
           </div>
 
           <Link
-            href={`${basePrefix}/fleet`}
+            href="/india/fleet"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0"
           >
             <span>Explore full fleet guide</span>
@@ -233,11 +155,11 @@ export default function FleetSection({
           </Link>
         </div>
 
-        {/* Category Selector Tabs */}
+        {/* Category Tabs */}
         <div
           role="tablist"
           aria-label="Fleet vehicle categories"
-          className="flex overflow-x-auto no-scrollbar gap-2 sm:gap-3 p-1.5 bg-brand-warm-white rounded-xl border border-brand-soft-neutral mb-8 max-w-3xl"
+          className="flex overflow-x-auto no-scrollbar gap-2 p-1.5 bg-white rounded-xl border border-brand-soft-neutral mb-8 max-w-2xl shadow-2xs"
         >
           {categories.map((cat, idx) => {
             const TabIcon = categoryIcons[cat.id] || Car;
@@ -256,10 +178,10 @@ export default function FleetSection({
                 type="button"
                 onClick={() => setActiveTab(cat.id)}
                 onKeyDown={(e) => handleKeyDown(e, idx)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-150 min-h-[44px] shrink-0 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-150 min-h-[44px] shrink-0 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                   isActive
-                    ? "bg-brand-indigo text-white shadow-sm"
-                    : "text-brand-ink/70 hover:text-brand-ink hover:bg-white"
+                    ? "bg-brand-indigo text-white shadow-xs"
+                    : "text-brand-ink/70 hover:text-brand-ink hover:bg-brand-warm-white"
                 }`}
               >
                 <TabIcon className="w-4 h-4 shrink-0" />
@@ -269,99 +191,100 @@ export default function FleetSection({
           })}
         </div>
 
-        {/* Selected Category Details Display: Image & Details Update Together */}
+        {/* Selected Category Details Display */}
         <div
           role="tabpanel"
           id={`fleet-panel-${currentCategory.id}`}
           aria-labelledby={`fleet-tab-${currentCategory.id}`}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
         >
-          {/* Left / Below: Category Specifications & Planning Guidance */}
-          <div className="order-2 lg:order-1 lg:col-span-6 bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral flex flex-col justify-between">
+          {/* Left Column: Specifications & Real Models */}
+          <div className="order-2 lg:order-1 lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
             <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
+                    <Icon className="w-5 h-5 text-brand-blue" />
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
                       {currentCategory.name}
                     </h3>
                     <span className="text-xs text-brand-indigo font-semibold">
-                      {currentVisual.capacityText}
+                      {currentData.capacity}
                     </span>
                   </div>
                 </div>
               </div>
 
               <p className="text-sm text-brand-ink/80 leading-relaxed">
-                {currentCategory.description}
+                {currentData.uses}
               </p>
 
-              {/* Category-Specific Planning Inputs */}
-              <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral/80 space-y-2.5">
+              {/* Real Vehicle Models from Brochure */}
+              <div className="bg-brand-warm-white rounded-xl p-4 border border-brand-soft-neutral/80 space-y-2">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/60 block">
-                  Helpful Enquiry Inputs:
+                  Brochure Vehicle Models:
                 </span>
-                <ul className="space-y-1.5">
-                  {currentVisual.planningInputs.map((input) => (
-                    <li
-                      key={input}
-                      className="flex items-start gap-2 text-xs text-brand-ink/85"
+                <div className="flex flex-wrap gap-2">
+                  {currentData.models.map((model) => (
+                    <span
+                      key={model}
+                      className="px-3 py-1 rounded-lg bg-white border border-brand-soft-neutral text-xs font-bold text-brand-ink"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-violet shrink-0 mt-0.5" />
-                      <span>{input}</span>
-                    </li>
+                      {model}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              {/* Single Clear Allocation Guidance */}
-              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/70 border border-brand-soft-neutral/60 text-xs text-brand-ink/70">
-                <Info className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
-                <span>{fleetNote}</span>
-              </div>
+              {/* Key Operational Features */}
+              <ul className="space-y-2 pt-1">
+                {currentData.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5 text-xs text-brand-ink/80">
+                    <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Note on availability */}
+              <p className="text-xs text-brand-ink/60 italic pt-1 border-t border-brand-soft-neutral/60">
+                {fleetNote}
+              </p>
             </div>
 
-            <div className="pt-5 mt-5 border-t border-brand-soft-neutral flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="pt-6 mt-6 border-t border-brand-soft-neutral flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
               <Link
-                href={`${basePrefix}/contact?category=${encodeURIComponent(currentCategory.name)}&service=${encodeURIComponent(currentVisual.recommendedService)}`}
-                className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white px-5 py-3 rounded-xl shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                href={`/india/contact?category=${encodeURIComponent(currentCategory.name)}`}
+                className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3 rounded-xl shadow-xs transition-colors"
               >
                 <span>Enquire About {currentCategory.name}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-              <span className="text-[11px] text-brand-ink/50 text-left sm:text-right">
-                Per-location availability
+              <span className="text-xs text-brand-ink/50 text-center sm:text-right">
+                Direct booking support in Hyd, Blr & Pune
               </span>
             </div>
           </div>
 
-          {/* Right / Top on Mobile: Dynamic Category-Specific Image */}
-          <div className="order-1 lg:order-2 lg:col-span-6 relative rounded-2xl overflow-hidden border border-brand-soft-neutral shadow-md flex flex-col justify-end min-h-[260px] sm:min-h-[340px] lg:min-h-[380px] bg-brand-ink group">
+          {/* Right Column: Visual Card */}
+          <div className="order-1 lg:order-2 lg:col-span-5 relative rounded-2xl overflow-hidden border border-brand-soft-neutral shadow-sm flex flex-col justify-end min-h-[280px] sm:min-h-[340px] bg-brand-ink group">
             <Image
               key={currentCategory.id}
-              src={currentVisual.imageSrc}
-              alt={currentVisual.imageAlt}
+              src={currentData.imageSrc}
+              alt={currentData.imageAlt}
               fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              style={{ objectPosition: currentVisual.objectPosition }}
-              className="object-cover group-hover:scale-102 transition-all duration-300"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover group-hover:scale-102 transition-transform duration-300"
             />
-
-            {/* Consistent dark ink backdrop ensuring readable contrast without obscuring photo */}
-            <div className="relative z-10 w-full p-4 sm:p-6 text-white bg-gradient-to-t from-brand-ink/90 via-brand-ink/60 to-transparent">
+            <div className="relative z-10 w-full p-5 sm:p-6 text-white bg-gradient-to-t from-brand-ink via-brand-ink/70 to-transparent">
               <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block mb-1">
-                {currentVisual.badge}
+                {currentData.badge}
               </span>
               <h4 className="text-base sm:text-lg font-bold text-white mb-1 leading-snug">
-                {currentVisual.headline}
+                {currentData.headline}
               </h4>
-              <p className="text-xs text-brand-soft-neutral/85 leading-relaxed hidden sm:block">
-                Commercial permits, professional demeanor, and vehicle condition verified before dispatch.
-              </p>
               <p className="text-xs text-brand-soft-neutral/70 italic pt-1">
                 {mediaCaption}
               </p>

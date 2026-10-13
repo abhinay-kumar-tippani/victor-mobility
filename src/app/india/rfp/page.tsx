@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Corporate RFP & Tender Desk | Victor Mobility India",
   description:
-    "Submit an enterprise Request for Proposal (RFP) for corporate employee transportation, IT campus bus shuttles, and executive chauffeur retainers across Hyderabad, Bengaluru, and Pune.",
+    "Submit an enterprise Request for Proposal (RFP) for corporate employee transportation, IT campus bus shuttles, and executive chauffeur retainers across 10 operational hubs pan-India.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/rfp",
     languages: {
@@ -63,7 +63,7 @@ export default function IndiaRfpPage() {
                 Corporate Mobility RFP Desk
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                Structured contract procurement for enterprise employee commute rosters, IT campus shuttles, and executive fleet retainers across Hyderabad, Bengaluru, and Pune.
+                Structured contract procurement for enterprise employee commute rosters, IT campus shuttles, and executive fleet retainers across 10 operational hubs pan-India.
               </p>
             </div>
 

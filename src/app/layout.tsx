@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Victor Mobility",
   },
   description:
-    "Corporate employee transportation, bus shuttles, airport transfers, event logistics, and executive chauffeur travel across Hyderabad, Bengaluru, and Pune.",
+    "Corporate employee transportation, bus shuttles, airport transfers, event logistics, and executive chauffeur travel across 10 operational hubs: Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata.",
   keywords: [
     "employee transportation",
     "corporate bus shuttles",
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     "corporate mobility Bengaluru",
     "event transportation Pune",
     "executive chauffeur India",
+    "corporate fleet Delhi Mumbai Chennai",
   ],
   authors: [{ name: "Victor Mobility Pvt. Ltd." }],
   creator: "Victor Mobility Pvt. Ltd.",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Victor Mobility",
     title: "Victor Mobility | On Time Every Time.",
     description:
-      "Employee transportation, bus and shuttle services, airport transfers, and luxury travel across Hyderabad, Bengaluru, and Pune.",
+      "Employee transportation, bus and shuttle services, airport transfers, and luxury travel across 10 major commercial hubs pan-India.",
     images: [
       {
         url: "/images/india/hero.png",
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Victor Mobility | On Time Every Time.",
     description:
-      "Corporate transport, employee shuttles, and luxury travel across Hyderabad, Bengaluru, and Pune.",
+      "Corporate transport, employee shuttles, and luxury travel across 10 major commercial hubs pan-India.",
     images: ["/images/india/hero.png"],
   },
   manifest: "/manifest.json",
