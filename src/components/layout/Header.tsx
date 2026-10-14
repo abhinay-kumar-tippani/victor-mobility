@@ -21,11 +21,19 @@ export default function Header({ contact }: HeaderProps) {
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
   const navItems = [
+    { label: "Home", href: basePrefix },
     { label: "Services", href: `${basePrefix}/services` },
     { label: "Fleet", href: `${basePrefix}/fleet` },
     { label: "About", href: `${basePrefix}/about` },
     { label: "Contact", href: `${basePrefix}/contact` },
   ];
+
+  const isItemActive = (href: string) => {
+    if (href === basePrefix) {
+      return pathname === basePrefix || pathname === "/";
+    }
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   const closeMenu = (restoreTriggerFocus = true) => {
     setMobileMenuOpen(false);
@@ -163,28 +171,28 @@ export default function Header({ contact }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-brand-soft-neutral shadow-xs transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-22">
+        <div className="flex items-center justify-between h-16 sm:h-[72px]">
           {/* Logo container: Crisp white background, intact Victor Artwork & Tagline */}
           <Link
             href={basePrefix}
-            className="flex items-center group py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded"
+            className="flex items-center group py-1 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded"
             aria-label="Victor Mobility - Home"
           >
-            <BrandLogo className="w-44 sm:w-52 h-11 sm:h-13 transition-transform duration-150 group-hover:scale-102" />
+            <BrandLogo className="h-12 sm:h-[56px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
           </Link>
 
-          {/* Desktop Navigation: Simple, 4 authentic routes */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 whitespace-nowrap" aria-label="Main Navigation">
+          {/* Desktop Navigation: 5 authentic routes */}
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 whitespace-nowrap" aria-label="Main Navigation">
             {navItems.map((item) => {
-              const active = pathname === item.href;
+              const active = isItemActive(item.href);
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-sm font-semibold transition-colors duration-150 py-2 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1 ${
+                  className={`text-base font-semibold transition-all duration-150 px-3.5 xl:px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                     active
-                      ? "text-brand-indigo underline underline-offset-4 font-bold"
-                      : "text-brand-ink/80 hover:text-brand-indigo"
+                      ? "bg-brand-indigo text-white shadow-xs hover:bg-brand-blue"
+                      : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-indigo/10 active:bg-brand-indigo active:text-white"
                   }`}
                 >
                   {item.label}
@@ -238,7 +246,7 @@ export default function Header({ contact }: HeaderProps) {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-x-0 top-20 sm:top-22 bottom-0 z-40 bg-brand-ink/40 backdrop-blur-xs"
+          className="lg:hidden fixed inset-x-0 top-16 sm:top-[72px] bottom-0 z-40 bg-brand-ink/40 backdrop-blur-xs"
           onClick={() => closeMenu(true)}
           aria-hidden={!mobileMenuOpen}
         >
@@ -248,7 +256,7 @@ export default function Header({ contact }: HeaderProps) {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
-            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-5 shadow-xl max-h-[calc(100dvh-5rem)] overflow-y-auto"
+            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-5 shadow-xl max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-3">
@@ -263,21 +271,28 @@ export default function Header({ contact }: HeaderProps) {
               </button>
             </div>
 
-            <nav className="space-y-1 divide-y divide-brand-soft-neutral/70">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => closeMenu(false)}
-                  className="block text-base font-semibold text-brand-ink hover:text-brand-indigo py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <nav className="space-y-1.5">
+              {navItems.map((item) => {
+                const active = isItemActive(item.href);
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => closeMenu(false)}
+                    className={`block text-base sm:text-lg font-semibold py-3 px-4 rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                      active
+                        ? "bg-brand-indigo text-white font-bold shadow-xs hover:bg-brand-blue"
+                        : "text-brand-ink hover:text-brand-indigo hover:bg-brand-indigo/10 active:bg-brand-indigo active:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <Link
                 href={`${basePrefix}/privacy`}
                 onClick={() => closeMenu(false)}
-                className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo py-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded px-1"
+                className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo hover:bg-brand-indigo/5 py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 Privacy Notice
               </Link>

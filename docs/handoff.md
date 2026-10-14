@@ -1,5 +1,217 @@
 # Handoff
 
+## 14 October 2026 — Services Section Reordering & Removal of Workforce Commute Feature
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright automated verifications (`node scripts/verify-services-reorder.mjs` exits with code 0).
+
+- **Customer Requirements Completed**:
+  1. **Relocated "Our Services" ("What do you need to arrange?")**: Moved `ServicesSection` from after the Hero down to directly above the "Leadership & Accountability" (`PeopleSection`) section.
+  2. **Page Flow Realignment (`src/app/india/page.tsx`)**:
+     1. Hero (Executive Fleet Photography Showcase)
+     2. Managed Fleet (`FleetSection`)
+     3. The Victor Standard (`VictorStandardSection`)
+     4. Regional Operating Hubs (`IndiaPresenceMap`)
+     5. Our Services ("What do you need to arrange?") (`ServicesSection`)
+     6. Leadership & Accountability (`PeopleSection`)
+     7. Direct Coordination Desk (`ContactInvitationSection`)
+  3. **Completely Removed "Workforce Commute Feature" (`src/components/home/ServicesSection.tsx`)**:
+     - Removed the entire "Workforce Commute Feature" card / planning section.
+     - Cleaned up unused imports (`Image`, `MapPin`, `Clock`, `Shield`).
+     - Maintained the 6 authenticated core services grid and "Request a quote" actions intact.
+
+- **Verification Evidence**:
+  - `docs/screenshots/services-reorder-desktop.png`: 1440x900 desktop capture showing "Our Services" positioned directly above "Leadership & Accountability".
+  - `docs/screenshots/leadership-context-desktop.png`: Desktop boundary capture showing Regional Hubs -> Services -> Leadership sequence.
+  - `docs/screenshots/services-reorder-mobile.png`: 390x844 mobile capture showing responsive services grid above leadership.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+
+---
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright automated measurements (`node scripts/capture-all-slides.mjs` exits with code 0).
+
+- **User Requirements & Professional UI/UX Enhancements Delivered**:
+  1. **Eliminated Clunky Tag Pills**: Replaced the awkward dark-gray tag pills with an ultra-clean, elegant luxury spec strip (`• Motorcade Logistics | • Dedicated Fleet Marshals | • Multi-City Summits`) with luminous indigo sapphire dots, removing visual clutter and restoring visual breathing room.
+  2. **Harmonious Luxury Action Buttons**: Redesigned the mismatched rectangular CTA buttons into a sculpted, cohesive pair of full-radius luxury pill buttons:
+     - Primary Action: Solid pearl-white pill with dark ink typography (`px-8 py-4 rounded-full bg-white text-zinc-950 font-semibold shadow-[0_4px_24px_rgba(255,255,255,0.22)]`).
+     - Secondary Action: Translucent crystalline frosted glass pill with hairline border and soft backdrop blur (`px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 backdrop-blur-md shadow-sm`).
+  3. **Sculpted Luxury Typography**: Set headline to `font-semibold tracking-[-0.03em]` at `text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem]` with cinematic ambient text shadow, paired with silky silver subtitle (`text-zinc-300 font-light leading-relaxed max-w-lg`).
+  4. **Dedicated Left-Quadrant Framing**: Constrained content column width to `max-w-xl lg:max-w-2xl` with tightened vertical spacing (`space-y-5 sm:space-y-6`), seating the copy gracefully above the car bodywork and completely uncovering the executive vehicles and arrival staging on the right.
+  5. **Floating Glass Dock for Carousel Navigator**: Housed the centered slide indicators inside a frosted glass capsule dock (`px-6 py-2.5 rounded-full bg-black/50 border border-white/15 backdrop-blur-xl shadow-2xl`), expanding active slide to `w-10 sm:w-12` with continuous auto-advance.
+
+- **Verification Evidence**:
+  - `docs/screenshots/hero-desktop.png`: 1440x900 desktop hero capture showing refined luxury typography, cohesive pill buttons, and unobstructed fleet photography.
+  - `docs/screenshots/hero-mobile.png`: 390x844 mobile hero capture showing clean typography and responsive layout.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+
+---
+
+## 14 October 2026 — Hero Section: Removal of Floating Glassmorphic Trust Ribbon
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright captures across desktop and mobile.
+
+- **Changes Completed (`src/components/home/Hero.tsx`)**:
+  - Removed the bottom Floating Glassmorphic Trust Ribbon containing the 4 pillars (10 Operational Cities, 100% Verified Drivers, 24/7 Operations Desk, and Direct Operations Hotline) per user request.
+  - Preserved the discreet regulatory media caption required by `AGENTS.md` ("Vehicle imagery illustrative. Actual fleet deployed per client roster.").
+  - Cleaned up unused icon imports (`ShieldCheck`, `MapPin`, `Clock`, `Phone`) from `lucide-react`.
+  - The hero photography and executive slide navigator now have unobstructed visual breathing room, creating an uncluttered cinematic presentation on desktop and mobile.
+
+- **Verification Evidence**:
+  - `docs/screenshots/hero-without-trust-ribbon-desktop.png`: 1440px desktop view of the Hero without the trust ribbon.
+  - `docs/screenshots/hero-without-trust-ribbon-mobile.png`: 390px mobile view showing clean vertical breathing room.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages compiled.
+
+---
+
+## 14 October 2026 — Footer UI/UX: Restoration of Dark Brand Ink Theme & Refined Brand Emblem
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright captures across desktop and mobile.
+
+- **Customer Feedback & Deliverables Completed**:
+  1. **Restoration of Dark Theme (`bg-brand-ink`)**: Per user request, rolled back the footer background from white to the authentic midnight Brand Ink theme (`bg-brand-ink text-white border-t border-white/10`).
+  2. **Refined Brand Emblem Container**: Solved the root UI/UX defect where the previous logo sat inside an oversized `w-44` rectangle with 85.6px of vacant white space on the right:
+     - Replaced the arbitrary `w-44` container with an aspect-ratio-fitted luxury emblem card (`px-4 py-2.5 rounded-2xl bg-white shadow-sm border border-white/15 hover:border-white/35`).
+     - Sized `BrandLogo` with `h-11 sm:h-12 aspect-[810/430]`, eliminating all asymmetric dead space and centering the mark with exact symmetry.
+     - Added interactive Home link (`<Link href={prefix}>`) with focus ring and hover responsiveness.
+  3. **High-Contrast Dark Typography Restored**:
+     - Headings in `text-sm font-bold uppercase tracking-wider text-brand-soft-neutral`.
+     - Links and body in `text-sm text-brand-soft-neutral/80 hover:text-white`.
+     - Direct contact desk in `font-semibold text-white` with `text-brand-blue` phone and emerald WhatsApp icons.
+
+- **Verification Evidence**:
+  - `docs/screenshots/footer-restored-dark-desktop.png`: 1440px desktop footer showing restored dark theme with symmetrically fitted white brand emblem.
+  - `docs/screenshots/footer-restored-dark-context.png`: Bottom fold capture showing framing with the Contact section.
+  - `docs/screenshots/footer-restored-dark-mobile-logo.png`: 390px mobile capture demonstrating clean emblem fit on small screens.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+
+---
+
+## 14 October 2026 — Navbar UI/UX: Font Enlargement, Active & Hover Backgrounds, Home Button Integration
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright automated measurements (`node scripts/verify-navbar-ux.mjs` exits with code 0).
+
+- **Customer Requirements Delivered**:
+  1. **Enlarged Text Size**: Increased navbar text size from `text-sm` (14px) to `text-base` (16px) with `font-semibold` on desktop and `text-base sm:text-lg` on mobile, delivering sharp legibility and executive presence.
+  2. **Active / Clicked Button Background**: When any navbar item is clicked or active (`Home`, `Services`, `Fleet`, `About`, `Contact`), it receives a solid Brand Indigo background (`bg-brand-indigo` / `#31326F`), pure white text (`text-white`), rounded pill border radius (`rounded-xl`), and soft shadow (`shadow-xs`), with tactile instant active click press feedback (`active:bg-brand-indigo active:text-white`).
+  3. **Home Button Added**: Positioned the dedicated `Home` button as the first navigation item in both desktop navbar and mobile drawer, linking directly to `${basePrefix}` (`/india`).
+  4. **Hover Background with Soft Transparency**: When hovering over unselected buttons, a translucent brand indigo pill background smoothly fades in (`hover:bg-brand-indigo/10` / `hover:text-brand-indigo`), matching the pill geometry of the active state.
+
+- **Verification Evidence**:
+  - `docs/screenshots/navbar-home-active.png`: Desktop 1440px navbar with Home active in solid brand indigo.
+  - `docs/screenshots/navbar-services-hover.png`: Desktop 1440px navbar showing translucent indigo pill hover on Services.
+  - `docs/screenshots/navbar-services-active.png`: Desktop 1440px navbar after clicking Services with Services active.
+  - `docs/screenshots/navbar-fleet-active.png`: Desktop 1440px navbar after clicking Fleet with Fleet active.
+  - `docs/screenshots/navbar-mobile-drawer.png`: Mobile 390px drawer showing enlarged pill links with Home active.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+
+---
+
+## 14 October 2026 — Navbar & Logo Proportional Optimization
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright automated measurements (`node scripts/verify-navbar-changes.mjs` exits with code 0).
+
+- **Problem Addressed**:
+  - The sticky navbar height was oversized (`h-20 sm:h-22` -> computed 81px–88px) with excessive empty vertical padding that consumed excessive viewport space.
+  - The brand logo was constrained to `h-11` (44px) inside an oversized `w-52` container with `preserveAspectRatio="xMidYMid meet"`, causing the logo to render at a tiny 82.9px × 44px graphic with 62.5px of artificial left indent, leaving the tagline and brand mark barely legible.
+  - The mobile navigation drawer's vertical alignment was fixed to the old 80px offset.
+
+- **Implementation Details**:
+  1. **Navbar Height Recalibration (`src/components/layout/Header.tsx`)**:
+     - Reduced desktop navbar height from 88px/80px to a sleek, executive 72px (`sm:h-[72px]`), perfectly matching 4.5rem.
+     - Reduced mobile navbar height to 64px (`h-16`), conserving vertical viewport real estate while maintaining 44px minimum touch targets.
+     - Synchronized the mobile dialog drawer offset to `top-16 sm:top-[72px]` and `max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.5rem)]` for seamless zero-gap drawer deployment.
+  2. **Logo Prominence & Geometric Alignment (`src/components/brand/BrandLogo.tsx`)**:
+     - Upgraded desktop logo height to 56px (`sm:h-[56px]`) and mobile to 48px (`h-12`).
+     - Added CSS aspect-ratio constraint (`aspect-[810/430]`) matching the exact SVG viewBox (810×430), allowing the browser to calculate width dynamically (105.5px desktop, 90.4px mobile) without horizontal dead space.
+     - Updated SVG alignment from `xMidYMid meet` to `xMinYMid meet` to ensure flush, clean alignment to the left margin.
+     - Added `shrink-0` to guarantee the logo is never squeezed by neighboring flex elements.
+  3. **Hero Viewport Recalibration (`src/components/home/Hero.tsx`)**:
+     - Updated hero calculation from `lg:min-h-[calc(100vh-5.5rem)]` to `lg:min-h-[calc(100vh-4.5rem)]`, ensuring exact single-fold viewport anchoring.
+
+- **Verification Evidence**:
+  - `docs/screenshots/navbar-fix-desktop-header.png`: High-resolution 1440px desktop navbar capture.
+  - `docs/screenshots/navbar-fix-desktop-fold.png`: 1440px viewport showing balanced header and hero integration.
+  - `docs/screenshots/navbar-fix-mobile-header.png`: 390px mobile header capture.
+  - `docs/screenshots/navbar-fix-mobile-fold.png`: 390px mobile viewport.
+  - `docs/screenshots/navbar-fix-mobile-drawer.png`: Mobile navigation drawer opened without gaps or overlaps.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+
+---
+
+## 14 October 2026 — Antigravity Conversion Remediation Implementation
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright validation (`node scripts/review-conversion-2026-10-13.mjs` exits with code 0).
+
+- **Core Remediation Summary**:
+  1. **All 12 inert homepage service buttons replaced**:
+     - Converted into direct, functional Next.js `<Link>` elements pointing to `/india/contact?service=<canonical-slug>`.
+     - Preserved canonical slugs: `employee-transportation`, `bus-shuttle-transport`, `event-transportation`, `airport-transfers`, `chauffeur-luxury`, `rent-a-car`.
+     - Pre-fills service selection directly into the contact form and WhatsApp message draft. Works reliably before and after JS hydration.
+     - Added dedicated editorial Employee Transport Feature with 3 planning inputs (Office locations, Shift schedules, Passenger count) linking to `/india/contact?service=employee-transportation`.
+     - Removed view mode switcher and obsolete custom event dependencies.
+  2. **Fleet tariffs, unconfirmed prices & extra models removed**:
+     - Purged all `rateCard` JSON blocks containing ₹ pricing from `src/content/fleet-specifications.json`.
+     - Removed unconfirmed luxury models (BMW/Mercedes models in India fleet) and replaced inflated "2,000+ Cars & 500+ Buses" subheadlines with "Commercial & Executive Fleet Architecture across 10 Operational Hubs Pan-India".
+     - Replaced tariff guide badges and instant rate calculator with direct "Enquire About Category" and quotation requirement desk.
+     - Aligned structured JSON-LD data strictly with brochure categories in `india.json`.
+  3. **Commercial promises grounded in `src/app/india/services/[slug]/page.tsx`**:
+     - Replaced "100% on-time floor arrival" with shift roster planning.
+     - Replaced "complimentary waiting" with flight arrival timing coordination.
+     - Replaced "automatically reschedules chauffeur" with flight number sharing guidance.
+     - Replaced simulated `/india/protocol` desk teaser with airport meet-and-greet guidance.
+     - Replaced dead `intent=corporate-tariffs` links in services index with corporate travel quotations.
+  4. **Hero proposition and destination stabilized**:
+     - Stable H1: `"On Time Every Time."` matching authorized brand tagline.
+     - Stable primary CTA: `"Request a quote"` (`/india/contact`) and `"Explore our fleet"` (`/india/fleet`), followed by concise subtext note.
+     - Accessible carousel controls: visible Pause/Play button (`aria-label="Pause carousel"`), all 9 interactive buttons (Pause, Prev, 6 Slide Dots, Next) meet the minimum 44px × 44px hit target.
+     - Auto-advance halts when paused, hovered, keyboard-focused, or when `prefers-reduced-motion: reduce` is active.
+     - Discreet caption: `"Vehicle imagery is illustrative."`
+  5. **Fleet enquiry intent preserved independently**:
+     - Selecting vehicle categories (e.g., Luxury & Limousines) preserves category independently without defaulting to "Employee Transportation".
+     - Sets default service to `"General Vehicle Enquiry"` when service intent is unspecified.
+  6. **Mobile quotation access brought into introduction viewport**:
+     - Added early "Request a quote" CTA beside opening service description on mobile (`top: 325px` on airport page, down from `4,270px`).
+     - Repeated quote CTA after planning overview.
+  7. **Procurement jargon simplified & 10 operational hubs aligned**:
+     - Form labels simplified ("Your Name *", "Company (optional)").
+     - Removed "Corporate Requirement Specification Desk" in favor of "Transport Requirement Enquiry".
+     - Helper notice clearly explains: "This opens your message in WhatsApp. Review and send it to our team to discuss arrangements."
+     - Homepage contact anchor `#contact` established.
+     - Fleet copy aligned across 10 operational hubs pan-India.
+- **Verification Evidence**:
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static pages compiled successfully.
+  - `node scripts/review-conversion-2026-10-13.mjs`: Exit code 0, all runtime assertions passed, zero runtime page errors (`errors: []`).
+  - Active preview running live on `http://localhost:3000`.
+
+---
+
+## 13 October 2026 — Codex conversion review
+
+Status: **Review complete; implementation pending with Antigravity.** No application source/public copy changed; existing edits in `PeopleSection.tsx`, `india.json` and `sla.json` preserved.
+
+- Brief: [conversion-review-2026-10-13.md](conversion-review-2026-10-13.md), with prioritised fixes, replacement copy, page structure, four-day sequence and acceptance checks.
+- Fix first: all 12 home service enquiry buttons are inert; fleet rates/models and service guarantees exceed `india.json`; luxury-category enquiries default to Employee Transportation.
+- Next: stabilise the two-second hero, bring service enquiry actions into the mobile introduction, simplify jargon and align ten-city service coverage with three supplied offices.
+- Runtime checks: reproduced the above journey failures; confirmed direct service/city prefill, empty-form validation and the correct WhatsApp draft destination. External handoff intercepted; no messages sent. No horizontal overflow in sampled 1440/390/320px home/contact views. Review script syntax and `git diff --check` passed. Production lint/type-check/build are still required after implementation.
+- Evidence: [desktop homepage](screenshots/conversion-review-2026-10-13/home-desktop-fold.png), [mobile homepage](screenshots/conversion-review-2026-10-13/home-mobile-fold.png), [mobile airport page](screenshots/conversion-review-2026-10-13/airport-mobile-full.png), [desktop fleet](screenshots/conversion-review-2026-10-13/fleet-desktop-full.png), and [runtime results](screenshots/conversion-review-2026-10-13/results.json).
+- During screenshot refresh, Next development Fast Refresh produced a contact 404 and an airport static-paths 500 (`__webpack_modules__[moduleId] is not a function`). Both returned 200 on the targeted [recheck](screenshots/conversion-review-2026-10-13/screenshot-recheck.json); affected screenshots were recaptured. Preserve this observation for the production smoke check; this review does not certify deployment readiness.
+- Reproduce: `node scripts/review-conversion-2026-10-13.mjs` against the local preview on port 3000. The script records observed behaviour; an exit code of zero does not mean the conversion findings are fixed.
+
+---
+
 ## 12 October 2026 — Hero Section: 2-Second Slide Auto-Advance Transition
 
 Status: Implemented, verified with Playwright timing test (`scripts/test-2s-interval.mjs`), passing live on http://localhost:3000.

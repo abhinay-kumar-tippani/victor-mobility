@@ -83,6 +83,7 @@ export interface IndiaContent {
     eyebrow: string;
     title: string;
     description: string;
+    subtext?: string;
     primaryCta: {
       label: string;
       href: string;

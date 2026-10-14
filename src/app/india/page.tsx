@@ -32,10 +32,7 @@ export default function IndiaPage() {
           mediaCaption={media.caption}
         />
 
-        {/* 2. Services: The 6 Authentic Transport Services (Shown ONCE, Clean & Direct) */}
-        <ServicesSection services={content.services} />
-
-        {/* 3. Fleet: Real Brochure Models (Dzire, Tigor, Innova, Urbania, Coaches) & Seating Capacities */}
+        {/* 2. Fleet: Real Brochure Models (Dzire, Tigor, Innova, Urbania, Coaches) & Seating Capacities */}
         <FleetSection
           categories={content.fleetCategories}
           fleetNote={content.fleetNote}
@@ -43,14 +40,17 @@ export default function IndiaPage() {
           mediaCaption={media.caption}
         />
 
-        {/* 4. The Victor Standard: 3 Grounded Trust Pillars (Verified Drivers, Punctual Fleet, Transparent Billing) */}
+        {/* 3. The Victor Standard: 3 Grounded Trust Pillars (Verified Drivers, Punctual Fleet, Transparent Billing) */}
         <VictorStandardSection />
 
-        {/* 5. Regional Operating Hubs: Hyderabad (Gachibowli), Bengaluru & Pune */}
+        {/* 4. Regional Operating Hubs: Hyderabad (Gachibowli), Bengaluru & Pune */}
         <IndiaPresenceMap
           offices={content.offices}
           contact={content.contact}
         />
+
+        {/* 5. Services: The 6 Authentic Transport Services (Shown ONCE, Clean & Direct) */}
+        <ServicesSection services={content.services} />
 
         {/* 6. Leadership & Operations Accountability: Founder Jahangir & Commercial Lead Mujeeb */}
         <PeopleSection

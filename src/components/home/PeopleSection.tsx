@@ -78,7 +78,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
 
           {/* Right Column: Commercial Partner + Operations Desk (col-span-7) */}
           <div className={`${founder ? "lg:col-span-7" : "lg:col-span-12"} space-y-6 flex flex-col justify-between`}>
-            {/* Card 2: Commercial Leadership (Mujeeb Ur Rehman Mohammed) */}
+            {/* Card 2: Commercial Leadership (Mujeeb Ur Rahman Mohammed) */}
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-soft-neutral shadow-xs space-y-4">
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-warm-white border border-brand-soft-neutral text-[11px] font-bold uppercase tracking-wider text-brand-indigo">
@@ -118,12 +118,12 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
               </div>
             </div>
 
-            {/* Card 3: 24/7 Operations Control Room with Image */}
+            {/* Card 3: Operations Control Desk with Image */}
             <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-xs">
               <div className="relative aspect-[21/9] w-full overflow-hidden bg-brand-ink">
                 <Image
                   src="/images/india/operations-control.jpg"
-                  alt="Victor Mobility 24/7 Operations and Dispatch Control Room"
+                  alt="Operations and fleet coordination desk"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -133,15 +133,15 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>24/7 Operations Control Room</span>
+                    <span>Operations Coordination Desk</span>
                   </span>
-                  <span className="text-[10px] text-white/70 italic">Live Flight & Telematics Desk</span>
+                  <span className="text-[10px] text-white/70 italic">Imagery is illustrative</span>
                 </div>
               </div>
 
               <div className="p-6 space-y-3">
                 <p className="text-xs text-brand-ink/75 leading-relaxed">
-                  Our central operations desk continuously monitors live airline radar arrivals, driver shift rotations, pre-dispatch vehicle audits, and emergency route support across all three metros.
+                  Our central operations desk coordinates driver shift rotations, vehicle dispatch readiness, and route support across 10 operational hubs pan-India.
                 </p>
 
                 <div className="pt-2 flex items-center justify-between">

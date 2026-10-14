@@ -29,9 +29,13 @@ export default function Footer({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="inline-block rounded-xl bg-white p-3 shadow-xs">
-              <BrandLogo className="w-44 h-12" />
-            </div>
+            <Link
+              href={prefix}
+              className="inline-flex items-center justify-center bg-white px-4 py-2.5 rounded-2xl shadow-sm border border-white/15 hover:border-white/35 transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-white"
+              aria-label="Victor Mobility - Home"
+            >
+              <BrandLogo className="h-11 sm:h-12 aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
+            </Link>
             <p className="text-sm leading-relaxed text-brand-soft-neutral/80 max-w-sm">
               Corporate employee transportation, campus bus shuttles, airport transfers, and executive luxury travel across 10 operational hubs pan-India.
             </p>

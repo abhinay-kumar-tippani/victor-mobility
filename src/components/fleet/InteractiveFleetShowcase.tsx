@@ -73,26 +73,15 @@ export default function InteractiveFleetShowcase({
     monthlyRetainer: "Corporate Monthly Shift Retainer",
   };
 
-  const getEstimatedRate = () => {
-    const rc = activeCategoryForCalc.rateCard;
-    if (calcDuty === "airportTransfer") return rc.airportTransfer;
-    if (calcDuty === "halfDay") return rc.halfDay;
-    if (calcDuty === "fullDay") return rc.fullDay;
-    if (calcDuty === "outstation") return `${rc.outstationPerKm} + Driver Allowance`;
-    return "Custom Commercial Contract (Upon RFP Submission)";
-  };
-
-  const waQuoteMessage = `*VICTOR MOBILITY · FLEET RATE INQUIRY*
-Region: ${region === "india" ? "India (Hyderabad / Bengaluru / Pune)" : "UAE (Dubai / Abu Dhabi)"}
+  const waQuoteMessage = `*VICTOR MOBILITY · FLEET INQUIRY*
+Region: ${region === "india" ? "India" : "UAE"}
 Category: ${activeCategoryForCalc.name}
-Recommended Models: ${activeCategoryForCalc.popularModels.join(", ")}
-Duty Type: ${dutyLabels[calcDuty]}
+${activeCategoryForCalc.popularModels.length > 0 ? `Brochure Models: ${activeCategoryForCalc.popularModels.join(", ")}\n` : ""}Duty Type: ${dutyLabels[calcDuty]}
 Operating City: ${calcCity}
-Indicative Tariff: ${getEstimatedRate()}
 Tagline: On Time Every Time.
 
 Hello Victor Team,
-I am reviewing this fleet specification. Please share your availability, formal quotation, and onboarding terms for our enterprise requirements.`;
+I would like to enquire about vehicle availability and receive a formal quotation for our requirements.`;
 
   const waQuoteUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(
     waQuoteMessage
@@ -259,11 +248,11 @@ I am reviewing this fleet specification. Please share your availability, formal 
                     </div>
                   </div>
 
-                  {/* Indicative Rate Badge */}
+                  {/* Availability Note */}
                   <div className="pt-2 border-t border-brand-soft-neutral flex items-center justify-between text-xs">
-                    <span className="text-brand-slate font-medium">Full-Day Tariff Guide:</span>
-                    <span className="font-bold text-brand-indigo bg-brand-soft-neutral/50 px-2.5 py-1 rounded-md">
-                      {category.rateCard.fullDay}
+                    <span className="text-brand-slate font-medium">Availability:</span>
+                    <span className="text-brand-ink/75 bg-brand-soft-neutral/50 px-2.5 py-1 rounded-md text-[11px] font-semibold">
+                      Confirmed upon quotation request
                     </span>
                   </div>
                 </div>
@@ -280,18 +269,13 @@ I am reviewing this fleet specification. Please share your availability, formal 
                   <span>Inspect Specs &amp; Amenities</span>
                 </button>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    setCalcCategory(category.id);
-                    const calcEl = document.getElementById("fleet-rate-calculator");
-                    if (calcEl) calcEl.scrollIntoView({ behavior: "smooth" });
-                  }}
+                <Link
+                  href={`${region === "india" ? "/india" : "/uae"}/contact?category=${encodeURIComponent(category.name)}`}
                   className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-brand-indigo/30 bg-white text-brand-indigo hover:bg-brand-soft-neutral/40 text-xs font-bold transition-all"
                 >
-                  <span>Build Rate Card</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
+                  <span>Enquire About Category</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </article>
           );
@@ -412,11 +396,8 @@ I am reviewing this fleet specification. Please share your availability, formal 
 
             {/* Modal Bottom Actions */}
             <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <span className="text-xs text-brand-slate block">Indicative Tariff:</span>
-                <span className="text-sm font-bold text-brand-indigo">
-                  {inspectingCategory.rateCard.fullDay}
-                </span>
+              <div className="text-xs text-brand-slate">
+                <span>Quotation confirmed on review of route, timings and dates.</span>
               </div>
 
               <div className="flex items-center gap-3">
@@ -427,18 +408,13 @@ I am reviewing this fleet specification. Please share your availability, formal 
                 >
                   Close
                 </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setCalcCategory(inspectingCategory.id);
-                    setInspectingCategory(null);
-                    const calcEl = document.getElementById("fleet-rate-calculator");
-                    if (calcEl) calcEl.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-5 py-2.5 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs font-bold transition-all shadow-xs"
+                <Link
+                  href={`${region === "india" ? "/india" : "/uae"}/contact?category=${encodeURIComponent(inspectingCategory.name)}`}
+                  className="px-5 py-2.5 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs font-bold transition-all shadow-xs inline-flex items-center gap-1.5"
                 >
-                  Generate Rate Card
-                </button>
+                  <span>Request a quote</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           </div>
@@ -455,13 +431,13 @@ I am reviewing this fleet specification. Please share your availability, formal 
         <div className="relative max-w-3xl space-y-3">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold uppercase tracking-widest text-brand-soft-neutral">
             <FileSpreadsheet className="w-3.5 h-3.5 text-brand-violet" />
-            Transparent Commercial Governance
+            Requirement Desk
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Instant Corporate Rate Card &amp; Tariff Estimator
+            Request a Fleet Quotation
           </h2>
           <p className="text-sm sm:text-base text-brand-slate-light leading-relaxed">
-            Select your target vehicle class, duty type, and operating hub to view indicative commercial benchmarks. Generate an exact formal quotation brief for your procurement desk with: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+            Select your target vehicle class, duty type, and operating hub to prepare a requirement summary. Our operations team will confirm vehicle availability and an itemized quotation with: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
           </p>
         </div>
 
@@ -485,7 +461,7 @@ I am reviewing this fleet specification. Please share your availability, formal 
               >
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
-                    {c.name} ({c.popularModels.join(", ")})
+                    {c.name} {c.popularModels.length > 0 ? `(${c.popularModels.join(", ")})` : `(${c.passengerLabel})`}
                   </option>
                 ))}
               </select>
@@ -507,10 +483,10 @@ I am reviewing this fleet specification. Please share your availability, formal 
                 className="w-full bg-slate-900 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-violet"
               >
                 <option value="airportTransfer">
-                  {region === "india" ? "Airport Transfer (RGIA / BLR / PNQ)" : "Airport VIP Transfer (DXB / AUH / DWC)"}
+                  {region === "india" ? "Airport Transfer" : "Airport VIP Transfer (DXB / AUH / DWC)"}
                 </option>
                 <option value="halfDay">
-                  {region === "india" ? "Half-Day Local (4 Hours / 40 KM)" : "Half-Day City Disposal (5 Hours)"}
+                  {region === "india" ? "Half-Day Local Travel (4 Hours / 40 KM)" : "Half-Day City Disposal (5 Hours)"}
                 </option>
                 <option value="fullDay">
                   {region === "india" ? "Full-Day Dedicated (8 Hours / 80 KM)" : "Full-Day City Disposal (10 Hours)"}
@@ -541,9 +517,16 @@ I am reviewing this fleet specification. Please share your availability, formal 
               >
                 {region === "india" ? (
                   <>
-                    <option value="Hyderabad">Hyderabad (Telangana Head Office)</option>
-                    <option value="Bengaluru">Bengaluru (Karnataka Branch)</option>
-                    <option value="Pune">Pune (Maharashtra Branch)</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Kolkata">Kolkata</option>
                   </>
                 ) : (
                   <>
@@ -556,17 +539,17 @@ I am reviewing this fleet specification. Please share your availability, formal 
             </div>
           </div>
 
-          {/* Rate Card Summary Card */}
+          {/* Requirement Summary Card */}
           <div className="lg:col-span-5 bg-gradient-to-br from-brand-indigo/90 to-brand-ink rounded-2xl p-6 sm:p-7 border border-brand-violet/30 shadow-lg space-y-6">
             <div className="space-y-1">
               <span className="text-[11px] font-bold uppercase tracking-wider text-brand-violet block">
-                Benchmark Tariff Estimate
+                Requirement Summary
               </span>
-              <div className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                {getEstimatedRate()}
+              <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                {activeCategoryForCalc.name}
               </div>
               <p className="text-xs text-brand-slate-light pt-1">
-                Category: <strong className="text-white">{activeCategoryForCalc.name}</strong>
+                Quote requests collect travel requirements; our team provides the actual quotation.
               </p>
             </div>
 
@@ -589,14 +572,18 @@ I am reviewing this fleet specification. Please share your availability, formal 
                   {activeCategoryForCalc.luggageCapacity.largeSuitcases} Large / {activeCategoryForCalc.luggageCapacity.cabinBags} Cabin
                 </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span>Fuel &amp; Chauffeur:</span>
-                <span className="font-semibold text-emerald-400">Included</span>
-              </div>
             </div>
 
             {/* Commercial Action CTA */}
             <div className="space-y-3 pt-2">
+              <Link
+                href={`${region === "india" ? "/india" : "/uae"}/contact?category=${encodeURIComponent(activeCategoryForCalc.name)}&city=${encodeURIComponent(calcCity)}`}
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs font-bold transition-all shadow-md"
+              >
+                <span>Request a quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
               <a
                 href={waQuoteUrl}
                 target="_blank"
@@ -604,7 +591,7 @@ I am reviewing this fleet specification. Please share your availability, formal 
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Request Rate Card via WhatsApp</span>
+                <span>Continue on WhatsApp</span>
               </a>
 
               <div className="flex items-center justify-between text-[11px] text-brand-slate-light px-1">
@@ -620,7 +607,7 @@ I am reviewing this fleet specification. Please share your availability, formal 
             </div>
 
             <p className="text-[11px] text-white/50 leading-relaxed italic border-t border-white/10 pt-3">
-              Note: Final corporate rates are confirmed based on exact multi-vehicle volume commitments, monthly corridor kilometers, and contractual SLA terms.
+              Note: Final corporate rates are confirmed based on exact route kilometers, schedule requirements, and vehicle categories.
             </p>
           </div>
         </div>

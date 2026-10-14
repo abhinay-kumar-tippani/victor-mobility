@@ -263,7 +263,7 @@ export default function FleetSection({
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <span className="text-xs text-brand-ink/50 text-center sm:text-right">
-                Direct booking support in Hyd, Blr & Pune
+                Available across 10 operational hubs pan-India
               </span>
             </div>
           </div>

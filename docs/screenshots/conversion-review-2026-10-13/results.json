@@ -1,0 +1,259 @@
+{
+  "origin": "http://127.0.0.1:3000",
+  "date": "2026-10-13",
+  "checks": {
+    "rootRedirect": "/india",
+    "homeEnquiryTargetCount": 1,
+    "homeServiceButtons": [],
+    "homeServiceLinks": [
+      {
+        "text": "Request a quote",
+        "href": "/india/contact?service=employee-transportation"
+      },
+      {
+        "text": "Request a quote",
+        "href": "/india/contact?service=bus-shuttle-transport"
+      },
+      {
+        "text": "Request a quote",
+        "href": "/india/contact?service=event-transportation"
+      },
+      {
+        "text": "Request a quote",
+        "href": "/india/contact?service=airport-transfers"
+      },
+      {
+        "text": "Request a quote",
+        "href": "/india/contact?service=chauffeur-luxury"
+      },
+      {
+        "text": "Request a quote",
+        "href": "/india/contact?service=rent-a-car"
+      },
+      {
+        "text": "Discuss an employee transport plan",
+        "href": "/india/contact?service=employee-transportation"
+      }
+    ],
+    "luxuryCategoryHandoff": {
+      "url": "http://127.0.0.1:3000/india/contact?category=Luxury%20%26%20Limousines",
+      "service": "General Vehicle Enquiry",
+      "category": "Preferred Category: Luxury & Limousines"
+    },
+    "serviceAndCityPrefill": {
+      "service": "Airport Transfers",
+      "city": "Mumbai"
+    },
+    "emptyForm": {
+      "opened": 0,
+      "focusedId": "enquiry-name-input",
+      "errors": [
+        "Please provide your name.",
+        "Please describe your transport requirement (passengers, schedule, or locations)."
+      ]
+    },
+    "whatsappDraft": [
+      [
+        "https://wa.me/919396546950?text=*Transport%20Requirement%20Enquiry*%0A*Victor%20Mobility%20Pvt.%20Ltd.*%0A--------------------------------%0A*Contact%20Name%3A*%20Review%20Test%0A*Service%20Required%3A*%20Airport%20Transfers%0A*City%20%2F%20Region%3A*%20Mumbai%0A*Journey%20Details%3A*%0AReview%20only%3A%20airport%20pickup%20on%2020%20October%2C%202%20passengers%2C%202%20bags.%0A--------------------------------%0APrepared%20via%20Victor%20Mobility%20Enquiry",
+        "_blank",
+        "noopener,noreferrer"
+      ]
+    ],
+    "reducedMotionWhileFocused": {
+      "titleBefore": "On Time Every Time.",
+      "titleAfter": "On Time Every Time.",
+      "hrefBefore": "/india/services/employee-transportation",
+      "hrefAfter": "/india/services/employee-transportation",
+      "pauseButtonCount": 1,
+      "controls": [
+        {
+          "label": "Pause carousel",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Previous slide",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Go to slide 1: Employee Transportation",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Go to slide 2: Bus & Shuttle Transport",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Go to slide 3: Airport Transfers",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Go to slide 4: Chauffeur & Luxury Travel",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Go to slide 5: Event Transportation",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Go to slide 6: Rent-A-Car",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Next slide",
+          "width": 44,
+          "height": 44
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "name": "home-desktop",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india",
+      "width": 1440,
+      "documentWidth": 1440,
+      "height": 7214,
+      "h1": "On Time Every Time.",
+      "headings": [
+        "What do you need to arrange?",
+        "Our Managed Fleet",
+        "The Victor Standard: Grounded Reliability",
+        "Our Pan-India Presence & Operating Hubs",
+        "The people behind Victor.",
+        "Tell us what you need to arrange."
+      ],
+      "firstMainEnquiry": {
+        "text": "Request a quote",
+        "href": "/india/contact?service=employee-transportation",
+        "top": 1410
+      }
+    },
+    {
+      "name": "contact-desktop",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india/contact?service=airport-transfers&city=Mumbai",
+      "width": 1440,
+      "documentWidth": 1440,
+      "height": 2074,
+      "h1": "Tell us what you need to arrange",
+      "headings": [
+        "Our Operating Office Locations"
+      ],
+      "firstMainEnquiry": null
+    },
+    {
+      "name": "home-mobile",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india",
+      "width": 390,
+      "documentWidth": 390,
+      "height": 11252,
+      "h1": "On Time Every Time.",
+      "headings": [
+        "What do you need to arrange?",
+        "Our Managed Fleet",
+        "The Victor Standard: Grounded Reliability",
+        "Our Pan-India Presence & Operating Hubs",
+        "The people behind Victor.",
+        "Tell us what you need to arrange."
+      ],
+      "firstMainEnquiry": {
+        "text": "Request a quote",
+        "href": "/india/contact?service=employee-transportation",
+        "top": 1395
+      }
+    },
+    {
+      "name": "contact-mobile",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india/contact",
+      "width": 390,
+      "documentWidth": 390,
+      "height": 4076,
+      "h1": "Tell us what you need to arrange",
+      "headings": [
+        "Our Operating Office Locations"
+      ],
+      "firstMainEnquiry": null
+    },
+    {
+      "name": "airport-mobile",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india/services/airport-transfers",
+      "width": 390,
+      "documentWidth": 390,
+      "height": 6371,
+      "h1": "Airport Transfers",
+      "headings": [
+        "Service Scope & Planning Overview"
+      ],
+      "firstMainEnquiry": {
+        "text": "Request a quote",
+        "href": "/india/contact?service=airport-transfers",
+        "top": 325
+      }
+    },
+    {
+      "name": "airport-desktop",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india/services/airport-transfers",
+      "width": 1440,
+      "documentWidth": 1440,
+      "height": 4546,
+      "h1": "Airport Transfers",
+      "headings": [
+        "Service Scope & Planning Overview"
+      ],
+      "firstMainEnquiry": {
+        "text": "Request a quote",
+        "href": "/india/contact?service=airport-transfers",
+        "top": 312
+      }
+    },
+    {
+      "name": "home-small-mobile",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india",
+      "width": 320,
+      "documentWidth": 320,
+      "height": 12089,
+      "h1": "On Time Every Time.",
+      "headings": [
+        "What do you need to arrange?",
+        "Our Managed Fleet",
+        "The Victor Standard: Grounded Reliability",
+        "Our Pan-India Presence & Operating Hubs",
+        "The people behind Victor.",
+        "Tell us what you need to arrange."
+      ],
+      "firstMainEnquiry": {
+        "text": "Request a quote",
+        "href": "/india/contact?service=employee-transportation",
+        "top": 1493
+      }
+    },
+    {
+      "name": "contact-small-mobile",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/india/contact",
+      "width": 320,
+      "documentWidth": 320,
+      "height": 4276,
+      "h1": "Tell us what you need to arrange",
+      "headings": [
+        "Our Operating Office Locations"
+      ],
+      "firstMainEnquiry": null
+    }
+  ],
+  "errors": []
+}

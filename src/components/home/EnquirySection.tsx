@@ -57,7 +57,7 @@ function EnquiryForm({
   const [fullName, setFullName] = useState("");
   const [company, setCompany] = useState("");
   const [selectedService, setSelectedService] = useState(
-    preselectedService || publishedServices[0]?.title || "Employee Transportation"
+    preselectedService || "General Vehicle Enquiry"
   );
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState(
@@ -88,11 +88,18 @@ function EnquiryForm({
       setSelectedCategory(catParam || null);
       if (sParam) {
         const matchedService = publishedServices.find(
-          (s) => s.slug === sParam || s.title.toLowerCase() === sParam.toLowerCase()
+          (s) =>
+            s.slug === sParam ||
+            s.title.toLowerCase() === sParam.toLowerCase() ||
+            s.slug.toLowerCase() === sParam.toLowerCase().replace(/\s+/g, "-")
         );
         if (matchedService) {
           setSelectedService(matchedService.title);
+        } else {
+          setSelectedService(sParam);
         }
+      } else {
+        setSelectedService("General Vehicle Enquiry");
       }
       if (cParam) {
         const matchedCity = publishedCities.find(
@@ -116,18 +123,6 @@ function EnquiryForm({
 
       if (detail.category) {
         setSelectedCategory(detail.category);
-        if (!detail.service) {
-          const catLower = detail.category.toLowerCase();
-          if (catLower.includes("luxury")) {
-            setSelectedService("Chauffeur & Luxury Travel");
-          } else if (catLower.includes("bus")) {
-            setSelectedService("Bus & Shuttle Transport");
-          } else if (catLower.includes("mpv")) {
-            setSelectedService("Event Transportation");
-          } else if (catLower.includes("sedan")) {
-            setSelectedService("Chauffeur & Luxury Travel");
-          }
-        }
       }
 
       if (detail.service) {
@@ -169,7 +164,7 @@ function EnquiryForm({
   // Real-time accessible error calculations
   const nameError =
     (touched.name || submissionAttempted) && !fullName.trim()
-      ? "Please provide your full name or company representative name."
+      ? "Please provide your name."
       : "";
 
   const customCityError =
@@ -194,14 +189,14 @@ function EnquiryForm({
       `*${effectiveCompany}*`,
       `--------------------------------`,
       `*Contact Name:* ${fullName.trim() || "[Your Name]"}`,
-      ...(company.trim() ? [`*Company / Enterprise:* ${company.trim()}`] : []),
+      ...(company.trim() ? [`*Company:* ${company.trim()}`] : []),
       `*Service Required:* ${selectedService}`,
       ...(selectedCategory ? [`*Vehicle Category:* ${selectedCategory}`] : []),
       `*City / Region:* ${cityDisplay}`,
       `*Journey Details:*`,
       requirementText.trim() || "[Shift timings, route corridor, passenger count or dates]",
       `--------------------------------`,
-      `Prepared via Victor Mobility Requirement Desk`,
+      `Prepared via Victor Mobility Enquiry`,
     ];
     return lines.join("\n");
   };
@@ -306,7 +301,7 @@ function EnquiryForm({
                   <Briefcase className="w-4 h-4" />
                 </div>
                 <span className="font-bold text-sm sm:text-base text-brand-ink">
-                  Corporate Requirement Specification Desk
+                  Transport Requirement Enquiry
                 </span>
               </div>
               <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
@@ -337,7 +332,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <User className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Your Name & Designation *</span>
+                    <span>Your Name *</span>
                   </label>
                   <input
                     id="enquiry-name-input"
@@ -350,7 +345,7 @@ function EnquiryForm({
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-                    placeholder="e.g. Rahul Sharma (Facility Head)"
+                    placeholder="e.g. Rahul Sharma"
                     className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                       nameError
                         ? "border-red-500 focus:ring-2 focus:ring-red-400"
@@ -371,7 +366,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <Building2 className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Company / Enterprise Name</span>
+                    <span>Company (optional)</span>
                   </label>
                   <input
                     id="enquiry-company-input"
@@ -379,7 +374,7 @@ function EnquiryForm({
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="e.g. Acme Tech Park Ltd."
+                    placeholder="e.g. Acme Corporation (optional)"
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
                   />
                 </div>
@@ -401,6 +396,7 @@ function EnquiryForm({
                     onChange={(e) => setSelectedService(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
                   >
+                    <option value="General Vehicle Enquiry">General Vehicle Enquiry</option>
                     {publishedServices.map((s) => (
                       <option key={s.slug} value={s.title}>
                         {s.title}
@@ -566,7 +562,7 @@ function EnquiryForm({
               <div className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-soft-neutral/40 border border-brand-soft-neutral text-xs text-brand-ink/80 leading-relaxed">
                 <Info className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
                 <div>
-                  Clicking below prepares and opens your requirement directly with our Operations Desk on WhatsApp. You can review before sending.
+                  This opens your message in WhatsApp. Review and send it to our team to discuss arrangements.
                 </div>
               </div>
 

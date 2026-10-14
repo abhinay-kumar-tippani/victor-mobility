@@ -110,7 +110,7 @@ const serviceVisualMap: Record<
       },
       {
         question: "What waiting time is included for airport pickups?",
-        answer: "Airport bookings include complimentary waiting time from the actual landed flight time to allow for immigration and baggage collection.",
+        answer: "Share your flight number so the team can discuss pickup timing and waiting arrangements.",
       },
     ],
   },
@@ -195,7 +195,7 @@ const serviceVisualMap: Record<
         },
         {
           step: "2. Shift Roster Synchronization",
-          detail: "Vehicle timetables are calculated backward from office shift starts to ensure 100% on-time floor arrival.",
+          detail: "Routes and pickup times planned around your shifts to support timely employee commutes.",
         },
         {
           step: "3. Pre-Trip Vehicle Audits",
@@ -262,7 +262,7 @@ const serviceVisualMap: Record<
       },
       {
         question: "How is flight delay managed for airport arrivals?",
-        answer: "Our desk tracks your flight number in real time and automatically reschedules the chauffeur pickup time to match actual touchdown.",
+        answer: "Share your flight number so the team can discuss pickup timing and waiting arrangements.",
       },
     ],
   },
@@ -453,6 +453,22 @@ export default function ServiceDetailPage({ params }: PageProps) {
               <p className="text-base sm:text-xl text-brand-soft-neutral/90 leading-relaxed font-medium">
                 {service.shortDescription}
               </p>
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Link
+                  href={`/india/contact?service=${service.slug}`}
+                  className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3 px-5 sm:px-6 rounded-xl transition-colors shadow-sm min-h-[44px]"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Request a quote</span>
+                </Link>
+                <a
+                  href={content.contact.phoneHref}
+                  className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white py-3 px-4 sm:px-5 rounded-xl border border-white/20 transition-colors min-h-[44px]"
+                >
+                  <Phone className="w-4 h-4 text-brand-soft-neutral" />
+                  <span>Call {content.contact.phoneDisplay}</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -495,6 +511,15 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     supervision to ensure your journey aligns with the company commitment:{" "}
                     <strong className="text-brand-indigo font-bold">&ldquo;On Time Every Time.&rdquo;</strong>
                   </p>
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
+                    <Link
+                      href={`/india/contact?service=${service.slug}`}
+                      className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white py-2.5 px-4 rounded-xl transition-colors shadow-xs min-h-[44px]"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      <span>Request a quote for {service.title}</span>
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Experiential Highlights / Standards */}
@@ -563,26 +588,27 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   </div>
                 )}
 
-                {/* Dedicated Airport Protocol Desk Link for Airport Transfers */}
+                {/* Airport Arrival Coordination */}
                 {service.slug === "airport-transfers" && (
-                  <div className="bg-slate-950 text-white rounded-3xl p-7 sm:p-9 border border-slate-800 shadow-xl space-y-4">
+                  <div className="bg-brand-ink text-white rounded-3xl p-7 sm:p-9 border border-brand-indigo/30 shadow-xl space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
-                        <span className="text-xs uppercase tracking-widest font-bold text-amber-400 block mb-1">
-                          Executive Aviation Protocol
+                        <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block mb-1">
+                          Airport Meet &amp; Greet
                         </span>
                         <h3 className="text-xl font-bold text-white">
-                          VIP Airport Concierge &amp; Flight Protocol Desk
+                          Terminal Arrival &amp; Pickup Coordination
                         </h3>
-                        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mt-1">
-                          Track real-time flight telemetry, customize digital tablet paging placards, and review terminal pickup bays across our 10 operational airport corridors.
+                        <p className="text-xs sm:text-sm text-brand-soft-neutral/85 max-w-xl mt-1">
+                          Share your flight number and terminal arrival with our operations team. We plan buffer windows and meet-and-greet reception for a smooth connection.
                         </p>
                       </div>
                       <Link
-                        href="/india/protocol"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shrink-0"
+                        href="/india/contact?service=airport-transfers"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-indigo hover:bg-brand-blue text-white font-bold text-xs transition shrink-0 min-h-[44px]"
                       >
-                        Open Flight Protocol Desk &rarr;
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        <span>Request a quote</span>
                       </Link>
                     </div>
                   </div>
@@ -715,7 +741,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       className="w-full flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors shadow-sm"
                     >
                       <MessageSquare className="w-4 h-4" />
-                      <span>Prepare WhatsApp Enquiry</span>
+                      <span>Request a quote</span>
                     </Link>
 
                     <a

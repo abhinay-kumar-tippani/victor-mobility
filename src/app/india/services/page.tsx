@@ -152,20 +152,20 @@ export default function ServicesPage() {
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-2">
-                    Pricing Transparency
+                    Corporate Quotation
                   </span>
                   <h3 className="text-xl font-bold text-brand-indigo mb-2">
-                    Interactive Route &amp; Fare Estimator
+                    Corporate Travel Quotations
                   </h3>
                   <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
-                    Review indicative point-to-point corporate tariffs and airport transfer costs for executive sedans, MPVs, and luxury coaches across our operational corridors.
+                    Discuss employee route corridors, executive airport connections, or event schedules. Our operations team provides an itemized proposal based on your requirements.
                   </p>
                 </div>
                 <Link
-                  href="/india/contact?intent=corporate-tariffs"
+                  href="/india/contact"
                   className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
                 >
-                  <span>Request Corporate Tariff Proposal</span>
+                  <span>Request Corporate Quotation</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

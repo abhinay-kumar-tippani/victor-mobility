@@ -1,29 +1,28 @@
-# Current Task: Pan-India Operational Presence: Expansion Across All 10 Authorized Cities — 12 October 2026
+# Current Task: Services Section Reordering & Removal of Workforce Commute Feature — 14 October 2026
 Owner: Antigravity.
-Scope: Replaced legacy 3-city references across all website routes, homepage sections, metadata, and JSON content schemas to establish Victor Mobility's presence across all 10 authorized operational hubs: Hyderabad, Bangalore (Bengaluru), Chennai, Pune, Mumbai, Delhi, Noida, Ahmedabad, Kolkata, and Gurgaon.
+Scope: Reordered homepage sections in `src/app/india/page.tsx` so "Our Services" ("What do you need to arrange?") is positioned directly above "Leadership & Accountability" (`PeopleSection`). Completely removed the "Workforce Commute Feature" card from `src/components/home/ServicesSection.tsx` and cleaned up unused imports.
 
 ---
 
-
 ## Deliverables Completed in this Milestone
 
-1. **Root Redirect (`/` -> `/india`)**:
-   - Replaced synthetic 216-line "Global Gateway" with immediate server-side `redirect("/india")`.
-   - Hidden unready UAE options from navigation per `AGENTS.md`.
-
-2. **Homepage De-Bloat & De-Duplication (`src/app/india/page.tsx`)**:
-   - **Eliminated Redundant "CustomerJourneys" Section**: Removed the 3-card block that duplicated services already in the navbar and services grid.
-   - **Eliminated Fabricated "VictorInActionSection"**: Deleted fake 99.8% metrics, synthetic 24-month corporate contract numbers, and unverified Fortune 500 case studies.
-   - **Streamlined Linear Section Flow**:
+1. **Services Section Relocation (`src/app/india/page.tsx`)**:
+   - Repositioned `<ServicesSection />` from position 2 (after Hero) down to position 5, placing it directly above `<PeopleSection />` ("Leadership & Accountability").
+   - New section order on `/india`:
      1. Header (Clean 4-link nav + direct calling)
-     2. Hero (Cinematic Canvas Hero: full-bleed dusk executive fleet photography, dark editorial gradient, 4-pillar floating trust ribbon)
-     3. Services Grid (Sole, authoritative 6 services)
-     4. Fleet (Direct brochure vehicle showcases with specs and booking CTAs)
-     5. The Victor Standard (Human trust pillars: Verified drivers, GPS monitoring, honest billing)
-     6. Network Hubs (Interactive India map + 9 state highlights + 10-city dossier)
-     7. People (Founder Jahangir & Business Partner Mujeeb)
-     8. Direct Coordination Desk (WhatsApp draft + direct call)
-     9. Footer (Clean 4-column authentic directory)
+     2. Hero (Cinematic Canvas Hero: executive fleet photography)
+     3. Fleet (`FleetSection`: Dzire, Tigor, Innova, Urbania, Coaches)
+     4. The Victor Standard (`VictorStandardSection`: Verified drivers, GPS monitoring, honest billing)
+     5. Regional Operating Hubs (`IndiaPresenceMap`: Interactive India map + 10-city dossier)
+     6. Our Services (`ServicesSection`: "What do you need to arrange?")
+     7. Leadership & Accountability (`PeopleSection`: Founder Jahangir & Commercial Lead Mujeeb)
+     8. Direct Coordination Desk (`ContactInvitationSection`)
+     9. Footer
+
+2. **Removal of "Workforce Commute Feature" (`src/components/home/ServicesSection.tsx`)**:
+   - Completely deleted the "Workforce Commute Feature" editorial planning box.
+   - Removed unused icons (`MapPin`, `Clock`, `Shield`) and `next/image` import.
+   - Maintained clean 3-column grid of the 6 authorized corporate mobility services with "Request a quote" buttons intact.
 
 3. **Header Modernization (`src/components/layout/Header.tsx`)**:
    - Stripped phantom "For businesses" and unready UAE/Global region selector.

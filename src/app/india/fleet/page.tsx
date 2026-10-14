@@ -51,19 +51,19 @@ export default function FleetPage() {
         "@type": "ListItem",
         position: 1,
         name: "Executive Sedans",
-        description: "Swift Dzire, Tata Tigor, Honda City for daily employee commute and airport transfers.",
+        description: "Swift Dzire, Tata Tigor for daily employee commute and airport transfers.",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "MPVs & Group Vehicles",
-        description: "Toyota Innova Crysta, Force Urbania for project teams and family celebrations.",
+        description: "Toyota Innova Crysta, Mahindra Marazzo, Force Urbania for project teams and family celebrations.",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Luxury & Limousines",
-        description: "Mercedes-Benz E/S-Class, BMW 7 Series for VIP dignitaries and board members.",
+        description: "Executive saloons and premium vehicles for leadership travel and special occasions.",
       },
       {
         "@type": "ListItem",

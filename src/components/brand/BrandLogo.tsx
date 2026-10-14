@@ -10,12 +10,12 @@ interface BrandLogoProps {
  * while preserving the complete horse artwork, registration mark ®, rays,
  * and tagline "On Time Every Time." intact.
  */
-export default function BrandLogo({ className = "w-48 sm:w-56 h-12 sm:h-14" }: BrandLogoProps) {
+export default function BrandLogo({ className = "h-12 sm:h-[56px] aspect-[810/430]" }: BrandLogoProps) {
   return (
-    <div className={`relative flex items-center justify-start overflow-hidden ${className}`}>
+    <div className={`relative flex items-center justify-start overflow-hidden shrink-0 ${className}`}>
       <svg
         viewBox="130 160 810 430"
-        preserveAspectRatio="xMidYMid meet"
+        preserveAspectRatio="xMinYMid meet"
         className="w-full h-full object-contain overflow-hidden"
         role="img"
         aria-label="Victor Mobility - On Time Every Time."

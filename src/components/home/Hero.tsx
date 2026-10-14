@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, MapPin, Clock, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { IndiaContent, MediaAsset } from "@/types/content";
 
 interface HeroProps {
@@ -86,7 +86,6 @@ export default function Hero({ content }: HeroProps) {
   const prefix = isUae ? "/uae" : "/india";
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const touchStartXRef = useRef<number | null>(null);
 
   const nextSlide = useCallback(() => {
@@ -97,14 +96,13 @@ export default function Hero({ content }: HeroProps) {
     setCurrentIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
   }, []);
 
-  // Auto-advance interval
+  // Auto-advance interval (continuous sliding without pausing on hover)
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       nextSlide();
     }, SLIDE_INTERVAL_MS);
     return () => clearInterval(timer);
-  }, [isPaused, nextSlide]);
+  }, [nextSlide]);
 
   // Keyboard navigation
   const handleKeyDown = useCallback(
@@ -143,11 +141,9 @@ export default function Hero({ content }: HeroProps) {
       aria-label="Victor Mobility Services Showcase"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="relative min-h-[720px] sm:min-h-[780px] lg:min-h-[calc(100vh-5.5rem)] flex flex-col justify-between bg-[#070A12] text-white overflow-hidden border-b border-white/10 outline-none select-none"
+      className="relative min-h-[720px] sm:min-h-[780px] lg:min-h-[calc(100vh-4.5rem)] flex flex-col justify-between bg-[#070A12] text-white overflow-hidden border-b border-white/10 outline-none select-none"
     >
       {/* Background Image Slides (Smooth Crossfade, Natural Graded Photography) */}
       <div className="absolute inset-0 z-0">
@@ -170,55 +166,46 @@ export default function Hero({ content }: HeroProps) {
         ))}
 
         {/* Ambient Brand Indigo Glow for Depth */}
-        <div className="absolute inset-0 z-20 bg-[radial-gradient(ellipse_80%_60%_at_0%_30%,rgba(49,50,111,0.28),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 z-20 bg-[radial-gradient(ellipse_70%_55%_at_0%_35%,rgba(49,50,111,0.35),transparent_70%)] pointer-events-none" />
 
         {/* Editorial Scrim Gradient Overlays for High-Contrast Text Legibility */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#070A12] via-[#070A12]/85 to-[#070A12]/25 lg:via-[#070A12]/75 lg:to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#070A12] via-[#070A12]/90 via-35% to-transparent to-85% pointer-events-none" />
         <div className="absolute top-0 inset-x-0 h-32 z-20 bg-gradient-to-b from-[#070A12]/80 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 inset-x-0 h-48 z-20 bg-gradient-to-t from-[#070A12] via-[#070A12]/85 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-44 z-20 bg-gradient-to-t from-[#070A12] via-[#070A12]/80 to-transparent pointer-events-none" />
       </div>
 
       {/* Main Hero Content: Refined Luxury Editorial Layout */}
-      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-14 w-full flex-1 flex flex-col justify-between">
-        <div className="max-w-2xl lg:max-w-3xl space-y-4 sm:space-y-6 my-2 sm:my-auto">
-          {/* Eyebrow Pill: Slide Category */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-md shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400/90 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
-              <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-zinc-300">
-                {currentSlide.category}
-              </span>
-            </div>
-          </div>
-
-          {/* Service Headline & Subheading: Distinct Luxury Hierarchy */}
-          <div className="space-y-2.5 sm:space-y-3.5">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-white leading-[1.15]">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 lg:pt-16 pb-8 sm:pb-10 w-full flex-1 flex flex-col justify-between">
+        {/* Text Block: Positioned in upper-left quadrant with dedicated column width */}
+        <div className="max-w-xl lg:max-w-2xl space-y-5 sm:space-y-6 mt-1 sm:mt-2 mb-auto">
+          {/* Service Headline & Subheading: Sculpted Luxury Editorial Hierarchy */}
+          <div className="space-y-3 sm:space-y-3.5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-semibold tracking-[-0.03em] text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
               {currentSlide.title}
             </h1>
-            <p className="text-sm sm:text-base lg:text-lg text-zinc-400 font-normal leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg lg:text-xl text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
               {currentSlide.subtitle}
             </p>
           </div>
 
-          {/* Micro-Pillars / Service Badges */}
-          <div className="flex flex-wrap items-center gap-2 pt-0.5">
-            {currentSlide.badges.map((badge) => (
-              <span
-                key={badge}
-                className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg bg-white/[0.05] border border-white/[0.08] text-[11px] sm:text-xs font-medium text-zinc-300 backdrop-blur-sm"
-              >
-                <span className="w-1 h-1 rounded-full bg-indigo-400/80" />
-                {badge}
-              </span>
+          {/* Micro-Pillars / Refined Luxury Spec Strip */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-0.5 text-xs sm:text-[13px] tracking-wide text-zinc-300">
+            {currentSlide.badges.map((badge, idx) => (
+              <div key={badge} className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.9)]" />
+                <span className="font-medium text-zinc-200">{badge}</span>
+                {idx < currentSlide.badges.length - 1 && (
+                  <span className="text-white/20 ml-3 hidden sm:inline select-none">|</span>
+                )}
+              </div>
             ))}
           </div>
 
-          {/* Actions: Primary Service Link & Secondary Consultation */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">
+          {/* Actions: Cohesive Luxury Pill Buttons (Solid Pearl & Frosted Crystal) */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-1 sm:pt-2">
             <Link
               href={`${prefix}/services/${currentSlide.slug}`}
-              className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-semibold bg-white text-zinc-950 hover:bg-zinc-100 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 group text-center"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-zinc-950 font-semibold text-sm sm:text-base shadow-[0_4px_24px_rgba(255,255,255,0.22)] hover:bg-zinc-100 hover:shadow-[0_6px_32px_rgba(255,255,255,0.32)] hover:-translate-y-0.5 transition-all duration-200 group text-center"
             >
               <span>Explore Service</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -226,121 +213,34 @@ export default function Hero({ content }: HeroProps) {
 
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center justify-center gap-2 text-sm sm:text-base font-medium bg-white/[0.06] hover:bg-white/[0.12] text-zinc-200 hover:text-white border border-white/15 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl backdrop-blur-md transition-all duration-200 text-center"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 backdrop-blur-md font-medium text-sm sm:text-base hover:-translate-y-0.5 transition-all duration-200 text-center shadow-sm"
             >
               <span>Discuss Requirement</span>
             </Link>
           </div>
-
-          {/* Luxury Slide Navigator (Counter, Dynamic Progress Dashes & Chevron Navigation) */}
-          <div className="flex items-center gap-3 sm:gap-4 pt-2">
-            {/* Slide Index Counter */}
-            <div className="flex items-center gap-1 text-xs font-mono tracking-widest text-zinc-400 select-none">
-              <span className="text-white font-semibold">
-                {String(currentIndex + 1).padStart(2, "0")}
-              </span>
-              <span className="text-zinc-600">/</span>
-              <span>{String(HERO_SLIDES.length).padStart(2, "0")}</span>
-            </div>
-
-            {/* Progress Dashes */}
-            <div className="flex items-center gap-1.5">
-              {HERO_SLIDES.map((slide, idx) => (
-                <button
-                  key={slide.slug}
-                  type="button"
-                  onClick={() => setCurrentIndex(idx)}
-                  aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
-                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    idx === currentIndex
-                      ? "w-7 sm:w-8 bg-white shadow-xs"
-                      : "w-2.5 bg-white/25 hover:bg-white/50"
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Tactile Previous / Next Chevrons */}
-            <div className="flex items-center gap-1 ml-1">
-              <button
-                type="button"
-                onClick={prevSlide}
-                aria-label="Previous slide"
-                className="w-7 h-7 rounded-lg bg-white/[0.06] hover:bg-white/[0.14] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-all cursor-pointer"
-              >
-                <ChevronLeft className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
-                onClick={nextSlide}
-                aria-label="Next slide"
-                className="w-7 h-7 rounded-lg bg-white/[0.06] hover:bg-white/[0.14] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-all cursor-pointer"
-              >
-                <ChevronRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Floating Glassmorphic Trust Ribbon (4 Pillars Across the Bottom) */}
-        <div className="pt-6 sm:pt-8 lg:pt-10 border-t border-white/10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
-            {/* 1. 10 Operational Cities */}
-            <div className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-xl border border-white/[0.08] hover:border-white/20 transition-all duration-200">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/15 border border-amber-400/30 flex items-center justify-center text-amber-300 shrink-0">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-white">10 Operational Cities</p>
-                <p className="text-[11px] sm:text-xs text-zinc-400">Pan-India Transit Network</p>
-              </div>
-            </div>
-
-            {/* 2. 100% Background-Verified Drivers */}
-            <div className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-xl border border-white/[0.08] hover:border-white/20 transition-all duration-200">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
-                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-white">100% Verified Drivers</p>
-                <p className="text-[11px] sm:text-xs text-zinc-400">Police Cleared & Trained</p>
-              </div>
-            </div>
-
-            {/* 3. 24/7 Operations Desk */}
-            <div className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-xl border border-white/[0.08] hover:border-white/20 transition-all duration-200">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-500/15 border border-sky-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-white">24/7 Operations Desk</p>
-                <p className="text-[11px] sm:text-xs text-zinc-400">Active GPS & SOS Dispatch</p>
-              </div>
-            </div>
-
-            {/* 4. Direct Operations Hotline */}
-            <a
-              href={content.contact.phoneHref}
-              className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] backdrop-blur-xl border border-white/[0.08] hover:border-emerald-400/30 transition-all duration-200 group"
-            >
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 shrink-0 group-hover:scale-105 transition-transform">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-[#070A12] animate-pulse" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-semibold text-white group-hover:text-emerald-200 transition-colors truncate">
-                  {content.contact.phoneDisplay}
-                </p>
-                <p className="text-[11px] sm:text-xs text-zinc-400 flex items-center gap-1 group-hover:text-zinc-300">
-                  <span>Call Operations Desk</span>
-                  <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
-                </p>
-              </div>
-            </a>
+        {/* Bottom Bar: Slide Indicators centered in a floating luxury glass dock */}
+        <div className="relative pt-6 pb-2 flex flex-col sm:flex-row items-center justify-center">
+          {/* Centered slide indicator dashes inside luxury dock without arrows or numbers */}
+          <div className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full bg-black/50 border border-white/15 backdrop-blur-xl shadow-2xl">
+            {HERO_SLIDES.map((slide, idx) => (
+              <button
+                key={slide.slug}
+                type="button"
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === currentIndex
+                    ? "w-10 sm:w-12 bg-white shadow-[0_0_14px_rgba(255,255,255,0.9)]"
+                    : "w-2.5 bg-white/30 hover:bg-white/60"
+                }`}
+              />
+            ))}
           </div>
 
           {/* Discreet Caption per AGENTS.md */}
-          <div className="mt-3 flex justify-end items-center text-[10px] text-white/40">
+          <div className="sm:absolute sm:right-0 pt-3 sm:pt-0 text-[10px] text-white/40 text-center sm:text-right">
             <span>Vehicle imagery illustrative. Actual fleet deployed per client roster.</span>
           </div>
         </div>

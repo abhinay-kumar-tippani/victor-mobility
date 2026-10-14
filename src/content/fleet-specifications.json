@@ -1,14 +1,14 @@
 {
   "india": {
     "headline": "India Commercial & Executive Fleet Architecture",
-    "subheadline": "2,000+ Cars & 500+ Buses across 10 Operational Hubs Pan-India",
+    "subheadline": "Commercial & Executive Fleet Architecture across 10 Operational Hubs Pan-India",
     "tagline": "On Time Every Time.",
     "categories": [
       {
         "id": "sedans",
         "name": "Executive Sedans",
         "categoryBadge": "Everyday & Business Mobility",
-        "popularModels": ["Swift Dzire", "Tata Tigor", "Honda City"],
+        "popularModels": ["Swift Dzire", "Tata Tigor"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 4,
         "passengerLabel": "Up to 4 Passengers",
@@ -39,14 +39,7 @@
           "Point-to-point airport transfers (RGIA / BLR / PNQ)",
           "Intra-city executive client visits",
           "Full-day dedicated business disposal"
-        ],
-        "rateCard": {
-          "airportTransfer": "₹1,400 – ₹1,800",
-          "halfDay": "₹1,800 (4 hrs / 40 km)",
-          "fullDay": "₹3,200 (8 hrs / 80 km)",
-          "outstationPerKm": "₹14 – ₹16 / km",
-          "currency": "INR"
-        }
+        ]
       },
       {
         "id": "mpvs",
@@ -83,20 +76,13 @@
           "Airport transfers with extensive international baggage",
           "Wedding family convoys & guest logistics",
           "Multi-city corridor travel (Hyderabad–Bengaluru, Pune–Mumbai)"
-        ],
-        "rateCard": {
-          "airportTransfer": "₹2,400 – ₹2,900",
-          "halfDay": "₹3,200 (4 hrs / 40 km)",
-          "fullDay": "₹5,400 (8 hrs / 80 km)",
-          "outstationPerKm": "₹20 – ₹24 / km",
-          "currency": "INR"
-        }
+        ]
       },
       {
         "id": "luxury",
         "name": "Luxury & Limousines",
         "categoryBadge": "Executive Hospitality & VIP Protocol",
-        "popularModels": ["Mercedes-Benz E-Class", "Mercedes-Benz S-Class", "BMW 7 Series"],
+        "popularModels": ["Executive Saloons"],
         "heroImage": "/images/india/luxury-interior.png",
         "passengerCapacity": 3,
         "passengerLabel": "Up to 3 Executive Passengers",
@@ -127,20 +113,13 @@
           "Visiting foreign investor & state dignitary protocol",
           "Luxury wedding bride & groom ceremonial arrival",
           "High-profile product launches & gala awards transport"
-        ],
-        "rateCard": {
-          "airportTransfer": "₹6,500 – ₹8,500",
-          "halfDay": "₹8,000 (4 hrs / 40 km)",
-          "fullDay": "₹15,000 (8 hrs / 80 km)",
-          "outstationPerKm": "₹55 – ₹70 / km",
-          "currency": "INR"
-        }
+        ]
       },
       {
         "id": "buses",
         "name": "Buses & Corporate Shuttles",
         "categoryBadge": "Workplace Transit & Conference Logistics",
-        "popularModels": ["22-Seater Executive Coach", "44-Seater Luxury Bus", "Volvo 9600"],
+        "popularModels": ["22-Seater Executive Coach", "44-Seater Luxury Bus"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 44,
         "passengerLabel": "22 or 44 Passengers",
@@ -171,14 +150,7 @@
           "Inter-facility metro feeder and campus circular shuttles",
           "National conference & convention delegate transport",
           "Outstation corporate offsites & annual team retreats"
-        ],
-        "rateCard": {
-          "airportTransfer": "₹5,500 – ₹8,500",
-          "halfDay": "₹6,500 (4 hrs / 40 km)",
-          "fullDay": "₹11,500 – ₹16,000 (8 hrs / 80 km)",
-          "outstationPerKm": "₹45 – ₹60 / km",
-          "currency": "INR"
-        }
+        ]
       }
     ]
   },
