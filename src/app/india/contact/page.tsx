@@ -6,6 +6,8 @@ import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 import { Building2 } from "lucide-react";
+import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
+import PartnerEnquirySection from "@/components/contact/PartnerEnquirySection";
 
 export const metadata: Metadata = {
   title: "Contact & Requirement Desk | Victor Mobility India",
@@ -70,11 +72,13 @@ export default function ContactPage() {
                       {office.address}
                     </p>
                   </div>
+                  <OfficeMapLinks office={office} />
                 </div>
               ))}
             </div>
           </div>
         </section>
+        <PartnerEnquirySection />
       </main>
 
       <Footer

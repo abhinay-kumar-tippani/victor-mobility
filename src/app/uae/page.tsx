@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import CustomerJourneys from "@/components/home/CustomerJourneys";
 import VictorStandardSection from "@/components/home/VictorStandardSection";
 import FleetSection from "@/components/home/FleetSection";
 import UaePresenceSection from "@/components/home/UaePresenceSection";
+import VictorJourneySection from "@/components/home/VictorJourneySection";
 import PeopleSection from "@/components/home/PeopleSection";
 import ContactInvitationSection from "@/components/home/ContactInvitationSection";
 
@@ -39,18 +39,7 @@ export default function UaePage() {
           mediaCaption={media.caption}
         />
 
-        {/* 2. Three UAE Customer Journeys */}
-        {content.customerJourneys && (
-          <CustomerJourneys
-            journeys={content.customerJourneys}
-            mediaCaption={media.caption}
-          />
-        )}
-
-        {/* 3. The Victor Standard */}
-        <VictorStandardSection />
-
-        {/* 4. UAE Luxury Fleet Preview */}
+        {/* 2. UAE Luxury Fleet Preview */}
         <FleetSection
           categories={content.fleetCategories}
           fleetNote="UAE fleet specifications include Mercedes-Benz S-Class, BMW 7 Series, Mercedes-Maybach, Cadillac Escalade, and luxury coaches. Actual model assignment is confirmed upon reservation."
@@ -59,8 +48,14 @@ export default function UaePage() {
           mediaCaption={media.caption}
         />
 
-        {/* 5. Our UAE Presence: Dubai Head Office & Inter-Emirate Network */}
+        {/* 3. The Victor Standard */}
+        <VictorStandardSection />
+
+        {/* 4. Our UAE Presence: Dubai Head Office & Inter-Emirate Network */}
         <UaePresenceSection contact={content.contact} />
+
+        {/* 5. The Journey of Victor: 2009 Founding to UAE Expansion */}
+        <VictorJourneySection />
 
         {/* 6. Leadership & Operations */}
         <PeopleSection

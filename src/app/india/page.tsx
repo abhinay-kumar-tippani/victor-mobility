@@ -1,12 +1,17 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import ServicesSection from "@/components/home/ServicesSection";
-import FleetSection from "@/components/home/FleetSection";
+import StatCounterSection from "@/components/home/StatCounterSection";
+import TrustedCompaniesSection from "@/components/home/TrustedCompaniesSection";
+import VictorJourneySection from "@/components/home/VictorJourneySection";
+import IndiaFleetSection from "@/components/fleet/IndiaFleetSection";
 import VictorStandardSection from "@/components/home/VictorStandardSection";
 import IndiaPresenceMap from "@/components/home/IndiaPresenceMap";
 import PeopleSection from "@/components/home/PeopleSection";
 import ContactInvitationSection from "@/components/home/ContactInvitationSection";
+import HomeFaqSection from "@/components/home/HomeFaqSection";
+import PartnerEnquirySection from "@/components/contact/PartnerEnquirySection";
+import ServicesSection from "@/components/home/ServicesSection";
 
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
@@ -17,7 +22,6 @@ export default function IndiaPage() {
   const media = mediaData as unknown as MediaContent;
 
   const heroAsset = media.assets.find((a) => a.id === "hero");
-  const luxuryAsset = media.assets.find((a) => a.id === "luxury-interior");
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -32,25 +36,34 @@ export default function IndiaPage() {
           mediaCaption={media.caption}
         />
 
+        {/* 1b. Key Performance Statistics: Animated Number Counter */}
+        <StatCounterSection />
+
+        {/* 1c. Enterprise Clientele: Companies We Work With (3 Continuous Directional Sliders) */}
+        <TrustedCompaniesSection />
+
         {/* 2. Fleet: Real Brochure Models (Dzire, Tigor, Innova, Urbania, Coaches) & Seating Capacities */}
-        <FleetSection
+        <IndiaFleetSection
           categories={content.fleetCategories}
-          fleetNote={content.fleetNote}
-          luxuryMedia={luxuryAsset}
-          mediaCaption={media.caption}
+          copy={indiaData.fleetPresentation}
         />
 
-        {/* 3. The Victor Standard: 3 Grounded Trust Pillars (Verified Drivers, Punctual Fleet, Transparent Billing) */}
+        {/* 2b. Core Services Portfolio: What do you need to arrange? */}
+        <ServicesSection services={content.services} />
+
+        {/* 3. Operational Rigour & Security: Safety comes first */}
         <VictorStandardSection />
 
         {/* 4. Regional Operating Hubs: Hyderabad (Gachibowli), Bengaluru & Pune */}
         <IndiaPresenceMap
           offices={content.offices}
           contact={content.contact}
+          cities={content.cities}
+          searchCopy={indiaData.enquiryExperience.citySearch}
         />
 
-        {/* 5. Services: The 6 Authentic Transport Services (Shown ONCE, Clean & Direct) */}
-        <ServicesSection services={content.services} />
+        {/* 5. The Journey of Victor: 2009 Founding to International Expansion */}
+        <VictorJourneySection />
 
         {/* 6. Leadership & Operations Accountability: Founder Jahangir & Commercial Lead Mujeeb */}
         <PeopleSection
@@ -58,8 +71,11 @@ export default function IndiaPage() {
           founder={content.founder}
         />
 
+        <HomeFaqSection />
+
         {/* 7. Direct Coordination Desk: Instant WhatsApp & Phone Actions */}
         <ContactInvitationSection contact={content.contact} />
+        <PartnerEnquirySection />
       </main>
 
       {/* Corporate Footer with Verified Operating Hubs & Legal Attribution */}

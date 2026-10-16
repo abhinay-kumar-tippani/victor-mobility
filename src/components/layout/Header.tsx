@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
+import indiaData from "@/content/india.json";
 
 interface HeaderProps {
   contact: ContactData;
@@ -24,6 +25,10 @@ export default function Header({ contact }: HeaderProps) {
     { label: "Home", href: basePrefix },
     { label: "Services", href: `${basePrefix}/services` },
     { label: "Fleet", href: `${basePrefix}/fleet` },
+    ...(basePrefix === "/india" ? [
+      { label: indiaData.planningTools.nav.estimator, href: "/india/estimator" },
+      { label: indiaData.planningTools.nav.rfp, href: "/india/rfp" },
+    ] : []),
     { label: "About", href: `${basePrefix}/about` },
     { label: "Contact", href: `${basePrefix}/contact` },
   ];
@@ -181,7 +186,7 @@ export default function Header({ contact }: HeaderProps) {
             <BrandLogo className="h-12 sm:h-[56px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
           </Link>
 
-          {/* Desktop Navigation: 5 authentic routes */}
+          {/* Main destinations and India planning tools */}
           <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 whitespace-nowrap" aria-label="Main Navigation">
             {navItems.map((item) => {
               const active = isItemActive(item.href);
@@ -189,7 +194,8 @@ export default function Header({ contact }: HeaderProps) {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-base font-semibold transition-all duration-150 px-3.5 xl:px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                  aria-current={active ? "page" : undefined}
+                  className={`min-h-[44px] inline-flex items-center text-sm font-semibold transition-all duration-150 px-2.5 xl:px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                     active
                       ? "bg-brand-indigo text-white shadow-xs hover:bg-brand-blue"
                       : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-indigo/10 active:bg-brand-indigo active:text-white"
@@ -205,7 +211,7 @@ export default function Header({ contact }: HeaderProps) {
           <div className="hidden lg:flex items-center gap-4 whitespace-nowrap shrink-0">
             <a
               href={contact.phoneHref}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3.5 py-2.5 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+              className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3.5 py-2.5 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               title={`Call ${contact.phoneDisplay}`}
             >
               <Phone className="w-3.5 h-3.5" />
@@ -279,6 +285,7 @@ export default function Header({ contact }: HeaderProps) {
                     key={item.label}
                     href={item.href}
                     onClick={() => closeMenu(false)}
+                    aria-current={active ? "page" : undefined}
                     className={`block text-base sm:text-lg font-semibold py-3 px-4 rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                       active
                         ? "bg-brand-indigo text-white font-bold shadow-xs hover:bg-brand-blue"

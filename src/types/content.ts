@@ -63,6 +63,14 @@ export interface ContactData {
   domainPurchased: boolean;
 }
 
+export interface JourneyFieldsCopy {
+  passengerLabel: string;
+  dateLabel: string;
+  help: string;
+  passengerError: string;
+  dateError: string;
+}
+
 export interface EnquiryData {
   mode: string;
   submitLabel: string;
@@ -70,6 +78,7 @@ export interface EnquiryData {
   isConfirmedBooking: boolean;
   fields: string[];
   fallback: string;
+  planningFields?: JourneyFieldsCopy;
 }
 
 export interface IndiaContent {

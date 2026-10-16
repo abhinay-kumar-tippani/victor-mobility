@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import type { ContactData, EnquiryData, ServiceItem, CityItem } from "@/types/content";
 import type { EnquirySelectionEvent } from "@/lib/enquiryEvents";
+import { buildEnquiryMessage, canonicalCityName, isValidPassengerCount, isValidTravelDate } from "@/lib/enquiryMessage";
+import JourneyFields from "@/components/contact/JourneyFields";
 
 interface EnquirySectionProps {
   contact: ContactData;
@@ -65,6 +67,8 @@ function EnquiryForm({
   );
   const [customCity, setCustomCity] = useState("");
   const [requirementText, setRequirementText] = useState("");
+  const [passengerCount, setPassengerCount] = useState("");
+  const [travelDate, setTravelDate] = useState("");
 
   const [touched, setTouched] = useState({
     name: false,
@@ -73,6 +77,7 @@ function EnquiryForm({
   });
   const [submissionAttempted, setSubmissionAttempted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
 
   const serviceId = useId();
   const cityId = useId();
@@ -103,13 +108,13 @@ function EnquiryForm({
       }
       if (cParam) {
         const matchedCity = publishedCities.find(
-          (c) => c.name.toLowerCase() === cParam.toLowerCase()
+          (c) => canonicalCityName(c.name) === canonicalCityName(cParam)
         );
         if (matchedCity) {
           setSelectedCity(matchedCity.name);
         } else {
           setSelectedCity("Other");
-          setCustomCity(cParam);
+          setCustomCity(cParam.toLowerCase() === "other" ? "" : cParam);
         }
       }
   }, [query, publishedServices, publishedCities, preselectedService, preselectedCity]);
@@ -138,7 +143,7 @@ function EnquiryForm({
 
       if (detail.city) {
         const matchedCity = publishedCities.find(
-          (c) => c.name.toLowerCase() === detail.city?.toLowerCase()
+          (c) => canonicalCityName(c.name) === canonicalCityName(detail.city || "")
         );
         if (matchedCity) {
           setSelectedCity(matchedCity.name);
@@ -177,47 +182,28 @@ function EnquiryForm({
       ? "Please describe your transport requirement (passengers, schedule, or locations)."
       : "";
 
-  const isValid =
-    fullName.trim().length > 0 &&
-    requirementText.trim().length > 0 &&
-    (selectedCity !== "Other" || customCity.trim().length > 0);
+  const passengerError = submissionAttempted && !isValidPassengerCount(passengerCount)
+    ? enquiry.planningFields?.passengerError : undefined;
+  const dateError = submissionAttempted && !isValidTravelDate(travelDate)
+    ? enquiry.planningFields?.dateError : undefined;
 
-  // Build the WhatsApp message preview
-  const generateWhatsAppMessage = () => {
-    const lines = [
-      `*Transport Requirement Enquiry*`,
-      `*${effectiveCompany}*`,
-      `--------------------------------`,
-      `*Contact Name:* ${fullName.trim() || "[Your Name]"}`,
-      ...(company.trim() ? [`*Company:* ${company.trim()}`] : []),
-      `*Service Required:* ${selectedService}`,
-      ...(selectedCategory ? [`*Vehicle Category:* ${selectedCategory}`] : []),
-      `*City / Region:* ${cityDisplay}`,
-      `*Journey Details:*`,
-      requirementText.trim() || "[Shift timings, route corridor, passenger count or dates]",
-      `--------------------------------`,
-      `Prepared via Victor Mobility Enquiry`,
-    ];
-    return lines.join("\n");
-  };
-
-  const draftMessage = generateWhatsAppMessage();
+  const draftMessage = buildEnquiryMessage({
+    companyName: effectiveCompany,
+    fullName, company, service: selectedService, category: selectedCategory,
+    city: cityDisplay, requirement: requirementText,
+    passengerCount: enquiry.planningFields ? passengerCount : undefined,
+    travelDate: enquiry.planningFields ? travelDate : undefined,
+  });
 
   const handleCopyDraft = async () => {
+    setCopyFailed(false);
     try {
       await navigator.clipboard.writeText(draftMessage);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // Fallback if clipboard API is restricted
-      const textarea = document.createElement("textarea");
-      textarea.value = draftMessage;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+      setCopied(false);
+      setCopyFailed(true);
     }
   };
 
@@ -231,6 +217,14 @@ function EnquiryForm({
     }
     if (selectedCity === "Other" && !customCity.trim()) {
       document.getElementById(customCityId)?.focus();
+      return;
+    }
+    if (enquiry.planningFields && !isValidPassengerCount(passengerCount)) {
+      e.currentTarget.querySelector<HTMLInputElement>('[name="passengerCount"]')?.focus();
+      return;
+    }
+    if (enquiry.planningFields && !isValidTravelDate(travelDate)) {
+      e.currentTarget.querySelector<HTMLInputElement>('[name="travelDate"]')?.focus();
       return;
     }
     if (!requirementText.trim()) {
@@ -464,6 +458,10 @@ function EnquiryForm({
                 </div>
               )}
 
+              {enquiry.planningFields && (
+                <JourneyFields copy={enquiry.planningFields} passengerCount={passengerCount} travelDate={travelDate} onPassengerChange={setPassengerCount} onDateChange={setTravelDate} passengerError={passengerError} dateError={dateError} />
+              )}
+
               {/* Requirement Details */}
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -531,31 +529,8 @@ function EnquiryForm({
                   </button>
                 </div>
 
-                <div className="p-3.5 bg-brand-warm-white rounded-lg border border-brand-soft-neutral/70 space-y-2 text-xs text-brand-ink/85">
-                  <div className="flex flex-wrap gap-2 items-center">
-                    <span className="px-2.5 py-1 rounded-md bg-white font-bold text-brand-indigo border border-brand-soft-neutral/60 shadow-2xs">
-                      {selectedService}
-                    </span>
-                    {selectedCategory && (
-                      <span className="px-2.5 py-1 rounded-md bg-white font-semibold text-brand-blue border border-brand-soft-neutral/60 shadow-2xs">
-                        {selectedCategory}
-                      </span>
-                    )}
-                    <span className="px-2.5 py-1 rounded-md bg-white font-medium text-brand-ink/80 border border-brand-soft-neutral/60 shadow-2xs">
-                      {cityDisplay}
-                    </span>
-                  </div>
-                  {company.trim() && (
-                    <p className="text-[11px] text-brand-ink/70">
-                      Organization: <strong className="text-brand-ink">{company.trim()}</strong>
-                    </p>
-                  )}
-                  {requirementText.trim() && (
-                    <p className="text-xs text-brand-ink/80 line-clamp-2 italic pt-1 border-t border-brand-soft-neutral/50">
-                      &ldquo;{requirementText.trim()}&rdquo;
-                    </p>
-                  )}
-                </div>
+                <pre aria-label="WhatsApp message preview" className="whitespace-pre-wrap break-words rounded-lg border border-brand-soft-neutral/70 bg-brand-warm-white p-3.5 font-sans text-sm leading-relaxed text-brand-ink/85">{draftMessage}</pre>
+                {copyFailed && <p role="status" className="text-sm text-brand-ink/75">Copy is unavailable here. Select and copy the message above, or continue on WhatsApp.</p>}
               </div>
 
               {/* Helper Notice regarding WhatsApp behaviour */}

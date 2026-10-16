@@ -1,5 +1,261 @@
 {
   "schemaVersion": 1,
+  "fleetPresentation": {
+    "eyebrow": "The Victor fleet",
+    "title": "The right vehicle. For every journey.",
+    "description": "Choose a category, compare the essentials and tell us what you need.",
+    "pageTitle": "Find your fit.",
+    "pageDescription": "From everyday commutes to executive travel, explore the vehicle categories for your next journey.",
+    "viewAll": "Explore the fleet",
+    "tabLabel": "Choose a vehicle category",
+    "modelsLabel": "Vehicle references",
+    "capacityLabel": "Passenger planning",
+    "useLabel": "Best suited for",
+    "priceLabel": "Sample starting price",
+    "priceNote": "Illustrative pricing. Final rates, inclusions and availability are confirmed in your quotation.",
+    "enquire": "Enquire about this vehicle",
+    "estimate": "Plan a journey",
+    "imageCaption": "Vehicle imagery is illustrative.",
+    "packageLabel": "8 hours / 80 km",
+    "availability": "Share your city, travel date and luggage needs so our team can confirm a suitable vehicle.",
+    "pricingSource": "Temporary sample values from existing corridors.json hourlyRetainer data, following user approval to use reference-style sample data on 2026-10-16. Exact Claude artifact price parity could not be reverified because browser access was blocked.",
+    "items": [
+      {
+        "id": "sedans",
+        "tab": "Sedans",
+        "headline": "Everyday travel, thoughtfully arranged.",
+        "capacity": "Up to 3–4 passengers",
+        "bestFor": "City travel · Airport transfers · Daily commutes",
+        "image": "/images/india/hero.png",
+        "imageAlt": "Illustrative executive sedan and passenger vehicles",
+        "imagePosition": "80% center",
+        "price": 2200
+      },
+      {
+        "id": "mpvs",
+        "tab": "MPVs & Groups",
+        "headline": "More room for the people who matter.",
+        "capacity": "Capacity depends on the selected model",
+        "bestFor": "Team visits · Group journeys · Intercity travel",
+        "image": "/images/india/hero.png",
+        "imageAlt": "Illustrative passenger MPV with other vehicle categories",
+        "imagePosition": "48% center",
+        "price": 3800
+      },
+      {
+        "id": "buses",
+        "tab": "Buses & Shuttles",
+        "headline": "Bring the whole team together.",
+        "capacity": "22-seat and 44-seat options",
+        "bestFor": "Employee transport · Campus loops · Events",
+        "image": "/images/india/employee-shuttle.png",
+        "imageAlt": "Illustrative coach for group transport",
+        "imagePosition": "center center",
+        "price": 7200
+      },
+      {
+        "id": "luxury",
+        "tab": "Luxury",
+        "headline": "A little more space. A different pace.",
+        "capacity": "Tell us your passenger and luggage needs",
+        "bestFor": "Executive travel · Delegations · Special occasions",
+        "image": "/images/india/luxury-interior.png",
+        "imageAlt": "Illustrative luxury passenger cabin",
+        "imagePosition": "center center",
+        "price": 6500
+      }
+    ]
+  },
+  "planningTools": {
+    "eyebrow": "Victor Mobility · India",
+    "nav": {
+      "estimator": "Estimator",
+      "rfp": "RFP Desk"
+    },
+    "home": {
+      "eyebrow": "Plan with Victor",
+      "title": "Every journey starts with a clear plan.",
+      "description": "Explore your transport requirements, then take the next step with our team.",
+      "estimator": {
+        "number": "01",
+        "title": "Journey estimator",
+        "description": "Work out vehicle numbers and a planning budget using your passenger count, distance and rate.",
+        "cta": "Open the estimator",
+        "detail": "Vehicle planning · Transparent calculations"
+      },
+      "rfp": {
+        "number": "02",
+        "title": "Corporate RFP desk",
+        "description": "Bring your routes, schedules and fleet preferences together in one clear request for proposal.",
+        "cta": "Build your RFP",
+        "detail": "Company brief · Routes & schedules"
+      }
+    },
+    "estimator": {
+      "title": "A clearer picture of your journey.",
+      "description": "Estimate the vehicles and distance your plan needs. Add your own rate to explore a budget before speaking with our team.",
+      "eyebrow": "Journey estimator",
+      "formTitle": "Shape your journey",
+      "formHelp": "One group, travelling together. Enter the same journey for each travel day.",
+      "city": "City",
+      "otherCity": "Other city / inter-city",
+      "pickup": "Pickup location",
+      "dropoff": "Drop-off location",
+      "passengers": "Passengers travelling together",
+      "seats": "Passenger seats per vehicle",
+      "capacityHelp": "Use the capacity you want to plan with, excluding the driver. Our team will confirm suitable vehicles.",
+      "distance": "One-way distance (km)",
+      "days": "Travel days",
+      "returnTrip": "Include a return journey each day",
+      "rate": "Your planning rate (₹ / vehicle / km)",
+      "rateHelp": "Optional. Enter a rate you want to model. Victor's quotation will be confirmed by the team.",
+      "calculate": "Calculate my estimate",
+      "emptyTitle": "Your plan, at a glance.",
+      "emptyHelp": "Add your journey details to see vehicle numbers, total distance and an optional budget.",
+      "resultTitle": "Your planning estimate",
+      "vehicleLabel": "Vehicles per journey",
+      "distanceLabel": "Total vehicle kilometres",
+      "budgetLabel": "Budget at your entered rate",
+      "noRate": "Add your own rate to calculate a budget, or ask our team for a quote.",
+      "basisTitle": "How this is calculated",
+      "basisHelp": "One journey per vehicle each day, doubled if return travel is selected. Distance is multiplied by the number of vehicles and travel days.",
+      "exclusions": "Planning only. Toll, parking, tax, driver allowance, waiting, minimum hire and vehicle availability must be confirmed in Victor's quotation.",
+      "review": "View the enquiry draft",
+      "rfpLink": "Planning a corporate contract? Build an RFP",
+      "summaryTitle": "JOURNEY ESTIMATE ENQUIRY",
+      "errors": {
+        "pickup": "Enter a pickup location.",
+        "dropoff": "Enter a drop-off location.",
+        "passengers": "Enter a whole passenger count greater than zero.",
+        "seats": "Enter a whole seat count greater than zero.",
+        "distance": "Enter a distance greater than zero.",
+        "days": "Enter a whole number of days greater than zero.",
+        "rate": "Enter a rate greater than zero, or leave it blank.",
+        "total": "These inputs produce a total that is too large. Reduce the values."
+      }
+    },
+    "rfp": {
+      "title": "Your requirements. One considered proposal.",
+      "description": "Prepare a Request for Proposal for employee transport, events or corporate travel. Review your brief, then share it with Victor to discuss a tailored quotation.",
+      "eyebrow": "Corporate RFP desk",
+      "steps": [
+        "Company details",
+        "Transport requirements",
+        "Review your brief"
+      ],
+      "intro": "Start with your organisation and the person we should speak with.",
+      "requirementsHelp": "Share what you know. Optional details can be discussed with our team.",
+      "reviewHelp": "Check your brief before opening WhatsApp. You can also copy it or save a text file for your procurement records.",
+      "company": "Company / organisation",
+      "name": "Contact person",
+      "role": "Role / designation (optional)",
+      "email": "Business email (optional)",
+      "phone": "Contact phone (optional)",
+      "city": "City",
+      "customCity": "City / route",
+      "service": "Service required",
+      "passengers": "Passengers per day (optional)",
+      "date": "Target start date (optional)",
+      "schedule": "Operating schedule",
+      "scheduleOptions": [
+        "To be discussed",
+        "Office hours",
+        "Two shifts",
+        "Three shifts",
+        "Event / one-off travel",
+        "Custom schedule"
+      ],
+      "vehicles": "Preferred vehicle categories (optional)",
+      "vehicleHelp": "Select all that suit your requirement. Availability and specifications will be discussed.",
+      "details": "Routes and requirements",
+      "detailsPlaceholder": "Pickup and drop-off areas, shift timings, frequency, luggage, accessibility or safety requirements…",
+      "continue": "Continue",
+      "back": "Back",
+      "edit": "Edit requirements",
+      "companyEdit": "Edit company details",
+      "review": "Review my RFP",
+      "sideTitle": "A brief built around your business.",
+      "sideDescription": "Give our team the context to discuss routes, vehicle options and commercial terms.",
+      "sideItems": [
+        "Your organisation and contact",
+        "Routes, volume and schedule",
+        "A complete brief to review and share"
+      ],
+      "summaryTitle": "CORPORATE TRANSPORT — REQUEST FOR PROPOSAL",
+      "notSpecified": "To be discussed",
+      "errors": {
+        "company": "Enter your company or organisation.",
+        "name": "Enter the contact person's name.",
+        "email": "Enter a valid email address, or leave it blank.",
+        "city": "Enter your city or route.",
+        "passengers": "Enter a whole passenger count greater than zero.",
+        "date": "Choose a valid calendar date.",
+        "details": "Add your routes, timings or transport requirements."
+      }
+    },
+    "actions": {
+      "whatsapp": "Continue on WhatsApp",
+      "copy": "Copy brief",
+      "copied": "Copied",
+      "copyFailed": "Copy is unavailable here. Select the draft text to copy it manually.",
+      "download": "Download brief",
+      "handoff": "Opens a WhatsApp draft for you to review and send. It does not submit a tender or confirm a booking."
+    },
+    "help": {
+      "title": "Prefer a conversation?",
+      "description": "Speak with our team about the details that matter to your journey.",
+      "contact": "Discuss your requirement",
+      "call": "Call our team"
+    }
+  },
+  "enquiryExperience": {
+    "faq": {
+      "eyebrow": "Before you travel",
+      "title": "A few helpful answers.",
+      "description": "Find out what to share with our team and what happens after your enquiry.",
+      "cta": "Discuss your requirement"
+    },
+    "partner": {
+      "eyebrow": "Fleet partnerships",
+      "title": "Own vehicles? Let's talk.",
+      "description": "Tell us your operating city, vehicle categories and fleet size to discuss a potential partnership with Victor.",
+      "cta": "Enquire about partnering on WhatsApp",
+      "helper": "Opens a draft for you to review and send. Our team will discuss suitability and terms with you.",
+      "message": "Hello Victor Mobility, I would like to discuss a potential fleet partnership.\n\nOperating city:\nVehicle categories:\nNumber of vehicles:\n\nPlease let me know the next steps."
+    },
+    "citySearch": {
+      "label": "Find a listed city",
+      "placeholder": "Search city or state",
+      "empty": "No listed city matches your search.",
+      "clear": "Clear search",
+      "other": "Enquire about another city"
+    },
+    "assistant": {
+      "trigger": "Plan your journey",
+      "title": "Enquiry assistant",
+      "intro": "A few details to prepare your WhatsApp enquiry.",
+      "stepTitles": ["Where are you travelling?", "Tell us about your journey.", "Review your enquiry."],
+      "serviceLabel": "Service",
+      "cityLabel": "City",
+      "otherCity": "Other city / inter-city",
+      "customCityLabel": "City or route",
+      "nameLabel": "Your name",
+      "companyLabel": "Company (optional)",
+      "detailsLabel": "Journey details",
+      "detailsPlaceholder": "Pickup and drop-off locations, timings, luggage or shift requirements…",
+      "next": "Continue",
+      "back": "Back",
+      "restart": "Start over",
+      "close": "Close enquiry assistant",
+      "fullForm": "Use the full enquiry form",
+      "nameError": "Please enter your name.",
+      "cityError": "Please enter your city or route.",
+      "detailsError": "Please add your pickup, schedule or travel requirements.",
+      "reviewHelp": "Check the details below. You can go back to make changes.",
+      "handoffHelp": "Continue opens a draft in WhatsApp for you to review and send. It does not confirm a booking.",
+      "callLabel": "Prefer to call?"
+    }
+  },
   "businessResources": [
     {"title":"Plan your transport","links":[["rfp","Request a corporate proposal"],["estimator","Route and fare estimator"],["rate-card","Rate cards and retainers"],["tco-calculator","Fleet cost comparison"],["brochure","Company profile"]]},
     {"title":"Coordinate travel","links":[["corridors","Travel corridors"],["roster","Shift planning"],["events","Event transport"],["roadshows","Multi-city roadshows"],["protocol","Airport arrivals"],["emergency","Operations contact"]]},
@@ -438,7 +694,14 @@
       "city",
       "requirement"
     ],
-    "fallback": "Call us"
+    "fallback": "Call us",
+    "planningFields": {
+      "passengerLabel": "Passengers (optional)",
+      "dateLabel": "Travel / start date (optional)",
+      "help": "An estimate is fine. Leave these blank if you are still planning; add recurring dates or shift times in the details.",
+      "passengerError": "Enter a whole number of passengers greater than zero.",
+      "dateError": "Choose a valid calendar date."
+    }
   },
   "sourceClaims": {
     "iso": {

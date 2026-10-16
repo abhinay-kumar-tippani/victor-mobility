@@ -1,6 +1,257 @@
 # Handoff
 
-## 14 October 2026 — Services Section Reordering & Removal of Workforce Commute Feature
+## 16 October 2026 — Operational Rigour & Security: "Safety comes first" (4 Core Pillars in Brand Palette)
+
+Owner: Antigravity. Replaced "The Victor Standard: Grounded Reliability" with "Safety comes first", implementing the 4 customer security pillars from the user's reference image while translating the aesthetic to Victor Mobility's signature light corporate brand palette.
+
+### What changed
+
+- **Refactored Component (`src/components/home/VictorStandardSection.tsx`)**:
+  - Replaced heading with **"Safety comes first"** and subtitle with **"Passenger security and chauffeur professionalism are the foundation of every trip."**.
+  - Implemented 4 pillars matching the user's reference:
+    1. **Verified drivers (BGV & PCC)**: `ShieldCheck` icon, *"Every chauffeur holds a valid commercial licence, background verification and a Police Clearance Certificate."*
+    2. **Safety for women passengers**: `Clock` icon, *"Escort protocols, live route monitoring and SOS coordination for evening and night shifts."*
+    3. **Defensive driving**: `FileText` icon, *"Speed limits, lane discipline, seatbelts and hands-free kits to stop distracted driving."*
+    4. **Pre-trip vehicle checks**: `Leaf` icon, *"Air conditioning, tyres, sanitisation, charging and upholstery are inspected before every departure."*
+  - **Color Palette Alignment**:
+    - Discarded the third-party dark purple theme from the uploaded image.
+    - Preserved Victor Mobility's corporate theme: pure white background (`bg-white`), warm-white elevated cards (`bg-brand-warm-white/70 hover:bg-white`), soft neutral borders (`border-brand-soft-neutral/90`), brand ink typography (`text-brand-ink`), and brand indigo button (`#31326F`).
+  - Added clean operations desk retainer banner at the bottom with direct link to `/india/contact`.
+- **Quality Gates Passed**:
+  - `tsc --noEmit`: 0 errors.
+  - `next lint`: 0 warnings, 0 errors.
+  - `next build`: 73/73 static SSG pages successfully compiled.
+  - Visual Playwright verifications:
+    - [Desktop View (1440px)](file:///d:/victor%20website/docs/screenshots/safety-section-desktop.png)
+    - [Tablet View (768px)](file:///d:/victor%20website/docs/screenshots/safety-section-tablet.png)
+    - [Mobile View (390px, 0 overflow)](file:///d:/victor%20website/docs/screenshots/safety-section-mobile.png)
+
+---
+
+## 16 October 2026 — Services Portfolio: "What do you need to arrange?" (Hover Image Reveal Grid)
+
+Owner: Antigravity. Replaced the planning tools section with a dedicated, interactive services portfolio titled "What do you need to arrange?", built strictly to match the user's reference image with 6 authentic service cards and a dynamic on-hover image reveal.
+
+### What changed
+
+- **New Component (`src/components/home/ServicesSection.tsx`)**:
+  - Replaced `<PlanningToolsSection />` ("Plan with Victor") with `<ServicesSection />` titled "What do you need to arrange?".
+  - 6 service cards built exactly to match the user's reference layout:
+    1. **Employee Transportation** (`01`) — Users icon, "Transport for daily employee travel and workplace shuttles."
+    2. **Bus & Shuttle Transport** (`02`) — Bus icon, "Group transport for workplaces, venues and scheduled travel."
+    3. **Event Transportation** (`03`) — Calendar icon, "Vehicle arrangements for conferences, celebrations and event guests."
+    4. **Airport Transfers** (`04`) — Plane icon, "Pickup and drop-off arrangements for airport journeys."
+    5. **Chauffeur & Luxury Travel** (`05`) — Sparkles icon, "Chauffeur-driven travel for business and special occasions."
+    6. **Rent-A-Car** (`06`) — Key icon, "Vehicle rental enquiries for your travel plans."
+  - **Dynamic On-Hover Image Reveal**:
+    - When hovering over any card, its background smoothly reveals the corresponding service photography (`/images/india/services/service-*.jpg`).
+    - Cinematic transition with hardware-accelerated zoom (`scale-105` to `scale-100`) and dark gradient overlay (`bg-gradient-to-t from-[#060B1A]/95 via-[#060B1A]/75 to-[#060B1A]/40`).
+    - Typography dynamically transitions to high-contrast white text (`text-white`, `text-white/90`).
+    - Top-left icon badge transitions into a glassmorphic frosted white badge (`bg-white/20 backdrop-blur-md text-white border-white/25`).
+    - "Request a quote" button shifts to a crisp white pill with dark navy text (`bg-white text-[#1E2248] shadow-lg`).
+    - "View details &rarr;" link turns white with forward arrow translate.
+- **Page Integration (`src/app/india/page.tsx`)**:
+  - Positioned `<ServicesSection />` on `/india`, passing authentic authorized brochure services from `content.services`.
+- **Quality Gates Passed**:
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+  - Playwright visual verification:
+    - [Services at Rest (Matching Reference)](file:///d:/victor%20website/docs/screenshots/services-section-rest.png)
+    - [Hovering Employee Transportation](file:///d:/victor%20website/docs/screenshots/services-card1-hover.png)
+    - [Hovering Chauffeur & Luxury](file:///d:/victor%20website/docs/screenshots/services-card5-hover.png)
+    - [Desktop Page View](file:///d:/victor%20website/docs/screenshots/services-desktop.png)
+    - [Mobile View (390px, 0 overflow)](file:///d:/victor%20website/docs/screenshots/services-mobile.png)
+
+---
+
+## 16 October 2026 — Enterprise Clientele: "Companies We Work With" 3 Continuous Directional Sliders (Refined Logo-Only Navy Tiles)
+
+Owner: Antigravity. Built per user request and reference artwork. Implemented a responsive, accessible, continuous multi-directional enterprise marquee section featuring all 12 authorized client company logos inside clean rounded rectangular tiles on a deep corporate navy theme, placed directly after the Animated Numbers strip.
+
+### What changed
+
+- **Refined Component (`src/components/home/TrustedCompaniesSection.tsx`)**:
+  - Refactored cards per user feedback: removed company title text, sublabels, and circular medallion framing.
+  - Centered official brand logos inside sleek rounded rectangular tiles (`rounded-2xl`, `#0E2744`/90, `border border-white/10`, `w-[180px] sm:w-[210px] h-[80px] sm:h-[90px]`).
+  - Dark corporate navy backdrop (`#07182C`) matching the user's reference design, with subtle radial lighting and ambient edge-fade masks.
+  - Sourced and designed authentic vector logos for all 12 client companies from the user's image:
+    1. **Amazon**: Authentic white lowercase `amazon` with signature orange curved smile arrow.
+    2. **Synechron**: Bold white `Synechron` with yellow accent dot and luminous badge.
+    3. **Teleperformance**: Signature purple heart emblem + white `Teleperformance`.
+    4. **OTIS**: Iconic bold white `OTIS` font-mono typography.
+    5. **JPMorgan Chase**: Official blue octagon emblem + crisp `JPMorganChase`.
+    6. **TATA Docomo**: White `TATA` uppercase + vibrant orange `docomo`.
+    7. **Oracle**: Wide-tracked red `ORACLE` typography.
+    8. **Wipro**: Multi-color circular dots ring emblem + white `wipro`.
+    9. **Google**: Signature multi-colored `Google` letters.
+    10. **Godrej Properties**: Elegant red script `Godrej` + uppercase `PROPERTIES`.
+    11. **HDFC Bank**: Blue square border with red accent block + `HDFC BANK`.
+    12. **Synchrony**: Three vertical gold balance bars + white `synchrony`.
+  - **3 Directional Continuous Sliders**:
+    - **Row 1**: Moves smoothly from **Left to Right** (`slider-ltr`, 34s duration).
+    - **Row 2**: Moves smoothly from **Right to Left** (`slider-rtl`, 38s duration).
+    - **Row 3**: Moves smoothly from **Left to Right** (`slider-ltr-slow`, 40s duration).
+    - Staggered starting offsets across rows create an authentic enterprise mosaic.
+    - Seamless infinite looping with hardware-accelerated transforms (`will-change-transform`).
+    - Interactive hover pause (`animation-play-state: paused`).
+    - Ambient gradient fade masks on left and right borders for seamless edge transitions (`from-[#07182C] to-transparent`).
+    - Full `prefers-reduced-motion` compliance.
+- **Page Integration (`src/app/india/page.tsx`)**:
+  - Positioned `<TrustedCompaniesSection />` directly following `<StatCounterSection />` and preceding `<FleetSection />`.
+- **Quality Gates Passed**:
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+  - Playwright visual verification passed:
+    - [Desktop Element View](file:///d:/victor%20website/docs/screenshots/companies-element.png)
+    - [Desktop Page View](file:///d:/victor%20website/docs/screenshots/companies-desktop.png)
+    - [Tablet View](file:///d:/victor%20website/docs/screenshots/companies-tablet.png)
+    - [Mobile View (390px, 0 overflow)](file:///d:/victor%20website/docs/screenshots/companies-mobile.png)
+
+---
+
+### What changed
+
+- **Separation Below Hero (`src/components/home/StatCounterSection.tsx`)**:
+  - Moved out of the dark hero backdrop into its own distinct, standalone light-theme section (`bg-brand-warm-white py-10 sm:py-14 border-b border-brand-soft-neutral`).
+  - Container is an elevated crisp white card (`bg-white rounded-2xl md:rounded-3xl border border-brand-soft-neutral shadow-sm`).
+- **Brand Palette Color Alignment**:
+  - Replaced third-party neon colors with Victor Mobility's brand palette from `src/content/brand.json`:
+    1. `2010`: **Victor Brand Indigo** (`#31326F` / `text-brand-indigo`) — Established in / Hyderabad
+    2. `15+`: **Victor Brand Violet** (`#6E57A0` / `text-brand-violet`) — Years of industry / leadership
+    3. `1,500+`: **Victor Brand Blue** (`#2D5090` / `text-brand-blue`) — Vehicles managed
+    4. `30+`: **Victor Brand Indigo** (`#31326F` / `text-brand-indigo`) — Multinational / clients
+    5. `3`: **Victor Brand Violet** (`#6E57A0` / `text-brand-violet`) — India offices
+    6. `6`: **Victor Brand Blue** (`#2D5090` / `text-brand-blue`) — Transport services
+  - Labels rendered in Victor Brand Ink (`#15162F` with 75% opacity, `text-brand-ink/75`) for crisp editorial typography.
+  - Cell dividers styled in Victor Soft Neutral (`#E5E4EA` / `border-brand-soft-neutral`).
+- **Responsive Layout & Mobile Polish**:
+  - Extra bottom padding (`pb-7 sm:pb-6`) on mobile to guarantee clear visual separation from floating CTA widgets.
+  - Desktop: 6 columns with vertical borders.
+  - Tablet: 3 columns &times; 2 rows with responsive grid borders.
+  - Mobile: 2 columns &times; 3 rows with zero horizontal overflow.
+- **Verification Evidence**:
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+  - Playwright visual tests confirmed pixel-perfect rendering:
+    - [Desktop Page View](file:///d:/victor%20website/docs/screenshots/stat-counter-desktop.png)
+    - [Desktop Element View](file:///d:/victor%20website/docs/screenshots/stat-counter-element.png)
+    - [Tablet View](file:///d:/victor%20website/docs/screenshots/stat-counter-tablet.png)
+    - [Mobile View (390px)](file:///d:/victor%20website/docs/screenshots/stat-counter-mobile.png)
+
+---
+
+### What changed
+
+- **2-Column Split Grid Architecture (`src/components/home/VictorJourneySection.tsx`)**:
+  - Implemented `grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center` within a `max-w-7xl` container.
+  - **Left Column (5 cols)**:
+    - Eyebrow: `MILESTONES & GROWTH`
+    - Main Title: `The Journey of Victor` in prominent, high-contrast typography (`text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white`).
+    - Narrative Subtitle: Concise founding context (2009–2024).
+    - 3 Structured Phase Highlights referencing authentic roadmap data:
+      1. *Foundation & Fleet Scale (2009–2018)*: Incorporation under Companies Act 1956 & 1,500+ vehicle fleet milestone.
+      2. *Safety & Resilience (2020–2022)*: WHO driver re-education & pandemic recovery.
+      3. *Pan-India & International (2023–2024)*: Metropolitan reach, 15%–30% EV sustainability vow & full UAE operations.
+    - Route-aware CTA button: Points dynamically to `/india/about` or `/uae/about` via `usePathname`.
+  - **Right Column (7 cols)**:
+    - Master artwork card in `#1A1A1C` with rounded corners, specular border highlight, and elevation shadow matching the left column height almost 1:1.
+    - "Click to enlarge" pill with high-res full-screen lightbox modal for deep inspection.
+- **Verification Evidence**:
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+  - Playwright visual tests confirmed split layout and captured screenshots:
+    - [Desktop India](file:///d:/victor%20website/docs/screenshots/journey-desktop-india.png)
+    - [Desktop UAE](file:///d:/victor%20website/docs/screenshots/journey-desktop-uae.png)
+    - [Mobile India](file:///d:/victor%20website/docs/screenshots/journey-mobile-india.png)
+    - [Full Element Desktop](file:///d:/victor%20website/docs/screenshots/journey-full-element.png)
+    - [Modal Open High-Res](file:///d:/victor%20website/docs/screenshots/journey-modal-open.png)
+
+---
+
+## 15 October 2026 — Claude reference enquiry improvements
+
+Owner: Codex. Implemented after the user explicitly asked Codex to update the website. Local source changes; not deployed.
+
+### What changed
+
+- Added an India-wide "Plan your journey" assistant with service/city selection, required name and journey details, optional company/passengers/date, Back/Start over controls, and the complete WhatsApp message preview. The final link opens a draft for the visitor to review and send; it does not submit or confirm a booking.
+- Extended the existing contact form with optional passenger/date fields and the same shared message builder. Copy feedback now reports success only when clipboard copying succeeds.
+- Added the four existing FAQ answers to the homepage using native keyboard-accessible disclosures, plus a fleet partnership WhatsApp enquiry on the homepage and Contact page.
+- Added city search with aliases and a useful empty state. "Other city" opens a blank required route field rather than treating "Other" as a supplied destination.
+- Added Google Maps/search and directions links using the existing addresses for Hyderabad, Bengaluru and Pune. Only published offices receive address links.
+- Prevented the RFP builder and RFP structured data from exposing the draft email while `emailEnabled` is false.
+
+### Implementation notes
+
+- Public copy lives in `src/content/india.json` under `enquiryExperience` and `enquiry.planningFields`. Shared message/validation helpers are in `src/lib/enquiryMessage.ts`; new components are in `src/components/contact/` and `src/components/home/HomeFaqSection.tsx`.
+- `src/app/india/layout.tsx` adds the assistant only under `/india`. No new dependency, external API, message storage or backend was introduced.
+- Preserved the existing timeline and removal of the homepage service grid. Existing UAE/timeline changes and assets already in the working tree were not replaced. The original logo, tagline, phone and WhatsApp details remain intact.
+- The earlier review found the specialist tools already existed. This update does not expose demo estimators, portal simulations, unsupported rates or proposed UAE navigation.
+
+### Verification
+
+- TypeScript: `node node_modules/typescript/bin/tsc --noEmit` passed.
+- Lint: `node node_modules/next/dist/bin/next lint` passed with no warnings/errors.
+- 24 direct assertions passed for passenger validation, real calendar dates/leap years, city aliases, optional-field omission, full message contents and URL encoding.
+- Browser checks passed at 1440x900, 390x844 and 320x740: required-field errors/focus; invalid passenger count; native date entry; Back and retained values; full draft/WhatsApp URL; Escape dismissal and focus return; city search/alias/empty state; full-form custom-city validation; query-prefilled service/city; and keyboard FAQ expansion. No enquiry was sent.
+- No horizontal overflow was observed in the tested assistant layouts. Native date inputs were tested with keyboard changes; automation-only date filling did not dispatch React's change handler in this browser.
+- Production build: `node node_modules/next/dist/bin/next build` passed; all 73 static pages generated.
+- The owned local preview server was stopped after testing. To reopen the preview, run `node node_modules/next/dist/bin/next dev -H 127.0.0.1 -p 3100` and visit `http://127.0.0.1:3100/india`.
+- The global `npm` shim on this machine is broken (missing its npm-cli.js), so checks use the installed local package CLIs through Node. No dependencies were reinstalled.
+
+### Screenshots
+
+- `docs/screenshots/enquiry-assistant-desktop.jpg` — full draft review at 1440x900.
+- `docs/screenshots/enquiry-assistant-mobile.jpg` — scrollable review at 390x844.
+- `docs/screenshots/enquiry-assistant-320.jpg` — narrow-screen details form at 320x740.
+- `docs/screenshots/home-faq-desktop.jpg` — keyboard-expanded FAQ and surrounding homepage context.
+
+---
+
+## 15 October 2026 — Replacement of Services Section with "The Journey of Victor" (India & UAE)
+
+Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright automated verifications (`node scripts/verify-journey-section.mjs` exits with code 0).
+
+- **Customer Requirements Completed**:
+  1. **Complete Removal of "What do you need to arrange?" & 6 Services**:
+     - Removed `<ServicesSection />` from `src/app/india/page.tsx`.
+     - Removed `<CustomerJourneys />` from `src/app/uae/page.tsx`.
+     - Zero residual mentions of "What do you need to arrange?" on the homepage routes.
+  2. **Replaced with "The Journey of Victor" (`src/components/home/VictorJourneySection.tsx`)**:
+     - Created a 100% faithful, zero-hallucination implementation of the user-provided roadmap image (`public/images/journey/victor-journey-map.png`).
+     - Added authoritative structured data in `src/content/journey.json`.
+     - Implemented all 12 milestones in exact chronological order with identical copy, dates, badges, and pins:
+       1. **Q4. 2009**: The ideation of Victor (Pegasus badge)
+       2. **Q1. 2010**: Victor was registered as a private limited company under Indian Companies Act 1956. (Award rosette)
+       3. **Q1. 2012**: We landed Top Client from top Companies after 2 Years of being in service in the industry. (Rocket)
+       4. **Q3. 2015**: We increased our fleet to more than 800+ vehicles. (Fleet team)
+       5. **Q4. 2018**: We increased our fleet to more than 1,500+ vehicles. (Growth graph)
+       6. **Q2 to Q4. 2020**: During COVID-19 outbreak we decided to re-educate our drivers and partners on the new norms provided by WHO. (Graduation cap)
+       7. **Q1 to Q4 2022**: We successfully navigated the challenges faced during the Pandemic & Resumed our business operations at full capacity. (Medical mask)
+       8. **Q2. 2023**: We decided to expand PAN-INDIA by providing operations in metropolitan cities in India. (India map)
+       9. **Q4. 2023**: We expanded our reach and established ourselves in the International Markets starting with United Arab Emirates (U.A.E) (International badge "2")
+       10. **Q1. 2024**: We took a vow towards sustainability making sure our fleet will have 15%-30% electric vehicles. (Wind turbines)
+       11. **Q1. 2024**: We started full fledged operations across PAN-INDIA. (Smartphone/dispatch app)
+       12. **Q2. 2024**: We started full fledged operations in United Arab Emirates (U.A.E) (Dubai corporate architecture)
+  3. **Precision Vector Serpentine Layout**:
+     - Desktop view: 3 rows of 4 columns connected by pure vector SVG arrows: Row 1 (L->R) -> right turn down into Row 2 (R->L) -> left turn down into Row 3 (L->R). Wide margins ensure connector lines never overlap text or cards.
+     - Mobile view: Chronological vertical timeline ensuring 100% legibility on 390px screens without horizontal scroll.
+  4. **Integrated on Both India and UAE Routes**:
+     - Positioned immediately above Leadership & Accountability / Operations (`PeopleSection`) on both `/india` and `/uae`.
+
+- **Verification Evidence**:
+  - `docs/screenshots/journey-desktop-india.png`: 1440x900 desktop capture showing "The Journey of Victor" section on `/india`.
+  - `docs/screenshots/journey-desktop-uae.png`: 1440x900 desktop capture showing "The Journey of Victor" section on `/uae`.
+  - `docs/screenshots/journey-mobile-india.png`: 390x844 mobile capture showing responsive vertical timeline.
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 73/73 static SSG pages successfully compiled.
+
+---
 
 Status: **Implemented and verified across codebase.** Passes `npm run type-check` (0 errors), `npm run lint` (0 warnings/errors), `npm run build` (73/73 static routes compiled), and live Playwright automated verifications (`node scripts/verify-services-reorder.mjs` exits with code 0).
 

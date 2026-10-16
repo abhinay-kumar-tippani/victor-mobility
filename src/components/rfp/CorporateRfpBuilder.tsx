@@ -230,7 +230,7 @@ export default function CorporateRfpBuilder({
   };
 
   const whatsappHref = `${contact.whatsappBaseUrl}?text=${encodeURIComponent(rfpText)}`;
-  const emailHref = contact.printedEmail
+  const emailHref = contact.emailEnabled && contact.printedEmail
     ? `mailto:${contact.printedEmail}?subject=${encodeURIComponent(
         `Corporate RFP: ${corporateData.companyName || "Enterprise Mobility"} - ${corporateData.city}`
       )}&body=${encodeURIComponent(rfpText)}`

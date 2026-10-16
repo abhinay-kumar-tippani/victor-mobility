@@ -4,7 +4,9 @@ import { useId, useState, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin, Phone, Building2, CheckCircle2, Compass } from "lucide-react";
 import geography from "@/content/india-map.json";
-import type { OfficeItem, ContactData } from "@/types/content";
+import type { OfficeItem, ContactData, CityItem } from "@/types/content";
+import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
+import { canonicalCityName } from "@/lib/enquiryMessage";
 
 interface CityMeta {
   name: string;
@@ -161,10 +163,15 @@ const stateCityMap: Record<
 export default function IndiaPresenceMap({
   offices,
   contact,
+  cities,
+  searchCopy,
 }: {
   offices: OfficeItem[];
   contact: ContactData;
+  cities: CityItem[];
+  searchCopy: { label: string; placeholder: string; empty: string; clear: string; other: string };
 }) {
+  const [search, setSearch] = useState("");
   const [selectedCityName, setSelectedCityName] = useState<string>("Hyderabad");
   const [hoveredStateName, setHoveredStateName] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<{
@@ -184,9 +191,21 @@ export default function IndiaPresenceMap({
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const panelId = useId();
+  const searchId = useId();
+
+  const availableCities = citiesData.flatMap(city => {
+    const published = cities.find(item => item.published && canonicalCityName(item.name) === canonicalCityName(city.name));
+    return published ? [{ ...city, name: published.name }] : [];
+  });
+  const filteredCities = availableCities.filter(city => {
+    const aliases = city.name === "Bengaluru" ? "bangalore" : city.name === "Gurgaon" ? "gurugram" : "";
+    return `${city.name} ${city.state} ${aliases}`.toLowerCase().includes(search.trim().toLowerCase());
+  });
 
   const selectedCity =
-    citiesData.find((c) => c.name === selectedCityName) || citiesData[0];
+    availableCities.find(c => canonicalCityName(c.name) === canonicalCityName(selectedCityName)) || availableCities[0];
+
+  if (!selectedCity) return null;
 
   // Match physical office from content/india.json if exists
   const registeredOffice = offices.find(
@@ -254,6 +273,7 @@ export default function IndiaPresenceMap({
     const mapping = stateCityMap[stateName];
     if (mapping) {
       setSelectedCityName(mapping.primaryCity);
+      setSearch("");
     }
   };
 
@@ -280,6 +300,13 @@ export default function IndiaPresenceMap({
 
         {/* Quick City Selector Pill Matrix (Accessible across all viewports) */}
         <div className="space-y-2">
+          <div className="mb-4 max-w-lg">
+            <label htmlFor={searchId} className="mb-2 block text-sm font-bold text-brand-ink">{searchCopy.label}</label>
+            <div className="flex gap-2">
+              <input id={searchId} type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder={searchCopy.placeholder} className="min-h-[48px] min-w-0 flex-1 rounded-xl border border-brand-soft-neutral bg-white px-4 py-3 text-base text-brand-ink outline-none focus:ring-2 focus:ring-brand-indigo" />
+              {search && <button type="button" onClick={() => setSearch("")} className="min-h-[48px] rounded-xl px-3 text-sm font-bold text-brand-indigo hover:bg-brand-warm-white">{searchCopy.clear}</button>}
+            </div>
+          </div>
           <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/70 block">
             Select Operational City:
           </span>
@@ -288,7 +315,7 @@ export default function IndiaPresenceMap({
             aria-label="Select an operational city"
             className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral shadow-2xs"
           >
-            {citiesData.map((city) => {
+            {filteredCities.map((city) => {
               const isActive = selectedCity.name === city.name;
               return (
                 <button
@@ -296,7 +323,7 @@ export default function IndiaPresenceMap({
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setSelectedCityName(city.name)}
-                  className={`text-xs font-bold px-3 py-2 rounded-xl transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo ${
+                  className={`min-h-[44px] text-xs font-bold px-3 py-2 rounded-xl transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo ${
                     isActive
                       ? "bg-brand-indigo text-white shadow-xs"
                       : "text-brand-ink/80 hover:bg-white hover:text-brand-ink"
@@ -307,6 +334,10 @@ export default function IndiaPresenceMap({
               );
             })}
           </div>
+          <div role="status" className="text-sm text-brand-ink/75">
+            {filteredCities.length === 0 && <p className="py-2">{searchCopy.empty}</p>}
+          </div>
+          <Link href="/india/contact?city=Other" className="inline-flex min-h-[44px] items-center text-sm font-semibold text-brand-indigo underline underline-offset-4">{searchCopy.other}</Link>
         </div>
 
         {/* 2-Column Split: Map on Left, Active City Details on Right */}
@@ -393,7 +424,7 @@ export default function IndiaPresenceMap({
                 {/* City Markers for the 10 Operating Cities */}
                 {geography.cities.map((city) => {
                   const [cx, cy] = city.point;
-                  const isSelected = selectedCity.name === city.name;
+                  const isSelected = canonicalCityName(selectedCity.name) === canonicalCityName(city.name);
 
                   // Label alignments (Bangalore on left to prevent overlap with Chennai)
                   const isLeftLabel =
@@ -563,11 +594,12 @@ export default function IndiaPresenceMap({
                 <div className="p-3.5 rounded-2xl bg-white border border-brand-soft-neutral space-y-1">
                   <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-brand-indigo">
                     <MapPin className="w-3.5 h-3.5" />
-                    <span>Registered Branch Office:</span>
+                    <span>{registeredOffice.label}:</span>
                   </div>
                   <address className="not-italic text-xs text-brand-ink/80 leading-relaxed font-medium">
                     {registeredOffice.address}
                   </address>
+                  <OfficeMapLinks office={registeredOffice} />
                 </div>
               )}
 

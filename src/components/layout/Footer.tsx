@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Phone, MessageSquare, MapPin } from "lucide-react";
 import type { ContactData, OfficeItem } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
+import indiaData from "@/content/india.json";
 
 interface FooterProps {
   contact: ContactData;
@@ -52,6 +53,7 @@ export default function Footer({
               Explore
             </h2>
             <ul className="space-y-2 text-sm text-brand-soft-neutral/80">
+              {prefix === "/india" && (["estimator", "rfp"] as const).map(key => <li key={key}><Link href={`/india/${key}`} className="inline-block py-1 transition-colors hover:text-white">{indiaData.planningTools.nav[key]}</Link></li>)}
               <li>
                 <Link
                   href={`${prefix}/services`}

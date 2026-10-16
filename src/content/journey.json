@@ -1,0 +1,92 @@
+{
+  "eyebrow": "Milestones & Growth",
+  "title": "The Journey of Victor",
+  "subtitle": "From ideation in 2009 to a pan-India corporate fleet and international expansion across the United Arab Emirates.",
+  "imageSrc": "/images/journey/victor-journey-map.png",
+  "milestones": [
+    {
+      "id": 1,
+      "quarter": "Q4. 2009",
+      "description": "The ideation of Victor",
+      "badgeImage": "/images/journey/badge-1.png",
+      "theme": "purple"
+    },
+    {
+      "id": 2,
+      "quarter": "Q1. 2010",
+      "description": "Victor was registered as a private limited company under Indian Companies Act 1956.",
+      "badgeImage": "/images/journey/badge-2.png",
+      "theme": "white"
+    },
+    {
+      "id": 3,
+      "quarter": "Q1. 2012",
+      "description": "We landed Top Client from top Companies after 2 Years of being in service in the industry.",
+      "badgeImage": "/images/journey/badge-3.png",
+      "theme": "navy"
+    },
+    {
+      "id": 4,
+      "quarter": "Q3. 2015",
+      "description": "We increased our fleet to more than 800+ vehicles.",
+      "badgeImage": "/images/journey/badge-4.png",
+      "theme": "grey"
+    },
+    {
+      "id": 5,
+      "quarter": "Q4. 2018",
+      "description": "We increased our fleet to more than 1,500+ vehicles.",
+      "badgeImage": "/images/journey/badge-5.png",
+      "theme": "purple"
+    },
+    {
+      "id": 6,
+      "quarter": "Q2 to Q4. 2020",
+      "description": "During COVID-19 outbreak we decided to re-educate our drivers and partners on the new norms provided by WHO.",
+      "badgeImage": "/images/journey/badge-6.png",
+      "theme": "white"
+    },
+    {
+      "id": 7,
+      "quarter": "Q1 to Q4 2022",
+      "description": "We successfully navigated the challenges faced during the Pandemic & Resumed our business operations at full capacity.",
+      "badgeImage": "/images/journey/badge-7.png",
+      "theme": "navy"
+    },
+    {
+      "id": 8,
+      "quarter": "Q2. 2023",
+      "description": "We decided to expand PAN-INDIA by providing operations in metropolitan cities in India.",
+      "badgeImage": "/images/journey/badge-8.png",
+      "theme": "grey"
+    },
+    {
+      "id": 9,
+      "quarter": "Q4. 2023",
+      "description": "We expanded our reach and established ourselves in the International Markets starting with United Arab Emirates (U.A.E)",
+      "badgeImage": "/images/journey/badge-9.png",
+      "theme": "white"
+    },
+    {
+      "id": 10,
+      "quarter": "Q1. 2024",
+      "description": "We took a vow towards sustainability making sure our fleet will have 15%-30% electric vehicles.",
+      "badgeImage": "/images/journey/badge-10.png",
+      "theme": "purple"
+    },
+    {
+      "id": 11,
+      "quarter": "Q1. 2024",
+      "description": "We started full fledged operations across PAN-INDIA.",
+      "badgeImage": "/images/journey/badge-11.png",
+      "theme": "navy"
+    },
+    {
+      "id": 12,
+      "quarter": "Q2. 2024",
+      "description": "We started full fledged operations in United Arab Emirates (U.A.E)",
+      "badgeImage": "/images/journey/badge-12.png",
+      "theme": "grey"
+    }
+  ]
+}

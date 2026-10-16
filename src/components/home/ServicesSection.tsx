@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Users,
   Bus,
@@ -16,13 +17,50 @@ interface ServicesSectionProps {
   services: ServiceItem[];
 }
 
-const SERVICE_ICONS: Record<string, typeof Users> = {
-  "employee-transportation": Users,
-  "bus-shuttle-transport": Bus,
-  "airport-transfers": Plane,
-  "chauffeur-luxury": Sparkles,
-  "event-transportation": Calendar,
-  "rent-a-car": Key,
+interface ServiceMeta {
+  number: string;
+  imageSrc: string;
+  imageAlt: string;
+  icon: typeof Users;
+}
+
+const SERVICE_META: Record<string, ServiceMeta> = {
+  "employee-transportation": {
+    number: "01",
+    imageSrc: "/images/india/services/service-employee-transport.jpg",
+    imageAlt: "Corporate employee commuter coach and shuttle fleet outside innovation campus",
+    icon: Users,
+  },
+  "bus-shuttle-transport": {
+    number: "02",
+    imageSrc: "/images/india/services/service-bus-shuttle.jpg",
+    imageAlt: "Executive corporate commuter bus outside commercial tech park",
+    icon: Bus,
+  },
+  "event-transportation": {
+    number: "03",
+    imageSrc: "/images/india/services/service-event-transport.jpg",
+    imageAlt: "Luxury executive convoy for corporate events and conferences",
+    icon: Calendar,
+  },
+  "airport-transfers": {
+    number: "04",
+    imageSrc: "/images/india/services/service-airport-transfers.jpg",
+    imageAlt: "VIP executive airport chauffeur greeting passenger at private terminal",
+    icon: Plane,
+  },
+  "chauffeur-luxury": {
+    number: "05",
+    imageSrc: "/images/india/services/service-chauffeur-luxury.jpg",
+    imageAlt: "Chauffeur standing by luxury executive saloon outside corporate headquarters at night",
+    icon: Sparkles,
+  },
+  "rent-a-car": {
+    number: "06",
+    imageSrc: "/images/india/services/service-rent-a-car.jpg",
+    imageAlt: "Premium executive car rental fleet parked outside modern business district",
+    icon: Key,
+  },
 };
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
@@ -32,74 +70,105 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
     <section
       id="services"
       tabIndex={-1}
-      className="py-14 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral focus:outline-none"
+      aria-labelledby="services-heading"
+      className="py-16 sm:py-24 bg-[#F8F9FB] border-b border-brand-soft-neutral focus:outline-none"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-              Our Services
+            <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
+              Comprehensive Fleet & Commute Solutions
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
+            <h2
+              id="services-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-3"
+            >
               What do you need to arrange?
             </h2>
-            <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-              Select a service below to request a quotation, or review our detailed vehicle and planning specifications.
+            <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
+              Explore our core corporate mobility services. Hover over any service
+              card to preview the fleet in action, or request an immediate quotation.
             </p>
           </div>
 
           <Link
             href="/india/services"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0"
+            className="inline-flex items-center gap-2 text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0 group/link"
           >
             <span>All Service Specifications</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
           </Link>
         </div>
 
-        {/* Compact List of 6 Authorised Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {publishedServices.map((service, index) => {
-            const Icon = SERVICE_ICONS[service.slug] || Users;
+        {/* 6 Authorised Service Cards Grid Matching Reference Design */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+          {publishedServices.map((service) => {
+            const meta = SERVICE_META[service.slug] || {
+              number: "00",
+              imageSrc: "/images/india/corporate-hero.jpg",
+              imageAlt: service.title,
+              icon: Users,
+            };
+            const Icon = meta.icon;
+
             return (
               <div
                 key={service.slug}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-brand-soft-neutral hover:border-brand-indigo/30 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                data-testid={`service-card-${service.slug}`}
+                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-1 hover:border-brand-indigo/40 hover:shadow-2xl overflow-hidden min-h-[300px]"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
-                      <Icon className="w-5 h-5" />
+                {/* Hover Background Image Layer */}
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                  <Image
+                    src={meta.imageSrc}
+                    alt={meta.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transform transition-transform duration-700 ease-out scale-105 group-hover:scale-100"
+                  />
+                  {/* High-legibility dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060B1A]/95 via-[#060B1A]/75 to-[#060B1A]/40 backdrop-blur-[1px]" />
+                </div>
+
+                {/* Card Content - Z-index 10 above image layer */}
+                <div className="relative z-10 flex flex-col">
+                  {/* Top row: Icon Badge (left) & Number (right) */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200/70 flex items-center justify-center text-slate-700 transition-all duration-300 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/25 group-hover:backdrop-blur-md">
+                      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    <span className="text-xs font-mono font-bold text-brand-ink/40">
-                      0{index + 1}
+                    <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-white/70 transition-colors duration-300">
+                      {meta.number}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-brand-ink mb-2">
+                  {/* Service Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2.5 transition-colors duration-300 group-hover:text-white">
                     {service.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed mb-6">
+                  {/* Service Description */}
+                  <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-white/90">
                     {service.shortDescription}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-brand-soft-neutral/80 flex items-center justify-between gap-3 mt-auto">
+                {/* Bottom Actions - Z-index 10 above image layer */}
+                <div className="relative z-10 pt-5 mt-6 border-t border-slate-100 group-hover:border-white/15 flex items-center justify-between gap-3 transition-colors duration-300">
                   <Link
-                    href={`/india/contact?service=${service.slug}`}
-                    className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-indigo hover:bg-brand-indigo/90 text-white shadow-2xs transition-colors"
+                    href={`/india/contact?service=${service.slug}#enquiry`}
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-[#1E2248] text-white shadow-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#1E2248] group-hover:shadow-lg hover:scale-105 active:scale-95"
                   >
                     Request a quote
                   </Link>
 
                   <Link
                     href={`/india/services/${service.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-brand-ink/70 hover:text-brand-indigo transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 group-hover:text-white transition-all duration-300 group-hover:translate-x-1"
                   >
                     <span>View details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </Link>
                 </div>
               </div>

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -288,6 +289,7 @@ export default function AboutPage() {
                       <p className="text-xs text-brand-ink/70 leading-relaxed">
                         {office.address}
                       </p>
+                      <OfficeMapLinks office={office} />
                     </div>
                   </div>
 

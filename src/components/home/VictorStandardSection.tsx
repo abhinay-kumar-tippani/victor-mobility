@@ -1,72 +1,98 @@
 "use client";
 
 import Link from "next/link";
-import { ShieldCheck, Clock, FileText, ArrowRight } from "lucide-react";
+import { ShieldCheck, Clock, FileText, Leaf, ArrowRight } from "lucide-react";
 
 export default function VictorStandardSection() {
-  const standards = [
+  const safetyPillars = [
     {
+      id: "verified-drivers",
       icon: ShieldCheck,
       number: "01",
-      title: "100% Background-Verified Drivers",
+      title: "Verified drivers (BGV & PCC)",
       description:
-        "Every chauffeur and coach captain carries a verified commercial license, background clearance, and defensive driving training for passenger safety.",
+        "Every chauffeur holds a valid commercial licence, background verification and a Police Clearance Certificate.",
+      iconColor: "text-brand-indigo",
     },
     {
+      id: "women-safety",
       icon: Clock,
       number: "02",
-      title: "Punctual & GPS-Monitored Fleet",
+      title: "Safety for women passengers",
       description:
-        "Active GPS tracking, speed governors, and pre-departure vehicle checks ensure punctual staging and clean, air-conditioned cabins across all shifts.",
+        "Escort protocols, live route monitoring and SOS coordination for evening and night shifts.",
+      iconColor: "text-brand-violet",
     },
     {
+      id: "defensive-driving",
       icon: FileText,
       number: "03",
-      title: "Transparent Corporate Billing",
+      title: "Defensive driving",
       description:
-        "Clear itemized commercial proposals detailing route kilometers and hourly retainers, backed by GST-compliant invoicing and zero hidden surcharges.",
+        "Speed limits, lane discipline, seatbelts and hands-free kits to stop distracted driving.",
+      iconColor: "text-brand-blue",
+    },
+    {
+      id: "pre-trip-checks",
+      icon: Leaf,
+      number: "04",
+      title: "Pre-trip vehicle checks",
+      description:
+        "Air conditioning, tyres, sanitisation, charging and upholstery are inspected before every departure.",
+      iconColor: "text-emerald-700",
     },
   ];
 
   return (
-    <section id="standards" className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral">
+    <section
+      id="safety"
+      tabIndex={-1}
+      aria-labelledby="safety-heading"
+      className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral focus:outline-none"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            Safety & Operational Rigour
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
+            Operational Rigour & Security
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
-            The Victor Standard: Grounded Reliability
+          <h2
+            id="safety-heading"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-3"
+          >
+            Safety comes first
           </h2>
-          <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            Market leadership is built on everyday discipline, verified drivers, and transparent commercial operations across all 10 operational hubs pan-India.
+          <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
+            Passenger security and chauffeur professionalism are the foundation of
+            every trip.
           </p>
         </div>
 
-        {/* 3 Grounded Pillars in Clean 3-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {standards.map((std) => {
-            const Icon = std.icon;
+        {/* 4 Grounded Pillars in Responsive Grid (1 col mobile, 2 col tablet, 4 col desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+          {safetyPillars.map((pillar) => {
+            const Icon = pillar.icon;
             return (
               <div
-                key={std.title}
-                className="bg-brand-warm-white rounded-2xl p-7 sm:p-8 border border-brand-soft-neutral shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between"
+                key={pillar.id}
+                data-testid={`safety-pillar-${pillar.id}`}
+                className="bg-brand-warm-white/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-brand-soft-neutral/90 hover:border-brand-indigo/30 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo shadow-2xs">
-                      <Icon className="w-5 h-5 text-brand-blue" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-brand-soft-neutral/80 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform duration-300">
+                      <Icon className={`w-5 h-5 ${pillar.iconColor}`} />
                     </div>
-                    <span className="text-xs font-mono font-bold text-brand-violet px-2.5 py-1 rounded-full bg-white border border-brand-soft-neutral">
-                      Pillar {std.number}
+                    <span className="text-xs font-mono font-bold text-brand-ink/40 group-hover:text-brand-indigo transition-colors">
+                      {pillar.number}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-brand-ink mb-2.5">
-                    {std.title}
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-ink mb-2.5 tracking-tight group-hover:text-brand-indigo transition-colors duration-200">
+                    {pillar.title}
                   </h3>
                   <p className="text-sm text-brand-ink/75 leading-relaxed">
-                    {std.description}
+                    {pillar.description}
                   </p>
                 </div>
               </div>
@@ -74,17 +100,22 @@ export default function VictorStandardSection() {
           })}
         </div>
 
-        {/* Clear route to Contact */}
-        <div className="mt-10 p-6 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-sm font-medium text-brand-ink/80">
-            Need customized transport retainers or employee shift shuttle planning?
-          </p>
+        {/* Clear route to Operations Desk */}
+        <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-3xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="max-w-xl">
+            <h4 className="text-base sm:text-lg font-bold text-brand-ink mb-1">
+              Need customized transport retainers or employee shift shuttle planning?
+            </h4>
+            <p className="text-sm text-brand-ink/75 leading-relaxed">
+              Speak directly with our 24/7 operations desk for verified driver rosters and SLA agreements across India.
+            </p>
+          </div>
           <Link
             href="/india/contact"
-            className="inline-flex items-center gap-1.5 text-xs font-bold bg-white hover:bg-brand-indigo hover:text-white text-brand-indigo px-5 py-3 rounded-xl border border-brand-soft-neutral transition-colors shadow-2xs shrink-0"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white px-5 py-3.5 rounded-xl transition-all shadow-sm hover:shadow-md shrink-0 hover:scale-[1.02] active:scale-98"
           >
             <span>Speak with our operations desk</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

@@ -1,28 +1,60 @@
-# Current Task: Services Section Reordering & Removal of Workforce Commute Feature — 14 October 2026
+# Current Task: Operational Rigour & Security "Safety comes first" (4 Core Pillars in Brand Palette) — 16 October 2026
+
 Owner: Antigravity.
-Scope: Reordered homepage sections in `src/app/india/page.tsx` so "Our Services" ("What do you need to arrange?") is positioned directly above "Leadership & Accountability" (`PeopleSection`). Completely removed the "Workforce Commute Feature" card from `src/components/home/ServicesSection.tsx` and cleaned up unused imports.
+Scope: Replaced "The Victor Standard: Grounded Reliability" with the refined "Safety comes first" section, implementing the 4 customer security pillars from the user's reference image while translating the aesthetic to Victor Mobility's signature corporate brand palette.
+
+### Completed in this Milestone:
+1. **Refactored Section (`src/components/home/VictorStandardSection.tsx`)**:
+   - Replaced heading with **"Safety comes first"** and subtitle with **"Passenger security and chauffeur professionalism are the foundation of every trip."**.
+   - Implemented 4 pillars matching the user's reference image:
+     - `01` **Verified drivers (BGV & PCC)** (`ShieldCheck` icon)
+     - `02` **Safety for women passengers** (`Clock` icon)
+     - `03` **Defensive driving** (`FileText` icon)
+     - `04` **Pre-trip vehicle checks** (`Leaf` icon)
+2. **Brand Palette Alignment**:
+   - Discarded the third-party dark purple theme from the uploaded image.
+   - Used Victor Mobility's corporate theme: pure white background (`bg-white`), warm-white elevated cards (`bg-brand-warm-white/70 hover:bg-white`), soft neutral borders (`border-brand-soft-neutral/90`), brand ink typography (`text-brand-ink`), and brand indigo button (`#31326F`).
+3. **Quality Gates Passed**:
+   - `tsc --noEmit`: 0 errors.
+   - `next lint`: 0 warnings, 0 errors.
+   - `next build`: 73/73 static SSG pages successfully compiled.
+   - Visual Playwright verifications:
+     - [Desktop View (1440px)](file:///d:/victor%20website/docs/screenshots/safety-section-desktop.png)
+     - [Tablet View (768px)](file:///d:/victor%20website/docs/screenshots/safety-section-tablet.png)
+     - [Mobile View (390px, 0 overflow)](file:///d:/victor%20website/docs/screenshots/safety-section-mobile.png)
+3. **3 Directional Continuous Sliders**:
+   - **Row 1**: Left to Right (`slider-ltr`, 34s duration)
+   - **Row 2**: Right to Left (`slider-rtl`, 38s duration)
+   - **Row 3**: Left to Right (`slider-ltr-slow`, 40s duration)
+   - Staggered starting indices for an authentic visual mosaic without uniform alignment.
+   - Smooth CSS keyframe transforms with `linear infinite` and GPU hardware acceleration (`will-change-transform`).
+   - Pause on hover interaction (`animation-play-state: paused`).
+   - Left and right gradient fade masks for seamless edge-to-edge aesthetics (`from-[#07182C] to-transparent`).
+   - Reduced-motion accessibility fallback.
+4. **Quality Gates Passed**:
+   - `npm run type-check`: 0 errors.
+   - `npm run lint`: 0 warnings, 0 errors.
+   - `npm run build`: 73/73 static SSG pages successfully compiled.
+   - Updated Playwright captures: [Desktop Page View](file:///d:/victor%20website/docs/screenshots/companies-desktop.png), [Desktop Element View](file:///d:/victor%20website/docs/screenshots/companies-element.png), [Tablet View](file:///d:/victor%20website/docs/screenshots/companies-tablet.png), [Mobile View](file:///d:/victor%20website/docs/screenshots/companies-mobile.png).
 
 ---
 
 ## Deliverables Completed in this Milestone
 
-1. **Services Section Relocation (`src/app/india/page.tsx`)**:
-   - Repositioned `<ServicesSection />` from position 2 (after Hero) down to position 5, placing it directly above `<PeopleSection />` ("Leadership & Accountability").
-   - New section order on `/india`:
-     1. Header (Clean 4-link nav + direct calling)
-     2. Hero (Cinematic Canvas Hero: executive fleet photography)
-     3. Fleet (`FleetSection`: Dzire, Tigor, Innova, Urbania, Coaches)
-     4. The Victor Standard (`VictorStandardSection`: Verified drivers, GPS monitoring, honest billing)
-     5. Regional Operating Hubs (`IndiaPresenceMap`: Interactive India map + 10-city dossier)
-     6. Our Services (`ServicesSection`: "What do you need to arrange?")
-     7. Leadership & Accountability (`PeopleSection`: Founder Jahangir & Commercial Lead Mujeeb)
-     8. Direct Coordination Desk (`ContactInvitationSection`)
-     9. Footer
+1. **Complete Removal of Services Grid**:
+   - Removed `<ServicesSection />` from `src/app/india/page.tsx`.
+   - Removed `<CustomerJourneys />` from `src/app/uae/page.tsx`.
+   - The question "What do you need to arrange?" is eliminated from homepage flows.
 
-2. **Removal of "Workforce Commute Feature" (`src/components/home/ServicesSection.tsx`)**:
-   - Completely deleted the "Workforce Commute Feature" editorial planning box.
-   - Removed unused icons (`MapPin`, `Clock`, `Shield`) and `next/image` import.
-   - Maintained clean 3-column grid of the 6 authorized corporate mobility services with "Request a quote" buttons intact.
+2. **The Journey of Victor Component (`src/components/home/VictorJourneySection.tsx`)**:
+   - Integrated all 12 milestones (Q4 2009 through Q2 2024) with zero alteration of dates, claims, or text.
+   - Preserved all 12 badge markers with their exact top triangular pointers.
+   - Built a pure vector SVG serpentine grid for desktop (`hidden lg:block`) with outer margin turning curves and horizontal connectors.
+   - Built an accessible vertical timeline for mobile (`lg:hidden`) ensuring zero horizontal overflow and 100% legibility.
+
+3. **Multi-Region Integration**:
+   - Integrated on `/india`: Positioned immediately above Leadership & Accountability (`#about`).
+   - Integrated on `/uae`: Positioned immediately above Leadership & Operations (`#about`).
 
 3. **Header Modernization (`src/components/layout/Header.tsx`)**:
    - Stripped phantom "For businesses" and unready UAE/Global region selector.
