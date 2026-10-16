@@ -164,7 +164,7 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
               </div>
             )}
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-brand-soft-neutral pt-4 text-sm">
-              <Link href="/india/contact" onClick={closeAssistant} className="inline-flex min-h-[44px] items-center font-semibold text-brand-indigo underline underline-offset-4">{effectiveCopy.fullForm}</Link>
+              <Link href={pathname.startsWith("/uae") ? "/uae/contact" : "/india/contact"} onClick={closeAssistant} className="inline-flex min-h-[44px] items-center font-semibold text-brand-indigo underline underline-offset-4">{effectiveCopy.fullForm}</Link>
               <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{copy.callLabel}</a>
             </div>
           </div>

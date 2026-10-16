@@ -122,6 +122,14 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
                 </button>
               );
             })}
+            <div className="pt-2">
+              <Link
+                href="/uae/contact?city=Other"
+                className="inline-flex min-h-[44px] items-center text-xs font-semibold text-brand-indigo underline underline-offset-4"
+              >
+                Cannot find your location? Contact our Dubai dispatch desk
+              </Link>
+            </div>
           </div>
 
           {/* Details Card Column */}

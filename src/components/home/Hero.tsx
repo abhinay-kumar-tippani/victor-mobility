@@ -80,6 +80,63 @@ const HERO_SLIDES: SlideItem[] = [
   },
 ];
 
+const UAE_HERO_SLIDES: SlideItem[] = [
+  {
+    slug: "chauffeur-luxury",
+    category: "First Class Limousine",
+    title: "Chauffeur & Luxury Limousine",
+    subtitle: "Pristine Mercedes-Benz S-Class, BMW 7 Series, and Mercedes-Maybach sedans with bilingual executive chauffeurs.",
+    badges: ["Discreet Chauffeurs", "First-Class Saloons", "Hourly & Inter-Emirate Retainers"],
+    imageSrc: "/images/india/services/service-chauffeur-luxury.jpg",
+    imageAlt: "Chauffeur opening door of black Mercedes S-Class outside executive entrance in Dubai",
+  },
+  {
+    slug: "airport-transfers",
+    category: "VIP Terminal Reception",
+    title: "Airport VIP Transfers",
+    subtitle: "Terminal meet-and-assist with live radar flight tracking at Dubai (DXB, DWC) and Abu Dhabi (AUH).",
+    badges: ["Live Radar Tracking", "Curbside Meet & Greet", "Terminal VIP Paging"],
+    imageSrc: "/images/india/services/service-airport-transfers.jpg",
+    imageAlt: "Mercedes-Benz S-Class at airport VIP terminal curb in warm dusk lighting",
+  },
+  {
+    slug: "event-transportation",
+    category: "Summit & Delegation Logistics",
+    title: "Events & Delegations",
+    subtitle: "Synchronized motorcade logistics for international trade summits, VIP delegations, and destination galas.",
+    badges: ["Summit Motorcades", "Dedicated Route Marshals", "VIP Coach Allocation"],
+    imageSrc: "/images/india/services/service-event-transport.jpg",
+    imageAlt: "Lineup of luxury black limousines outside grand hotel venue",
+  },
+  {
+    slug: "employee-transportation",
+    category: "Workforce Mobility",
+    title: "Corporate Employee Transport",
+    subtitle: "Reliable staff commute solutions managing corporate office routes and free-zone campus shuttles.",
+    badges: ["Free Zone Shuttles", "Shift Roster Synchronisation", "RTA Compliant"],
+    imageSrc: "/images/india/services/service-employee-transport.jpg",
+    imageAlt: "Corporate staff transit shuttle coach outside modern commercial office",
+  },
+  {
+    slug: "tourism-travel",
+    category: "Private Excursions",
+    title: "Tourism & City Excursions",
+    subtitle: "Curated chauffeured excursions across Dubai landmarks, Abu Dhabi cultural destinations, and desert retreats.",
+    badges: ["Custom Itineraries", "Inter-Emirate Tours", "Luxury MPVs & Coaches"],
+    imageSrc: "/images/uae/uae-hero.jpg",
+    imageAlt: "Executive luxury fleet outside contemporary Dubai architectural landmark",
+  },
+  {
+    slug: "rent-a-car",
+    category: "Corporate Fleet Leasing",
+    title: "Rent-A-Car & Fleet Leasing",
+    subtitle: "Flexible short-term luxury rentals and dedicated corporate vehicle allocations across the Emirates.",
+    badges: ["Corporate Retainers", "Short & Long-Term Leases", "Transparent Monthly Billing"],
+    imageSrc: "/images/india/services/service-rent-a-car.jpg",
+    imageAlt: "Executive sedan and luxury fleet outside corporate headquarters",
+  },
+];
+
 const SLIDE_INTERVAL_MS = 2000;
 
 export default function Hero({ content }: HeroProps) {
@@ -88,7 +145,7 @@ export default function Hero({ content }: HeroProps) {
   const { dict } = useLanguage();
 
   const slides = isUae
-    ? HERO_SLIDES
+    ? UAE_HERO_SLIDES
     : HERO_SLIDES.map((slide, idx) => {
         const localized = dict.hero?.slides?.[idx];
         return {
@@ -104,12 +161,12 @@ export default function Hero({ content }: HeroProps) {
   const touchStartXRef = useRef<number | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
 
   // Auto-advance interval (continuous sliding without pausing on hover)
   useEffect(() => {

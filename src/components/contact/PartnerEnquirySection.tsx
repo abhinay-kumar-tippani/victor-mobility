@@ -3,10 +3,24 @@
 import { ArrowUpRight, Bus } from "lucide-react";
 import indiaData from "@/content/india.json";
 import { useLanguage } from "@/i18n/LanguageContext";
+import type { ContactData } from "@/types/content";
 
-export default function PartnerEnquirySection() {
+interface PartnerEnquirySectionProps {
+  contact?: ContactData;
+  copy?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
+    cta?: string;
+    helper?: string;
+    message?: string;
+  };
+}
+
+export default function PartnerEnquirySection({ contact: propContact, copy: propCopy }: PartnerEnquirySectionProps = {}) {
   const { dict, locale } = useLanguage();
-  const copy = indiaData.enquiryExperience.partner;
+  const contact = propContact || indiaData.contact;
+  const copy = propCopy || indiaData.enquiryExperience.partner;
 
   const eyebrow = dict.contactSection?.partnerEyebrow || copy.eyebrow;
   const title = dict.contactSection?.partnerTitle || copy.title;
@@ -33,7 +47,7 @@ export default function PartnerEnquirySection() {
           </div>
         </div>
         <div className="max-w-sm md:shrink-0">
-          <a href={`${indiaData.contact.whatsappBaseUrl}?text=${encodeURIComponent(partnerMessage)}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-5 py-3 text-sm font-bold text-white hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo">
+          <a href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(partnerMessage || "")}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-5 py-3 text-sm font-bold text-white hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo">
             {cta}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <p className="mt-3 text-xs leading-relaxed text-brand-ink/65">{helper}</p>

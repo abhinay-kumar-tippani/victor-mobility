@@ -1,5 +1,119 @@
 # Handoff
 
+## 16 October 2026 — Operational Rigour & Security: Realistic Background Images for "Safety comes first"
+
+Owner: Antigravity. Upgraded the 4 pillar cards in the "Safety comes first" operational security section (`src/components/home/VictorStandardSection.tsx`) to display realistic, high-resolution photographic background images directly and permanently, matching the premium design language of the "What do you need to arrange?" services portfolio.
+
+### Key Deliverables
+1. **Realistic Safety Pillar Imagery (`public/images/india/safety/`)**:
+   - `safety-verified-drivers.jpg`: Professional corporate chauffeur in uniform holding a digital verification tablet with background checklist standing by a luxury Mercedes sedan outside a glass corporate campus.
+   - `safety-women-safety.jpg`: Dignified Indian businesswoman in the premium leather rear cabin calmly checking real-time GPS route monitoring on her smartphone while the chauffeur navigates safely.
+   - `safety-defensive-driving.jpg`: Cockpit over-the-shoulder view of chauffeur demonstrating strict 10-and-2 steering discipline, buckled seatbelt, and smooth lane discipline on an expressway corridor.
+   - `safety-pre-trip-checks.jpg`: Spotless, sanitized executive vehicle interior showing immaculate leather upholstery, rear climate control AC vents, and door opened for departure inspection.
+2. **Component Integration (`src/components/home/VictorStandardSection.tsx`)**:
+   - Integrated Next.js `Image` component with direct background rendering (`object-cover`, `group-hover:scale-105 duration-700 ease-out`).
+   - High-contrast brand ink gradient overlay (`bg-gradient-to-t from-[#15162F]/95 via-[#15162F]/80 to-[#15162F]/55`) ensuring WCAG AA/AAA compliance for all typography.
+   - Frosted glassmorphism icon badges (`bg-white/15 border-white/20 text-white backdrop-blur-md`).
+   - Crisp white title (`text-white`) and description (`text-white/85`) typography.
+   - Card micro-interaction elevation (`hover:-translate-y-1.5 hover:shadow-2xl hover:border-white/25`).
+3. **Verification & Quality Gates**:
+   - `tsc --noEmit`: 0 errors.
+   - `next lint`: 0 warnings, 0 errors.
+   - `next build`: 73/73 static SSG pages successfully compiled.
+   - Browser verification via Playwright (`scripts/verify-safety-section.mjs`):
+     - Desktop (1440px): 4-column grid verified with background images.
+     - Tablet (768px): 2-column grid verified.
+     - Mobile (390px): 0 horizontal overflow (`scrollWidth: 390px, innerWidth: 390px`).
+     - Small mobile (320px): 0 horizontal overflow (`scrollWidth: 320px, innerWidth: 320px`).
+     - Screenshots saved:
+       - [Desktop Safety Section](docs/screenshots/safety-section-desktop.png)
+       - [Single Pillar Card](docs/screenshots/safety-card1-verified-drivers.png)
+       - [Tablet Layout (768px)](docs/screenshots/safety-section-tablet.png)
+       - [Mobile Responsive View (390px)](docs/screenshots/safety-section-mobile.png)
+
+---
+
+## 16 October 2026 — Services Portfolio: Direct Background Images for "What do you need to arrange?"
+
+Owner: Antigravity. Updated the "What do you need to arrange?" service cards grid so that instead of hiding the images behind an `opacity-0` hover transition, all 6 service cards directly and permanently display their executive background images by default.
+
+### Key Changes
+1. **Direct Background Images (`src/components/home/ServicesSection.tsx`)**:
+   - Removed `opacity-0` and `group-hover:opacity-100` from the card background layer so imagery is permanently visible at 100% opacity.
+   - Preserved interactive polish with subtle hover lift (`hover:-translate-y-1.5`, `hover:shadow-2xl`) and gentle image zoom (`scale-100 group-hover:scale-105 transition-transform duration-700 ease-out`).
+   - Applied high-contrast brand gradient overlay (`bg-gradient-to-t from-[#15162F]/95 via-[#15162F]/80 to-[#15162F]/55`) to guarantee WCAG AA/AAA legibility across all photography backgrounds.
+2. **Permanent High-Contrast Light Elements**:
+   - Frosted glassmorphism icon badges (`bg-white/15 border-white/20 text-white backdrop-blur-md`).
+   - Clean white service headings and descriptions (`text-white`, `text-white/85`).
+   - Prominent white CTA button (`Request a quote`) that transitions to brand indigo on hover.
+   - Refined `View details ->` link in crisp `text-white/85 hover:text-white`.
+3. **Updated Section Description Across All 3 Languages**:
+   - Replaced outdated hover instruction ("Hover over any service card to preview the fleet...") with clear service exploration copy across `en.ts`, `hi.ts`, and `te.ts`:
+     - **English**: *"Explore our core corporate mobility services across India, preview fleet capabilities, and request an immediate tailored quotation."*
+     - **हिन्दी**: *"भारत भर में हमारी प्रमुख कॉर्पोरेट गतिशीलता सेवाओं को देखें, फ्लीट क्षमताओं को जानें, और तुरंत कोटेशन का अनुरोध करें।"*
+     - **తెలుగు**: *"భారతదేశ వ్యాప్తంగా మా ప్రధాన కార్పొరేట్ మొబిలిటీ సేవలను అన్వేషించండి, ఫ్లీట్ వివరాలను తెలుసుకోండి మరియు వెంటనే కొటేషన్ అడగండి."*
+4. **Verification & Quality Gates**:
+   - `tsc --noEmit`: 0 errors.
+   - `next lint`: 0 warnings, 0 errors.
+   - `next build`: 73/73 static SSG pages successfully compiled.
+   - Browser verification via Playwright (`scripts/verify-services-section.mjs`):
+     - Desktop (1440px): 6 cards verified with direct background images.
+     - Mobile (390px): 0 horizontal overflow (`scrollWidth: 390px, innerWidth: 390px`).
+     - Small mobile (320px): 0 horizontal overflow (`scrollWidth: 320px, innerWidth: 320px`).
+     - Screenshots saved:
+       - [Desktop services grid](docs/screenshots/services-direct-bg-desktop.png)
+       - [Single service card direct background](docs/screenshots/services-direct-bg-card1.png)
+       - [Single service card hover micro-interaction](docs/screenshots/services-direct-bg-card1-hover.png)
+       - [Mobile responsive services column](docs/screenshots/services-direct-bg-mobile.png)
+
+---
+
+## 16 October 2026 — Victor Mobility UAE Route Comprehensive Parity & Multi-Language Modernization
+
+Owner: Antigravity. Upgraded the entire `/uae` route and its sub-pages to 100% feature, section, structural, and operational parity with `/india`, bringing all homepage sections, interactive navigation, localization layers, floating assistants, service detail workflows, and footer links to the United Arab Emirates portal with authentic UAE data, AED pricing, and Dubai regional headquarters alignment.
+
+### Key Deliverables:
+1. **UAE Layout & Localization Layer (`src/app/uae/layout.tsx`)**:
+   - Created dedicated `src/app/uae/layout.tsx` wrapping all UAE pages in `<LanguageProvider>`.
+   - Integrated `<GuidedEnquiryAssistant>` FAB with UAE reservation desk (`+971 52 455 2441`), UAE cities (Dubai, Abu Dhabi, Sharjah), and UAE services.
+2. **Unified Navigation & Language Switcher (`src/components/layout/Header.tsx`)**:
+   - Made `<LanguageSwitcher>` visible and fully functional across both desktop and mobile headers for `/uae`.
+   - Unified main navigation for `/uae` with 7 direct destinations: `Home` (`/uae`), `Services` (`/uae/services`), `Fleet` (`/uae/fleet`), `Estimator` (`/uae/estimator`), `RFP Desk` (`/uae/rfp`), `About` (`/uae/about`), `Contact` (`/uae/contact`).
+   - Localized mobile drawer footer to display `Dubai · Abu Dhabi · Sharjah`.
+3. **Complete Homepage Parity (`src/app/uae/page.tsx`)**:
+   - **Hero Carousel (`Hero.tsx`)**: Tailored dedicated `UAE_HERO_SLIDES` with all 6 authentic UAE services (`chauffeur-luxury`, `airport-transfers`, `event-transportation`, `employee-transportation`, `tourism-travel`, `rent-a-car`), eliminating broken links and providing accurate UAE terminology (RTA, DXB/AUH, DIFC, Inter-Emirate).
+   - **Key Performance Statistics (`StatCounterSection`)**: Animated counters aligned with UAE brochure capabilities (2010 Established, 15+ Years Leadership, 2,500+ Luxury Cars & Buses Accessible, 30+ Multinational Clients, Dubai Head Office near DXB, 6 Executive Services).
+   - **Enterprise Clientele (`TrustedCompaniesSection`)**: Multi-directional infinite marquee featuring multinational client logos with region-aware narrative.
+   - **Luxury Fleet Presentation (`IndiaFleetSection`)**: Tabbed fleet section featuring 5 authorized UAE tiers: First Class Saloons (Mercedes-Benz S-Class, BMW 7 Series), Ultra-Luxury (Maybach S-Class), Executive SUVs (Cadillac Escalade, GMC Yukon), Executive MPVs (Mercedes-Benz V-Class), and VIP Coaches (22 & 44-seater). Formatted with AED currency and linking to `/uae/contact` and `/uae/estimator`.
+   - **Core Services Portfolio (`ServicesSection`)**: 6 service cards with hover photo transitions, icons, and direct quote / detail links (`/uae/contact?service=...` and `/uae/services/[slug]`).
+   - **Operational Rigour & Security (`VictorStandardSection`)**: 4 safety pillars with direct link to `/uae/contact`.
+   - **Regional Operating Hubs (`UaePresenceSection`)**: Interactive selector for Dubai Head Office (Al Garhoud), Abu Dhabi, and Sharjah corridors, plus alternative location enquiry link.
+   - **The Journey of Victor (`VictorJourneySection`)**: 2009–2024 milestones timeline linking to `/uae/about`.
+   - **Leadership & Accountability (`PeopleSection`)**: Founder Jahangir & UAE Operations Desk with direct calling line and WhatsApp desk.
+   - **Helpful Answers (`HomeFaqSection`)**: Accordion with UAE-specific questions covering DXB/AUH/DWC airport reception, inter-emirate transit, reservation confirmation, and fleet capacity.
+   - **Direct Coordination Desk (`ContactInvitationSection`)**: Direct WhatsApp and phone actions linking to `/uae/contact`.
+   - **Fleet Partnerships (`PartnerEnquirySection`)**: UAE vehicle owner partnership banner linking to UAE WhatsApp desk (`+971 52 455 2441`).
+4. **Corporate Footer Parity (`src/components/layout/Footer.tsx`)**:
+   - Updated footer description for UAE to match brand brief: *"First-class executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi."*
+   - Enabled Explore links to `/uae/estimator` and `/uae/rfp` across UAE routes without hiding or hardcoding India paths.
+5. **UAE Service Detail Pages Parity (`src/app/uae/services/[slug]/page.tsx`)**:
+   - Implemented full feature parity with India service detail pages:
+     - High-resolution visual banner and illustrative vehicle caption.
+     - Service Scope & Planning Overview card with direct quote CTA.
+     - "What to expect on this journey" highlights grid (3 curated pillars).
+     - "Operational Workflow" scenario card with 4-step execution protocols.
+     - "VIP Aviation Protocol Desk" callout for airport transfers.
+     - "Required Information for Enquiry" checklist card.
+     - "Frequently Asked Questions" practical Q&A accordion.
+     - Direct Reservation sticky sidebar with phone, WhatsApp, and form CTAs.
+     - Recommended other UAE services grid.
+6. **Verification & Quality Gates**:
+   - `tsc --noEmit`: 0 errors.
+   - `next build`: 73/73 static SSG pages successfully generated.
+   - Automated browser verification (`scripts/verify-uae-route.mjs`): All sections, drawer links, and service detail workflows verified at 1440px desktop and 390px mobile; screenshots saved to `docs/screenshots/uae-desktop.png` and `docs/screenshots/uae-mobile.png`.
+
+---
+
 ## 16 October 2026 — Victor Mobility India Multi-Language Selector (English, हिन्दी, తెలుగు)
 
 Owner: Antigravity. Implemented a fully functional, corporate-styled multi-language localization layer and interactive navbar selector for the Victor Mobility India website supporting three languages:

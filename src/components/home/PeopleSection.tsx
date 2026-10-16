@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { UserCheck, Phone, MessageSquare, ArrowRight, ShieldCheck, Headphones, Quote, Award } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -16,9 +17,13 @@ interface PeopleSectionProps {
     imageSrc: string;
     bio: string;
   };
+  basePath?: string;
 }
 
-export default function PeopleSection({ contact, founder }: PeopleSectionProps) {
+export default function PeopleSection({ contact, founder, basePath }: PeopleSectionProps) {
+  const pathname = usePathname();
+  const effectiveBasePath = basePath || (pathname?.startsWith("/uae") ? "/uae" : "/india");
+  const isUae = effectiveBasePath === "/uae";
   const { dict } = useLanguage();
 
   return (
@@ -90,7 +95,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
                   <UserCheck className="w-3.5 h-3.5 text-brand-blue" />
                   <span>Business Partnerships</span>
                 </span>
-                <span className="text-xs text-brand-ink/60 font-medium">Head Office</span>
+                <span className="text-xs text-brand-ink/60 font-medium">{isUae ? "Dubai Operations Desk" : "Head Office"}</span>
               </div>
 
               <div>
@@ -99,7 +104,9 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
               </div>
 
               <p className="text-xs text-brand-ink/75 leading-relaxed">
-                Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India.
+                {isUae
+                  ? "Directing enterprise client partnerships, VIP limousine protocols, and corporate fleet coordination across Dubai, Abu Dhabi, and the Emirates."
+                  : "Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India."}
               </p>
 
               <div className="pt-3 border-t border-brand-soft-neutral flex flex-wrap items-center gap-3">
@@ -112,7 +119,7 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
                 </a>
 
                 <a
-                  href={`https://wa.me/${contact.whatsappDigits}?text=Hello%20Mujeeb,%20I%20would%20like%20to%20discuss%20travel%20requirements%20with%20Victor%20Mobility.`}
+                  href={`https://wa.me/${contact.whatsappDigits}?text=${encodeURIComponent("Hello, I would like to discuss travel requirements with Victor Mobility.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="min-h-[44px] inline-flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-xl border border-emerald-200 transition-colors"
@@ -146,12 +153,14 @@ export default function PeopleSection({ contact, founder }: PeopleSectionProps) 
 
               <div className="p-6 space-y-3">
                 <p className="text-xs text-brand-ink/75 leading-relaxed">
-                  Our central operations desk coordinates driver shift rotations, vehicle dispatch readiness, and route support across 10 operational hubs pan-India.
+                  {isUae
+                    ? "Our central operations desk coordinates chauffeur dispatch readiness, flight radar tracking at DXB/AUH, and dedicated route support across the Emirates."
+                    : "Our central operations desk coordinates driver shift rotations, vehicle dispatch readiness, and route support across 10 operational hubs pan-India."}
                 </p>
 
                 <div className="pt-2 flex items-center justify-between">
                   <Link
-                    href="/india/about"
+                    href={`${effectiveBasePath}/about`}
                     className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue transition-colors"
                   >
                     <span>Read our full company story & 2010–2024 milestones</span>

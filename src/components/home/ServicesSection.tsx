@@ -16,6 +16,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ServicesSectionProps {
   services: ServiceItem[];
+  basePath?: string;
 }
 
 interface ServiceMeta {
@@ -56,6 +57,12 @@ const SERVICE_META: Record<string, ServiceMeta> = {
     imageAlt: "Chauffeur standing by luxury executive saloon outside corporate headquarters at night",
     icon: Sparkles,
   },
+  "tourism-travel": {
+    number: "05",
+    imageSrc: "/images/uae/uae-hero.jpg",
+    imageAlt: "Luxury limousine tourism and city excursions across Dubai and Abu Dhabi",
+    icon: Sparkles,
+  },
   "rent-a-car": {
     number: "06",
     imageSrc: "/images/india/services/service-rent-a-car.jpg",
@@ -64,7 +71,7 @@ const SERVICE_META: Record<string, ServiceMeta> = {
   },
 };
 
-export default function ServicesSection({ services }: ServicesSectionProps) {
+export default function ServicesSection({ services, basePath = "/india" }: ServicesSectionProps) {
   const publishedServices = services.filter((s) => s.published);
   const { dict } = useLanguage();
 
@@ -94,7 +101,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
           </div>
 
           <Link
-            href="/india/services"
+            href={`${basePath}/services`}
             className="inline-flex items-center gap-2 text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0 group/link"
           >
             <span>{dict.servicesSection.allServicesLink}</span>
@@ -117,56 +124,56 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               <div
                 key={service.slug}
                 data-testid={`service-card-${service.slug}`}
-                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-1 hover:border-brand-indigo/40 hover:shadow-2xl overflow-hidden min-h-[300px]"
+                className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-[#15162F] p-7 sm:p-8 shadow-[0_10px_30px_-5px_rgba(21,22,47,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-white/25 overflow-hidden min-h-[320px]"
               >
-                {/* Hover Background Image Layer */}
-                <div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                {/* Direct Background Image Layer */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
                   <Image
                     src={meta.imageSrc}
                     alt={meta.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transform transition-transform duration-700 ease-out scale-105 group-hover:scale-100"
+                    className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  {/* High-legibility dark gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060B1A]/95 via-[#060B1A]/75 to-[#060B1A]/40 backdrop-blur-[1px]" />
+                  {/* High-legibility brand ink gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#15162F]/95 via-[#15162F]/80 to-[#15162F]/55" />
                 </div>
 
                 {/* Card Content - Z-index 10 above image layer */}
                 <div className="relative z-10 flex flex-col">
                   {/* Top row: Icon Badge (left) & Number (right) */}
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200/70 flex items-center justify-center text-slate-700 transition-all duration-300 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/25 group-hover:backdrop-blur-md">
-                      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                    <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-white/25 group-hover:scale-105">
+                      <Icon className="w-5 h-5 transition-transform duration-300" />
                     </div>
-                    <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-white/70 transition-colors duration-300">
+                    <span className="text-xs font-mono font-bold text-white/70">
                       {meta.number}
                     </span>
                   </div>
 
                   {/* Service Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2.5 transition-colors duration-300 group-hover:text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2.5">
                     {dict.servicesSection.items[service.slug]?.title || service.title}
                   </h3>
 
                   {/* Service Description */}
-                  <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-white/90">
+                  <p className="text-sm sm:text-[15px] text-white/85 leading-relaxed">
                     {dict.servicesSection.items[service.slug]?.description || service.shortDescription}
                   </p>
                 </div>
 
                 {/* Bottom Actions - Z-index 10 above image layer */}
-                <div className="relative z-10 pt-5 mt-6 border-t border-slate-100 group-hover:border-white/15 flex items-center justify-between gap-3 transition-colors duration-300">
+                <div className="relative z-10 pt-5 mt-6 border-t border-white/15 flex items-center justify-between gap-3">
                   <Link
-                    href={`/india/contact?service=${service.slug}#enquiry`}
-                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-[#1E2248] text-white shadow-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#1E2248] group-hover:shadow-lg hover:scale-105 active:scale-95"
+                    href={`${basePath}/contact?service=${service.slug}#enquiry`}
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white text-brand-ink shadow-sm transition-all duration-300 hover:bg-brand-indigo hover:text-white hover:shadow-lg active:scale-95"
                   >
                     {dict.servicesSection.requestQuote}
                   </Link>
 
                   <Link
-                    href={`/india/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 group-hover:text-white transition-all duration-300 group-hover:translate-x-1"
+                    href={`${basePath}/services/${service.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white transition-all duration-300 hover:translate-x-1"
                   >
                     <span>{dict.servicesSection.viewDetails}</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />

@@ -91,7 +91,7 @@ export const enDictionary: TranslationDictionary = {
     eyebrow: "Comprehensive Fleet & Commute Solutions",
     title: "What do you need to arrange?",
     description:
-      "Explore our core corporate mobility services. Hover over any service card to preview the fleet in action, or request an immediate quotation.",
+      "Explore our core corporate mobility services across India, preview fleet capabilities, and request an immediate tailored quotation.",
     allServicesLink: "All Service Specifications",
     requestQuote: "Request a quote",
     viewDetails: "View details",

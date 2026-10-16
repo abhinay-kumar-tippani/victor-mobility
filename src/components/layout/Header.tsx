@@ -26,17 +26,13 @@ export default function Header({ contact }: HeaderProps) {
   const isIndia = basePrefix === "/india";
 
   const navItems = [
-    { label: isIndia ? dict.nav.home : "Home", href: basePrefix },
-    { label: isIndia ? dict.nav.services : "Services", href: `${basePrefix}/services` },
-    { label: isIndia ? dict.nav.fleet : "Fleet", href: `${basePrefix}/fleet` },
-    ...(isIndia
-      ? [
-          { label: dict.nav.estimator, href: "/india/estimator" },
-          { label: dict.nav.rfp, href: "/india/rfp" },
-        ]
-      : []),
-    { label: isIndia ? dict.nav.about : "About", href: `${basePrefix}/about` },
-    { label: isIndia ? dict.nav.contact : "Contact", href: `${basePrefix}/contact` },
+    { label: dict.nav.home || "Home", href: basePrefix },
+    { label: dict.nav.services || "Services", href: `${basePrefix}/services` },
+    { label: dict.nav.fleet || "Fleet", href: `${basePrefix}/fleet` },
+    { label: dict.nav.estimator || "Estimator", href: `${basePrefix}/estimator` },
+    { label: dict.nav.rfp || "RFP Desk", href: `${basePrefix}/rfp` },
+    { label: dict.nav.about || "About", href: `${basePrefix}/about` },
+    { label: dict.nav.contact || "Contact", href: `${basePrefix}/contact` },
   ];
 
   const isItemActive = (href: string) => {
@@ -218,12 +214,12 @@ export default function Header({ contact }: HeaderProps) {
 
           {/* Desktop CTAs: Language Switcher, Direct Call & Request Quote */}
           <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5 whitespace-nowrap shrink-0">
-            {isIndia && <LanguageSwitcher id="desktop-language-switcher" />}
+            <LanguageSwitcher id="desktop-language-switcher" />
 
             <a
               href={contact.phoneHref}
               className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[44px]"
-              title={`${isIndia ? dict.nav.call : "Call"} ${contact.phoneDisplay}`}
+              title={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{contact.phoneDisplay}</span>
@@ -233,13 +229,13 @@ export default function Header({ contact }: HeaderProps) {
               href={`${basePrefix}/contact`}
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-4 xl:px-5 py-2.5 rounded-xl shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[44px]"
             >
-              {isIndia ? dict.nav.enquire : "Enquire"}
+              {dict.nav.enquire || "Enquire"}
             </Link>
           </div>
 
           {/* Mobile Menu Actions: Compact Language Switcher, Call, Drawer Trigger */}
           <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
-            {isIndia && <LanguageSwitcher id="mobile-language-switcher" compactOnMobile={true} />}
+            <LanguageSwitcher id="mobile-language-switcher" compactOnMobile={true} />
 
             <a
               href={contact.phoneHref}
@@ -323,7 +319,7 @@ export default function Header({ contact }: HeaderProps) {
             </nav>
 
             {/* Prominent Mobile Drawer Language Switcher */}
-            {isIndia && <MobileDrawerLanguageSelector />}
+            <MobileDrawerLanguageSelector />
 
             <div className="pt-2 space-y-3">
               <Link
@@ -332,7 +328,7 @@ export default function Header({ contact }: HeaderProps) {
                 className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo shadow-xs"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>{isIndia ? dict.nav.discussRequirement : "Discuss Your Requirement"}</span>
+                <span>{dict.nav.discussRequirement || "Discuss Your Requirement"}</span>
               </Link>
               <a
                 href={contact.phoneHref}
@@ -340,13 +336,13 @@ export default function Header({ contact }: HeaderProps) {
               >
                 <Phone className="w-4 h-4" />
                 <span>
-                  {isIndia ? dict.nav.call : "Call"} {contact.phoneDisplay}
+                  {dict.nav.call || "Call"} {contact.phoneDisplay}
                 </span>
               </a>
             </div>
 
             <div className="pt-2 text-xs text-brand-ink/60 text-center font-medium">
-              Hyderabad · Bengaluru · Pune
+              {isIndia ? "Hyderabad · Bengaluru · Pune" : "Dubai · Abu Dhabi · Sharjah"}
             </div>
           </div>
         </div>

@@ -248,5 +248,362 @@
       "question": "What is the fleet capacity in the UAE?",
       "answer": "According to our authorized operational capabilities, Victor supports access to a fleet capacity of over 2,000+ luxury cars and 500+ buses across the UAE."
     }
-  ]
+  ],
+  "fleetPresentation": {
+    "eyebrow": "The Victor UAE Fleet",
+    "title": "The right vehicle. For every journey.",
+    "description": "Choose a vehicle tier, compare the essentials, and tell our Dubai reservation team what you need.",
+    "pageTitle": "Executive Fleet & VIP Categories",
+    "pageDescription": "From prestigious first-class saloons to high-capacity conference coaches across Dubai and Abu Dhabi.",
+    "viewAll": "Explore the fleet",
+    "tabLabel": "Choose a vehicle category",
+    "modelsLabel": "Brochure references",
+    "capacityLabel": "Passenger & luggage capacity",
+    "useLabel": "Best suited for",
+    "priceLabel": "Sample starting retainer",
+    "priceNote": "Illustrative pricing in AED. Final rates, Salik tolls, airport parking, and driver allowances are confirmed in your quotation.",
+    "enquire": "Enquire about this vehicle",
+    "estimate": "Plan a journey",
+    "imageCaption": "Vehicle imagery is illustrative. Actual vehicle assignment confirmed upon reservation.",
+    "packageLabel": "8 hours / 80 km",
+    "availability": "Share your Emirate, arrival terminal, flight details, or travel itinerary so our team can allocate a suitable vehicle.",
+    "pricingSource": "Indicative tariffs and sample retainers from UAE executive limousine operations.",
+    "items": [
+      {
+        "id": "first-class",
+        "tab": "First Class",
+        "headline": "First-class executive chauffeur travel across Dubai & Abu Dhabi.",
+        "capacity": "Up to 3–4 passengers · 2–3 suitcases",
+        "bestFor": "Airport VIP transfers · Financial district standby (DIFC) · Inter-Emirate travel",
+        "image": "/images/india/services/service-airport-transfers.jpg",
+        "imageAlt": "Mercedes-Benz S-Class luxury executive saloon",
+        "imagePosition": "center center",
+        "price": 1200
+      },
+      {
+        "id": "ultra-luxury",
+        "tab": "Ultra-Luxury",
+        "headline": "Pinnacle luxury and state delegation transport.",
+        "capacity": "Up to 3 passengers · Executive cabin",
+        "bestFor": "VIP delegations · Board members · Red carpet galas · Royal terminal arrivals",
+        "image": "/images/india/luxury-interior.png",
+        "imageAlt": "Mercedes-Maybach luxury passenger cabin",
+        "imagePosition": "center center",
+        "price": 2500
+      },
+      {
+        "id": "executive-suvs",
+        "tab": "Executive SUVs",
+        "headline": "Spacious luxury travel with generous luggage room.",
+        "capacity": "Up to 6 passengers · 5–6 suitcases",
+        "bestFor": "International airport arrivals · Diplomatic security convoys · Executive groups",
+        "image": "/images/uae/uae-hero.jpg",
+        "imageAlt": "Cadillac Escalade executive SUV",
+        "imagePosition": "center center",
+        "price": 1600
+      },
+      {
+        "id": "executive-vans",
+        "tab": "Executive MPVs",
+        "headline": "Refined multi-passenger transit for delegations and project teams.",
+        "capacity": "Up to 6–7 passengers · 4–5 suitcases",
+        "bestFor": "Visiting business teams · Corporate site visits · VIP hotel loop transit",
+        "image": "/images/india/services/service-employee-transport.jpg",
+        "imageAlt": "Mercedes-Benz V-Class luxury MPV",
+        "imagePosition": "center center",
+        "price": 1400
+      },
+      {
+        "id": "coaches",
+        "tab": "VIP Coaches",
+        "headline": "Luxury group coaches for trade summits and corporate events.",
+        "capacity": "22-seat and 44-seat luxury coaches",
+        "bestFor": "GITEX & ADIPEC summits · Corporate campus loops · Exhibition attendee transit",
+        "image": "/images/india/services/service-bus-shuttle.jpg",
+        "imageAlt": "Luxury 22 and 44-seater coach bus",
+        "imagePosition": "center center",
+        "price": 2200
+      }
+    ]
+  },
+  "planningTools": {
+    "eyebrow": "Victor Mobility · UAE",
+    "nav": {
+      "estimator": "Estimator",
+      "rfp": "RFP Desk"
+    },
+    "home": {
+      "eyebrow": "Plan with Victor UAE",
+      "title": "Every journey starts with a clear plan.",
+      "description": "Explore your limousine, airport VIP, or delegation transport requirements, then take the next step with our team.",
+      "estimator": {
+        "number": "01",
+        "title": "Limousine route & fare estimator",
+        "description": "Calculate indicative executive limousine and airport transfer fares across Dubai, Abu Dhabi, and Sharjah corridors.",
+        "cta": "Open the estimator",
+        "detail": "Corridor planning · Indicative AED calculations"
+      },
+      "rfp": {
+        "number": "02",
+        "title": "Corporate RFP desk",
+        "description": "Bring your corporate delegation routes, schedules, and fleet preferences together in one clear proposal.",
+        "cta": "Build your RFP",
+        "detail": "Company brief · Limousine retainers & schedules"
+      }
+    },
+    "estimator": {
+      "title": "Indicative tariffs for your UAE journey.",
+      "description": "Estimate vehicles and distance for your travel itinerary. Review planning rates before speaking with our team.",
+      "eyebrow": "Route & Limousine Estimator",
+      "formTitle": "Shape your journey",
+      "formHelp": "One delegation travelling together. Enter requirements for each travel day.",
+      "city": "Emirate / City",
+      "otherCity": "Other Emirate / Corridor",
+      "pickup": "Pickup location (e.g. DXB Terminal 3, DIFC)",
+      "dropoff": "Drop-off location (e.g. Downtown, Abu Dhabi Corniche)",
+      "passengers": "Passengers travelling together",
+      "seats": "Passenger seats per vehicle",
+      "capacityHelp": "Use the capacity you want to plan with, excluding the chauffeur. Our team will confirm suitable vehicles.",
+      "distance": "One-way distance (km)",
+      "days": "Travel days",
+      "returnTrip": "Include return journey each day",
+      "rate": "Your planning rate (AED / vehicle / km)",
+      "rateHelp": "Optional. Enter a rate you want to model. Victor's quotation will be confirmed by the team.",
+      "calculate": "Calculate my estimate",
+      "emptyTitle": "Your plan, at a glance.",
+      "emptyHelp": "Add your journey details to see vehicle numbers, total distance, and an optional budget.",
+      "resultTitle": "Your planning estimate",
+      "vehicleLabel": "Vehicles per journey",
+      "distanceLabel": "Total vehicle kilometres",
+      "budgetLabel": "Budget at your entered rate (AED)",
+      "noRate": "Add your own rate to calculate a budget, or ask our team for a quote.",
+      "basisTitle": "How this is calculated",
+      "basisHelp": "One journey per vehicle each day, doubled if return travel is selected. Distance is multiplied by the number of vehicles and travel days.",
+      "exclusions": "Planning only. Salik tolls, airport parking, tax, driver allowance, waiting, and minimum hire must be confirmed in Victor's quotation.",
+      "review": "View the enquiry draft",
+      "rfpLink": "Planning a corporate contract? Build an RFP",
+      "summaryTitle": "UAE JOURNEY ESTIMATE ENQUIRY",
+      "errors": {
+        "pickup": "Enter a pickup location.",
+        "dropoff": "Enter a drop-off location.",
+        "passengers": "Enter a whole passenger count greater than zero.",
+        "seats": "Enter a whole seat count greater than zero.",
+        "distance": "Enter a distance greater than zero.",
+        "days": "Enter a whole number of days greater than zero.",
+        "rate": "Enter a rate greater than zero, or leave it blank.",
+        "total": "These inputs produce a total that is too large. Reduce the values."
+      }
+    },
+    "rfp": {
+      "title": "Your requirements. One considered proposal.",
+      "description": "Prepare a Request for Proposal for corporate limousine retainers, airport VIP protocols, or delegation logistics across the UAE.",
+      "eyebrow": "UAE Corporate RFP Desk",
+      "steps": [
+        "Company details",
+        "Transport requirements",
+        "Review your brief"
+      ],
+      "intro": "Start with your organisation and the person we should speak with.",
+      "requirementsHelp": "Share what you know. Optional details can be discussed with our Dubai team.",
+      "reviewHelp": "Check your brief before opening WhatsApp. You can also copy it or save a text file for your procurement records.",
+      "company": "Company / organisation",
+      "name": "Contact person",
+      "role": "Role / designation (optional)",
+      "email": "Business email (optional)",
+      "phone": "Contact phone (optional)",
+      "city": "Emirate",
+      "customCity": "Emirate / route",
+      "service": "Service required",
+      "passengers": "Passengers per day (optional)",
+      "date": "Target start date (optional)",
+      "schedule": "Operating schedule",
+      "scheduleOptions": [
+        "To be discussed",
+        "Business hours standby",
+        "24/7 dedicated chauffeur",
+        "Summit / delegation dates",
+        "Airport flight arrivals schedule",
+        "Custom schedule"
+      ],
+      "vehicles": "Preferred vehicle categories (optional)",
+      "vehicleHelp": "Select all that suit your requirement. Availability and specifications will be discussed.",
+      "details": "Routes and requirements",
+      "detailsPlaceholder": "Pickup locations, airport flight numbers, shift timings, luggage, or security protocol requirements…",
+      "continue": "Continue",
+      "back": "Back",
+      "edit": "Edit requirements",
+      "companyEdit": "Edit company details",
+      "review": "Review my RFP",
+      "sideTitle": "A brief built around your business.",
+      "sideDescription": "Give our team the context to discuss routes, luxury vehicle options, and commercial terms in the UAE.",
+      "sideItems": [
+        "Your organisation and contact",
+        "Routes, delegation volume, and schedule",
+        "A complete brief to review and share"
+      ],
+      "summaryTitle": "UAE CORPORATE TRANSPORT — REQUEST FOR PROPOSAL",
+      "notSpecified": "To be discussed",
+      "errors": {
+        "company": "Enter your company or organisation.",
+        "name": "Enter the contact person's name.",
+        "email": "Enter a valid email address, or leave it blank.",
+        "city": "Enter your Emirate or route.",
+        "passengers": "Enter a whole passenger count greater than zero.",
+        "date": "Choose a valid calendar date.",
+        "details": "Add your routes, timings, or transport requirements."
+      }
+    },
+    "actions": {
+      "whatsapp": "Continue on WhatsApp",
+      "copy": "Copy brief",
+      "copied": "Copied",
+      "copyFailed": "Copy is unavailable here. Select the draft text to copy it manually.",
+      "download": "Download brief",
+      "handoff": "Opens a WhatsApp draft for you to review and send. It does not submit a tender or confirm a booking."
+    },
+    "help": {
+      "title": "Prefer a conversation?",
+      "description": "Speak with our Dubai team about the details that matter to your journey.",
+      "contact": "Discuss your requirement",
+      "call": "Call our Dubai desk"
+    }
+  },
+  "enquiry": {
+    "mode": "whatsapp-draft",
+    "submitLabel": "Continue on WhatsApp",
+    "helperText": "Opens a pre-filled WhatsApp message for you to review and send to our Dubai desk.",
+    "isConfirmedBooking": false,
+    "fields": [
+      "name",
+      "service",
+      "city",
+      "passengers",
+      "travelDate",
+      "requirement"
+    ],
+    "fallback": "Call us at +971 52 455 2441",
+    "planningFields": {
+      "passengerLabel": "Passengers (optional)",
+      "dateLabel": "Travel / start date (optional)",
+      "help": "An estimate is fine. Leave these blank if you are still planning; add recurring dates or flight times in the details.",
+      "passengerError": "Enter a whole number of passengers greater than zero.",
+      "dateError": "Choose a valid calendar date."
+    }
+  },
+  "enquiryExperience": {
+    "faq": {
+      "eyebrow": "Before you travel",
+      "title": "Frequently Asked Questions",
+      "description": "Find out what to share with our Dubai team and how executive transfers are confirmed across the Emirates.",
+      "cta": "Discuss your requirement"
+    },
+    "partner": {
+      "eyebrow": "Fleet partnerships",
+      "title": "Own luxury vehicles in the UAE? Let's talk.",
+      "description": "Tell us your operating Emirate, luxury vehicle tiers, and fleet size to discuss a potential partnership with Victor Mobility UAE.",
+      "cta": "Enquire about partnering on WhatsApp",
+      "helper": "Opens a draft for you to review and send. Our Dubai team will discuss suitability and terms with you.",
+      "message": "Hello Victor Mobility UAE, I would like to discuss a potential fleet partnership.\n\nOperating Emirate:\nVehicle categories:\nNumber of vehicles:\n\nPlease let me know the next steps."
+    },
+    "citySearch": {
+      "label": "Find an Emirate or city",
+      "placeholder": "Search Dubai, Abu Dhabi, Sharjah...",
+      "empty": "No listed Emirate matches your search.",
+      "clear": "Clear search",
+      "other": "Enquire about another Emirate"
+    },
+    "assistant": {
+      "trigger": "Plan your journey",
+      "title": "UAE Enquiry Assistant",
+      "intro": "A few details to prepare your WhatsApp enquiry for our Dubai reservation desk.",
+      "stepTitles": ["Where are you travelling?", "Tell us about your journey.", "Review your enquiry."],
+      "serviceLabel": "Service",
+      "cityLabel": "Emirate / City",
+      "otherCity": "Other Emirate / Inter-city",
+      "customCityLabel": "Emirate or route",
+      "nameLabel": "Your name",
+      "companyLabel": "Company (optional)",
+      "detailsLabel": "Journey details",
+      "detailsPlaceholder": "Airport flight numbers, terminal (DXB/AUH), pickup & drop-off locations, timings, or delegation requirements…",
+      "next": "Continue",
+      "back": "Back",
+      "restart": "Start over",
+      "close": "Close enquiry assistant",
+      "fullForm": "Use the full enquiry form",
+      "nameError": "Please enter your name.",
+      "cityError": "Please enter your Emirate or route.",
+      "detailsError": "Please add your flight, pickup, or travel requirements.",
+      "reviewHelp": "Check the details below. You can go back to make changes.",
+      "handoffHelp": "Continue opens a draft in WhatsApp for you to review and send to our Dubai desk. It does not confirm a booking.",
+      "callLabel": "Prefer to call?"
+    }
+  },
+  "about": {
+    "title": "International Mobility. Middle East Heritage.",
+    "description": "Victor Mobility UAE delivers executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi. Built on trust and passenger accountability under 'On Time Every Time.'",
+    "coverage": "Dubai, Abu Dhabi, Sharjah, and Inter-Emirate Corridors",
+    "cta": "Discuss your UAE transport requirement.",
+    "story": {
+      "foundingVision": "Expanding from our established India foundation into Dubai and Abu Dhabi, Victor Mobility delivers its signature blend of luxury, precision, and passenger accountability to clients across the United Arab Emirates. Operating from our Dubai headquarters near Dubai International Airport, we serve multinational enterprises, aviation VIPs, and trade summit delegations.",
+      "leadershipName": "Mujeeb Ur Rahman Mohammed",
+      "leadershipRole": "Business Development Partner",
+      "commitments": [
+        {
+          "title": "Precision Scheduling & Timing Rigour",
+          "description": "Every journey is planned with deliberate buffer windows and monitored departure checkpoints. Whether meeting an international flight arrival at DXB or AUH, punctuality is our primary discipline."
+        },
+        {
+          "title": "Chauffeur Etiquette & RTA Compliance",
+          "description": "Multilingual chauffeurs holding valid commercial limousine permits, trained in defensive driving, route discretion, and executive hospitality etiquette."
+        },
+        {
+          "title": "Pristine Luxury Cabin Standards",
+          "description": "Vehicles undergo pre-departure inspection covering climate control functionality, interior hygiene, and safety readiness before arriving at your pickup bay."
+        },
+        {
+          "title": "Transparent Commercial Governance",
+          "description": "Itemized written proposals in AED detailing route kilometers, hourly allowances, and vehicle categories with zero hidden surcharges or surprise billing."
+        }
+      ],
+      "audiences": [
+        {
+          "title": "Executive & VIP Limousines",
+          "tagline": "First-Class Chauffeur Discretion",
+          "description": "Discreet, high-touch mobility for board members, visiting dignitaries, and airport terminal connections featuring pristine Mercedes-Benz S-Class, BMW 7 Series, and Maybach saloons."
+        },
+        {
+          "title": "Summits & Delegations",
+          "tagline": "Coordinated Event Logistics",
+          "description": "Multi-vehicle ceremonial convoys, VIP hotel-to-venue shuttles, and flexible itineraries for global exhibitions such as GITEX and ADIPEC."
+        },
+        {
+          "title": "Corporate Workforce Commutes",
+          "tagline": "Punctual Free-Zone Transit",
+          "description": "Roster-synchronized employee shuttles and tech campus loops operating daily across DIFC, Dubai South, and Sharjah commercial corridors."
+        }
+      ]
+    }
+  },
+  "safetyCommitments": [
+    {
+      "title": "RTA-Licensed & Vetted Chauffeurs",
+      "description": "Every chauffeur carries a valid commercial limousine licence, comprehensive background vetting, and training in passenger safety and professional etiquette."
+    },
+    {
+      "title": "Punctual, Flight-Radar Monitored Fleet",
+      "description": "Active GPS telematics, live airport flight radar tracking, and pre-trip cabin sanitisation checks ensure every vehicle is staged before departure."
+    },
+    {
+      "title": "Transparent Corporate Tariffs",
+      "description": "Written proposals in AED with clear hourly and transfer allowances, inclusive Salik toll clearance, and transparent corporate billing."
+    }
+  ],
+  "sourceClaims": {
+    "iso": {
+      "text": "ISO 9001:2015 Certified Company",
+      "source": "Corporate brochure",
+      "enabled": false,
+      "note": "Claim is disabled by default."
+    }
+  }
 }

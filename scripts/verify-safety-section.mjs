@@ -11,7 +11,7 @@ async function run() {
   console.log("=== STARTING SAFETY COMES FIRST VERIFICATION ===");
   const browser = await chromium.launch({ channel: "msedge", headless: true });
 
-  // 1. Desktop Verification
+  // 1. Desktop Verification (1440x900)
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
 
@@ -44,10 +44,23 @@ async function run() {
     if (header) header.style.display = 'none';
   });
 
-  // Capture Element screenshot
+  // Capture Section screenshot
   const elementPath = path.join(SCREENSHOTS_DIR, "safety-section-desktop.png");
   await section.screenshot({ path: elementPath });
   console.log(`Saved: ${elementPath}`);
+
+  // Capture Card 1 directly
+  const card1 = section.locator('[data-testid="safety-pillar-verified-drivers"]');
+  const card1Path = path.join(SCREENSHOTS_DIR, "safety-card1-verified-drivers.png");
+  await card1.screenshot({ path: card1Path });
+  console.log(`Saved: ${card1Path}`);
+
+  // Hover on Card 1
+  await card1.hover();
+  await page.waitForTimeout(400);
+  const hoverPath = path.join(SCREENSHOTS_DIR, "safety-card1-hover.png");
+  await card1.screenshot({ path: hoverPath });
+  console.log(`Saved: ${hoverPath}`);
 
   // 2. Tablet Verification (768x1024)
   const tabletPage = await browser.newPage({ viewport: { width: 768, height: 1024 } });
@@ -77,11 +90,24 @@ async function run() {
 
   const mobileScrollWidth = await mobilePage.evaluate(() => document.documentElement.scrollWidth);
   const mobileInnerWidth = await mobilePage.evaluate(() => window.innerWidth);
-  console.log(`Mobile scrollWidth: ${mobileScrollWidth}px, innerWidth: ${mobileInnerWidth}px`);
+  console.log(`Mobile (390px) scrollWidth: ${mobileScrollWidth}px, innerWidth: ${mobileInnerWidth}px`);
+  if (mobileScrollWidth > mobileInnerWidth) {
+    throw new Error(`Horizontal overflow at 390px: ${mobileScrollWidth}`);
+  }
 
   const mobilePath = path.join(SCREENSHOTS_DIR, "safety-section-mobile.png");
   await mobileSection.screenshot({ path: mobilePath });
   console.log(`Saved: ${mobilePath}`);
+
+  // 4. Small Mobile (320px)
+  const smallPage = await browser.newPage({ viewport: { width: 320, height: 640 } });
+  await smallPage.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  const smallScrollWidth = await smallPage.evaluate(() => document.documentElement.scrollWidth);
+  const smallInnerWidth = await smallPage.evaluate(() => window.innerWidth);
+  console.log(`Small mobile (320px) scrollWidth: ${smallScrollWidth}px, innerWidth: ${smallInnerWidth}px`);
+  if (smallScrollWidth > smallInnerWidth) {
+    throw new Error(`Horizontal overflow at 320px: ${smallScrollWidth}`);
+  }
 
   await browser.close();
   console.log(">>> ALL SAFETY SECTION VERIFICATIONS PASSED SUCCESSFULLY! <<<");

@@ -1,15 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ContactInvitationSectionProps {
   contact: ContactData;
+  basePath?: string;
 }
 
-export default function ContactInvitationSection({ contact }: ContactInvitationSectionProps) {
+export default function ContactInvitationSection({ contact, basePath }: ContactInvitationSectionProps) {
+  const pathname = usePathname();
+  const effectiveBasePath = basePath || (pathname?.startsWith("/uae") ? "/uae" : "/india");
+  const isUae = effectiveBasePath === "/uae";
   const { dict, locale } = useLanguage();
 
   const whatsappMessage =
@@ -49,13 +54,13 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
                   {contact.name}
                 </h3>
                 <p className="text-xs text-white/70">
-                  {contact.role} · Victor Mobility Pvt. Ltd.
+                  {contact.role} · {isUae ? "Victor Mobility UAE" : "Victor Mobility Pvt. Ltd."}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full md:w-auto">
                 <Link
-                  href="/india/contact"
+                  href={`${effectiveBasePath}/contact`}
                   className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white py-3 px-5 rounded-xl transition-colors shadow-sm text-center"
                 >
                   <span>{dict.servicesSection.requestQuote}</span>

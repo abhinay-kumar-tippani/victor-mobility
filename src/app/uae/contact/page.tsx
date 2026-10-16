@@ -6,6 +6,7 @@ import uaeData from "@/content/uae.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 import { Building2, Phone, MessageSquare, MapPin, Mail } from "lucide-react";
+import PartnerEnquirySection from "@/components/contact/PartnerEnquirySection";
 
 export const metadata: Metadata = {
   title: "Contact UAE Operations | Victor Mobility UAE - Dubai Limousine Desk",
@@ -112,6 +113,7 @@ export default function UaeContactPage() {
             </div>
           </div>
         </section>
+        <PartnerEnquirySection contact={content.contact} copy={uaeData.enquiryExperience.partner} />
       </main>
 
       <Footer

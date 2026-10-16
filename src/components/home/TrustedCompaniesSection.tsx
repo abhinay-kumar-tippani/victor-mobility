@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 /* -------------------------------------------------------------------------- */
@@ -238,7 +239,13 @@ function LogoTile({ company }: { company: CompanyItem }) {
 
 export default function TrustedCompaniesSection() {
   const headingId = useId();
+  const pathname = usePathname();
+  const isUae = pathname?.startsWith("/uae");
   const { dict } = useLanguage();
+
+  const effectiveDescription = isUae
+    ? "Delivering disciplined executive limousine mobility, airport VIP protocol, and corporate delegation transport for leading multinational enterprises."
+    : dict.companies.description;
 
   return (
     <section
@@ -292,7 +299,7 @@ export default function TrustedCompaniesSection() {
           {dict.companies.title}
         </h2>
         <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          {dict.companies.description}
+          {effectiveDescription}
         </p>
       </div>
 

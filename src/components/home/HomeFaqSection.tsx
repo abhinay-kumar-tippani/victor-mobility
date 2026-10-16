@@ -5,10 +5,22 @@ import { ArrowRight, Plus } from "lucide-react";
 import indiaData from "@/content/india.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-export default function HomeFaqSection() {
+interface HomeFaqSectionProps {
+  faqs?: Array<{ question: string; answer: string }>;
+  copy?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
+    cta?: string;
+  };
+  contactHref?: string;
+}
+
+export default function HomeFaqSection({ faqs: propFaqs, copy: propCopy, contactHref }: HomeFaqSectionProps = {}) {
   const { dict } = useLanguage();
-  const copy = dict.faq || indiaData.enquiryExperience.faq;
-  const faqs = dict.faq?.items?.length ? dict.faq.items : indiaData.faqs;
+  const copy = propCopy || dict.faq || indiaData.enquiryExperience.faq;
+  const faqs = propFaqs || (dict.faq?.items?.length ? dict.faq.items : indiaData.faqs);
+  const targetHref = contactHref || "/india/contact";
 
   return (
     <section id="questions" aria-labelledby="home-faq-title" className="border-b border-brand-soft-neutral bg-brand-warm-white py-16 sm:py-20">
@@ -17,7 +29,7 @@ export default function HomeFaqSection() {
           <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-blue">{copy.eyebrow}</p>
           <h2 id="home-faq-title" className="text-3xl font-extrabold tracking-tight text-brand-ink sm:text-4xl">{copy.title}</h2>
           <p className="mt-4 text-base leading-relaxed text-brand-ink/75">{copy.description}</p>
-          <Link href="/india/contact" className="mt-5 inline-flex min-h-[44px] items-center gap-2 font-bold text-brand-indigo underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo">{copy.cta}<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+          <Link href={targetHref} className="mt-5 inline-flex min-h-[44px] items-center gap-2 font-bold text-brand-indigo underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo">{copy.cta}<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
         <div className="divide-y divide-brand-soft-neutral border-y border-brand-soft-neutral lg:col-span-8">
           {faqs.map(faq => (

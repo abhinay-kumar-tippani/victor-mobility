@@ -48,7 +48,9 @@ export default function Footer({
               <BrandLogo className="h-11 sm:h-12 aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
             </Link>
             <p className="text-sm leading-relaxed text-brand-soft-neutral/80 max-w-sm">
-              {isIndia ? dict.footer.aboutText : "Corporate employee transportation, campus bus shuttles, airport transfers, and executive luxury travel across 10 operational hubs pan-India."}
+              {isIndia
+                ? dict.footer.aboutText
+                : "First-class executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi."}
             </p>
             {isoEnabled && (
               <p className="text-xs text-brand-soft-neutral/80 font-medium">
@@ -63,20 +65,22 @@ export default function Footer({
               {isIndia ? dict.footer.exploreTitle : "Explore"}
             </h2>
             <ul className="space-y-2 text-sm text-brand-soft-neutral/80">
-              {isIndia && (
-                <>
-                  <li>
-                    <Link href="/india/estimator" className="inline-block py-1 transition-colors hover:text-white">
-                      {dict.nav.estimator}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/india/rfp" className="inline-block py-1 transition-colors hover:text-white">
-                      {dict.nav.rfp}
-                    </Link>
-                  </li>
-                </>
-              )}
+              <li>
+                <Link
+                  href={`${prefix}/estimator`}
+                  className="inline-block py-1 transition-colors hover:text-white"
+                >
+                  {isIndia ? dict.nav.estimator : "Estimator"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`${prefix}/rfp`}
+                  className="inline-block py-1 transition-colors hover:text-white"
+                >
+                  {isIndia ? dict.nav.rfp : "RFP Desk"}
+                </Link>
+              </li>
               <li>
                 <Link
                   href={`${prefix}/services`}
