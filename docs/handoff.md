@@ -1,5 +1,26 @@
 # Handoff
 
+## 16 October 2026 — Cleaner India fleet, sample prices, estimator and RFP desk
+
+Owner: Codex, implementing the user's direct follow-up requests. Local changes only; Antigravity can continue iteration. Concurrent Services, Journey, client logos, statistics and Safety section work is preserved.
+
+- Replaced the dense India fleet presentation with one shared, keyboard-accessible category panel on the homepage and `/india/fleet`: four tabs, clear imagery, concise specifications, a price row and category-prefilled enquiry. The layout uses the existing indigo, ink and warm-white palette.
+- Temporary sample prices: Sedan **₹2,200**, MPV **₹3,800**, Bus **₹7,200**, Luxury **₹6,500**, each for **8 hours / 80 km**. The user approved reference sample data and will replace it later. These values are from the project's existing `corridors.json` hourly-retainer samples; exact Claude parity could not be rechecked because reference browser access was blocked. The website labels them illustrative and requires a quotation for final rates/inclusions/availability.
+- Edit prices and fleet copy in `src/content/india.json` → `fleetPresentation.items[].price`, `packageLabel`, `priceLabel` and `priceNote`. Supplied illustrative images and brochure model references remain clearly distinguished from confirmed availability.
+- Restyled `/india/estimator` and `/india/rfp`, with direct header/footer navigation and cross-links. The estimator calculates vehicle count, vehicle-km and optional budget using a visitor-entered rate. RFP provides company → requirements → review steps with editable retained values. Both offer a WhatsApp draft, copy and text download, without simulated submission or booking confirmation.
+- Planning copy is in `india.json` → `planningTools`; interactive code is under `src/components/planning/`; arithmetic is in `src/lib/journeyEstimate.ts`. The optional `PlanningToolsSection` component is not mounted on the homepage, preserving Antigravity's latest Services section placement. UAE continues to use its existing components.
+
+Validation: TypeScript and lint passed. Production build passed with **73/73 static pages** (the first sandbox attempt could not create a generated `.next` folder; the permitted local build completed). `node scripts/verify-journey-estimate.mjs` passed **34 assertions**. `git diff --check` passed. Browser checks covered 1440px desktop, 1024px navigation, 390px mobile and 320px fleet; no horizontal overflow in checked layouts. Tested fleet keyboard navigation/prices, RFP required fields and edit retention, draft/download text agreement, estimator optional-rate and stale-result behavior, and copy feedback. Browser console reported no errors during these checks.
+
+Screenshots:
+
+- [Homepage fleet, desktop](screenshots/fleet-home-desktop.jpg)
+- [Fleet page, desktop](screenshots/fleet-refined-desktop.jpg) · [mobile](screenshots/fleet-refined-mobile.jpg)
+- [Journey estimator, desktop](screenshots/journey-estimator-desktop.jpg) · [mobile](screenshots/journey-estimator-mobile.jpg)
+- [RFP desk, desktop](screenshots/rfp-desk-desktop.jpg) · [mobile](screenshots/rfp-desk-mobile.jpg)
+
+---
+
 ## 16 October 2026 — Operational Rigour & Security: "Safety comes first" (4 Core Pillars in Brand Palette)
 
 Owner: Antigravity. Replaced "The Victor Standard: Grounded Reliability" with "Safety comes first", implementing the 4 customer security pillars from the user's reference image while translating the aesthetic to Victor Mobility's signature light corporate brand palette.
