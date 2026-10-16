@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { IndiaContent, MediaAsset } from "@/types/content";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface HeroProps {
   content: IndiaContent;
@@ -84,6 +85,20 @@ const SLIDE_INTERVAL_MS = 2000;
 export default function Hero({ content }: HeroProps) {
   const isUae = content.region === "uae";
   const prefix = isUae ? "/uae" : "/india";
+  const { dict } = useLanguage();
+
+  const slides = isUae
+    ? HERO_SLIDES
+    : HERO_SLIDES.map((slide, idx) => {
+        const localized = dict.hero?.slides?.[idx];
+        return {
+          ...slide,
+          category: localized?.category || slide.category,
+          title: localized?.title || slide.title,
+          subtitle: localized?.subtitle || slide.subtitle,
+          badges: localized?.badges || slide.badges,
+        };
+      });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartXRef = useRef<number | null>(null);
@@ -132,7 +147,7 @@ export default function Hero({ content }: HeroProps) {
     touchStartXRef.current = null;
   };
 
-  const currentSlide = HERO_SLIDES[currentIndex];
+  const currentSlide = slides[currentIndex] || slides[0];
 
   return (
     <section
@@ -147,7 +162,7 @@ export default function Hero({ content }: HeroProps) {
     >
       {/* Background Image Slides (Smooth Crossfade, Natural Graded Photography) */}
       <div className="absolute inset-0 z-0">
-        {HERO_SLIDES.map((slide, idx) => (
+        {slides.map((slide, idx) => (
           <div
             key={slide.slug}
             className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
@@ -207,7 +222,7 @@ export default function Hero({ content }: HeroProps) {
               href={`${prefix}/services/${currentSlide.slug}`}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-zinc-950 font-semibold text-sm sm:text-base shadow-[0_4px_24px_rgba(255,255,255,0.22)] hover:bg-zinc-100 hover:shadow-[0_6px_32px_rgba(255,255,255,0.32)] hover:-translate-y-0.5 transition-all duration-200 group text-center"
             >
-              <span>Explore Service</span>
+              <span>{isUae ? "Explore Service" : dict.hero.exploreService}</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
 
@@ -215,7 +230,7 @@ export default function Hero({ content }: HeroProps) {
               href={`${prefix}/contact`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 backdrop-blur-md font-medium text-sm sm:text-base hover:-translate-y-0.5 transition-all duration-200 text-center shadow-sm"
             >
-              <span>Discuss Requirement</span>
+              <span>{isUae ? "Discuss Requirement" : dict.hero.discussRequirement}</span>
             </Link>
           </div>
         </div>
@@ -224,7 +239,7 @@ export default function Hero({ content }: HeroProps) {
         <div className="relative pt-6 pb-2 flex flex-col sm:flex-row items-center justify-center">
           {/* Centered slide indicator dashes inside luxury dock without arrows or numbers */}
           <div className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full bg-black/50 border border-white/15 backdrop-blur-xl shadow-2xl">
-            {HERO_SLIDES.map((slide, idx) => (
+            {slides.map((slide, idx) => (
               <button
                 key={slide.slug}
                 type="button"
@@ -241,7 +256,7 @@ export default function Hero({ content }: HeroProps) {
 
           {/* Discreet Caption per AGENTS.md */}
           <div className="sm:absolute sm:right-0 pt-3 sm:pt-0 text-[10px] text-white/40 text-center sm:text-right">
-            <span>Vehicle imagery illustrative. Actual fleet deployed per client roster.</span>
+            <span>{isUae ? "Vehicle imagery illustrative. Actual fleet deployed per client roster." : dict.hero.imageCaption}</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { UserCheck, Phone, MessageSquare, ArrowRight, ShieldCheck, Headphones, Quote, Award } from "lucide-react";
 import type { ContactData } from "@/types/content";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface PeopleSectionProps {
   contact: ContactData;
@@ -16,18 +19,20 @@ interface PeopleSectionProps {
 }
 
 export default function PeopleSection({ contact, founder }: PeopleSectionProps) {
+  const { dict } = useLanguage();
+
   return (
     <section id="about" tabIndex={-1} className="py-14 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            Leadership & Accountability
+            {dict.people?.eyebrow || "Leadership & Accountability"}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
-            The people behind Victor.
+            {dict.people?.title || "The people behind Victor."}
           </h2>
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            Every journey is backed by visionary leadership, commercial governance, and 24/7 on-ground route controllers dedicated to &ldquo;On Time Every Time.&rdquo;
+            {dict.people?.subtitle || "Every journey is backed by visionary leadership, commercial governance, and 24/7 on-ground route controllers dedicated to \"On Time Every Time.\""}
           </p>
         </div>
 

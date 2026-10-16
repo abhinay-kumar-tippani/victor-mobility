@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
-import indiaData from "@/content/india.json";
+import LanguageSwitcher, { MobileDrawerLanguageSelector } from "@/components/layout/LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface HeaderProps {
   contact: ContactData;
@@ -16,21 +17,26 @@ export default function Header({ contact }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const basePrefix = pathname.startsWith("/uae") ? "/uae" : "/india";
+  const { dict } = useLanguage();
 
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
+  const isIndia = basePrefix === "/india";
+
   const navItems = [
-    { label: "Home", href: basePrefix },
-    { label: "Services", href: `${basePrefix}/services` },
-    { label: "Fleet", href: `${basePrefix}/fleet` },
-    ...(basePrefix === "/india" ? [
-      { label: indiaData.planningTools.nav.estimator, href: "/india/estimator" },
-      { label: indiaData.planningTools.nav.rfp, href: "/india/rfp" },
-    ] : []),
-    { label: "About", href: `${basePrefix}/about` },
-    { label: "Contact", href: `${basePrefix}/contact` },
+    { label: isIndia ? dict.nav.home : "Home", href: basePrefix },
+    { label: isIndia ? dict.nav.services : "Services", href: `${basePrefix}/services` },
+    { label: isIndia ? dict.nav.fleet : "Fleet", href: `${basePrefix}/fleet` },
+    ...(isIndia
+      ? [
+          { label: dict.nav.estimator, href: "/india/estimator" },
+          { label: dict.nav.rfp, href: "/india/rfp" },
+        ]
+      : []),
+    { label: isIndia ? dict.nav.about : "About", href: `${basePrefix}/about` },
+    { label: isIndia ? dict.nav.contact : "Contact", href: `${basePrefix}/contact` },
   ];
 
   const isItemActive = (href: string) => {
@@ -176,26 +182,29 @@ export default function Header({ contact }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-brand-soft-neutral shadow-xs transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-[72px]">
+        <div className="flex items-center justify-between h-16 sm:h-[72px] gap-2">
           {/* Logo container: Crisp white background, intact Victor Artwork & Tagline */}
           <Link
             href={basePrefix}
-            className="flex items-center group py-1 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded"
+            className="flex items-center group py-1 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded shrink-0"
             aria-label="Victor Mobility - Home"
           >
-            <BrandLogo className="h-12 sm:h-[56px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
+            <BrandLogo className="h-11 sm:h-[52px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
           </Link>
 
           {/* Main destinations and India planning tools */}
-          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 whitespace-nowrap" aria-label="Main Navigation">
+          <nav
+            className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap"
+            aria-label="Main Navigation"
+          >
             {navItems.map((item) => {
               const active = isItemActive(item.href);
               return (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`min-h-[44px] inline-flex items-center text-sm font-semibold transition-all duration-150 px-2.5 xl:px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                  className={`min-h-[44px] inline-flex items-center text-xs xl:text-sm font-semibold transition-all duration-150 px-2 xl:px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                     active
                       ? "bg-brand-indigo text-white shadow-xs hover:bg-brand-blue"
                       : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-indigo/10 active:bg-brand-indigo active:text-white"
@@ -207,39 +216,45 @@ export default function Header({ contact }: HeaderProps) {
             })}
           </nav>
 
-          {/* Desktop CTAs: Direct Call & Request Quote */}
-          <div className="hidden lg:flex items-center gap-4 whitespace-nowrap shrink-0">
+          {/* Desktop CTAs: Language Switcher, Direct Call & Request Quote */}
+          <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5 whitespace-nowrap shrink-0">
+            {isIndia && <LanguageSwitcher id="desktop-language-switcher" />}
+
             <a
               href={contact.phoneHref}
-              className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3.5 py-2.5 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
-              title={`Call ${contact.phoneDisplay}`}
+              className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[44px]"
+              title={`${isIndia ? dict.nav.call : "Call"} ${contact.phoneDisplay}`}
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{contact.phoneDisplay}</span>
             </a>
+
             <Link
               href={`${basePrefix}/contact`}
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-5 py-2.5 rounded-xl shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-4 xl:px-5 py-2.5 rounded-xl shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[44px]"
             >
-              Enquire
+              {isIndia ? dict.nav.enquire : "Enquire"}
             </Link>
           </div>
 
-          {/* Mobile Menu Actions */}
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile Menu Actions: Compact Language Switcher, Call, Drawer Trigger */}
+          <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
+            {isIndia && <LanguageSwitcher id="mobile-language-switcher" compactOnMobile={true} />}
+
             <a
               href={contact.phoneHref}
               className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
-              aria-label={`Call ${contact.phoneDisplay}`}
+              aria-label={`${isIndia ? dict.nav.call : "Call"} ${contact.phoneDisplay}`}
             >
               <Phone className="w-5 h-5" />
             </a>
+
             <button
               ref={menuButtonRef}
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-ink rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
-              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={mobileMenuOpen ? dict.nav.closeMenu : dict.nav.menuLabel}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
             >
@@ -266,11 +281,13 @@ export default function Header({ contact }: HeaderProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-3">
-              <span className="text-sm font-bold text-brand-ink">Navigation</span>
+              <span className="text-sm font-bold text-brand-ink">
+                {isIndia ? dict.nav.menuLabel : "Navigation"}
+              </span>
               <button
                 type="button"
                 onClick={() => closeMenu(true)}
-                aria-label="Close menu"
+                aria-label={isIndia ? dict.nav.closeMenu : "Close menu"}
                 className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-brand-indigo focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <X className="w-5 h-5" />
@@ -282,7 +299,7 @@ export default function Header({ contact }: HeaderProps) {
                 const active = isItemActive(item.href);
                 return (
                   <Link
-                    key={item.label}
+                    key={item.href}
                     href={item.href}
                     onClick={() => closeMenu(false)}
                     aria-current={active ? "page" : undefined}
@@ -301,9 +318,12 @@ export default function Header({ contact }: HeaderProps) {
                 onClick={() => closeMenu(false)}
                 className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo hover:bg-brand-indigo/5 py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
-                Privacy Notice
+                {isIndia ? dict.nav.privacy : "Privacy Notice"}
               </Link>
             </nav>
+
+            {/* Prominent Mobile Drawer Language Switcher */}
+            {isIndia && <MobileDrawerLanguageSelector />}
 
             <div className="pt-2 space-y-3">
               <Link
@@ -312,14 +332,16 @@ export default function Header({ contact }: HeaderProps) {
                 className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo shadow-xs"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Discuss Your Requirement</span>
+                <span>{isIndia ? dict.nav.discussRequirement : "Discuss Your Requirement"}</span>
               </Link>
               <a
                 href={contact.phoneHref}
                 className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call {contact.phoneDisplay}</span>
+                <span>
+                  {isIndia ? dict.nav.call : "Call"} {contact.phoneDisplay}
+                </span>
               </a>
             </div>
 

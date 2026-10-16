@@ -6,6 +6,7 @@ import { Phone, MessageSquare, MapPin } from "lucide-react";
 import type { ContactData, OfficeItem } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import indiaData from "@/content/india.json";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface FooterProps {
   contact: ContactData;
@@ -22,7 +23,16 @@ export default function Footer({
 }: FooterProps) {
   const pathname = usePathname();
   const prefix = pathname.startsWith("/uae") ? "/uae" : "/india";
+  const isIndia = prefix === "/india";
+  const { dict, locale } = useLanguage();
   const publishedOffices = offices.filter((o) => o.published);
+
+  const whatsappMessage =
+    locale === "hi"
+      ? "नमस्ते Victor Mobility, मैं एक परिवहन आवश्यकता पर चर्चा करना चाहता हूँ।"
+      : locale === "te"
+      ? "నమస్కారం Victor Mobility, నేను రవాణా అవసరం గురించి చర్చించాలనుకుంటున్నాను."
+      : "Hello Victor Mobility, I would like to discuss a transport requirement.";
 
   return (
     <footer className="bg-brand-ink text-white border-t border-white/10">
@@ -38,11 +48,11 @@ export default function Footer({
               <BrandLogo className="h-11 sm:h-12 aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
             </Link>
             <p className="text-sm leading-relaxed text-brand-soft-neutral/80 max-w-sm">
-              Corporate employee transportation, campus bus shuttles, airport transfers, and executive luxury travel across 10 operational hubs pan-India.
+              {isIndia ? dict.footer.aboutText : "Corporate employee transportation, campus bus shuttles, airport transfers, and executive luxury travel across 10 operational hubs pan-India."}
             </p>
             {isoEnabled && (
               <p className="text-xs text-brand-soft-neutral/80 font-medium">
-                ISO 9001:2015 Quality Commitment
+                {isIndia ? dict.footer.isoCommitment : "ISO 9001:2015 Quality Commitment"}
               </p>
             )}
           </div>
@@ -50,16 +60,29 @@ export default function Footer({
           {/* Quick Navigation Links */}
           <div className="lg:col-span-2">
             <h2 className="text-sm font-bold uppercase tracking-wider text-brand-soft-neutral mb-3">
-              Explore
+              {isIndia ? dict.footer.exploreTitle : "Explore"}
             </h2>
             <ul className="space-y-2 text-sm text-brand-soft-neutral/80">
-              {prefix === "/india" && (["estimator", "rfp"] as const).map(key => <li key={key}><Link href={`/india/${key}`} className="inline-block py-1 transition-colors hover:text-white">{indiaData.planningTools.nav[key]}</Link></li>)}
+              {isIndia && (
+                <>
+                  <li>
+                    <Link href="/india/estimator" className="inline-block py-1 transition-colors hover:text-white">
+                      {dict.nav.estimator}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/india/rfp" className="inline-block py-1 transition-colors hover:text-white">
+                      {dict.nav.rfp}
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link
                   href={`${prefix}/services`}
                   className="hover:text-white transition-colors py-1 inline-block"
                 >
-                  Services
+                  {isIndia ? dict.nav.services : "Services"}
                 </Link>
               </li>
               <li>
@@ -67,7 +90,7 @@ export default function Footer({
                   href={`${prefix}/fleet`}
                   className="hover:text-white transition-colors py-1 inline-block"
                 >
-                  Our Fleet
+                  {isIndia ? dict.nav.fleet : "Our Fleet"}
                 </Link>
               </li>
               <li>
@@ -75,7 +98,7 @@ export default function Footer({
                   href={`${prefix}/about`}
                   className="hover:text-white transition-colors py-1 inline-block"
                 >
-                  About Victor
+                  {isIndia ? dict.nav.about : "About Victor"}
                 </Link>
               </li>
               <li>
@@ -83,7 +106,7 @@ export default function Footer({
                   href={`${prefix}#network`}
                   className="hover:text-white transition-colors py-1 inline-block"
                 >
-                  Operating Hubs
+                  {isIndia ? dict.footer.hubsTitle : "Operating Hubs"}
                 </Link>
               </li>
               <li>
@@ -91,7 +114,7 @@ export default function Footer({
                   href={`${prefix}/contact`}
                   className="hover:text-white transition-colors py-1 inline-block"
                 >
-                  Contact Desk
+                  {isIndia ? dict.nav.contact : "Contact Desk"}
                 </Link>
               </li>
             </ul>
@@ -100,7 +123,7 @@ export default function Footer({
           {/* Operations & Booking Contact Desk */}
           <div className="lg:col-span-3 space-y-3">
             <h2 className="text-sm font-bold uppercase tracking-wider text-brand-soft-neutral mb-3">
-              Direct Contact Desk
+              {isIndia ? dict.footer.contactTitle : "Direct Contact Desk"}
             </h2>
             <p className="font-semibold text-sm text-white">{contact.name}</p>
             <p className="text-xs text-brand-soft-neutral/75">{contact.role}</p>
@@ -115,9 +138,7 @@ export default function Footer({
               </a>
               <div>
                 <a
-                  href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(
-                    "Hello Victor Mobility, I would like to discuss a transport requirement."
-                  )}`}
+                  href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
@@ -132,7 +153,7 @@ export default function Footer({
           {/* Operating Hubs Summary */}
           <div className="lg:col-span-3 space-y-3">
             <h2 className="text-sm font-bold uppercase tracking-wider text-brand-soft-neutral mb-3">
-              Operating Offices
+              {isIndia ? dict.footer.hubsTitle : "Operating Offices"}
             </h2>
             <div className="space-y-2.5 text-xs text-brand-soft-neutral/80 leading-relaxed">
               {publishedOffices.map((office) => (
@@ -152,7 +173,7 @@ export default function Footer({
           <p>© {new Date().getFullYear()} Victor Mobility Pvt. Ltd. On Time Every Time.</p>
           <div className="flex items-center gap-4">
             <Link href={`${prefix}/privacy`} className="hover:text-white underline underline-offset-4">
-              Privacy Notice
+              {isIndia ? dict.nav.privacy : "Privacy Notice"}
             </Link>
             <span className="italic">{mediaCaption}</span>
           </div>

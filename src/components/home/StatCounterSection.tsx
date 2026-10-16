@@ -208,14 +208,25 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index }: SingleCo
   );
 }
 
+import { useLanguage } from "@/i18n/LanguageContext";
+
 interface StatCounterSectionProps {
   stats?: StatItemData[];
 }
 
-export default function StatCounterSection({ stats = DEFAULT_STATS }: StatCounterSectionProps) {
+export default function StatCounterSection({ stats }: StatCounterSectionProps) {
+  const { dict } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-20px 0px" });
   const prefersReducedMotion = useReducedMotion() ?? false;
+
+  const effectiveStats = (stats || DEFAULT_STATS).map((stat) => {
+    const localizedLines = dict.stats?.[stat.id as keyof typeof dict.stats];
+    return {
+      ...stat,
+      labelLines: localizedLines && localizedLines.length > 0 ? localizedLines : stat.labelLines,
+    };
+  });
 
   return (
     <section
@@ -227,7 +238,7 @@ export default function StatCounterSection({ stats = DEFAULT_STATS }: StatCounte
         {/* Brand Theme Crisp White Container with subtle border and elevation */}
         <div className="bg-white border border-brand-soft-neutral rounded-2xl md:rounded-3xl shadow-sm overflow-hidden">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-            {stats.map((stat, index) => (
+            {effectiveStats.map((stat, index) => (
               <SingleCounter
                 key={stat.id}
                 stat={stat}

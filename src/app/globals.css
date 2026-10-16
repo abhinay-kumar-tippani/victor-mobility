@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: var(--font-sans, 'Manrope'), 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans, 'Manrope'), 'Manrope', 'Noto Sans Devanagari', 'Noto Sans Telugu', 'Nirmala UI', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #15162F;
   background-color: #FFFFFF;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";

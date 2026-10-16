@@ -25,6 +25,11 @@ const config: Config = {
         sans: [
           "var(--font-sans, 'Manrope')",
           "Manrope",
+          "'Noto Sans Devanagari'",
+          "'Noto Sans Telugu'",
+          "'Nirmala UI'",
+          "'Kohinoor Devanagari'",
+          "'Kohinoor Telugu'",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",

@@ -8,10 +8,52 @@ export interface EnquiryDraft {
   requirement: string;
   passengerCount?: string;
   travelDate?: string;
+  locale?: string;
 }
 
 /** Shared by the full form and guided enquiry. Nothing is submitted here. */
 export function buildEnquiryMessage(draft: EnquiryDraft): string {
+  const isHi = draft.locale === "hi";
+  const isTe = draft.locale === "te";
+
+  if (isHi) {
+    return [
+      "*परिवहन आवश्यकता पूछताछ*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*संपर्क नाम:* ${draft.fullName.trim() || "[आपका नाम]"}`,
+      ...(draft.company?.trim() ? [`*कंपनी:* ${draft.company.trim()}`] : []),
+      `*आवश्यक सेवा:* ${draft.service}`,
+      ...(draft.category ? [`*वाहन श्रेणी:* ${draft.category}`] : []),
+      `*शहर / क्षेत्र:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*यात्री:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*यात्रा / प्रारंभ तिथि:* ${draft.travelDate}`] : []),
+      "*यात्रा विवरण:*",
+      draft.requirement.trim() || "[शिफ्ट समय, रूट कॉरिडोर, यात्री संख्या या तिथियां]",
+      "--------------------------------",
+      "Victor Mobility पूछताछ द्वारा तैयार",
+    ].join("\n");
+  }
+
+  if (isTe) {
+    return [
+      "*రవాణా అవసరాల విచారణ*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*సంప్రదించాల్సిన పేరు:* ${draft.fullName.trim() || "[మీ పేరు]"}`,
+      ...(draft.company?.trim() ? [`*కంపెనీ:* ${draft.company.trim()}`] : []),
+      `*కావలసిన సేవ:* ${draft.service}`,
+      ...(draft.category ? [`*వాహన విభాగం:* ${draft.category}`] : []),
+      `*నగరం / ప్రాంతం:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*ప్రయాణీకులు:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*ప్రయాణ / ప్రారంభ తేదీ:* ${draft.travelDate}`] : []),
+      "*ప్రయాణ వివరాలు:*",
+      draft.requirement.trim() || "[షిఫ్ట్ సమయాలు, రూట్ కారిడార్, ప్రయాణీకుల సంఖ్య లేదా తేదీలు]",
+      "--------------------------------",
+      "Victor Mobility విచారణ ద్వారా రూపొందించబడింది",
+    ].join("\n");
+  }
+
   return [
     "*Transport Requirement Enquiry*",
     `*${draft.companyName}*`,

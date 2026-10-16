@@ -19,6 +19,7 @@ import {
 import type { ContactData, EnquiryData, ServiceItem, CityItem } from "@/types/content";
 import type { EnquirySelectionEvent } from "@/lib/enquiryEvents";
 import { buildEnquiryMessage, canonicalCityName, isValidPassengerCount, isValidTravelDate } from "@/lib/enquiryMessage";
+import { useLanguage } from "@/i18n/LanguageContext";
 import JourneyFields from "@/components/contact/JourneyFields";
 
 interface EnquirySectionProps {
@@ -50,6 +51,7 @@ function EnquiryForm({
   isStandalonePage = false,
   companyName,
 }: EnquirySectionProps) {
+  const { dict, locale } = useLanguage();
   const isUae = contact.whatsappDigits?.startsWith("971");
   const effectiveCompany =
     companyName || (isUae ? "Victor Luxury Limousine LLC (Victor Mobility UAE)" : "Victor Mobility Pvt. Ltd.");
@@ -166,26 +168,26 @@ function EnquiryForm({
 
   const cityDisplay = selectedCity === "Other" && customCity.trim() ? customCity.trim() : selectedCity;
 
-  // Real-time accessible error calculations
+  // Real-time accessible error calculations using localized dictionary
   const nameError =
     (touched.name || submissionAttempted) && !fullName.trim()
-      ? "Please provide your name."
+      ? dict.enquiryForm.errors.name
       : "";
 
   const customCityError =
     selectedCity === "Other" && (touched.customCity || submissionAttempted) && !customCity.trim()
-      ? "Please specify the destination or route corridor."
+      ? dict.enquiryForm.errors.customCity
       : "";
 
   const requirementError =
     (touched.requirement || submissionAttempted) && !requirementText.trim()
-      ? "Please describe your transport requirement (passengers, schedule, or locations)."
+      ? dict.enquiryForm.errors.requirement
       : "";
 
   const passengerError = submissionAttempted && !isValidPassengerCount(passengerCount)
-    ? enquiry.planningFields?.passengerError : undefined;
+    ? dict.enquiryForm.errors.passengers : undefined;
   const dateError = submissionAttempted && !isValidTravelDate(travelDate)
-    ? enquiry.planningFields?.dateError : undefined;
+    ? dict.enquiryForm.errors.date : undefined;
 
   const draftMessage = buildEnquiryMessage({
     companyName: effectiveCompany,
@@ -193,6 +195,7 @@ function EnquiryForm({
     city: cityDisplay, requirement: requirementText,
     passengerCount: enquiry.planningFields ? passengerCount : undefined,
     travelDate: enquiry.planningFields ? travelDate : undefined,
+    locale,
   });
 
   const handleCopyDraft = async () => {
@@ -240,6 +243,9 @@ function EnquiryForm({
   const currentServiceObj = publishedServices.find((s) => s.title === selectedService);
 
   const getRequirementPlaceholder = () => {
+    if (locale === "hi" || locale === "te") {
+      return dict.enquiryForm.requirementPlaceholder;
+    }
     switch (selectedService) {
       case "Airport Transfers":
         return "Flight number, terminal, travel date & time, passenger count and luggage volume...";
@@ -254,9 +260,53 @@ function EnquiryForm({
       case "Rent-A-Car":
         return "Rental duration, preferred vehicle type, self-drive or chauffeur preference...";
       default:
-        return "Detail your requirements: passenger count, shift timings, pickup/drop locations, or dates...";
+        return dict.enquiryForm.requirementPlaceholder;
     }
   };
+
+  const journeyFieldsCopy = enquiry.planningFields ? {
+    passengerLabel: dict.enquiryForm.passengers,
+    dateLabel: dict.enquiryForm.date,
+    help: locale === "hi"
+      ? "सटीक वाहन क्षमता और शेड्यूलिंग योजना के लिए आवश्यक।"
+      : locale === "te"
+      ? "ఖచ్చితమైన వాహన సామర్థ్యం మరియు షెడ్యూలింగ్ ప్లానింగ్ కోసం అవసరం."
+      : (enquiry.planningFields.help || "Required for vehicle capacity and scheduling planning."),
+    passengerError: dict.enquiryForm.errors.passengers,
+    dateError: dict.enquiryForm.errors.date,
+  } : undefined;
+
+  const deskBadge = locale === "hi" ? "आवश्यकता डेस्क" : locale === "te" ? "అవసరాల డెస్క్" : "Requirement Desk";
+  const deskHeading = locale === "hi" ? "अपनी परिवहन आवश्यकता बताएं" : locale === "te" ? "మీ రవాణా అవసరాలను మాకు తెలియజేయండి" : "Tell us what you need to arrange";
+  const formTitle = locale === "hi" ? "परिवहन आवश्यकता पूछताछ" : locale === "te" ? "రవాణా అవసరాల విచారణ" : "Transport Requirement Enquiry";
+  const deskStatus = locale === "hi" ? "प्रत्यक्ष संचालन डेस्क" : locale === "te" ? "ప్రత్యక్ష ఆపరేషన్స్ డెస్క్" : "Direct Operations Desk";
+  const otherCityLabel = locale === "hi" ? "अन्य शहर / इंटर-सिटी" : locale === "te" ? "ఇతర నగరం / ఇంటర్-సిటీ" : "Other City / Inter-City";
+  const generalVehicleEnquiryLabel = locale === "hi" ? "सामान्य वाहन पूछताछ" : locale === "te" ? "సాధారణ వాహన విచారణ" : "General Vehicle Enquiry";
+  const summaryTitle = locale === "hi" ? "पूछताछ विवरण सारांश:" : locale === "te" ? "విచారణ స్పెసిఫికేషన్ సారాంశం:" : "Enquiry Specification Summary:";
+  const speakDirectlyTitle = locale === "hi" ? "सीधे बात करना चाहते हैं?" : locale === "te" ? "నేరుగా మాట్లాడాలనుకుంటున్నారా?" : "Prefer to Speak Directly?";
+  const speakDirectlyDesc = locale === "hi"
+    ? "कॉर्पोरेट अनुबंधों और तत्काल यात्रा आवश्यकताओं पर चर्चा के लिए हमारे संचालन और व्यावसायिक विकास साझेदार व्यावसायिक घंटों के दौरान उपलब्ध हैं।"
+    : locale === "te"
+    ? "కార్పొరేట్ ఒప్పందాలు మరియు అత్యవసర ప్రయాణ అవసరాలను చర్చించడానికి వ్యాపార వేళల్లో మా ఆపరేషన్స్ మరియు బిజినెస్ డెవలప్‌మెంట్ భాగస్వామి అందుబాటులో ఉంటారు."
+    : "Our operations and business development partner is available during business hours to discuss corporate contracts and urgent travel needs.";
+  const callDirectLabel = locale === "hi" ? "सीधे कॉल करें" : locale === "te" ? "నేరుగా కాల్ చేయండి" : "Call Direct";
+  const directWhatsappLabel = locale === "hi" ? "सीधा व्हाट्सएप" : locale === "te" ? "డైరెక్ట్ వాట్సాప్" : "Direct WhatsApp";
+  const transparentProcessTitle = locale === "hi" ? "पारदर्शी पूछताछ प्रक्रिया" : locale === "te" ? "పారదర్శక విచారణ ప్రక్రియ" : "Transparent Enquiry Process";
+  const transparentStep1 = locale === "hi"
+    ? "मार्ग और क्षमता समीक्षा के लिए हमारे संचालन डेस्क द्वारा पूछताछ सीधे प्राप्त की जाती है।"
+    : locale === "te"
+    ? "రూట్ మరియు సామర్థ్య సమీక్ష కోసం మా ఆపరేషన్స్ డెస్క్ ద్వారా విచారణ నేరుగా స్వీకరించబడుతుంది."
+    : "Enquiry received directly by our operations desk for route and capacity review.";
+  const transparentStep2 = locale === "hi"
+    ? "अनुकूलित वाहन विकल्प, रूट शेड्यूल और स्पष्ट शर्तों पर आपके साथ चर्चा की जाती है।"
+    : locale === "te"
+    ? "అనుకూలమైన వాహన ఎంపికలు, రూట్ షెడ్యూల్ మరియు స్పష్టమైన నిబంధనలు మీతో చర్చించబడతాయి."
+    : "Tailored vehicle options, route schedule, and clear terms discussed with you.";
+  const transparentStep3 = locale === "hi"
+    ? "समर्पित ड्राइवर और वाहन प्रेषण विवरण के साथ प्रत्यक्ष पुष्टि।"
+    : locale === "te"
+    ? "ప్రత్యేక డ్రైవర్ మరియు వాహన పంపకం వివరాలతో ప్రత్యక్ష నిర్ధారణ."
+    : "Direct confirmation with dedicated chauffeur and vehicle dispatch details.";
 
   return (
     <section
@@ -270,19 +320,19 @@ function EnquiryForm({
         {/* Section Header */}
         <div className={`max-w-3xl ${isStandalonePage ? "mb-6 sm:mb-8" : "mb-8 sm:mb-12"}`}>
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            Requirement Desk
+            {deskBadge}
           </span>
           {isStandalonePage ? (
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
-              Tell us what you need to arrange
+              {deskHeading}
             </h1>
           ) : (
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
-              Tell us what you need to arrange
+              {deskHeading}
             </h2>
           )}
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            Fill in your transport details below to prepare a structured WhatsApp enquiry, or call our operations desk directly.
+            {dict.enquiryForm.subtitle}
           </p>
         </div>
 
@@ -295,17 +345,17 @@ function EnquiryForm({
                   <Briefcase className="w-4 h-4" />
                 </div>
                 <span className="font-bold text-sm sm:text-base text-brand-ink">
-                  Transport Requirement Enquiry
+                  {formTitle}
                 </span>
               </div>
               <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
-                Direct Operations Desk
+                {deskStatus}
               </span>
             </div>
 
             {selectedCategory && (
               <div className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-indigo/10 border border-brand-indigo/25 text-xs font-semibold text-brand-indigo">
-                <span>Preferred Category: <strong>{selectedCategory}</strong></span>
+                <span>{locale === "hi" ? "पसंदीदा श्रेणी:" : locale === "te" ? "ఇష్టపడే విభాగం:" : "Preferred Category:"} <strong>{selectedCategory}</strong></span>
                 <button
                   type="button"
                   onClick={() => setSelectedCategory(null)}
@@ -326,7 +376,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <User className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Your Name *</span>
+                    <span>{dict.enquiryForm.name} *</span>
                   </label>
                   <input
                     id="enquiry-name-input"
@@ -339,7 +389,7 @@ function EnquiryForm({
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-                    placeholder="e.g. Rahul Sharma"
+                    placeholder={dict.enquiryForm.namePlaceholder}
                     className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                       nameError
                         ? "border-red-500 focus:ring-2 focus:ring-red-400"
@@ -360,7 +410,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <Building2 className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Company (optional)</span>
+                    <span>{dict.enquiryForm.company}</span>
                   </label>
                   <input
                     id="enquiry-company-input"
@@ -368,7 +418,7 @@ function EnquiryForm({
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="e.g. Acme Corporation (optional)"
+                    placeholder={dict.enquiryForm.companyPlaceholder}
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
                   />
                 </div>
@@ -382,7 +432,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <Briefcase className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Service Needed *</span>
+                    <span>{dict.enquiryForm.service} *</span>
                   </label>
                   <select
                     id={serviceId}
@@ -390,7 +440,7 @@ function EnquiryForm({
                     onChange={(e) => setSelectedService(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
                   >
-                    <option value="General Vehicle Enquiry">General Vehicle Enquiry</option>
+                    <option value="General Vehicle Enquiry">{generalVehicleEnquiryLabel}</option>
                     {publishedServices.map((s) => (
                       <option key={s.slug} value={s.title}>
                         {s.title}
@@ -405,7 +455,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink mb-2 cursor-pointer"
                   >
                     <MapPin className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>City or Region *</span>
+                    <span>{dict.enquiryForm.city} *</span>
                   </label>
                   <select
                     id={cityId}
@@ -418,7 +468,7 @@ function EnquiryForm({
                         {c.name}{c.state ? ` (${c.state})` : c.emirate ? ` (${c.emirate})` : ""}
                       </option>
                     ))}
-                    <option value="Other">Other City / Inter-City</option>
+                    <option value="Other">{otherCityLabel}</option>
                   </select>
                 </div>
               </div>
@@ -430,7 +480,7 @@ function EnquiryForm({
                     htmlFor={customCityId}
                     className="text-xs font-bold uppercase tracking-wider text-brand-ink block mb-2 cursor-pointer"
                   >
-                    Specify City / Route Corridor *
+                    {dict.enquiryForm.customCity} *
                   </label>
                   <input
                     id={customCityId}
@@ -442,7 +492,7 @@ function EnquiryForm({
                     value={customCity}
                     onChange={(e) => setCustomCity(e.target.value)}
                     onBlur={() => setTouched((prev) => ({ ...prev, customCity: true }))}
-                    placeholder="Enter destination or route corridor"
+                    placeholder={dict.enquiryForm.customCityPlaceholder}
                     className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                       customCityError
                         ? "border-red-500 focus:ring-2 focus:ring-red-400"
@@ -459,7 +509,7 @@ function EnquiryForm({
               )}
 
               {enquiry.planningFields && (
-                <JourneyFields copy={enquiry.planningFields} passengerCount={passengerCount} travelDate={travelDate} onPassengerChange={setPassengerCount} onDateChange={setTravelDate} passengerError={passengerError} dateError={dateError} />
+                <JourneyFields copy={journeyFieldsCopy || enquiry.planningFields} passengerCount={passengerCount} travelDate={travelDate} onPassengerChange={setPassengerCount} onDateChange={setTravelDate} passengerError={passengerError} dateError={dateError} />
               )}
 
               {/* Requirement Details */}
@@ -470,7 +520,7 @@ function EnquiryForm({
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-ink cursor-pointer"
                   >
                     <FileText className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>Journey or Schedule Details *</span>
+                    <span>{dict.enquiryForm.requirement} *</span>
                   </label>
                   {currentServiceObj && currentServiceObj.enquiryDetails.length > 0 && (
                     <span className="text-[11px] text-brand-indigo font-medium hidden sm:inline-block">
@@ -507,7 +557,7 @@ function EnquiryForm({
               <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/70">
-                    Enquiry Specification Summary:
+                    {summaryTitle}
                   </span>
                   <button
                     type="button"
@@ -518,12 +568,12 @@ function EnquiryForm({
                     {copied ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700 font-bold">Copied!</span>
+                        <span className="text-emerald-700 font-bold">{dict.enquiryForm.copied}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5 text-brand-indigo" />
-                        <span>Copy Summary</span>
+                        <span>{dict.enquiryForm.copyDraft}</span>
                       </>
                     )}
                   </button>
@@ -537,7 +587,7 @@ function EnquiryForm({
               <div className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-soft-neutral/40 border border-brand-soft-neutral text-xs text-brand-ink/80 leading-relaxed">
                 <Info className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
                 <div>
-                  This opens your message in WhatsApp. Review and send it to our team to discuss arrangements.
+                  {dict.enquiryForm.whatsappExplainer}
                 </div>
               </div>
 
@@ -547,7 +597,7 @@ function EnquiryForm({
                 className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
                 <Send className="w-4 h-4" />
-                <span>{enquiry.submitLabel}</span>
+                <span>{dict.enquiryForm.submit}</span>
               </button>
             </form>
           </div>
@@ -557,11 +607,11 @@ function EnquiryForm({
             {/* Direct Calling Card */}
             <div className="bg-brand-ink text-white rounded-2xl p-8 sm:p-10 shadow-lg">
               <span className="text-xs font-bold uppercase tracking-widest text-brand-soft-neutral/70 block mb-2">
-                Immediate Assistance
+                {locale === "hi" ? "त्वरित सहायता" : locale === "te" ? "తక్షణ సహాయం" : "Immediate Assistance"}
               </span>
-              <h3 className="text-2xl font-bold mb-4">Prefer to Speak Directly?</h3>
+              <h3 className="text-2xl font-bold mb-4">{speakDirectlyTitle}</h3>
               <p className="text-sm text-brand-soft-neutral/80 leading-relaxed mb-6">
-                Our operations and business development partner is available during business hours to discuss corporate contracts and urgent travel needs.
+                {speakDirectlyDesc}
               </p>
 
               <div className="space-y-4">
@@ -574,7 +624,7 @@ function EnquiryForm({
                   </div>
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-brand-soft-neutral/70 block">
-                      Call Direct
+                      {callDirectLabel}
                     </span>
                     <span className="text-base font-bold text-white group-hover:text-brand-soft-neutral">
                       {contact.phoneDisplay}
@@ -584,7 +634,11 @@ function EnquiryForm({
 
                 <a
                   href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(
-                    "Hello Victor Mobility team, I would like to discuss a transport requirement."
+                    locale === "hi"
+                      ? "नमस्ते Victor Mobility टीम, मैं परिवहन आवश्यकता पर चर्चा करना चाहता हूँ।"
+                      : locale === "te"
+                      ? "నమస్కారం Victor Mobility బృందం, నేను రవాణా అవసరాల గురించి చర్చించాలనుకుంటున్నాను."
+                      : "Hello Victor Mobility team, I would like to discuss a transport requirement."
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -595,7 +649,7 @@ function EnquiryForm({
                   </div>
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-emerald-200 block">
-                      Direct WhatsApp
+                      {directWhatsappLabel}
                     </span>
                     <span className="text-base font-bold text-white">
                       {contact.whatsappDisplay}
@@ -613,20 +667,20 @@ function EnquiryForm({
             {/* Operating Guidelines Card */}
             <div className="bg-brand-warm-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral">
               <h4 className="text-sm font-bold text-brand-ink mb-3">
-                Transparent Enquiry Process
+                {transparentProcessTitle}
               </h4>
               <ul className="space-y-2.5 text-xs text-brand-ink/75">
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                  <span>Enquiry received directly by our operations desk for route and capacity review.</span>
+                  <span>{transparentStep1}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                  <span>Tailored vehicle options, route schedule, and clear terms discussed with you.</span>
+                  <span>{transparentStep2}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                  <span>Direct confirmation with dedicated chauffeur and vehicle dispatch details.</span>
+                  <span>{transparentStep3}</span>
                 </li>
               </ul>
             </div>

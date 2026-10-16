@@ -2,15 +2,19 @@
 
 import Link from "next/link";
 import { ShieldCheck, Clock, FileText, Leaf, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function VictorStandardSection() {
+  const { dict } = useLanguage();
+
   const safetyPillars = [
     {
       id: "verified-drivers",
       icon: ShieldCheck,
       number: "01",
-      title: "Verified drivers (BGV & PCC)",
+      title: dict.safetySection?.pillars?.[0]?.title || "Verified drivers (BGV & PCC)",
       description:
+        dict.safetySection?.pillars?.[0]?.description ||
         "Every chauffeur holds a valid commercial licence, background verification and a Police Clearance Certificate.",
       iconColor: "text-brand-indigo",
     },
@@ -18,8 +22,9 @@ export default function VictorStandardSection() {
       id: "women-safety",
       icon: Clock,
       number: "02",
-      title: "Safety for women passengers",
+      title: dict.safetySection?.pillars?.[1]?.title || "Safety for women passengers",
       description:
+        dict.safetySection?.pillars?.[1]?.description ||
         "Escort protocols, live route monitoring and SOS coordination for evening and night shifts.",
       iconColor: "text-brand-violet",
     },
@@ -27,8 +32,9 @@ export default function VictorStandardSection() {
       id: "defensive-driving",
       icon: FileText,
       number: "03",
-      title: "Defensive driving",
+      title: dict.safetySection?.pillars?.[2]?.title || "Defensive driving",
       description:
+        dict.safetySection?.pillars?.[2]?.description ||
         "Speed limits, lane discipline, seatbelts and hands-free kits to stop distracted driving.",
       iconColor: "text-brand-blue",
     },
@@ -36,8 +42,9 @@ export default function VictorStandardSection() {
       id: "pre-trip-checks",
       icon: Leaf,
       number: "04",
-      title: "Pre-trip vehicle checks",
+      title: dict.safetySection?.pillars?.[3]?.title || "Pre-trip vehicle checks",
       description:
+        dict.safetySection?.pillars?.[3]?.description ||
         "Air conditioning, tyres, sanitisation, charging and upholstery are inspected before every departure.",
       iconColor: "text-emerald-700",
     },
@@ -54,17 +61,16 @@ export default function VictorStandardSection() {
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
-            Operational Rigour & Security
+            {dict.safetySection.eyebrow}
           </span>
           <h2
             id="safety-heading"
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-3"
           >
-            Safety comes first
+            {dict.safetySection.title}
           </h2>
           <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
-            Passenger security and chauffeur professionalism are the foundation of
-            every trip.
+            {dict.safetySection.subtitle}
           </p>
         </div>
 
@@ -104,17 +110,17 @@ export default function VictorStandardSection() {
         <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-3xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="max-w-xl">
             <h4 className="text-base sm:text-lg font-bold text-brand-ink mb-1">
-              Need customized transport retainers or employee shift shuttle planning?
+              {dict.safetySection.bannerTitle}
             </h4>
             <p className="text-sm text-brand-ink/75 leading-relaxed">
-              Speak directly with our 24/7 operations desk for verified driver rosters and SLA agreements across India.
+              {dict.safetySection.bannerDescription}
             </p>
           </div>
           <Link
             href="/india/contact"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white px-5 py-3.5 rounded-xl transition-all shadow-sm hover:shadow-md shrink-0 hover:scale-[1.02] active:scale-98"
           >
-            <span>Speak with our operations desk</span>
+            <span>{dict.safetySection.bannerCta}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

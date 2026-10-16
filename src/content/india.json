@@ -1,5 +1,30 @@
 {
   "schemaVersion": 1,
+  "countrySelector": {
+    "eyebrow": "Welcome to Victor Mobility",
+    "title": "Your journey starts here.",
+    "description": "Choose your country to explore our services and plan your journey with Victor.",
+    "headerLabel": "Select your country",
+    "imageNote": "Vehicle imagery is illustrative.",
+    "countries": [
+      {
+        "name": "India",
+        "label": "India",
+        "href": "/india",
+        "action": "Explore India",
+        "image": "/images/india/hero.png",
+        "imagePosition": "65% center"
+      },
+      {
+        "name": "UAE",
+        "label": "United Arab Emirates",
+        "href": "/uae",
+        "action": "Explore UAE",
+        "image": "/images/uae/uae-hero.jpg",
+        "imagePosition": "center center"
+      }
+    ]
+  },
   "fleetPresentation": {
     "eyebrow": "The Victor fleet",
     "title": "The right vehicle. For every journey.",

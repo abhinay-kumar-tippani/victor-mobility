@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { ServiceItem } from "@/types/content";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ServicesSectionProps {
   services: ServiceItem[];
@@ -65,6 +66,7 @@ const SERVICE_META: Record<string, ServiceMeta> = {
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
   const publishedServices = services.filter((s) => s.published);
+  const { dict } = useLanguage();
 
   return (
     <section
@@ -78,17 +80,16 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
             <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
-              Comprehensive Fleet & Commute Solutions
+              {dict.servicesSection.eyebrow}
             </span>
             <h2
               id="services-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-3"
             >
-              What do you need to arrange?
+              {dict.servicesSection.title}
             </h2>
             <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
-              Explore our core corporate mobility services. Hover over any service
-              card to preview the fleet in action, or request an immediate quotation.
+              {dict.servicesSection.description}
             </p>
           </div>
 
@@ -96,7 +97,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
             href="/india/services"
             className="inline-flex items-center gap-2 text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0 group/link"
           >
-            <span>All Service Specifications</span>
+            <span>{dict.servicesSection.allServicesLink}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
           </Link>
         </div>
@@ -145,12 +146,12 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
 
                   {/* Service Title */}
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2.5 transition-colors duration-300 group-hover:text-white">
-                    {service.title}
+                    {dict.servicesSection.items[service.slug]?.title || service.title}
                   </h3>
 
                   {/* Service Description */}
                   <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-white/90">
-                    {service.shortDescription}
+                    {dict.servicesSection.items[service.slug]?.description || service.shortDescription}
                   </p>
                 </div>
 
@@ -160,14 +161,14 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                     href={`/india/contact?service=${service.slug}#enquiry`}
                     className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-[#1E2248] text-white shadow-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#1E2248] group-hover:shadow-lg hover:scale-105 active:scale-95"
                   >
-                    Request a quote
+                    {dict.servicesSection.requestQuote}
                   </Link>
 
                   <Link
                     href={`/india/services/${service.slug}`}
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 group-hover:text-white transition-all duration-300 group-hover:translate-x-1"
                   >
-                    <span>View details</span>
+                    <span>{dict.servicesSection.viewDetails}</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </Link>
                 </div>

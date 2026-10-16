@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 /* -------------------------------------------------------------------------- */
 /*  12 Authentic Enterprise Client Logos (Tailored for Deep Navy Tiles)        */
@@ -237,6 +238,7 @@ function LogoTile({ company }: { company: CompanyItem }) {
 
 export default function TrustedCompaniesSection() {
   const headingId = useId();
+  const { dict } = useLanguage();
 
   return (
     <section
@@ -281,16 +283,16 @@ export default function TrustedCompaniesSection() {
       {/* Header Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
         <span className="text-xs uppercase tracking-widest font-bold text-indigo-400 block mb-2">
-          Enterprise Clientele & Partners
+          {dict.companies.eyebrow}
         </span>
         <h2
           id={headingId}
           className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3"
         >
-          Companies We Work With
+          {dict.companies.title}
         </h2>
         <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Delivering disciplined, roster-synchronized employee transportation and executive mobility for leading multinational corporations across India.
+          {dict.companies.description}
         </p>
       </div>
 

@@ -1,41 +1,28 @@
-# Current Task: Operational Rigour & Security "Safety comes first" (4 Core Pillars in Brand Palette) — 16 October 2026
+# Current Task: Victor Mobility India Multi-Language Selector (English, हिन्दी, తెలుగు) — 16 October 2026
 
 Owner: Antigravity.
-Scope: Replaced "The Victor Standard: Grounded Reliability" with the refined "Safety comes first" section, implementing the 4 customer security pillars from the user's reference image while translating the aesthetic to Victor Mobility's signature corporate brand palette.
+Scope: Implemented a working language selector on the Victor Mobility India navbar offering exactly three languages (English `en`, हिन्दी `hi`, తెలుగు `te`), with seamless corporate styling, comprehensive text translations, form state preservation, and cross-session persistence.
 
 ### Completed in this Milestone:
-1. **Refactored Section (`src/components/home/VictorStandardSection.tsx`)**:
-   - Replaced heading with **"Safety comes first"** and subtitle with **"Passenger security and chauffeur professionalism are the foundation of every trip."**.
-   - Implemented 4 pillars matching the user's reference image:
-     - `01` **Verified drivers (BGV & PCC)** (`ShieldCheck` icon)
-     - `02` **Safety for women passengers** (`Clock` icon)
-     - `03` **Defensive driving** (`FileText` icon)
-     - `04` **Pre-trip vehicle checks** (`Leaf` icon)
-2. **Brand Palette Alignment**:
-   - Discarded the third-party dark purple theme from the uploaded image.
-   - Used Victor Mobility's corporate theme: pure white background (`bg-white`), warm-white elevated cards (`bg-brand-warm-white/70 hover:bg-white`), soft neutral borders (`border-brand-soft-neutral/90`), brand ink typography (`text-brand-ink`), and brand indigo button (`#31326F`).
-3. **Quality Gates Passed**:
+1. **Interactive Language Switcher (`src/components/layout/LanguageSwitcher.tsx`)**:
+   - Compact navbar button featuring a globe icon, current active language label, and chevron.
+   - Clean dropdown menu with white background, indigo accents, subtle borders, rounded corners, and checkmarks beside the active selection.
+   - Fully keyboard accessible (Arrow Up/Down, Enter/Space, Escape dismissal, outside click dismissal).
+   - Dedicated mobile drawer language selector (`MobileDrawerLanguageSelector`) laid out cleanly for one-tap discovery.
+2. **Localization Architecture (`src/i18n/`)**:
+   - `src/i18n/types.ts`: Strongly typed `TranslationDictionary` interface and locale definitions.
+   - `src/i18n/LanguageContext.tsx`: Client provider and hook with hydration-safe initial render and persistence in `localStorage` + cookie.
+   - `src/i18n/dictionaries/`: Natural, professional corporate translations for `en.ts`, `hi.ts`, and `te.ts`.
+   - Dynamic `<html lang="en|hi|te" dir="ltr">` sync with zero language flash via early script in `src/app/layout.tsx`.
+3. **Comprehensive Coverage & Invariance**:
+   - Full translation coverage across nav, hero, statistics, clientele, services, safety, fleet, presence map, journey, leadership, FAQ, contact forms, journey estimator, RFP desk, and enquiry assistant.
+   - All sample prices (`₹2,200`, `₹3,800`, `₹7,200`, `₹6,500`), arithmetic calculations, contact phone numbers, URLs, and canonical company details remain strictly identical across all languages.
+   - Form state and wizard step progress are preserved without reset when switching languages.
+4. **Quality Gates Passed**:
    - `tsc --noEmit`: 0 errors.
    - `next lint`: 0 warnings, 0 errors.
    - `next build`: 73/73 static SSG pages successfully compiled.
-   - Visual Playwright verifications:
-     - [Desktop View (1440px)](file:///d:/victor%20website/docs/screenshots/safety-section-desktop.png)
-     - [Tablet View (768px)](file:///d:/victor%20website/docs/screenshots/safety-section-tablet.png)
-     - [Mobile View (390px, 0 overflow)](file:///d:/victor%20website/docs/screenshots/safety-section-mobile.png)
-3. **3 Directional Continuous Sliders**:
-   - **Row 1**: Left to Right (`slider-ltr`, 34s duration)
-   - **Row 2**: Right to Left (`slider-rtl`, 38s duration)
-   - **Row 3**: Left to Right (`slider-ltr-slow`, 40s duration)
-   - Staggered starting indices for an authentic visual mosaic without uniform alignment.
-   - Smooth CSS keyframe transforms with `linear infinite` and GPU hardware acceleration (`will-change-transform`).
-   - Pause on hover interaction (`animation-play-state: paused`).
-   - Left and right gradient fade masks for seamless edge-to-edge aesthetics (`from-[#07182C] to-transparent`).
-   - Reduced-motion accessibility fallback.
-4. **Quality Gates Passed**:
-   - `npm run type-check`: 0 errors.
-   - `npm run lint`: 0 warnings, 0 errors.
-   - `npm run build`: 73/73 static SSG pages successfully compiled.
-   - Updated Playwright captures: [Desktop Page View](file:///d:/victor%20website/docs/screenshots/companies-desktop.png), [Desktop Element View](file:///d:/victor%20website/docs/screenshots/companies-element.png), [Tablet View](file:///d:/victor%20website/docs/screenshots/companies-tablet.png), [Mobile View](file:///d:/victor%20website/docs/screenshots/companies-mobile.png).
+   - Automated Playwright verification (`scripts/verify-language-selector.mjs`): 34 assertions passed across English, Hindi, and Telugu at 1440px, 1024px, 390px, and 320px with zero horizontal overflow.
 
 ---
 

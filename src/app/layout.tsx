@@ -141,8 +141,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" dir="ltr" className={manrope.variable}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var l=localStorage.getItem('victor_locale');if(l&&('en'===l||'hi'===l||'te'===l)){document.documentElement.lang=l;}document.documentElement.dir='ltr';}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}

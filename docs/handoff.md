@@ -1,5 +1,101 @@
 # Handoff
 
+## 16 October 2026 — Victor Mobility India Multi-Language Selector (English, हिन्दी, తెలుగు)
+
+Owner: Antigravity. Implemented a fully functional, corporate-styled multi-language localization layer and interactive navbar selector for the Victor Mobility India website supporting three languages:
+- **English** (`en`) — Default
+- **हिन्दी** (`hi`)
+- **తెలుగు** (`te`)
+
+### Design & User Experience
+- **Navbar Selector (`src/components/layout/LanguageSwitcher.tsx`)**:
+  - Compact button in header featuring a globe icon, active native language name (`English`, `हिन्दी`, `తెలుగు`), and chevron indicator.
+  - Dropdown menu with clean white background, indigo highlights, soft borders, rounded corners, and checkmarks beside the currently selected language.
+  - Full keyboard accessibility: Arrow Up/Down navigation, Enter/Space selection, Escape dismissal, outside-click dismissal, and visible focus rings.
+- **Mobile Experience**:
+  - Compact header button for immediate mobile switching.
+  - Dedicated full-width language selector inside the mobile navigation drawer (`MobileDrawerLanguageSelector`) with native and English names for immediate tap discovery.
+  - Accessible drawer close via Escape and backdrop tap.
+- **Brand Consistency**:
+  - Aligned strictly with `src/content/brand.json` (indigo `#31326F`, ink `#15162F`, warm-white `#F6F5F2`, soft neutral `#E5E4EA`).
+  - Preserves original raster logo and exact tagline: **"On Time Every Time."**
+
+### Functionality & Localization Coverage
+- **State & Persistence (`src/i18n/LanguageContext.tsx`)**:
+  - Defaults to English (`en`) for server-side generation (SSG) with zero hydration mismatches.
+  - Explicitly selected language is persisted across navigation, route changes, and full page reloads via `localStorage` (`victor_locale`) and cookies.
+  - Document `<html lang="en|hi|te" dir="ltr">` synchronization with zero flash of unlocalized content via an early inline script in `src/app/layout.tsx`.
+- **Complete Content Coverage**:
+  - Navigation bar and mobile drawer.
+  - Hero section (slides, category badges, CTA buttons).
+  - Key performance statistics counters (500+ vehicles, 50,000+ commuters, 99.4% SLA, 10 hubs).
+  - Clientele section ("Companies we work with").
+  - Services portfolio ("What do you need to arrange?" with hover reveal).
+  - Safety section ("Safety comes first" / "सुरक्षा सर्वोपरि" / "భద్రతకే ప్రథమ ప్రాధాన్యం" with 4 pillars).
+  - India fleet presentation (category tabs, models, specifications, and package notes).
+  - Regional operating presence map & corridor search.
+  - Victor journey milestones (2010 to present).
+  - Leadership accountability (founder Jahangir & partner Mujeeb).
+  - Frequently asked questions (FAQ).
+  - Requirement Desk & enquiry forms (`EnquirySection.tsx`).
+  - Journey Estimator (`JourneyEstimator.tsx` calculation summary & labels).
+  - Corporate RFP Desk (`RfpDesk.tsx` 3-step wizard & proposal brief).
+  - Guided enquiry assistant modal (`GuidedEnquiryAssistant.tsx`).
+  - Generated WhatsApp enquiry messages (dynamically localized draft formats).
+  - Corporate footer.
+- **Strict Invariance & Preservation**:
+  - Sample prices (**₹2,200**, **₹3,800**, **₹7,200**, **₹6,500**) stay identical across all languages.
+  - Arithmetic calculations (vehicle counts, km sums, and budget projections) remain unchanged.
+  - Contact numbers (`+91 91007 77768`, `+91 93965 46950`), external URLs, and canonical company details remain unaltered.
+  - Form state preservation: Visitor-entered inputs in forms, estimator parameters, and RFP wizard steps are preserved without reset when switching languages.
+  - Route stability: All `/india/*` routes and query parameters remain intact; `/uae` behavior preserved.
+- **Typography & Font Stack**:
+  - Integrated Google Fonts for `Noto Sans Devanagari` and `Noto Sans Telugu` in `src/app/globals.css` and `tailwind.config.ts` to ensure clean conjunct glyph rendering across all devices.
+
+### How to Edit Translations
+- **Translation Dictionaries**:
+  - English baseline: `src/i18n/dictionaries/en.ts`
+  - Hindi dictionary: `src/i18n/dictionaries/hi.ts`
+  - Telugu dictionary: `src/i18n/dictionaries/te.ts`
+  - Type definitions: `src/i18n/types.ts`
+- To update or add copy, edit the relevant key in all three dictionary files. If a key is missing in Hindi or Telugu, the `useLanguage` hook automatically falls back to English.
+
+### Quality Gates & Verification Passed
+1. **TypeScript (`tsc --noEmit`)**: 0 errors.
+2. **ESLint (`next lint`)**: 0 warnings, 0 errors.
+3. **Production SSG Build (`next build`)**: 73/73 static pages compiled successfully.
+4. **Automated Playwright Suite (`scripts/verify-language-selector.mjs`)**:
+   - 34 assertions passed across English, Hindi, and Telugu.
+   - Tested at 1440px desktop, 1024px tablet, 390px mobile, and 320px narrow mobile.
+   - Verified 0 horizontal overflow (`scrollWidth <= innerWidth`).
+   - Verified language persistence across page reload and route navigation (`/india` → `/india/about`).
+   - Verified form state and calculation preservation across language switching.
+   - Verified keyboard accessibility (Arrow navigation, Escape dismissal, Enter selection).
+
+### Screenshots
+- [English Desktop Navbar & Homepage](screenshots/lang-switcher-en-desktop.png)
+- [Language Dropdown Menu Open](screenshots/lang-switcher-dropdown-desktop.png)
+- [Hindi Homepage Desktop](screenshots/lang-hi-home-desktop.png)
+- [Telugu Homepage Desktop](screenshots/lang-te-home-desktop.png)
+- [Hindi Journey Estimator Desktop](screenshots/lang-hi-estimator-desktop.png)
+- [Telugu Corporate RFP Desk Desktop](screenshots/lang-te-rfp-desktop.png)
+- [Mobile Navigation Drawer Language Selector (390px)](screenshots/lang-switcher-mobile-drawer.png)
+- [Hindi Mobile View (390px)](screenshots/lang-hi-home-mobile.png)
+- [Telugu Mobile View (390px)](screenshots/lang-te-home-mobile.png)
+
+---
+
+Owner: Codex, at the user's direct request. `/` now renders a country-selection homepage instead of redirecting automatically to India. Two full-card links open `/india` and `/uae`. The user's request supersedes the earlier phase-one root redirect; `docs/brief.md` records this decision.
+
+- Server-rendered page in `src/app/page.tsx`, using the original logo, brand palette, existing regional illustrative images and exact tagline. Cards sit side by side on desktop and stack on phones, with keyboard focus styling and reduced-motion support.
+- Editable copy, images and destinations: `src/content/india.json` → `countrySelector`. Added root-specific metadata. Existing country pages and ongoing localization work are preserved.
+- Fixed three existing build blockers encountered during validation: restored `milestones` from journey content in `VictorJourneySection.tsx`; removed invalid whole-object string casts in estimator and RFP field labels, using their already-typed keys instead.
+- Checks passed: TypeScript, lint/type checks within the production build, all **73/73** static pages generated, and scoped `git diff --check`. Production browser verification confirmed both country links (India via keyboard Enter), browser Back returning to `/`, loaded card images and no browser errors. Checked 1440px desktop plus 390px and 320px phones; no horizontal overflow.
+- Screenshots: [Desktop](screenshots/country-home-desktop.jpg) · [Mobile](screenshots/country-home-mobile.jpg).
+- Local implementation only; no deployment. Owned preview server stopped after verification. The linked UAE page renders, but its existing India-specific shared copy/links still need a separate regional-content review before a UAE launch.
+
+---
+
 ## 16 October 2026 — Cleaner India fleet, sample prices, estimator and RFP desk
 
 Owner: Codex, implementing the user's direct follow-up requests. Local changes only; Antigravity can continue iteration. Concurrent Services, Journey, client logos, statistics and Safety section work is preserved.

@@ -17,7 +17,7 @@ The website must communicate both daily/group transport capability and luxury se
 - Domain has not yet been purchased.
 
 ## Release routes
-/ -> temporary redirect to /india
+/ -> country-selection homepage with links to /india and /uae (user request, 16 October 2026; supersedes the phase-one redirect)
 /india
 /india/services
 /india/services/[slug]
@@ -39,7 +39,7 @@ Provide "Call us" using +91 91007 77768 as an alternative.
 Do not create a fake submit endpoint. Email delivery can be connected if a real inbox/provider is available during the build.
 
 ## Deferred scope
-UAE content and launch; global selector; Arabic; customer accounts; payments; automated booking confirmation; live fleet availability; complex 3D scenes.
+Further UAE content and launch work; Arabic; customer accounts; payments; automated booking confirmation; live fleet availability; complex 3D scenes. The country selector is now authorised and links to the existing UAE route.
 The code should make regional extension straightforward without spending this deadline implementing those features.
 
 ## Definition of complete

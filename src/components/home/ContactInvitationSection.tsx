@@ -3,12 +3,22 @@
 import Link from "next/link";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 import type { ContactData } from "@/types/content";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ContactInvitationSectionProps {
   contact: ContactData;
 }
 
 export default function ContactInvitationSection({ contact }: ContactInvitationSectionProps) {
+  const { dict, locale } = useLanguage();
+
+  const whatsappMessage =
+    locale === "hi"
+      ? `नमस्ते ${contact.name}, मैं Victor Mobility के साथ यात्रा आवश्यकताओं पर चर्चा करना चाहता हूँ।`
+      : locale === "te"
+      ? `నమస్కారం ${contact.name}, నేను Victor Mobilityతో ప్రయాణ అవసరాల గురించి చర్చించాలనుకుంటున్నాను.`
+      : `Hello ${contact.name}, I would like to discuss travel requirements with Victor Mobility.`;
+
   return (
     <section id="contact" tabIndex={-1} className="py-16 sm:py-20 bg-white focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,13 +29,13 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
           <div className="relative z-10 max-w-4xl mx-auto space-y-8 text-center">
             <div className="space-y-3">
               <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block">
-                Direct Contact
+                {dict.nav.contact}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-                Tell us what you need to arrange.
+                {dict.contactSection.title}
               </h2>
               <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
-                Connect directly with our team to discuss employee transport, airport transfers, event logistics, or corporate fleet bookings across 10 operational hubs.
+                {dict.contactSection.subtitle}
               </p>
             </div>
 
@@ -48,33 +58,29 @@ export default function ContactInvitationSection({ contact }: ContactInvitationS
                   href="/india/contact"
                   className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white py-3 px-5 rounded-xl transition-colors shadow-sm text-center"
                 >
-                  <span>Request a quote</span>
+                  <span>{dict.servicesSection.requestQuote}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
 
                 <a
-                  href={`https://wa.me/${contact.whatsappDigits}?text=Hello%20Mujeeb,%20I%20would%20like%20to%20discuss%20travel%20requirements%20with%20Victor%20Mobility.`}
+                  href={`https://wa.me/${contact.whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 py-3 px-5 rounded-xl transition-colors text-center shadow-xs"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp ({contact.whatsappDisplay})</span>
+                  <span>{dict.contactSection.whatsappCta}</span>
                 </a>
 
                 <a
                   href={contact.phoneHref}
-                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold text-white/95 hover:text-white bg-white/10 hover:bg-white/20 py-3 px-5 rounded-xl border border-white/20 transition-colors text-center"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-semibold text-white/80 hover:text-white border border-white/20 hover:border-white/40 py-3 px-4 rounded-xl transition-colors text-center"
                 >
-                  <Phone className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Call {contact.phoneDisplay}</span>
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>{dict.contactSection.callCta}</span>
                 </a>
               </div>
             </div>
-
-            <p className="text-xs text-white/60">
-              Opening WhatsApp prepares a message draft for you to review and send to our team directly.
-            </p>
           </div>
         </div>
       </div>

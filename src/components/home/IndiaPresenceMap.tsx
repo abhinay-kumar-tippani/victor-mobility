@@ -7,6 +7,7 @@ import geography from "@/content/india-map.json";
 import type { OfficeItem, ContactData, CityItem } from "@/types/content";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
 import { canonicalCityName } from "@/lib/enquiryMessage";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface CityMeta {
   name: string;
@@ -192,6 +193,7 @@ export default function IndiaPresenceMap({
   const titleId = useId();
   const panelId = useId();
   const searchId = useId();
+  const { dict } = useLanguage();
 
   const availableCities = citiesData.flatMap(city => {
     const published = cities.find(item => item.published && canonicalCityName(item.name) === canonicalCityName(city.name));
@@ -287,10 +289,10 @@ export default function IndiaPresenceMap({
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
-            National Operating Network
+            {dict.presence.eyebrow}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight">
-            Our Pan-India Presence & Operating Hubs
+            {dict.presence.title}
           </h2>
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
             Active corporate mobility operations across 10 major commercial hubs and tech corridors.
@@ -606,7 +608,7 @@ export default function IndiaPresenceMap({
               {/* Arterial Corridors Served */}
               <div className="p-3.5 rounded-2xl bg-white border border-brand-soft-neutral space-y-1.5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-brand-ink/60 block">
-                  Key Corridors & Tech Hubs:
+                  {dict.presence.corridorsLabel}:
                 </span>
                 <p className="text-xs text-brand-ink/80 leading-relaxed font-semibold">
                   {selectedCity.corridors}
@@ -619,7 +621,7 @@ export default function IndiaPresenceMap({
                   href={`/india/contact?city=${encodeURIComponent(selectedCity.name)}`}
                   className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl shadow-xs transition-colors"
                 >
-                  <span>Enquire for {selectedCity.name}</span>
+                  <span>{dict.presence.enquireFor} {selectedCity.name}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
 
@@ -628,7 +630,7 @@ export default function IndiaPresenceMap({
                   className="w-full inline-flex items-center justify-center gap-2 text-xs font-semibold text-brand-ink/80 hover:text-brand-indigo py-2 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Call Operations Desk: {contact.phoneDisplay}</span>
+                  <span>{dict.presence.callHub}: {contact.phoneDisplay}</span>
                 </a>
               </div>
             </div>

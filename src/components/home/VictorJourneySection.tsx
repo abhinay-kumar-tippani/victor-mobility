@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Maximize2, X, ArrowRight, ShieldCheck, Leaf, Globe } from "lucide-react";
 import journeyData from "@/content/journey.json";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function VictorJourneySection() {
   const { eyebrow, title, subtitle, milestones } = journeyData;
@@ -13,6 +14,11 @@ export default function VictorJourneySection() {
   const pathname = usePathname();
   const isUae = pathname?.startsWith("/uae");
   const aboutHref = isUae ? "/uae/about" : "/india/about";
+  const { dict } = useLanguage();
+
+  const effectiveEyebrow = isUae ? eyebrow : dict.journey?.eyebrow || eyebrow;
+  const effectiveTitle = isUae ? title : dict.journey?.title || title;
+  const effectiveSubtitle = isUae ? subtitle : dict.journey?.subtitle || subtitle;
 
   // Close modal on ESC key
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -53,13 +59,13 @@ export default function VictorJourneySection() {
           <div className="lg:col-span-5 space-y-6">
             <div>
               <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block mb-2">
-                {eyebrow}
+                {effectiveEyebrow}
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                {title}
+                {effectiveTitle}
               </h2>
               <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed">
-                {subtitle}
+                {effectiveSubtitle}
               </p>
             </div>
 
