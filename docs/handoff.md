@@ -1,5 +1,39 @@
 # Handoff
 
+## 18 October 2026 — Streamlined "Our Pan India Presence" & Integrated City Dossier Card
+
+Owner: Antigravity. Removed the clutter (eyebrow, long subtitle paragraph, search input) from the Pan-India network section on `/india`, retaining solely the clean, authoritative heading **"Our Pan India Presence"** and relocating the 10 operational cities pill strip directly onto the active city information card dossier.
+
+### Key Changes
+1. **Simplified Section Header (`src/components/home/IndiaPresenceMap.tsx`)**:
+   - Eliminated the `PAN-INDIA OPERATIONS` eyebrow, descriptive paragraph, and the redundant `Find a listed city` search bar.
+   - Kept only the bold, authoritative heading: `<h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight">{dict.presence.title}</h2>`.
+   - Updated multilingual dictionary entries across `en.ts`, `hi.ts`, and `te.ts`:
+     - **English**: `"Our Pan India Presence"`
+     - **हिन्दी**: `"हमारी अखिल भारतीय उपस्थिति"`
+     - **తెలుగు**: `"మా అఖిల భారత ఉనికి"`
+2. **City Selector Integrated Directly on Dossier Card (`src/components/home/IndiaPresenceMap.tsx`)**:
+   - Removed the detached horizontal selector strip that spanned across the top of the section.
+   - Placed the 10 operational city buttons (Hyderabad, Bengaluru, Pune, Mumbai, Chennai, Delhi, Noida, Gurgaon, Ahmedabad, Kolkata) directly inside the active city information card (`id={panelId}`) at the top.
+   - Maintained clean active state (`bg-brand-indigo text-white shadow-xs`) and neutral state (`bg-white text-brand-ink/80 border border-brand-soft-neutral`).
+   - Integrated `"Enquire about another city →"` link directly within the card header.
+   - Bi-directional synchronization: clicking any SVG map pin or state highlights the corresponding city pill and updates the dossier; clicking any pill immediately updates the card information and active state.
+3. **Verification & Quality Gates**:
+   - `tsc --noEmit`: 0 errors.
+   - `next lint`: 0 warnings, 0 errors.
+   - `next build`: 73/73 static SSG pages successfully compiled.
+   - Playwright verification:
+     - Heading verified as exact `"Our Pan India Presence"`.
+     - Zero search inputs on page (`count: 0`).
+     - Exactly 10 city pill buttons on the dossier card with interactive state switching.
+     - Multilingual translation checked (Hindi and Telugu titles verified).
+     - Responsive mobile check at 390px: 0 horizontal overflow.
+     - Screenshots saved:
+       - [Desktop Presence Section](docs/screenshots/presence-section-desktop.png)
+       - [Mobile Presence Section (390px)](docs/screenshots/presence-section-mobile.png)
+
+---
+
 ## 16 October 2026 — Operational Rigour & Security: Realistic Background Images for "Safety comes first"
 
 Owner: Antigravity. Upgraded the 4 pillar cards in the "Safety comes first" operational security section (`src/components/home/VictorStandardSection.tsx`) to display realistic, high-resolution photographic background images directly and permanently, matching the premium design language of the "What do you need to arrange?" services portfolio.

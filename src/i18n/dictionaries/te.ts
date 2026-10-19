@@ -275,7 +275,7 @@ export const teDictionary: TranslationDictionary = {
   },
   presence: {
     eyebrow: "అఖిల భారత కార్యకలాపాలు",
-    title: "కార్యాచరణ కేంద్రాలు & వాణిజ్య కారిడార్లు",
+    title: "మా అఖిల భారత ఉనికి",
     searchPlaceholder: "నగరం లేదా రాష్ట్రాన్ని వెతకండి…",
     clearSearch: "వెతుకులాటను తొలగించండి",
     noResults: "మీ వెతుకులాటకు సరిపోలే నగరం ఏదీ కనిపించలేదు.",

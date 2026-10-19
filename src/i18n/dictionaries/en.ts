@@ -275,7 +275,7 @@ export const enDictionary: TranslationDictionary = {
   },
   presence: {
     eyebrow: "Pan-India Operations",
-    title: "Operating Hubs & Commercial Corridors",
+    title: "Our Pan India Presence",
     searchPlaceholder: "Search city or state…",
     clearSearch: "Clear search",
     noResults: "No listed city matches your search.",

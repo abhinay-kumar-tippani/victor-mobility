@@ -275,7 +275,7 @@ export const hiDictionary: TranslationDictionary = {
   },
   presence: {
     eyebrow: "अखिल भारतीय संचालन",
-    title: "परिचालन केंद्र एवं वाणिज्यिक गलियारे",
+    title: "हमारी अखिल भारतीय उपस्थिति",
     searchPlaceholder: "शहर या राज्य खोजें…",
     clearSearch: "खोज साफ़ करें",
     noResults: "आपकी खोज से मेल खाता कोई शहर नहीं मिला।",

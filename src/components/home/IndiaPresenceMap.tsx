@@ -170,9 +170,8 @@ export default function IndiaPresenceMap({
   offices: OfficeItem[];
   contact: ContactData;
   cities: CityItem[];
-  searchCopy: { label: string; placeholder: string; empty: string; clear: string; other: string };
+  searchCopy?: { label?: string; placeholder?: string; empty?: string; clear?: string; other?: string };
 }) {
-  const [search, setSearch] = useState("");
   const [selectedCityName, setSelectedCityName] = useState<string>("Hyderabad");
   const [hoveredStateName, setHoveredStateName] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<{
@@ -192,16 +191,11 @@ export default function IndiaPresenceMap({
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const panelId = useId();
-  const searchId = useId();
   const { dict } = useLanguage();
 
   const availableCities = citiesData.flatMap(city => {
     const published = cities.find(item => item.published && canonicalCityName(item.name) === canonicalCityName(city.name));
     return published ? [{ ...city, name: published.name }] : [];
-  });
-  const filteredCities = availableCities.filter(city => {
-    const aliases = city.name === "Bengaluru" ? "bangalore" : city.name === "Gurgaon" ? "gurugram" : "";
-    return `${city.name} ${city.state} ${aliases}`.toLowerCase().includes(search.trim().toLowerCase());
   });
 
   const selectedCity =
@@ -275,7 +269,6 @@ export default function IndiaPresenceMap({
     const mapping = stateCityMap[stateName];
     if (mapping) {
       setSelectedCityName(mapping.primaryCity);
-      setSearch("");
     }
   };
 
@@ -285,61 +278,12 @@ export default function IndiaPresenceMap({
       tabIndex={-1}
       className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral focus:outline-none"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
-            {dict.presence.eyebrow}
-          </span>
+        <div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight">
             {dict.presence.title}
           </h2>
-          <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            Active corporate mobility operations across 10 major commercial hubs and tech corridors.
-            Select any hub below or explore the interactive regional map.
-          </p>
-        </div>
-
-        {/* Quick City Selector Pill Matrix (Accessible across all viewports) */}
-        <div className="space-y-2">
-          <div className="mb-4 max-w-lg">
-            <label htmlFor={searchId} className="mb-2 block text-sm font-bold text-brand-ink">{searchCopy.label}</label>
-            <div className="flex gap-2">
-              <input id={searchId} type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder={searchCopy.placeholder} className="min-h-[48px] min-w-0 flex-1 rounded-xl border border-brand-soft-neutral bg-white px-4 py-3 text-base text-brand-ink outline-none focus:ring-2 focus:ring-brand-indigo" />
-              {search && <button type="button" onClick={() => setSearch("")} className="min-h-[48px] rounded-xl px-3 text-sm font-bold text-brand-indigo hover:bg-brand-warm-white">{searchCopy.clear}</button>}
-            </div>
-          </div>
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/70 block">
-            Select Operational City:
-          </span>
-          <div
-            role="group"
-            aria-label="Select an operational city"
-            className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral shadow-2xs"
-          >
-            {filteredCities.map((city) => {
-              const isActive = selectedCity.name === city.name;
-              return (
-                <button
-                  key={city.name}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setSelectedCityName(city.name)}
-                  className={`min-h-[44px] text-xs font-bold px-3 py-2 rounded-xl transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo ${
-                    isActive
-                      ? "bg-brand-indigo text-white shadow-xs"
-                      : "text-brand-ink/80 hover:bg-white hover:text-brand-ink"
-                  }`}
-                >
-                  {city.name}
-                </button>
-              );
-            })}
-          </div>
-          <div role="status" className="text-sm text-brand-ink/75">
-            {filteredCities.length === 0 && <p className="py-2">{searchCopy.empty}</p>}
-          </div>
-          <Link href="/india/contact?city=Other" className="inline-flex min-h-[44px] items-center text-sm font-semibold text-brand-indigo underline underline-offset-4">{searchCopy.other}</Link>
         </div>
 
         {/* 2-Column Split: Map on Left, Active City Details on Right */}
@@ -567,6 +511,45 @@ export default function IndiaPresenceMap({
               aria-atomic="true"
               className="rounded-3xl bg-brand-warm-white p-6 sm:p-7 border border-brand-soft-neutral shadow-xs space-y-5"
             >
+              {/* Operational Cities Selector on Card */}
+              <div className="space-y-2 pb-4 border-b border-brand-soft-neutral/80">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/70 block">
+                    Select Operational City:
+                  </span>
+                  <Link
+                    href="/india/contact?city=Other"
+                    className="text-[11px] font-semibold text-brand-indigo hover:text-brand-blue underline underline-offset-2"
+                  >
+                    {searchCopy?.other || "Other city"} →
+                  </Link>
+                </div>
+                <div
+                  role="group"
+                  aria-label="Select an operational city"
+                  className="flex flex-wrap gap-1.5"
+                >
+                  {availableCities.map((city) => {
+                    const isActive = selectedCity.name === city.name;
+                    return (
+                      <button
+                        key={city.name}
+                        type="button"
+                        aria-pressed={isActive}
+                        onClick={() => setSelectedCityName(city.name)}
+                        className={`text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo ${
+                          isActive
+                            ? "bg-brand-indigo text-white shadow-xs"
+                            : "bg-white text-brand-ink/80 hover:bg-brand-indigo/10 hover:text-brand-ink border border-brand-soft-neutral"
+                        }`}
+                      >
+                        {city.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* Header with Classification Badge */}
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-soft-neutral text-[11px] font-bold uppercase tracking-wider text-brand-indigo">
