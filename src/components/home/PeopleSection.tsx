@@ -24,7 +24,36 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
   const pathname = usePathname();
   const effectiveBasePath = basePath || (pathname?.startsWith("/uae") ? "/uae" : "/india");
   const isUae = effectiveBasePath === "/uae";
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
+
+  const founderBio =
+    locale === "ar"
+      ? (dict.people?.uaeBio || dict.people?.founderBio?.join(" ") || founder?.bio)
+      : founder?.bio;
+
+  const founderRole =
+    locale === "ar"
+      ? (dict.people?.founderTitle || "المؤسس والمدير التنفيذي")
+      : (founder?.role || "Founder & Managing Director");
+
+  const businessPartnershipDesc =
+    isUae
+      ? (dict.people?.businessPartnershipDescUae ||
+         "Directing enterprise client partnerships, VIP limousine protocols, and corporate fleet coordination across Dubai, Abu Dhabi, and the Emirates.")
+      : (dict.people?.businessPartnershipDescIndia ||
+         "Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India.");
+
+  const operationsDeskDesc =
+    isUae
+      ? (dict.people?.operationsDeskDescUae ||
+         "Our central operations desk coordinates chauffeur dispatch readiness, flight radar tracking at DXB/AUH, and dedicated route support across the Emirates.")
+      : (dict.people?.operationsDeskDescIndia ||
+         "Our central operations desk coordinates driver shift rotations, vehicle dispatch readiness, and route support across 10 operational hubs pan-India.");
+
+  const whatsappMessage =
+    locale === "ar"
+      ? `مرحباً ${contact.name}، أود مناقشة متطلبات النقل والتنقل مع فيكتور موبيليتي.`
+      : `Hello, I would like to discuss travel requirements with Victor Mobility.`;
 
   return (
     <section id="about" tabIndex={-1} className="py-14 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral focus:outline-none">
@@ -58,10 +87,10 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1">
-                    Founder & Visionary
+                    {dict.people?.founderVision || "Founder & Visionary"}
                   </span>
-                  <h3 className="text-xl font-bold">{founder.name}</h3>
-                  <p className="text-xs text-white/80">{founder.experience}</p>
+                  <h3 className="text-xl font-bold">{locale === "ar" ? (dict.people?.founderName || founder.name) : founder.name}</h3>
+                  <p className="text-xs text-white/80">{founderRole}</p>
                 </div>
               </div>
 
@@ -70,17 +99,17 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
                   <div className="flex items-start gap-2 p-3.5 rounded-xl bg-brand-warm-white border border-brand-soft-neutral/70">
                     <Quote className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
                     <p className="text-xs font-semibold italic text-brand-ink/90">
-                      &ldquo;{founder.quote}&rdquo;
+                      &ldquo;{locale === "ar" ? "نحن لا ننقل الركاب فحسب، بل نحمي جداول أعمالهم ومسؤولياتهم بكل دقة وانضباط." : founder.quote}&rdquo;
                     </p>
                   </div>
                   <p className="text-xs text-brand-ink/75 leading-relaxed">
-                    {founder.bio}
+                    {founderBio}
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-brand-soft-neutral flex items-center gap-2 text-[11px] text-brand-indigo font-bold uppercase tracking-wider">
                   <Award className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Founded 2010 · Hyderabad, India</span>
+                  <span>{locale === "ar" ? "تأسست في عام 2010" : "Founded 2010 · Hyderabad, India"}</span>
                 </div>
               </div>
             </div>
@@ -93,9 +122,13 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-warm-white border border-brand-soft-neutral text-[11px] font-bold uppercase tracking-wider text-brand-indigo">
                   <UserCheck className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>Business Partnerships</span>
+                  <span>{dict.people?.businessPartnerships || "Business Partnerships"}</span>
                 </span>
-                <span className="text-xs text-brand-ink/60 font-medium">{isUae ? "Dubai Operations Desk" : "Head Office"}</span>
+                <span className="text-xs text-brand-ink/60 font-medium">
+                  {isUae
+                    ? (dict.people?.dubaiOperationsDesk || "Dubai Operations Desk")
+                    : (dict.people?.headOfficeLabel || "Head Office")}
+                </span>
               </div>
 
               <div>
@@ -104,9 +137,7 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
               </div>
 
               <p className="text-xs text-brand-ink/75 leading-relaxed">
-                {isUae
-                  ? "Directing enterprise client partnerships, VIP limousine protocols, and corporate fleet coordination across Dubai, Abu Dhabi, and the Emirates."
-                  : "Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India."}
+                {businessPartnershipDesc}
               </p>
 
               <div className="pt-3 border-t border-brand-soft-neutral flex flex-wrap items-center gap-3">
@@ -115,17 +146,17 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
                   className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold text-brand-indigo bg-brand-warm-white hover:bg-brand-indigo hover:text-white px-4 py-2.5 rounded-xl border border-brand-soft-neutral transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>{contact.phoneDisplay}</span>
+                  <span dir="ltr">{contact.phoneDisplay}</span>
                 </a>
 
                 <a
-                  href={`https://wa.me/${contact.whatsappDigits}?text=${encodeURIComponent("Hello, I would like to discuss travel requirements with Victor Mobility.")}`}
+                  href={`https://wa.me/${contact.whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="min-h-[44px] inline-flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-xl border border-emerald-200 transition-colors"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>WhatsApp Desk</span>
+                  <span>{locale === "ar" ? "مكتب الواتساب" : "WhatsApp Desk"}</span>
                 </a>
               </div>
             </div>
@@ -145,17 +176,17 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Operations Coordination Desk</span>
+                    <span>{dict.people?.operationsCoordinationDesk || "Operations Coordination Desk"}</span>
                   </span>
-                  <span className="text-[10px] text-white/70 italic">Imagery is illustrative</span>
+                  <span className="text-[10px] text-white/70 italic">
+                    {dict.fleet?.imageCaption || "Imagery is illustrative"}
+                  </span>
                 </div>
               </div>
 
               <div className="p-6 space-y-3">
                 <p className="text-xs text-brand-ink/75 leading-relaxed">
-                  {isUae
-                    ? "Our central operations desk coordinates chauffeur dispatch readiness, flight radar tracking at DXB/AUH, and dedicated route support across the Emirates."
-                    : "Our central operations desk coordinates driver shift rotations, vehicle dispatch readiness, and route support across 10 operational hubs pan-India."}
+                  {operationsDeskDesc}
                 </p>
 
                 <div className="pt-2 flex items-center justify-between">
@@ -163,8 +194,8 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
                     href={`${effectiveBasePath}/about`}
                     className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue transition-colors"
                   >
-                    <span>Read our full company story & 2010–2024 milestones</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>{dict.people?.fullCompanyStoryLink || "Read our full company story & 2010–2024 milestones"}</span>
+                    <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                   </Link>
                 </div>
               </div>

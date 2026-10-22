@@ -36,7 +36,7 @@ export default function IndiaFleetSection({ categories, copy, standalone = false
   const category = categories.find(item => item.id === active.id)!;
   const PanelHeading = standalone ? "h2" : "h3";
 
-  const localizedActiveCategory = isUae ? undefined : fleetDict?.categories?.[active.id];
+  const localizedActiveCategory = fleetDict?.categories?.[active.id];
 
   function navigate(event: React.KeyboardEvent, index: number) {
     let next = index;
@@ -48,20 +48,20 @@ export default function IndiaFleetSection({ categories, copy, standalone = false
     event.preventDefault(); setActiveId(items[next].id); tabs.current[next]?.focus();
   }
 
-  const eyebrow = isUae ? copy.eyebrow : (fleetDict?.eyebrow || copy.eyebrow);
-  const title = isUae ? copy.title : (fleetDict?.title || copy.title);
-  const description = isUae ? copy.description : (fleetDict?.description || copy.description);
-  const viewAll = isUae ? copy.viewAll : (fleetDict?.exploreAll || copy.viewAll);
-  const tabLabel = isUae ? copy.tabLabel : (fleetDict?.tabLabel || copy.tabLabel);
-  const capacityLabel = isUae ? copy.capacityLabel : (fleetDict?.capacityLabel || copy.capacityLabel);
-  const useLabel = isUae ? copy.useLabel : (fleetDict?.useLabel || copy.useLabel);
-  const modelsLabel = isUae ? copy.modelsLabel : (fleetDict?.modelsLabel || copy.modelsLabel);
-  const priceLabel = isUae ? copy.priceLabel : (fleetDict?.priceLabel || copy.priceLabel);
-  const packageLabel = isUae ? copy.packageLabel : (fleetDict?.packageLabel || copy.packageLabel);
-  const priceNote = isUae ? copy.priceNote : (fleetDict?.priceNote || copy.priceNote);
-  const enquireCta = isUae ? copy.enquire : (fleetDict?.enquireCta || copy.enquire);
-  const estimateCta = isUae ? copy.estimate : (fleetDict?.estimateCta || copy.estimate);
-  const imageCaption = isUae ? copy.imageCaption : (fleetDict?.imageCaption || copy.imageCaption);
+  const eyebrow = fleetDict?.eyebrow || copy.eyebrow;
+  const title = fleetDict?.title || copy.title;
+  const description = fleetDict?.description || copy.description;
+  const viewAll = fleetDict?.exploreAll || copy.viewAll;
+  const tabLabel = fleetDict?.tabLabel || copy.tabLabel;
+  const capacityLabel = fleetDict?.capacityLabel || copy.capacityLabel;
+  const useLabel = fleetDict?.useLabel || copy.useLabel;
+  const modelsLabel = fleetDict?.modelsLabel || copy.modelsLabel;
+  const priceLabel = fleetDict?.priceLabel || copy.priceLabel;
+  const packageLabel = fleetDict?.packageLabel || copy.packageLabel;
+  const priceNote = fleetDict?.priceNote || copy.priceNote;
+  const enquireCta = fleetDict?.enquireCta || copy.enquire;
+  const estimateCta = fleetDict?.estimateCta || copy.estimate;
+  const imageCaption = fleetDict?.imageCaption || copy.imageCaption;
 
   return <section id="fleet" aria-labelledby={`${id}-title`} className="scroll-mt-24 border-b border-brand-soft-neutral bg-white py-14 sm:py-20">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -78,14 +78,15 @@ export default function IndiaFleetSection({ categories, copy, standalone = false
         {!standalone && (
           <Link href={`${effectiveBasePath}/fleet`} className="inline-flex min-h-[44px] shrink-0 items-center gap-2 text-sm font-bold text-brand-indigo">
             {viewAll}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
           </Link>
         )}
       </div>
 
       <div role="tablist" aria-label={tabLabel} className="mb-7 grid grid-cols-2 gap-x-4 gap-y-1 border-b border-brand-soft-neutral sm:flex sm:gap-8">
         {items.map((item, index) => {
-          const tabName = localizedActiveCategory && active.id === item.id ? localizedActiveCategory.name : item.tab;
+          const tabCategory = fleetDict?.categories?.[item.id];
+          const tabName = tabCategory ? tabCategory.name : item.tab;
           return (
             <button
               key={item.id}
@@ -98,7 +99,7 @@ export default function IndiaFleetSection({ categories, copy, standalone = false
               type="button"
               onClick={() => setActiveId(item.id)}
               onKeyDown={event => navigate(event, index)}
-              className={`min-h-[52px] border-b-2 px-1 py-3 text-left text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo sm:text-base ${active.id === item.id ? "border-brand-indigo text-brand-indigo" : "border-transparent text-brand-ink/65 hover:text-brand-indigo"}`}
+              className={`min-h-[52px] border-b-2 px-1 py-3 text-start text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo sm:text-base ${active.id === item.id ? "border-brand-indigo text-brand-indigo" : "border-transparent text-brand-ink/65 hover:text-brand-indigo"}`}
             >
               {tabName}
             </button>
@@ -143,7 +144,9 @@ export default function IndiaFleetSection({ categories, copy, standalone = false
           <div className="mt-auto border-t border-brand-ink/15 pt-5">
             <p className="text-xs font-semibold text-brand-ink/65">{priceLabel}</p>
             <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <p className="text-3xl font-semibold tracking-tight text-brand-indigo">{effectiveCurrency}{active.price.toLocaleString(isUae ? "en-AE" : "en-IN")}</p>
+              <p className="text-3xl font-semibold tracking-tight text-brand-indigo">
+                <span dir="ltr">{effectiveCurrency}{active.price.toLocaleString("en-US")}</span>
+              </p>
               <span className="text-sm text-brand-ink/70">/ {packageLabel}</span>
             </div>
             <p className="mt-2 max-w-md text-xs leading-relaxed text-brand-ink/65">{priceNote}</p>
@@ -154,7 +157,7 @@ export default function IndiaFleetSection({ categories, copy, standalone = false
               className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo"
             >
               {enquireCta}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
             </Link>
             <Link
               href={`${effectiveBasePath}/estimator`}

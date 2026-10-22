@@ -244,7 +244,7 @@ export default function TrustedCompaniesSection() {
   const { dict } = useLanguage();
 
   const effectiveDescription = isUae
-    ? "Delivering disciplined executive limousine mobility, airport VIP protocol, and corporate delegation transport for leading multinational enterprises."
+    ? (dict.companies.uaeDescription || dict.companies.description)
     : dict.companies.description;
 
   return (

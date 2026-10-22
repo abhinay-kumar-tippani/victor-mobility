@@ -153,7 +153,7 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white px-5 py-3.5 rounded-xl transition-all shadow-sm hover:shadow-md shrink-0 hover:scale-[1.02] active:scale-98"
           >
             <span>{dict.safetySection.bannerCta}</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
       </div>

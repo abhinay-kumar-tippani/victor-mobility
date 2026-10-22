@@ -105,7 +105,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
             className="inline-flex items-center gap-2 text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors shrink-0 group/link"
           >
             <span>{dict.servicesSection.allServicesLink}</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 rtl:group-hover/link:-translate-x-1 rtl:rotate-180" />
           </Link>
         </div>
 
@@ -173,10 +173,10 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
 
                   <Link
                     href={`${basePath}/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white transition-all duration-300 hover:translate-x-1"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white transition-all duration-300 hover:translate-x-1 rtl:hover:-translate-x-1"
                   >
                     <span>{dict.servicesSection.viewDetails}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 rtl:rotate-180" />
                   </Link>
                 </div>
               </div>

@@ -222,7 +222,7 @@ export default function Header({ contact }: HeaderProps) {
               title={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>{contact.phoneDisplay}</span>
+              <span dir="ltr">{contact.phoneDisplay}</span>
             </a>
 
             <Link
@@ -240,7 +240,7 @@ export default function Header({ contact }: HeaderProps) {
             <a
               href={contact.phoneHref}
               className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
-              aria-label={`${isIndia ? dict.nav.call : "Call"} ${contact.phoneDisplay}`}
+              aria-label={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
             >
               <Phone className="w-5 h-5" />
             </a>
@@ -273,17 +273,17 @@ export default function Header({ contact }: HeaderProps) {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
-            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-5 shadow-xl max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto"
+            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-5 shadow-xl max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto text-start"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-3">
               <span className="text-sm font-bold text-brand-ink">
-                {isIndia ? dict.nav.menuLabel : "Navigation"}
+                {dict.nav.menuLabel}
               </span>
               <button
                 type="button"
                 onClick={() => closeMenu(true)}
-                aria-label={isIndia ? dict.nav.closeMenu : "Close menu"}
+                aria-label={dict.nav.closeMenu}
                 className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-brand-indigo focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <X className="w-5 h-5" />
@@ -314,7 +314,7 @@ export default function Header({ contact }: HeaderProps) {
                 onClick={() => closeMenu(false)}
                 className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo hover:bg-brand-indigo/5 py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
-                {isIndia ? dict.nav.privacy : "Privacy Notice"}
+                {dict.nav.privacy}
               </Link>
             </nav>
 
@@ -335,7 +335,7 @@ export default function Header({ contact }: HeaderProps) {
                 className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
               >
                 <Phone className="w-4 h-4" />
-                <span>
+                <span dir="ltr">
                   {dict.nav.call || "Call"} {contact.phoneDisplay}
                 </span>
               </a>

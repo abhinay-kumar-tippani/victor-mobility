@@ -29,7 +29,9 @@ export default function PartnerEnquirySection({ contact: propContact, copy: prop
   const helper = dict.contactSection?.partnerHelper || copy.helper;
 
   const partnerMessage =
-    locale === "hi"
+    locale === "ar"
+      ? "مرحباً فيكتور موبيليتي، أود مناقشة شراكة تشغيلية للأسطول.\n\nالمدينة التشغيلية:\nفئات المركبات:\nعدد المركبات:\n\nيرجى إفادتي بالخطوات التالية."
+      : locale === "hi"
       ? "नमस्ते Victor Mobility, मैं एक संभावित फ्लीट साझेदारी पर चर्चा करना चाहता हूँ।\n\nपरिचालन शहर:\nवाहन श्रेणियां:\nवाहनों की संख्या:\n\nकृपया मुझे आगे के कदम बताएं।"
       : locale === "te"
       ? "నమస్కారం Victor Mobility, నేను ఫ్లీట్ భాగస్వామ్యం గురించి చర్చించాలనుకుంటున్నాను.\n\nకార్యాచరణ నగరం:\nవాహన విభాగాలు:\nవాహనాల సంఖ్య:\n\nదయచేసి తదుపరి దశలను తెలియజేయండి."
@@ -48,7 +50,8 @@ export default function PartnerEnquirySection({ contact: propContact, copy: prop
         </div>
         <div className="max-w-sm md:shrink-0">
           <a href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(partnerMessage || "")}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-5 py-3 text-sm font-bold text-white hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo">
-            {cta}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            <span>{cta}</span>
+            <ArrowUpRight className="h-4 w-4 rtl:-scale-x-100" aria-hidden="true" />
           </a>
           <p className="mt-3 text-xs leading-relaxed text-brand-ink/65">{helper}</p>
         </div>

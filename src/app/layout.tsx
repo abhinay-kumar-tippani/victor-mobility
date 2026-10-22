@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
+});
+
+const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-arabic",
 });
 
 export const metadata: Metadata = {
@@ -141,11 +148,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className={manrope.variable}>
+    <html lang="en" dir="ltr" className={`${manrope.variable} ${ibmPlexArabic.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var l=localStorage.getItem('victor_locale');if(l&&('en'===l||'hi'===l||'te'===l)){document.documentElement.lang=l;}document.documentElement.dir='ltr';}catch(e){}})();`,
+            __html: `(function(){try{var p=window.location.pathname;if(p.startsWith('/uae')){var lu=localStorage.getItem('victor_locale_uae');if(lu==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else{document.documentElement.lang='en';document.documentElement.dir='ltr';}}else if(p.startsWith('/india')){var li=localStorage.getItem('victor_locale_india')||localStorage.getItem('victor_locale');if(li==='hi'||li==='te'){document.documentElement.lang=li;}else{document.documentElement.lang='en';}document.documentElement.dir='ltr';}else{document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}})();`,
           }}
         />
         <script
@@ -157,7 +164,7 @@ export default function RootLayout({
         {/* Accessible Skip Link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-brand-indigo focus:text-white focus:font-bold focus:text-xs focus:uppercase focus:tracking-wider focus:rounded-lg focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-brand-indigo focus:text-white focus:font-bold focus:text-xs focus:uppercase focus:tracking-wider focus:rounded-lg focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white"
         >
           Skip to main content
         </a>

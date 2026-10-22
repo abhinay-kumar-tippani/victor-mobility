@@ -14,11 +14,11 @@ export default function VictorJourneySection() {
   const pathname = usePathname();
   const isUae = pathname?.startsWith("/uae");
   const aboutHref = isUae ? "/uae/about" : "/india/about";
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
 
-  const effectiveEyebrow = isUae ? eyebrow : dict.journey?.eyebrow || eyebrow;
-  const effectiveTitle = isUae ? title : dict.journey?.title || title;
-  const effectiveSubtitle = isUae ? subtitle : dict.journey?.subtitle || subtitle;
+  const effectiveEyebrow = dict.journey?.eyebrow || eyebrow;
+  const effectiveTitle = dict.journey?.title || title;
+  const effectiveSubtitle = dict.journey?.subtitle || subtitle;
 
   // Close modal on ESC key
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -78,11 +78,15 @@ export default function VictorJourneySection() {
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Foundation & Fleet Scale</span>
-                    <span className="text-[10px] font-semibold text-brand-violet bg-brand-violet/15 px-2 py-0.5 rounded-full">2009 – 2018</span>
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      {locale === "ar" ? "التأسيس وتوسيع الأسطول" : "Foundation & Fleet Scale"}
+                    </span>
+                    <span className="text-[10px] font-semibold text-brand-violet bg-brand-violet/15 px-2 py-0.5 rounded-full" dir="ltr">2009 – 2018</span>
                   </div>
                   <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                    Incorporated under Indian Companies Act 1956; expanded fleet capacity to over 1,500+ executive vehicles.
+                    {locale === "ar"
+                      ? "تأسيس الشركة والتوسع إلى أكثر من 1,500 مركبة تنفيذية وإدارة عقود كبرى المؤسسات."
+                      : "Incorporated under Indian Companies Act 1956; expanded fleet capacity to over 1,500+ executive vehicles."}
                   </p>
                 </div>
               </div>
@@ -94,11 +98,15 @@ export default function VictorJourneySection() {
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Safety & Resilience</span>
-                    <span className="text-[10px] font-semibold text-brand-blue bg-brand-blue/15 px-2 py-0.5 rounded-full">2020 – 2022</span>
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      {locale === "ar" ? "السلامة والانضباط التشغيلي" : "Safety & Resilience"}
+                    </span>
+                    <span className="text-[10px] font-semibold text-brand-blue bg-brand-blue/15 px-2 py-0.5 rounded-full" dir="ltr">2020 – 2022</span>
                   </div>
                   <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                    WHO driver re-education through pandemic challenges and resumption of full-capacity corporate operations.
+                    {locale === "ar"
+                      ? "تدريب السائقين والالتزام ببروتوكولات الأمان العالمية واستمرارية خدمات النقل المؤسسي."
+                      : "WHO driver re-education through pandemic challenges and resumption of full-capacity corporate operations."}
                   </p>
                 </div>
               </div>
@@ -110,11 +118,15 @@ export default function VictorJourneySection() {
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Pan-India & International</span>
-                    <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full">2023 – 2024</span>
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      {locale === "ar" ? "التوسع الإقليمي والدولي في الإمارات" : "Pan-India & International"}
+                    </span>
+                    <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full" dir="ltr">2023 – 2024</span>
                   </div>
                   <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                    Metropolitan pan-India network reach, 15%–30% EV sustainability commitment, and full UAE international operations.
+                    {locale === "ar"
+                      ? "توسع الشبكة، الالتزام بالاستدامة، وإطلاق العمليات الرسمية في دبي وأبوظبي والإمارات."
+                      : "Metropolitan pan-India network reach, 15%–30% EV sustainability commitment, and full UAE international operations."}
                   </p>
                 </div>
               </div>
@@ -126,8 +138,8 @@ export default function VictorJourneySection() {
                 href={aboutHref}
                 className="inline-flex items-center gap-2 text-xs font-bold bg-brand-violet hover:bg-brand-violet/90 text-white px-5 py-3 rounded-xl transition-all shadow-md shadow-brand-violet/20"
               >
-                <span>Read Full Company Story</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>{locale === "ar" ? "قراءة قصة الشركة بالكامل" : "Read Full Company Story"}</span>
+                <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
               </Link>
               <button
                 type="button"
@@ -135,7 +147,7 @@ export default function VictorJourneySection() {
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-white transition-colors py-2"
               >
                 <Maximize2 className="w-3.5 h-3.5 text-brand-violet" />
-                <span>Enlarge roadmap</span>
+                <span>{locale === "ar" ? "تكبير خريطة المسار" : "Enlarge roadmap"}</span>
               </button>
             </div>
           </div>

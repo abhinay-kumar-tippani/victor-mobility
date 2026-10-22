@@ -1,7 +1,33 @@
 {
   "schemaVersion": 1,
+  "uaePresenceMap": {
+    "en": {
+      "title": "Interactive presence map",
+      "summary": "7 emirates · 3 highlighted locations",
+      "description": "UAE emirates map. Dubai, Abu Dhabi and Sharjah are highlighted. Select a highlighted emirate to view its details.",
+      "hint": "Select a highlighted emirate or use the buttons below.",
+      "highlighted": "Highlighted locations",
+      "other": "Other emirates",
+      "selected": "Selected",
+      "note": "Simplified boundaries. Highlighting identifies listed locations, not emirate-wide service coverage.",
+      "data": "Map data",
+      "names": { "AE-AZ": "Abu Dhabi", "AE-DU": "Dubai", "AE-SH": "Sharjah", "AE-AJ": "Ajman", "AE-FU": "Fujairah", "AE-RK": "Ras al-Khaimah", "AE-UQ": "Umm al-Quwain" }
+    },
+    "ar": {
+      "title": "خريطة تواجدنا التفاعلية",
+      "summary": "٧ إمارات · ٣ مواقع مميزة",
+      "description": "خريطة إمارات دولة الإمارات العربية المتحدة. تم تمييز دبي وأبوظبي والشارقة. اختر إحدى الإمارات المميزة لعرض تفاصيلها.",
+      "hint": "اختر إمارة مميزة على الخريطة أو استخدم الأزرار أدناه.",
+      "highlighted": "المواقع المميزة",
+      "other": "الإمارات الأخرى",
+      "selected": "الموقع المحدد",
+      "note": "حدود مبسطة. يشير التمييز إلى المواقع المدرجة، ولا يعني تغطية الخدمة لكامل الإمارة.",
+      "data": "بيانات الخريطة",
+      "names": { "AE-AZ": "أبوظبي", "AE-DU": "دبي", "AE-SH": "الشارقة", "AE-AJ": "عجمان", "AE-FU": "الفجيرة", "AE-RK": "رأس الخيمة", "AE-UQ": "أم القيوين" }
+    }
+  },
   "countrySelector": {
-    "eyebrow": "Welcome to Victor Mobility",
+    "eyebrow": "Welcome to Victor Mobility Pvt Ltd.",
     "title": "Your journey starts here.",
     "description": "Choose your country to explore our services and plan your journey with Victor.",
     "headerLabel": "Select your country",

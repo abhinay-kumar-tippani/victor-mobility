@@ -83,7 +83,7 @@ export const enDictionary: TranslationDictionary = {
   },
   companies: {
     eyebrow: "Enterprise Clientele & Partners",
-    title: "Companies We Work With",
+    title: "Our  Clients",
     description:
       "Delivering disciplined, roster-synchronized employee transportation and executive mobility for leading multinational corporations across India.",
   },
@@ -115,6 +115,10 @@ export const enDictionary: TranslationDictionary = {
       "chauffeur-luxury": {
         title: "Chauffeur & Luxury Travel",
         description: "Chauffeur-driven travel for business and special occasions.",
+      },
+      "tourism-travel": {
+        title: "Tourism & City Excursions",
+        description: "Curated private excursions across Dubai, Abu Dhabi landmarks, and cultural heritage sites.",
       },
       "rent-a-car": {
         title: "Rent-A-Car",
@@ -202,6 +206,36 @@ export const enDictionary: TranslationDictionary = {
         capacity: "1 to 3 passengers · Chauffeur service",
         models: "Executive and premium saloons",
         use: "Senior leadership, VIP delegations and high-profile meetings.",
+      },
+      "first-class": {
+        name: "First Class Saloons",
+        capacity: "Up to 3–4 passengers · 2–3 suitcases",
+        models: "Mercedes-Benz S-Class, BMW 7 Series",
+        use: "Airport VIP transfers · Financial district standby (DIFC) · Inter-Emirate travel.",
+      },
+      "ultra-luxury": {
+        name: "Ultra-Luxury & VIP",
+        capacity: "Up to 3 passengers · Executive cabin",
+        models: "Mercedes-Maybach S-Class",
+        use: "VIP delegations · Board members · Red carpet galas · Royal terminal arrivals.",
+      },
+      "executive-suvs": {
+        name: "Executive SUVs",
+        capacity: "Up to 6 passengers · 5–6 suitcases",
+        models: "Cadillac Escalade, GMC Yukon Denali",
+        use: "International airport arrivals · Diplomatic security convoys · Executive groups.",
+      },
+      "executive-vans": {
+        name: "Executive MPVs",
+        capacity: "Up to 6–7 passengers · 4–5 suitcases",
+        models: "Mercedes-Benz V-Class",
+        use: "Visiting business teams · Corporate site visits · VIP hotel loop transit.",
+      },
+      coaches: {
+        name: "Luxury Buses & Coaches",
+        capacity: "22-seat and 44-seat luxury coaches",
+        models: "22-Seater VIP Coach, 44-Seater Luxury Bus",
+        use: "GITEX & ADIPEC summits · Corporate campus loops · Exhibition attendee transit.",
       },
     },
   },

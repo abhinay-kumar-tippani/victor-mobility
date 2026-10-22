@@ -4,7 +4,7 @@ import { LanguageProvider } from "@/i18n/LanguageContext";
 
 export default function IndiaLayout({ children }: { children: React.ReactNode }) {
   return (
-    <LanguageProvider>
+    <LanguageProvider region="india">
       {children}
       <GuidedEnquiryAssistant
         copy={indiaData.enquiryExperience.assistant}

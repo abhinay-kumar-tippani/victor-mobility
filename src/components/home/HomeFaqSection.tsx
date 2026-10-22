@@ -17,9 +17,10 @@ interface HomeFaqSectionProps {
 }
 
 export default function HomeFaqSection({ faqs: propFaqs, copy: propCopy, contactHref }: HomeFaqSectionProps = {}) {
-  const { dict } = useLanguage();
-  const copy = propCopy || dict.faq || indiaData.enquiryExperience.faq;
-  const faqs = propFaqs || (dict.faq?.items?.length ? dict.faq.items : indiaData.faqs);
+  const { dict, locale } = useLanguage();
+  const isArabic = locale === "ar";
+  const copy = (isArabic && dict.faq) ? dict.faq : (propCopy || dict.faq || indiaData.enquiryExperience.faq);
+  const faqs = (isArabic && dict.faq?.items?.length) ? dict.faq.items : (propFaqs || dict.faq?.items || indiaData.faqs);
   const targetHref = contactHref || "/india/contact";
 
   return (
@@ -29,15 +30,19 @@ export default function HomeFaqSection({ faqs: propFaqs, copy: propCopy, contact
           <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-blue">{copy.eyebrow}</p>
           <h2 id="home-faq-title" className="text-3xl font-extrabold tracking-tight text-brand-ink sm:text-4xl">{copy.title}</h2>
           <p className="mt-4 text-base leading-relaxed text-brand-ink/75">{copy.description}</p>
-          <Link href={targetHref} className="mt-5 inline-flex min-h-[44px] items-center gap-2 font-bold text-brand-indigo underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo">{copy.cta}<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+          <Link href={targetHref} className="mt-5 inline-flex min-h-[44px] items-center gap-2 font-bold text-brand-indigo underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo">
+            <span>{copy.cta}</span>
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+          </Link>
         </div>
         <div className="divide-y divide-brand-soft-neutral border-y border-brand-soft-neutral lg:col-span-8">
           {faqs.map(faq => (
             <details key={faq.question} className="group">
               <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-5 py-5 text-base font-bold text-brand-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo [&::-webkit-details-marker]:hidden">
-                {faq.question}<Plus className="h-5 w-5 shrink-0 text-brand-indigo group-open:rotate-45" aria-hidden="true" />
+                <span>{faq.question}</span>
+                <Plus className="h-5 w-5 shrink-0 text-brand-indigo group-open:rotate-45" aria-hidden="true" />
               </summary>
-              <p className="max-w-2xl pb-6 pr-7 text-base leading-relaxed text-brand-ink/75">{faq.answer}</p>
+              <p className="max-w-2xl pb-6 ltr:pr-7 rtl:pl-7 text-base leading-relaxed text-brand-ink/75">{faq.answer}</p>
             </details>
           ))}
         </div>

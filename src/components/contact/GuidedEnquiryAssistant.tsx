@@ -120,17 +120,17 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
 
   return (
     <>
-      <button ref={triggerRef} type="button" onClick={openAssistant} aria-haspopup="dialog" aria-expanded={open} aria-controls={`${id}-dialog`} className="fixed bottom-4 right-4 z-40 inline-flex min-h-[48px] items-center gap-2 rounded-full border border-white/30 bg-brand-indigo px-4 py-3 text-sm font-bold text-white shadow-lg hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo sm:bottom-6 sm:right-6">
+      <button ref={triggerRef} type="button" onClick={openAssistant} aria-haspopup="dialog" aria-expanded={open} aria-controls={`${id}-dialog`} className="fixed bottom-4 end-4 z-40 inline-flex min-h-[48px] items-center gap-2 rounded-full border border-white/30 bg-brand-indigo px-4 py-3 text-sm font-bold text-white shadow-lg hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo sm:bottom-6 sm:end-6">
         <MessageSquare className="h-5 w-5" aria-hidden="true" /><span>{effectiveCopy.trigger}</span>
       </button>
-      <dialog ref={dialogRef} id={`${id}-dialog`} aria-labelledby={`${id}-title`} aria-describedby={`${id}-intro`} onClose={() => { setOpen(false); triggerRef.current?.focus(); }} onClick={event => { if (event.target === event.currentTarget) closeAssistant(); }} className="fixed bottom-3 left-auto right-3 top-auto m-0 max-h-[calc(100dvh-1.5rem)] w-[calc(100vw-1.5rem)] max-w-[460px] overflow-y-auto overscroll-contain rounded-2xl border border-brand-soft-neutral bg-white p-0 text-brand-ink shadow-2xl backdrop:bg-brand-ink/50 sm:bottom-6 sm:right-6">
+      <dialog ref={dialogRef} id={`${id}-dialog`} aria-labelledby={`${id}-title`} aria-describedby={`${id}-intro`} onClose={() => { setOpen(false); triggerRef.current?.focus(); }} onClick={event => { if (event.target === event.currentTarget) closeAssistant(); }} className="fixed bottom-3 start-auto end-3 top-auto m-0 max-h-[calc(100dvh-1.5rem)] w-[calc(100vw-1.5rem)] max-w-[460px] overflow-y-auto overscroll-contain rounded-2xl border border-brand-soft-neutral bg-white p-0 text-brand-ink shadow-2xl backdrop:bg-brand-ink/50 sm:bottom-6 sm:end-6">
         <div>
           <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-brand-soft-neutral bg-brand-ink p-5 text-white">
             <div><h2 id={`${id}-title`} className="text-lg font-extrabold">{effectiveCopy.title}</h2><p id={`${id}-intro`} className="mt-1 text-sm text-white/75">{effectiveCopy.intro}</p></div>
             <button type="button" onClick={closeAssistant} aria-label={effectiveCopy.close} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"><X className="h-5 w-5" aria-hidden="true" /></button>
           </div>
           <div className="p-5 sm:p-6">
-            <p aria-live="polite" className="text-xs font-bold uppercase tracking-widest text-brand-blue">Step {step + 1} of 3</p>
+            <p aria-live="polite" className="text-xs font-bold uppercase tracking-widest text-brand-blue">{locale === "ar" ? `الخطوة ${step + 1} من 3` : locale === "hi" ? `चरण ${step + 1} / 3` : `Step ${step + 1} of 3`}</p>
             <div aria-hidden="true" className="mb-5 mt-3 flex gap-2">{[0, 1, 2].map(index => <span key={index} className={`h-1 flex-1 rounded-full ${index <= step ? "bg-brand-indigo" : "bg-brand-soft-neutral"}`} />)}</div>
             <h3 ref={headingRef} tabIndex={-1} className="mb-5 text-xl font-extrabold tracking-tight outline-none">{effectiveCopy.stepTitles[step]}</h3>
             {step < 2 ? (
@@ -150,13 +150,13 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
                   </>
                 )}
                 <div className="flex items-center justify-between gap-3">
-                  {step > 0 && <button type="button" onClick={() => { setStep(step - 1); setAttempted(false); }} className="inline-flex min-h-[48px] items-center gap-1 rounded-xl px-3 font-bold text-brand-indigo hover:bg-brand-warm-white"><ArrowLeft className="h-4 w-4" aria-hidden="true" />{effectiveCopy.back}</button>}
-                  <button type="submit" className="ml-auto inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-6 py-3 text-sm font-bold text-white hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo">{effectiveCopy.next}<ArrowRight className="h-4 w-4" aria-hidden="true" /></button>
+                  {step > 0 && <button type="button" onClick={() => { setStep(step - 1); setAttempted(false); }} className="inline-flex min-h-[48px] items-center gap-1 rounded-xl px-3 font-bold text-brand-indigo hover:bg-brand-warm-white"><ArrowLeft className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />{effectiveCopy.back}</button>}
+                  <button type="submit" className="ms-auto inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-6 py-3 text-sm font-bold text-white hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo">{effectiveCopy.next}<ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" /></button>
                 </div>
               </form>
             ) : (
               <div className="space-y-5">
-                <p className="text-sm text-brand-ink/75">{copy.reviewHelp}</p>
+                <p className="text-sm text-brand-ink/75">{locale === "ar" ? "راجع المسودة قبل فتح واتساب لمراجعتها وإرسالها إلى مكتب دبي." : copy.reviewHelp}</p>
                 <pre className="whitespace-pre-wrap break-words rounded-xl border border-brand-soft-neutral bg-brand-warm-white p-4 font-sans text-sm leading-relaxed">{draft}</pre>
                 <p className="text-sm leading-relaxed text-brand-ink/75">{effectiveCopy.disclaimer || copy.handoffHelp}</p>
                 <a href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(draft)}`} target="_blank" rel="noopener noreferrer" className="flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-brand-indigo px-4 py-3 text-sm font-bold text-white hover:bg-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo"><MessageSquare className="h-4 w-4" aria-hidden="true" />{effectiveSubmitLabel}</a>
@@ -165,7 +165,7 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
             )}
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-brand-soft-neutral pt-4 text-sm">
               <Link href={pathname.startsWith("/uae") ? "/uae/contact" : "/india/contact"} onClick={closeAssistant} className="inline-flex min-h-[44px] items-center font-semibold text-brand-indigo underline underline-offset-4">{effectiveCopy.fullForm}</Link>
-              <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{copy.callLabel}</a>
+              <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{locale === "ar" ? "اتصل بمكتب العمليات" : copy.callLabel}</a>
             </div>
           </div>
         </div>

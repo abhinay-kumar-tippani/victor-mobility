@@ -18,11 +18,18 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
   const { dict, locale } = useLanguage();
 
   const whatsappMessage =
-    locale === "hi"
+    locale === "ar"
+      ? `مرحباً ${contact.name}، أود مناقشة متطلبات النقل والتنقل مع فيكتور موبيليتي.`
+      : locale === "hi"
       ? `नमस्ते ${contact.name}, मैं Victor Mobility के साथ यात्रा आवश्यकताओं पर चर्चा करना चाहता हूँ।`
       : locale === "te"
       ? `నమస్కారం ${contact.name}, నేను Victor Mobilityతో ప్రయాణ అవసరాల గురించి చర్చించాలనుకుంటున్నాను.`
       : `Hello ${contact.name}, I would like to discuss travel requirements with Victor Mobility.`;
+
+  const deskTitle =
+    locale === "ar"
+      ? "مكتب العمليات والشراكات"
+      : "Operations & Partnerships Desk";
 
   return (
     <section id="contact" tabIndex={-1} className="py-16 sm:py-20 bg-white focus:outline-none">
@@ -45,16 +52,16 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
             </div>
 
             {/* Direct Contact & Action Box */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
-              <div className="space-y-1 text-center md:text-left">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-start">
+              <div className="space-y-1 text-center md:text-start">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-brand-violet block">
-                  Operations & Partnerships Desk
+                  {deskTitle}
                 </span>
                 <h3 className="text-lg font-bold text-white">
                   {contact.name}
                 </h3>
                 <p className="text-xs text-white/70">
-                  {contact.role} · {isUae ? "Victor Mobility UAE" : "Victor Mobility Pvt. Ltd."}
+                  {contact.role} · {isUae ? (locale === "ar" ? "فيكتور موبيليتي الإمارات" : "Victor Mobility UAE") : "Victor Mobility Pvt. Ltd."}
                 </p>
               </div>
 
@@ -64,7 +71,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                   className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white py-3 px-5 rounded-xl transition-colors shadow-sm text-center"
                 >
                   <span>{dict.servicesSection.requestQuote}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </Link>
 
                 <a
@@ -82,7 +89,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                   className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-semibold text-white/80 hover:text-white border border-white/20 hover:border-white/40 py-3 px-4 rounded-xl transition-colors text-center"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>{dict.contactSection.callCta}</span>
+                  <span dir="ltr">{contact.phoneDisplay}</span>
                 </a>
               </div>
             </div>

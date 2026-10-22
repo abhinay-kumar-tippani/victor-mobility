@@ -1,17 +1,30 @@
-export type SupportedLocale = "en" | "hi" | "te";
+export type SupportedLocale = "en" | "hi" | "te" | "ar";
+export type Region = "india" | "uae";
 
 export interface LocaleMeta {
   code: SupportedLocale;
   name: string;
   nativeName: string;
   flag?: string;
-  dir: "ltr";
+  dir: "ltr" | "rtl";
 }
+
+export const INDIA_LOCALES: LocaleMeta[] = [
+  { code: "en", name: "English", nativeName: "English", dir: "ltr" },
+  { code: "hi", name: "Hindi", nativeName: "हिन्दी", dir: "ltr" },
+  { code: "te", name: "Telugu", nativeName: "తెలుగు", dir: "ltr" },
+];
+
+export const UAE_LOCALES: LocaleMeta[] = [
+  { code: "en", name: "English", nativeName: "English", dir: "ltr" },
+  { code: "ar", name: "Arabic", nativeName: "العربية", dir: "rtl" },
+];
 
 export const SUPPORTED_LOCALES: LocaleMeta[] = [
   { code: "en", name: "English", nativeName: "English", dir: "ltr" },
   { code: "hi", name: "Hindi", nativeName: "हिन्दी", dir: "ltr" },
   { code: "te", name: "Telugu", nativeName: "తెలుగు", dir: "ltr" },
+  { code: "ar", name: "Arabic", nativeName: "العربية", dir: "rtl" },
 ];
 
 export interface TranslationDictionary {
@@ -40,6 +53,13 @@ export interface TranslationDictionary {
       subtitle: string;
       badges: string[];
     }[];
+    uaeSlides?: {
+      slug: string;
+      category: string;
+      title: string;
+      subtitle: string;
+      badges: string[];
+    }[];
     exploreService: string;
     discussRequirement: string;
     imageCaption: string;
@@ -51,11 +71,18 @@ export interface TranslationDictionary {
     clients: string[];
     offices: string[];
     services: string[];
+    uaeEstablished?: string[];
+    uaeExperience?: string[];
+    uaeFleet?: string[];
+    uaeClients?: string[];
+    uaeOffices?: string[];
+    uaeServices?: string[];
   };
   companies: {
     eyebrow: string;
     title: string;
     description: string;
+    uaeDescription?: string;
   };
   servicesSection: {
     eyebrow: string;
@@ -134,6 +161,23 @@ export interface TranslationDictionary {
     callHub: string;
     registeredAddress: string;
     corridorsLabel: string;
+    uaeEyebrow?: string;
+    uaeTitle?: string;
+    uaeDescription?: string;
+    dubai?: { name: string; label: string; corridors: string; capabilities: string; address?: string };
+    abuDhabi?: { name: string; label: string; corridors: string; capabilities: string; address?: string };
+    sharjah?: { name: string; label: string; corridors: string; capabilities: string; address?: string };
+    rtaLicensed?: string;
+    rtaSub?: string;
+    airportHubs?: string;
+    airportSub?: string;
+    dispatchDesk?: string;
+    dispatchSub?: string;
+    selectLocation?: string;
+    operatingAddress?: string;
+    primaryCorridors?: string;
+    dedicatedCapabilities?: string;
+    locationNotFound?: string;
   };
   people: {
     eyebrow: string;
@@ -144,6 +188,17 @@ export interface TranslationDictionary {
     founderBio: string[];
     accountabilityTitle: string;
     accountabilityText: string;
+    uaeBio?: string;
+    founderVision?: string;
+    businessPartnerships?: string;
+    dubaiOperationsDesk?: string;
+    headOfficeLabel?: string;
+    operationsCoordinationDesk?: string;
+    operationsDeskDescUae?: string;
+    operationsDeskDescIndia?: string;
+    businessPartnershipDescUae?: string;
+    businessPartnershipDescIndia?: string;
+    fullCompanyStoryLink?: string;
   };
   faq: {
     eyebrow: string;

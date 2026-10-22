@@ -1,5 +1,107 @@
 # Handoff
 
+## 22 October 2026 — Interactive UAE emirates map
+
+Added a seven-emirate map to `/uae#network`, matching the existing indigo and neutral card styling. Dubai, Abu Dhabi and Sharjah are highlighted; the other four emirates remain neutral. Selecting a highlighted shape or its button updates the existing location details and enquiry link. English and Arabic labels, RTL layout, keyboard controls and mobile layouts are supported. The geographic map remains north-up in both languages.
+
+Implementation: `src/components/home/UaeEmiratesMap.tsx`, integration in `UaePresenceSection.tsx`, and bilingual copy in `src/content/india.json`. Local geometry is in `public/maps/uae-emirates.json`; regenerate with `node scripts/build-uae-map.mjs`. Source, attribution and ODbL details are in [uae-map-attribution.md](uae-map-attribution.md). Existing location claims were retained; highlighting does not claim emirate-wide coverage.
+
+Validation: production build passed with lint/type checks and 73/73 static pages. Verified seven shapes and exactly three highlights; pointer and keyboard selection; matching enquiry URLs; English/Arabic layouts at desktop and 390px mobile, plus 320px overflow check. Browser console reported no warnings or errors. Temporary production preview server stopped after QA.
+
+Screenshots: [English desktop](screenshots/uae-map-desktop-en.jpg), [Arabic desktop](screenshots/uae-map-desktop-ar.jpg), [English mobile](screenshots/uae-map-mobile-en.jpg), [Arabic mobile](screenshots/uae-map-mobile-ar.jpg).
+
+## 22 October 2026 — UAE Website Language Selector: English & العربية (Arabic) with Complete RTL Adaptation
+
+Owner: Antigravity. Delivered dedicated regional language selection and professional Arabic localization for the Victor Mobility UAE website (`/uae` and all `/uae/*` pages). The UAE selector now offers exclusively **English** and **العربية (Arabic)**, with Hindi and Telugu completely removed from UAE views while remaining available for India. Regional preferences are stored independently so choosing Hindi/Telugu in India never alters UAE preferences, and selecting Arabic switches the layout direction to `dir="rtl"` with comprehensive RTL visual adaptations, typography pairing, LTR data isolation, and form-state preservation.
+
+### Key Deliverables
+1. **Region-Specific Language Availability**:
+   - **UAE routes (`/uae`, `/uae/*`)**: Offers exclusively **English** and **العربية** (`ar`, Arabic with `dir: "rtl"`).
+   - Hindi (`hi`) and Telugu (`te`) have been removed from the UAE selector on desktop and mobile.
+   - **India routes (`/india`, `/india/*`)**: Retains English, **हिन्दी** (Hindi), and **తెలుగు** (Telugu).
+   - **Country selector homepage (`/`)**: Maintained completely unchanged with gateways to `/india` and `/uae`.
+2. **Independent Regional Language Persistence (`src/i18n/LanguageContext.tsx`)**:
+   - Implemented separate storage keys: `victor_locale_uae` for the UAE region and `victor_locale_india` for the India region, backed by region-specific cookies and local storage.
+   - Defaults UAE to English on initial visit.
+   - Switching between India and UAE or using browser Back/Forward restores the respective region's saved language preference without cross-contamination.
+   - Inlined early head flash-prevention script in `src/app/layout.tsx` to detect pathname and apply correct `lang` and `dir` before render, preventing hydration mismatches and visual direction flashes.
+3. **Comprehensive Professional Arabic Dictionary (`src/i18n/dictionaries/ar.ts`)**:
+   - Created natural, professional Arabic copy tailored for executive and corporate mobility in the UAE.
+   - Fully covers navigation (`nav`), hero slides (`uaeSlides`), performance statistics (`stats`), enterprise clientele (`companies`), services portfolio (`servicesSection`), safety pillars (`safetySection`), UAE brochure fleet categories (`first-class`, `ultra-luxury`, `executive-suvs`, `executive-vans`, `coaches`), regional presence (`presence` for Dubai, Abu Dhabi, Sharjah), 15-year company journey (`journey`), leadership and operations desk (`people`), UAE FAQs (`faq`), contact invitation and partner desk (`contactSection`), footer (`footer`), estimator (`estimator`), RFP desk (`rfp`), planning actions, guided enquiry assistant, and enquiry form validation messages.
+4. **Layout Adaptation for RTL**:
+   - Setting Arabic dynamically updates `document.documentElement.lang = "ar"` and `document.documentElement.dir = "rtl"`. English restores `lang = "en"` and `dir = "ltr"`.
+   - **Desktop Dropdown**: Positioned with `ltr:right-0 rtl:left-0 ltr:origin-top-right rtl:origin-top-left` to eliminate horizontal overflow.
+   - **Mobile Drawer**: Dynamic grid layout (`grid-cols-2` on UAE, `grid-cols-3` on India) displaying English and العربية side-by-side with distinct selected styling.
+   - **Directional Icons**: Added `rtl:rotate-180` and `rtl:-scale-x-100` to directional arrows and links across Hero, Services, Fleet, Safety, Presence, Journey, People, FAQs, and Assistant.
+   - **Floating Assistant**: Updated with Tailwind CSS logical properties (`bottom-4 end-4 sm:bottom-6 sm:end-6`) and modal container (`end-3 sm:end-6`).
+5. **Strict LTR Data Isolation**:
+   - Phone numbers (`+971 52 455 2441`), WhatsApp digits, email addresses, URLs, and numeric counters maintain strict left-to-right display within Arabic RTL layouts using `<span dir="ltr">` and CSS `unicode-bidi: isolate`.
+6. **Arabic Typography Integration**:
+   - Configured `IBM_Plex_Sans_Arabic` (`weights: 400, 500, 600, 700`) paired with Manrope, with CSS fallbacks to `Noto Sans Arabic`, `Segoe UI`, `Tahoma`, and `sans-serif`.
+   - Applied Arabic font variable `--font-arabic` and RTL font family rules in `src/app/globals.css` and `tailwind.config.ts`.
+7. **Brand & Fact Preservation**:
+   - Original logo artwork and orientation preserved unchanged.
+   - Exact registered tagline `"On Time Every Time."` preserved verbatim across headers, footers, and copyright statements.
+   - Verified contact details, brochure baseline models, and pricing calculations remain exact.
+8. **Form State Retention on Language Switch**:
+   - In `EnquirySection` and `GuidedEnquiryAssistant`, form field values (`fullName`, `company`, `requirement`, `passengerCount`, `travelDate`, selected vehicle categories) are preserved when switching between English and Arabic without resetting or auto-translating user input.
+   - WhatsApp message generator (`src/lib/enquiryMessage.ts`) outputs professional Arabic enquiry drafts when `locale === "ar"`.
+
+### Changed Files
+- `src/i18n/types.ts`: Added `"ar"` to `SupportedLocale`, defined `INDIA_LOCALES` and `UAE_LOCALES`, added UAE dictionary types.
+- `src/i18n/dictionaries/ar.ts`: Complete professional Arabic translation dictionary.
+- `src/i18n/dictionaries/en.ts`: Added UAE fleet categories and tourism service copy.
+- `src/i18n/LanguageContext.tsx`: Region-aware language provider with independent cookie/storage management.
+- `src/app/layout.tsx`: Added IBM Plex Sans Arabic font and early RTL flash-prevention script.
+- `src/app/globals.css`: Added Arabic font rules and LTR data isolation classes.
+- `tailwind.config.ts`: Added Arabic font family fallback stack.
+- `src/app/india/layout.tsx` & `src/app/uae/layout.tsx`: Passed `region="india"` and `region="uae"` to `LanguageProvider`.
+- `src/components/layout/LanguageSwitcher.tsx`: Region-specific dropdown/drawer options, logical dropdown alignment, and `grid-cols-2` mobile drawer.
+- `src/components/layout/Header.tsx`: Dynamic dictionary navigation labels and LTR phone formatting.
+- `src/components/layout/Footer.tsx`: Bilingual footer text with exact `"On Time Every Time."` tagline preservation.
+- `src/components/home/Hero.tsx`: Arabic slides support and RTL arrow flip.
+- `src/components/home/TrustedCompaniesSection.tsx`: Arabic description integration.
+- `src/components/fleet/IndiaFleetSection.tsx`: Arabic brochure fleet categories and LTR price formatting.
+- `src/components/home/ServicesSection.tsx` & `src/components/home/VictorStandardSection.tsx`: RTL arrow flips and translations.
+- `src/components/home/UaePresenceSection.tsx`: Translated Dubai, Abu Dhabi, and Sharjah hub information, RTL arrows, and LTR phones.
+- `src/components/home/VictorJourneySection.tsx`: Integrated `dict.journey` and Arabic roadmap milestones.
+- `src/components/home/PeopleSection.tsx`: Arabic leadership bio, operations desk text, and LTR phone.
+- `src/components/home/HomeFaqSection.tsx`: Arabic UAE FAQ items and RTL layout styling.
+- `src/components/home/ContactInvitationSection.tsx` & `src/components/contact/PartnerEnquirySection.tsx`: Arabic WhatsApp drafts, desk labels, and RTL arrows.
+- `src/lib/enquiryMessage.ts`: Arabic WhatsApp enquiry message formatting.
+- `src/components/home/EnquirySection.tsx`: Accessible inputs, Arabic form labels, status badges, placeholders, and form-state retention.
+- `src/components/contact/GuidedEnquiryAssistant.tsx`: Logical positioning (`end-4`), RTL arrows, and Arabic multi-step assistant flow.
+- `scripts/verify-uae-language-selector.mjs`: Automated Playwright test and screenshot verification suite.
+
+### Quality Gates & Verification
+1. `npx tsc --noEmit`: **0 errors**.
+2. `npm run lint`: **0 warnings, 0 errors** (`✔ No ESLint warnings or errors`).
+3. `npm run build`: **73/73 static SSG pages successfully compiled** with 0 errors.
+4. `scripts/verify-uae-language-selector.mjs` Playwright Suite: **All 8 test suites passed with 0 failures**:
+   - **Test 1 (UAE Desktop)**: Offers exactly 2 options (`English`, `العربية`); 0 Hindi, 0 Telugu. Escape key dismisses dropdown.
+   - **Test 2 (India Desktop)**: Offers exactly 3 options (`English`, `हिन्दी`, `తెలుగు`); 0 Arabic.
+   - **Test 3 (Root `/`)**: Country selection homepage completely intact with functional `/india` and `/uae` gateways.
+   - **Test 4 (Regional Independence)**: Setting India to Telugu (`te`) does not alter UAE (`en`). Switching UAE to Arabic (`ar`) updates `lang="ar"` and `dir="rtl"`, and navigating back retains Telugu on India and Arabic on UAE.
+   - **Test 5 (Arabic UAE Content)**: Verified Arabic nav, hero headline, and exact English tagline `"On Time Every Time."`.
+   - **Test 6 (Mobile Drawer 390px)**: Offers exactly 2 options (`English`, `العربية`); 0 Hindi, 0 Telugu. Switching to Arabic sets `lang="ar"` and `dir="rtl"`.
+   - **Test 7 (Responsive Horizontal Overflow)**: 0 horizontal overflow across 320px, 390px, 768px, and 1440px viewports in both English (LTR) and Arabic (RTL) (`scrollWidth <= innerWidth + 1`).
+   - **Test 8 (Form State Retention)**: Verified that user-entered text in Name, Company, and Requirement on `/uae/contact` is completely preserved when switching language to Arabic.
+
+### Verified Screenshots
+- [UAE Desktop English (1440px)](docs/screenshots/uae-desktop-en-1440.png)
+- [UAE Desktop Arabic (1440px)](docs/screenshots/uae-desktop-ar-1440.png)
+- [UAE Mobile English (390px)](docs/screenshots/uae-mobile-en-390.png)
+- [UAE Mobile Arabic (390px)](docs/screenshots/uae-mobile-ar-390.png)
+- [UAE Desktop Language Dropdown](docs/screenshots/uae-desktop-dropdown.png)
+- [UAE Mobile Drawer Selector](docs/screenshots/uae-mobile-drawer.png)
+- [India Desktop Language Dropdown (Retaining 3 Languages)](docs/screenshots/india-desktop-dropdown.png)
+- [UAE Contact Form State Preserved in Arabic](docs/screenshots/uae-contact-ar-preserved.png)
+
+### Untranslated Content Remaining
+- None. All UAE public copy, navigation, forms, validation messages, fleet details, and footer elements are fully translated into natural, professional Arabic. The corporate brand name ("Victor Mobility"), verified operational phone numbers, and the registered trademark tagline ("On Time Every Time.") remain intentionally in their authorized original form.
+
+---
+
 ## 18 October 2026 — Streamlined "Our Pan India Presence" & Integrated City Dossier Card
 
 Owner: Antigravity. Removed the clutter (eyebrow, long subtitle paragraph, search input) from the Pan-India network section on `/india`, retaining solely the clean, authoritative heading **"Our Pan India Presence"** and relocating the 10 operational cities pill strip directly onto the active city information card dossier.

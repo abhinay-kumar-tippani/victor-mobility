@@ -111,7 +111,7 @@ export default function LanguageSwitcher({
   return (
     <div
       ref={containerRef}
-      className={`relative inline-block text-left ${className}`}
+      className={`relative inline-block text-start ${className}`}
       onKeyDown={handleKeyDown}
     >
       <button
@@ -146,7 +146,7 @@ export default function LanguageSwitcher({
 
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 w-48 sm:w-52 origin-top-right bg-white rounded-2xl shadow-xl border border-brand-soft-neutral py-2 px-1 z-50 animate-in fade-in zoom-in-95 duration-150"
+          className="absolute ltr:right-0 rtl:left-0 mt-2 w-48 sm:w-52 ltr:origin-top-right rtl:origin-top-left bg-white rounded-2xl shadow-xl border border-brand-soft-neutral py-2 px-1 z-50 animate-in fade-in zoom-in-95 duration-150"
           role="presentation"
         >
           <div className="px-3 py-1.5 border-b border-brand-soft-neutral/60 mb-1">
@@ -183,7 +183,7 @@ export default function LanguageSwitcher({
                       : "text-brand-ink hover:bg-brand-warm-white hover:text-brand-indigo font-medium"
                   }`}
                 >
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-start">
                     <span className="font-semibold">{item.nativeName}</span>
                     {item.nativeName !== item.name && (
                       <span className="text-[10px] text-brand-ink/55 font-normal">
@@ -193,7 +193,7 @@ export default function LanguageSwitcher({
                   </div>
                   {isSelected && (
                     <Check
-                      className="w-4 h-4 text-brand-indigo shrink-0"
+                      className="w-4 h-4 text-brand-indigo shrink-0 ms-2"
                       aria-hidden="true"
                     />
                   )}
@@ -215,14 +215,14 @@ export function MobileDrawerLanguageSelector() {
   const { locale, setLocale, locales, dict } = useLanguage();
 
   return (
-    <div className="pt-2 border-t border-brand-soft-neutral">
+    <div className="pt-2 border-t border-brand-soft-neutral text-start">
       <div className="flex items-center gap-2 mb-2 px-1">
         <Globe className="w-4 h-4 text-brand-indigo" aria-hidden="true" />
         <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/70">
           {dict.nav.selectLanguage}
         </span>
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className={`grid ${locales.length === 2 ? "grid-cols-2" : "grid-cols-3"} gap-2`}>
         {locales.map((item) => {
           const isSelected = item.code === locale;
           return (

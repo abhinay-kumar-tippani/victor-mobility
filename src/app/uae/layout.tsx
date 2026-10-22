@@ -4,7 +4,7 @@ import { LanguageProvider } from "@/i18n/LanguageContext";
 
 export default function UaeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <LanguageProvider>
+    <LanguageProvider region="uae">
       {children}
       <GuidedEnquiryAssistant
         copy={uaeData.enquiryExperience.assistant}

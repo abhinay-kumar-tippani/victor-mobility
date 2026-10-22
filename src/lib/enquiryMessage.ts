@@ -13,8 +13,28 @@ export interface EnquiryDraft {
 
 /** Shared by the full form and guided enquiry. Nothing is submitted here. */
 export function buildEnquiryMessage(draft: EnquiryDraft): string {
+  const isAr = draft.locale === "ar";
   const isHi = draft.locale === "hi";
   const isTe = draft.locale === "te";
+
+  if (isAr) {
+    return [
+      "*استفسار عن متطلبات النقل والتنقل*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*اسم جهة الاتصال:* ${draft.fullName.trim() || "[الاسم الكريم]"}`,
+      ...(draft.company?.trim() ? [`*اسم الشركة:* ${draft.company.trim()}`] : []),
+      `*الخدمة المطلوبة:* ${draft.service}`,
+      ...(draft.category ? [`*فئة المركبة:* ${draft.category}`] : []),
+      `*المدينة / الإمارة:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*عدد الركاب:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*تاريخ الرحلة / البدء:* ${draft.travelDate}`] : []),
+      "*تفاصيل الرحلة والمسار:*",
+      draft.requirement.trim() || "[أوقات الخدمة، المطار أو المسار، عدد الركاب أو التواريخ]",
+      "--------------------------------",
+      "تم الإعداد عبر استفسارات فيكتور موبيليتي",
+    ].join("\n");
+  }
 
   if (isHi) {
     return [

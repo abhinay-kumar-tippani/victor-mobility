@@ -145,7 +145,16 @@ export default function Hero({ content }: HeroProps) {
   const { dict } = useLanguage();
 
   const slides = isUae
-    ? UAE_HERO_SLIDES
+    ? UAE_HERO_SLIDES.map((slide, idx) => {
+        const localized = dict.hero?.uaeSlides?.[idx] || dict.hero?.slides?.[idx];
+        return {
+          ...slide,
+          category: localized?.category || slide.category,
+          title: localized?.title || slide.title,
+          subtitle: localized?.subtitle || slide.subtitle,
+          badges: localized?.badges || slide.badges,
+        };
+      })
     : HERO_SLIDES.map((slide, idx) => {
         const localized = dict.hero?.slides?.[idx];
         return {
@@ -279,15 +288,15 @@ export default function Hero({ content }: HeroProps) {
               href={`${prefix}/services/${currentSlide.slug}`}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-zinc-950 font-semibold text-sm sm:text-base shadow-[0_4px_24px_rgba(255,255,255,0.22)] hover:bg-zinc-100 hover:shadow-[0_6px_32px_rgba(255,255,255,0.32)] hover:-translate-y-0.5 transition-all duration-200 group text-center"
             >
-              <span>{isUae ? "Explore Service" : dict.hero.exploreService}</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <span>{dict.hero.exploreService}</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" />
             </Link>
 
             <Link
               href={`${prefix}/contact`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 backdrop-blur-md font-medium text-sm sm:text-base hover:-translate-y-0.5 transition-all duration-200 text-center shadow-sm"
             >
-              <span>{isUae ? "Discuss Requirement" : dict.hero.discussRequirement}</span>
+              <span>{dict.hero.discussRequirement}</span>
             </Link>
           </div>
         </div>
@@ -312,8 +321,8 @@ export default function Hero({ content }: HeroProps) {
           </div>
 
           {/* Discreet Caption per AGENTS.md */}
-          <div className="sm:absolute sm:right-0 pt-3 sm:pt-0 text-[10px] text-white/40 text-center sm:text-right">
-            <span>{isUae ? "Vehicle imagery illustrative. Actual fleet deployed per client roster." : dict.hero.imageCaption}</span>
+          <div className="sm:absolute sm:end-0 pt-3 sm:pt-0 text-[10px] text-white/40 text-center sm:text-end">
+            <span>{dict.hero.imageCaption}</span>
           </div>
         </div>
       </div>
