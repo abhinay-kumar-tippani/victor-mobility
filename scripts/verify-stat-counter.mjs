@@ -39,7 +39,7 @@ async function verify() {
     { value: "15+", label: "Years of industry leadership", full: "15+ Years of industry leadership" },
     { value: "1,500+", label: "Vehicles managed", full: "1,500+ Vehicles managed" },
     { value: "30+", label: "Multinational clients", full: "30+ Multinational clients" },
-    { value: "3", label: "India offices", full: "3 India offices" },
+    { value: "10", label: "India offices", full: "10 India offices" },
     { value: "6", label: "Transport services", full: "6 Transport services" },
   ];
 

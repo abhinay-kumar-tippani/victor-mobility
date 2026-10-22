@@ -151,6 +151,39 @@
           "National conference & convention delegate transport",
           "Outstation corporate offsites & annual team retreats"
         ]
+      },
+      {
+        "id": "electric",
+        "name": "Electric Vehicles",
+        "categoryBadge": "Electric Mobility",
+        "popularModels": [],
+        "heroImage": "/images/india/electric-fleet.jpg",
+        "passengerCapacity": 0,
+        "passengerLabel": "Confirmed upon enquiry",
+        "isElectric": true,
+        "introduction": "Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule.",
+        "luggageCapacity": {
+          "largeSuitcases": 0,
+          "cabinBags": 0,
+          "description": "Passenger and luggage requirements confirmed during enquiry"
+        },
+        "cabinLayout": {
+          "seats": "Passenger requirements: number of travellers and luggage",
+          "climate": "Vehicle allocation: confirmed during enquiry",
+          "connectivity": "Journey requirements: route, timings and travel frequency"
+        },
+        "safetyTelematics": [
+          "Vehicle options, pricing and route suitability confirmed by our team",
+          "Vehicle imagery is illustrative"
+        ],
+        "amenities": [
+          "Tailored corporate route scheduling",
+          "Dedicated dispatch and vehicle coordination"
+        ],
+        "useCases": [
+          "Employee daily commute corridors",
+          "Airport journeys and corporate transfers"
+        ]
       }
     ]
   },
@@ -333,6 +366,43 @@
           "fullDay": "AED 2,200 (10 hrs city disposal)",
           "outstationPerKm": "AED 7.5 / km (Inter-Emirate)",
           "currency": "AED"
+        }
+      },
+      {
+        "id": "electric",
+        "name": "Electric Vehicles",
+        "categoryBadge": "Electric Mobility",
+        "popularModels": [],
+        "heroImage": "/images/india/electric-fleet.jpg",
+        "passengerCapacity": 0,
+        "passengerLabel": "Confirmed upon enquiry",
+        "isElectric": true,
+        "introduction": "Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule.",
+        "luggageCapacity": {
+          "largeSuitcases": 0,
+          "cabinBags": 0,
+          "description": "Passenger and luggage requirements confirmed during enquiry"
+        },
+        "cabinLayout": {
+          "seats": "Passenger requirements: number of travellers and luggage",
+          "climate": "Vehicle allocation: confirmed during enquiry",
+          "connectivity": "Journey requirements: route, timings and travel frequency"
+        },
+        "safetyTelematics": [
+          "Vehicle options, pricing and route suitability confirmed by our team",
+          "Vehicle imagery is illustrative"
+        ],
+        "amenities": [
+          "Tailored corporate route scheduling",
+          "Dedicated dispatch and vehicle coordination"
+        ],
+        "useCases": [
+          "Employee daily commute corridors",
+          "Airport journeys and corporate transfers"
+        ],
+        "rateCard": {
+          "pricingLabel": "Request a quote",
+          "note": "Vehicle options, pricing and route suitability are confirmed by our team."
         }
       }
     ]

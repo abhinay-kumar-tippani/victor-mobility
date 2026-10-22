@@ -52,6 +52,7 @@ export interface FleetCategory {
 export interface ContactData {
   name: string;
   role: string;
+  imageSrc?: string;
   phoneDisplay: string;
   phoneHref: string;
   whatsappDisplay: string;

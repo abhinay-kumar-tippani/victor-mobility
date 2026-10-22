@@ -182,7 +182,28 @@ export const enDictionary: TranslationDictionary = {
     estimateCta: "Plan a journey",
     exploreAll: "Explore the fleet",
     imageCaption: "Vehicle imagery is illustrative.",
+    electric: {
+      title: "Electric Vehicles",
+      introduction:
+        "Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule.",
+      journeyRequirementsLabel: "Journey requirements",
+      journeyRequirementsValue: "Route, timings and travel frequency.",
+      passengerRequirementsLabel: "Passenger requirements",
+      passengerRequirementsValue: "Number of travellers and luggage.",
+      vehicleAllocationLabel: "Vehicle allocation",
+      vehicleAllocationValue: "Confirmed during the enquiry.",
+      pricingLabel: "Pricing",
+      priceValue: "Request a quote",
+      enquireCta: "Enquire about electric vehicles",
+      availabilityNote: "Vehicle options, pricing and route suitability are confirmed by our team.",
+    },
     categories: {
+      electric: {
+        name: "Electric Vehicles",
+        capacity: "Confirmed during the enquiry",
+        models: "Vehicle options confirmed during quotation",
+        use: "Employee commutes, airport journeys and corporate requirements.",
+      },
       sedans: {
         name: "Sedans",
         capacity: "1 to 4 passengers · 2 to 3 bags",

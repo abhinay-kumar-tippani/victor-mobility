@@ -178,7 +178,28 @@ export const teDictionary: TranslationDictionary = {
     estimateCta: "ప్రయాణాన్ని ప్లాన్ చేయండి",
     exploreAll: "మొత్తం ఫ్లీట్‌ను చూడండి",
     imageCaption: "వాహనాల చిత్రాలు దృష్టాంతం మాత్రమే.",
+    electric: {
+      title: "ఎలక్ట్రిక్ వాహనాలు",
+      introduction:
+        "ఉద్యోగుల రాకపోకలు, విమానాశ్రయ ప్రయాణాలు మరియు కార్పొరేట్ అవసరాల కోసం ఎలక్ట్రిక్ ప్రయాణాన్ని అన్వేషించండి. మీ ప్రదేశం మరియు సమయానికి సరిపోయే వాహన ఎంపికలను మా బృందం నిర్ధారిస్తుంది.",
+      journeyRequirementsLabel: "ప్రయాణ అవసరాలు",
+      journeyRequirementsValue: "రూట్, సమయాలు మరియు ప్రయాణ ఫ్రీక్వెన్సీ.",
+      passengerRequirementsLabel: "ప్రయాణీకుల అవసరాలు",
+      passengerRequirementsValue: "ప్రయాణీకుల సంఖ్య మరియు లగేజీ.",
+      vehicleAllocationLabel: "వాహన కేటాయింపు",
+      vehicleAllocationValue: "విచారణ సమయంలో నిర్ధారించబడుతుంది.",
+      pricingLabel: "ధర",
+      priceValue: "కొటేషన్ అభ్యర్థించండి",
+      enquireCta: "ఎలక్ట్రిక్ వాహనాల గురించి విచారించండి",
+      availabilityNote: "వాహన ఎంపికలు, ధర మరియు రూట్ అనుకూలతను మా బృందం నిర్ధారిస్తుంది.",
+    },
     categories: {
+      electric: {
+        name: "ఎలక్ట్రిక్ వాహనాలు",
+        capacity: "విచారణ సమయంలో నిర్ధారించబడుతుంది",
+        models: "కొటేషన్ సమయంలో వాహన ఎంపికల నిర్ధారణ",
+        use: "ఉద్యోగుల రాకపోకలు, విమానాశ్రయ ప్రయాణాలు మరియు కార్పొరేట్ అవసరాలు.",
+      },
       sedans: {
         name: "సెడాన్లు",
         capacity: "1 నుండి 4 ప్రయాణీకులు · 2 నుండి 3 బ్యాగులు",

@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useState, useId, useEffect, useMemo } from "react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import {
   MessageSquare,
@@ -765,9 +766,22 @@ function EnquiryForm({
                 </a>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/15 text-xs text-brand-soft-neutral/70">
-                <span className="font-bold text-white block">{contact.name}</span>
-                <span>{contact.role}</span>
+              <div className="mt-8 pt-6 border-t border-white/15 flex items-center gap-3.5">
+                {contact.imageSrc && (
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-white/20 bg-white/10 shadow-xs">
+                    <Image
+                      src={contact.imageSrc}
+                      alt={`Portrait of ${contact.name}`}
+                      fill
+                      sizes="48px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                )}
+                <div className="text-xs text-brand-soft-neutral/70">
+                  <span className="font-bold text-white block text-sm">{contact.name}</span>
+                  <span className="text-brand-soft-neutral/85">{contact.role}</span>
+                </div>
               </div>
             </div>
 

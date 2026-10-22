@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Car, Users, Bus, Sparkles, ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Car, Users, Bus, Sparkles, ArrowRight, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 import type { FleetCategory, MediaAsset } from "@/types/content";
 
 interface FleetSectionProps {
@@ -15,6 +15,7 @@ interface FleetSectionProps {
 }
 
 const categoryIcons: Record<string, typeof Car> = {
+  electric: Zap,
   sedans: Car,
   mpvs: Users,
   buses: Bus,
@@ -33,6 +34,20 @@ interface CategoryDisplayData {
 }
 
 const fleetDetails: Record<string, CategoryDisplayData> = {
+  electric: {
+    badge: "Electric Vehicles",
+    headline: "Explore Electric Travel for Commutes & Airport Transfers",
+    models: [],
+    capacity: "Confirmed during enquiry",
+    uses: "Employee commutes, airport journeys, and corporate requirements.",
+    features: [
+      "Journey requirements: route, timings and travel frequency",
+      "Passenger requirements: number of travellers and luggage",
+      "Vehicle allocation: confirmed during the enquiry",
+    ],
+    imageSrc: "/images/india/electric-fleet.jpg",
+    imageAlt: "Illustrative executive electric vehicle for corporate mobility",
+  },
   sedans: {
     badge: "Executive Sedans",
     headline: "Comfortable Saloons for Commutes & Business Travel",

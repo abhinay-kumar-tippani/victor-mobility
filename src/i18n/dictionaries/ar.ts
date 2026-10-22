@@ -240,7 +240,28 @@ export const arDictionary: TranslationDictionary = {
     estimateCta: "حساب تكلفة الرحلة",
     exploreAll: "استكشف الأسطول كاملاً",
     imageCaption: "صور المركبات توضيحية. يتم تأكيد تخصيص المركبة الفعلية عند الحجز.",
+    electric: {
+      title: "المركبات الكهربائية",
+      introduction:
+        "استكشف التنقل الكهربائي لنقل الموظفين اليومي، ورحلات المطار، والمتطلبات المؤسسية. سيقوم فريقنا بتأكيد خيارات المركبات المناسبة لموقعك وجدولك الزمني.",
+      journeyRequirementsLabel: "متطلبات الرحلة",
+      journeyRequirementsValue: "المسار والمواعيد وتكرار الرحلات.",
+      passengerRequirementsLabel: "متطلبات الركاب",
+      passengerRequirementsValue: "عدد الركاب والأمتعة.",
+      vehicleAllocationLabel: "تخصيص المركبة",
+      vehicleAllocationValue: "يتم التأكيد أثناء تقديم الاستفسار.",
+      pricingLabel: "التسعير",
+      priceValue: "طلب عرض أسعار",
+      enquireCta: "استفسر عن المركبات الكهربائية",
+      availabilityNote: "يتم تأكيد خيارات المركبات والأسعار وملاءمة المسار بواسطة فريقنا.",
+    },
     categories: {
+      electric: {
+        name: "المركبات الكهربائية",
+        capacity: "يتم التأكيد أثناء الاستفسار",
+        models: "تأكيد خيارات المركبات أثناء عرض الأسعار",
+        use: "نقل الموظفين اليومي، رحلات المطار والمتطلبات المؤسسية.",
+      },
       sedans: {
         name: "سيارات صالون تنفيذية",
         capacity: "1 إلى 4 ركاب · 2 إلى 3 حقائب",

@@ -208,6 +208,13 @@
       "description": "Group passenger transit for summits and corporate tours.",
       "brochureModels": ["22-Seater VIP Coach", "44-Seater Luxury Bus"],
       "source": "Brochure page 6 (500+ busses fleet capability)"
+    },
+    {
+      "id": "electric",
+      "name": "Electric Vehicles",
+      "description": "Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule.",
+      "brochureModels": [],
+      "source": "Corporate enquiry fleet category"
     }
   ],
   "contact": {
@@ -323,6 +330,18 @@
         "imageAlt": "Luxury 22 and 44-seater coach bus",
         "imagePosition": "center center",
         "price": 2200
+      },
+      {
+        "id": "electric",
+        "tab": "Electric Vehicles",
+        "headline": "Electric executive travel across Dubai and Abu Dhabi.",
+        "capacity": "Confirmed during enquiry",
+        "bestFor": "Employee commutes · Airport journeys · Corporate requirements",
+        "image": "/images/india/electric-fleet.jpg",
+        "imageAlt": "Illustrative executive electric vehicle for corporate mobility in the UAE",
+        "imagePosition": "center center",
+        "price": null,
+        "isElectric": true
       }
     ]
   },

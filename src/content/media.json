@@ -40,6 +40,26 @@
       "aiGenerated": true,
       "temporary": true,
       "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "electric-fleet",
+      "src": "/images/india/electric-fleet.jpg",
+      "alt": "Illustrative premium electric vehicle for corporate mobility and executive travel",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": true,
+      "temporary": true,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "leadership-mujeeb",
+      "src": "/images/india/leadership-mujeeb.jpg",
+      "alt": "Portrait of Mujeeb Ur Rahman Mohammed, Business Development Partner at Victor Mobility.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": false,
+      "temporary": false,
+      "actualVictorFleetPhoto": false
     }
   ],
   "replacementInstructions": "Replace the file at the same path or edit src. Update alt text, focal point, aiGenerated, temporary and actualVictorFleetPhoto to reflect the replacement. Do not state it is a real fleet image until that is true."

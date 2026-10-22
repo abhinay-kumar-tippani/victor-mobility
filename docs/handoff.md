@@ -1471,3 +1471,53 @@ The platform has reached complete production readiness across all 23 implementat
   - `/uae/tco-calculator` — UAE Fleet TCO & Leasing Transition Engine
   - `/uae/roadshows` — UAE Investor Roadshows & Delegation Logistics Desk
   - `/uae/credit-application` — UAE Commercial Account & 30-Day Billing Facility Desk
+
+---
+
+## Milestone: Native Electric Vehicles (EV) Fleet Category Implementation (2026-10-22)
+
+### 1. Scope & Execution
+- **Regional Fleet Integration**: Integrated "Electric Vehicles" as a native category within both regional fleet routes:
+  - `/india/fleet` (via `src/components/fleet/IndiaFleetSection.tsx`)
+  - `/uae/fleet` (via `src/components/fleet/InteractiveFleetShowcase.tsx`)
+- **Direct Hash Linkability**: Direct linking enabled via `/india/fleet#electric` and `/uae/fleet#electric`. Opening either URL automatically selects the EV category and smoothly scrolls the panel into view with sticky header offset (`scroll-mt-24 sm:scroll-mt-28`).
+- **No Standalone EV Page**: Kept EVs native within the existing fleet architecture without competing interfaces or duplicate top-level navigation links.
+- **Brand Palette & Visual Harmony**: Adheres strictly to Victor Mobility's brand palette (Indigo `#31326F`, Blue `#2D5090`, Violet `#6E57A0`, Ink `#15162F`, Warm White `#F6F5F2`, Soft Neutral `#E5E4EA`) with a small charging icon (`Zap`) rather than an aggressive green environmental overhaul.
+
+### 2. Fleet Presentation Content
+- **EV Image**: High-resolution photorealistic corporate EV photograph (`/images/india/electric-fleet.jpg`), accompanied by the concise caption: *"Vehicle imagery is illustrative."*
+- **Category Title**: *"Electric Vehicles"* (localized in English, Hindi, Telugu, Arabic).
+- **Introduction**: *"Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule."*
+- **Brief Information Rows**:
+  1. *Journey requirements*: Route, timings and travel frequency.
+  2. *Passenger requirements*: Number of travellers and luggage.
+  3. *Vehicle allocation*: Confirmed during the enquiry.
+- **Pricing & Availability**:
+  - Pricing label: *"Request a quote"*
+  - Availability note: *"Vehicle options, pricing and route suitability are confirmed by our team."*
+- **CTA Routing & Prefill**:
+  - India: `/india/contact?category=Electric%20Vehicles`
+  - UAE: `/uae/contact?category=Electric%20Vehicles`
+  - Preselects "Electric Vehicles" preference in `EnquirySection.tsx`, renders badge, and generates WhatsApp draft with `*Vehicle Category:* Electric Vehicles`.
+- **Factual Integrity**: Historical `electricModelSourceNotes` with `published: false` in `india.json` is preserved without alteration. No fabricated model grids, fake ranges, or unverified battery capacities.
+
+### 3. Localization & Accessibility
+- **Supported Languages**:
+  - India: English (`en`), Hindi (`hi`), Telugu (`te`)
+  - UAE: English (`en`), Arabic (`ar`) with complete RTL support
+- **Keyboard & Touch Accessibility**: Tab navigation (`ArrowLeft`, `ArrowRight`, `Home`, `End`), visible focus rings, ARIA tabs/panels semantics, and zero horizontal page overflow across 1440px, 768px, 390px, and 320px viewports.
+
+### 4. Verification Evidence & Screenshots
+- **Verification Suite**: `scripts/verify-ev-fleet.mjs` (All automated checks passed 100%).
+- **Screenshots Captured**:
+  - `docs/screenshots/ev-india-fleet-desktop.png` — India fleet EV category selection (Desktop 1440px)
+  - `docs/screenshots/ev-india-fleet-mobile.png` — India fleet EV category selection (Mobile 390px)
+  - `docs/screenshots/ev-uae-fleet-desktop.png` — UAE fleet EV showcase (Desktop 1440px)
+  - `docs/screenshots/ev-uae-fleet-mobile.png` — UAE fleet EV showcase (Mobile 390px)
+  - `docs/screenshots/ev-uae-arabic-rtl.png` — UAE fleet EV category in Arabic RTL mode
+  - `docs/screenshots/ev-contact-prefill.png` — Regional contact form EV prefill & WhatsApp draft generator
+- **Build & Quality Gates**:
+  - `next build`: 73/73 static pages compiled successfully.
+  - `tsc --noEmit`: 0 type errors.
+  - `next lint`: 0 warnings or errors.
+

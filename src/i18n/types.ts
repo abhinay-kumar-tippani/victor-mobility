@@ -128,6 +128,20 @@ export interface TranslationDictionary {
     estimateCta: string;
     exploreAll: string;
     imageCaption: string;
+    electric?: {
+      title: string;
+      introduction: string;
+      journeyRequirementsLabel: string;
+      journeyRequirementsValue: string;
+      passengerRequirementsLabel: string;
+      passengerRequirementsValue: string;
+      vehicleAllocationLabel: string;
+      vehicleAllocationValue: string;
+      pricingLabel: string;
+      priceValue: string;
+      enquireCta: string;
+      availabilityNote: string;
+    };
     categories: Record<
       string,
       {

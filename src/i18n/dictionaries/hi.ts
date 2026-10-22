@@ -178,7 +178,28 @@ export const hiDictionary: TranslationDictionary = {
     estimateCta: "यात्रा की योजना बनाएं",
     exploreAll: "पूरी फ्लीट देखें",
     imageCaption: "वाहन चित्र सांकेतिक हैं।",
+    electric: {
+      title: "इलेक्ट्रिक वाहन",
+      introduction:
+        "कर्मचारी आवागमन, हवाई अड्डा यात्रा और कॉर्पोरेट आवश्यकताओं के लिए इलेक्ट्रिक यात्रा का अनुभव करें। हमारी टीम आपके स्थान और समय सारणी के लिए उपयुक्त वाहन विकल्पों की पुष्टि करेगी।",
+      journeyRequirementsLabel: "यात्रा आवश्यकताएं",
+      journeyRequirementsValue: "रूट, समय और यात्रा की आवृत्ति।",
+      passengerRequirementsLabel: "यात्री आवश्यकताएं",
+      passengerRequirementsValue: "यात्रियों की संख्या और सामान।",
+      vehicleAllocationLabel: "वाहन आवंटन",
+      vehicleAllocationValue: "पूछताछ के दौरान पुष्टि की जाएगी।",
+      pricingLabel: "मूल्य निर्धारण",
+      priceValue: "कोटेशन का अनुरोध करें",
+      enquireCta: "इलेक्ट्रिक वाहनों के बारे में पूछताछ करें",
+      availabilityNote: "वाहन विकल्प, मूल्य निर्धारण और मार्ग उपयुक्तता की पुष्टि हमारी टीम द्वारा की जाती है।",
+    },
     categories: {
+      electric: {
+        name: "इलेक्ट्रिक वाहन",
+        capacity: "पूछताछ के दौरान पुष्टि की जाएगी",
+        models: "कोटेशन के दौरान वाहन विकल्पों की पुष्टि",
+        use: "कर्मचारी आवागमन, हवाई अड्डा यात्रा और कॉर्पोरेट आवश्यकताएं।",
+      },
       sedans: {
         name: "सेडान",
         capacity: "1 से 4 यात्री · 2 से 3 बैग",

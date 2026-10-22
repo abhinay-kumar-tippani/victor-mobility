@@ -114,6 +114,18 @@
         "imageAlt": "Illustrative luxury passenger cabin",
         "imagePosition": "center center",
         "price": 6500
+      },
+      {
+        "id": "electric",
+        "tab": "Electric Vehicles",
+        "headline": "Electric travel for employee commutes and executive transfers.",
+        "capacity": "Confirmed during enquiry",
+        "bestFor": "Employee commutes · Airport journeys · Corporate requirements",
+        "image": "/images/india/electric-fleet.jpg",
+        "imageAlt": "Illustrative executive electric vehicle for corporate mobility",
+        "imagePosition": "center center",
+        "price": null,
+        "isElectric": true
       }
     ]
   },
@@ -705,6 +717,13 @@
       "description": "Executive journeys and special occasions.",
       "brochureModels": [],
       "source": "Brochure page 3 and current user description"
+    },
+    {
+      "id": "electric",
+      "name": "Electric Vehicles",
+      "description": "Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule.",
+      "brochureModels": [],
+      "source": "Corporate enquiry fleet category"
     }
   ],
   "fleetNote": "Tell us your preferred vehicle category. Our team will confirm options for your location and dates.",
@@ -720,6 +739,7 @@
   "contact": {
     "name": "Mujeeb Ur Rahman Mohammed",
     "role": "Business Development Partner",
+    "imageSrc": "/images/india/leadership-mujeeb.jpg",
     "phoneDisplay": "+91 91007 77768",
     "phoneHref": "tel:+919100777768",
     "whatsappDisplay": "+91 93965 46950",

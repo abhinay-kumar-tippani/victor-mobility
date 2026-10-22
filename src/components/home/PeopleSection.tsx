@@ -131,9 +131,20 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
                 </span>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold text-brand-ink">{contact.name}</h3>
-                <p className="text-xs font-semibold text-brand-indigo">{contact.role}</p>
+              <div className="flex items-center gap-4">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 border border-brand-soft-neutral shadow-2xs bg-slate-100">
+                  <Image
+                    src={contact.imageSrc || "/images/india/leadership-mujeeb.jpg"}
+                    alt={`Portrait of ${contact.name}, ${contact.role} at Victor Mobility`}
+                    fill
+                    sizes="(max-width: 640px) 64px, 80px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-ink">{contact.name}</h3>
+                  <p className="text-xs font-semibold text-brand-indigo">{contact.role}</p>
+                </div>
               </div>
 
               <p className="text-xs text-brand-ink/75 leading-relaxed">
