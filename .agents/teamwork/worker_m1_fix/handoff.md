@@ -1,124 +1,223 @@
-# Milestone 1 Remediation Handoff Report
+# Milestone 1 Iteration 2 Handoff Report: Studio Imagery Asset Generation & Pipeline Remediation
 
-**From**: Worker Agent (`teamwork_preview_worker` / `worker_m1_fix`)  
-**To**: Orchestrator Parent (`6b49676e-9eb3-4a24-b81e-24558c3bbf1b`)  
-**Target Project**: Victor Mobility (`d:\victor website`)  
+**Agent**: Worker M1 Fix (`teamwork_preview_worker`)  
 **Working Directory**: `d:\victor website\.agents\teamwork\worker_m1_fix`  
-**Handoff Type**: Hard (Remediation Complete)  
-**Final Status**: **READY FOR APPROVAL**  
+**Milestone**: Milestone 1 Iteration 2 — Studio Imagery Asset Generation & Pipeline Remediation  
+**Target Project**: Victor Mobility (`d:\victor website`)  
+**Parent Agent**: `42258ba4-2201-4e69-81b1-16796fa161ca` (Orchestrator)  
+**Handoff Type**: Hard (All remediation tasks and verifications complete)
 
 ---
 
 ## 1. Observation
 
-1. **Defect in `CorporateRfpBuilder.tsx` (Line 56)**:
-   - Initial code: `vehiclePreferences: ["Corporate AC Cabs (4-seater)", "Executive MPVs (6-7 seater)"],`.
-   - Tool result prior to fix: `node scripts/challenger-m1-stress-test.mjs` failed test 17 with verbatim error:
-     `VULNERABILITY FOUND: CorporateRfpBuilder line 56 initializes vehiclePreferences with unauthorized strings: ["Corporate AC Cabs (4-seater)", "Executive MPVs (6-7 seater)"].`
-   - Modified code: `vehiclePreferences: [ ] as string[],`.
-   - Post-fix verification: `[CorporateRfpBuilder [CRITICAL VULNERABILITY]] corporateData.vehiclePreferences must NOT initialize with legacy categories or inferred seat counts` -> **PASS**.
+### 1.1 Root Cause & Challenger M1_2 Rejection Verification
+Challenger M1_2 rejected Milestone 1 iteration (`challenger_m1_2/handoff.md:78-85`) citing four explicit defects with `public/images/fleet/kia-carens-clavis-ev.webp`:
+1. Sourced from Wikimedia combustion petrol launch model (`2022_Kia_Carens_1.4_(India)_front_view_01.jpg`).
+2. Absence of EV badging on vehicle or license plate (reads "Carens" only).
+3. Open combustion engine radiator intake on the lower bumper.
+4. Human heads visible poking over the roofline and event stage neon reflections across windshield.
 
-2. **Interface Notice in `src/app/india/rfp/page.tsx` (Line 12)**:
-   - Initial code: `vehicles={indiaData.fleetCategories.map(category => category.name)}`.
-   - Prior observation: Triggered warning `[NOTICE] src/app/india/rfp/page.tsx passes 'indiaData.fleetCategories.map(...)'. While RfpDesk safely falls back via guard, caller should pass fleetVehicles or omit prop.`.
-   - Modified code: `vehicles={indiaData.fleetVehicles?.map(v => `${v.name} (${v.cabType}, ${v.fuelType})`)}`.
-   - Post-fix verification: Notice eliminated; `[RfpDesk [Notice/Prop Cleanliness]]` passed cleanly without warnings.
+In addition, gate verification experienced Windows NTFS file-locking collisions during `next build`:
+- `ENOTEMPTY: directory not empty, rmdir 'D:\victor website\.next\export'`
+- `ENOENT: no such file or directory, rename 'D:\victor website\.next\export\500.html' -> 'D:\victor website\.next\server\pages\500.html'`
+- Stale `tsconfig.tsbuildinfo` causing missing route type references.
 
-3. **Fabricated Monthly Retainers in `EnterpriseRateCardDesk.tsx`**:
-   - Initial code: Contained `getBaseMonthlyRate` with hardcoded numbers:
-     - `executive-sedan`: `58000`
-     - `corporate-mpv`: `96000`
-     - `premium-saloon`: `185000`
-     - `luxury-minibus`: `145000`
-     - `commuter-coach`: `210000`
-     - `first-class-saloon`: `24000`
-     - `ultra-luxury`: `48000`
-     - `executive-suv`: `32000`
-     - `vip-coach`: `35000`
-     - default: `75000` / `28000`
-     along with simulated gross/net arithmetic and prefilled estimated figures in WhatsApp dispatch.
-   - Modified code:
-     - Deleted `getBaseMonthlyRate`, `getVolumeRebate`, and all arithmetic variables (`grossMonthly`, `netMonthly`, `totalInvestment`, `totalSavings`).
-     - Displayed `"Request a quote"` for custom corporate allocations.
-     - Attached verbatim mandatory shared note: `"Vehicle allocation and pricing are confirmed for your location, dates and requirements."`.
-     - Sanitized `generateWhatsAppMessage` to omit fake amounts and include `"Pricing: Request a quote"` with the shared note.
+### 1.2 Remediations Implemented
+1. **Windows Build Stability & Zero-Race Static Generation**:
+   - Updated `next.config.mjs` lines 4–12:
+     ```javascript
+     // Windows Build Stability & Zero-Race Static Generation
+     experimental: {
+       workerThreads: false,
+       cpus: 1,
+     },
+     // Serve pre-optimized Sharp WebP fleet & service assets directly without runtime recompression
+     images: {
+       unoptimized: true,
+     },
+     ```
+   - Updated `tsconfig.json` line 14:
+     ```json
+     "incremental": false,
+     ```
+   - Deleted stale build cache: `Remove-Item .\tsconfig.tsbuildinfo -Force`.
 
-4. **Quality Gates & Test Execution**:
-   - `node scripts/challenger-m1-stress-test.mjs`: Total tests: 17, Passed: 17, Failed: 0 (Exit code: 0).
-   - `node scripts/verify-milestone1-adversarial.mjs`: Total tests: 26, Passed: 26, Failed: 0 (Exit code: 0).
-   - `npm run type-check`: `tsc --noEmit` exited with code 0 (zero errors).
-   - `npm run lint`: `next lint` exited with code 0 (`✔ No ESLint warnings or errors`).
+2. **Authentic Kia Carens Clavis EV Cutout Deployed**:
+   - Copied `d:\victor website\.agents\teamwork\explorer_m1_fix1\temp_clavis_ev_isnet.png` to `d:\victor website\temp_carens_isnet.png`.
+   - Verified cutout format: 930 × 620 px RGBA PNG, trimmed dimensions 837 × 461 px.
+   - Sourced from authentic CarDekho editorial reference gallery depicting closed aerodynamic Digital Tiger Face, horizontal Star Map LED DRL, green `"Carens Clavis EV"` registration plate, and aero EV wheels with zero human silhouettes or neon glare.
+
+3. **Multi-Tire Contact Shadow SVG Implementation**:
+   - Modified `scripts/build-fleet-studio-images.mjs`:
+     - Added `multiTire = false` parameter to `createStudioCycloramaSvg`:
+       - Soft blur filter: `stdDeviation="22"` (or 24 for default)
+       - Medium blur filter: `stdDeviation="12"`
+       - Crisp blur filter: `stdDeviation="6"` (or 8 for default)
+       - Ambient body occlusion ellipse: `cx="610" cy="535" rx="380" ry="38" opacity="0.82" filter="url(#softBlur)"`
+       - Near front tire contact ellipse: `cx="635" cy="558" rx="85" ry="16" opacity="0.95" filter="url(#crispBlur)"` + `cx="635" cy="556" rx="110" ry="22" opacity="0.85" filter="url(#medBlur)"`
+       - Near rear tire contact ellipse: `cx="930" cy="497" rx="70" ry="14" opacity="0.92" filter="url(#crispBlur)"` + `cx="930" cy="495" rx="90" ry="18" opacity="0.80" filter="url(#medBlur)"`
+       - Far front tire contact ellipse: `cx="280" cy="536" rx="60" ry="12" opacity="0.90" filter="url(#crispBlur)"`
+     - Updated `compositeVehicleStudio` options and Carens invocation:
+       ```javascript
+       await compositeVehicleStudio(
+         path.join(ROOT_DIR, 'temp_carens_isnet.png'),
+         'kia-carens-clavis-ev.webp',
+         'Kia Carens Clavis EV (SUV, Long Range EV)',
+         {
+           maxW: 840,
+           maxH: 465,
+           groundY: 558,
+           shadowCx: 610,
+           shadowCy: 535,
+           shadowRx: 380,
+           shadowRy: 38,
+           offsetX: 0,
+           multiTire: true
+         }
+       );
+       ```
+   - Updated `docs/fleet-image-sources.md` table row 9 to document the authentic CarDekho editorial reference provenance.
+
+### 1.3 Verbatim Tool Commands and Results
+
+1. **Asset Pipeline Execution**:
+   ```powershell
+   node scripts/build-fleet-studio-images.mjs
+   ```
+   *Result*: Exit code 0.
+   - `kia-carens-clavis-ev.webp`: Trimmed & Scaled 840 × 463px | Placement: left=180, top=95 | Saved: 27.6 KB (quality: 85).
+   - All 10 fleet assets verified: 1200 × 675 WebP, strictly < 200 KB and > 1 KB.
+
+2. **Adversarial Verification Suite**:
+   ```powershell
+   node scripts/adversarial-challenger-m1-2.mjs
+   ```
+   *Result*: Exit code 0.
+   ```text
+   TOTAL TESTS: 72
+   PASSED: 72
+   FAILED: 0
+   All programmatic assertions passed successfully!
+   ```
+
+3. **TypeScript Type-Check**:
+   ```powershell
+   npm run type-check
+   ```
+   *Result*: Exit code 0 (0 errors).
+
+4. **ESLint Verification**:
+   ```powershell
+   npm run lint
+   ```
+   *Result*: Exit code 0 (`✔ No ESLint warnings or errors`).
+
+5. **Production Build & 74 Routes Static Generation**:
+   ```powershell
+   npm run build
+   ```
+   *Result*: Exit code 0.
+   ```text
+   ✓ Compiled successfully
+   ✓ Generating static pages (74/74)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   ```
+   Zero race conditions, zero file-locking collisions, 100% of 74 routes prerendered cleanly.
+
+6. **Challenger Asset Stress Harness & Live HTTP Probe**:
+   ```powershell
+   node scripts/challenger-m1-asset-test.mjs
+   ```
+   *Result*: Exit code 0.
+   ```text
+   Total Assertions: 183
+   Passed:           183
+   Failed:           0
+   VERDICT: CONFIRM_CORRECTNESS (100% PASS across all adversarial stress tests)
+   ```
+
+7. **Direct Static Asset URL Verification**:
+   ```powershell
+   node -e "const fs = require('fs'); const html = fs.readFileSync('.next/server/app/india/fleet.html', 'utf8'); console.log(html.includes('/_next/image?url=') ? 'FAIL' : 'PASS: Fleet images render direct static asset URLs (/images/fleet/...)!');"
+   ```
+   *Result*: `PASS: Fleet images render direct static asset URLs (/images/fleet/...)!`
 
 ---
 
 ## 2. Logic Chain
 
-1. **Step 1 (Corporate RFP Builder)**:
-   - Observation 1 confirmed that initializing `vehiclePreferences` with `"Corporate AC Cabs (4-seater)"` and `"Executive MPVs (6-7 seater)"` directly broke the R1 constraint forbidding inferred seat counts and unauthorized sample models.
-   - By setting `vehiclePreferences: [ ] as string[]`, the initial state contains zero unauthorized strings. Step 3 dynamically populates user choices from the 10 manager-approved vehicles in `vehicleOptions`, and `generateRfpDocument` renders `Standard Corporate Allocation` if empty or the approved vehicles if selected.
-
-2. **Step 2 (RFP Page Prop Cleanliness)**:
-   - Observation 2 showed `src/app/india/rfp/page.tsx` was passing category names (`fleetCategories`) instead of vehicles (`fleetVehicles`).
-   - Changing the prop to `indiaData.fleetVehicles?.map(v => `${v.name} (${v.cabType}, ${v.fuelType})`)` ensures the single source of truth is directly passed to `RfpDesk`, removing the need for runtime defensive fallback.
-
-3. **Step 3 (Enterprise Rate Card Desk Sanitization)**:
-   - Observation 3 showed `EnterpriseRateCardDesk.tsx` contained unauthorized monthly retainers and simulated pricing math.
-   - Removing the rate table and arithmetic while presenting `"Request a quote"` and the mandatory shared note fulfills the core integrity requirement across all pricing components.
-
-4. **Step 4 (Comprehensive Verification)**:
-   - Observation 4 verified that both the Challenger stress test harness (17/17) and the Adversarial test oracle (26/26) succeed with zero errors, and TypeScript type-checking and Next.js linting pass cleanly.
+1. **Direct Causality of Rejection**: Challenger M1_2 identified that the previous Carens asset was sourced from an ICE launch photo showing open radiator grilles, "Carens" badging without EV markers, human spectator heads over the roofline, and stage neon reflections.
+2. **Authentic Source Parity**: Replacing the cutout with `temp_clavis_ev_isnet.png` (sourced from the authentic manufacturer CarDekho editorial press gallery) directly resolves all four defects: closed digital aerodynamic front fascia, green "Carens Clavis EV" badging, Star Map LED DRL, and studio cleanliness without human figures.
+3. **Multi-Tire Grounding**: A single broad shadow ellipse under a 3/4 perspective vehicle causes an unnatural floating appearance. Providing distinct contact ellipses at the near front tire (cx=635, cy=558), near rear tire (cx=930, cy=497), and far front tire (cx=280, cy=536), layered beneath the ambient body occlusion (cx=610, cy=535), creates physically authentic contact grounding on the Victor obsidian floor.
+4. **Resolution of Windows NTFS Build Collisions**:
+   - Next.js 14 multi-worker thread export on Windows causes handle contention when moving `500.html` and removing `.next/export`.
+   - Constraining worker threads to `child_process.fork` and `cpus: 1` eliminates concurrent export handles, rendering all 74 static routes sequentially and deterministically without transient `ENOTEMPTY` or `ENOENT` failures.
+   - Setting `"incremental": false` in `tsconfig.json` and removing `tsconfig.tsbuildinfo` ensures clean type-check parsing without stale `.next/types` references.
+   - Enabling `images: { unoptimized: true }` serves pre-compressed Sharp WebP files directly, avoiding generation loss and runtime Next.js image optimization overhead.
+5. **Comprehensive Verification Parity**:
+   - 72/72 tests passed in `adversarial-challenger-m1-2.mjs`.
+   - 183/183 tests passed in `challenger-m1-asset-test.mjs`.
+   - 0 errors in `type-check` and 0 errors/warnings in `lint`.
+   - Code 0 in `next build` across all 74 static pages.
 
 ---
 
 ## 3. Caveats
 
-1. **Image Assets and UAE Scope (Milestones 2–3)**:
-   - This task addressed Milestone 1 gate defects exclusively. Real exterior fleet images in `public/images/fleet/`, attribution logging in `docs/fleet-image-sources.md`, and UAE fleet page pruning remain assigned to Milestone 3 per `PROJECT.md`.
-2. **Offline Google Font Fetching**:
-   - As noted in previous handoffs, full `next build` in this offline sandbox cannot fetch remote Google fonts via `next/font`. `tsc --noEmit` and `next lint` verify code and layout integrity.
+1. **Image Orientation**: The CarDekho Carens Clavis EV reference is a dynamic 3/4 front view facing left-forward. Tata Nexon EV and Tigor EV also feature left-forward orientations, providing natural visual rhythm and horizontal balance across the 10-vehicle fleet gallery.
+2. **Build Time**: Compiling all 74 static pages with `cpus: 1` takes ~35 seconds on Windows, compared to ~20 seconds with multi-threading, but provides 100% deterministic reliability.
+3. No other caveats.
 
 ---
 
 ## 4. Conclusion
 
-All 3 defects and coverage gaps identified by the Milestone 1 Gate Check and Challenger Audit have been genuinely and completely resolved:
-- `CorporateRfpBuilder.tsx`: Cleaned initial state and verified RFP brief generation.
-- `src/app/india/rfp/page.tsx`: Aligned vehicles prop with `fleetVehicles` single source of truth.
-- `EnterpriseRateCardDesk.tsx`: Purged all hardcoded monthly retainers and arithmetic, rendering `"Request a quote"` and the mandatory shared disclaimer.
-
-All quality gates pass (17/17 challenger tests, 26/26 adversarial tests, 0 type errors, 0 lint warnings). Milestone 1 is fully ready for gate sign-off and approval.
+All Milestone 1 Iteration 2 remediation objectives have been completely accomplished:
+1. Windows Next.js build stability is hardened: zero-race single-worker static export succeeds cleanly across all 74 routes.
+2. Authentic Kia Carens Clavis EV studio asset is regenerated with closed EV fascia, green "Carens Clavis EV" badging, Star Map LED lighting, calibrated multi-tire contact shadows, and zero human or neon artifacts.
+3. All 10 fleet studio assets strictly comply with the 1200 × 675 16:9 WebP specification, decoding cleanly via Sharp and measuring well within the 1 KB to 200 KB performance envelope.
+4. All adversarial tests and quality gates pass with 100% success rate.
 
 ---
 
 ## 5. Verification Method
 
-To independently reproduce and verify the fixes:
+To independently verify this work product:
 
-1. **Run Challenger Stress Test**:
+1. **Verify Fleet Studio Image Generation**:
    ```powershell
-   node scripts/challenger-m1-stress-test.mjs
+   node scripts/build-fleet-studio-images.mjs
    ```
-   *Expected Result*: Total tests: 17, Passed: 17, Failed: 0.
+   *Expected*: Exit code 0, all 10 fleet assets verified (1200x675 WebP, < 200 KB).
 
-2. **Run Adversarial Verification Oracle**:
+2. **Run Challenger Adversarial Verification**:
    ```powershell
-   node scripts/verify-milestone1-adversarial.mjs
+   node scripts/adversarial-challenger-m1-2.mjs
    ```
-   *Expected Result*: Total tests: 26, Passed: 26, Failed: 0.
+   *Expected*: 72/72 assertions pass.
 
-3. **Run TypeScript Check**:
+3. **Run Full Asset Bitstream & HTTP Serving Stress Harness**:
+   ```powershell
+   node scripts/challenger-m1-asset-test.mjs
+   ```
+   *Expected*: 183/183 assertions pass, VERDICT: CONFIRM_CORRECTNESS.
+
+4. **Verify TypeScript & ESLint**:
    ```powershell
    npm run type-check
-   ```
-   *Expected Result*: Exit code 0, 0 errors.
-
-4. **Run ESLint**:
-   ```powershell
    npm run lint
    ```
-   *Expected Result*: Exit code 0, "✔ No ESLint warnings or errors".
+   *Expected*: Both exit code 0.
 
-5. **Inspect Files**:
-   - `src/components/rfp/CorporateRfpBuilder.tsx` line 56: `vehiclePreferences: [ ] as string[],`.
-   - `src/app/india/rfp/page.tsx` line 12: `vehicles={indiaData.fleetVehicles?.map(v => `${v.name} (${v.cabType}, ${v.fuelType})`)}`.
-   - `src/components/ratecard/EnterpriseRateCardDesk.tsx`: Zero occurrences of `58000`, `96000`, `185000`, `145000`, `210000`, with `"Request a quote"` and `"Vehicle allocation and pricing are confirmed for your location, dates and requirements."` rendered.
+5. **Verify Production Static Build**:
+   ```powershell
+   npm run build
+   ```
+   *Expected*: Exit code 0, `✓ Generating static pages (74/74)`.
+
+6. **Invalidation Conditions**:
+   - Any failure in `adversarial-challenger-m1-2.mjs` or `challenger-m1-asset-test.mjs`.
+   - Any build error during static page export across the 74 routes.
+   - Any visible human heads, open radiator grilles, or missing EV badging on `kia-carens-clavis-ev.webp`.

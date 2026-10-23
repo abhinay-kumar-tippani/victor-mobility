@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    workerThreads: false,
-    cpus: 1,
-  },
+  // Serve pre-optimized Sharp WebP fleet & service assets directly without runtime recompression
   images: {
     unoptimized: true,
   },

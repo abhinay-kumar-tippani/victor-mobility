@@ -1,7 +1,7 @@
-# BRIEFING — 2026-10-22T16:45:00Z
+# BRIEFING — 2026-10-23T11:20:00Z
 
 ## Mission
-Empirically and adversarially challenge and verify Milestone 1 (data sanitization and dataset structure) to issue an independent APPROVE / REJECT verdict.
+Adversarially stress-test all 10 fleet assets in `public/images/fleet/` (bitstream corruption, dimensions 1200x675, file size limits 1KB-200KB, channel variance/entropy, and local Next.js HTTP 200/content-type) and deliver an empirical report with explicit verdict (CONFIRM_CORRECTNESS or REJECT).
 
 ## 🔒 My Identity
 - Archetype: challenger
@@ -10,56 +10,47 @@ Empirically and adversarially challenge and verify Milestone 1 (data sanitizatio
 - Original parent: 6b49676e-9eb3-4a24-b81e-24558c3bbf1b
 - Milestone: milestone_1
 - Instance: 1 of 1
+- Current parent: 42258ba4-2201-4e69-81b1-16796fa161ca
+- Milestone Reinvocaton: Milestone 1 — Studio Imagery Asset Generation & Pipeline
 
 ## 🔒 Key Constraints
 - Review-only — do NOT modify implementation code (do not fix bugs yourself, report as findings)
 - Empirical verification mandatory — must write and run verification oracles directly
 - .agents/teamwork/ must hold only metadata (plans, reports, progress, handoffs) — tests/scripts must reside outside .agents/teamwork/ or executed cleanly
 - Deliver clear APPROVE or REJECT verdict
+- Strict criteria: decode full raw uncompressed pixel buffer `await sharp(filePath).raw().toBuffer()`, assert buffer size equals 1200 * 675 * channels
+- Dimensions strictly width === 1200, height === 675, aspect ratio 16:9
+- File size strictly > 1,024 bytes and < 204,800 bytes (200 KB)
+- Channel sanity: assert alpha or RGB variance is non-zero
+- Verify HTTP serving: Next.js server HTTP 200 and image/webp Content-Type for all 10 assets
 
 ## Current Parent
-- Conversation ID: 6b49676e-9eb3-4a24-b81e-24558c3bbf1b
-- Updated: not yet
+- Conversation ID: 42258ba4-2201-4e69-81b1-16796fa161ca
+- Updated: 2026-10-23T11:20:00Z
 
 ## Review Scope
-- **Files to review**: `src/content/india.json`, `src/content/rate-card.json`, `src/content/corridors.json`
-- **Worker artifacts**: `.agents/teamwork/worker_m1/report.md`, `.agents/teamwork/worker_m1/handoff.md`
-- **Interface contracts**: `.agents/teamwork/ORIGINAL_REQUEST.md`, `AGENTS.md`, `.agents/teamwork/PROJECT.md`
-- **Review criteria**:
-  1. JSON validity across all 3 files
-  2. Exactly 10 fleet vehicles in `india.json` in exact canonical order and names
-  3. Exact category distribution: Sedan=5, SUV=4, 12 Seater=1, Electric=4
-  4. Zero occurrences of legacy pricing (2200, 3800, 7200, 6500) and obsolete vehicle models (Etios, Camry, Tempo Traveller) across active India routes
-  5. Verbatim presence of mandatory shared note
-  6. Edge cases and subtle corruption/omissions
+- **Assets under test**: `public/images/fleet/*.webp` (10 assets)
+- **Code under test**: `scripts/build-fleet-studio-images.mjs`, `src/components/fleet/IndiaFleetSection.tsx`, Next.js serving
+- **Worker handoff**: `.agents/teamwork/worker_m1_final/handoff.md`
+- **Interface contracts**: `.agents/teamwork/ORIGINAL_REQUEST.md`, `.agents/teamwork/PROJECT.md`
 
 ## Attack Surface
 - **Hypotheses tested**:
-  - H1: JSON integrity across `india.json`, `rate-card.json`, `corridors.json` (CONFIRMED VALID)
-  - H2: Fleet vehicles array length, order, naming, and typing match manager directive verbatim (CONFIRMED 10/10)
-  - H3: Category partitions evaluate to Sedan: 5, SUV: 4, 12 Seater: 1, Electric: 4 with no orphans (CONFIRMED EXACT)
-  - H4: Legacy pricing (2200, 3800, 7200, 6500) and obsolete vehicles (Etios, Camry, Tempo Traveller) completely expunged from active India content (CONFIRMED PURGED)
-  - H5: Mandatory shared note present verbatim across all required touchpoints (CONFIRMED VERBATIM)
-  - H6: Static compilation passes cleanly without errors (CONFIRMED: tsc and lint pass with 0 errors)
-- **Vulnerabilities found**:
-  - Low: `CorporateRfpBuilder.tsx` line 56 has residual default state `vehiclePreferences: ["Corporate AC Cabs (4-seater)", "Executive MPVs (6-7 seater)"]` (scoped for M4).
-  - Low: `src/i18n/dictionaries/en.ts` line 222 retains `Tempo Traveller` in `buses` dictionary entry (scoped for M4).
-  - Low: `src/app/india/rfp/page.tsx` line 12 passes categories instead of vehicles, though `RfpDesk.tsx` has defensive fallback (scoped for M2).
-- **Untested angles**:
-  - Milestone 2 interactive grid and `#electric` hash deep linking.
-  - Milestone 3 image asset licensing and verification.
-  - Milestone 4 multi-language localization and Playwright E2E.
+  - H1: WebP Bitstream integrity across all 10 assets (full raw buffer decode) [TBD]
+  - H2: Exact dimensional alignment 1200x675 (16:9) [TBD]
+  - H3: File size compliance 1,024 B < size < 204,800 B [TBD]
+  - H4: Channel variance and visual entropy (no blank or solid dummy images) [TBD]
+  - H5: Live Next.js HTTP server returns 200 and `image/webp` Content-Type for all 10 assets [TBD]
+- **Vulnerabilities found**: [TBD]
+- **Untested angles**: [TBD]
 
 ## Loaded Skills
 None
 
 ## Key Decisions Made
-- Executed `node scripts/verify-milestone1-adversarial.mjs`: all 26 assertions passed.
-- Executed `npm run type-check`: exit code 0, 0 errors.
-- Executed `npm run lint`: exit code 0, no errors or warnings.
-- Issued verdict: **APPROVE**.
+- Designing standalone Node.js automated adversarial script `scripts/challenger-m1-asset-test.mjs` using `sharp` and native `http`/`fetch`.
 
 ## Artifact Index
-- `.agents/teamwork/challenger_m1_1/report.md` — Detailed challenge findings, risk assessment, and stress-test results
+- `.agents/teamwork/challenger_m1_1/progress.md` — Liveness and status heartbeat
 - `.agents/teamwork/challenger_m1_1/handoff.md` — 5-component handoff report with final verdict
-- `scripts/verify-milestone1-adversarial.mjs` — Standalone reproducible verification test suite
+- `scripts/challenger-m1-asset-test.mjs` — Automated adversarial stress harness

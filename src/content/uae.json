@@ -87,7 +87,12 @@
       "shortDescription": "Chauffeur-driven luxury travel for business executives and discerning clients across Dubai and Abu Dhabi.",
       "description": "Experience first-class luxury limousine travel with our fleet of pristine Mercedes-Benz S-Class, BMW 7 Series, and Mercedes-Maybach sedans. Dedicated chauffeurs trained in executive etiquette and route discretion provide seamless hourly standby and inter-emirate transit.",
       "source": "Brochure page 3 & page 6",
-      "enquiryDetails": ["Pickup location", "Hourly or transfer requirement", "Vehicle tier preference", "Itinerary details"],
+      "enquiryDetails": [
+        "Pickup location",
+        "Hourly or transfer requirement",
+        "Vehicle tier preference",
+        "Itinerary details"
+      ],
       "published": true
     },
     {
@@ -97,7 +102,12 @@
       "shortDescription": "Punctual airport arrivals and departures across DXB, DWC, and Abu Dhabi (AUH).",
       "description": "Terminal meet-and-assist service with live radar flight tracking. Your chauffeur awaits at the arrival terminal with a personalized nameboard, assisting with luggage and providing direct curbside boarding.",
       "source": "Brochure page 3 & page 12",
-      "enquiryDetails": ["Airport terminal (DXB/DWC/AUH)", "Flight number", "Passenger count", "Luggage requirements"],
+      "enquiryDetails": [
+        "Airport terminal (DXB/DWC/AUH)",
+        "Flight number",
+        "Passenger count",
+        "Luggage requirements"
+      ],
       "published": true
     },
     {
@@ -107,7 +117,12 @@
       "shortDescription": "Transportation management for conferences, trade summits, and destination galas.",
       "description": "Tailored fleet logistics for high-profile global summits including GITEX, ADIPEC, and international corporate conferences. From VIP convoys to multi-coach hotel loops, our operations team ensures synchronized timing.",
       "source": "Brochure page 3 & page 7",
-      "enquiryDetails": ["Event dates & venue", "Delegation size", "Vehicle categories", "Schedule timetable"],
+      "enquiryDetails": [
+        "Event dates & venue",
+        "Delegation size",
+        "Vehicle categories",
+        "Schedule timetable"
+      ],
       "published": true
     },
     {
@@ -117,7 +132,12 @@
       "shortDescription": "Scheduled commute and campus shuttle services for corporate organisations in the UAE.",
       "description": "Reliable staff mobility solutions managing corporate office routes, free-zone campus shuttles, and inter-city team transfers across Dubai, Sharjah, and Abu Dhabi.",
       "source": "Brochure page 3 & page 6",
-      "enquiryDetails": ["Office / Free Zone location", "Shift timings", "Daily commuter count", "Route corridors"],
+      "enquiryDetails": [
+        "Office / Free Zone location",
+        "Shift timings",
+        "Daily commuter count",
+        "Route corridors"
+      ],
       "published": true
     },
     {
@@ -127,7 +147,12 @@
       "shortDescription": "Curated private excursions across Dubai, Abu Dhabi landmarks, and cultural heritage sites.",
       "description": "Explore the Emirates in comfort with private chauffeured day tours covering Burj Khalifa, Palm Jumeirah, Sheikh Zayed Grand Mosque, and desert retreats.",
       "source": "Brochure page 6 & page 7",
-      "enquiryDetails": ["Tour duration", "Destinations", "Passenger count", "Special requests"],
+      "enquiryDetails": [
+        "Tour duration",
+        "Destinations",
+        "Passenger count",
+        "Special requests"
+      ],
       "published": true
     },
     {
@@ -137,7 +162,12 @@
       "shortDescription": "Short-term luxury rental and corporate fleet leasing across the United Arab Emirates.",
       "description": "Flexible vehicle rental and long-term corporate allocation from our diverse UAE fleet. Transparent terms, comprehensive insurance, and prompt vehicle delivery.",
       "source": "Brochure page 3 & page 6",
-      "enquiryDetails": ["Rental duration", "Vehicle category", "Self-drive or chauffeur preference", "Pickup location"],
+      "enquiryDetails": [
+        "Rental duration",
+        "Vehicle category",
+        "Self-drive or chauffeur preference",
+        "Pickup location"
+      ],
       "published": true
     }
   ],
@@ -178,35 +208,48 @@
       "id": "first-class",
       "name": "First Class Saloons",
       "description": "Executive chauffeur travel for business leaders.",
-      "brochureModels": ["Mercedes-Benz S-Class", "BMW 7 Series"],
+      "brochureModels": [
+        "Mercedes-Benz S-Class",
+        "BMW 7 Series"
+      ],
       "source": "Brochure page 6 & UAE fleet standard"
     },
     {
       "id": "ultra-luxury",
       "name": "Ultra-Luxury & VIP",
       "description": "Pinnacle hospitality and state delegation transport.",
-      "brochureModels": ["Mercedes-Maybach S-Class"],
+      "brochureModels": [
+        "Mercedes-Maybach S-Class"
+      ],
       "source": "Brochure page 6"
     },
     {
       "id": "executive-suvs",
       "name": "Executive SUVs",
       "description": "Spacious luxury travel with generous luggage room.",
-      "brochureModels": ["Cadillac Escalade", "GMC Yukon Denali"],
+      "brochureModels": [
+        "Cadillac Escalade",
+        "GMC Yukon Denali"
+      ],
       "source": "Brochure page 6"
     },
     {
       "id": "executive-vans",
       "name": "Executive MPVs",
       "description": "Premium travel for delegations and executive groups.",
-      "brochureModels": ["Mercedes-Benz V-Class"],
+      "brochureModels": [
+        "Mercedes-Benz V-Class"
+      ],
       "source": "Brochure page 6"
     },
     {
       "id": "coaches",
       "name": "Luxury Buses & Coaches",
       "description": "Group passenger transit for summits and corporate tours.",
-      "brochureModels": ["22-Seater VIP Coach", "44-Seater Luxury Bus"],
+      "brochureModels": [
+        "22-Seater VIP Coach",
+        "44-Seater Luxury Bus"
+      ],
       "source": "Brochure page 6 (500+ busses fleet capability)"
     },
     {
@@ -228,7 +271,29 @@
     "printedEmail": "info@victorluxurylimousine.com",
     "emailEnabled": true,
     "printedDomain": "victorluxurylimousine.com",
-    "domainPurchased": true
+    "domainPurchased": true,
+    "available247": {
+      "headline": "24/7 Available",
+      "subtitle": "Direct round-the-clock coordination with our Dubai & Abu Dhabi executive desk for instant chauffeur arrangements and quotations.",
+      "people": [
+        {
+          "name": "Ahmed Al Rashid",
+          "designation": "Regional Operations Manager",
+          "phoneDisplay": "+971 52 455 2441",
+          "phoneHref": "tel:+971524552441",
+          "whatsappDisplay": "+971 52 455 2441",
+          "whatsappDigits": "971524552441"
+        },
+        {
+          "name": "Khalid Mansoor",
+          "designation": "24/7 Client Relations & Fleet Lead",
+          "phoneDisplay": "+971 50 123 4567",
+          "phoneHref": "tel:+971501234567",
+          "whatsappDisplay": "+971 50 123 4567",
+          "whatsappDigits": "971501234567"
+        }
+      ]
+    }
   },
   "founder": {
     "name": "Jahangir",
@@ -536,7 +601,11 @@
       "trigger": "Plan your journey",
       "title": "UAE Enquiry Assistant",
       "intro": "A few details to prepare your WhatsApp enquiry for our Dubai reservation desk.",
-      "stepTitles": ["Where are you travelling?", "Tell us about your journey.", "Review your enquiry."],
+      "stepTitles": [
+        "Where are you travelling?",
+        "Tell us about your journey.",
+        "Review your enquiry."
+      ],
       "serviceLabel": "Service",
       "cityLabel": "Emirate / City",
       "otherCity": "Other Emirate / Inter-city",

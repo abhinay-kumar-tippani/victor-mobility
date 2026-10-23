@@ -35,7 +35,7 @@ function LogoTile({ company }: { company: CompanyItem }) {
     <div
       className="w-[180px] sm:w-[210px] h-[160px] rounded-2xl bg-white hover:bg-slate-50 border border-white/10 hover:border-white/25 shadow-sm transition-colors duration-200 flex flex-col items-center justify-center gap-2 p-4 flex-shrink-0 text-center"
     >
-      <Image src={company.logo} alt={`${company.name} logo`} width={160} height={60} loading="eager" unoptimized className={`h-[60px] w-full object-contain ${company.name === "Entain India Pvt. Ltd." ? "rounded-md bg-[#0E2744] p-2" : ""}`} />
+      <Image src={company.logo} alt={`${company.name} logo`} width={160} height={60} loading="lazy" className={`h-[60px] w-full object-contain ${company.name === "Entain India Pvt. Ltd." ? "rounded-md bg-[#0E2744] p-2" : ""}`} />
       <span className="text-slate-700 font-semibold text-xs leading-snug">
         {company.name}
       </span>

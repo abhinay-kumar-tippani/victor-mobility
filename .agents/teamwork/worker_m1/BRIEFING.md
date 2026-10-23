@@ -1,79 +1,58 @@
-# BRIEFING — 2026-10-22T14:19:00Z
+# BRIEFING — 2026-10-23T07:07:30Z
 
 ## Mission
-Implement Milestone 1: Fleet single-source-of-truth definition, 10 manager-approved vehicles, remove fabricated pricing across india.json, rate-card.json, corridors.json, JourneyEstimator, RfpDesk, CorporateRfpBuilder, and ensure zero lint/type errors.
+Generate and process 6 luxury commercial automotive studio visuals for Victor Mobility India Fleet with sharp optimization and UI aspect ratio refinement.
 
 ## 🔒 My Identity
-- Archetype: teamwork_preview_worker
+- Archetype: worker
 - Roles: implementer, qa, specialist
 - Working directory: d:\victor website\.agents\teamwork\worker_m1
-- Original parent: 6b49676e-9eb3-4a24-b81e-24558c3bbf1b
-- Milestone: Milestone 1: Approved Fleet Integration & Pricing Removal
+- Original parent: 42258ba4-2201-4e69-81b1-16796fa161ca
+- Milestone: Milestone 1: Studio Imagery Asset Generation & Pipeline
 
 ## 🔒 Key Constraints
 - Exclusive write ownership:
-  - src/types/content.ts
-  - src/content/india.json
-  - src/content/rate-card.json
-  - src/content/corridors.json
-  - src/components/planning/JourneyEstimator.tsx
-  - src/components/planning/RfpDesk.tsx
-  - src/components/rfp/CorporateRfpBuilder.tsx
-- DO NOT CHEAT: No hardcoded test results, no dummy facades, real genuine logic and state.
-- Strictly adhere to AGENTS.md: Preserve original logo, tagline "On Time Every Time.", brand colors from brand.json, no invented prices/specs/offices, no simulated submission success.
-- Preserving manager classifications verbatim:
-  - Swift Dzire (Sedan, Petrol, isElectric: false)
-  - Hyundai Aura (Sedan, Petrol & CNG, isElectric: false)
-  - Tata Tigor (Sedan, Electric Vehicle, isElectric: true)
-  - Tata Nexon (Sedan, Long Range Electric Vehicle, isElectric: true)
-  - MG ZS EV (Sedan, Long Range Electric Vehicle, isElectric: true)
-  - Mahindra Marazzo (SUV, Diesel, isElectric: false)
-  - Ertiga CNG (SUV, Petrol & CNG, isElectric: false)
-  - Innova Crysta (SUV, Diesel, isElectric: false)
-  - Kia Carens Clavis EV (SUV, Long Range Electric Vehicle, isElectric: true)
-  - Urbania (12 Seater, Diesel, isElectric: false)
-- No inferred seat counts (except Urbania's approved 12 Seater).
-- Remove all fabricated pricing, sample rates, and journey calculation totals.
+  - public/images/fleet/hyundai-aura.webp
+  - public/images/fleet/tata-tigor-ev.webp
+  - public/images/fleet/mahindra-marazzo.webp
+  - public/images/fleet/innova-crysta.webp
+  - public/images/fleet/kia-carens-clavis-ev.webp
+  - public/images/fleet/force-urbania.webp
+  - scripts/build-fleet-studio-images.mjs
+  - src/components/fleet/IndiaFleetSection.tsx
+- DO NOT CHEAT: genuine image generation via generate_image and sharp processing, real WebP conversion.
+- All target fleet images must decode in sharp, be 1200x675 (16:9), and strictly < 200 KB (and > 1 KB).
+- Brand studio aesthetics: #070A12 floor, #15162F to #31326F cyclorama backdrop, ~28° 3/4 front view.
+- Update IndiaFleetSection.tsx image wrapper from aspect-[16/10] to aspect-[16/9].
+- Must pass npm run type-check, npm run lint, npm run build.
 
 ## Current Parent
-- Conversation ID: 6b49676e-9eb3-4a24-b81e-24558c3bbf1b
-- Updated: 2026-10-22T14:19:00Z
+- Conversation ID: 42258ba4-2201-4e69-81b1-16796fa161ca
+- Updated: not yet
 
 ## Task Summary
-- **What to build**: FleetVehicle interface, fleetVehicles in india.json (10 manager vehicles), prune fabricated pricing/rates in india.json, rate-card.json, corridors.json, update JourneyEstimator, RfpDesk, CorporateRfpBuilder.
-- **Success criteria**: Zero type errors (`npm run type-check`), zero lint errors (`npm run lint`), all 10 vehicles accurate and verified, pricing sanitized to quote-based workflows.
-- **Interface contracts**: PROJECT.md / SCOPE.md
-- **Code layout**: PROJECT.md
+- **What to build**: 6 target luxury automotive studio visual assets for Victor Mobility fleet, sharp processing script, and IndiaFleetSection.tsx 16:9 aspect ratio fix.
+- **Success criteria**: 6 genuine studio assets generated and optimized in public/images/fleet/, sharp script runnable, UI updated, type-check, lint, build pass with 0 errors.
+- **Interface contracts**: d:\victor website\.agents\teamwork\PROJECT.md
+- **Code layout**: scripts/build-fleet-studio-images.mjs, public/images/fleet/, src/components/fleet/IndiaFleetSection.tsx
 
 ## Key Decisions Made
-- Authored single-source-of-truth `fleetVehicles` in `src/content/india.json` with verbatim manager categorizations (Tata Nexon & MG ZS EV as Sedan; Marazzo, Ertiga, Innova, Carens Clavis as SUV; Urbania as 12 Seater).
-- Replaced fabricated numbers (2200, 3800, 7200, 6500) and sample rates with `"Request a quote"` and shared note: `"Vehicle allocation and pricing are confirmed for your location, dates and requirements."` across `india.json`, `rate-card.json`, and `corridors.json`.
-- Removed rate input and arithmetic budget calculation from `JourneyEstimator.tsx`, guiding users to formal quote request.
-- Replaced legacy options in `RfpDesk.tsx` and `CorporateRfpBuilder.tsx` with the 10 approved vehicles.
-
-## Change Tracker
-- **Files modified**:
-  - `src/types/content.ts`: Defined `FleetVehicle` interface; added `fleetVehicles?: FleetVehicle[]` to `IndiaContent`.
-  - `src/content/india.json`: Added `fleetVehicles` array with 10 vehicles; sanitized `fleetPresentation` (`price: null`, `sharedNote`, `priceNote`, `priceDisplay`); updated estimator copy and `fleetNote`.
-  - `src/content/rate-card.json`: Pruned Etios, Camry, Tempo Traveller; replaced fabricated tariffs with quote guidance; added shared note in description & FAQ.
-  - `src/content/corridors.json`: Pruned obsolete models; replaced corridor prices with "Quote on request"; added shared note.
-  - `src/components/planning/JourneyEstimator.tsx`: Removed rate input & budget arithmetic; displayed "Request a quote" with shared note; updated enquiry draft.
-  - `src/components/planning/RfpDesk.tsx`: Replaced legacy categories with the 10 approved vehicles.
-  - `src/components/rfp/CorporateRfpBuilder.tsx`: Replaced legacy India vehicle options with the 10 approved vehicles.
-- **Build status**: `npm run type-check` PASSED (0 errors).
-- **Pending issues**: None.
-
-## Quality Status
-- **Build/test result**: `npm run type-check` PASS (0 errors); Node dataset verification PASS (10 vehicles: 5 Sedan, 4 SUV, 1 12 Seater, 4 Electric).
-- **Lint status**: `npm run lint` PASS (0 warnings or errors).
-- **Tests added/modified**: Automated integrity verification script validated 10 vehicles, category counts, null price items, and corridor quote guidance.
-
-## Loaded Skills
-- None specified in dispatch
+- [TBD]
 
 ## Artifact Index
-- d:\victor website\.agents\teamwork\worker_m1\DISPATCH.md — Dispatch assignment
-- d:\victor website\.agents\teamwork\worker_m1\BRIEFING.md — Working memory and context index
-- d:\victor website\.agents\teamwork\worker_m1\progress.md — Progress tracker and liveness heartbeat
-- d:\victor website\.agents\teamwork\worker_m1\report.md — Detailed Milestone 1 execution report
-- d:\victor website\.agents\teamwork\worker_m1\handoff.md — 5-Component Hard Handoff Report
+- d:\victor website\.agents\teamwork\worker_m1\DISPATCH.md — Dispatch instructions
+- d:\victor website\.agents\teamwork\worker_m1\progress.md — Progress heartbeat
+- d:\victor website\.agents\teamwork\worker_m1\handoff.md — Handoff report
+
+## Change Tracker
+- **Files modified**: [TBD]
+- **Build status**: pending
+- **Pending issues**: none
+
+## Quality Status
+- **Build/test result**: pending
+- **Lint status**: pending
+- **Tests added/modified**: pending
+
+## Loaded Skills
+None requested.

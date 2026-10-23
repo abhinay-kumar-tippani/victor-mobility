@@ -60,6 +60,15 @@ export interface FleetCategory {
   source: string;
 }
 
+export interface DeskPerson {
+  name: string;
+  designation: string;
+  phoneDisplay: string;
+  phoneHref: string;
+  whatsappDisplay: string;
+  whatsappDigits: string;
+}
+
 export interface ContactData {
   name: string;
   role: string;
@@ -73,6 +82,27 @@ export interface ContactData {
   emailEnabled: boolean;
   printedDomain: string;
   domainPurchased: boolean;
+  available247?: {
+    headline: string;
+    subtitle: string;
+    people: DeskPerson[];
+  };
+}
+
+export interface TeamProfile {
+  id: string;
+  name: string;
+  role: string;
+  imageSrc: string;
+  imageAlt: string;
+  placeholder: boolean;
+  description?: string;
+  phoneDisplay?: string;
+  phoneHref?: string;
+  whatsappDisplay?: string;
+  whatsappDigits?: string;
+  emailDisplay?: string;
+  emailEnabled?: boolean;
 }
 
 export interface JourneyFieldsCopy {
@@ -149,6 +179,8 @@ export interface IndiaContent {
   fleetNote: string;
   fleetModelDisplayDefault: boolean;
   contact: ContactData;
+  teamProfiles?: TeamProfile[];
+  teamFeaturedEmail?: { display: string; enabled: boolean };
   enquiry: EnquiryData;
   sourceClaims: {
     iso?: {

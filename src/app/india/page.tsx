@@ -69,6 +69,8 @@ export default function IndiaPage() {
         {/* 6. Leadership & Operations Accountability: Founder Jahangir & Commercial Lead Mujeeb */}
         <PeopleSection
           contact={content.contact}
+          teamProfiles={content.teamProfiles}
+          teamFeaturedEmail={content.teamFeaturedEmail}
           founder={content.founder}
         />
 

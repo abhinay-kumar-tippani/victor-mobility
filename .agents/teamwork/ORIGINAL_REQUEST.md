@@ -64,3 +64,98 @@ Ensure "Enquire about this vehicle" CTAs open the regional contact/enquiry flow 
 - [ ] `npm run lint` passes with zero errors or warnings.
 - [ ] `npm run build` succeeds for all static routes.
 - [ ] `docs/handoff.md` is updated with changes, test results, and screenshot artifacts.
+
+
+## Follow-up — 2026-10-23T06:36:50Z
+
+Generate and deploy premium, luxury-grade commercial automotive studio imagery for Hyundai Aura, Tata Tigor EV, Mahindra Marazzo, Innova Crysta, Kia Carens Clavis EV, and the correct Force Urbania 12-seater, harmonized with Victor Mobility's brand palette (#070A12, #15162F, #31326F) and verified across all fleet touchpoints.
+
+Working directory: d:/victor website
+Integrity mode: development
+
+## Requirements
+
+### R1. Luxury Studio Reference Imagery for Flagship Models
+Replace casual road-snapshot photos for Hyundai Aura, Tata Tigor EV, Mahindra Marazzo, Innova Crysta, and Kia Carens Clavis EV with premium commercial automotive studio visuals. Assets must feature high-end automotive studio lighting with crisp reflections, clean three-quarter front perspectives, deep obsidian/indigo gradient studio backdrops harmonized with Victor Mobility's brand palette (`#070A12`, `#15162F`, `#31326F`), and accurate vehicle trim and EV styling details (such as closed aerodynamic grilles and EV badging for Tigor EV and Carens Clavis EV).
+
+### R2. Authentic Force Urbania 12-Seater Luxury Passenger Van Visual
+Produce an authentic, accurate exterior reference visual for the Force Urbania 12-seater luxury passenger van, ensuring it depicts the modern, aerodynamic luxury executive van profile rather than older commercial tempos or delivery chassis, styled in the same high-end studio lighting aesthetic.
+
+### R3. Visual Harmony, Asset Pipeline & WebP Optimization
+Deliver all replacement assets as 16:9 widescreen WebP files in `public/images/fleet/` optimized to < 200 KB. Maintain uniform vehicle scale, contact ground shadows, horizon line alignment, and consistent framing so that cards across `/india/fleet` and homepage previews present an elevated, seamless executive fleet lineup.
+
+### R4. Provenance & Compliance Documentation
+Update `docs/fleet-image-sources.md` to reflect the updated asset generation details, prompt specifications, and brand harmony guidelines, retaining the mandatory model-reference disclosure: "Images show vehicle models; actual assigned vehicles may vary."
+
+### R5. Responsive UI Verification & Quality Gates
+Ensure responsive card rendering across desktop (1440px), tablet (768px), and mobile (390px/320px) viewports with zero horizontal overflow or layout distortion. Confirm that `npm run type-check`, `npm run lint`, and `npm run build` pass with 0 errors. Update `docs/handoff.md` and capture fresh desktop and mobile screenshots.
+
+## Acceptance Criteria
+
+### Visual Quality & Model Accuracy
+- [ ] Hyundai Aura, Tata Tigor EV, Mahindra Marazzo, Innova Crysta, and Kia Carens Clavis EV display luxury-grade studio visuals free from casual outdoor/street snapshots or cluttered backgrounds.
+- [ ] Tata Tigor EV and Kia Carens Clavis EV feature correct closed-grille aerodynamic EV front fascias.
+- [ ] Urbania displays the authentic modern Force Urbania executive passenger van silhouette.
+- [ ] All replacement vehicle images share consistent 16:9 aspect ratios, three-quarter exterior framing, and Victor brand color harmony.
+
+### Asset Integrity & Performance
+- [ ] All replacement WebP images in `public/images/fleet/` exist, decode successfully, and are under 200 KB.
+- [ ] Fleet card heights remain uniform with zero layout shift or stretched aspect ratios.
+- [ ] `docs/fleet-image-sources.md` logs the updated asset details and retains mandatory disclaimers.
+
+### Build & Verification
+- [ ] Automated verification script or Playwright check confirms all 10 fleet images load with HTTP 200.
+- [ ] `npm run type-check` passes with 0 errors.
+- [ ] `npm run lint` passes with 0 errors/warnings.
+- [ ] `npm run build` static compilation succeeds across all 74 routes.
+- [ ] Updated desktop and mobile screenshots saved in `docs/screenshots/` and documented in `docs/handoff.md`.
+
+
+## Follow-up — 2026-10-23T07:06:22Z
+
+Generate fresh, realistic photographic images for every mobility service across Victor Mobility's India and UAE platforms, and apply them as background images on all service cards on `/india/services` and `/uae/services` matching the visual treatment of the homepage service cards.
+
+Working directory: `d:\victor website`
+Integrity mode: development
+
+## Requirements
+
+### R1. Fresh Image Generation for All Services
+Generate realistic, high-resolution photographic images tailored to each distinct service in `src/content/india.json` and `src/content/uae.json`:
+- **Employee Transportation**: Executive corporate shuttles & commuter coaches outside modern tech parks.
+- **Bus & Shuttle Transport**: High-capacity corporate buses on urban business transit corridors.
+- **Event Transportation**: Executive convoys and luxury vans for summits and corporate conferences.
+- **Airport Transfers**: Uniformed chauffeur greeting executive passengers at airport terminal.
+- **Luxury Chauffeur Service**: Executive luxury saloons and limousines outside illuminated corporate headquarters.
+- **Rent-a-Car Fleet**: Premium executive self-drive and corporate car rental fleet.
+- **Tourism & City Travel (UAE)**: Luxury travel and executive excursions across Dubai and Abu Dhabi.
+Save all generated images to appropriate directories in `public/images/`.
+
+### R2. Background Image Card Styling on `/services` Pages
+Update the service card layouts in `src/app/india/services/page.tsx` and `src/app/uae/services/page.tsx` to display the corresponding background image directly on each card (matching the card architecture of `src/components/home/ServicesSection.tsx`):
+- Background `Image` component with `fill`, `object-cover`, and smooth hover scale (`group-hover:scale-105`).
+- Dark brand ink gradient overlay (`from-[#15162F]/95 via-[#15162F]/80 to-[#15162F]/55` or equivalent) ensuring 100% text contrast and readability.
+- Retain all service metadata: number, title, short description, scope checklist items, and CTA links.
+
+### R3. Responsive Polish & Accessibility
+Ensure high contrast (WCAG AA) on all titles, descriptions, and action buttons. Maintain responsive grid layouts across 320px, 390px, 1024px, and 1440px viewports with zero horizontal overflow.
+
+## Acceptance Criteria
+
+### Visual & Functional Criteria
+- [ ] Fresh, realistic photographic images are generated and saved for all published services in India and UAE.
+- [ ] Every service card on both `/india/services` and `/uae/services` displays its direct background image.
+- [ ] Text contrast meets WCAG AA standards over the imagery with dark gradient overlays.
+- [ ] Service numbers, titles, descriptions, checklist details, and CTA buttons remain legible and fully interactive.
+- [ ] `next build` compiles successfully with 0 errors.
+- [ ] Desktop (1440px) and mobile (390px) screenshots of `/india/services` and `/uae/services` confirm visual polish and layout stability.
+
+
+## Follow-up (Server Restart Resume) — 2026-10-23T10:12:54Z
+
+The server was restarted. Please resume and continue orchestrating the luxury studio reference imagery upgrade for the 6 vehicles (Hyundai Aura, Tata Tigor EV, Mahindra Marazzo, Innova Crysta, Kia Carens Clavis EV, and the Force Urbania 12-seater). Complete Milestone 1 (studio assets & Sharp WebP optimization < 200 KB in public/images/fleet/), Milestone 2 (documentation in docs/fleet-image-sources.md), and Milestone 3 (responsive UI verification, quality gates, and screenshots).
+
+
+## Follow-up (Server Restart Resume 2) — 2026-10-23T12:27:33Z
+
+The server was restarted. Please resume and conclude the Luxury Fleet Imagery Upgrade mission: finalize the second-round M1/M2 gate consensus, complete Milestone 3 responsive visual verification, capture fresh desktop/mobile screenshots in docs/screenshots/, update docs/handoff.md, and conduct the independent Victory Audit.

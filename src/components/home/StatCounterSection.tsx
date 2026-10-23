@@ -57,7 +57,7 @@ const DEFAULT_STATS: StatItemData[] = [
   },
   {
     id: "offices",
-    targetValue: 3,
+    targetValue: 10,
     suffix: "",
     formatCommas: false,
     colorHex: "#6E57A0", // Victor Brand Violet

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MessageSquare, Phone, ArrowRight } from "lucide-react";
-import type { ContactData } from "@/types/content";
+import { MessageSquare, Phone, ArrowRight, Clock, ShieldCheck } from "lucide-react";
+import type { ContactData, DeskPerson } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ContactInvitationSectionProps {
@@ -17,81 +17,204 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
   const isUae = effectiveBasePath === "/uae";
   const { dict, locale } = useLanguage();
 
-  const whatsappMessage =
-    locale === "ar"
-      ? `مرحباً ${contact.name}، أود مناقشة متطلبات النقل والتنقل مع فيكتور موبيليتي.`
-      : locale === "hi"
-      ? `नमस्ते ${contact.name}, मैं Victor Mobility के साथ यात्रा आवश्यकताओं पर चर्चा करना चाहता हूँ।`
-      : locale === "te"
-      ? `నమస్కారం ${contact.name}, నేను Victor Mobilityతో ప్రయాణ అవసరాల గురించి చర్చించాలనుకుంటున్నాను.`
-      : `Hello ${contact.name}, I would like to discuss travel requirements with Victor Mobility.`;
+  // Fallback fake data in case available247 is not defined in content
+  const defaultPeople: DeskPerson[] = isUae
+    ? [
+        {
+          name: "Ahmed Al Rashid",
+          designation: "Regional Operations Manager",
+          phoneDisplay: "+971 52 455 2441",
+          phoneHref: "tel:+971524552441",
+          whatsappDisplay: "+971 52 455 2441",
+          whatsappDigits: "971524552441",
+        },
+        {
+          name: "Khalid Mansoor",
+          designation: "24/7 Client Relations & Fleet Lead",
+          phoneDisplay: "+971 50 123 4567",
+          phoneHref: "tel:+971501234567",
+          whatsappDisplay: "+971 50 123 4567",
+          whatsappDigits: "971501234567",
+        },
+      ]
+    : [
+        {
+          name: "Mujeeb Ur Rahman Mohammed",
+          designation: "Business Development & Operations Partner",
+          phoneDisplay: "+91 91007 77768",
+          phoneHref: "tel:+919100777768",
+          whatsappDisplay: "+91 93965 46950",
+          whatsappDigits: "919396546950",
+        },
+        {
+          name: "Farhan Ali",
+          designation: "24/7 Fleet Dispatch Manager",
+          phoneDisplay: "+91 98765 43210",
+          phoneHref: "tel:+919876543210",
+          whatsappDisplay: "+91 98765 43210",
+          whatsappDigits: "919876543210",
+        },
+      ];
 
-  const deskTitle =
-    locale === "ar"
-      ? "مكتب العمليات والشراكات"
-      : "Operations & Partnerships Desk";
+  const people = contact.available247?.people && contact.available247.people.length > 0
+    ? contact.available247.people
+    : defaultPeople;
+
+  const headline = contact.available247?.headline || (locale === "ar" ? "متاح 24/7" : "24/7 Available");
+  const subtitle =
+    contact.available247?.subtitle ||
+    (isUae
+      ? (locale === "ar"
+          ? "تنسيق مباشر على مدار الساعة مع فريق عمليات دبي وأبوظبي للحجوزات الفورية والاستفسارات."
+          : "Direct round-the-clock coordination with our Dubai & Abu Dhabi executive desk for instant chauffeur arrangements and quotations.")
+      : (locale === "ar"
+          ? "تواصل مباشرة مع مكتب العمليات في الهند على مدار الساعة لخدمات النقل السريعة وتأكيد الحجوزات."
+          : "Direct round-the-clock coordination with our operations desk or connect on WhatsApp for immediate dispatch and bookings."));
+
+  const getWhatsappMessage = (personName: string) => {
+    if (locale === "ar") {
+      return `مرحباً ${personName}، أود مناقشة متطلبات النقل والتنقل مع فيكتور موبيليتي.`;
+    }
+    if (locale === "hi") {
+      return `नमस्ते ${personName}, मैं Victor Mobility के साथ यात्रा आवश्यकताओं पर चर्चा करना चाहता हूँ।`;
+    }
+    if (locale === "te") {
+      return `నమస్కారం ${personName}, నేను Victor Mobilityతో ప్రయాణ అవసరాల గురించి చర్చించాలనుకుంటున్నాను.`;
+    }
+    return `Hello ${personName}, I would like to discuss travel requirements with Victor Mobility.`;
+  };
 
   return (
-    <section id="contact" tabIndex={-1} className="py-16 sm:py-20 bg-white focus:outline-none">
+    <section id="contact" tabIndex={-1} className="py-16 sm:py-24 bg-white focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 lg:p-14 relative overflow-hidden shadow-xl">
-          {/* Subtle background glow */}
+        <div className="bg-brand-ink text-white rounded-3xl p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-2xl border border-white/5">
+          {/* Subtle brand background glows */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-violet/15 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-4xl mx-auto space-y-8 text-center">
-            <div className="space-y-3">
-              <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block">
-                {dict.nav.contact}
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-                {dict.contactSection.title}
+          <div className="relative z-10 max-w-5xl mx-auto space-y-10 text-center">
+            {/* Header with 24/7 Badge */}
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>{locale === "ar" ? "مكتب الدعم على مدار الساعة" : "24/7 Live Operations Desk"}</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                {headline}
               </h2>
-              <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
-                {dict.contactSection.subtitle}
+
+              <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
+                {subtitle}
               </p>
             </div>
 
-            {/* Direct Contact & Action Box */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-start">
-              <div className="space-y-1 text-center md:text-start">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-brand-violet block">
-                  {deskTitle}
-                </span>
-                <h3 className="text-lg font-bold text-white">
-                  {contact.name}
-                </h3>
-                <p className="text-xs text-white/70">
-                  {contact.role} · {isUae ? (locale === "ar" ? "فيكتور موبيليتي الإمارات" : "Victor Mobility UAE") : "Victor Mobility Pvt. Ltd."}
-                </p>
-              </div>
+            {/* 2-Column Grid: 2 Contact Persons */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-start">
+              {people.slice(0, 2).map((person, idx) => {
+                const waMessage = getWhatsappMessage(person.name);
+                const initials = person.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .filter(Boolean)
+                  .slice(0, 2)
+                  .join("")
+                  .toUpperCase();
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full md:w-auto">
-                <Link
-                  href={`${effectiveBasePath}/contact`}
-                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-indigo/90 text-white py-3 px-5 rounded-xl transition-colors shadow-sm text-center"
-                >
-                  <span>{dict.servicesSection.requestQuote}</span>
-                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
-                </Link>
+                return (
+                  <div
+                    key={`${person.name}-${idx}`}
+                    className="group relative bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 hover:border-brand-violet/40 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 backdrop-blur-md shadow-lg"
+                  >
+                    <div>
+                      {/* Person Details Header */}
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-brand-violet/20 border border-brand-violet/30 flex items-center justify-center font-bold text-white text-base shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                          {initials}
+                        </div>
+                        <div className="min-w-0 flex-1 space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-violet block">
+                              {idx === 0
+                                ? (locale === "ar" ? "المسؤول التنفيذي الأول" : "Primary Desk Lead")
+                                : (locale === "ar" ? "دعم الأسطول والتنسيق" : "Fleet & Dispatch Lead")}
+                            </span>
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" title="Online" />
+                          </div>
+                          <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
+                            {person.name}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-slate-300 font-medium">
+                            {person.designation}
+                          </p>
+                          <p className="text-[11px] text-white/50">
+                            {isUae
+                              ? (locale === "ar" ? "فيكتور ليموزين الإمارات" : "Victor Mobility UAE")
+                              : "Victor Mobility Pvt. Ltd."}
+                          </p>
+                        </div>
+                      </div>
 
-                <a
-                  href={`https://wa.me/${contact.whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 py-3 px-5 rounded-xl transition-colors text-center shadow-xs"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>{dict.contactSection.whatsappCta}</span>
-                </a>
+                      {/* Divider */}
+                      <div className="my-5 border-t border-white/10" />
+                    </div>
 
-                <a
-                  href={contact.phoneHref}
-                  className="min-h-[44px] inline-flex items-center justify-center gap-2 text-xs font-semibold text-white/80 hover:text-white border border-white/20 hover:border-white/40 py-3 px-4 rounded-xl transition-colors text-center"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span dir="ltr">{contact.phoneDisplay}</span>
-                </a>
-              </div>
+                    {/* Contact Actions: Phone and WhatsApp */}
+                    <div className="space-y-3">
+                      {/* WhatsApp Row */}
+                      <a
+                        href={`https://wa.me/${person.whatsappDigits}?text=${encodeURIComponent(waMessage)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="min-h-[46px] flex items-center justify-between gap-3 w-full text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 px-4 py-2.5 rounded-xl transition-all shadow-sm group/btn"
+                        aria-label={`Chat on WhatsApp with ${person.name}`}
+                      >
+                        <span className="flex items-center gap-2.5">
+                          <MessageSquare className="w-4 h-4 shrink-0 text-white" />
+                          <span>{dict.contactSection.whatsappCta || "Continue on WhatsApp"}</span>
+                        </span>
+                        <span className="font-mono text-xs text-white/90 bg-black/20 py-1 px-2.5 rounded-lg border border-white/10" dir="ltr">
+                          {person.whatsappDisplay}
+                        </span>
+                      </a>
+
+                      {/* Phone Row */}
+                      <a
+                        href={person.phoneHref}
+                        className="min-h-[46px] flex items-center justify-between gap-3 w-full text-xs sm:text-sm font-semibold text-white/90 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 px-4 py-2.5 rounded-xl transition-all shadow-sm"
+                        aria-label={`Call ${person.name} at ${person.phoneDisplay}`}
+                      >
+                        <span className="flex items-center gap-2.5">
+                          <Phone className="w-4 h-4 shrink-0 text-brand-violet" />
+                          <span>{locale === "ar" ? "اتصال هاتفي مباشر" : "Direct Phone"}</span>
+                        </span>
+                        <span className="font-mono text-xs text-slate-200" dir="ltr">
+                          {person.phoneDisplay}
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Bottom Assistance Banner */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-white/70">
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-emerald-400" />
+                <span>{locale === "ar" ? "استجابة سريعة على مدار 24 ساعة طوال أيام الأسبوع" : "Round-the-clock rapid dispatch & corporate support"}</span>
+              </span>
+              <span className="hidden sm:inline text-white/30">•</span>
+              <Link
+                href={`${effectiveBasePath}/contact`}
+                className="inline-flex items-center gap-1.5 text-brand-violet hover:text-white font-semibold underline underline-offset-4 transition-colors"
+              >
+                <span>{dict.servicesSection.requestQuote || "Request a detailed quotation"}</span>
+                <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
+              </Link>
             </div>
           </div>
         </div>

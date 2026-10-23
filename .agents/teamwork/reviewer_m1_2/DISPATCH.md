@@ -1,24 +1,21 @@
-## 2026-10-22T16:24:07Z
-You are a Reviewer agent (teamwork_preview_reviewer).
+## 2026-10-23T11:19:52Z
+You are Reviewer M1_2 for Victor Mobility Milestone 1: Studio Imagery Asset Generation & Pipeline.
 Your working directory is: d:\victor website\.agents\teamwork\reviewer_m1_2
-Read d:\victor website\.agents\teamwork\ORIGINAL_REQUEST.md and d:\victor website\AGENTS.md before starting work.
-Also read:
+
+Read the authoritative context:
+- d:\victor website\.agents\teamwork\ORIGINAL_REQUEST.md (specifically the latest request under `## Follow-up — 2026-10-23T06:36:50Z`)
 - d:\victor website\.agents\teamwork\PROJECT.md
-- d:\victor website\.agents\teamwork\worker_m1\report.md
-- d:\victor website\.agents\teamwork\worker_m1\handoff.md
+- d:\victor website\.agents\teamwork\worker_m1_final\handoff.md
 
-Your task is to independently review Milestone 1 (Authoritative Fleet Dataset SOT & Price Removal):
-1. Objectively examine code and content changes across src/types/content.ts, src/content/india.json, src/content/rate-card.json, src/content/corridors.json, src/components/planning/JourneyEstimator.tsx, src/components/planning/RfpDesk.tsx, and src/components/rfp/CorporateRfpBuilder.tsx.
-2. Adversarially challenge the work product:
-   - Are there any remaining traces of old sample models?
-   - Does JourneyEstimator handle empty/missing input safely?
-   - Are all 10 vehicles correctly categorized (Sedan: 5, SUV: 4, 12 Seater: 1, Electric: 4)?
-   - Is the shared note verbatim?
-   - Is pricing completely replaced by "Request a quote" across active India routes?
-3. Run verification checks using run_command:
-   - npm run type-check
-   - npm run lint
-4. Provide a clear verdict: APPROVE or REQUEST_CHANGES in your handoff.md.
+Your Task:
+Examine technical specifications, performance budgets, and compilation gates:
+1. Asset Performance & WebP Integrity:
+   - Check all 10 assets in public/images/fleet/ (swift-dzire.webp, hyundai-aura.webp, tata-tigor-ev.webp, tata-nexon-ev.webp, mg-zs-ev.webp, mahindra-marazzo.webp, ertiga-cng.webp, innova-crysta.webp, kia-carens-clavis-ev.webp, force-urbania.webp).
+   - Verify that all 10 files are valid WebP, resolution exactly 1200 × 675 (16:9), and strictly < 200 KB (and > 1 KB).
+2. Codebase Stability & Build Verification:
+   - Run `npm run type-check` (must have 0 errors).
+   - Run `npm run lint` (must have 0 warnings/errors).
+   - Run `npm run build` (must compile all 74 static routes cleanly).
+3. Check `scripts/build-fleet-studio-images.mjs` execution and reproducibility.
 
-Write your report to d:\victor website\.agents\teamwork\reviewer_m1_2\report.md and handoff to d:\victor website\.agents\teamwork\reviewer_m1_2\handoff.md.
-Send message to orchestrator parent (conversation ID: 6b49676e-9eb3-4a24-b81e-24558c3bbf1b) when done.
+Write your review to d:\victor website\.agents\teamwork\reviewer_m1_2\handoff.md with an explicit verdict (APPROVE or REQUEST_CHANGES) and send a message to the orchestrator.

@@ -78,7 +78,15 @@
       "selected": "Selected",
       "note": "Simplified boundaries. Highlighting identifies listed locations, not emirate-wide service coverage.",
       "data": "Map data",
-      "names": { "AE-AZ": "Abu Dhabi", "AE-DU": "Dubai", "AE-SH": "Sharjah", "AE-AJ": "Ajman", "AE-FU": "Fujairah", "AE-RK": "Ras al-Khaimah", "AE-UQ": "Umm al-Quwain" }
+      "names": {
+        "AE-AZ": "Abu Dhabi",
+        "AE-DU": "Dubai",
+        "AE-SH": "Sharjah",
+        "AE-AJ": "Ajman",
+        "AE-FU": "Fujairah",
+        "AE-RK": "Ras al-Khaimah",
+        "AE-UQ": "Umm al-Quwain"
+      }
     },
     "ar": {
       "title": "خريطة تواجدنا التفاعلية",
@@ -90,7 +98,15 @@
       "selected": "الموقع المحدد",
       "note": "حدود مبسطة. يشير التمييز إلى المواقع المدرجة، ولا يعني تغطية الخدمة لكامل الإمارة.",
       "data": "بيانات الخريطة",
-      "names": { "AE-AZ": "أبوظبي", "AE-DU": "دبي", "AE-SH": "الشارقة", "AE-AJ": "عجمان", "AE-FU": "الفجيرة", "AE-RK": "رأس الخيمة", "AE-UQ": "أم القيوين" }
+      "names": {
+        "AE-AZ": "أبوظبي",
+        "AE-DU": "دبي",
+        "AE-SH": "الشارقة",
+        "AE-AJ": "عجمان",
+        "AE-FU": "الفجيرة",
+        "AE-RK": "رأس الخيمة",
+        "AE-UQ": "أم القيوين"
+      }
     }
   },
   "countrySelector": {
@@ -365,7 +381,11 @@
       "trigger": "Plan your journey",
       "title": "Enquiry assistant",
       "intro": "A few details to prepare your WhatsApp enquiry.",
-      "stepTitles": ["Where are you travelling?", "Tell us about your journey.", "Review your enquiry."],
+      "stepTitles": [
+        "Where are you travelling?",
+        "Tell us about your journey.",
+        "Review your enquiry."
+      ],
       "serviceLabel": "Service",
       "cityLabel": "City",
       "otherCity": "Other city / inter-city",
@@ -388,10 +408,110 @@
     }
   },
   "businessResources": [
-    {"title":"Plan your transport","links":[["rfp","Request a corporate proposal"],["estimator","Route and fare estimator"],["rate-card","Rate cards and retainers"],["tco-calculator","Fleet cost comparison"],["brochure","Company profile"]]},
-    {"title":"Coordinate travel","links":[["corridors","Travel corridors"],["roster","Shift planning"],["events","Event transport"],["roadshows","Multi-city roadshows"],["protocol","Airport arrivals"],["emergency","Operations contact"]]},
-    {"title":"Company and standards","links":[["academy","Chauffeur training"],["academy/verify","Chauffeur verification information"],["safety","Fleet safety"],["esg","Sustainability"],["sla","Service agreements"],["due-diligence","Company documents"]]},
-    {"title":"Accounts and tools","links":[["billing","Billing information"],["credit-application","Corporate account enquiries"],["portal","Portal demonstration"],["contact","Speak with our team"]]}
+    {
+      "title": "Plan your transport",
+      "links": [
+        [
+          "rfp",
+          "Request a corporate proposal"
+        ],
+        [
+          "estimator",
+          "Route and fare estimator"
+        ],
+        [
+          "rate-card",
+          "Rate cards and retainers"
+        ],
+        [
+          "tco-calculator",
+          "Fleet cost comparison"
+        ],
+        [
+          "brochure",
+          "Company profile"
+        ]
+      ]
+    },
+    {
+      "title": "Coordinate travel",
+      "links": [
+        [
+          "corridors",
+          "Travel corridors"
+        ],
+        [
+          "roster",
+          "Shift planning"
+        ],
+        [
+          "events",
+          "Event transport"
+        ],
+        [
+          "roadshows",
+          "Multi-city roadshows"
+        ],
+        [
+          "protocol",
+          "Airport arrivals"
+        ],
+        [
+          "emergency",
+          "Operations contact"
+        ]
+      ]
+    },
+    {
+      "title": "Company and standards",
+      "links": [
+        [
+          "academy",
+          "Chauffeur training"
+        ],
+        [
+          "academy/verify",
+          "Chauffeur verification information"
+        ],
+        [
+          "safety",
+          "Fleet safety"
+        ],
+        [
+          "esg",
+          "Sustainability"
+        ],
+        [
+          "sla",
+          "Service agreements"
+        ],
+        [
+          "due-diligence",
+          "Company documents"
+        ]
+      ]
+    },
+    {
+      "title": "Accounts and tools",
+      "links": [
+        [
+          "billing",
+          "Billing information"
+        ],
+        [
+          "credit-application",
+          "Corporate account enquiries"
+        ],
+        [
+          "portal",
+          "Portal demonstration"
+        ],
+        [
+          "contact",
+          "Speak with our team"
+        ]
+      ]
+    }
   ],
   "region": "india",
   "countryName": "India",
@@ -923,7 +1043,29 @@
     "domainPurchased": false,
     "legacyBrochureEmail": "info@victorluxurylimousine.com",
     "legacyEmailEnabled": false,
-    "responseTimePromise": null
+    "responseTimePromise": null,
+    "available247": {
+      "headline": "24/7 Available",
+      "subtitle": "Direct round-the-clock coordination with our operations desk or connect on WhatsApp for immediate dispatch and bookings.",
+      "people": [
+        {
+          "name": "Mujeeb Ur Rahman Mohammed",
+          "designation": "Business Development & Operations Partner",
+          "phoneDisplay": "+91 91007 77768",
+          "phoneHref": "tel:+919100777768",
+          "whatsappDisplay": "+91 93965 46950",
+          "whatsappDigits": "919396546950"
+        },
+        {
+          "name": "Farhan Ali",
+          "designation": "24/7 Fleet Dispatch Manager",
+          "phoneDisplay": "+91 98765 43210",
+          "phoneHref": "tel:+919876543210",
+          "whatsappDisplay": "+91 98765 43210",
+          "whatsappDigits": "919876543210"
+        }
+      ]
+    }
   },
   "enquiry": {
     "mode": "whatsapp-draft",
@@ -996,8 +1138,68 @@
   "excludedByDefault": [
     "Historic fleet counters presented as current live inventory",
     "Unconfirmed prices"
-  ]
+  ],
+  "topBrandsCarried": {
+    "title": "Top brands carried",
+    "brands": [
+      {
+        "name": "BMW",
+        "logo": "/images/brands/bmw.svg"
+      },
+      {
+        "name": "Cadillac",
+        "logo": "/images/brands/cadillac.svg"
+      },
+      {
+        "name": "Toyota",
+        "logo": "/images/brands/toyota.svg"
+      },
+      {
+        "name": "Lexus",
+        "logo": "/images/brands/lexus.svg"
+      }
+    ]
+  },
+  "teamProfiles": [
+    {
+      "id": "team-02",
+      "name": "Team member 02",
+      "role": "Profile to be updated",
+      "imageSrc": "/images/team/profile-placeholder-2.webp",
+      "imageAlt": "Illustrative portrait for a future team profile",
+      "placeholder": true,
+      "phoneDisplay": "+00 00000 00002",
+      "whatsappDisplay": "+00 00000 00002",
+      "emailDisplay": "team02@example.com",
+      "emailEnabled": false
+    },
+    {
+      "id": "team-03",
+      "name": "Team member 03",
+      "role": "Profile to be updated",
+      "imageSrc": "/images/team/profile-placeholder-3.webp",
+      "imageAlt": "Illustrative portrait for a future team profile",
+      "placeholder": true,
+      "phoneDisplay": "+00 00000 00003",
+      "whatsappDisplay": "+00 00000 00003",
+      "emailDisplay": "team03@example.com",
+      "emailEnabled": false
+    },
+    {
+      "id": "team-04",
+      "name": "Team member 04",
+      "role": "Profile to be updated",
+      "imageSrc": "/images/team/profile-placeholder-4.webp",
+      "imageAlt": "Illustrative portrait for a future team profile",
+      "placeholder": true,
+      "phoneDisplay": "+00 00000 00004",
+      "whatsappDisplay": "+00 00000 00004",
+      "emailDisplay": "team04@example.com",
+      "emailEnabled": false
+    }
+  ],
+  "teamFeaturedEmail": {
+    "display": "mujeeb@example.com",
+    "enabled": false
+  }
 }
-
-
-

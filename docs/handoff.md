@@ -1,5 +1,86 @@
 # Handoff
 
+## 23 October 2026 — Individual contact details in team slideshow
+
+- Each of the four slides on `/india` and `/uae` now shows phone, WhatsApp and email. Mujeeb's supplied phone and WhatsApp links are active on both pages; his email is visibly marked as a sample and has no mail link.
+- The three temporary profiles use clearly marked sample numbers and `example.com` addresses. Their sample details are text only, with no phone, WhatsApp or email action. Replace and enable them through `teamProfiles` in `src/content/india.json`; see [team-image-sources.md](team-image-sources.md).
+- Checks: isolated production build passed (74/74 routes), TypeScript and lint passed, and responsive Playwright verification passed for all four slides on both routes, including Arabic UAE mobile. Screenshots: [India desktop](screenshots/team-india-desktop.png), [India mobile](screenshots/team-india-mobile.png), [UAE desktop](screenshots/team-uae-desktop.png), [UAE mobile](screenshots/team-uae-mobile.png), [sample profile](screenshots/team-india-placeholder.png).
+
+
+## 23 October 2026 — 24/7 Available Direct Contact Section (India & UAE)
+
+- Redesigned the primary Contact section (`#contact`) across `/india` and `/uae` into a dedicated **"24/7 Available"** operations desk.
+- Replaced the single-contact button strip with a responsive 2-column card grid presenting two contact persons side-by-side on desktop (stacked on mobile).
+- Each person card clearly displays:
+  - Initials avatar badge in brand violet glass styling
+  - Direct desk lead badge ("Primary Desk Lead" / "Fleet & Dispatch Lead" with Arabic i18n variants)
+  - Full name in bold white typography
+  - Designation and company affiliation
+  - Divider rule
+  - Direct **WhatsApp** action button with `MessageSquare` icon, formatted number, and locale-specific enquiry message
+  - Direct **Phone** action button with `Phone` icon and click-to-call `tel:` link
+- Added a live status indicator pill badge ("24/7 Live Operations Desk" / "مكتب الدعم على مدار الساعة") with an emerald pulsing radar dot.
+- Preserved all existing contact metadata across `india.json` and `uae.json` so header, footer, RFP, planning estimator, and sticky contact rail remain completely intact.
+- Placeholder / fake contact data added in `src/content/india.json` and `src/content/uae.json` under `contact.available247`, readily editable by the user.
+- Checks:
+  - `npm run build`: 74/74 static routes compiled cleanly with 0 TypeScript and 0 linting errors.
+  - Screenshots verified across viewports:
+    - [India desktop](screenshots/contact-247-india-desktop.png)
+    - [India mobile](screenshots/contact-247-india-mobile.png)
+    - [UAE desktop](screenshots/contact-247-uae-desktop.png)
+    - [UAE mobile](screenshots/contact-247-uae-mobile.png)
+
+
+## 23 October 2026 — India and UAE team slideshow
+
+- Kept Jahangir's founder card intact. Removed the Operations Coordination Desk card and expanded the right column into one four-profile slideshow, led by Mujeeb.
+- Added three fictional illustrated profiles, visibly marked as placeholders. Edit `teamProfiles` in `src/content/india.json` to replace them on both homepages; asset details and prompts are in [team-image-sources.md](team-image-sources.md).
+- Added manual previous/next and profile selectors, seven-second auto-advance with pause on hover/focus, and a pause button. Reduced-motion visitors get manual navigation only. Phone and WhatsApp actions use each region's contact details; WhatsApp is labeled as opening a draft.
+- Checks: isolated production build passed (74/74 routes), TypeScript and lint passed, and `scripts/verify-team-carousel.mjs` passed for four profiles, both routes, desktop/mobile overflow, and UAE Arabic mobile navigation.
+- Screenshots: [India desktop](screenshots/team-india-desktop.png), [India mobile](screenshots/team-india-mobile.png), [UAE desktop](screenshots/team-uae-desktop.png), [UAE mobile](screenshots/team-uae-mobile.png), [illustrative profile](screenshots/team-india-placeholder.png).
+
+
+## 23 October 2026 — Services Pages: Direct Photographic Backgrounds on All Service Cards (India & UAE)
+
+Owner: Antigravity. Refactored the dedicated service catalog pages (`/india/services` and `/uae/services`) so every service card displays a realistic, high-resolution photographic background image matching the visual treatment of the homepage service cards.
+
+### Key Deliverables
+1. **Photographic Asset Suite (16:9 WebP, Optimized < 200 KB)**:
+   - Generated and optimized high-resolution WebP images for all 7 corporate mobility services:
+     - **Employee Transportation**: Executive corporate buses and tech park shuttles (`service-employee-transport.webp`, `employee-transportation.webp`).
+     - **Bus & Shuttle Transport**: Large corporate commuter coach on an urban transit corridor (`service-bus-shuttle.webp`, `bus-shuttle-transport.webp`).
+     - **Event Transportation**: Executive event convoy and luxury passenger van outside an illuminated summit venue (`service-event-transport.webp`, `event-transportation.webp`).
+     - **Airport Transfers**: VIP airport terminal transfer and uniformed chauffeur greeting (`service-airport-transfers.webp`, `airport-transfers.webp`).
+     - **Chauffeur & Luxury Travel**: Executive luxury saloon outside a premier corporate tower (`service-chauffeur-luxury.webp`, `chauffeur-luxury.webp`).
+     - **Rent-a-Car Fleet**: Executive corporate rental fleet lineup (`service-rent-a-car.webp`, `rent-a-car.webp`).
+     - **Tourism & City Travel (UAE)**: Executive excursions across Dubai and Abu Dhabi landmark corridors (`service-tourism-travel.webp`, `tourism-travel.webp`).
+   - Assets are mirrored across `public/images/services/`, `public/images/india/services/`, and `public/images/uae/services/` for seamless routing.
+   - Comprehensive provenance, resolution metadata, and vehicle disclaimer cataloged in `docs/service-image-sources.md`.
+
+2. **Card Architecture Refactoring (`src/app/india/services/page.tsx` & `src/app/uae/services/page.tsx`)**:
+   - Converted service cards into full relative containers with uniform `min-h-[420px]` rhythm and responsive flex columns.
+   - **Background Image Layer**: Next.js `Image` component with `fill`, `object-cover`, and smooth hover scale (`group-hover:scale-105 transition-transform duration-700`).
+   - **Brand Ink Gradient Overlay**: Multi-stop gradient (`from-[#15162F]/95 via-[#15162F]/85 to-[#15162F]/60`) ensuring WCAG AAA text contrast across the entire card.
+   - **Content Layer (`z-10`)**:
+     - Frosted glass icon badges (`bg-white/15 border-white/20 backdrop-blur-md`) with hover scale.
+     - Pure white headings (`text-white`) and soft-neutral descriptions (`text-brand-soft-neutral/90`).
+     - Coordination scope / specification checklists with high-contrast emerald checkmarks (`text-emerald-400`).
+     - High-contrast action footer: white "Enquire" button (`bg-white text-brand-ink`) and accessible "Explore details →" link.
+
+3. **Verification & Quality Gates**:
+   - `npm run build`: 74/74 static routes compiled cleanly with 0 TypeScript or linting errors.
+   - Automated Playwright verification (`scripts/verify-services-pages.mjs`):
+     - Confirmed all 6 India service cards render with active background images.
+     - Confirmed all 6 UAE service cards render with active background images.
+     - Verified 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
+   - Full-page screenshots captured and visually inspected:
+     - India Services Desktop (1440px): [`docs/screenshots/services-india-desktop-1440.png`](file:///d:/victor%20website/docs/screenshots/services-india-desktop-1440.png)
+     - India Services Mobile (390px): [`docs/screenshots/services-india-mobile-390.png`](file:///d:/victor%20website/docs/screenshots/services-india-mobile-390.png)
+     - UAE Services Desktop (1440px): [`docs/screenshots/services-uae-desktop-1440.png`](file:///d:/victor%20website/docs/screenshots/services-uae-desktop-1440.png)
+     - UAE Services Mobile (390px): [`docs/screenshots/services-uae-mobile-390.png`](file:///d:/victor%20website/docs/screenshots/services-uae-mobile-390.png)
+
+---
+
 ## 22 October 2026 — Contact Page: 2-Column Email Enquiry Section & WhatsApp Requirement Desk
 
 Owner: Antigravity. Refined the India Contact page (`/india/contact`) layout according to exact user instructions:
@@ -1662,4 +1743,66 @@ Owner: Worker M4 (`teamwork_preview_worker`). Completed implementation and full 
    - `docs/screenshots/mobile-fleet-electric.png` (390×844, `#electric` EV filter active)
    - `docs/screenshots/desktop-contact-prefilled.png` (1440×900, prefilled Tata Nexon badge & WhatsApp draft)
    - `docs/screenshots/mobile-contact-prefilled.png` (390×844, prefilled vehicle form & draft)
+
+
+## 23 October 2026 — Top brands carried
+
+- Added the requested BMW, Cadillac, Toyota and Lexus logo strip under the homepage About section and after leadership on `/india/about`.
+- Shared server-rendered `TopBrandsStrip` uses the `topBrandsCarried` content in `india.json`; the homepage passes it through the existing leadership component as children. Four desktop columns and a two-by-two mobile layout keep all brands visible without extra animation.
+- Original SVG logos stored under `public/images/brands`; source links recorded in `docs/vehicle-brand-logos.md`. No vehicle model or availability claims added.
+- Checks passed: TypeScript, lint, all four logo images decode, no horizontal overflow on both routes at 1440px and 390px. Visually reviewed desktop/mobile captures.
+- Screenshots: `docs/screenshots/top-brands-home-1440.png`, `top-brands-home-390.png`, `top-brands-about-1440.png`, `top-brands-about-390.png`.
+- Local preview running at http://127.0.0.1:3000/india#top-brands-carried; no deployment performed.
+
+## 23 October 2026 — About-only brand strip
+
+- Removed `TopBrandsStrip` from `/india` and removed its now-unused slot in `PeopleSection`. `/uae` contains no strip.
+- Retained the strip on `/india/about` with its existing desktop/mobile screenshots (`top-brands-about-1440.png`, `top-brands-about-390.png`). Earlier home strip screenshots describe the previous placement only.
+
+## 23 October 2026 — India office count
+
+- Updated the India homepage statistics card from `3 India offices` to `10 India offices` in `src/components/home/StatCounterSection.tsx`.
+- Checks passed: `npm run type-check` and `npm run lint`.
+
+## 23 October 2026 — Sticky contact rail
+
+- Added a shared, fixed right-side contact rail with phone, WhatsApp and email icons in `src/components/layout/StickyContactRail.tsx`, mounted from the shared Header.
+- Phone calls the regional contact number. WhatsApp opens a prefilled draft. India’s email action opens the configured enquiry form because its printed email is not enabled; UAE uses its enabled `mailto:` address.
+- Labels reveal on hover/focus, all links have accessible names and keyboard focus rings, and the compact rail remains usable at mobile widths.
+- Checks passed: `npm run type-check`, `npm run lint`, and Edge browser checks at 1440px and 390px for `/india` and `/uae` with no horizontal overflow. Screenshots: `docs/screenshots/contact-rail-india-1440.png`, `contact-rail-india-390.png`, `contact-rail-uae-1440.png`, `contact-rail-uae-390.png`.
+
+## 23 October 2026 — Contact rail visual refinement
+
+- Replaced the three separate dark buttons with one slim white, right-edge dock using the brand indigo for all three icons. Phone and email retain matching Lucide line weights; WhatsApp uses the recognizable [Simple Icons mark](https://github.com/simple-icons/simple-icons) as an inline SVG so its colour follows the dock's hover and focus states reliably.
+- Kept the existing phone, WhatsApp draft and email enquiry destinations. The shared rail is hidden while the mobile menu is open, so it cannot cover drawer controls. Each action remains at least 48px square with accessible names and visible focus styling.
+- Visual design previews at 1440px and 390px: `docs/screenshots/contact-rail-design-preview-desktop.png` and `contact-rail-design-preview-mobile.png`. These composite an isolated render of the updated dock over earlier page captures. The local Next.js server ran out of memory compiling `/india`, so a new full-page screenshot could not be captured.
+- Checks after the SVG substitution: `tsc --noEmit` passed, and targeted Next lint on `StickyContactRail.tsx` and `Header.tsx` reported no warnings or errors. The earlier full-project TypeScript and lint checks also passed; the subsequent full-project rerun hit the same local resource constraints.
+
+---
+
+## 23 October 2026 — Luxury Fleet Studio Imagery & Authentic Force Urbania 12-Seater Upgrade
+
+Owner: Antigravity. Upgraded the visual presentation across Victor Mobility's 10-vehicle fleet with premium commercial studio imagery, brand-harmonized lighting, and authentic model fidelity:
+
+1. **Luxury Studio Imagery for Active Fleet Models**:
+   - Replaced casual road-snapshots for Hyundai Aura, Tata Tigor EV, Mahindra Marazzo, Toyota Innova Crysta, and Kia Carens Clavis EV with commercial studio visuals.
+   - Built on a vector obsidian floor (`#070A12`) with indigo cyclorama gradient (`#15162F` → `#31326F`), softbox overhead diffusion, floor specular sheen, and calibrated dual Gaussian ground contact shadows.
+   - Preserved exact EV model styling:
+     - **Tata Tigor EV**: Aerodynamic closed nose-cone, teal humanity line, and EV badge.
+     - **Kia Carens Clavis EV**: Digital Tiger Face closed aerodynamic fascia, Star Map LED DRLs, green EV registration, and zero spectator/stage artifacts.
+
+2. **Authentic Force Urbania 12-Seater Luxury Passenger Van**:
+   - Corrected model visual to the authentic European monocoque 12-seater passenger van (panoramic windows, bull-horn DRLs, aerodynamic high-roof silhouette) instead of older tempo or delivery chassis.
+   - Calibrated baseline grounding and multi-tire contact shadows to sit naturally on the brand cyclorama.
+
+3. **Standardized 16:9 Widescreen Framing & WebP Optimization**:
+   - All 10 fleet images in `public/images/fleet/` standardized to 1200×675 WebP resolution, strictly under 200 KB (27.6 KB – 121.6 KB).
+   - Updated `src/components/fleet/IndiaFleetSection.tsx:411` to `aspect-[16/9]` for 1:1 pixel mapping with zero layout shift or card height distortion.
+   - Updated provenance registry in `docs/fleet-image-sources.md`.
+
+4. **Quality Gates & Comprehensive Verification**:
+   - `scripts/verify-fleet-modernization.mjs`: **104/104 PASSED (100% compliance across all 4 tiers)**.
+   - `npm run type-check`: 0 errors.
+   - `npm run lint`: 0 warnings, 0 errors.
+   - `npm run build`: 74/74 static routes compiled cleanly.
 

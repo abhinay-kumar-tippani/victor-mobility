@@ -1,16 +1,22 @@
-# Progress - Challenger Milestone 1
+# Progress: Challenger M1_2
 
-Last visited: 2026-10-22T16:46:00Z
+Last visited: 2026-10-23T11:30:00Z
+Current Status: Adversarial evaluation completed; preparing handoff report
 
-## Status
-- [x] Initialized DISPATCH.md, BRIEFING.md, progress.md
-- [x] Read ORIGINAL_REQUEST.md, AGENTS.md, PROJECT.md, worker_m1 report & handoff
-- [x] Inspect codebase & test environment
-- [x] Run empirical test suites (TypeScript, ESLint, Next.js build, adversarial script)
-- [x] Deep adversarial review & stress testing:
-  - TypeScript types and contract conformance in src/types/content.ts (PASS)
-  - JourneyEstimator logic (missing rate, NaN prevention, fuzz testing) (PASS)
-  - RfpDesk approved vehicle offering and fallback guard (PASS, with caller notice)
-  - CorporateRfpBuilder vehicle offering (FAIL: line 56 leaks legacy categories and inferred seat counts)
-- [ ] Write report.md and handoff.md
-- [ ] Send message to orchestrator parent
+## Completed Steps
+- [x] Initialized DISPATCH.md and BRIEFING.md
+- [x] Read ORIGINAL_REQUEST.md, PROJECT.md, and worker_m1_final/handoff.md
+- [x] Inspected `src/content/india.json` and compared with `public/images/fleet/`
+- [x] Created and executed independent 72-assertion adversarial test script (`scripts/adversarial-challenger-m1-2.mjs`)
+- [x] Empirically inspected and visually analyzed all 6 studio replacement files
+- [x] Validated Force Urbania authenticity (Task 1) - PASS
+- [x] Validated Tata Tigor EV closed grille & EV badging (Task 2) - PASS
+- [x] Validated Innova Crysta & Mahindra Marazzo casual snapshot elimination (Task 3) - PASS
+- [x] Validated 10/10 SOT parity (Task 4) - PASS
+- [x] Identified Critical Defect in Task 2: `kia-carens-clavis-ev.webp` lacks EV badging, is an ICE 1.4 petrol vehicle cutout, and contains visible human heads over the roofline and event neon reflections.
+- [x] Ran TypeScript compiler check (`tsc --noEmit`) - PASS (0 errors)
+- [x] Ran ESLint check (`next lint`) - PASS (0 errors/warnings)
+
+## Current Steps
+- [ ] Write `handoff.md` with explicit verdict REJECT
+- [ ] Send coordination message to orchestrator

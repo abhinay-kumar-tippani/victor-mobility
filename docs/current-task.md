@@ -1,101 +1,28 @@
-# Current Task: Victor Mobility India Multi-Language Selector (English, हिन्दी, తెలుగు) — 16 October 2026
+# Current Task: Direct Photographic Backgrounds on Service Cards (/services) — 23 October 2026
 
 Owner: Antigravity.
-Scope: Implemented a working language selector on the Victor Mobility India navbar offering exactly three languages (English `en`, हिन्दी `hi`, తెలుగు `te`), with seamless corporate styling, comprehensive text translations, form state preservation, and cross-session persistence.
+Scope: Add realistic, high-resolution photographic background images to every service card on both `/india/services` and `/uae/services`, matching the visual styling of homepage service cards with high-contrast dark brand overlays, uniform card heights, and fully responsive layouts.
+
+### Status: COMPLETED
 
 ### Completed in this Milestone:
-1. **Interactive Language Switcher (`src/components/layout/LanguageSwitcher.tsx`)**:
-   - Compact navbar button featuring a globe icon, current active language label, and chevron.
-   - Clean dropdown menu with white background, indigo accents, subtle borders, rounded corners, and checkmarks beside the active selection.
-   - Fully keyboard accessible (Arrow Up/Down, Enter/Space, Escape dismissal, outside click dismissal).
-   - Dedicated mobile drawer language selector (`MobileDrawerLanguageSelector`) laid out cleanly for one-tap discovery.
-2. **Localization Architecture (`src/i18n/`)**:
-   - `src/i18n/types.ts`: Strongly typed `TranslationDictionary` interface and locale definitions.
-   - `src/i18n/LanguageContext.tsx`: Client provider and hook with hydration-safe initial render and persistence in `localStorage` + cookie.
-   - `src/i18n/dictionaries/`: Natural, professional corporate translations for `en.ts`, `hi.ts`, and `te.ts`.
-   - Dynamic `<html lang="en|hi|te" dir="ltr">` sync with zero language flash via early script in `src/app/layout.tsx`.
-3. **Comprehensive Coverage & Invariance**:
-   - Full translation coverage across nav, hero, statistics, clientele, services, safety, fleet, presence map, journey, leadership, FAQ, contact forms, journey estimator, RFP desk, and enquiry assistant.
-   - All sample prices (`₹2,200`, `₹3,800`, `₹7,200`, `₹6,500`), arithmetic calculations, contact phone numbers, URLs, and canonical company details remain strictly identical across all languages.
-   - Form state and wizard step progress are preserved without reset when switching languages.
-4. **Quality Gates Passed**:
-   - `tsc --noEmit`: 0 errors.
-   - `next lint`: 0 warnings, 0 errors.
-   - `next build`: 73/73 static SSG pages successfully compiled.
-   - Automated Playwright verification (`scripts/verify-language-selector.mjs`): 34 assertions passed across English, Hindi, and Telugu at 1440px, 1024px, 390px, and 320px with zero horizontal overflow.
-
----
-
-## Deliverables Completed in this Milestone
-
-1. **Complete Removal of Services Grid**:
-   - Removed `<ServicesSection />` from `src/app/india/page.tsx`.
-   - Removed `<CustomerJourneys />` from `src/app/uae/page.tsx`.
-   - The question "What do you need to arrange?" is eliminated from homepage flows.
-
-2. **The Journey of Victor Component (`src/components/home/VictorJourneySection.tsx`)**:
-   - Integrated all 12 milestones (Q4 2009 through Q2 2024) with zero alteration of dates, claims, or text.
-   - Preserved all 12 badge markers with their exact top triangular pointers.
-   - Built a pure vector SVG serpentine grid for desktop (`hidden lg:block`) with outer margin turning curves and horizontal connectors.
-   - Built an accessible vertical timeline for mobile (`lg:hidden`) ensuring zero horizontal overflow and 100% legibility.
-
-3. **Multi-Region Integration**:
-   - Integrated on `/india`: Positioned immediately above Leadership & Accountability (`#about`).
-   - Integrated on `/uae`: Positioned immediately above Leadership & Operations (`#about`).
-
-3. **Header Modernization (`src/components/layout/Header.tsx`)**:
-   - Stripped phantom "For businesses" and unready UAE/Global region selector.
-   - Consolidated navigation to 4 authentic destinations: `Services`, `Fleet`, `About`, `Contact`.
-   - Added direct phone link (`+91 91007 77768`) and high-visibility "Enquire" action button.
-   - Full mobile drawer with focus trap, ESC key dismissal, and backdrop blur.
-
-4. **Grand Luxury Fleet Lineup Hero with Brand Color Harmony (`src/components/home/Hero.tsx`)**:
-   - Deployed high-resolution, genuine commercial photography ([`luxury-fleet-brand-graded.jpg`](file:///d:/victor%20website/public/images/india/luxury-fleet-brand-graded.jpg)): a grand diagonal convoy of multiple black luxury executive saloons with illuminated LED headlamps and chrome grilles at night.
-   - **Full Brand Palette Color Harmonization**: Eliminated distracting yellowish/brownish gravel tones. Shifted color balance to match Victor Mobility's brand palette (`src/content/brand.json`): deep obsidian `#070A12` and ink `#15162F` shadows, brand indigo `#31326F` and cobalt `#2D5090` metallic reflections, and crisp electric ice-blue `#C7D2FE` headlamp highlights.
-   - 100% authentic commercial photography with zero AI distortion or synthetic artifacts.
-   - Asymmetric dark editorial gradient (`from-[#070A12] via-[#070A12]/80 to-transparent`) ensuring razor-sharp WCAG AAA contrast for typography, buttons, and status pill on the left while prominently displaying the luxury fleet lineup on the right.
-   - Headline: "Corporate Mobility, On Time Every Time." with gradient highlight on the authorized tagline.
-   - Floating Glassmorphic Trust Ribbon across the bottom:
-     - 10 Operational Cities (Pan-India Transit Network)
-     - 100% Verified Drivers (Police Cleared & Trained)
-     - 24/7 Operations Desk (Active GPS & SOS Dispatch)
-     - Direct Operations Hotline (`+91 91007 77768`)
-
-5. **Fleet Realignment (`src/components/home/FleetSection.tsx`)**:
-   - Removed questionnaire dropdowns and UAE contamination.
-   - Showcases real brochure models: Sedans (Swift Dzire, Tata Tigor), MPVs (Innova Crysta, Marazzo, Urbania), Buses (22-seater, 44-seater luxury coaches), Luxury (Executive saloons).
-   - Displayed seating capacities, luggage capacities, and direct "Enquire About [Category]" actions.
-
-6. **Trust Standards Replaced (`src/components/home/VictorStandardSection.tsx`)**:
-   - Replaced bureaucratic legal text and audit jargon with 3 concrete customer commitments:
-     1. *100% Background-Verified Drivers*
-     2. *Punctual & GPS-Monitored Fleet*
-     3. *Transparent Corporate Billing*
-
-7. **Interactive India Presence Map (`src/components/home/IndiaPresenceMap.tsx`)**:
-   - Integrated offline SVG map of India highlighting all 9 states where Victor Mobility operates:
-     - Telangana (Hyderabad - Head Office)
-     - Karnataka (Bangalore - Branch Office)
-     - Maharashtra (Mumbai & Pune - Branch Office & Financial Hub)
-     - Tamil Nadu (Chennai)
-     - Delhi (Delhi Capital Region)
-     - Uttar Pradesh (Noida)
-     - Haryana (Gurgaon)
-     - Gujarat (Ahmedabad)
-     - West Bengal (Kolkata)
-   - Dynamic cursor-following floating tooltip: Hovering over any operational state displays the state name and exact operational cities (e.g. "Hyderabad" over Telangana, "Mumbai & Pune" over Maharashtra) moving smoothly with cursor position.
-   - Interactive 10-city quick selector matrix and synchronized hub dossier card showing registered office addresses, key commercial tech corridors, direct "Enquire for [City]" links, and operations call desk.
-
-8. **Contact & Footer Pruned (`src/components/home/ContactInvitationSection.tsx` & `src/components/layout/Footer.tsx`)**:
-   - Removed patronizing 4-step tutorial strip.
-   - Removed 18 phantom desk links (`/markets`, `/rfp`, `/estimator`, `/portal`, `/tco-calculator`, etc.).
-   - Transparent WhatsApp enquiry messaging stating that clicking initiates a WhatsApp chat draft and does not constitute a confirmed contract.
-
-9. **Sitemap Pruning (`src/app/sitemap.ts`)**:
-   - Scaled down index from 71 routes to authentic, user-facing routes: `/`, `/india`, `/india/services`, 6 service slugs, `/india/fleet`, `/india/about`, `/india/contact`, `/india/privacy`.
-
-10. **Verification Quality Gates**:
-   - `npm run type-check`: 0 errors.
-   - `npm run lint`: 0 warnings, 0 errors.
-   - `npm run build`: Static SSG build passing (73/73 routes).
-   - Captured desktop and mobile screenshots into `docs/screenshots/`.
+1. **Asset Generation & WebP Optimization**:
+   - Generated realistic, professional corporate transport photography for all 7 services.
+   - Converted to widescreen 16:9 WebP at 1200x675 (<200 KB) using Sharp.
+   - Mirror deployed to `public/images/services/`, `public/images/india/services/`, and `public/images/uae/services/`.
+   - Asset provenance documented in `docs/service-image-sources.md`.
+2. **Card Architecture Refactoring (`src/app/india/services/page.tsx` & `src/app/uae/services/page.tsx`)**:
+   - Implemented Next.js `<Image>` layer with `fill`, `object-cover`, and smooth `group-hover:scale-105` zoom.
+   - Added multi-stop gradient overlay (`from-[#15162F]/95 via-[#15162F]/85 to-[#15162F]/60`) ensuring WCAG AAA contrast.
+   - Refactored text, badges, and checklists to `z-10` layer with frosted icon glass pills and emerald checkmarks (`text-emerald-400`).
+   - Standardized uniform minimum card height (`min-h-[420px]`).
+3. **Verification & Quality Gates**:
+   - `npm run build`: 74/74 static routes compiled with 0 errors.
+   - Automated verification suite (`scripts/verify-services-pages.mjs`):
+     - All 6 India service cards and 6 UAE service cards verified with background images.
+     - 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
+   - Captured full-page desktop and mobile screenshots:
+     - `docs/screenshots/services-india-desktop-1440.png`
+     - `docs/screenshots/services-india-mobile-390.png`
+     - `docs/screenshots/services-uae-desktop-1440.png`
+     - `docs/screenshots/services-uae-mobile-390.png`

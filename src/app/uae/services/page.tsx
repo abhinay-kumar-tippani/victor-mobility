@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Briefcase,
@@ -36,6 +37,38 @@ const serviceIcons: Record<string, React.ElementType> = {
   "rent-a-car": KeyRound,
 };
 
+interface ServiceMeta {
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const serviceMeta: Record<string, ServiceMeta> = {
+  "chauffeur-luxury": {
+    imageSrc: "/images/uae/services/service-chauffeur-luxury.webp",
+    imageAlt: "Executive luxury limousine and chauffeur service across Dubai and Abu Dhabi",
+  },
+  "airport-transfers": {
+    imageSrc: "/images/uae/services/service-airport-transfers.webp",
+    imageAlt: "VIP airport meet-and-assist and private terminal chauffeur transfers",
+  },
+  "event-transportation": {
+    imageSrc: "/images/uae/services/service-event-transport.webp",
+    imageAlt: "Diplomatic delegations and trade summit executive motorcade",
+  },
+  "employee-transportation": {
+    imageSrc: "/images/uae/services/service-employee-transport.webp",
+    imageAlt: "Corporate workforce mobility and executive shuttle fleet in the UAE",
+  },
+  "tourism-travel": {
+    imageSrc: "/images/uae/services/service-tourism-travel.webp",
+    imageAlt: "Luxury limousine excursions and private city tours across the Emirates",
+  },
+  "rent-a-car": {
+    imageSrc: "/images/uae/services/service-rent-a-car.webp",
+    imageAlt: "Premium executive self-drive and corporate car rental arrangements",
+  },
+};
+
 export default function UaeServicesPage() {
   const content = uaeData as unknown as IndiaContent;
   const media = mediaData as unknown as MediaContent;
@@ -69,47 +102,74 @@ export default function UaeServicesPage() {
         <section className="py-16 sm:py-24 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {publishedServices.map((service) => {
+              {publishedServices.map((service, index) => {
                 const Icon = serviceIcons[service.slug] || Car;
+                const meta = serviceMeta[service.slug] || {
+                  imageSrc: "/images/uae/services/service-chauffeur-luxury.webp",
+                  imageAlt: service.title,
+                };
 
                 return (
                   <article
                     key={service.slug}
-                    className="bg-white rounded-3xl p-8 border border-brand-soft-neutral shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between group"
+                    data-testid={`service-card-${service.slug}`}
+                    className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-[#15162F] p-7 sm:p-8 shadow-[0_10px_30px_-5px_rgba(21,22,47,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-white/25 overflow-hidden min-h-[420px]"
                   >
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo group-hover:bg-brand-indigo group-hover:text-white transition-colors duration-200">
-                          <Icon className="w-6 h-6" />
+                    {/* Direct Background Image Layer */}
+                    <div className="absolute inset-0 z-0 pointer-events-none">
+                      <Image
+                        src={meta.imageSrc}
+                        alt={meta.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      {/* High-legibility brand ink gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#15162F]/95 via-[#15162F]/85 to-[#15162F]/60" />
+                    </div>
+
+                    {/* Card Content - Z-index 10 above image layer */}
+                    <div className="relative z-10 flex flex-col flex-1">
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-white/25 group-hover:scale-105">
+                          <Icon className="w-6 h-6 text-white" />
                         </div>
-                        {service.badge && (
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-warm-white px-3 py-1 rounded-full border border-brand-soft-neutral">
-                            {service.badge}
+                        <div className="flex items-center gap-2">
+                          {service.badge && (
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-white bg-white/15 px-3 py-1 rounded-full border border-white/20 backdrop-blur-sm">
+                              {service.badge}
+                            </span>
+                          )}
+                          <span className="text-xs font-mono font-bold text-white/70">
+                            0{index + 1}
                           </span>
-                        )}
+                        </div>
                       </div>
 
-                      <div>
-                        <h2 className="text-xl font-bold text-brand-ink group-hover:text-brand-indigo transition-colors mb-2">
-                          {service.title}
-                        </h2>
-                        <p className="text-sm text-brand-ink/75 leading-relaxed">
-                          {service.shortDescription}
-                        </p>
-                      </div>
+                      <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
+                        {service.title}
+                      </h2>
+
+                      <p className="text-sm font-semibold text-brand-soft-neutral/90 mb-3">
+                        {service.shortDescription}
+                      </p>
+
+                      <p className="text-xs text-white/80 leading-relaxed mb-6 flex-1">
+                        {service.description}
+                      </p>
 
                       {service.enquiryDetails && (
-                        <div className="pt-4 border-t border-brand-soft-neutral space-y-2">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/60 block">
+                        <div className="border-t border-white/15 pt-4 mb-6">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-white/70 block mb-2">
                             Key Specifications:
                           </span>
-                          <ul className="space-y-1">
+                          <ul className="space-y-1.5">
                             {service.enquiryDetails.map((detail) => (
                               <li
                                 key={detail}
-                                className="text-xs text-brand-ink/80 flex items-center gap-2"
+                                className="flex items-start gap-2 text-xs text-white/90"
                               >
-                                <CheckCircle2 className="w-3.5 h-3.5 text-brand-violet shrink-0" />
+                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                                 <span>{detail}</span>
                               </li>
                             ))}
@@ -118,10 +178,11 @@ export default function UaeServicesPage() {
                       )}
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-brand-soft-neutral flex items-center justify-between">
+                    {/* Action Links */}
+                    <div className="relative z-10 pt-4 border-t border-white/15 flex items-center justify-between gap-3 mt-auto">
                       <Link
                         href={`/uae/services/${service.slug}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-brand-soft-neutral transition-colors"
                       >
                         <span>Explore details</span>
                         <ArrowRight className="w-4 h-4" />
@@ -129,9 +190,10 @@ export default function UaeServicesPage() {
 
                       <Link
                         href={`/uae/contact?service=${encodeURIComponent(service.title)}`}
-                        className="text-xs font-semibold text-brand-ink/70 hover:text-brand-indigo"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-brand-ink hover:bg-brand-indigo hover:text-white px-3.5 py-1.5 rounded-xl shadow-sm transition-all"
                       >
-                        Enquire →
+                        <span>Enquire</span>
+                        <span>→</span>
                       </Link>
                     </div>
                   </article>

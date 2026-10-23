@@ -1,21 +1,19 @@
-# Progress Log - Worker M1
+# Progress — worker_m1
 
-Last visited: 2026-10-22T14:20:00Z
+Last visited: 2026-10-23T08:24:00Z
+Status: 3 assets generated via generate_image; 429 quota exhaustion on model gemini-3.1-flash-image; ISNet isolation active for remaining assets; reported to orchestrator.
 
-## Status
-Milestone 1 Implementation and Verification Completed Successfully. All acceptance criteria satisfied.
-
-## Steps
 - [x] Initialized DISPATCH.md and BRIEFING.md
-- [x] Read AGENTS.md, ORIGINAL_REQUEST.md, PROJECT.md, SCOPE.md, explorer reports
-- [x] Inspect source files (`src/types/content.ts`, `src/content/india.json`, `src/content/rate-card.json`, `src/content/corridors.json`, `src/components/planning/JourneyEstimator.tsx`, `src/components/planning/RfpDesk.tsx`, `src/components/rfp/CorporateRfpBuilder.tsx`)
-- [x] Verify baseline `npm run type-check` and `npm run lint` pass (both 0 errors)
-- [x] Step 1: Update `src/types/content.ts` (define `FleetVehicle` interface, update `IndiaContent`)
-- [x] Step 2: Update `src/content/india.json` (add 10 manager-approved vehicles to `fleetVehicles`, remove fabricated prices, add shared notes)
-- [x] Step 3: Update `src/content/rate-card.json` (prune Etios, Camry, Tempo Traveller, replace rates with enquiry-led guidance)
-- [x] Step 4: Update `src/content/corridors.json` (prune obsolete models and fabricated prices, set Quote on request)
-- [x] Step 5: Update `src/components/planning/JourneyEstimator.tsx` (remove budget calculation and rate input, display Request a quote)
-- [x] Step 6: Update `src/components/planning/RfpDesk.tsx` and `src/components/rfp/CorporateRfpBuilder.tsx` (approved vehicles)
-- [x] Step 7: Verify with `npm run type-check` (PASS 0 errors) and `npm run lint` (PASS 0 errors/warnings)
-- [ ] Step 8: Write `report.md` and `handoff.md`
-- [ ] Step 9: Notify orchestrator
+- [x] Read authoritative context files (survey 1, 2, 3 reports, brand.json, india.json, ORIGINAL_REQUEST.md)
+- [x] Generated `hyundai_aura_studio` via `generate_image` (saved in brain workspace)
+- [x] Generated `tata_tigor_ev_studio` via `generate_image` (saved in brain workspace)
+- [x] Generated `mahindra_marazzo_studio` via `generate_image` (saved in brain workspace)
+- [!] Hit 429 quota exhaustion on `generate_image` (gemini-3.1-flash-image reset in ~4h15m)
+- [x] Sourced authentic 2024 Force Urbania 12-seater passenger van and generated ISNet cutout
+- [x] Sourced authentic Innova Crysta executive SUV and generated ISNet cutout
+- [x] Notified orchestrator via send_message
+- [ ] Receive orchestrator directive / composite remaining assets onto studio cyclorama
+- [ ] Build and execute `scripts/build-fleet-studio-images.mjs`
+- [ ] Update `src/components/fleet/IndiaFleetSection.tsx` (aspect-[16/10] -> aspect-[16/9])
+- [ ] Verify build, lint, type-check, and image integrity (< 200 KB)
+- [ ] Write handoff.md

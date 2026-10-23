@@ -408,7 +408,7 @@ export default function IndiaFleetSection({
                   className="group flex flex-col overflow-hidden rounded-2xl border border-brand-soft-neutral bg-brand-warm-white shadow-xs transition-all duration-200 hover:shadow-md"
                 >
                   {/* Vehicle Reference Image */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-soft-neutral/30">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-soft-neutral/30">
                     <Image
                       src={vehicle.image}
                       alt={vehicle.imageAlt}

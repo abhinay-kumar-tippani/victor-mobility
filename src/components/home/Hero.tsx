@@ -137,7 +137,7 @@ const UAE_HERO_SLIDES: SlideItem[] = [
   },
 ];
 
-const SLIDE_INTERVAL_MS = 2000;
+const SLIDE_INTERVAL_MS = 6000;
 
 export default function Hero({ content }: HeroProps) {
   const isUae = content.region === "uae";

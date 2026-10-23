@@ -1,14 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { UserCheck, Phone, MessageSquare, ArrowRight, ShieldCheck, Headphones, Quote, Award } from "lucide-react";
-import type { ContactData } from "@/types/content";
+import { Quote, Award } from "lucide-react";
+import type { ContactData, TeamProfile } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
+import TeamCarousel from "./TeamCarousel";
 
 interface PeopleSectionProps {
   contact: ContactData;
+  teamContact?: ContactData;
+  teamProfiles?: TeamProfile[];
+  teamFeaturedEmail?: { display: string; enabled: boolean };
   founder?: {
     name: string;
     role: string;
@@ -20,7 +23,7 @@ interface PeopleSectionProps {
   basePath?: string;
 }
 
-export default function PeopleSection({ contact, founder, basePath }: PeopleSectionProps) {
+export default function PeopleSection({ contact, teamContact, teamProfiles = [], teamFeaturedEmail, founder, basePath }: PeopleSectionProps) {
   const pathname = usePathname();
   const effectiveBasePath = basePath || (pathname?.startsWith("/uae") ? "/uae" : "/india");
   const isUae = effectiveBasePath === "/uae";
@@ -43,16 +46,9 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
       : (dict.people?.businessPartnershipDescIndia ||
          "Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India.");
 
-  const operationsDeskDesc =
-    isUae
-      ? (dict.people?.operationsDeskDescUae ||
-         "Our central operations desk coordinates chauffeur dispatch readiness, flight radar tracking at DXB/AUH, and dedicated route support across the Emirates.")
-      : (dict.people?.operationsDeskDescIndia ||
-         "Our central operations desk coordinates driver shift rotations, vehicle dispatch readiness, and route support across 10 operational hubs pan-India.");
-
   const whatsappMessage =
     locale === "ar"
-      ? `مرحباً ${contact.name}، أود مناقشة متطلبات النقل والتنقل مع فيكتور موبيليتي.`
+      ? `مرحباً ${teamContact?.name || contact.name}، أود مناقشة متطلبات النقل والتنقل مع فيكتور موبيليتي.`
       : `Hello, I would like to discuss travel requirements with Victor Mobility.`;
 
   return (
@@ -70,7 +66,7 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
           </p>
         </div>
 
-        {/* 3-Column Leadership & Operations Grid */}
+        {/* Leadership and team */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Card 1: Founder & Visionary (col-span-5) */}
           {founder && (
@@ -115,102 +111,16 @@ export default function PeopleSection({ contact, founder, basePath }: PeopleSect
             </div>
           )}
 
-          {/* Right Column: Commercial Partner + Operations Desk (col-span-7) */}
-          <div className={`${founder ? "lg:col-span-7" : "lg:col-span-12"} space-y-6 flex flex-col justify-between`}>
-            {/* Card 2: Commercial Leadership (Mujeeb Ur Rahman Mohammed) */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-soft-neutral shadow-xs space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-warm-white border border-brand-soft-neutral text-[11px] font-bold uppercase tracking-wider text-brand-indigo">
-                  <UserCheck className="w-3.5 h-3.5 text-brand-blue" />
-                  <span>{dict.people?.businessPartnerships || "Business Partnerships"}</span>
-                </span>
-                <span className="text-xs text-brand-ink/60 font-medium">
-                  {isUae
-                    ? (dict.people?.dubaiOperationsDesk || "Dubai Operations Desk")
-                    : (dict.people?.headOfficeLabel || "Head Office")}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 border border-brand-soft-neutral shadow-2xs bg-slate-100">
-                  <Image
-                    src={contact.imageSrc || "/images/india/leadership-mujeeb.jpg"}
-                    alt={`Portrait of ${contact.name}, ${contact.role} at Victor Mobility`}
-                    fill
-                    sizes="(max-width: 640px) 64px, 80px"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-brand-ink">{contact.name}</h3>
-                  <p className="text-xs font-semibold text-brand-indigo">{contact.role}</p>
-                </div>
-              </div>
-
-              <p className="text-xs text-brand-ink/75 leading-relaxed">
-                {businessPartnershipDesc}
-              </p>
-
-              <div className="pt-3 border-t border-brand-soft-neutral flex flex-wrap items-center gap-3">
-                <a
-                  href={contact.phoneHref}
-                  className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold text-brand-indigo bg-brand-warm-white hover:bg-brand-indigo hover:text-white px-4 py-2.5 rounded-xl border border-brand-soft-neutral transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span dir="ltr">{contact.phoneDisplay}</span>
-                </a>
-
-                <a
-                  href={`https://wa.me/${contact.whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[44px] inline-flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-xl border border-emerald-200 transition-colors"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>{locale === "ar" ? "مكتب الواتساب" : "WhatsApp Desk"}</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Card 3: Operations Control Desk with Image */}
-            <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-xs">
-              <div className="relative aspect-[21/9] w-full overflow-hidden bg-brand-ink">
-                <Image
-                  src="/images/india/operations-control.jpg"
-                  alt="Operations and fleet coordination desk"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{dict.people?.operationsCoordinationDesk || "Operations Coordination Desk"}</span>
-                  </span>
-                  <span className="text-[10px] text-white/70 italic">
-                    {dict.fleet?.imageCaption || "Imagery is illustrative"}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-6 space-y-3">
-                <p className="text-xs text-brand-ink/75 leading-relaxed">
-                  {operationsDeskDesc}
-                </p>
-
-                <div className="pt-2 flex items-center justify-between">
-                  <Link
-                    href={`${effectiveBasePath}/about`}
-                    className="min-h-[44px] inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo hover:text-brand-blue transition-colors"
-                  >
-                    <span>{dict.people?.fullCompanyStoryLink || "Read our full company story & 2010–2024 milestones"}</span>
-                    <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <div className={founder ? "lg:col-span-7" : "lg:col-span-12"}>
+            <TeamCarousel
+              featured={teamContact || contact}
+              featuredEmail={teamFeaturedEmail}
+              profiles={teamProfiles}
+              description={businessPartnershipDesc}
+              basePath={effectiveBasePath}
+              whatsappMessage={whatsappMessage}
+              storyLabel={dict.people?.fullCompanyStoryLink || "Read our company story"}
+            />
           </div>
         </div>
       </div>

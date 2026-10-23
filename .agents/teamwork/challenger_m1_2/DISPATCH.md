@@ -1,18 +1,17 @@
-## 2026-10-22T16:24:08Z
-You are a Challenger agent (teamwork_preview_challenger).
+## 2026-10-23T11:19:53Z
+You are Challenger M1_2 for Victor Mobility Milestone 1: Studio Imagery Asset Generation & Pipeline.
 Your working directory is: d:\victor website\.agents\teamwork\challenger_m1_2
-Read d:\victor website\.agents\teamwork\ORIGINAL_REQUEST.md and d:\victor website\AGENTS.md before starting work.
-Also read:
+
+Read the authoritative context:
+- d:\victor website\.agents\teamwork\ORIGINAL_REQUEST.md (specifically the latest request under `## Follow-up — 2026-10-23T06:36:50Z`)
 - d:\victor website\.agents\teamwork\PROJECT.md
-- d:\victor website\.agents\teamwork\worker_m1\report.md
-- d:\victor website\.agents\teamwork\worker_m1\handoff.md
+- d:\victor website\.agents\teamwork\worker_m1_final\handoff.md
 
-Your task is to empirically stress-test Milestone 1 components and contracts:
-1. Test TypeScript types and contract conformance in src/types/content.ts.
-2. Test JourneyEstimator component logic: does it render without rate input? Does it prevent NaN calculations?
-3. Test RfpDesk and CorporateRfpBuilder: do they offer exactly the 10 approved vehicles?
-4. Run empirical checks via run_command.
-5. State your verdict clearly: APPROVE or REJECT.
+Your Task:
+Adversarially challenge the visual models and styling requirements:
+1. Verify that `public/images/fleet/force-urbania.webp` is NOT the fallback 40-seat commercial transit bus (`employee-shuttle.png`) or a boxy tempo delivery truck, but is an authentic modern European monocoque 12-seater passenger van with raked front windshield and bull-horn DRLs.
+2. Verify that `tata-tigor-ev.webp` and `kia-carens-clavis-ev.webp` feature closed aerodynamic front grilles (no combustion engine open radiator honeycomb) and EV badging.
+3. Verify that casual street snapshots (e.g. rural mud road near Janampeta with Telugu billboard, dealership showroom with plastic wrapped seats) are completely eliminated from `innova-crysta.webp` and `mahindra-marazzo.webp`.
+4. Verify that all 10 vehicles in `src/content/india.json` (`fleetVehicles`) match the 10 files in `public/images/fleet/` with zero missing images.
 
-Write your findings to d:\victor website\.agents\teamwork\challenger_m1_2\report.md and handoff to d:\victor website\.agents\teamwork\challenger_m1_2\handoff.md.
-Send message to orchestrator parent (conversation ID: 6b49676e-9eb3-4a24-b81e-24558c3bbf1b) when done.
+Write your adversarial assessment to d:\victor website\.agents\teamwork\challenger_m1_2\handoff.md with an explicit verdict (CONFIRM_CORRECTNESS or REJECT) and send a message to the orchestrator.

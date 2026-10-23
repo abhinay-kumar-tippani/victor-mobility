@@ -20,6 +20,7 @@ import {
   Calendar,
   Check,
 } from "lucide-react";
+import TopBrandsStrip from "@/components/home/TopBrandsStrip";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
@@ -212,6 +213,10 @@ export default function AboutPage() {
             </div>
           </section>
         )}
+
+        <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+          <TopBrandsStrip />
+        </div>
 
         {/* Company Evolution & Milestones (Brochure Page 4) */}
         {milestones.length > 0 && (

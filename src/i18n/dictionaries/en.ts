@@ -83,7 +83,7 @@ export const enDictionary: TranslationDictionary = {
   },
   companies: {
     eyebrow: "Enterprise Clientele & Partners",
-    title: "Our  Clients",
+    title: "Our Clients",
     description:
       "Delivering disciplined, roster-synchronized employee transportation and executive mobility for leading multinational corporations across India.",
   },

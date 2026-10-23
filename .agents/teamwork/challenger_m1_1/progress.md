@@ -1,12 +1,16 @@
-# Progress — Challenger M1
+# Progress — Challenger M1_1 (Studio Imagery Asset Stress Testing)
 
-- Last visited: 2026-10-22T16:45:00Z
-- Status: Completed
-- Current Step: Verification and reporting complete. Verdict: APPROVE.
+- Last visited: 2026-10-23T11:21:00Z
+- Status: In Progress
+- Current Step: Preparing test harness `scripts/challenger-m1-asset-test.mjs`
 - Actions Taken:
-  1. Inspected `india.json`, `rate-card.json`, `corridors.json`, `JourneyEstimator.tsx`, `RfpDesk.tsx`, and `CorporateRfpBuilder.tsx`.
-  2. Wrote and executed `scripts/verify-milestone1-adversarial.mjs` (26 test assertions covering JSON validity, fleet count, names, sequence, classifications, electric flags, seat sanitization, pricing purge, and verbatim notes). All 26 passed.
-  3. Ran `npm run type-check` (tsc --noEmit) - 0 errors, exit code 0.
-  4. Ran `npm run lint` (next lint) - 0 errors, 0 warnings, exit code 0.
-  5. Documented adversarial findings for downstream milestones (M2, M4).
-  6. Authored `report.md` and `handoff.md` with clear APPROVE verdict.
+  1. Received new dispatch for Milestone 1 Studio Imagery Asset Stress Testing.
+  2. Logged dispatch to `DISPATCH.md`.
+  3. Re-read and updated `BRIEFING.md` preserving append-only constraints.
+  4. Inspected `public/images/fleet/` containing all 10 assets.
+  5. Inspected `worker_m1_final/handoff.md` and `PROJECT.md`.
+- Next Steps:
+  1. Author `scripts/challenger-m1-asset-test.mjs` with Sharp uncompressed pixel buffer verification, exact dimension check, file size bounds (1KB - 200KB), color channel variance calculations, and live Next.js HTTP server probing.
+  2. Run `scripts/challenger-m1-asset-test.mjs`.
+  3. Compile findings into `handoff.md`.
+  4. Send message to orchestrator with verdict.

@@ -7,6 +7,7 @@ import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import LanguageSwitcher, { MobileDrawerLanguageSelector } from "@/components/layout/LanguageSwitcher";
+import StickyContactRail from "@/components/layout/StickyContactRail";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface HeaderProps {
@@ -24,6 +25,13 @@ export default function Header({ contact }: HeaderProps) {
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
   const isIndia = basePrefix === "/india";
+  const whatsappMessage = isIndia
+    ? "Hello Victor Mobility, I would like to discuss a transport requirement."
+    : "Hello Victor Mobility UAE, I would like to discuss a transport requirement.";
+  const whatsappHref = `${contact.whatsappBaseUrl}?text=${encodeURIComponent(whatsappMessage)}`;
+  const emailHref = contact.emailEnabled
+    ? `mailto:${contact.printedEmail}`
+    : `${basePrefix}/contact#email-enquiry`;
 
   const navItems = [
     { label: dict.nav.home || "Home", href: basePrefix },
@@ -346,6 +354,14 @@ export default function Header({ contact }: HeaderProps) {
             </div>
           </div>
         </div>
+      )}
+
+      {!mobileMenuOpen && (
+        <StickyContactRail
+          phoneHref={contact.phoneHref}
+          whatsappHref={whatsappHref}
+          emailHref={emailHref}
+        />
       )}
     </header>
   );

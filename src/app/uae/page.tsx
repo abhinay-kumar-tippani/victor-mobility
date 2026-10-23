@@ -15,6 +15,7 @@ import ContactInvitationSection from "@/components/home/ContactInvitationSection
 import PartnerEnquirySection from "@/components/contact/PartnerEnquirySection";
 
 import uaeData from "@/content/uae.json";
+import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
 
@@ -135,6 +136,9 @@ export default function UaePage() {
         {/* 6. Leadership & Operations Accountability: Founder Jahangir & UAE Operations Desk */}
         <PeopleSection
           contact={content.contact}
+          teamContact={indiaData.contact}
+          teamProfiles={indiaData.teamProfiles}
+          teamFeaturedEmail={indiaData.teamFeaturedEmail}
           founder={content.founder}
           basePath="/uae"
         />
