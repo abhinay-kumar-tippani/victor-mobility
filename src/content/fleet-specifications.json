@@ -196,7 +196,7 @@
         "id": "first-class",
         "name": "First Class Saloons",
         "categoryBadge": "Executive Chauffeur Limousine",
-        "popularModels": ["Mercedes-Benz S-Class (W223)", "BMW 7 Series (G70)"],
+        "popularModels": ["Mercedes-Benz S-Class", "BMW 7 Series"],
         "heroImage": "/images/india/luxury-interior.png",
         "passengerCapacity": 3,
         "passengerLabel": "Up to 3 Passengers",
@@ -229,11 +229,8 @@
           "Full-day executive city disposal"
         ],
         "rateCard": {
-          "airportTransfer": "AED 450 – AED 550",
-          "halfDay": "AED 850 (5 hrs city disposal)",
-          "fullDay": "AED 1,400 (10 hrs city disposal)",
-          "outstationPerKm": "AED 4.5 / km (Inter-Emirate)",
-          "currency": "AED"
+          "pricingLabel": "Request a quote",
+          "note": "Vehicle options, pricing and route suitability are confirmed by our team."
         }
       },
       {
@@ -273,11 +270,8 @@
           "Luxury hotel-to-resort bespoke transfers"
         ],
         "rateCard": {
-          "airportTransfer": "AED 850 – AED 1,100",
-          "halfDay": "AED 1,600 (5 hrs city disposal)",
-          "fullDay": "AED 2,600 (10 hrs city disposal)",
-          "outstationPerKm": "AED 8.0 / km (Inter-Emirate)",
-          "currency": "AED"
+          "pricingLabel": "Request a quote",
+          "note": "Vehicle options, pricing and route suitability are confirmed by our team."
         }
       },
       {
@@ -317,11 +311,8 @@
           "Inter-Emirate executive transport (Dubai to Abu Dhabi / Al Ain)"
         ],
         "rateCard": {
-          "airportTransfer": "AED 550 – AED 650",
-          "halfDay": "AED 950 (5 hrs city disposal)",
-          "fullDay": "AED 1,600 (10 hrs city disposal)",
-          "outstationPerKm": "AED 5.5 / km (Inter-Emirate)",
-          "currency": "AED"
+          "pricingLabel": "Request a quote",
+          "note": "Vehicle options, pricing and route suitability are confirmed by our team."
         }
       },
       {
@@ -361,11 +352,8 @@
           "International delegation airport fleet convoys"
         ],
         "rateCard": {
-          "airportTransfer": "AED 1,100 – AED 1,600",
-          "halfDay": "AED 1,300 (5 hrs city disposal)",
-          "fullDay": "AED 2,200 (10 hrs city disposal)",
-          "outstationPerKm": "AED 7.5 / km (Inter-Emirate)",
-          "currency": "AED"
+          "pricingLabel": "Request a quote",
+          "note": "Vehicle options, pricing and route suitability are confirmed by our team."
         }
       },
       {

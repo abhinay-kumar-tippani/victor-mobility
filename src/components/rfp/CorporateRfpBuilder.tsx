@@ -53,7 +53,7 @@ export default function CorporateRfpBuilder({
     contractType: "Employee Transportation (Daily Workforce Shuttles)",
     dailyCommuters: "200 – 500 Commuters",
     shiftPatterns: "2 Shifts (Morning / Evening)",
-    vehiclePreferences: ["Corporate AC Cabs (4-seater)", "Executive MPVs (6-7 seater)"],
+    vehiclePreferences: [ ] as string[],
     safetyRequirements: [
       "100% Police Clearance & Driver Background Verification (BGV)",
       "24/7 Operations Control Room & Real-time GPS Tracking",
@@ -108,11 +108,16 @@ export default function CorporateRfpBuilder({
           "Luxury Coaches (22 to 50-seater buses)",
         ]
       : [
-          "Corporate AC Cabs (4-seater sedans)",
-          "Executive MPVs (6-7 seater Toyota Innova Crysta)",
-          "22-Seater Air-Conditioned Mini Buses",
-          "44/50-Seater Luxury Coaches",
-          "Electric Vehicles (EV Cabs & Shuttles)",
+          "Swift Dzire (Sedan, Petrol)",
+          "Hyundai Aura (Sedan, Petrol & CNG)",
+          "Tata Tigor (Sedan, Electric Vehicle)",
+          "Tata Nexon (Sedan, Long Range Electric Vehicle)",
+          "MG ZS EV (Sedan, Long Range Electric Vehicle)",
+          "Mahindra Marazzo (SUV, Diesel)",
+          "Ertiga CNG (SUV, Petrol & CNG)",
+          "Innova Crysta (SUV, Diesel)",
+          "Kia Carens Clavis EV (SUV, Long Range Electric Vehicle)",
+          "Urbania (12 Seater, Diesel)",
         ];
 
   const complianceStandards = [

@@ -1,5 +1,72 @@
 {
   "schemaVersion": 1,
+  "clientCompanies": [
+    {
+      "name": "JP Morgan & Chase",
+      "logo": "/images/clients/jpmorgan.svg"
+    },
+    {
+      "name": "HDFC",
+      "logo": "/images/clients/hdfc.svg"
+    },
+    {
+      "name": "Otis",
+      "logo": "/images/clients/otis.svg"
+    },
+    {
+      "name": "Matrix Pharma",
+      "logo": "/images/clients/matrix.png"
+    },
+    {
+      "name": "Mattel",
+      "logo": "/images/clients/mattel.svg"
+    },
+    {
+      "name": "Hartford",
+      "logo": "/images/clients/hartford.svg"
+    },
+    {
+      "name": "MetLife",
+      "logo": "/images/clients/metlife.png"
+    },
+    {
+      "name": "Entain India Pvt. Ltd.",
+      "logo": "/images/clients/entain.svg"
+    },
+    {
+      "name": "Synchrony Financials",
+      "logo": "/images/clients/synchrony.svg"
+    },
+    {
+      "name": "Coforge",
+      "logo": "/images/clients/coforge.svg"
+    },
+    {
+      "name": "Vector 97",
+      "logo": "/images/clients/vector97.png"
+    },
+    {
+      "name": "Synechron",
+      "logo": "/images/clients/synechron.jpg"
+    },
+    {
+      "name": "Tata Docomo",
+      "logo": "/images/clients/tatadocomo.svg"
+    },
+    {
+      "name": "GlobalLogic",
+      "logo": "/images/clients/globallogic.png"
+    },
+    {
+      "name": "Mondee",
+      "logo": "/images/clients/mondee.svg"
+    },
+    {
+      "name": "PWC",
+      "logo": "/images/clients/pwc.svg",
+      "description": "One of the world's largest professional services firms."
+    }
+  ],
   "uaePresenceMap": {
     "en": {
       "title": "Interactive presence map",
@@ -62,14 +129,15 @@
     "modelsLabel": "Vehicle references",
     "capacityLabel": "Passenger planning",
     "useLabel": "Best suited for",
-    "priceLabel": "Sample starting price",
-    "priceNote": "Illustrative pricing. Final rates, inclusions and availability are confirmed in your quotation.",
+    "priceLabel": "Pricing",
+    "priceDisplay": "Request a quote",
+    "priceNote": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
+    "sharedNote": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
     "enquire": "Enquire about this vehicle",
     "estimate": "Plan a journey",
-    "imageCaption": "Vehicle imagery is illustrative.",
-    "packageLabel": "8 hours / 80 km",
+    "imageCaption": "Images show vehicle models; actual assigned vehicles may vary.",
+    "packageLabel": "Confirmed on enquiry",
     "availability": "Share your city, travel date and luggage needs so our team can confirm a suitable vehicle.",
-    "pricingSource": "Temporary sample values from existing corridors.json hourlyRetainer data, following user approval to use reference-style sample data on 2026-10-16. Exact Claude artifact price parity could not be reverified because browser access was blocked.",
     "items": [
       {
         "id": "sedans",
@@ -80,7 +148,7 @@
         "image": "/images/india/hero.png",
         "imageAlt": "Illustrative executive sedan and passenger vehicles",
         "imagePosition": "80% center",
-        "price": 2200
+        "price": null
       },
       {
         "id": "mpvs",
@@ -91,7 +159,7 @@
         "image": "/images/india/hero.png",
         "imageAlt": "Illustrative passenger MPV with other vehicle categories",
         "imagePosition": "48% center",
-        "price": 3800
+        "price": null
       },
       {
         "id": "buses",
@@ -102,7 +170,7 @@
         "image": "/images/india/employee-shuttle.png",
         "imageAlt": "Illustrative coach for group transport",
         "imagePosition": "center center",
-        "price": 7200
+        "price": null
       },
       {
         "id": "luxury",
@@ -113,7 +181,7 @@
         "image": "/images/india/luxury-interior.png",
         "imageAlt": "Illustrative luxury passenger cabin",
         "imagePosition": "center center",
-        "price": 6500
+        "price": null
       },
       {
         "id": "electric",
@@ -142,7 +210,7 @@
       "estimator": {
         "number": "01",
         "title": "Journey estimator",
-        "description": "Work out vehicle numbers and a planning budget using your passenger count, distance and rate.",
+        "description": "Work out vehicle numbers and route distance using your passenger count, then request a formal quote.",
         "cta": "Open the estimator",
         "detail": "Vehicle planning · Transparent calculations"
       },
@@ -156,7 +224,7 @@
     },
     "estimator": {
       "title": "A clearer picture of your journey.",
-      "description": "Estimate the vehicles and distance your plan needs. Add your own rate to explore a budget before speaking with our team.",
+      "description": "Estimate the vehicles and distance your plan needs, then request a formal quote from our operations team.",
       "eyebrow": "Journey estimator",
       "formTitle": "Shape your journey",
       "formHelp": "One group, travelling together. Enter the same journey for each travel day.",
@@ -174,15 +242,15 @@
       "rateHelp": "Optional. Enter a rate you want to model. Victor's quotation will be confirmed by the team.",
       "calculate": "Calculate my estimate",
       "emptyTitle": "Your plan, at a glance.",
-      "emptyHelp": "Add your journey details to see vehicle numbers, total distance and an optional budget.",
+      "emptyHelp": "Add your journey details to see vehicle numbers, total distance and request a formal quote.",
       "resultTitle": "Your planning estimate",
       "vehicleLabel": "Vehicles per journey",
       "distanceLabel": "Total vehicle kilometres",
-      "budgetLabel": "Budget at your entered rate",
-      "noRate": "Add your own rate to calculate a budget, or ask our team for a quote.",
+      "budgetLabel": "Estimated pricing",
+      "noRate": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
       "basisTitle": "How this is calculated",
       "basisHelp": "One journey per vehicle each day, doubled if return travel is selected. Distance is multiplied by the number of vehicles and travel days.",
-      "exclusions": "Planning only. Toll, parking, tax, driver allowance, waiting, minimum hire and vehicle availability must be confirmed in Victor's quotation.",
+      "exclusions": "Vehicle allocation and pricing are confirmed for your location, dates and requirements. Toll, parking, tax, driver allowance, waiting, minimum hire and vehicle availability must be confirmed in Victor's quotation.",
       "review": "View the enquiry draft",
       "rfpLink": "Planning a corporate contract? Build an RFP",
       "summaryTitle": "JOURNEY ESTIMATE ENQUIRY",
@@ -679,6 +747,109 @@
       "published": true
     }
   ],
+  "fleetVehicles": [
+    {
+      "id": "swift-dzire",
+      "name": "Swift Dzire",
+      "cabType": "Sedan",
+      "fuelType": "Petrol",
+      "isElectric": false,
+      "image": "/images/fleet/swift-dzire.webp",
+      "imageAlt": "Swift Dzire sedan",
+      "description": "Executive sedan for city commutes and corporate transfers."
+    },
+    {
+      "id": "hyundai-aura",
+      "name": "Hyundai Aura",
+      "cabType": "Sedan",
+      "fuelType": "Petrol & CNG",
+      "isElectric": false,
+      "image": "/images/fleet/hyundai-aura.webp",
+      "imageAlt": "Hyundai Aura sedan",
+      "description": "Efficient sedan with dual-fuel flexibility for corporate mobility."
+    },
+    {
+      "id": "tata-tigor",
+      "name": "Tata Tigor",
+      "cabType": "Sedan",
+      "fuelType": "Electric Vehicle",
+      "isElectric": true,
+      "image": "/images/fleet/tata-tigor-ev.webp",
+      "imageAlt": "Tata Tigor EV sedan",
+      "description": "Zero-emission electric sedan for sustainable corporate travel."
+    },
+    {
+      "id": "tata-nexon",
+      "name": "Tata Nexon",
+      "cabType": "Sedan",
+      "fuelType": "Long Range Electric Vehicle",
+      "isElectric": true,
+      "image": "/images/fleet/tata-nexon-ev.webp",
+      "imageAlt": "Tata Nexon EV sedan",
+      "description": "Long-range electric vehicle offering extended intercity range and comfort."
+    },
+    {
+      "id": "mg-zs-ev",
+      "name": "MG ZS EV",
+      "cabType": "Sedan",
+      "fuelType": "Long Range Electric Vehicle",
+      "isElectric": true,
+      "image": "/images/fleet/mg-zs-ev.webp",
+      "imageAlt": "MG ZS EV sedan",
+      "description": "Premium long-range electric vehicle for executive ground transport."
+    },
+    {
+      "id": "mahindra-marazzo",
+      "name": "Mahindra Marazzo",
+      "cabType": "SUV",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "image": "/images/fleet/mahindra-marazzo.webp",
+      "imageAlt": "Mahindra Marazzo SUV",
+      "description": "Spacious SUV suited for team journeys and delegation transport."
+    },
+    {
+      "id": "ertiga-cng",
+      "name": "Ertiga CNG",
+      "cabType": "SUV",
+      "fuelType": "Petrol & CNG",
+      "isElectric": false,
+      "image": "/images/fleet/ertiga-cng.webp",
+      "imageAlt": "Ertiga CNG SUV",
+      "description": "Versatile SUV with dual-fuel efficiency for corporate groups."
+    },
+    {
+      "id": "innova-crysta",
+      "name": "Innova Crysta",
+      "cabType": "SUV",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "image": "/images/fleet/innova-crysta.webp",
+      "imageAlt": "Innova Crysta SUV",
+      "description": "Benchmark executive SUV for business travel and leadership transit."
+    },
+    {
+      "id": "kia-carens-clavis-ev",
+      "name": "Kia Carens Clavis EV",
+      "cabType": "SUV",
+      "fuelType": "Long Range Electric Vehicle",
+      "isElectric": true,
+      "image": "/images/fleet/kia-carens-clavis-ev.webp",
+      "imageAlt": "Kia Carens Clavis EV SUV",
+      "description": "Next-generation long-range electric SUV combining capacity with clean mobility."
+    },
+    {
+      "id": "urbania",
+      "name": "Urbania",
+      "cabType": "12 Seater",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "12 Seater",
+      "image": "/images/fleet/force-urbania.webp",
+      "imageAlt": "Urbania 12 Seater",
+      "description": "Approved 12-seater passenger van for corporate teams and delegation transfers."
+    }
+  ],
   "fleetCategories": [
     {
       "id": "sedans",
@@ -726,7 +897,7 @@
       "source": "Corporate enquiry fleet category"
     }
   ],
-  "fleetNote": "Tell us your preferred vehicle category. Our team will confirm options for your location and dates.",
+  "fleetNote": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
   "fleetModelDisplayDefault": false,
   "electricModelSourceNotes": {
     "models": [
@@ -827,4 +998,6 @@
     "Unconfirmed prices"
   ]
 }
+
+
 

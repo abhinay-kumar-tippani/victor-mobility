@@ -182,6 +182,23 @@ export const enDictionary: TranslationDictionary = {
     estimateCta: "Plan a journey",
     exploreAll: "Explore the fleet",
     imageCaption: "Vehicle imagery is illustrative.",
+    requestQuote: "Request a quote",
+    enquireVehicle: "Enquire about this vehicle",
+    sharedNote: "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
+    filterTabs: {
+      all: "All Vehicles",
+      sedan: "Sedan",
+      suv: "SUV",
+      twelveSeater: "12 Seater",
+      electric: "Electric Vehicles",
+    },
+    fuelBadges: {
+      petrol: "Petrol",
+      petrolCng: "Petrol & CNG",
+      electricVehicle: "Electric Vehicle",
+      longRangeElectricVehicle: "Long Range Electric Vehicle",
+      diesel: "Diesel",
+    },
     electric: {
       title: "Electric Vehicles",
       introduction:

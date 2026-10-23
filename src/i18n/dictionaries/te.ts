@@ -178,6 +178,23 @@ export const teDictionary: TranslationDictionary = {
     estimateCta: "ప్రయాణాన్ని ప్లాన్ చేయండి",
     exploreAll: "మొత్తం ఫ్లీట్‌ను చూడండి",
     imageCaption: "వాహనాల చిత్రాలు దృష్టాంతం మాత్రమే.",
+    requestQuote: "కొటేషన్ అభ్యర్థించండి",
+    enquireVehicle: "ఈ వాహనం గురించి విచారించండి",
+    sharedNote: "వాహన కేటాయింపు మరియు ధర మీ స్థానం, తేదీలు మరియు అవసరాలకు నిర్ధారించబడతాయి.",
+    filterTabs: {
+      all: "అన్ని వాహనాలు",
+      sedan: "సెడాన్",
+      suv: "ఎస్ యూ వి",
+      twelveSeater: "12 సీటర్",
+      electric: "ఎలక్ట్రిక్ వాహనాలు",
+    },
+    fuelBadges: {
+      petrol: "పెట్రోల్",
+      petrolCng: "పెట్రోల్ & సిఎన్‌జి",
+      electricVehicle: "ఎలక్ట్రిక్ వాహనం",
+      longRangeElectricVehicle: "లాంగ్ రేంజ్ ఎలక్ట్రిక్ వాహనం",
+      diesel: "డీజిల్",
+    },
     electric: {
       title: "ఎలక్ట్రిక్ వాహనాలు",
       introduction:
@@ -203,13 +220,13 @@ export const teDictionary: TranslationDictionary = {
       sedans: {
         name: "సెడాన్లు",
         capacity: "1 నుండి 4 ప్రయాణీకులు · 2 నుండి 3 బ్యాగులు",
-        models: "స్విఫ్ట్ డిజైర్, టాటా టిగోర్ లేదా సమానమైనవి",
+        models: "Swift Dzire, Tata Tigor లేదా సమానమైనవి",
         use: "ఎయిర్‌పోర్ట్ ప్రయాణాలు, వ్యాపార పర్యటనలు మరియు చిన్న బృందాల నగర ప్రయాణాలకు.",
       },
       mpvs: {
         name: "ఎంపివి & గ్రూప్ వాహనాలు",
         capacity: "4 నుండి 6 ప్రయాణీకులు · 4 నుండి 5 బ్యాగులు",
-        models: "ఇన్నోవా క్రిస్టా, మరాజో, ఫోర్స్ అర్బనియా లేదా సమానమైనవి",
+        models: "Innova Crysta, Mahindra Marazzo, Force Urbania లేదా సమానమైనవి",
         use: "టీమ్ సైట్ విజిట్లు, లగేజ్‌తో ఎయిర్‌పోర్ట్ ప్రయాణాలు మరియు ప్రతినిధుల పర్యటనలకు.",
       },
       buses: {

@@ -41,6 +41,17 @@ export interface OfficeItem {
   published: boolean;
 }
 
+export interface FleetVehicle {
+  id: string;
+  name: string;
+  cabType: "Sedan" | "SUV" | "12 Seater";
+  fuelType: "Petrol" | "Petrol & CNG" | "Electric Vehicle" | "Long Range Electric Vehicle" | "Diesel";
+  isElectric: boolean;
+  image: string;
+  imageAlt: string;
+  description?: string;
+}
+
 export interface FleetCategory {
   id: string;
   name: string;
@@ -134,6 +145,7 @@ export interface IndiaContent {
   }>;
   offices: OfficeItem[];
   fleetCategories: FleetCategory[];
+  fleetVehicles?: FleetVehicle[];
   fleetNote: string;
   fleetModelDisplayDefault: boolean;
   contact: ContactData;

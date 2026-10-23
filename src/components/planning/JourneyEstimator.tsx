@@ -16,13 +16,13 @@ export default function JourneyEstimator({ copy, actions, cities, whatsappBaseUr
   const { dict } = useLanguage();
   const effectiveCopy = dict.estimator || copy;
 
-  const [values, setValues] = useState({ city: cities[0] || "Other", pickup: "", dropoff: "", passengers: "", seats: "", distance: "", days: "1", rate: "", returnTrip: false });
+  const [values, setValues] = useState({ city: cities[0] || "Other", pickup: "", dropoff: "", passengers: "", seats: "", distance: "", days: "1", returnTrip: false });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [calculated, setCalculated] = useState(false);
   const [validationAttempt, setValidationAttempt] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
   const resultRef = useRef<HTMLHeadingElement>(null);
-  const calculation = calculateJourney(values);
+  const calculation = calculateJourney({ ...values, rate: "" });
   const result = calculated ? calculation.result : null;
 
   useEffect(() => { if (validationAttempt) formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus(); }, [validationAttempt]);
@@ -53,22 +53,22 @@ export default function JourneyEstimator({ copy, actions, cities, whatsappBaseUr
     `Journeys per vehicle per day: ${result.legs}`,
     `Travel days: ${values.days}`,
     `Total vehicle kilometres: ${number(result.vehicleKm)} km`,
-    ...(result.budget !== null ? [`Customer-entered planning rate: INR ${values.rate} / vehicle / km`, `Calculated planning budget: INR ${number(result.budget)}`] : ["Rate: please quote"]),
+    "Pricing: Formal quote on request (Vehicle allocation and pricing are confirmed for your location, dates and requirements)",
     "",
     effectiveCopy.exclusions || copy.exclusions,
     "Please discuss suitable vehicles, availability and a formal quotation with me."
   ].join("\n") : "";
 
-  const input = (key: "pickup" | "dropoff" | "passengers" | "seats" | "distance" | "days" | "rate", type = "text", hint?: string) => (
+  const input = (key: "pickup" | "dropoff" | "passengers" | "seats" | "distance" | "days", type = "text", hint?: string) => (
     <Field id={`estimate-${key}`} label={effectiveCopy[key] || copy[key]} error={errors[key]} hint={hint}>
       <input
         id={`estimate-${key}`}
         type={type}
         value={values[key]}
         onChange={event => update(key, event.target.value)}
-        min={type === "number" ? (key === "distance" || key === "rate" ? "0.01" : "1") : undefined}
-        step={type === "number" ? (key === "distance" || key === "rate" ? "any" : "1") : undefined}
-        required={key !== "rate"}
+        min={type === "number" ? (key === "distance" ? "0.01" : "1") : undefined}
+        step={type === "number" ? (key === "distance" ? "any" : "1") : undefined}
+        required
         inputMode={type === "number" ? "decimal" : undefined}
         aria-invalid={!!errors[key]}
         aria-describedby={errors[key] ? `estimate-${key}-error` : hint ? `estimate-${key}-hint` : undefined}
@@ -95,7 +95,6 @@ export default function JourneyEstimator({ copy, actions, cities, whatsappBaseUr
           <input type="checkbox" checked={values.returnTrip} onChange={event => update("returnTrip", event.target.checked)} className="h-5 w-5 shrink-0 accent-brand-indigo" />
           {effectiveCopy.returnTrip}
         </label>
-        {input("rate", "number", effectiveCopy.rateHelp)}
         {errors.total && <p role="alert" className="text-sm text-red-700">{errors.total}</p>}
         <button type="submit" className={`${planningButton} w-full sm:w-auto`}>
           <Calculator className="h-4 w-4" aria-hidden="true" />
@@ -120,13 +119,13 @@ export default function JourneyEstimator({ copy, actions, cities, whatsappBaseUr
               <dd className="mt-2 break-words text-3xl font-semibold">{number(result.vehicleKm)}</dd>
             </div>
             <div className="col-span-2 border-t border-white/15 pt-5">
-              <dt className="text-xs text-white/65">{effectiveCopy.budgetLabel}</dt>
-              <dd className="mt-2 break-words text-3xl font-semibold">
-                {result.budget === null ? "—" : `₹${number(result.budget)}`}
+              <dt className="text-xs text-white/65">{effectiveCopy.budgetLabel || "Estimated pricing"}</dt>
+              <dd className="mt-2 break-words text-2xl sm:text-3xl font-semibold">
+                Request a quote
               </dd>
-              {result.budget === null && (
-                <p className="mt-3 text-sm leading-relaxed text-white/75">{effectiveCopy.noRate}</p>
-              )}
+              <p className="mt-3 text-sm leading-relaxed text-white/75">
+                Vehicle allocation and pricing are confirmed for your location, dates and requirements.
+              </p>
             </div>
           </dl>
         ) : (

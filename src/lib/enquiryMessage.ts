@@ -4,6 +4,7 @@ export interface EnquiryDraft {
   company?: string;
   service: string;
   category?: string | null;
+  vehicle?: string | null;
   city: string;
   requirement: string;
   passengerCount?: string;
@@ -26,6 +27,7 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
       ...(draft.company?.trim() ? [`*اسم الشركة:* ${draft.company.trim()}`] : []),
       `*الخدمة المطلوبة:* ${draft.service}`,
       ...(draft.category ? [`*فئة المركبة:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*المركبة المطلوبة:* ${draft.vehicle.trim()}`] : []),
       `*المدينة / الإمارة:* ${draft.city}`,
       ...(draft.passengerCount?.trim() ? [`*عدد الركاب:* ${draft.passengerCount.trim()}`] : []),
       ...(draft.travelDate ? [`*تاريخ الرحلة / البدء:* ${draft.travelDate}`] : []),
@@ -45,6 +47,7 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
       ...(draft.company?.trim() ? [`*कंपनी:* ${draft.company.trim()}`] : []),
       `*आवश्यक सेवा:* ${draft.service}`,
       ...(draft.category ? [`*वाहन श्रेणी:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*अनुरोधित वाहन:* ${draft.vehicle.trim()}`] : []),
       `*शहर / क्षेत्र:* ${draft.city}`,
       ...(draft.passengerCount?.trim() ? [`*यात्री:* ${draft.passengerCount.trim()}`] : []),
       ...(draft.travelDate ? [`*यात्रा / प्रारंभ तिथि:* ${draft.travelDate}`] : []),
@@ -64,6 +67,7 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
       ...(draft.company?.trim() ? [`*కంపెనీ:* ${draft.company.trim()}`] : []),
       `*కావలసిన సేవ:* ${draft.service}`,
       ...(draft.category ? [`*వాహన విభాగం:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*అభ్యర్థించిన వాహనం:* ${draft.vehicle.trim()}`] : []),
       `*నగరం / ప్రాంతం:* ${draft.city}`,
       ...(draft.passengerCount?.trim() ? [`*ప్రయాణీకులు:* ${draft.passengerCount.trim()}`] : []),
       ...(draft.travelDate ? [`*ప్రయాణ / ప్రారంభ తేదీ:* ${draft.travelDate}`] : []),
@@ -82,6 +86,7 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
     ...(draft.company?.trim() ? [`*Company:* ${draft.company.trim()}`] : []),
     `*Service Required:* ${draft.service}`,
     ...(draft.category ? [`*Vehicle Category:* ${draft.category}`] : []),
+    ...(draft.vehicle?.trim() ? [`*Vehicle Requested:* ${draft.vehicle.trim()}`] : []),
     `*City / Region:* ${draft.city}`,
     ...(draft.passengerCount?.trim() ? [`*Passengers:* ${draft.passengerCount.trim()}`] : []),
     ...(draft.travelDate ? [`*Travel / Start Date:* ${draft.travelDate}`] : []),

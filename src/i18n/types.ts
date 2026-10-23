@@ -128,6 +128,23 @@ export interface TranslationDictionary {
     estimateCta: string;
     exploreAll: string;
     imageCaption: string;
+    requestQuote: string;
+    enquireVehicle: string;
+    sharedNote: string;
+    filterTabs: {
+      all: string;
+      sedan: string;
+      suv: string;
+      twelveSeater: string;
+      electric: string;
+    };
+    fuelBadges: {
+      petrol: string;
+      petrolCng: string;
+      electricVehicle: string;
+      longRangeElectricVehicle: string;
+      diesel: string;
+    };
     electric?: {
       title: string;
       introduction: string;

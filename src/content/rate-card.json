@@ -3,93 +3,93 @@
   "india": {
     "title": "Enterprise Master Rate Card & Contract Retainer Schedule",
     "eyebrow": "Corporate Mobility Tariffs · 10 Operational Hubs Pan-India",
-    "description": "Transparent corporate tariff structures, hourly rental slabs, dedicated monthly retainers, outstation transit rates, and enterprise volume discount tiers for corporate procurement and facilities transport desks.",
+    "description": "Transparent corporate tariff structures, hourly rental slabs, dedicated monthly retainers, outstation transit rates, and enterprise volume discount tiers for corporate procurement and facilities transport desks. Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
     "currency": "INR",
     "currencySymbol": "₹",
     "categories": [
       {
         "id": "executive-sedan",
         "name": "Executive Sedan",
-        "models": "Maruti Suzuki Dzire / Toyota Etios / Hyundai Aura",
-        "capacity": "4 Passengers · 2 Bags",
+        "models": "Swift Dzire / Hyundai Aura / Tata Tigor",
+        "capacity": "Capacity confirmed on enquiry",
         "bestFor": "Daily corporate local meetings, employee nodal drops, airport transfers",
         "rates": {
-          "halfDay": "₹1,400 (4h / 40 km)",
-          "fullDay": "₹2,400 (8h / 80 km)",
-          "extendedDay": "₹3,400 (12h / 120 km)",
-          "extraKm": "₹14 / km",
-          "extraHour": "₹150 / hr",
-          "monthlyRetainer": "₹58,000 (26 Days / 2,600 km)",
-          "outstationPerKm": "₹13 / km (Min 250 km/day)",
-          "driverBata": "₹400 / day"
+          "halfDay": "Quote on request (4h / 40 km)",
+          "fullDay": "Quote on request (8h / 80 km)",
+          "extendedDay": "Quote on request (12h / 120 km)",
+          "extraKm": "Confirmed on enquiry",
+          "extraHour": "Confirmed on enquiry",
+          "monthlyRetainer": "Quote on request",
+          "outstationPerKm": "Confirmed on enquiry",
+          "driverBata": "Confirmed on enquiry"
         }
       },
       {
         "id": "corporate-mpv",
-        "name": "Corporate MPV",
-        "models": "Toyota Innova Crysta / Toyota Innova HyCross",
-        "capacity": "6–7 Passengers · 4 Bags",
+        "name": "Corporate SUV",
+        "models": "Innova Crysta / Mahindra Marazzo / Ertiga CNG",
+        "capacity": "Capacity confirmed on enquiry",
         "bestFor": "Leadership transit, site visits, visiting client delegations",
         "rates": {
-          "halfDay": "₹2,400 (4h / 40 km)",
-          "fullDay": "₹4,200 (8h / 80 km)",
-          "extendedDay": "₹5,800 (12h / 120 km)",
-          "extraKm": "₹22 / km",
-          "extraHour": "₹250 / hr",
-          "monthlyRetainer": "₹96,000 (26 Days / 2,600 km)",
-          "outstationPerKm": "₹20 / km (Min 300 km/day)",
-          "driverBata": "₹500 / day"
+          "halfDay": "Quote on request (4h / 40 km)",
+          "fullDay": "Quote on request (8h / 80 km)",
+          "extendedDay": "Quote on request (12h / 120 km)",
+          "extraKm": "Confirmed on enquiry",
+          "extraHour": "Confirmed on enquiry",
+          "monthlyRetainer": "Quote on request",
+          "outstationPerKm": "Confirmed on enquiry",
+          "driverBata": "Confirmed on enquiry"
         }
       },
       {
         "id": "premium-saloon",
-        "name": "Premium Luxury Saloon",
-        "models": "Toyota Camry Hybrid / BMW 5 Series / Mercedes-Benz E-Class",
-        "capacity": "3 VIP Guests · 3 Bags",
+        "name": "Long Range Electric & Executive Fleet",
+        "models": "Tata Nexon / MG ZS EV / Kia Carens Clavis EV",
+        "capacity": "Capacity confirmed on enquiry",
         "bestFor": "C-suite executive retainers, board members, VIP airport protocols",
         "rates": {
-          "halfDay": "₹4,500 (4h / 40 km)",
-          "fullDay": "₹8,500 (8h / 80 km)",
-          "extendedDay": "₹12,000 (12h / 120 km)",
-          "extraKm": "₹45 / km",
-          "extraHour": "₹500 / hr",
-          "monthlyRetainer": "₹1,85,000 (26 Days / 2,600 km)",
-          "outstationPerKm": "₹42 / km (Min 300 km/day)",
-          "driverBata": "₹800 / day"
+          "halfDay": "Quote on request (4h / 40 km)",
+          "fullDay": "Quote on request (8h / 80 km)",
+          "extendedDay": "Quote on request (12h / 120 km)",
+          "extraKm": "Confirmed on enquiry",
+          "extraHour": "Confirmed on enquiry",
+          "monthlyRetainer": "Quote on request",
+          "outstationPerKm": "Confirmed on enquiry",
+          "driverBata": "Confirmed on enquiry"
         }
       },
       {
         "id": "luxury-minibus",
-        "name": "Executive Minibus & Commuter Van",
-        "models": "Force Urbania (12/17-Seater) / Luxury Tempo Traveller",
-        "capacity": "12–17 Passengers · Generous Luggage",
+        "name": "Urbania 12 Seater",
+        "models": "Urbania (12 Seater)",
+        "capacity": "12 Seater (Manager-approved)",
         "bestFor": "Team project offsites, shift nodal feeds, mid-size delegation transfers",
         "rates": {
-          "halfDay": "₹3,800 (4h / 40 km)",
-          "fullDay": "₹6,800 (8h / 80 km)",
-          "extendedDay": "₹9,500 (12h / 120 km)",
-          "extraKm": "₹32 / km",
-          "extraHour": "₹350 / hr",
-          "monthlyRetainer": "₹1,45,000 (26 Days / 2,600 km)",
-          "outstationPerKm": "₹30 / km (Min 300 km/day)",
-          "driverBata": "₹600 / day"
+          "halfDay": "Quote on request (4h / 40 km)",
+          "fullDay": "Quote on request (8h / 80 km)",
+          "extendedDay": "Quote on request (12h / 120 km)",
+          "extraKm": "Confirmed on enquiry",
+          "extraHour": "Confirmed on enquiry",
+          "monthlyRetainer": "Quote on request",
+          "outstationPerKm": "Confirmed on enquiry",
+          "driverBata": "Confirmed on enquiry"
         }
       },
       {
         "id": "commuter-coach",
-        "name": "High-Capacity Commuter Coach",
-        "models": "22 & 44-Seater Air-Suspension AC Luxury Commuter Coaches",
-        "capacity": "22–44 Passengers · Overhead Racks",
+        "name": "Corporate Group Transit & Shuttle",
+        "models": "Corporate Group Shuttles",
+        "capacity": "Capacity confirmed on enquiry",
         "bestFor": "Campus tech park shuttles, factory shift commute, summit transport",
         "rates": {
-          "halfDay": "₹5,500 (4h / 40 km)",
-          "fullDay": "₹9,800 (8h / 80 km)",
-          "extendedDay": "₹14,000 (12h / 120 km)",
-          "extraKm": "₹52 / km",
-          "extraHour": "₹650 / hr",
-          "monthlyRetainer": "₹1,65,000 – ₹2,40,000 (Route Contract)",
-          "outstationPerKm": "₹48 / km (Min 350 km/day)",
-          "driverBata": "₹800 / day"
+          "halfDay": "Quote on request (4h / 40 km)",
+          "fullDay": "Quote on request (8h / 80 km)",
+          "extendedDay": "Quote on request (12h / 120 km)",
+          "extraKm": "Confirmed on enquiry",
+          "extraHour": "Confirmed on enquiry",
+          "monthlyRetainer": "Quote on request",
+          "outstationPerKm": "Confirmed on enquiry",
+          "driverBata": "Confirmed on enquiry"
         }
       }
     ],
@@ -148,7 +148,7 @@
     "faqs": [
       {
         "question": "Are the rates on this rate card fixed or negotiable for long-term contracts?",
-        "answer": "The rates presented are our benchmark corporate tariffs. For long-term 12-month or multi-year Master Services Agreements (MSAs), our commercial team configures custom volume discounts up to 15% based on committed fleet size and shift route predictability."
+        "answer": "All corporate tariffs are configured on request based on committed fleet size, shift route predictability, and required service levels. Vehicle allocation and pricing are confirmed for your location, dates and requirements."
       },
       {
         "question": "What is included in the monthly dedicated vehicle retainer packages?",
@@ -174,7 +174,7 @@
       {
         "id": "first-class-saloon",
         "name": "First Class Saloon",
-        "models": "Mercedes-Benz S-Class / BMW 7 Series / Lexus ES 300h",
+        "models": "Mercedes-Benz S-Class / BMW 7 Series",
         "capacity": "3 VIP Passengers · 3 Bags",
         "bestFor": "Executive meetings, financial corridor transit, DXB airport VIP transfers",
         "rates": {
@@ -191,7 +191,7 @@
       {
         "id": "ultra-luxury",
         "name": "Ultra-Luxury Flagship Limousine",
-        "models": "Mercedes-Maybach S 680 / Maybach GLS",
+        "models": "Mercedes-Maybach S-Class",
         "capacity": "3 VIP Guests · 3 Bags",
         "bestFor": "Ministerial delegations, sovereign wealth board meetings, luxury summits",
         "rates": {
@@ -224,8 +224,8 @@
       },
       {
         "id": "vip-coach",
-        "name": "Luxury Sprinter & Tourism Coach",
-        "models": "Mercedes-Benz VIP Sprinter (18 seats) / Luxury Coach (35–50 seats)",
+        "name": "Luxury VIP & Tourism Coach",
+        "models": "22-Seater VIP Coach / 44-Seater Luxury Bus",
         "capacity": "18–50 Passengers · Cargo Compartment",
         "bestFor": "Corporate summits, free zone employee shuttles, international delegations",
         "rates": {

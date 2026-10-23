@@ -65,6 +65,7 @@ function EnquiryForm({
     preselectedService || "General Vehicle Enquiry"
   );
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedVehicle, setSelectedVehicle] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState(
     preselectedCity || publishedCities[0]?.name || "Hyderabad"
   );
@@ -93,7 +94,9 @@ function EnquiryForm({
       const sParam = params.get("service") || preselectedService;
       const cParam = params.get("city") || preselectedCity;
       const catParam = params.get("category");
-      setSelectedCategory(catParam || null);
+      const vParam = params.get("vehicle");
+      setSelectedCategory(catParam && catParam.trim() ? catParam.trim() : null);
+      setSelectedVehicle(vParam && vParam.trim() ? vParam.trim() : null);
       if (sParam) {
         const matchedService = publishedServices.find(
           (s) =>
@@ -128,6 +131,10 @@ function EnquiryForm({
       const customEvent = e as CustomEvent<EnquirySelectionEvent>;
       const detail = customEvent.detail;
       if (!detail) return;
+
+      if ((detail as any).vehicle) {
+        setSelectedVehicle((detail as any).vehicle);
+      }
 
       if (detail.category) {
         setSelectedCategory(detail.category);
@@ -193,6 +200,7 @@ function EnquiryForm({
   const draftMessage = buildEnquiryMessage({
     companyName: effectiveCompany,
     fullName, company, service: selectedService, category: selectedCategory,
+    vehicle: selectedVehicle,
     city: cityDisplay, requirement: requirementText,
     passengerCount: enquiry.planningFields ? passengerCount : undefined,
     travelDate: enquiry.planningFields ? travelDate : undefined,
@@ -458,17 +466,35 @@ function EnquiryForm({
               </span>
             </div>
 
-            {selectedCategory && (
-              <div className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-indigo/10 border border-brand-indigo/25 text-xs font-semibold text-brand-indigo">
-                <span>{locale === "ar" ? "الفئة المفضلة:" : locale === "hi" ? "पसंदीदा श्रेणी:" : locale === "te" ? "ఇష్టపడే విభాగం:" : "Preferred Category:"} <strong>{selectedCategory}</strong></span>
-                <button
-                  type="button"
-                  onClick={() => setSelectedCategory(null)}
-                  className="w-4 h-4 rounded-full bg-brand-indigo/20 hover:bg-brand-indigo hover:text-white flex items-center justify-center text-[10px] transition-colors ltr:ml-1 rtl:mr-1"
-                  aria-label="Remove category filter"
-                >
-                  ✕
-                </button>
+            {(selectedVehicle || selectedCategory) && (
+              <div className="mb-5 flex flex-wrap items-center gap-2">
+                {selectedVehicle && (
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-blue/10 border border-brand-blue/25 text-xs font-semibold text-brand-blue">
+                    <span>{locale === "ar" ? "المركبة المطلوبة:" : locale === "hi" ? "चयनित वाहन:" : locale === "te" ? "ఎంచుకున్న వాహనం:" : "Selected Vehicle:"} <strong>{selectedVehicle}</strong></span>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedVehicle(null)}
+                      className="w-4 h-4 rounded-full bg-brand-blue/20 hover:bg-brand-blue hover:text-white flex items-center justify-center text-[10px] transition-colors ltr:ml-1 rtl:mr-1"
+                      aria-label="Remove preselected vehicle"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                )}
+
+                {selectedCategory && (
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-indigo/10 border border-brand-indigo/25 text-xs font-semibold text-brand-indigo">
+                    <span>{locale === "ar" ? "الفئة المفضلة:" : locale === "hi" ? "पसंदीदा श्रेणी:" : locale === "te" ? "ఇష్టపడే విభాగం:" : "Preferred Category:"} <strong>{selectedCategory}</strong></span>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedCategory(null)}
+                      className="w-4 h-4 rounded-full bg-brand-indigo/20 hover:bg-brand-indigo hover:text-white flex items-center justify-center text-[10px] transition-colors ltr:ml-1 rtl:mr-1"
+                      aria-label="Remove category filter"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                )}
               </div>
             )}
 

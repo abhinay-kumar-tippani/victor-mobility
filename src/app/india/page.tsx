@@ -15,7 +15,7 @@ import ServicesSection from "@/components/home/ServicesSection";
 
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
-import type { IndiaContent, MediaContent } from "@/types/content";
+import type { IndiaContent, MediaContent, FleetVehicle } from "@/types/content";
 
 export default function IndiaPage() {
   const content = indiaData as unknown as IndiaContent;
@@ -46,6 +46,7 @@ export default function IndiaPage() {
         <IndiaFleetSection
           categories={content.fleetCategories}
           copy={indiaData.fleetPresentation}
+          vehicles={indiaData.fleetVehicles as FleetVehicle[]}
         />
 
         {/* 2b. Core Services Portfolio: What do you need to arrange? */}

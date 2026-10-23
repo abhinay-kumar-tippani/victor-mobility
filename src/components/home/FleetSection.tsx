@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Car, Users, Bus, Sparkles, ArrowRight, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
-import type { FleetCategory, MediaAsset } from "@/types/content";
+import type { FleetCategory, MediaAsset, FleetVehicle } from "@/types/content";
 
 interface FleetSectionProps {
   categories: FleetCategory[];
@@ -12,6 +12,7 @@ interface FleetSectionProps {
   fleetModelDisplayDefault?: boolean;
   luxuryMedia?: MediaAsset;
   mediaCaption: string;
+  vehicles?: FleetVehicle[];
 }
 
 const categoryIcons: Record<string, typeof Car> = {
@@ -37,7 +38,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
   electric: {
     badge: "Electric Vehicles",
     headline: "Explore Electric Travel for Commutes & Airport Transfers",
-    models: [],
+    models: ["Tata Tigor", "Tata Nexon", "MG ZS EV", "Kia Carens Clavis EV"],
     capacity: "Confirmed during enquiry",
     uses: "Employee commutes, airport journeys, and corporate requirements.",
     features: [
@@ -51,7 +52,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
   sedans: {
     badge: "Executive Sedans",
     headline: "Comfortable Saloons for Commutes & Business Travel",
-    models: ["Maruti Swift Dzire", "Tata Tigor"],
+    models: ["Swift Dzire", "Hyundai Aura", "Tata Tigor", "Tata Nexon", "MG ZS EV"],
     capacity: "Up to 3–4 Passengers · 2 Luggage Bags",
     uses: "Daily employee commute, airport transfers, and point-to-point city travel.",
     features: [
@@ -63,9 +64,9 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
     imageAlt: "Executive sedan for business travel and airport transfers",
   },
   mpvs: {
-    badge: "MPVs & Group Vehicles",
+    badge: "MPVs & SUVs",
     headline: "Spacious Multi-Utility Vehicles for Teams & Delegations",
-    models: ["Toyota Innova Crysta", "Mahindra Marazzo", "Force Urbania"],
+    models: ["Mahindra Marazzo", "Ertiga CNG", "Innova Crysta", "Kia Carens Clavis EV"],
     capacity: "Up to 6–7 Passengers · 4–5 Suitcases",
     uses: "Visiting executive delegations, project teams, multi-stop site visits, and family travel.",
     features: [
@@ -77,13 +78,13 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
     imageAlt: "Spacious passenger MPV for team and group travel",
   },
   buses: {
-    badge: "Buses & Shuttles",
-    headline: "Air-Conditioned Coaches for Campuses & Events",
-    models: ["22-Seater Executive Bus", "44-Seater Luxury Coach"],
-    capacity: "22 to 44 Passengers",
-    uses: "Daily IT workforce transit, corporate campus loops, and conference attendee shuttles.",
+    badge: "12 Seater & Shuttles",
+    headline: "Air-Conditioned Passenger Transit for Campuses & Teams",
+    models: ["Urbania (12 Seater)"],
+    capacity: "12 Seater approved passenger transport",
+    uses: "Daily IT workforce transit, corporate campus loops, and delegation shuttles.",
     features: [
-      "High-capacity air-conditioned group transit",
+      "Approved 12 Seater passenger van configuration",
       "Certified speed governors & emergency exit safety",
       "Dedicated route management for office shift timings",
     ],
@@ -91,11 +92,11 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
     imageAlt: "Corporate employee shuttle bus for workplace and venue transit",
   },
   luxury: {
-    badge: "Luxury & Limousines",
-    headline: "Premium Chauffeur-Driven Travel for VIP Dignitaries",
-    models: ["Executive Business Saloons", "Premium Hospitality Fleet"],
+    badge: "Executive Leadership Fleet",
+    headline: "Premium Chauffeur-Driven Travel for Corporate Delegations",
+    models: ["Innova Crysta", "MG ZS EV", "Kia Carens Clavis EV"],
     capacity: "Pinnacle Executive Comfort",
-    uses: "Board members, international delegations, corporate summits, and luxury hospitality.",
+    uses: "Board members, international delegations, corporate summits, and leadership travel.",
     features: [
       "Immaculate leather cabins with dual-zone climate control",
       "Experienced executive chauffeurs trained in VIP protocol",

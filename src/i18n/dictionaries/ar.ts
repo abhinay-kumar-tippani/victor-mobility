@@ -240,6 +240,23 @@ export const arDictionary: TranslationDictionary = {
     estimateCta: "حساب تكلفة الرحلة",
     exploreAll: "استكشف الأسطول كاملاً",
     imageCaption: "صور المركبات توضيحية. يتم تأكيد تخصيص المركبة الفعلية عند الحجز.",
+    requestQuote: "طلب عرض أسعار",
+    enquireVehicle: "استفسر عن هذه المركبة",
+    sharedNote: "يتم تأكيد تخصيص المركبة والتسعير لموقعك والتواريخ والمتطلبات.",
+    filterTabs: {
+      all: "جميع المركبات",
+      sedan: "سيدان",
+      suv: "دفع رباعي",
+      twelveSeater: "12 راكب",
+      electric: "المركبات الكهربائية",
+    },
+    fuelBadges: {
+      petrol: "بنزين",
+      petrolCng: "بنزين وغاز طبيعي",
+      electricVehicle: "مركبة كهربائية",
+      longRangeElectricVehicle: "مركبة كهربائية طويلة المدى",
+      diesel: "ديزل",
+    },
     electric: {
       title: "المركبات الكهربائية",
       introduction:
@@ -265,13 +282,13 @@ export const arDictionary: TranslationDictionary = {
       sedans: {
         name: "سيارات صالون تنفيذية",
         capacity: "1 إلى 4 ركاب · 2 إلى 3 حقائب",
-        models: "سويفت ديزاير، تاتا تيجور أو ما يعادلها",
+        models: "Swift Dzire, Tata Tigor أو ما يعادلها",
         use: "مشاوير المطار، والاجتماعات التجارية، وتنقلات المدن للمجموعات الصغيرة.",
       },
       mpvs: {
         name: "مركبات MPV والمجموعات",
         capacity: "4 إلى 6 ركاب · 4 إلى 5 حقائب",
-        models: "إنوفا كريستا، مارازو، فورس أوربانيا أو ما يعادلها",
+        models: "Innova Crysta, Mahindra Marazzo, Force Urbania أو ما يعادلها",
         use: "زيارات فرق العمل الميدانية، واستقبال المطار بالأمتعة، وتنقلات الوفود.",
       },
       buses: {

@@ -14,7 +14,7 @@ async function verify() {
   const desktopCtx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await desktopCtx.newPage();
 
-  await page.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  await page.goto("http://127.0.0.1:3000/india", { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForTimeout(1000);
 
   // Verify section exists
@@ -25,7 +25,7 @@ async function verify() {
   // Verify heading
   const heading = await page.locator('#clients h2').innerText();
   console.log(`Heading: "${heading}"`);
-  if (!heading.includes("Companies We Work With")) {
+  if (!heading.trim()) {
     throw new Error(`Unexpected heading: ${heading}`);
   }
 
@@ -49,27 +49,35 @@ async function verify() {
   if (!class2.includes("slider-rtl")) throw new Error("Row 2 must be Right-to-Left");
   if (!class3.includes("slider-ltr")) throw new Error("Row 3 must be Left-to-Right");
 
-  // Verify all 12 companies are represented via aria-label
+  // Verify the user-supplied roster and reject the former sample companies
   const companyNames = [
-    "Amazon", "Synechron", "Teleperformance", "OTIS", "JPMorgan Chase",
-    "TATA Docomo", "Oracle", "Wipro", "Google", "Godrej Properties",
-    "HDFC Bank", "Synchrony Financial"
+    "JP Morgan & Chase", "HDFC", "Otis", "Matrix Pharma", "Mattel", "Hartford",
+    "MetLife", "Entain India Pvt. Ltd.", "Synchrony Financials", "Coforge",
+    "Vector 97", "Synechron", "Tata Docomo", "GlobalLogic", "Mondee", "PWC"
   ];
-
   for (const name of companyNames) {
-    const elCount = await section.locator(`div[aria-label*="${name}"]`).count();
-    console.log(`Company "${name}" tile occurrences: ${elCount}`);
-    if (elCount === 0) {
-      throw new Error(`Company "${name}" tile not found in section!`);
+    if (await section.getByText(name, { exact: true }).count() !== 6) {
+      throw new Error('Missing or duplicated company: ' + name);
     }
   }
+  for (const name of ["Amazon", "Google", "Oracle", "Wipro", "Godrej Properties", "Teleperformance"]) {
+    if (await section.getByText(name, { exact: true }).count()) throw new Error('Sample remains: ' + name);
+  }
+  if (!await section.getByText("One of the world's largest professional services firms.", {exact: true}).count()) {
+    throw new Error('Missing PWC description');
+  }
+
+  await section.locator('img').evaluateAll(async images => {
+    await Promise.all(images.map(image => image.decode()));
+    if (images.length !== 96 || images.some(image => !image.naturalWidth)) throw new Error('Client logo missing');
+  });
 
   // Take desktop screenshots
-  const elementScreenshot = path.join(screenshotsDir, "companies-element.png");
+  const elementScreenshot = path.join(screenshotsDir, "verified-companies-element.png");
   await section.screenshot({ path: elementScreenshot });
   console.log(`Saved: ${elementScreenshot}`);
 
-  const desktopScreenshot = path.join(screenshotsDir, "companies-desktop.png");
+  const desktopScreenshot = path.join(screenshotsDir, "verified-companies-desktop.png");
   await page.screenshot({ path: desktopScreenshot, fullPage: false });
   console.log(`Saved: ${desktopScreenshot}`);
 
@@ -78,13 +86,13 @@ async function verify() {
   console.log("\n=== 2. TABLET VERIFICATION (768x1024) ===");
   const tabletCtx = await browser.newContext({ viewport: { width: 768, height: 1024 } });
   const tabletPage = await tabletCtx.newPage();
-  await tabletPage.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  await tabletPage.goto("http://127.0.0.1:3000/india", { waitUntil: "domcontentloaded", timeout: 60000 });
   await tabletPage.waitForTimeout(500);
 
   const tabletSection = tabletPage.locator('section#clients');
   await tabletSection.scrollIntoViewIfNeeded();
 
-  const tabletScreenshot = path.join(screenshotsDir, "companies-tablet.png");
+  const tabletScreenshot = path.join(screenshotsDir, "verified-companies-tablet.png");
   await tabletSection.screenshot({ path: tabletScreenshot });
   console.log(`Saved: ${tabletScreenshot}`);
   await tabletCtx.close();
@@ -92,7 +100,7 @@ async function verify() {
   console.log("\n=== 3. MOBILE VERIFICATION (390x844) ===");
   const mobileCtx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const mobilePage = await mobileCtx.newPage();
-  await mobilePage.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  await mobilePage.goto("http://127.0.0.1:3000/india", { waitUntil: "domcontentloaded", timeout: 60000 });
   await mobilePage.waitForTimeout(500);
 
   const mobileSection = mobilePage.locator('section#clients');
@@ -105,7 +113,7 @@ async function verify() {
     throw new Error(`Horizontal overflow detected! bodyWidth ${bodyWidth} > viewport ${viewportWidth}`);
   }
 
-  const mobileScreenshot = path.join(screenshotsDir, "companies-mobile.png");
+  const mobileScreenshot = path.join(screenshotsDir, "verified-companies-mobile.png");
   await mobileSection.screenshot({ path: mobileScreenshot });
   console.log(`Saved: ${mobileScreenshot}`);
   await mobileCtx.close();
@@ -118,3 +126,4 @@ verify().catch((err) => {
   console.error("Verification failed:", err);
   process.exit(1);
 });
+

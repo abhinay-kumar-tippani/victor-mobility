@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://victor-mobility.vercel.app/uae/fleet",
     languages: {
-      "en-IN": "https://victor-mobility.vercel.app/india/fleet",
       "en-AE": "https://victor-mobility.vercel.app/uae/fleet",
     },
   },

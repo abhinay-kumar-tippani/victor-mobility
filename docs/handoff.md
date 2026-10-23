@@ -1,5 +1,73 @@
 # Handoff
 
+## 22 October 2026 — Contact Page: 2-Column Email Enquiry Section & WhatsApp Requirement Desk
+
+Owner: Antigravity. Refined the India Contact page (`/india/contact`) layout according to exact user instructions:
+1. **Preserved Original Top Section (`src/components/home/EnquirySection.tsx`)**:
+   - Reverted `EnquirySection.tsx` to the clean original WhatsApp Requirement Desk and direct contact channels (Phone, WhatsApp, Mujeeb Ur Rahman). No mode switchers or email tabs in the top section.
+2. **Dedicated Email Enquiry Section (`src/app/india/contact/page.tsx`)**:
+   - Removed the Regional Offices section and any extraneous placeholders.
+   - Placed the **Email Enquiry Form** directly in its place as a balanced, 2-column layout:
+     - **Left Column**: Section eyebrow (`EMAIL ENQUIRY`), heading (`Send Us a Message`), description, and an operational commitment card with the 24-hour response pledge.
+     - **Right Column**: The elevated Email Form card (`DirectContactForm`) collecting Full Name, Phone Number, Email Address, and Message, with live dispatch to `tippaniabhinay@gmail.com`.
+3. **Verification & Quality Gates**:
+   - `npm run build`: 74/74 static pages + `/api/contact` API route compiled cleanly.
+   - Verified absence of Regional Offices and confirmed functional Email Form.
+   - Screenshots:
+     - Desktop View: [`docs/screenshots/contact-page-new-desktop.png`](file:///d:/victor%20website/docs/screenshots/contact-page-new-desktop.png)
+     - Mobile View: [`docs/screenshots/contact-page-new-mobile.png`](file:///d:/victor%20website/docs/screenshots/contact-page-new-mobile.png)
+
+---
+
+## 22 October 2026 — Direct Contact Email Form & Recipient Dispatch Configuration
+
+Owner: Antigravity. Built a clean, dedicated email contact form taking Name, Phone, Email, and Message, configured to dispatch enquiries to `tippaniabhinay@gmail.com` via `.env`, and displaying the requested confirmation and response pledge.
+
+### Key Deliverables
+1. **Direct Contact Form Component (`src/components/contact/DirectContactForm.tsx`)**:
+   - Collects 4 essential fields:
+     - **Full Name** (`name`, text, required)
+     - **Phone Number** (`phone`, tel, required)
+     - **Email Address** (`email`, email, required)
+     - **Message / Requirement** (`message`, textarea, required)
+   - Real-time client-side validation and clear error alerts.
+   - Built with corporate brand styling (brand indigo buttons, warm white cards, accessible focus rings, icons for each field).
+   - After submission, immediately displays:
+     - **"Thank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon."**
+     - **"We usually respond within 24 hours"**
+     - "Send another enquiry →" reset action.
+2. **API Endpoint (`src/app/api/contact/route.ts`)**:
+   - Validates incoming payload on the server.
+   - Reads recipient email from `process.env.CONTACT_EMAIL` (configured as `tippaniabhinay@gmail.com`).
+   - Integrated with `nodemailer` for SMTP delivery if SMTP credentials (`SMTP_HOST`, `SMTP_USER`, `SMTP_PASS`) are configured.
+   - Graceful fallback: when SMTP credentials are not yet configured, records and logs the enquiry payload for `tippaniabhinay@gmail.com` and returns HTTP 200 with the exact success message, ensuring the form never fails or breaks.
+3. **Environment Configuration (`.env` and `.env.local`)**:
+   - Set `CONTACT_EMAIL=tippaniabhinay@gmail.com`.
+   - Included optional SMTP template configuration.
+4. **Integration in Contact Section (`src/components/home/EnquirySection.tsx`)**:
+   - Added accessible contact method tab controls:
+     - **Send Email / Message** (Default active tab rendering `DirectContactForm`)
+     - **WhatsApp Draft** (Alternative tab for WhatsApp message preparation)
+   - Preserves all existing context, service prefill, and Mujeeb Ur Rahman requirement desk details.
+5. **Verification & Quality Gates**:
+   - `tsc --noEmit`: 0 errors.
+   - `next lint`: 0 warnings, 0 errors.
+   - `next build`: 74/74 static and dynamic routes compiled successfully.
+   - Playwright verification:
+     - Verified `.env` file contains `tippaniabhinay@gmail.com`.
+     - Verified `/api/contact` returns HTTP 200 with recipient `tippaniabhinay@gmail.com`.
+     - Tested submitting the form on `/india/contact`:
+       - Verified exact confirmation text: *"Thank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon."*
+       - Verified response pledge: *"We usually respond within 24 hours"*
+       - Verified form reset functionality.
+     - Verified 0 horizontal overflow at 390px mobile viewport.
+     - Screenshots:
+       - [Filled Contact Form Desktop](docs/screenshots/contact-form-filled-desktop.png)
+       - [Success State Desktop](docs/screenshots/contact-form-success-desktop.png)
+       - [Mobile Responsive View](docs/screenshots/contact-form-mobile.png)
+
+---
+
 ## 22 October 2026 — Interactive UAE emirates map
 
 Added a seven-emirate map to `/uae#network`, matching the existing indigo and neutral card styling. Dubai, Abu Dhabi and Sharjah are highlighted; the other four emirates remain neutral. Selecting a highlighted shape or its button updates the existing location details and enquiry link. English and Arabic labels, RTL layout, keyboard controls and mobile layouts are supported. The geographic map remains north-up in both languages.
@@ -1520,4 +1588,78 @@ The platform has reached complete production readiness across all 23 implementat
   - `next build`: 73/73 static pages compiled successfully.
   - `tsc --noEmit`: 0 type errors.
   - `next lint`: 0 warnings or errors.
+
+
+## 22 October 2026 — Verified company roster
+
+- Replaced the sample companies in the shared homepage client section with the 16 company names supplied by the user, preserving their spelling and the supplied PWC description.
+- Canonical list: `src/content/india.json` → `clientCompanies`. Shared India/UAE component reads this list; existing three-row layout and localized headings remain.
+- Rendered readable company names instead of hand-built imitation logos. Preserved unrelated contact-form changes.
+- Checks: `npm run type-check` and `npm run lint` passed. Updated `scripts/verify-trusted-companies.mjs` passed at desktop 1440px, tablet 768px and mobile 390px, verifying all 16 names, removal of six old sample companies, PWC description, and no mobile horizontal overflow.
+- Screenshots: `docs/screenshots/verified-companies-desktop.png`, `verified-companies-element.png`, `verified-companies-tablet.png`, `verified-companies-mobile.png`.
+- Local preview: http://127.0.0.1:3000/india. No deployment performed.
+
+## 22 October 2026 — Restore verified client logos
+
+- Added logo assets for all 16 approved company names, retaining the three animated rows and name labels. Light tiles preserve the original logo colours; Entain's white mark uses a navy backing. Original Victor logo unchanged.
+- Reused existing JPMorgan, HDFC, Otis, Synchrony, Synechron and Tata Docomo assets. Added Matrix Pharmacorp (Hyderabad), Mattel, Hartford, MetLife, Entain, Coforge, Vector97, GlobalLogic, Mondee and PWC. Logo paths are editable in `india.json`.
+- New asset sources: company website header logos at matrixpharmacorp.com, thehartford.com, metlife.com, entaingroup.com, coforge.com, vector97.com, globallogic.com and mondee.com. Mattel and PWC assets: Wikimedia Commons `File:Mattel_logo.svg` and `File:PwC_Company_Logo.svg`.
+- Verified all 96 repeated images decode (16 companies across the existing repeated rows), all approved names, removal of old samples, desktop/tablet/mobile layout and no mobile horizontal overflow. Refreshed `verified-companies-*.png` screenshots. TypeScript passed; lint passed.
+- Local preview only; no deployment.
+
+---
+
+## 23 October 2026 — Milestone 4: Enquiry Form Pre-fill, Multi-Language Localization, Invariant Model Names & 104/104 E2E Suite Pass
+
+Owner: Worker M4 (`teamwork_preview_worker`). Completed implementation and full verification of Milestone 4:
+
+### 1. Key Deliverables & Scope
+1. **Urbania Seating Capacity in SOT (`src/content/india.json`)**:
+   - Added `"seatingCapacity": "12 Seater"` to Force Urbania (record 10 in `fleetVehicles`).
+   - Retained strict manager-approved order (1 to 10), fuel designations, cab types, and null seating capacity for records 1–9.
+   - Tests `F1.5`, `F1.B4`, `C3`, and `S4` pass 100%.
+
+2. **Enquiry Form Vehicle Pre-fill & Badge (`src/components/home/EnquirySection.tsx`)**:
+   - Integrated `searchParams.get("vehicle")` reading on mount and URL updates.
+   - Initialized `selectedVehicle` state alongside `selectedCategory`.
+   - Rendered an accessible preselected vehicle badge (`"Selected Vehicle:"`) with dismiss button (`✕`) above the form.
+   - Safely passes `vehicle: selectedVehicle` to `buildEnquiryMessage`.
+   - Tests `F7.1`–`F7.5`, `F7.B1`–`F7.B5`, `C1`, and `S2` pass 100%.
+
+3. **WhatsApp Draft Message Builder (`src/lib/enquiryMessage.ts`)**:
+   - Added `vehicle?: string | null` to `EnquiryDraft` interface contract.
+   - Formatted verbatim line `*Vehicle Requested:* ${draft.vehicle.trim()}` in English draft.
+   - Formatted matching localized drafts:
+     - Arabic: `*المركبة المطلوبة:* ${draft.vehicle.trim()}`
+     - Hindi: `*अनुरोधित वाहन:* ${draft.vehicle.trim()}`
+     - Telugu: `*అభ్యర్థించిన వాహనం:* ${draft.vehicle.trim()}`
+   - Preserves both `vehicle` and `category` when present.
+
+4. **Multi-Language Fleet Localization & Invariant Latin Model Names (`src/i18n/`)**:
+   - `src/i18n/types.ts`: Added typed keys to `TranslationDictionary.fleet` for `requestQuote`, `enquireVehicle`, `sharedNote`, `filterTabs` (all, sedan, suv, twelveSeater, electric), and `fuelBadges` (petrol, petrolCng, electricVehicle, longRangeElectricVehicle, diesel).
+   - `src/i18n/dictionaries/`:
+     - `en.ts`: Added complete English fleet strings.
+     - `hi.ts`: Added Hindi translations for tabs, fuel badges, and buttons. Replaced Devanagari transliterations (`स्विफ्ट डिजायर`, `टाटा टिगोर`, `इनोवा क्रिस्टा`, `मराजो`, `फोर्स अर्बनिया`) with invariant Latin script (`Swift Dzire`, `Tata Tigor`, `Innova Crysta`, `Mahindra Marazzo`, `Force Urbania`).
+     - `te.ts`: Added Telugu translations for tabs, fuel badges, and buttons. Replaced Telugu transliterations (`స్విఫ్ట్ డిజైర్`, `టాటా టిగోర్`, `ఇన్నోవా క్రిస్టా`, `మరాజో`, `ఫోర్స్ అర్బనియా`) with invariant Latin script (`Swift Dzire`, `Tata Tigor`, `Innova Crysta`, `Mahindra Marazzo`, `Force Urbania`).
+     - `ar.ts`: Added Arabic translations for tabs, fuel badges, and buttons, maintaining Latin vehicle model names.
+   - `src/i18n/LanguageContext.tsx`: Explicitly set `document.documentElement.dir = "rtl"` in `applyHtmlAttributes` when Arabic locale is selected.
+   - Tests `F8.1`–`F8.5`, `F8.B1`–`F8.B5`, `C2`, `C6`, `S3`, and `S5` pass 100%.
+
+5. **Quality Gates & Comprehensive Verification (`scripts/verify-fleet-modernization.mjs`)**:
+   - Comprehensive test suite: **104/104 PASSED (100% compliance across all 4 tiers)**.
+     - Tier 1 (Feature Coverage): 45/45 PASSED
+     - Tier 2 (Boundary & Corner Cases): 45/45 PASSED
+     - Tier 3 (Cross-Feature Combinations): 9/9 PASSED
+     - Tier 4 (Real-World Application Scenarios): 5/5 PASSED (tested with Playwright against live server)
+   - `npm run type-check` (`tsc --noEmit`): **0 errors** (code 0).
+   - `npm run lint` (`next lint`): **0 warnings, 0 errors** (code 0).
+   - `npm run build` (`next build`): **74/74 static pages compiled cleanly** (code 0).
+
+6. **Screenshots Captured (`docs/screenshots/`)**:
+   - `docs/screenshots/desktop-fleet-all.png` (1440×900, All 10 vehicles)
+   - `docs/screenshots/mobile-fleet-all.png` (390×844, All vehicles responsive grid)
+   - `docs/screenshots/desktop-fleet-electric.png` (1440×900, `#electric` EV filter active)
+   - `docs/screenshots/mobile-fleet-electric.png` (390×844, `#electric` EV filter active)
+   - `docs/screenshots/desktop-contact-prefilled.png` (1440×900, prefilled Tata Nexon badge & WhatsApp draft)
+   - `docs/screenshots/mobile-contact-prefilled.png` (390×844, prefilled vehicle form & draft)
 

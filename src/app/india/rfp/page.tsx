@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function IndiaRfpPage() {
-  return <PlanningPageShell active="rfp"><RfpDesk copy={indiaData.planningTools.rfp} actions={indiaData.planningTools.actions} cities={indiaData.cities.filter(city => city.published).map(city => city.name)} services={indiaData.services.filter(service => service.published).map(service => service.title)} vehicles={indiaData.fleetCategories.map(category => category.name)} whatsappBaseUrl={indiaData.contact.whatsappBaseUrl} companyName={indiaData.companyName} /></PlanningPageShell>;
+  return <PlanningPageShell active="rfp"><RfpDesk copy={indiaData.planningTools.rfp} actions={indiaData.planningTools.actions} cities={indiaData.cities.filter(city => city.published).map(city => city.name)} services={indiaData.services.filter(service => service.published).map(service => service.title)} vehicles={indiaData.fleetVehicles?.map(v => `${v.name} (${v.cabType}, ${v.fuelType})`)} whatsappBaseUrl={indiaData.contact.whatsappBaseUrl} companyName={indiaData.companyName} /></PlanningPageShell>;
 }

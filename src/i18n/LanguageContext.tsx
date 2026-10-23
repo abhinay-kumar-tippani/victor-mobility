@@ -99,7 +99,11 @@ export function LanguageProvider({ children, region: propRegion }: LanguageProvi
   const applyHtmlAttributes = useCallback((newLocale: SupportedLocale) => {
     if (typeof document === "undefined") return;
     document.documentElement.lang = newLocale;
-    document.documentElement.dir = newLocale === "ar" ? "rtl" : "ltr";
+    if (newLocale === "ar") {
+      document.documentElement.dir = "rtl";
+    } else {
+      document.documentElement.dir = "ltr";
+    }
   }, []);
 
   // Initialize on mount

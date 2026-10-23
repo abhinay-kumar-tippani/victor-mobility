@@ -8,12 +8,25 @@ import Field, { planningButton, planningInput } from "./PlanningField";
 import DraftActions from "./DraftActions";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+const APPROVED_FLEET_VEHICLES = [
+  "Swift Dzire (Sedan, Petrol)",
+  "Hyundai Aura (Sedan, Petrol & CNG)",
+  "Tata Tigor (Sedan, Electric Vehicle)",
+  "Tata Nexon (Sedan, Long Range Electric Vehicle)",
+  "MG ZS EV (Sedan, Long Range Electric Vehicle)",
+  "Mahindra Marazzo (SUV, Diesel)",
+  "Ertiga CNG (SUV, Petrol & CNG)",
+  "Innova Crysta (SUV, Diesel)",
+  "Kia Carens Clavis EV (SUV, Long Range Electric Vehicle)",
+  "Urbania (12 Seater, Diesel)",
+];
+
 interface Props {
   copy: typeof indiaData.planningTools.rfp;
   actions: typeof indiaData.planningTools.actions;
   cities: string[];
   services: string[];
-  vehicles: string[];
+  vehicles?: string[];
   whatsappBaseUrl: string;
   companyName: string;
 }
@@ -21,6 +34,10 @@ interface Props {
 export default function RfpDesk({ copy, actions, cities, services, vehicles, whatsappBaseUrl, companyName }: Props) {
   const { dict } = useLanguage();
   const effectiveCopy = dict.rfp || copy;
+  const vehicleOptions =
+    vehicles && vehicles.length === 10 && !vehicles.some(v => v.includes("Sedans") || v.includes("Buses"))
+      ? vehicles
+      : APPROVED_FLEET_VEHICLES;
 
   const [step, setStep] = useState(0);
   const [values, setValues] = useState({ company: "", name: "", role: "", email: "", phone: "", city: cities[0] || "Other", customCity: "", service: services[0] || "", passengers: "", date: "", schedule: copy.scheduleOptions[0], details: "" });
@@ -161,7 +178,7 @@ export default function RfpDesk({ copy, actions, cities, services, vehicles, wha
                 <legend className="mb-2 text-sm font-bold text-brand-ink">{copy.vehicles}</legend>
                 <p className="mb-3 text-xs leading-relaxed text-brand-ink/65">{copy.vehicleHelp}</p>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  {vehicles.map(vehicle => (
+                  {vehicleOptions.map(vehicle => (
                     <label key={vehicle} className={`flex min-h-[52px] cursor-pointer items-center gap-3 rounded-xl border p-3 text-sm font-semibold ${selectedVehicles.includes(vehicle) ? "border-brand-indigo bg-brand-indigo/5 text-brand-indigo" : "border-brand-soft-neutral text-brand-ink"}`}>
                       <input type="checkbox" checked={selectedVehicles.includes(vehicle)} onChange={event => setSelectedVehicles(current => event.target.checked ? [...current, vehicle] : current.filter(value => value !== vehicle))} className="h-4 w-4 shrink-0 accent-brand-indigo" />
                       {vehicle}

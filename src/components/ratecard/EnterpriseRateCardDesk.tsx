@@ -80,19 +80,6 @@ export default function EnterpriseRateCardDesk({
   const [calcFleetCount, setCalcFleetCount] = useState<number>(3);
   const [calcDuration, setCalcDuration] = useState<'monthly' | 'annual'>('monthly');
 
-  // Determine volume tier rebate
-  const getVolumeRebate = (count: number) => {
-    if (isIndia) {
-      if (count >= 20) return 0.15;
-      if (count >= 6) return 0.08;
-      return 0.0;
-    } else {
-      if (count >= 10) return 0.12;
-      if (count >= 4) return 0.07;
-      return 0.0;
-    }
-  };
-
   const getTierLabel = (count: number) => {
     if (isIndia) {
       if (count >= 20) return 'Tier 3: Campus & Tech Park Master MSA (15% Rebate)';
@@ -105,37 +92,6 @@ export default function EnterpriseRateCardDesk({
     }
   };
 
-  // Base numerical monthly estimate
-  const getBaseMonthlyRate = (catId: string) => {
-    if (isIndia) {
-      switch (catId) {
-        case 'executive-sedan': return 58000;
-        case 'corporate-mpv': return 96000;
-        case 'premium-saloon': return 185000;
-        case 'luxury-minibus': return 145000;
-        case 'commuter-coach': return 210000;
-        default: return 75000;
-      }
-    } else {
-      switch (catId) {
-        case 'first-class-saloon': return 24000;
-        case 'ultra-luxury': return 48000;
-        case 'executive-suv': return 32000;
-        case 'vip-coach': return 35000;
-        default: return 28000;
-      }
-    }
-  };
-
-  const baseMonthly = getBaseMonthlyRate(selectedCategoryId);
-  const rebateRate = getVolumeRebate(calcFleetCount);
-  const grossMonthly = baseMonthly * calcFleetCount;
-  const netMonthly = Math.round(grossMonthly * (1 - rebateRate));
-  const monthlySavings = grossMonthly - netMonthly;
-  const multiplier = calcDuration === 'annual' ? 12 : 1;
-  const totalInvestment = netMonthly * multiplier;
-  const totalSavings = monthlySavings * multiplier;
-
   // WhatsApp Inquiry Generator
   const generateWhatsAppMessage = () => {
     const rawNumber = whatsapp.replace(/[^0-9]/g, '');
@@ -145,7 +101,8 @@ export default function EnterpriseRateCardDesk({
       `Contract Duration: ${calcDuration === 'annual' ? '12-Month Annual Master Contract' : 'Monthly Dedicated Retainer (26 Days)'}`,
       `Fleet Volume: ${calcFleetCount} dedicated vehicles`,
       `Volume Discount Tier: ${getTierLabel(calcFleetCount)}`,
-      `Estimated Investment: ${currencySymbol}${totalInvestment.toLocaleString()} (Estimated Savings: ${currencySymbol}${totalSavings.toLocaleString()})`,
+      `Pricing: Request a quote`,
+      `Note: Vehicle allocation and pricing are confirmed for your location, dates and requirements.`,
       '',
       'Please share a formal Corporate Tariff Schedule, Master Services Agreement (MSA) template, and credit onboarding documentation.',
       '',
@@ -569,56 +526,53 @@ export default function EnterpriseRateCardDesk({
                 </div>
               </div>
 
-              {/* Dynamic Calculation Outputs (7 Cols) */}
+              {/* Dynamic Corporate Retainer Desk (7 Cols) */}
               <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                      Estimated Corporate Budget
+                      Corporate Retainer Allocation
                     </span>
                     <h3 className="text-xl font-bold text-white mt-0.5">
                       {calcFleetCount}x {currentCategory.name} Retainer
                     </h3>
                   </div>
                   <span className="text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2.5 py-1 rounded">
-                    {(rebateRate * 100).toFixed(0)}% Rebate Unlocked
+                    {getTierLabel(calcFleetCount).split(':')[0]}
                   </span>
                 </div>
 
-                {/* Financial Summary Slabs */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-lg bg-slate-800/60 border border-slate-700/60">
-                    <span className="text-xs text-slate-400 font-medium">Standard Gross Tariff</span>
-                    <p className="text-xl font-black text-slate-300 mt-1 line-through">
-                      {currencySymbol}{(grossMonthly * multiplier).toLocaleString()}
-                    </p>
-                    <p className="text-xs text-slate-500 mt-1">Benchmark baseline</p>
+                {/* Retainer Pricing Card */}
+                <div className="p-6 rounded-xl bg-slate-800/60 border border-amber-500/40 bg-amber-500/5 space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <span className="text-xs uppercase tracking-wider text-amber-400 font-bold block">
+                        Commercial Pricing
+                      </span>
+                      <p className="text-2xl sm:text-3xl font-black text-white mt-1">
+                        Request a quote
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 w-fit">
+                      Custom Corporate Allocation
+                    </span>
                   </div>
-                  <div className="p-4 rounded-lg bg-slate-800/60 border border-slate-700/60">
-                    <span className="text-xs text-slate-400 font-medium">Enterprise Volume Rebate</span>
-                    <p className="text-xl font-black text-emerald-400 mt-1">
-                      -{currencySymbol}{totalSavings.toLocaleString()}
-                    </p>
-                    <p className="text-xs text-slate-400 mt-1">Direct corporate savings</p>
-                  </div>
-                  <div className="p-4 rounded-lg bg-slate-800/60 border border-amber-500/40 bg-amber-500/5">
-                    <span className="text-xs text-amber-400 font-medium">Net Contract Investment</span>
-                    <p className="text-2xl font-black text-amber-400 mt-1">
-                      {currencySymbol}{totalInvestment.toLocaleString()}
-                    </p>
-                    <p className="text-xs text-slate-400 mt-1">{calcDuration === 'annual' ? 'Per 12-Month Contract' : 'Per Month (26 Days)'}</p>
-                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+                    Vehicle allocation and pricing are confirmed for your location, dates and requirements.
+                  </p>
                 </div>
 
                 {/* Operations Specifications */}
                 <div className="p-4 rounded-lg bg-slate-950/60 border border-slate-800 text-xs space-y-2 text-slate-300">
                   <div className="flex justify-between py-1 border-b border-slate-800/60">
-                    <span className="text-slate-400">Assigned Chauffeurs:</span>
-                    <span className="text-white font-semibold">{calcFleetCount} Uniformed Badged Drivers</span>
+                    <span className="text-slate-400">Contract Horizon:</span>
+                    <span className="text-white font-semibold">
+                      {calcDuration === 'annual' ? '12-Month Annual Master Contract' : 'Monthly Dedicated Retainer (26 Days)'}
+                    </span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-slate-800/60">
-                    <span className="text-slate-400">Included Distance Pool:</span>
-                    <span className="text-white font-semibold">{(calcFleetCount * 2600 * multiplier).toLocaleString()} km allowance</span>
+                    <span className="text-slate-400">Assigned Chauffeurs:</span>
+                    <span className="text-white font-semibold">{calcFleetCount} Uniformed Badged Drivers</span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-slate-800/60">
                     <span className="text-slate-400">Hot-Swap Backup Fleet:</span>
@@ -638,7 +592,7 @@ export default function EnterpriseRateCardDesk({
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-lg transition shadow-lg shadow-amber-500/10"
                   >
-                    Send Rate Inquiry on WhatsApp
+                    Request Retainer Quote on WhatsApp
                   </a>
                 </div>
               </div>

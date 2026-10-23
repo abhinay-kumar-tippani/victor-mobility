@@ -178,6 +178,23 @@ export const hiDictionary: TranslationDictionary = {
     estimateCta: "यात्रा की योजना बनाएं",
     exploreAll: "पूरी फ्लीट देखें",
     imageCaption: "वाहन चित्र सांकेतिक हैं।",
+    requestQuote: "कोटेशन का अनुरोध करें",
+    enquireVehicle: "इस वाहन के लिए पूछताछ करें",
+    sharedNote: "वाहन आवंटन और मूल्य निर्धारण आपके स्थान, तिथियों और आवश्यकताओं के लिए पुष्ट किए जाते हैं।",
+    filterTabs: {
+      all: "सभी वाहन",
+      sedan: "सेडान",
+      suv: "एसयूवी",
+      twelveSeater: "12 सीटर",
+      electric: "इलेक्ट्रिक वाहन",
+    },
+    fuelBadges: {
+      petrol: "पेट्रोल",
+      petrolCng: "पेट्रोल एवं सीएनजी",
+      electricVehicle: "इलेक्ट्रिक वाहन",
+      longRangeElectricVehicle: "लॉन्ग रेंज इलेक्ट्रिक वाहन",
+      diesel: "डीजल",
+    },
     electric: {
       title: "इलेक्ट्रिक वाहन",
       introduction:
@@ -203,13 +220,13 @@ export const hiDictionary: TranslationDictionary = {
       sedans: {
         name: "सेडान",
         capacity: "1 से 4 यात्री · 2 से 3 बैग",
-        models: "स्विफ्ट डिजायर, टाटा टिगोर या समकक्ष",
+        models: "Swift Dzire, Tata Tigor या समकक्ष",
         use: "एयरपोर्ट यात्रा, व्यापारिक बैठकें और छोटे समूहों के लिए शहर आवागमन।",
       },
       mpvs: {
         name: "एमपीवी एवं समूह वाहन",
         capacity: "4 से 6 यात्री · 4 से 5 बैग",
-        models: "इनोवा क्रिस्टा, मराजो, फोर्स अर्बनिया या समकक्ष",
+        models: "Innova Crysta, Mahindra Marazzo, Force Urbania या समकक्ष",
         use: "टीम साइट विजिट, सामान के साथ एयरपोर्ट रन और प्रतिनिधिमंडल यात्रा।",
       },
       buses: {

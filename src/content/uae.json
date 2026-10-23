@@ -267,14 +267,15 @@
     "modelsLabel": "Brochure references",
     "capacityLabel": "Passenger & luggage capacity",
     "useLabel": "Best suited for",
-    "priceLabel": "Sample starting retainer",
-    "priceNote": "Illustrative pricing in AED. Final rates, Salik tolls, airport parking, and driver allowances are confirmed in your quotation.",
+    "priceDisplay": "Request a quote",
+    "priceLabel": "Pricing",
+    "priceNote": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
+    "sharedNote": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
     "enquire": "Enquire about this vehicle",
     "estimate": "Plan a journey",
-    "imageCaption": "Vehicle imagery is illustrative. Actual vehicle assignment confirmed upon reservation.",
-    "packageLabel": "8 hours / 80 km",
+    "imageCaption": "Images show vehicle models; actual assigned vehicles may vary.",
+    "packageLabel": "Confirmed on enquiry",
     "availability": "Share your Emirate, arrival terminal, flight details, or travel itinerary so our team can allocate a suitable vehicle.",
-    "pricingSource": "Indicative tariffs and sample retainers from UAE executive limousine operations.",
     "items": [
       {
         "id": "first-class",
@@ -285,7 +286,7 @@
         "image": "/images/india/services/service-airport-transfers.jpg",
         "imageAlt": "Mercedes-Benz S-Class luxury executive saloon",
         "imagePosition": "center center",
-        "price": 1200
+        "price": null
       },
       {
         "id": "ultra-luxury",
@@ -296,7 +297,7 @@
         "image": "/images/india/luxury-interior.png",
         "imageAlt": "Mercedes-Maybach luxury passenger cabin",
         "imagePosition": "center center",
-        "price": 2500
+        "price": null
       },
       {
         "id": "executive-suvs",
@@ -307,7 +308,7 @@
         "image": "/images/uae/uae-hero.jpg",
         "imageAlt": "Cadillac Escalade executive SUV",
         "imagePosition": "center center",
-        "price": 1600
+        "price": null
       },
       {
         "id": "executive-vans",
@@ -318,7 +319,7 @@
         "image": "/images/india/services/service-employee-transport.jpg",
         "imageAlt": "Mercedes-Benz V-Class luxury MPV",
         "imagePosition": "center center",
-        "price": 1400
+        "price": null
       },
       {
         "id": "coaches",
@@ -329,7 +330,7 @@
         "image": "/images/india/services/service-bus-shuttle.jpg",
         "imageAlt": "Luxury 22 and 44-seater coach bus",
         "imagePosition": "center center",
-        "price": 2200
+        "price": null
       },
       {
         "id": "electric",
