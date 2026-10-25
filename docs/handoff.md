@@ -1,5 +1,65 @@
 # Handoff
 
+## 25 October 2026 — About timeline visual refinement
+
+Owner: Codex, directly requested by the user. Refined `/india/about#journey` with a sticky editorial introduction, an ink/indigo date-range panel, three native chapter links, aligned icon nodes and compact milestone cards. Mobile uses one column and compact chapter navigation. All 12 supplied milestone dates, titles and descriptions remain intact in `src/content/journey.json`; only chapter navigation labels were added.
+
+- `JourneySection.tsx` now renders content on the server. The small timeline client uses the site's existing `framer-motion` runtime for its scroll trace. Scoped CSS keeps the site's brand tokens and handles responsive layout, hover, anchor focus and reduced motion. A ResizeObserver joins the rail precisely to its first/last node after wrapping or font changes. No content waits for animation.
+- Checks passed: TypeScript, ESLint, production build (74/74 routes), and `scripts/verify-journey-redesign.mjs` against the production server. Browser coverage: 1440, 768, 390 and 320px; chronology; card/rail geometry; scroll progress; keyboard chapter links clear of the header; static reduced-motion trace; all content visible without JavaScript; no page runtime errors. The journey has no horizontal overflow at every tested width.
+- Screenshots: [desktop](screenshots/about-journey-refined-desktop-1440.png), [desktop after chapter navigation](screenshots/about-journey-refined-desktop-scrolled.png), [mobile](screenshots/about-journey-refined-mobile-390.png), [complete desktop section](screenshots/about-journey-refined-section-1440.png), [complete mobile section](screenshots/about-journey-refined-section-390.png). Screenshots retain the site's floating contact controls.
+- Existing page issues observed outside this component: the final About contact banner overflows by 44px at 768px; fixed contact/assistant widgets can overlap phone content. These were recorded separately from timeline geometry in verification.
+- Preview: `http://localhost:3020/india/about#journey`. Re-run checks against any preview with `BASE_URL` set; default is port 3000. Build required execution outside the Windows sandbox because the sandbox could not create an existing Next.js output subdirectory.
+
+---
+
+
+## 25 October 2026 — Implementation of "The Journey of Victor" on the About Page
+
+Owner: Antigravity. Replaced the "Safety First" section on the India About Us page (`/india/about`) with **"The Journey of Victor"**, an interactive vertical timeline using the official Velora UI Timeline component.
+
+### Key Deliverables:
+1. **Velora UI Timeline Integration (`src/components/velora/timeline.tsx`)**:
+   - Integrated the official Velora Timeline component source code (`npx shadcn@latest add https://velora.colorlib.com/r/timeline.json`).
+   - Retained the vertical timeline layout, sticky date labels, and scroll-animated gradient progress beam (`motion/react`, `useScroll`, `useSpring`, `useTransform`).
+   - Adapted progress beam and glow dot to Victor Mobility's official blue palette (`brand-from: #31326F` to `brand-to: #2D5090`, glowing tracking dot `shadow-brand-to/60`).
+   - Zero purple accents introduced; preserved brand design system and tokens.
+   - Preserved reduced-motion preference support via `motion-reduce:!transform-none` and `motion-reduce:hidden`.
+2. **Chronological Milestone Suite (`src/content/journey.json` & `src/components/about/JourneySection.tsx`)**:
+   - Implemented all 12 milestones in chronological order (2009 to 2024):
+     1. **Q4 2009 — The Beginning**: The ideation of Victor. (`Sparkles` icon)
+     2. **Q1 2010 — Official Registration**: Victor was registered as a private limited company under the Indian Companies Act, 1956. (`Award` icon)
+     3. **Q1 2012 — First Major Client**: Victor secured a major corporate client after two years in the industry. (`Rocket` icon)
+     4. **Q3 2015 — Fleet Expansion**: The fleet grew to more than 800 vehicles. (`Car` icon)
+     5. **Q4 2018 — Continued Growth**: The fleet expanded to more than 1,500 vehicles. (`TrendingUp` icon)
+     6. **Q2–Q4 2020 — Navigating COVID-19**: Victor focused on educating drivers and partners about WHO-recommended safety norms. (`GraduationCap` icon)
+     7. **Q1–Q4 2022 — Business Recovery**: Victor successfully navigated the pandemic and resumed operations at full capacity. (`ShieldCheck` icon)
+     8. **Q2 2023 — Pan-India Expansion**: Victor decided to expand operations into metropolitan cities across India. (`MapPin` icon)
+     9. **Q4 2023 — International Expansion**: Victor expanded into international markets, beginning with the United Arab Emirates. (`Globe` icon)
+     10. **Q1 2024 — Sustainability Commitment**: Victor committed to working toward a fleet comprising 15–30% electric vehicles. (`Leaf` icon)
+     11. **Q1 2024 — Pan-India Operations**: Victor commenced full-fledged operations across India. (`CheckCircle2` icon)
+     12. **Q2 2024 — UAE Operations**: Victor commenced full-fledged operations in the United Arab Emirates. (`Building2` icon)
+   - Each card features milestone number pills (01–12), subtle iconography, bold title typography, and concise descriptions.
+3. **About Page Surgical Replacement (`src/app/india/about/page.tsx`)**:
+   - Replaced only the targeted section containing "Safety First" and "Our Uncompromising Commitment to Safety".
+   - Preserved all other sections (Hero, Leadership, Top Brands, Evolution, Clientele, Offices, FAQs, CTA, Footer).
+   - Preserved safety information elsewhere on the website (e.g., `/india/safety`, `/uae/safety`).
+4. **Verification & Quality Gates**:
+   - `npm run type-check`: 0 TypeScript errors.
+   - `npm run lint`: 0 ESLint warnings or errors.
+   - `npm run build`: 74/74 static routes compiled cleanly.
+   - Automated verification script (`scripts/verify-journey-timeline.mjs`):
+     - Verified absence of old "Safety First" section on `/india/about`.
+     - Verified presence of "The Journey of Victor" heading and `[data-slot="timeline"]`.
+     - Verified all 12 milestones in exact chronological order with matching dates, titles, and descriptions.
+     - Verified 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
+   - Screenshots captured and verified:
+     - Desktop Timeline Section: [`docs/screenshots/about-journey-timeline-section-1440.png`](file:///d:/victor%20website/docs/screenshots/about-journey-timeline-section-1440.png)
+     - Desktop Full Page: [`docs/screenshots/about-journey-desktop-1440.png`](file:///d:/victor%20website/docs/screenshots/about-journey-desktop-1440.png)
+     - Mobile Timeline Section: [`docs/screenshots/about-journey-timeline-section-390.png`](file:///d:/victor%20website/docs/screenshots/about-journey-timeline-section-390.png)
+     - Mobile Full Page: [`docs/screenshots/about-journey-mobile-390.png`](file:///d:/victor%20website/docs/screenshots/about-journey-mobile-390.png)
+
+---
+
 ## 23 October 2026 — Individual contact details in team slideshow
 
 - Each of the four slides on `/india` and `/uae` now shows phone, WhatsApp and email. Mujeeb's supplied phone and WhatsApp links are active on both pages; his email is visibly marked as a sample and has no mail link.

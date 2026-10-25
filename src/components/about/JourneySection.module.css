@@ -1,0 +1,233 @@
+.section {
+  padding-block: 6rem;
+  border-block: 1px solid var(--color-soft-neutral);
+  background: var(--color-warm-white);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: clamp(3rem, 6vw, 6rem);
+}
+
+.intro { position: sticky; top: 8rem; }
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: var(--color-blue);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 9em;
+  color: var(--color-ink);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.summary {
+  margin-top: 1.25rem;
+  color: rgb(21 22 47 / 74%);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.journeyMark {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  border: 1px solid rgb(49 50 111 / 20%);
+  border-radius: 1.5rem;
+  color: white;
+  background: linear-gradient(125deg, var(--color-ink), var(--color-indigo));
+}
+
+.yearRange {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+}
+
+.routeLine {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(255 255 255 / 75%);
+}
+
+.routeLine span { height: 1px; flex: 1; background: rgb(255 255 255 / 30%); }
+.routeLine svg { flex-shrink: 0; }
+
+.journeyMark p {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(255 255 255 / 15%);
+  color: rgb(255 255 255 / 80%);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.chapters { display: grid; margin-top: 1.5rem; }
+
+.chapters a {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-soft-neutral);
+  color: var(--color-indigo);
+  transition: color 160ms ease;
+}
+
+.chapters a:hover { color: var(--color-blue); }
+.chapters a svg { flex-shrink: 0; transition: transform 160ms ease; }
+.chapters a:hover svg { transform: translate(2px, 2px); }
+
+.chapterYears {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: rgb(21 22 47 / 62%);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.chapterTitle { display: block; font-size: 0.875rem; font-weight: 700; }
+.milestones { position: relative; display: grid; gap: 1.25rem; }
+
+.milestone {
+  position: relative;
+  padding-left: 4rem;
+  scroll-margin-top: 7rem;
+  border-radius: 1.25rem;
+}
+
+.node {
+  position: absolute;
+  z-index: 1;
+  top: 1.5rem;
+  left: 0;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid var(--color-soft-neutral);
+  border-radius: 50%;
+  color: var(--color-indigo);
+  background: white;
+  box-shadow: 0 0 0 6px var(--color-warm-white);
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.card {
+  position: relative;
+  padding: 1.5rem 1.75rem 1.75rem;
+  border: 1px solid var(--color-soft-neutral);
+  border-radius: 1.25rem;
+  background: white;
+  box-shadow: 0 3px 12px rgb(21 22 47 / 2%);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.card::before {
+  position: absolute;
+  top: calc(1.5rem + 19px);
+  right: 100%;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--color-soft-neutral);
+  content: "";
+}
+
+.cardMeta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.625rem; }
+
+.date {
+  color: var(--color-blue);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.number {
+  color: rgb(49 50 111 / 55%);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.card h3 {
+  color: var(--color-ink);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+.card p { margin-top: 0.5rem; color: rgb(21 22 47 / 72%); font-size: 0.9375rem; line-height: 1.75; }
+
+.milestone:target .node,
+.milestone:focus-visible .node { border-color: var(--color-indigo); color: white; background: var(--color-indigo); }
+.milestone:target .card,
+.milestone:focus-visible .card { border-color: rgb(49 50 111 / 45%); }
+
+@media (hover: hover) {
+  .milestone:hover .node { border-color: var(--color-indigo); color: white; background: var(--color-indigo); }
+  .milestone:hover .card { transform: translateY(-2px); border-color: rgb(49 50 111 / 30%); box-shadow: 0 8px 24px rgb(21 22 47 / 5%); }
+}
+
+@media (max-width: 1023px) {
+  .section { padding-block: 4rem; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .intro { position: static; }
+  .heading { max-width: none; font-size: 2.5rem; }
+  .summary { max-width: 42rem; }
+  .journeyMark { max-width: 26rem; }
+  .chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  .chapterTitle { font-size: 0.8125rem; }
+}
+
+@media (max-width: 639px) {
+  .section { padding-block: 3.5rem; }
+  .eyebrow { font-size: 0.625rem; }
+  .heading { max-width: 10em; font-size: 2.125rem; }
+  .summary { margin-top: 1rem; font-size: 0.9375rem; line-height: 1.75; }
+  .journeyMark { margin-top: 1.5rem; padding: 1.25rem 4rem 1.25rem 1.5rem; border-radius: 1.25rem; }
+  .yearRange { font-size: 1.75rem; }
+  .chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+  .chapters a { min-height: 80px; align-items: flex-start; padding-block: 0.75rem; }
+  .chapters a svg { display: none; }
+  .chapterYears { font-size: 0.5625rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .chapterTitle { font-size: 0.8125rem; }
+  .milestones { gap: 1rem; }
+  .milestone { padding-left: 3rem; }
+  .node { top: 1.25rem; width: 2rem; height: 2rem; box-shadow: 0 0 0 4px var(--color-warm-white); }
+  .node svg { width: 16px; height: 16px; }
+  .card { padding: 1.25rem; border-radius: 1rem; }
+  .card::before { top: calc(1.25rem + 15px); width: 1rem; }
+  .card h3 { font-size: 1rem; }
+  .card p { font-size: 0.875rem; line-height: 1.75; }
+  .date { font-size: 0.6875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .milestone:hover .card,
+  .chapters a:hover svg { transform: none; }
+}
+
+@media (min-width: 1024px) and (max-height: 850px) {
+  .intro { position: static; }
+}

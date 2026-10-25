@@ -9,6 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        border: "#E5E4EA",
+        background: "#FFFFFF",
+        "brand-from": "#31326F",
+        "brand-to": "#2D5090",
         brand: {
           indigo: "#31326F",
           blue: "#2D5090",
@@ -52,7 +56,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/container-queries"),
+  ],
 };
 
 export default config;

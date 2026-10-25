@@ -24,6 +24,7 @@ import TopBrandsStrip from "@/components/home/TopBrandsStrip";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
+import JourneySection from "@/components/about/JourneySection";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -262,41 +263,8 @@ export default function AboutPage() {
           </section>
         )}
 
-        {/* Commitment to Safety (Brochure Page 11) */}
-        {safety.length > 0 && (
-          <section className="py-16 sm:py-20 bg-brand-warm-white border-b border-brand-soft-neutral">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-              <div className="max-w-3xl">
-                <span className="text-xs uppercase tracking-widest font-bold text-brand-indigo block mb-2">
-                  Safety First
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-3">
-                  Our Uncompromising Commitment to Safety
-                </h2>
-                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-                  At Victor Mobility, passenger security and chauffeur professionalism form the foundation of our daily operations.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {safety.map((item, idx) => (
-                  <div
-                    key={item.title}
-                    className="bg-white p-6 rounded-2xl border border-brand-soft-neutral shadow-2xs space-y-3"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-brand-indigo/10 text-brand-indigo flex items-center justify-center font-bold text-xs">
-                      0{idx + 1}
-                    </div>
-                    <h3 className="text-sm font-bold text-brand-ink">{item.title}</h3>
-                    <p className="text-xs text-brand-ink/70 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+        {/* The Journey of Victor */}
+        <JourneySection />
 
         {/* Esteemed Clientele (Brochure Page 9) */}
         {clientele.length > 0 && (

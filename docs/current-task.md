@@ -1,28 +1,41 @@
-# Current Task: Direct Photographic Backgrounds on Service Cards (/services) — 23 October 2026
+# Current Task: Refine the India About Timeline — 25 October 2026
+
+Owner: Codex, at the user's direct request. Status: COMPLETED.
+
+Refined `/india/about#journey` to match the site's typography, spacing and brand palette. Added a sticky story column, aligned chronological cards, native chapter navigation, and a subtle scroll trace using the existing Framer Motion runtime. All 12 milestones are preserved; public content is server-rendered and readable without animation or JavaScript.
+
+Validation: TypeScript and lint passed; production build passed (74/74 routes). Production browser verification passed at 1440/768/390/320px for timeline overflow and alignment, chronological content, scrolling, keyboard anchors, reduced motion and no-JavaScript rendering. Desktop/mobile screenshots and the unrelated pre-existing About-page layout observations are recorded in `docs/handoff.md`.
+
+---
+## Previous Milestone: Implement "The Journey of Victor" on About Page — 25 October 2026
 
 Owner: Antigravity.
-Scope: Add realistic, high-resolution photographic background images to every service card on both `/india/services` and `/uae/services`, matching the visual styling of homepage service cards with high-contrast dark brand overlays, uniform card heights, and fully responsive layouts.
+Scope: Replace the "Safety First / Our Uncompromising Commitment to Safety" section on the India About Us page (`/india/about`) with "The Journey of Victor", featuring the official Velora UI Timeline component, sticky date labels, scroll-animated gradient beam, and all 12 milestones in chronological order (2009–2024).
 
 ### Status: COMPLETED
 
 ### Completed in this Milestone:
-1. **Asset Generation & WebP Optimization**:
-   - Generated realistic, professional corporate transport photography for all 7 services.
-   - Converted to widescreen 16:9 WebP at 1200x675 (<200 KB) using Sharp.
-   - Mirror deployed to `public/images/services/`, `public/images/india/services/`, and `public/images/uae/services/`.
-   - Asset provenance documented in `docs/service-image-sources.md`.
-2. **Card Architecture Refactoring (`src/app/india/services/page.tsx` & `src/app/uae/services/page.tsx`)**:
-   - Implemented Next.js `<Image>` layer with `fill`, `object-cover`, and smooth `group-hover:scale-105` zoom.
-   - Added multi-stop gradient overlay (`from-[#15162F]/95 via-[#15162F]/85 to-[#15162F]/60`) ensuring WCAG AAA contrast.
-   - Refactored text, badges, and checklists to `z-10` layer with frosted icon glass pills and emerald checkmarks (`text-emerald-400`).
-   - Standardized uniform minimum card height (`min-h-[420px]`).
-3. **Verification & Quality Gates**:
-   - `npm run build`: 74/74 static routes compiled with 0 errors.
-   - Automated verification suite (`scripts/verify-services-pages.mjs`):
-     - All 6 India service cards and 6 UAE service cards verified with background images.
-     - 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
-   - Captured full-page desktop and mobile screenshots:
-     - `docs/screenshots/services-india-desktop-1440.png`
-     - `docs/screenshots/services-india-mobile-390.png`
-     - `docs/screenshots/services-uae-desktop-1440.png`
-     - `docs/screenshots/services-uae-mobile-390.png`
+1. **Velora UI Timeline Component**:
+   - Integrated the official Velora Timeline component source (`src/components/velora/timeline.tsx`).
+   - Configured Tailwind CSS with `@tailwindcss/container-queries`, `clsx`, `tailwind-merge`, and `motion`.
+   - Adapted beam and glow dot to Victor Mobility's official blue palette (`brand-from: #31326F`, `brand-to: #2D5090`, tracking dot `shadow-brand-to/60`).
+   - Zero purple accents introduced; preserved brand design tokens.
+2. **Timeline Content & Milestone Suite**:
+   - Updated `src/content/journey.json` with all 12 milestones in chronological order (2009–2024).
+   - Created `src/components/about/JourneySection.tsx` rendering polished cards with subtle Lucide icons inspired by the reference infographic, milestone number pills (01–12), bold typography, and descriptions.
+3. **About Page Integration**:
+   - Surgically replaced the "Safety First / Our Uncompromising Commitment to Safety" section in `src/app/india/about/page.tsx` with `<JourneySection />`.
+   - Preserved all other About page sections and preserved safety pages elsewhere (`/india/safety`, `/uae/safety`).
+4. **Verification & Quality Gates**:
+   - `npm run type-check`: 0 TypeScript errors.
+   - `npm run lint`: 0 ESLint warnings or errors.
+   - `npm run build`: 74/74 static routes compiled cleanly.
+   - Automated verification suite (`scripts/verify-journey-timeline.mjs`):
+     - Confirmed old "Safety First" section is replaced.
+     - Confirmed all 12 milestones in exact chronological order.
+     - Confirmed 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
+   - Visual screenshots captured:
+     - `docs/screenshots/about-journey-timeline-section-1440.png`
+     - `docs/screenshots/about-journey-desktop-1440.png`
+     - `docs/screenshots/about-journey-timeline-section-390.png`
+     - `docs/screenshots/about-journey-mobile-390.png`
