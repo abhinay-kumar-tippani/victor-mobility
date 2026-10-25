@@ -69,6 +69,56 @@ export const enDictionary: TranslationDictionary = {
         badges: ["Corporate Retainers", "Short & Long-Term Leases", "Transparent Monthly Billing"],
       },
     ],
+    uaeSlides: [
+      {
+        slug: "chauffeur-luxury",
+        category: "First Class Limousine",
+        title: "Chauffeur & Luxury Limousine",
+        subtitle:
+          "Pristine Mercedes-Benz S-Class, BMW 7 Series, and Mercedes-Maybach sedans with bilingual executive chauffeurs.",
+        badges: ["Discreet Chauffeurs", "First-Class Saloons", "Hourly & Inter-Emirate Retainers"],
+      },
+      {
+        slug: "airport-transfers",
+        category: "VIP Terminal Reception",
+        title: "Airport VIP Transfers",
+        subtitle:
+          "Terminal meet-and-assist with live radar flight tracking at Dubai (DXB, DWC) and Abu Dhabi (AUH).",
+        badges: ["Live Radar Tracking", "Curbside Meet & Greet", "Terminal VIP Paging"],
+      },
+      {
+        slug: "event-transportation",
+        category: "Summit & Delegation Logistics",
+        title: "Events & Delegations",
+        subtitle:
+          "Synchronized motorcade logistics for international trade summits, VIP delegations, and destination galas.",
+        badges: ["Summit Motorcades", "Dedicated Route Marshals", "VIP Coach Allocation"],
+      },
+      {
+        slug: "employee-transportation",
+        category: "Workforce Mobility",
+        title: "Corporate Employee Transport",
+        subtitle:
+          "Reliable staff commute solutions managing corporate office routes and free-zone campus shuttles.",
+        badges: ["Free Zone Shuttles", "Shift Roster Synchronisation", "RTA Compliant"],
+      },
+      {
+        slug: "tourism-travel",
+        category: "Private Excursions",
+        title: "Tourism & City Excursions",
+        subtitle:
+          "Curated chauffeured excursions across Dubai landmarks, Abu Dhabi cultural destinations, and desert retreats.",
+        badges: ["Custom Itineraries", "Inter-Emirate Tours", "Luxury MPVs & Coaches"],
+      },
+      {
+        slug: "rent-a-car",
+        category: "Corporate Fleet Leasing",
+        title: "Rent-A-Car & Fleet Leasing",
+        subtitle:
+          "Flexible short-term luxury rentals and dedicated corporate vehicle allocations across the Emirates.",
+        badges: ["Corporate Retainers", "Short & Long-Term Leases", "Transparent Monthly Billing"],
+      },
+    ],
     exploreService: "Explore Service",
     discussRequirement: "Discuss Requirement",
     imageCaption: "Vehicle imagery illustrative. Actual fleet deployed per client roster.",

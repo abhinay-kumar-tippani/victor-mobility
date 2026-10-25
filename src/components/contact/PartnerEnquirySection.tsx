@@ -22,11 +22,11 @@ export default function PartnerEnquirySection({ contact: propContact, copy: prop
   const contact = propContact || indiaData.contact;
   const copy = propCopy || indiaData.enquiryExperience.partner;
 
-  const eyebrow = dict.contactSection?.partnerEyebrow || copy.eyebrow;
-  const title = dict.contactSection?.partnerTitle || copy.title;
-  const description = dict.contactSection?.partnerDescription || copy.description;
-  const cta = dict.contactSection?.partnerCta || copy.cta;
-  const helper = dict.contactSection?.partnerHelper || copy.helper;
+  const eyebrow = propCopy?.eyebrow || dict.contactSection?.partnerEyebrow || copy.eyebrow;
+  const title = propCopy?.title || dict.contactSection?.partnerTitle || copy.title;
+  const description = propCopy?.description || dict.contactSection?.partnerDescription || copy.description;
+  const cta = propCopy?.cta || dict.contactSection?.partnerCta || copy.cta;
+  const helper = propCopy?.helper || dict.contactSection?.partnerHelper || copy.helper;
 
   const partnerMessage =
     locale === "ar"

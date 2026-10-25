@@ -19,10 +19,10 @@ export default function JourneySection() {
         <div className={styles.intro}>
           <p className={styles.eyebrow}>{journey.eyebrow}</p>
           <h2 id="journey-heading" className={styles.heading}>{journey.title}</h2>
-          <p className={styles.summary}>{journey.subtitle}</p>
+          <p dir="auto" className={styles.summary}>{journey.subtitle}</p>
 
           <div className={styles.journeyMark}>
-            <div className={styles.yearRange}>
+            <div dir="ltr" className={styles.yearRange}>
               <span>2009</span>
               <div className={styles.routeLine} aria-hidden="true">
                 <span />
@@ -31,14 +31,14 @@ export default function JourneySection() {
               </div>
               <span>2024</span>
             </div>
-            <p>{brand.tagline}</p>
+            <p dir="auto">{brand.tagline}</p>
           </div>
 
           <nav aria-label="Journey chapters" className={styles.chapters}>
             {journey.chapters.map((chapter) => (
               <a key={chapter.milestoneId} href={`#journey-milestone-${chapter.milestoneId}`}>
                 <span>
-                  <span className={styles.chapterYears}>{chapter.years}</span>
+                  <span dir="ltr" className={styles.chapterYears}>{chapter.years}</span>
                   <span className={styles.chapterTitle}>{chapter.title}</span>
                 </span>
                 <ArrowDownRight size={19} strokeWidth={1.5} aria-hidden="true" />
@@ -63,13 +63,13 @@ export default function JourneySection() {
                   </span>
                   <article className={styles.card} aria-labelledby={`journey-title-${milestone.id}`}>
                     <div className={styles.cardMeta}>
-                      <span className={styles.date}>{milestone.date}</span>
+                      <span dir="ltr" className={styles.date}>{milestone.date}</span>
                       <span className={styles.number} aria-hidden="true">
                         {String(milestone.id).padStart(2, "0")}
                       </span>
                     </div>
                     <h3 id={`journey-title-${milestone.id}`}>{milestone.title}</h3>
-                    <p>{milestone.description}</p>
+                    <p dir="auto">{milestone.description}</p>
                   </article>
                 </li>
               );

@@ -17,6 +17,11 @@ import {
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import TopBrandsStrip from "@/components/home/TopBrandsStrip";
+import JourneySection from "@/components/about/JourneySection";
+import CommercialLeadershipCard from "@/components/about/CommercialLeadershipCard";
+import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
+import indiaData from "@/content/india.json";
 import uaeData from "@/content/uae.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -31,13 +36,15 @@ export default function UaeAboutPage() {
   const content = uaeData as unknown as IndiaContent;
   const media = mediaData as unknown as MediaContent;
   const founder = content.founder;
+  const aboutCopy = uaeData.aboutPage;
+  const commercialContact = indiaData.contact;
   const publishedOffices = content.offices.filter((o) => o.published);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Header contact={content.contact} />
 
-      <main id="main-content" className="flex-1 focus:outline-none">
+      <main id="main-content" lang="en" className="flex-1 focus:outline-none">
         {/* Page Hero Header */}
         <section className="bg-brand-ink text-white py-16 sm:py-24 border-b border-brand-indigo/30 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
@@ -57,10 +64,15 @@ export default function UaeAboutPage() {
           </div>
         </section>
 
-        {/* Meet our Founder & Visionary */}
+        {/* Leadership & Governance */}
         {founder && (
           <section className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+              <div className="max-w-3xl">
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue">{aboutCopy.leadershipEyebrow}</p>
+                <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-4xl">{aboutCopy.leadershipTitle}</h2>
+                <p className="text-sm leading-relaxed text-brand-ink/75 sm:text-base">{aboutCopy.leadershipDescription}</p>
+              </div>
               <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 items-center">
                 <div className="lg:col-span-5 relative aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-full min-h-[380px] bg-brand-ink">
                   <Image
@@ -115,9 +127,16 @@ export default function UaeAboutPage() {
                   </div>
                 </div>
               </div>
+              <CommercialLeadershipCard contact={commercialContact} copy={aboutCopy} />
             </div>
           </section>
         )}
+
+        <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+          <TopBrandsStrip title={aboutCopy.brandsTitle} caption={aboutCopy.brandsNote} />
+        </div>
+
+        <JourneySection />
 
         {/* UAE Operational Scale & Fleet Capabilities */}
         <section className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral">
@@ -203,6 +222,7 @@ export default function UaeAboutPage() {
                     <p className="text-sm text-brand-ink/80 leading-relaxed bg-brand-warm-white p-4 rounded-2xl border border-brand-soft-neutral/70">
                       {office.address}
                     </p>
+                    <OfficeMapLinks office={office} />
                   </div>
 
                   <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center gap-4">
@@ -267,26 +287,31 @@ export default function UaeAboutPage() {
         {/* CTA Section */}
         <section className="py-14 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="space-y-3 max-w-xl">
+            <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col xl:flex-row items-center justify-between gap-8">
+              <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center xl:max-w-xl">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-white/20 bg-white/10 shadow-md sm:h-20 sm:w-20">
+                  <Image src={aboutCopy.commercialImageSrc} alt={`Portrait of ${commercialContact.name}`} fill sizes="(max-width: 640px) 64px, 80px" className="object-cover object-top" />
+                </div>
+                <div className="min-w-0 space-y-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-violet block">
-                  UAE Reservation Desk
+                  {aboutCopy.contactEyebrow}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Discuss Your UAE Itinerary
+                  {aboutCopy.contactTitle}
                 </h3>
                 <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
-                  Speak directly with our Dubai operations desk to structure an agreement or itinerary for your organization or private travel.
+                  {aboutCopy.contactDescription}
                 </p>
+                </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">
+              <div className="flex flex-col sm:flex-row gap-4 w-full xl:w-auto shrink-0">
                 <Link
                   href="/uae/contact"
                   className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Discuss Requirement</span>
+                  <span>{aboutCopy.contactAction}</span>
                 </Link>
                 <a
                   href={content.contact.phoneHref}

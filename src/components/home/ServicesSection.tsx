@@ -59,7 +59,7 @@ const SERVICE_META: Record<string, ServiceMeta> = {
   },
   "tourism-travel": {
     number: "05",
-    imageSrc: "/images/uae/uae-hero.jpg",
+    imageSrc: "/images/uae/services/service-tourism-travel.webp",
     imageAlt: "Luxury limousine tourism and city excursions across Dubai and Abu Dhabi",
     icon: Sparkles,
   },
@@ -73,7 +73,13 @@ const SERVICE_META: Record<string, ServiceMeta> = {
 
 export default function ServicesSection({ services, basePath = "/india" }: ServicesSectionProps) {
   const publishedServices = services.filter((s) => s.published);
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
+  const isUae = basePath.startsWith("/uae");
+  const sectionDescription = isUae
+    ? (locale === "ar"
+        ? "استكشف خدمات التنقل الفاخرة للشركات وإدارة الوفود عبر دبي وأبوظبي، وتعرّف على إمكانيات أسطولنا واطلب عرض أسعار فوري."
+        : "Explore our executive limousine and corporate mobility services across Dubai, Abu Dhabi, and the Emirates, preview fleet capabilities, and request an immediate tailored quotation.")
+    : dict.servicesSection.description;
 
   return (
     <section
@@ -96,7 +102,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
               {dict.servicesSection.title}
             </h2>
             <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
-              {dict.servicesSection.description}
+              {sectionDescription}
             </p>
           </div>
 
@@ -111,7 +117,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
 
         {/* 6 Authorised Service Cards Grid Matching Reference Design */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
-          {publishedServices.map((service) => {
+          {publishedServices.map((service, index) => {
             const meta = SERVICE_META[service.slug] || {
               number: "00",
               imageSrc: "/images/india/corporate-hero.jpg",
@@ -119,6 +125,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
               icon: Users,
             };
             const Icon = meta.icon;
+            const cardNumber = String(index + 1).padStart(2, "0");
 
             return (
               <div
@@ -147,7 +154,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
                       <Icon className="w-5 h-5 transition-transform duration-300" />
                     </div>
                     <span className="text-xs font-mono font-bold text-white/70">
-                      {meta.number}
+                      {cardNumber}
                     </span>
                   </div>
 

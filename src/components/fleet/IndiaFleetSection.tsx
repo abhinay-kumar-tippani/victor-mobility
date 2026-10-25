@@ -95,13 +95,15 @@ export default function IndiaFleetSection({
     }
   };
 
+  const hasVehicleCards = Boolean(vehicles && vehicles.length > 0) || !isUae;
+
   // Handle URL deep linking for #electric (mount and dynamic hashchange)
   useEffect(() => {
     function applyHash() {
       if (typeof window === "undefined") return;
       const hash = window.location.hash.toLowerCase();
       if (hash === '#electric' || hash === "#electric-vehicles") {
-        if (!isUae) {
+        if (hasVehicleCards) {
           setActiveTab("electric");
           setTimeout(() => {
             const panel = document.getElementById("fleet-panel-electric") || document.getElementById("fleet");
@@ -121,7 +123,7 @@ export default function IndiaFleetSection({
     applyHash();
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
-  }, [isUae, items]);
+  }, [hasVehicleCards, isUae, items]);
 
   // Synchronize history state on tab change
   const handleTabChange = (tabId: TabId) => {
@@ -194,9 +196,9 @@ export default function IndiaFleetSection({
   const imageCaption = fleetDict?.imageCaption || copy.imageCaption;
 
   // ==========================================================================
-  // UAE ROUTE RENDERING (Regional Isolation)
+  // UAE ROUTE RENDERING (Regional Isolation - Fallback if no specific vehicles list)
   // ==========================================================================
-  if (isUae) {
+  if (isUae && (!vehicles || vehicles.length === 0)) {
     const activeUae = items.find(item => item.id === activeUaeId) || items[0];
     if (!activeUae) return null;
     const category = categories.find(item => item.id === activeUae.id)!;

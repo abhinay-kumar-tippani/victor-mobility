@@ -13,7 +13,14 @@ interface VictorStandardSectionProps {
 export default function VictorStandardSection({ basePath }: VictorStandardSectionProps = {}) {
   const pathname = usePathname();
   const effectiveBasePath = basePath || (pathname?.startsWith("/uae") ? "/uae" : "/india");
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
+  const isUae = effectiveBasePath.startsWith("/uae");
+
+  const bannerDescription = isUae
+    ? (locale === "ar"
+        ? "تواصل مباشرة مع مكتب عمليات دبي على مدار الساعة للحصول على جداول السائقين المعتمدين واتفاقيات مستوى الخدمة في الإمارات."
+        : "Speak directly with our 24/7 Dubai operations desk for verified chauffeur rosters and executive SLA agreements across the Emirates.")
+    : dict.safetySection.bannerDescription;
 
   const safetyPillars = [
     {
@@ -145,7 +152,7 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
               {dict.safetySection.bannerTitle}
             </h4>
             <p className="text-sm text-brand-ink/75 leading-relaxed">
-              {dict.safetySection.bannerDescription}
+              {bannerDescription}
             </p>
           </div>
           <Link

@@ -215,13 +215,17 @@ interface StatCounterSectionProps {
 }
 
 export default function StatCounterSection({ stats }: StatCounterSectionProps) {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-20px 0px" });
   const prefersReducedMotion = useReducedMotion() ?? false;
 
+  const isCustomStats = Boolean(stats && stats.length > 0);
   const effectiveStats = (stats || DEFAULT_STATS).map((stat) => {
-    const localizedLines = dict.stats?.[stat.id as keyof typeof dict.stats];
+    const localizedLines =
+      isCustomStats && locale === "en"
+        ? stat.labelLines
+        : (dict.stats?.[stat.id as keyof typeof dict.stats] || stat.labelLines);
     return {
       ...stat,
       labelLines: localizedLines && localizedLines.length > 0 ? localizedLines : stat.labelLines,

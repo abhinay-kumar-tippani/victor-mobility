@@ -1,5 +1,83 @@
 # Handoff
 
+## 25 October 2026 — UAE Homepage Parity with India Homepage
+
+Owner: Antigravity, at the user's direct request. The UAE homepage (`/uae`) has been brought to full functional and presentation parity with the India homepage (`/india`), delivering interactive fleet categorization, real executive vehicle cards, localized Hero slides, accurate regional statistics, sequential service numbering, direct Google Maps office links, and regional partner enquiry copy.
+
+### Key Deliverables:
+1. **Interactive Fleet Categorization & Vehicle Card Grid (`src/content/uae.json`, `src/components/fleet/IndiaFleetSection.tsx`, `src/app/uae/page.tsx`)**:
+   - Added 10 executive UAE fleet vehicles to `src/content/uae.json` under `fleetVehicles`:
+     - Mercedes-Benz S-Class (Sedan, Petrol, 3 seats, 2 luggage, Automatic)
+     - BMW 7 Series (Sedan, Petrol, 3 seats, 2 luggage, Automatic)
+     - Mercedes-Maybach S-Class (Sedan, Petrol, 3 seats, 2 luggage, Automatic)
+     - Cadillac Escalade (SUV, Petrol, 6 seats, 6 luggage, Automatic)
+     - GMC Yukon Denali (SUV, Petrol, 6 seats, 6 luggage, Automatic)
+     - Mercedes-Benz V-Class (12 Seater / MPV, Diesel, 7 seats, 5 luggage, Automatic)
+     - 22-Seater VIP Coach (12 Seater / Coach, Diesel, 22 seats, 20 luggage, Automatic)
+     - 44-Seater Luxury Bus (12 Seater / Coach, Diesel, 44 seats, 40 luggage, Manual / Automatic)
+     - Executive Electric Limousine (Sedan, Electric Vehicle, 4 seats, 2 luggage, Automatic, `isElectric: true`)
+     - Electric VIP Shuttle (SUV, Long Range Electric Vehicle, 6 seats, 4 luggage, Automatic, `isElectric: true`)
+   - Updated `IndiaFleetSection.tsx` to render the modern 5-tab filter grid for UAE when `vehicles` are provided, computing exact partition counts: All Vehicles (10), Sedan (4), SUV (3), 12 Seater (3), Electric Vehicles (2).
+   - Preserved full keyboard navigation (`Home`, `End`, `Arrow` keys), badge pills (cab type, fuel type with Zap icon), "Request Quote" (prefilled `/uae/contact`), and "Plan a journey" (`/uae/estimator`).
+   - Enabled deep link `#electric` URL hash handling for `/uae#electric`, automatically switching to and scrolling to the Electric Vehicles tab.
+2. **Hero Localization Integrity (`src/i18n/dictionaries/en.ts`)**:
+   - Added `uaeSlides` to the English dictionary matching `UAE_HERO_SLIDES` (First Class Limousine, Airport VIP Transfers, Events & Delegations, Corporate Employee Transport, Tourism & City Excursions, Rent-A-Car & Fleet Leasing).
+   - Fixed slide title corruption where English UAE visitors previously saw Indian workforce commute text.
+3. **Key Performance Statistics (`src/components/home/StatCounterSection.tsx`)**:
+   - Corrected label mapping so custom `UAE_STATS` maintain regional labels in English and Arabic:
+     - 2010 Established in Logistics & Fleet
+     - 15+ Years of industry leadership
+     - 2,500+ Luxury cars & buses accessible
+     - 30+ Multinational clients
+     - 1 UAE Head Office Dubai (DXB)
+     - 6 Executive services
+   - Fixed bug where India office labels ("Established in Hyderabad", "1 India offices") were displayed on the UAE page.
+4. **Sequenced Services Grid (`src/components/home/ServicesSection.tsx`)**:
+   - Implemented dynamic card numbering `String(index + 1).padStart(2, "0")`, ensuring sequential `01` through `06` numbering on both India and UAE.
+   - Updated `tourism-travel` service image to dedicated WebP `/images/uae/services/service-tourism-travel.webp`.
+   - Localized header description when on `/uae` to reference Dubai, Abu Dhabi, and the Emirates.
+5. **Presence Map Direct Google Maps Actions (`src/components/home/UaePresenceSection.tsx`)**:
+   - Integrated `OfficeMapLinks` into the Dubai operations card, providing direct "Open in Google Maps" and "Get directions" links identical to the India presence map.
+6. **Partner Enquiry & Operational Rigour Standards (`src/components/contact/PartnerEnquirySection.tsx`, `src/components/home/VictorStandardSection.tsx`)**:
+   - Preserved `copy.description` precedence in `PartnerEnquirySection` so UAE displays: "Tell us your operating Emirate, luxury vehicle tiers, and fleet size to discuss a potential partnership with Victor Mobility UAE."
+   - Updated safety banner description on UAE routes to reference the 24/7 Dubai operations desk and the Emirates.
+
+### Validation & Verification:
+- `npm run type-check`: 0 TypeScript errors.
+- `npm run lint`: 0 ESLint warnings or errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Automated test suites:
+  - `scripts/verify-india-uae-parity.mjs`: PASSED across 1440px desktop, 390px mobile, 390px Arabic RTL, and `/uae#electric` deep linking.
+  - `scripts/verify-uae-about.mjs`: PASSED across all viewports (1440, 1024, 768, 390, 320px) and Arabic RTL.
+  - 0 horizontal overflow across all tested viewports.
+- Screenshots captured:
+  - [UAE Homepage Desktop (1440px)](screenshots/uae-homepage-1440.png)
+  - [UAE Homepage Mobile (390px)](screenshots/uae-homepage-390.png)
+  - [UAE Homepage Arabic RTL (390px)](screenshots/uae-homepage-arabic-390.png)
+  - [UAE Fleet Section Desktop](screenshots/uae-homepage-fleet-1440.png)
+  - [UAE Fleet Section Mobile](screenshots/uae-homepage-fleet-390.png)
+  - [UAE Fleet Section Arabic RTL](screenshots/uae-homepage-fleet-arabic-390.png)
+  - [UAE Fleet #electric Deep Link](screenshots/uae-homepage-electric-deeplink-1440.png)
+  - [UAE Services Section Desktop](screenshots/uae-homepage-services-1440.png)
+  - [UAE Services Section Mobile](screenshots/uae-homepage-services-390.png)
+  - [India Homepage Desktop](screenshots/india-homepage-1440.png)
+
+---
+
+
+## 25 October 2026 — UAE About page parity
+
+Owner: Codex, directly requested by the user. `/uae/about` now has the India About page's leadership/governance introduction, Mujeeb commercial leadership card, brand strip, shared 12-milestone timeline, office map/directions links, and portrait-led requirement invitation. Existing UAE fleet capabilities, Dubai office, FAQs and reservation contacts remain region-specific.
+
+- Copy: new UAE presentation labels are in `src/content/uae.json` under `aboutPage`. Mujeeb's portrait and direct commercial contacts match the existing UAE homepage. The brand caption scopes the logos to Victor's wider portfolio and asks visitors to confirm UAE vehicle options. No offices, milestones, certifications or availability claims were added.
+- Shared components: `JourneySection`, `Timeline`, `TopBrandsStrip` and `OfficeMapLinks`; new server-rendered `CommercialLeadershipCard`. Timeline placement uses logical CSS for RTL; date/year runs stay LTR and English paragraphs use automatic text direction. The date-range spacing also fits 320px. UAE's portrait CTA stacks through tablet sizes without overflow. English page content is explicitly marked `lang="en"` while the existing header supports Arabic.
+- Checks passed: TypeScript, ESLint and production build (74/74 routes). `scripts/verify-uae-about.mjs` passed against the production preview at 1440/1024/768/390/320px in English and 1440/390px in Arabic/RTL mode. Checks cover every visible India About section's UAE counterpart, all 12 approved milestones, contact destinations, exact office map addresses, loaded images, no horizontal overflow, timeline geometry/progress, keyboard anchors, reduced motion, content without JavaScript, India component defaults and zero runtime errors.
+- Screenshots: [desktop page](screenshots/uae-about-updated-1440.png), [mobile page](screenshots/uae-about-updated-390.png), [desktop timeline](screenshots/uae-about-journey-1440.png), [mobile timeline](screenshots/uae-about-journey-390.png), [RTL mobile](screenshots/uae-about-journey-rtl-390.png), [commercial leadership](screenshots/uae-about-leadership-1440.png), [mobile contact invitation](screenshots/uae-about-contact-390.png). Existing floating contact/assistant widgets remain visible in review images and can cover content on phones.
+- Preview: `http://localhost:3020/uae/about`. Set `BASE_URL` when rerunning verification against another port (default 3000).
+
+---
+
+
 ## 25 October 2026 — About timeline visual refinement
 
 Owner: Codex, directly requested by the user. Refined `/india/about#journey` with a sticky editorial introduction, an ink/indigo date-range panel, three native chapter links, aligned icon nodes and compact milestone cards. Mobile uses one column and compact chapter navigation. All 12 supplied milestone dates, titles and descriptions remain intact in `src/content/journey.json`; only chapter navigation labels were added.

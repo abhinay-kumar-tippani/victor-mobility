@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Building2, MapPin, Phone, ArrowRight, ShieldCheck, Car, Bus } from "lucide-react";
 import type { ContactData } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
+import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
+import uaeData from "@/content/uae.json";
 import UaeEmiratesMap from "./UaeEmiratesMap";
 
 interface UaePresenceSectionProps {
@@ -164,6 +166,11 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
               <p className="text-xs sm:text-sm text-brand-ink/85 leading-relaxed bg-white p-4 rounded-xl border border-brand-soft-neutral/70">
                 {current.address}
               </p>
+              {current.name === "Dubai" && uaeData.offices.find(o => o.city === "Dubai" && o.published) && (
+                <div className="pt-1">
+                  <OfficeMapLinks office={uaeData.offices.find(o => o.city === "Dubai" && o.published)!} />
+                </div>
+              )}
             </div>
 
             <div className="space-y-1">

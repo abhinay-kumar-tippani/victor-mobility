@@ -627,6 +627,24 @@
       "callLabel": "Prefer to call?"
     }
   },
+  "aboutPage": {
+    "leadershipEyebrow": "Leadership & Governance",
+    "leadershipTitle": "Steered by Experience. Grounded in Accountability.",
+    "leadershipDescription": "Every journey with Victor Mobility is backed by visionary leadership and hands-on commercial governance committed to ‘On Time Every Time.’",
+    "commercialEyebrow": "Commercial Leadership & Partnerships",
+    "commercialScope": "International Partnerships & UAE Corporate Mobility",
+    "commercialQuote": "Structured master agreements, transparent billing, and 24/7 responsiveness define our client partnerships.",
+    "commercialDescription": "Directing enterprise client partnerships, VIP limousine protocols, and corporate fleet coordination across Dubai, Abu Dhabi, and the Emirates.",
+    "commercialImageSrc": "/images/india/leadership-mujeeb.jpg",
+    "commercialWhatsappMessage": "Hello Mujeeb, I would like to discuss UAE corporate travel arrangements with Victor Mobility.",
+    "commercialWhatsappLabel": "Open WhatsApp draft",
+    "brandsTitle": "Brands across Victor Mobility",
+    "brandsNote": "Brands shown reflect Victor Mobility’s wider portfolio. UAE vehicle options are confirmed during enquiry.",
+    "contactEyebrow": "Direct UAE Requirement Desk",
+    "contactTitle": "Discuss Your UAE Itinerary",
+    "contactDescription": "Connect with Mujeeb Ur Rahman Mohammed for commercial partnerships, or speak directly with our UAE operations desk to discuss your organisation’s travel requirements.",
+    "contactAction": "Discuss Requirement"
+  },
   "about": {
     "title": "International Mobility. Middle East Heritage.",
     "description": "Victor Mobility UAE delivers executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi. Built on trust and passenger accountability under 'On Time Every Time.'",
@@ -685,6 +703,118 @@
     {
       "title": "Transparent Corporate Tariffs",
       "description": "Written proposals in AED with clear hourly and transfer allowances, inclusive Salik toll clearance, and transparent corporate billing."
+    }
+  ],
+  "fleetVehicles": [
+    {
+      "id": "mercedes-s-class",
+      "name": "Mercedes-Benz S-Class",
+      "cabType": "Sedan",
+      "fuelType": "Petrol",
+      "isElectric": false,
+      "seatingCapacity": "3 Passengers",
+      "image": "/images/uae/services/service-chauffeur-luxury.webp",
+      "imageAlt": "Mercedes-Benz S-Class luxury saloon",
+      "description": "First-class executive limousine for airport VIP transfers and corporate roadshows across Dubai and Abu Dhabi."
+    },
+    {
+      "id": "bmw-7-series",
+      "name": "BMW 7 Series",
+      "cabType": "Sedan",
+      "fuelType": "Petrol",
+      "isElectric": false,
+      "seatingCapacity": "3 Passengers",
+      "image": "/images/uae/services/service-airport-transfers.webp",
+      "imageAlt": "BMW 7 Series prestige saloon",
+      "description": "Prestige executive saloon offering boardroom connectivity and quiet luxury for visiting leadership."
+    },
+    {
+      "id": "mercedes-maybach",
+      "name": "Mercedes-Maybach S-Class",
+      "cabType": "Sedan",
+      "fuelType": "Petrol",
+      "isElectric": false,
+      "seatingCapacity": "3 Passengers",
+      "image": "/images/india/luxury-interior.png",
+      "imageAlt": "Mercedes-Maybach ultra-luxury cabin",
+      "description": "Pinnacle hospitality with first-class reclining Ottoman seating for private jet arrivals and VIP delegations."
+    },
+    {
+      "id": "cadillac-escalade",
+      "name": "Cadillac Escalade",
+      "cabType": "SUV",
+      "fuelType": "Petrol",
+      "isElectric": false,
+      "seatingCapacity": "6 Passengers",
+      "image": "/images/uae/uae-hero.jpg",
+      "imageAlt": "Cadillac Escalade executive SUV",
+      "description": "Commanding luxury SUV with spacious three-row seating and expansive luggage room for executive travel."
+    },
+    {
+      "id": "gmc-yukon-denali",
+      "name": "GMC Yukon Denali",
+      "cabType": "SUV",
+      "fuelType": "Petrol",
+      "isElectric": false,
+      "seatingCapacity": "6 Passengers",
+      "image": "/images/uae/services/service-event-transport.webp",
+      "imageAlt": "GMC Yukon Denali luxury SUV",
+      "description": "Executive SUV tailored for delegation convoys, financial roadshows, and inter-emirate transit."
+    },
+    {
+      "id": "mercedes-v-class",
+      "name": "Mercedes-Benz V-Class",
+      "cabType": "12 Seater",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "7 Passengers",
+      "image": "/images/uae/services/service-employee-transport.webp",
+      "imageAlt": "Mercedes-Benz V-Class executive MPV",
+      "description": "Refined multi-passenger transit featuring face-to-face conference seating for visiting project teams."
+    },
+    {
+      "id": "vip-coach-22",
+      "name": "22-Seater VIP Coach",
+      "cabType": "12 Seater",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "22 Passengers",
+      "image": "/images/uae/services/service-bus-shuttle.webp",
+      "imageAlt": "22-Seater VIP Coach",
+      "description": "Luxury mini-coach for trade summit delegations (GITEX, ADIPEC) and executive hotel shuttle loops."
+    },
+    {
+      "id": "luxury-bus-44",
+      "name": "44-Seater Luxury Bus",
+      "cabType": "12 Seater",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "44 Passengers",
+      "image": "/images/services/bus-shuttle-transport.webp",
+      "imageAlt": "44-Seater Luxury Coach Bus",
+      "description": "High-capacity luxury motorcoach connecting international convention centers, hotels, and airports."
+    },
+    {
+      "id": "electric-executive-limousine",
+      "name": "Executive Electric Limousine",
+      "cabType": "Sedan",
+      "fuelType": "Electric Vehicle",
+      "isElectric": true,
+      "seatingCapacity": "4 Passengers",
+      "image": "/images/india/electric-fleet.jpg",
+      "imageAlt": "Executive Electric Limousine",
+      "description": "Sustainable zero-emission executive transportation across Dubai and Abu Dhabi business corridors."
+    },
+    {
+      "id": "electric-vip-shuttle",
+      "name": "Electric VIP Shuttle",
+      "cabType": "SUV",
+      "fuelType": "Long Range Electric Vehicle",
+      "isElectric": true,
+      "seatingCapacity": "6 Passengers",
+      "image": "/images/fleet/mg-zs-ev.webp",
+      "imageAlt": "Electric VIP Shuttle SUV",
+      "description": "Eco-friendly premium delegation shuttle with long-range battery capability and silent acoustic cabin."
     }
   ],
   "sourceClaims": {

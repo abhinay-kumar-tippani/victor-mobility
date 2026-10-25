@@ -17,7 +17,7 @@ import PartnerEnquirySection from "@/components/contact/PartnerEnquirySection";
 import uaeData from "@/content/uae.json";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
-import type { IndiaContent, MediaContent } from "@/types/content";
+import type { IndiaContent, MediaContent, FleetVehicle } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Victor Mobility UAE | Luxury Limousine & Airport VIP Transfers Dubai",
@@ -117,6 +117,7 @@ export default function UaePage() {
         <IndiaFleetSection
           categories={content.fleetCategories}
           copy={uaeData.fleetPresentation}
+          vehicles={uaeData.fleetVehicles as FleetVehicle[]}
           basePath="/uae"
           currencySymbol="AED "
         />

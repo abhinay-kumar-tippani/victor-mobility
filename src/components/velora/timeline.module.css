@@ -4,7 +4,7 @@
   position: absolute;
   top: 2.75rem;
   bottom: 2.75rem;
-  left: 19px;
+  inset-inline-start: 19px;
   width: 2px;
   overflow: hidden;
   border-radius: 2px;
@@ -19,7 +19,7 @@
 }
 
 @media (max-width: 639px) {
-  .rail { top: 2.25rem; bottom: 2.25rem; left: 15px; }
+  .rail { top: 2.25rem; bottom: 2.25rem; inset-inline-start: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
