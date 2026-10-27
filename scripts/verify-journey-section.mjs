@@ -34,24 +34,23 @@ async function run() {
     }
     console.log("PASSED: 'The Journey of Victor' is present on /india!");
 
-    // 3. Verify key milestones from 2009 to 2024
+    // 3. Verify the shared milestone timeline through 2025
     const requiredMilestones = [
-      "Q4. 2009",
-      "The ideation of Victor",
-      "Q1. 2010",
-      "Indian Companies Act 1956",
-      "Q1. 2012",
-      "Q3. 2015",
-      "800+ vehicles",
-      "Q4. 2018",
-      "1,500+ vehicles",
-      "Q2 to Q4. 2020",
-      "Q1 to Q4 2022",
-      "Q2. 2023",
-      "Q4. 2023",
-      "Q1. 2024",
-      "Q2. 2024",
-      "United Arab Emirates (U.A.E)"
+      "Q4 2009",
+      "The Beginning",
+      "Official Registration",
+      "First Major Client",
+      "Fleet Expansion",
+      "Continued Growth",
+      "Navigating COVID-19",
+      "Business Recovery",
+      "Pan-India Expansion",
+      "International Expansion",
+      "Sustainability Commitment",
+      "Pan-India Operations",
+      "UAE Operations",
+      "Advancing Sustainable Mobility",
+      "Strengthened market presence, expanded fleet, enhanced digital solutions and accelerated EV adoption for a cleaner tomorrow."
     ];
 
     for (const phrase of requiredMilestones) {
@@ -59,7 +58,7 @@ async function run() {
         throw new Error(`FAILED: Required milestone phrase "${phrase}" not found in #journey!`);
       }
     }
-    console.log("PASSED: All 12 milestones (2009-2024) verified in /india journey section!");
+    console.log("PASSED: All 13 milestones (2009–2025) verified in /india journey section!");
 
     // 4. Verify section order on /india
     const sectionIds = await desktopPage.evaluate(() => {

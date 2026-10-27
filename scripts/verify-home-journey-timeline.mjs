@@ -13,7 +13,11 @@ try {
       const timeline = section.getByRole("region", { name: /company milestones/i });
       await timeline.waitFor({ state: "visible" });
 
-      if (await timeline.locator("li").count() !== 12) throw new Error(`${region} ${viewport.name}: expected twelve milestones`);
+      if (await timeline.locator("li").count() !== 13) throw new Error(`${region} ${viewport.name}: expected thirteen milestones`);
+      const finalMilestone = await timeline.locator("li").last().innerText();
+      if (!finalMilestone.includes("2025") || !finalMilestone.includes("Advancing Sustainable Mobility") || !finalMilestone.includes("Strengthened market presence, expanded fleet, enhanced digital solutions and accelerated EV adoption for a cleaner tomorrow.")) {
+        throw new Error(`${region} ${viewport.name}: 2025 milestone does not match the supplied artwork`);
+      }
       if (!(await timeline.locator('li[aria-current="step"]').textContent())?.includes("The Beginning")) throw new Error(`${region} ${viewport.name}: timeline should begin at milestone one`);
       if (await section.locator('img[src*="victor-journey-map"]').count()) throw new Error(`${region}: static roadmap image remains`);
       const dimensions = await timeline.evaluate((element) => ({ client: element.clientHeight, scroll: element.scrollHeight }));
@@ -39,15 +43,24 @@ try {
       await page.keyboard.press("End");
       await page.waitForFunction(() => document.querySelector("#journey [role='region']")?.scrollTop > 0);
       await timeline.evaluate((element) => { element.scrollTop = element.scrollHeight; });
-      await page.waitForFunction(() => document.querySelector("#journey li[aria-current='step']")?.textContent?.includes("UAE Operations"));
+      await page.waitForFunction(() => document.querySelector("#journey li[aria-current='step']")?.textContent?.includes("Advancing Sustainable Mobility"));
       if (viewport.name === "desktop") await section.screenshot({ path: `docs/screenshots/journey-timeline-${region}-scrolled.png` });
 
-      const pageScrollBefore = await page.evaluate(() => window.scrollY);
-      await timeline.hover();
-      await page.mouse.wheel(0, 650);
-      await page.waitForFunction((previous) => window.scrollY > previous, pageScrollBefore);
+      await page.goto(`${baseUrl}/${region}/about`, { waitUntil: "networkidle" });
+      const aboutJourney = page.locator("#journey");
+      await aboutJourney.waitFor({ state: "visible" });
+      if (await aboutJourney.locator("ol > li").count() !== 13) throw new Error(`${region} about ${viewport.name}: expected thirteen milestones`);
+      const aboutFinal = await aboutJourney.locator("ol > li").last().innerText();
+      if (!aboutFinal.includes("Advancing Sustainable Mobility") || !aboutFinal.includes("2025")) throw new Error(`${region} about ${viewport.name}: missing 2025 milestone`);
+      await aboutJourney.scrollIntoViewIfNeeded();
+      await page.evaluate(() => {
+        document.querySelectorAll("header, [class*='fixed'][class*='z-40']").forEach((element) => {
+          element.style.setProperty("opacity", "0", "important");
+        });
+      });
+      await aboutJourney.screenshot({ path: `docs/screenshots/journey-about-${region}-${viewport.name}.png` });
 
-      console.log(`${region} ${viewport.name}: twelve milestones, scroll progress, keyboard access, page scrolling and fit passed`);
+      console.log(`${region} ${viewport.name}: thirteen milestones on home and About, 2025 copy, scroll progress, keyboard access and fit passed`);
       await context.close();
     }
   }

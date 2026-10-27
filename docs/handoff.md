@@ -1,5 +1,13 @@
 # Handoff
 
+## 28 October 2026 — Journey of Victor extended to 2025
+
+Added milestone 13, **Advancing Sustainable Mobility**, to `src/content/journey.json` using the title and description supplied in the user's 2025 artwork. The shared data now shows the milestone on `/india`, `/uae`, `/india/about`, and `/uae/about`. Updated the chapter span and both timeline year ranges to end in 2025; existing milestone details and navigation remain intact.
+
+- Checks: TypeScript, ESLint, and production build passed (74/74 routes). `scripts/verify-home-journey-timeline.mjs` passed at 1440px and 390px on both regions' home and About pages, checking 13 milestones, exact 2025 copy, scrolling, keyboard access, and section fit.
+- Screenshots: [India home at 2025](screenshots/journey-timeline-india-scrolled.png), [UAE home at 2025](screenshots/journey-timeline-uae-scrolled.png), [India About desktop](screenshots/journey-about-india-desktop.png), [India About mobile](screenshots/journey-about-india-mobile.png), [UAE About desktop](screenshots/journey-about-uae-desktop.png), [UAE About mobile](screenshots/journey-about-uae-mobile.png).
+
+
 ## 27 October 2026 — Updated Mujeeb Ur Rahman Mohammed's Email to mujeeb@victorluxurylimousine.com
 
 Owner: Antigravity, at direct user request.

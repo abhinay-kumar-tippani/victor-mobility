@@ -72,6 +72,11 @@ const EXPECTED_MILESTONES = [
     title: "UAE Operations",
     desc: "Victor commenced full-fledged operations in the United Arab Emirates.",
   },
+  {
+    date: "2025",
+    title: "Advancing Sustainable Mobility",
+    desc: "Strengthened market presence, expanded fleet, enhanced digital solutions and accelerated EV adoption for a cleaner tomorrow.",
+  },
 ];
 
 async function startServer() {
@@ -138,16 +143,16 @@ async function run() {
       throw new Error(`FAIL: Expected 1 Velora Timeline component, found ${timelineCount}`);
     }
 
-    // Check 4: All 12 milestones present in chronological order
-    console.log("\nCheck 4 - Verifying all 12 milestones in chronological order:");
+    // Check 4: All approved milestones present in chronological order
+    console.log(`\nCheck 4 - Verifying all ${EXPECTED_MILESTONES.length} milestones in chronological order:`);
     const items = timelineSlot.locator("ol > li");
     const count = await items.count();
-    console.log(`Found ${count} timeline items (expected 12)`);
-    if (count !== 12) {
-      throw new Error(`FAIL: Expected 12 timeline items, got ${count}`);
+    console.log(`Found ${count} timeline items (expected ${EXPECTED_MILESTONES.length})`);
+    if (count !== EXPECTED_MILESTONES.length) {
+      throw new Error(`FAIL: Expected ${EXPECTED_MILESTONES.length} timeline items, got ${count}`);
     }
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < EXPECTED_MILESTONES.length; i++) {
       const item = items.nth(i);
       const text = await item.innerText();
       const expected = EXPECTED_MILESTONES[i];

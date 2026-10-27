@@ -18,6 +18,8 @@ export default function JourneyTimelinePanel({ milestones }: { milestones: Miles
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const firstYear = milestones[0]?.date.match(/\d{4}/)?.[0] || "2009";
+  const lastYear = milestones[milestones.length - 1]?.date.match(/\d{4}/)?.[0] || firstYear;
 
   const updateFromScroll = useCallback(() => {
     const viewport = scrollRef.current;
@@ -99,7 +101,7 @@ export default function JourneyTimelinePanel({ milestones }: { milestones: Miles
 
       <div className="flex items-center justify-between gap-3 border-t border-white/10 px-5 py-3 text-[11px] font-medium text-white/50 sm:px-7">
         <span>Scroll within the timeline to follow Victor&apos;s journey</span>
-        <span dir="ltr" className="shrink-0 tabular-nums">2009 — 2024</span>
+        <span dir="ltr" className="shrink-0 tabular-nums">{firstYear} — {lastYear}</span>
       </div>
     </div>
   );

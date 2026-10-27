@@ -6,7 +6,7 @@
   "chapters": [
     { "milestoneId": 1, "years": "2009 – 2018", "title": "Foundation & fleet growth" },
     { "milestoneId": 6, "years": "2020 – 2022", "title": "Resilience & recovery" },
-    { "milestoneId": 8, "years": "2023 – 2024", "title": "Expanding horizons" }
+    { "milestoneId": 8, "years": "2023 – 2025", "title": "Expanding horizons" }
   ],
   "milestones": [
     {
@@ -104,6 +104,14 @@
       "title": "UAE Operations",
       "description": "Victor commenced full-fledged operations in the United Arab Emirates.",
       "icon": "Building2"
+    },
+    {
+      "id": 13,
+      "quarter": "2025",
+      "date": "2025",
+      "title": "Advancing Sustainable Mobility",
+      "description": "Strengthened market presence, expanded fleet, enhanced digital solutions and accelerated EV adoption for a cleaner tomorrow.",
+      "icon": "Leaf"
     }
   ]
 }

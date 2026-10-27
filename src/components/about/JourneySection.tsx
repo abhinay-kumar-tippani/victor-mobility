@@ -13,6 +13,9 @@ const icons = {
 };
 
 export default function JourneySection() {
+  const firstYear = journey.milestones[0]?.date.match(/\d{4}/)?.[0] || "2009";
+  const lastYear = journey.milestones[journey.milestones.length - 1]?.date.match(/\d{4}/)?.[0] || firstYear;
+
   return (
     <section id="journey" aria-labelledby="journey-heading" className={styles.section}>
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${styles.layout}`}>
@@ -23,13 +26,13 @@ export default function JourneySection() {
 
           <div className={styles.journeyMark}>
             <div dir="ltr" className={styles.yearRange}>
-              <span>2009</span>
+              <span>{firstYear}</span>
               <div className={styles.routeLine} aria-hidden="true">
                 <span />
                 <Route size={22} strokeWidth={1.5} />
                 <span />
               </div>
-              <span>2024</span>
+              <span>{lastYear}</span>
             </div>
             <p dir="auto">{brand.tagline}</p>
           </div>
