@@ -301,7 +301,14 @@
     "experience": "15+ Years Industry Leadership",
     "quote": "I am committed to providing unwavering service to my clients.",
     "imageSrc": "/images/india/founder-jahangir.jpg",
-    "bio": "Guiding Victor's international expansion into the United Arab Emirates, founder Jahangir brings two decades of logistics and luxury transportation expertise to Dubai and Abu Dhabi, delivering seamless chauffeur and corporate fleet services across borders."
+    "bio": "Guiding Victor's expansion across Dubai and the Emirates, Founder and Director Jahangir brings 15+ years of transportation and logistics excellence, ensuring every corporate and VIP journey is delivered with trust, punctuality, and world-class service standards.",
+    "aboutBio": [
+      "Jahangir, Founder and Director of Victor Mobility, brings extensive experience in travel, transportation, logistics, and mobility solutions, guided by a strong commitment to service excellence and customer satisfaction. With over 15 years of experience in the transportation industry, he believes that successful mobility services are built on trust, reliability, attention to detail, and a genuine understanding of each client's needs.",
+      "Under his leadership, Victor Mobility is driven by a clear purpose: to deliver seamless, dependable, and thoughtfully planned mobility experiences. His approach combines strategic vision with a practical understanding of operations, ensuring that quality, punctuality, safety, and professionalism remain central to the company's service philosophy.",
+      "Beyond business growth, Jahangir values the relationships built through every journey. He believes that lasting success comes from earning customer confidence, maintaining consistent service standards, and creating meaningful experiences that encourage long-term partnerships.",
+      "Looking ahead, his vision is to strengthen Victor Mobility's presence in the evolving mobility industry through continuous improvement, responsible growth, innovation, and an unwavering focus on customer expectations.",
+      "For Jahangir, every journey represents an opportunity to deliver more than transportation—it is an opportunity to build trust, create value, and make every experience matter."
+    ]
   },
   "faqs": [
     {
@@ -824,5 +831,75 @@
       "enabled": false,
       "note": "Claim is disabled by default."
     }
+  },
+  "teamProfiles": [
+    {
+      "id": "kamran-razvi",
+      "name": "Syed Kamran Abbas Razvi",
+      "role": "Director - Sales & Operations",
+      "division": "Sales & Operations",
+      "imageSrc": "/images/team/kamran-razvi.jpg",
+      "imageAlt": "Portrait of Syed Kamran Abbas Razvi, Director - Sales & Operations at Victor Mobility",
+      "placeholder": false,
+      "description": "Directing sales growth, client relations, and executive fleet coordination across major commercial corridors.",
+      "phoneDisplay": "+91 8074 16 05 84",
+      "phoneHref": "tel:+918074160584",
+      "whatsappDisplay": "+91 8074 16 05 84",
+      "whatsappDigits": "918074160584",
+      "emailDisplay": "syedkamran@victorluxurylimousine.com",
+      "emailEnabled": true
+    },
+    {
+      "id": "muhammad-asif",
+      "name": "Muhammad Asif",
+      "role": "Manager - Admin & Finance",
+      "division": "Admin & Finance",
+      "imageSrc": "/images/team/muhammad-asif.jpg",
+      "imageAlt": "Portrait of Muhammad Asif, Manager - Admin & Finance at Victor Mobility",
+      "placeholder": false,
+      "description": "Managing corporate administration, financial operations, vendor compliance, and commercial accounts.",
+      "phoneDisplay": "+91 9100 77 77 68",
+      "phoneHref": "tel:+919100777768",
+      "whatsappDisplay": "+91 9100 77 77 68",
+      "whatsappDigits": "919100777768",
+      "emailDisplay": "asif@victorluxurylimousine.com",
+      "emailEnabled": true
+    },
+    {
+      "id": "thameem-ahmed",
+      "name": "Mohammed Thameem Ahmed",
+      "role": "Head of Operations",
+      "division": "Operations",
+      "imageSrc": "/images/team/thameem-ahmed.png",
+      "imageAlt": "Portrait of Mohammed Thameem Ahmed, Head of Operations at Victor Mobility",
+      "placeholder": false,
+      "description": "Leading 24/7 fleet dispatch, route optimization, chauffeur protocol governance, and real-time transit coordination.",
+      "phoneDisplay": "+91 95159 50808",
+      "phoneHref": "tel:+919515950808",
+      "whatsappDisplay": "+91 95159 50808",
+      "whatsappDigits": "9515950808",
+      "emailDisplay": "thameem@victorluxurylimousine.com",
+      "emailEnabled": true
+    },
+    {
+      "id": "nareinder-reddy",
+      "name": "Nareinder Reddyy C",
+      "role": "Business Head - Bangalore",
+      "division": "Regional Leadership",
+      "imageSrc": "/images/team/nareinder-reddy.jpg",
+      "imageAlt": "Portrait of Nareinder Reddyy C, Business Head - Bangalore at Victor Mobility",
+      "placeholder": false,
+      "description": "Leading regional operations, corporate enterprise mobility, and client expansion across the Bangalore commercial corridor.",
+      "phoneDisplay": "+91 40 23 00 00 23",
+      "phoneHref": "tel:+914023000023",
+      "whatsappDisplay": "+91 99000 04172",
+      "whatsappDigits": "919900004172",
+      "emailDisplay": "nreddy@jvictorgroup.com",
+      "emailEnabled": true
+    }
+  ],
+  "teamFeaturedEmail": {
+    "display": "mujeeb@example.com",
+    "enabled": false
   }
 }

@@ -1,5 +1,114 @@
 # Handoff
 
+## 27 October 2026 — Footer Operating Hubs Updated to All 10 Cities with Branch Office Labels Removed
+
+Owner: Antigravity, at direct user request.
+Scope: In the corporate footer under the "Operating Hubs" column:
+1. Updated from only 3 cities to all 10 authorized operational cities pan-India:
+   - **Hyderabad** (`(Head Office)`)
+   - **Bengaluru**
+   - **Pune**
+   - **Mumbai**
+   - **Chennai**
+   - **Delhi**
+   - **Noida**
+   - **Gurgaon**
+   - **Ahmedabad**
+   - **Kolkata**
+2. Removed all `"Branch Office"` labels (previously displayed beside Bengaluru and Pune), keeping strictly the city names.
+3. Formatted into a responsive 2-column grid (`grid grid-cols-2 gap-x-3 gap-y-2 text-xs`) with MapPin icons linking to `#network` for intuitive navigation and zero layout crowding.
+4. Preserved UAE regional isolation: `/uae` routes continue displaying `Dubai (U.A.E. Head Office)`.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Playwright verification (`scripts/verify-footer-hubs.mjs`):
+  - Verified all 10 cities present in the India footer.
+  - Verified `"Branch Office"` text completely removed.
+  - Verified Hyderabad designated as Head Office.
+  - Verified zero horizontal overflow on desktop (1440px) and mobile (390px).
+  - Verified UAE footer preserves Dubai office correctly.
+  - Screenshots captured: `docs/screenshots/footer-hubs-desktop.png` and `docs/screenshots/footer-hubs-mobile.png`.
+
+## 27 October 2026 — Updated Founder Jahangir's Descriptions
+
+Owner: Antigravity, at user request.
+Updated the biography and narrative descriptions for Founder & Director **Jahangir** from supplied authentic leadership copy:
+- **About Pages (`/india/about`, `/uae/about`):**
+  - Updated section headline to `"Leading with Vision. Moving Forward with Trust."`
+  - Rendered all 5 authentic paragraphs detailing his 15+ years of transportation industry experience, service philosophy, customer trust, and long-term vision.
+- **Homepages (`/india`, `/uae`):**
+  - Updated the founder card in `PeopleSection` with a concise, high-impact 2-sentence summary tailored to India and UAE regional operations, keeping visual balance with the team carousel.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+
+
+## 27 October 2026 — Removed Slide Numbers on Team Cards
+
+Owner: Antigravity, at user request.
+Removed slide position badges (`01 / 05`, `02 / 05`, etc.) from leadership and team cards across the India homepage, UAE homepage, and About pages:
+- **Homepage Team Carousel (`src/components/home/TeamCarousel.tsx`):** Removed the top-right counter badge pill (`01 / 05`) on `/india` and `/uae`.
+- **About Page Team Carousel (`src/components/about/AboutTeamCarousel.tsx`):** Removed the image overlay badge pill (`01 / 05`) on `/india/about` and `/uae/about`.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+
+
+## 27 October 2026 — Slideshow Auto-Advance Timing Updated to 3 Seconds
+
+Owner: Antigravity, at user request.
+Updated slideshow and carousel auto-advance duration from 6–8 seconds down to **3 seconds** (`3000ms`) across `/india`, `/uae`, and `/about` pages:
+
+1. **Hero Showcase Slideshow (`src/components/home/Hero.tsx`):**
+   - Reduced `SLIDE_INTERVAL_MS` from `6000` to `3000` ms for the hero banner on `/india` and `/uae`.
+2. **"Meet the team" Carousel (`src/components/home/TeamCarousel.tsx`):**
+   - Reduced slide advance interval from `7000` to `3000` ms on `/india` and `/uae`.
+3. **About Team Carousel (`src/components/about/AboutTeamCarousel.tsx`):**
+   - Reduced slide advance interval from `8000` to `3000` ms on `/india/about` and `/uae/about`.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+
+
+## 27 October 2026 — Five employee profiles on both About pages
+
+Replaced the Mujeeb-only commercial card on `/india/about` and `/uae/about` with one shared, portrait-led slideshow. It shows Mujeeb, Syed Kamran Abbas Razvi, Muhammad Asif, Mohammed Thameem Ahmed, and Nareinder Reddyy C using the existing site portraits and `teamProfiles` contact records. Each profile exposes its supplied phone and WhatsApp details; the four team profiles also expose their configured email addresses. Mujeeb's draft/placeholder email remains inactive. The UAE page keeps its existing regional introduction and commercial description.
+
+- Controls: previous/next, five direct selectors, keyboard arrows, automatic advance with pause/play, and reduced-motion support. WhatsApp opens a prefilled draft and does not imply a submitted enquiry.
+- Checks: `npm run type-check`, `npm run lint`, and an isolated production build (74/74 routes) passed. `node scripts/verify-about-team-carousel.mjs` passed on both routes at 1440px, 390px, and 320px, checking all five names and contact links, keyboard controls, reduced motion, and horizontal overflow.
+- Screenshots: [India desktop](screenshots/about-team-india-desktop.png), [India mobile](screenshots/about-team-india-mobile.png), [UAE desktop](screenshots/about-team-uae-desktop.png), [UAE mobile](screenshots/about-team-uae-mobile.png).
+
+
+## 27 October 2026 — Addition of Nareinder Reddyy C to Meet the Team
+
+Owner: Antigravity, at user request.
+Added executive team member **Nareinder Reddyy C** to the "Meet the team" carousel on both `/india` and `/uae` pages.
+
+### Employee Details:
+- **Name:** Nareinder Reddyy C
+- **Role:** Business Head - Bangalore
+- **Division:** Regional Leadership
+- **Phone:** `+91 40 23 00 00 23` (`tel:+914023000023`)
+- **WhatsApp:** `+91 99000 04172` (`https://wa.me/919900004172`)
+- **Email:** `nreddy@jvictorgroup.com` (`mailto:nreddy@jvictorgroup.com`)
+- **Image:** `/images/team/nareinder-reddy.jpg` (supplied genuine photograph)
+
+### Files Modified:
+- `public/images/team/nareinder-reddy.jpg`: Stored authentic portrait.
+- `src/content/india.json`: Appended Nareinder Reddyy C to `teamProfiles`.
+- `src/content/uae.json`: Appended Nareinder Reddyy C to `teamProfiles`.
+- `src/content/media.json`: Registered `leadership-nareinder` asset metadata.
+- `docs/team-image-sources.md`: Updated table with slide 05 details.
+
+
 ## 25 October 2026 — UAE Homepage Parity with India Homepage
 
 Owner: Antigravity, at the user's direct request. The UAE homepage (`/uae`) has been brought to full functional and presentation parity with the India homepage (`/india`), delivering interactive fleet categorization, real executive vehicle cards, localized Hero slides, accurate regional statistics, sequential service numbering, direct Google Maps office links, and regional partner enquiry copy.
@@ -1943,4 +2052,34 @@ Owner: Antigravity. Upgraded the visual presentation across Victor Mobility's 10
    - `npm run type-check`: 0 errors.
    - `npm run lint`: 0 warnings, 0 errors.
    - `npm run build`: 74/74 static routes compiled cleanly.
+
+---
+
+## 27 October 2026 — Authentic Leadership Profiles Update (/india & /uae)
+
+Owner: Antigravity. Replaced the placeholder/illustrative profiles in the "Leadership & Accountability" and "The people behind the journey" carousel section with authentic executive leadership profiles and photographs supplied by the user:
+
+1. **Supplied Leadership Integration**:
+   - **Syed Kamran Abbas Razvi**: Director - Sales & Operations
+     - Mobile: `+91 8074 16 05 84` (`tel:+918074160584` & WhatsApp `https://wa.me/918074160584`)
+     - Email: `syedkamran@victorluxurylimousine.com` (`mailto:syedkamran@victorluxurylimousine.com`)
+     - Portrait: `public/images/team/kamran-razvi.jpg`
+   - **Muhammad Asif**: Manager - Admin & Finance
+     - Mobile: `+91 9100 77 77 68` (`tel:+919100777768` & WhatsApp `https://wa.me/919100777768`)
+     - Email: `asif@victorluxurylimousine.com` (`mailto:asif@victorluxurylimousine.com`)
+     - Portrait: `public/images/team/muhammad-asif.jpg`
+   - **Mohammed Thameem Ahmed**: Head of Operations
+     - Mobile: `+91 95159 50808` (`tel:+919515950808` & WhatsApp `https://wa.me/919515950808`)
+     - Email: `thameem@victorluxurylimousine.com` (`mailto:thameem@victorluxurylimousine.com`)
+     - Portrait: `public/images/team/thameem-ahmed.png`
+
+2. **24/7 Live Operations Desk & Clean Brand Entity**:
+   - Updated 24/7 Live Operations Desk with Muhammad Asif (Manager - Admin & Finance) and Mohammed Thameem Ahmed (Head of Operations) including authentic portrait avatars.
+   - Removed "Primary Desk Lead" and "Fleet & Dispatch Lead" labels as requested.
+   - Removed duplicate "Available 24/7" card badges on individual cards as the section header already establishes 24/7 availability.
+   - Replaced office landline buttons with direct employee email actions (`asif@victorluxurylimousine.com`, `thameem@victorluxurylimousine.com`, `syedkamran@victorluxurylimousine.com`).
+   - Removed "Victor Luxury Limousine" from roles, alt texts, and descriptions.
+
+3. **Verification**:
+   - `npm run build`: 74/74 static routes compiled cleanly with 0 type errors and 0 lint warnings.
 

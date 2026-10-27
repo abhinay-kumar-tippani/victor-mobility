@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MessageSquare, Phone, ArrowRight, Clock, ShieldCheck } from "lucide-react";
+import { MessageSquare, Phone, Mail, ArrowRight, Clock, ShieldCheck } from "lucide-react";
 import type { ContactData, DeskPerson } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -132,18 +133,20 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                     <div>
                       {/* Person Details Header */}
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-brand-violet/20 border border-brand-violet/30 flex items-center justify-center font-bold text-white text-base shrink-0 group-hover:scale-105 transition-transform shadow-inner">
-                          {initials}
+                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-brand-violet/20 border border-brand-violet/30 flex items-center justify-center font-bold text-white text-base shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                          {person.imageSrc ? (
+                            <Image
+                              src={person.imageSrc}
+                              alt={`Portrait of ${person.name}`}
+                              fill
+                              sizes="64px"
+                              className="object-cover object-top"
+                            />
+                          ) : (
+                            initials
+                          )}
                         </div>
                         <div className="min-w-0 flex-1 space-y-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-violet block">
-                              {idx === 0
-                                ? (locale === "ar" ? "المسؤول التنفيذي الأول" : "Primary Desk Lead")
-                                : (locale === "ar" ? "دعم الأسطول والتنسيق" : "Fleet & Dispatch Lead")}
-                            </span>
-                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" title="Online" />
-                          </div>
                           <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
                             {person.name}
                           </h3>
@@ -162,7 +165,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                       <div className="my-5 border-t border-white/10" />
                     </div>
 
-                    {/* Contact Actions: Phone and WhatsApp */}
+                    {/* Contact Actions: Phone, WhatsApp and Email */}
                     <div className="space-y-3">
                       {/* WhatsApp Row */}
                       <a
@@ -195,6 +198,23 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                           {person.phoneDisplay}
                         </span>
                       </a>
+
+                      {/* Email Row */}
+                      {person.email && (
+                        <a
+                          href={`mailto:${person.email}`}
+                          className="min-h-[46px] flex flex-wrap sm:flex-nowrap items-center justify-between gap-x-3 gap-y-1 w-full text-xs sm:text-sm font-semibold text-white/90 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 px-4 py-2.5 rounded-xl transition-all shadow-sm"
+                          aria-label={`Email ${person.name} at ${person.email}`}
+                        >
+                          <span className="flex items-center gap-2.5 shrink-0">
+                            <Mail className="w-4 h-4 shrink-0 text-brand-blue" />
+                            <span>{locale === "ar" ? "البريد الإلكتروني" : "Direct Email"}</span>
+                          </span>
+                          <span className="font-mono text-[11px] sm:text-xs text-slate-200 truncate max-w-full" dir="ltr">
+                            {person.email}
+                          </span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 );

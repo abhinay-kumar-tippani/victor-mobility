@@ -85,6 +85,7 @@ export default function IndiaPage() {
       <Footer
         contact={content.contact}
         offices={content.offices}
+        cities={content.cities}
         mediaCaption={media.caption}
         isoEnabled={content.sourceClaims.iso?.enabled}
       />

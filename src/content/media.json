@@ -60,6 +60,46 @@
       "aiGenerated": false,
       "temporary": false,
       "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "leadership-kamran",
+      "src": "/images/team/kamran-razvi.jpg",
+      "alt": "Portrait of Syed Kamran Abbas Razvi, Director - Sales & Operations at Victor Mobility.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": false,
+      "temporary": false,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "leadership-asif",
+      "src": "/images/team/muhammad-asif.jpg",
+      "alt": "Portrait of Muhammad Asif, Manager - Admin & Finance at Victor Mobility.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": false,
+      "temporary": false,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "leadership-thameem",
+      "src": "/images/team/thameem-ahmed.png",
+      "alt": "Portrait of Mohammed Thameem Ahmed, Head of Operations at Victor Mobility.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": false,
+      "temporary": false,
+      "actualVictorFleetPhoto": false
+    },
+    {
+      "id": "leadership-nareinder",
+      "src": "/images/team/nareinder-reddy.jpg",
+      "alt": "Portrait of Nareinder Reddyy C, Business Head - Bangalore at Victor Mobility.",
+      "focalPointDesktop": "center",
+      "focalPointMobile": "center",
+      "aiGenerated": false,
+      "temporary": false,
+      "actualVictorFleetPhoto": false
     }
   ],
   "replacementInstructions": "Replace the file at the same path or edit src. Update alt text, focal point, aiGenerated, temporary and actualVictorFleetPhoto to reflect the replacement. Do not state it is a real fleet image until that is true."

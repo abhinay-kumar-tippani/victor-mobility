@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, MessageSquare, MapPin } from "lucide-react";
-import type { ContactData, OfficeItem } from "@/types/content";
+import type { ContactData, OfficeItem, CityItem } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import { useLanguage } from "@/i18n/LanguageContext";
+import indiaData from "@/content/india.json";
 
 interface FooterProps {
   contact: ContactData;
   offices: OfficeItem[];
+  cities?: CityItem[];
   mediaCaption: string;
   isoEnabled?: boolean;
 }
@@ -17,6 +19,7 @@ interface FooterProps {
 export default function Footer({
   contact,
   offices,
+  cities,
   mediaCaption,
   isoEnabled = false,
 }: FooterProps) {
@@ -25,6 +28,12 @@ export default function Footer({
   const isIndia = prefix === "/india";
   const { dict, locale } = useLanguage();
   const publishedOffices = offices.filter((o) => o.published);
+
+  // For India, display all 10 authorized operating cities from india.json without "Branch Office" text.
+  // Head Office (Hyderabad) is designated cleanly while the other 9 hubs display only their city names.
+  const indiaCities = (cities && cities.length > 0 ? cities : (indiaData.cities as CityItem[])).filter(
+    (c) => c.published
+  );
 
   const whatsappMessage =
     locale === "ar"
@@ -162,31 +171,71 @@ export default function Footer({
           {/* Operating Hubs Summary */}
           <div className="lg:col-span-3 space-y-3">
             <h2 className="text-sm font-bold uppercase tracking-wider text-brand-soft-neutral mb-3">
-              {dict.footer.hubsTitle || "Operating Offices"}
+              {dict.footer.hubsTitle || "Operating Hubs"}
             </h2>
-            <div className="space-y-2.5 text-xs text-brand-soft-neutral/80 leading-relaxed">
-              {publishedOffices.map((office) => {
-                const officeCityName =
-                  locale === "ar" && office.city === "Dubai"
-                    ? "دبي"
-                    : locale === "ar" && office.city === "Abu Dhabi"
-                    ? "أبوظبي"
-                    : office.city;
-                const officeLabel =
-                  locale === "ar" && office.city === "Dubai"
-                    ? "المقر الرئيسي بالإمارات"
-                    : office.label;
+            {isIndia ? (
+              <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs text-brand-soft-neutral/80 leading-relaxed">
+                {indiaCities.map((city) => {
+                  const isHeadOffice = city.name === "Hyderabad";
+                  const headOfficeLabel = dict.presence?.headOffice || "Head Office";
 
-                return (
-                  <div key={office.city} className="flex items-start gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-brand-blue shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-white">{officeCityName}</span> ({officeLabel})
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                  return (
+                    <Link
+                      key={city.name}
+                      href={`${prefix}#network`}
+                      className="flex items-start gap-1.5 group hover:text-white transition-colors"
+                      title={`View ${city.name} Operations`}
+                    >
+                      <MapPin className="w-3.5 h-3.5 text-brand-blue group-hover:text-brand-warm-gold shrink-0 mt-0.5 transition-colors" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-white group-hover:underline underline-offset-2">
+                          {city.name}
+                        </span>
+                        {isHeadOffice && (
+                          <span className="text-[11px] text-brand-soft-neutral/70 block xl:inline xl:ml-1 font-normal">
+                            ({headOfficeLabel})
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="space-y-2.5 text-xs text-brand-soft-neutral/80 leading-relaxed">
+                {publishedOffices.map((office) => {
+                  const officeCityName =
+                    locale === "ar" && office.city === "Dubai"
+                      ? "دبي"
+                      : locale === "ar" && office.city === "Abu Dhabi"
+                      ? "أبوظبي"
+                      : office.city;
+                  const officeLabel =
+                    locale === "ar" && office.city === "Dubai"
+                      ? "المقر الرئيسي بالإمارات"
+                      : office.label;
+
+                  return (
+                    <Link
+                      key={office.city}
+                      href={`${prefix}#network`}
+                      className="flex items-start gap-1.5 group hover:text-white transition-colors"
+                      title={`View ${office.city} Operations`}
+                    >
+                      <MapPin className="w-3.5 h-3.5 text-brand-blue group-hover:text-brand-warm-gold shrink-0 mt-0.5 transition-colors" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-white group-hover:underline underline-offset-2">
+                          {officeCityName}
+                        </span>{" "}
+                        <span className="text-[11px] text-brand-soft-neutral/70 font-normal">
+                          ({officeLabel})
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 

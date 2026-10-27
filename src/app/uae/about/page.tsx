@@ -19,7 +19,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TopBrandsStrip from "@/components/home/TopBrandsStrip";
 import JourneySection from "@/components/about/JourneySection";
-import CommercialLeadershipCard from "@/components/about/CommercialLeadershipCard";
+import AboutTeamCarousel from "@/components/about/AboutTeamCarousel";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
 import indiaData from "@/content/india.json";
 import uaeData from "@/content/uae.json";
@@ -111,9 +111,11 @@ export default function UaeAboutPage() {
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
-                    {founder.bio}
-                  </p>
+                  <div className="space-y-4 text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
+                    {(founder.aboutBio || [founder.bio]).map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
 
                   <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center gap-6 text-xs text-brand-ink/70">
                     <div className="flex items-center gap-2">
@@ -127,7 +129,11 @@ export default function UaeAboutPage() {
                   </div>
                 </div>
               </div>
-              <CommercialLeadershipCard contact={commercialContact} copy={aboutCopy} />
+              <AboutTeamCarousel
+                featured={commercialContact}
+                featuredDescription={aboutCopy.commercialDescription}
+                profiles={content.teamProfiles || indiaData.teamProfiles || []}
+              />
             </div>
           </section>
         )}

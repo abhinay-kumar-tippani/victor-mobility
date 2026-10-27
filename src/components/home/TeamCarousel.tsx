@@ -29,17 +29,17 @@ interface TeamCarouselProps {
 }
 
 const copy = {
-  en: { eyebrow: "The people behind the journey", title: "Meet the team", business: "Business partnerships", placeholder: "Illustrative profile", pending: "This team profile will be updated soon.", member: "Team member", previous: "Previous profile", next: "Next profile", pause: "Pause slideshow", play: "Play slideshow", goTo: "Show profile", whatsapp: "Open WhatsApp draft", call: "Call the desk" },
+  en: { eyebrow: "Core Key Contacts", title: "Meet the team", business: "Business partnerships", placeholder: "Illustrative profile", pending: "This team profile will be updated soon.", member: "Team member", previous: "Previous profile", next: "Next profile", pause: "Pause slideshow", play: "Play slideshow", goTo: "Show profile", whatsapp: "Open WhatsApp draft", call: "Call the desk" },
   hi: { eyebrow: "हर सफ़र के पीछे लोग", title: "हमारी टीम", business: "व्यावसायिक साझेदारियाँ", placeholder: "प्रतीकात्मक प्रोफ़ाइल", pending: "इस टीम प्रोफ़ाइल को जल्द अपडेट किया जाएगा।", member: "टीम सदस्य", previous: "पिछली प्रोफ़ाइल", next: "अगली प्रोफ़ाइल", pause: "स्लाइड शो रोकें", play: "स्लाइड शो चलाएँ", goTo: "प्रोफ़ाइल दिखाएँ", whatsapp: "व्हाट्सऐप ड्राफ़्ट खोलें", call: "डेस्क पर कॉल करें" },
   te: { eyebrow: "ప్రతి ప్రయాణం వెనుక ఉన్నవారు", title: "మా బృందం", business: "వ్యాపార భాగస్వామ్యాలు", placeholder: "నమూనా ప్రొఫైల్", pending: "ఈ బృంద సభ్యుడి వివరాలు త్వరలో నవీకరించబడతాయి.", member: "బృంద సభ్యుడు", previous: "మునుపటి ప్రొఫైల్", next: "తదుపరి ప్రొఫైల్", pause: "స్లైడ్ షో ఆపండి", play: "స్లైడ్ షో ప్రారంభించండి", goTo: "ప్రొఫైల్ చూపండి", whatsapp: "వాట్సాప్ డ్రాఫ్ట్ తెరవండి", call: "డెస్క్‌కు కాల్ చేయండి" },
   ar: { eyebrow: "الأشخاص وراء كل رحلة", title: "تعرّف على الفريق", business: "شراكات الأعمال", placeholder: "ملف تعريفي توضيحي", pending: "سيتم تحديث بيانات هذا العضو قريباً.", member: "عضو الفريق", previous: "الملف السابق", next: "الملف التالي", pause: "إيقاف عرض الشرائح", play: "تشغيل عرض الشرائح", goTo: "عرض الملف", whatsapp: "فتح مسودة واتساب", call: "اتصل بالمكتب" },
 } as const;
 
 const channelCopy = {
-  en: { phone: "Call", whatsapp: "Open WhatsApp draft", email: "Compose email", sample: "Sample", phoneName: "Phone", whatsappName: "WhatsApp", emailName: "Email" },
-  hi: { phone: "कॉल करें", whatsapp: "व्हाट्सऐप ड्राफ़्ट खोलें", email: "ईमेल लिखें", sample: "नमूना", phoneName: "फ़ोन", whatsappName: "व्हाट्सऐप", emailName: "ईमेल" },
-  te: { phone: "కాల్ చేయండి", whatsapp: "వాట్సాప్ డ్రాఫ్ట్ తెరవండి", email: "ఇమెయిల్ రాయండి", sample: "నమూనా", phoneName: "ఫోన్", whatsappName: "వాట్సాప్", emailName: "ఇమెయిల్" },
-  ar: { phone: "اتصل", whatsapp: "فتح مسودة واتساب", email: "كتابة بريد إلكتروني", sample: "نموذج", phoneName: "الهاتف", whatsappName: "واتساب", emailName: "البريد الإلكتروني" },
+  en: { phone: "Call", phoneMobile: "Call Mobile", desk: "Call Landline", whatsapp: "Open WhatsApp draft", email: "Compose email", sample: "Sample", phoneName: "Phone", phoneMobileName: "Mobile", deskName: "Office", whatsappName: "WhatsApp", emailName: "Email" },
+  hi: { phone: "कॉल करें", phoneMobile: "मोबाइल कॉल", desk: "कार्यालय फ़ोन", whatsapp: "व्हाट्सऐप ड्राफ़्ट खोलें", email: "ईमेल लिखें", sample: "नमूना", phoneName: "फ़ोन", phoneMobileName: "मोबाइल", deskName: "कार्यालय", whatsappName: "व्हाट्सऐप", emailName: "ईमेल" },
+  te: { phone: "కాల్ చేయండి", phoneMobile: "మొబైల్ కాల్", desk: "కార్యాలయ ఫోన్", whatsapp: "వాట్సాప్ డ్రాఫ్ట్ తెరవండి", email: "ఇమెయిల్ రాయండి", sample: "నమూనా", phoneName: "ఫోన్", phoneMobileName: "మొబైల్", deskName: "కార్యాలయం", whatsappName: "వాట్సాప్", emailName: "ఇమెయిల్" },
+  ar: { phone: "اتصل", phoneMobile: "اتصال جوال", desk: "هاتف المكتب", whatsapp: "فتح مسودة واتساب", email: "كتابة بريد إلكتروني", sample: "نموذج", phoneName: "الهاتف", phoneMobileName: "جوال", deskName: "المكتب", whatsappName: "واتساب", emailName: "البريد الإلكتروني" },
 } as const;
 
 export default function TeamCarousel({ featured, featuredEmail, profiles, description, basePath, whatsappMessage, storyLabel }: TeamCarouselProps) {
@@ -56,14 +56,44 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
   ];
   const active = slides[index];
   const contactChannels = [
-    { id: "phone", label: channels.phone, sampleLabel: channels.phoneName, value: active.phoneDisplay, href: !active.placeholder ? active.phoneHref : undefined, Icon: Phone },
-    { id: "whatsapp", label: channels.whatsapp, sampleLabel: channels.whatsappName, value: active.whatsappDisplay, href: !active.placeholder && active.whatsappDigits ? `https://wa.me/${active.whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}` : undefined, Icon: MessageSquare },
-    { id: "email", label: channels.email, sampleLabel: channels.emailName, value: active.emailDisplay, href: !active.placeholder && active.emailEnabled && active.emailDisplay ? `mailto:${active.emailDisplay}` : undefined, Icon: Mail },
+    {
+      id: "phone",
+      label: active.deskPhoneDisplay ? channels.phoneMobile : channels.phone,
+      sampleLabel: active.deskPhoneDisplay ? channels.phoneMobileName : channels.phoneName,
+      value: active.phoneDisplay,
+      href: !active.placeholder ? active.phoneHref : undefined,
+      Icon: Phone,
+    },
+    {
+      id: "whatsapp",
+      label: channels.whatsapp,
+      sampleLabel: channels.whatsappName,
+      value: active.whatsappDisplay,
+      href: !active.placeholder && active.whatsappDigits ? `https://wa.me/${active.whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}` : undefined,
+      Icon: MessageSquare,
+    },
+    active.deskPhoneDisplay
+      ? {
+          id: "desk",
+          label: channels.desk,
+          sampleLabel: channels.deskName,
+          value: active.deskPhoneDisplay,
+          href: !active.placeholder ? (active.deskPhoneHref || `tel:${active.deskPhoneDisplay.replace(/\s+/g, "")}`) : undefined,
+          Icon: Phone,
+        }
+      : {
+          id: "email",
+          label: channels.email,
+          sampleLabel: channels.emailName,
+          value: active.emailDisplay,
+          href: !active.placeholder && active.emailEnabled && active.emailDisplay ? `mailto:${active.emailDisplay}` : undefined,
+          Icon: Mail,
+        },
   ];
 
   useEffect(() => {
     if (paused || interacting || reducedMotion || slides.length < 2) return;
-    const timer = window.setInterval(() => setIndex((current) => (current + 1) % slides.length), 7000);
+    const timer = window.setInterval(() => setIndex((current) => (current + 1) % slides.length), 3000);
     return () => window.clearInterval(timer);
   }, [paused, interacting, reducedMotion, slides.length]);
 
@@ -86,9 +116,6 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
           </span>
           <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-3xl">{labels.title}</h3>
         </div>
-        <span className="shrink-0 rounded-full border border-brand-soft-neutral bg-brand-warm-white px-3 py-1 text-xs font-bold tabular-nums text-brand-indigo" dir="ltr">
-          {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-        </span>
       </div>
 
       <div className="grid flex-1 gap-5 px-6 py-5 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] sm:items-center sm:gap-7 sm:px-8" aria-live="off">
@@ -108,7 +135,7 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
           )}
         </div>
         <div className="min-w-0">
-          <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-violet">{active.placeholder ? labels.placeholder : labels.business}</span>
+          <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-violet">{active.placeholder ? labels.placeholder : (active.division || labels.business)}</span>
           <h4 className="mt-3 max-w-[17rem] break-words text-xl font-extrabold leading-tight text-brand-ink sm:max-w-none sm:text-2xl">
             {active.placeholder ? `${labels.member} ${String(index + 1).padStart(2, "0")}` : active.name}
           </h4>

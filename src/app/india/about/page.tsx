@@ -25,6 +25,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
 import JourneySection from "@/components/about/JourneySection";
+import AboutTeamCarousel from "@/components/about/AboutTeamCarousel";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -81,7 +82,7 @@ export default function AboutPage() {
                   Leadership & Governance
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
-                  Steered by Experience. Grounded in Accountability.
+                  Leading with Vision. Moving Forward with Trust.
                 </h2>
                 <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
                   Every journey with Victor Mobility is backed by visionary leadership and hands-on commercial governance committed to &ldquo;On Time Every Time.&rdquo;
@@ -129,9 +130,11 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
-                    {founder.bio}
-                  </p>
+                  <div className="space-y-4 text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
+                    {(founder.aboutBio || [founder.bio]).map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
 
                   <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center gap-6 text-xs text-brand-ink/70">
                     <div className="flex items-center gap-2">
@@ -146,71 +149,11 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Commercial Leadership Card */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 items-center">
-                {/* Mujeeb Portrait Column */}
-                <div className="lg:col-span-5 relative aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-full min-h-[380px] bg-brand-ink">
-                  <Image
-                    src="/images/india/leadership-mujeeb.jpg"
-                    alt={`Portrait of ${content.contact.name}, ${content.contact.role} of Victor Mobility`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover object-top"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent lg:hidden" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white lg:hidden">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1">
-                      {content.contact.role}
-                    </span>
-                    <h3 className="text-xl font-bold">{content.contact.name}</h3>
-                  </div>
-                </div>
-
-                {/* Mujeeb Narrative Column */}
-                <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 space-y-6">
-                  <div>
-                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-                      Commercial Leadership & Partnerships
-                    </span>
-                    <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
-                      {content.contact.name}
-                    </h2>
-                    <p className="text-xs sm:text-sm font-semibold text-brand-indigo mt-1">
-                      {content.contact.role} · Pan-India Operations & Client Governance
-                    </p>
-                  </div>
-
-                  <div className="p-4 sm:p-5 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex items-start gap-3">
-                    <Quote className="w-5 h-5 text-brand-indigo shrink-0 mt-1" />
-                    <p className="text-sm sm:text-base font-semibold italic text-brand-ink">
-                      &ldquo;Structured master agreements, transparent billing, and 24/7 responsiveness define our client partnerships.&rdquo;
-                    </p>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
-                    Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India. Personally accessible to corporate procurement and travel administration teams to structure custom retainers, employee commute loops, and VIP delegations.
-                  </p>
-
-                  <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center gap-4 text-xs text-brand-ink/70">
-                    <a
-                      href={content.contact.phoneHref}
-                      className="min-h-[44px] inline-flex items-center gap-2 font-bold text-brand-indigo bg-brand-warm-white hover:bg-brand-indigo hover:text-white px-4 py-2.5 rounded-xl border border-brand-soft-neutral transition-colors"
-                    >
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>{content.contact.phoneDisplay}</span>
-                    </a>
-                    <a
-                      href={`https://wa.me/${content.contact.whatsappDigits}?text=${encodeURIComponent("Hello Mujeeb, I would like to discuss corporate travel arrangements with Victor Mobility.")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="min-h-[44px] inline-flex items-center gap-2 font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-xl border border-emerald-200 transition-colors"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>WhatsApp Requirement Desk</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <AboutTeamCarousel
+                featured={content.contact}
+                featuredDescription="Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India. Personally accessible to corporate procurement and travel administration teams to structure custom retainers, employee commute loops, and VIP delegations."
+                profiles={content.teamProfiles || []}
+              />
             </div>
           </section>
         )}

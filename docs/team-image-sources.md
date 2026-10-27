@@ -1,11 +1,24 @@
-# Temporary team portraits
+# Team portraits
 
-The three portraits below were generated with the built-in ImageGen tool on 23 October 2026 and optimized to 720 × 720 WebP. They depict fictional people and are labeled **Illustrative profile** on the site. Mujeeb's existing supplied portrait was not modified.
+## Real supplied portraits (Updated 27 October 2026)
 
-| Slide | Asset | Prompt |
-| --- | --- | --- |
-| 02 | `public/images/team/profile-placeholder-2.webp` | Fictional Indian woman in her early 30s, smart business attire, warm confident expression, shoulders-up editorial portrait; semi-realistic painted illustration with subtle paper texture, softly lit warm-neutral office backdrop, indigo and muted blue accents; centered square composition; no text, logo, watermark, vehicles, or additional people. |
-| 03 | `public/images/team/profile-placeholder-3.webp` | Fictional Indian man in his late 30s with glasses, smart business attire, approachable expression, shoulders-up editorial portrait; semi-realistic painted illustration with subtle paper texture, softly lit warm-neutral office backdrop, indigo and muted violet accents; centered square composition; no text, logo, watermark, vehicles, or additional people. |
-| 04 | `public/images/team/profile-placeholder-4.webp` | Fictional South Asian woman in her 40s with short dark hair, smart business attire, composed friendly expression, shoulders-up editorial portrait; semi-realistic painted illustration with subtle paper texture, softly lit warm-neutral office backdrop, indigo and muted blue accents; centered square composition; no text, logo, watermark, vehicles, or additional people. |
+The fictional placeholder portraits have been replaced with authentic supplied photographs for Victor executive leadership:
 
-To replace a profile on both homepages, update its record in `src/content/india.json` under `teamProfiles`: set `name`, `role`, `imageSrc`, `imageAlt`, `phoneDisplay`, `whatsappDisplay`, `emailDisplay`, optionally `description`, and change `placeholder` to `false`. Add `phoneHref` and `whatsappDigits` to enable the phone and WhatsApp links; set `emailEnabled` to `true` only after that inbox is configured. The UAE homepage uses the same team list. Mujeeb's supplied phone and WhatsApp details come from `contact`; his displayed sample email is in `teamFeaturedEmail`.
+| Slide | Name | Role | Asset | Channels |
+| --- | --- | --- | --- | --- |
+| 01 | Mujeeb Ur Rahman Mohammed | Business Development Partner | `/images/india/leadership-mujeeb.jpg` | Call (+91 91007 77768) · WhatsApp (+91 93965 46950) |
+| 02 | Syed Kamran Abbas Razvi | Director - Sales & Operations | `/images/team/kamran-razvi.jpg` | Call (+91 8074 16 05 84) · WhatsApp (+91 8074 16 05 84) · Email (syedkamran@victorluxurylimousine.com) |
+| 03 | Muhammad Asif | Manager - Admin & Finance | `/images/team/muhammad-asif.jpg` | Call (+91 9100 77 77 68) · WhatsApp (+91 9100 77 77 68) · Email (asif@victorluxurylimousine.com) |
+| 04 | Mohammed Thameem Ahmed | Head of Operations | `/images/team/thameem-ahmed.png` | Call (+91 95159 50808) · WhatsApp (+91 95159 50808) · Email (thameem@victorluxurylimousine.com) |
+| 05 | Nareinder Reddyy C | Business Head - Bangalore | `/images/team/nareinder-reddy.jpg` | Call (+91 40 23 00 00 23) · WhatsApp (+91 99000 04172) · Email (nreddy@jvictorgroup.com) |
+
+## 24/7 Operations Desk
+
+| Person | Designation | Asset | Channels |
+| --- | --- | --- | --- |
+| Muhammad Asif | Manager - Admin & Finance | `/images/team/muhammad-asif.jpg` | WhatsApp (+91 9100 77 77 68) · Call (+91 9100 77 77 68) · Email (asif@victorluxurylimousine.com) |
+| Mohammed Thameem Ahmed | Head of Operations | `/images/team/thameem-ahmed.png` | WhatsApp (+91 95159 50808) · Call (+91 95159 50808) · Email (thameem@victorluxurylimousine.com) |
+
+## Archive / Historical placeholders (Generated 23 October 2026)
+
+The earlier placeholder files remain archived in `public/images/team/` (`profile-placeholder-2.webp`, `profile-placeholder-3.webp`, `profile-placeholder-4.webp`) for reference if additional positions are opened in the future.

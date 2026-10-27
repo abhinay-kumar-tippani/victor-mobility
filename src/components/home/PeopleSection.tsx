@@ -19,6 +19,7 @@ interface PeopleSectionProps {
     quote: string;
     imageSrc: string;
     bio: string;
+    aboutBio?: string[];
   };
   basePath?: string;
 }

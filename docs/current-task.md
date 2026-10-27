@@ -1,4 +1,28 @@
-# Current Task: Bring UAE Homepage to India Homepage Parity — 25 October 2026
+# Current Task: Footer Operating Hubs — 10 Cities & Removal of Branch Office Labels — 27 October 2026
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Updated the "Operating Hubs" column in the global corporate footer (`src/components/layout/Footer.tsx`):
+1. **All 10 Cities Rendered**: Replaced the 3-item office list with all 10 authorized operational cities pan-India sourced directly from `src/content/india.json`:
+   - Hyderabad (`(Head Office)`)
+   - Bengaluru
+   - Pune
+   - Mumbai
+   - Chennai
+   - Delhi
+   - Noida
+   - Gurgaon
+   - Ahmedabad
+   - Kolkata
+2. **Branch Office Labels Removed**: Stripped all `"(Branch Office)"` labels, displaying only clean city names.
+3. **Responsive Grid Layout**: Arranged the 10 cities in a tidy 2-column grid (`grid grid-cols-2 gap-x-3 gap-y-2 text-xs`) with MapPin icons linking to `#network`, preventing vertical overcrowding and ensuring zero horizontal overflow on mobile viewports.
+4. **UAE Isolation Maintained**: UAE footer routes continue displaying `Dubai (U.A.E. Head Office)`.
+
+Validation: TypeScript (`tsc --noEmit`), ESLint (`next lint`), and production build (74/74 static routes compiled) passed with 0 errors. Browser Playwright verification suite (`scripts/verify-footer-hubs.mjs`) verified all 10 cities, verified zero instances of "Branch Office", verified 390px mobile responsiveness with 0 horizontal overflow, and captured desktop/mobile screenshots (`docs/screenshots/footer-hubs-desktop.png` and `docs/screenshots/footer-hubs-mobile.png`).
+
+---
+
+## Previous Milestone: Bring UAE Homepage to India Homepage Parity — 25 October 2026
 
 Owner: Antigravity, at the user's direct request. Status: COMPLETED.
 

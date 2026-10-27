@@ -138,8 +138,8 @@ export default function UaePage() {
         <PeopleSection
           contact={content.contact}
           teamContact={indiaData.contact}
-          teamProfiles={indiaData.teamProfiles}
-          teamFeaturedEmail={indiaData.teamFeaturedEmail}
+          teamProfiles={content.teamProfiles || indiaData.teamProfiles}
+          teamFeaturedEmail={content.teamFeaturedEmail || indiaData.teamFeaturedEmail}
           founder={content.founder}
           basePath="/uae"
         />

@@ -63,10 +63,14 @@ export interface FleetCategory {
 export interface DeskPerson {
   name: string;
   designation: string;
+  imageSrc?: string;
   phoneDisplay: string;
   phoneHref: string;
+  deskPhoneDisplay?: string;
+  deskPhoneHref?: string;
   whatsappDisplay: string;
   whatsappDigits: string;
+  email?: string;
 }
 
 export interface ContactData {
@@ -96,9 +100,12 @@ export interface TeamProfile {
   imageSrc: string;
   imageAlt: string;
   placeholder: boolean;
+  division?: string;
   description?: string;
   phoneDisplay?: string;
   phoneHref?: string;
+  deskPhoneDisplay?: string;
+  deskPhoneHref?: string;
   whatsappDisplay?: string;
   whatsappDigits?: string;
   emailDisplay?: string;
@@ -201,6 +208,7 @@ export interface IndiaContent {
     quote: string;
     imageSrc: string;
     bio: string;
+    aboutBio?: string[];
   };
   milestones?: Array<{
     year: string;
