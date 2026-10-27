@@ -152,7 +152,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=window.location.pathname;if(p.startsWith('/uae')){var lu=localStorage.getItem('victor_locale_uae');if(lu==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else{document.documentElement.lang='en';document.documentElement.dir='ltr';}}else if(p.startsWith('/india')){var li=localStorage.getItem('victor_locale_india')||localStorage.getItem('victor_locale');if(li==='hi'||li==='te'){document.documentElement.lang=li;}else{document.documentElement.lang='en';}document.documentElement.dir='ltr';}else{document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}})();`,
+            __html: `(function(){try{var p=window.location.pathname;if(p.startsWith('/uae')){var lu=localStorage.getItem('victor_locale_uae');if(lu==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else{document.documentElement.lang='en';document.documentElement.dir='ltr';}}else if(p.startsWith('/india')){var li=localStorage.getItem('victor_locale_india')||localStorage.getItem('victor_locale');if(li==='hi'||li==='te'||li==='kn'||li==='ta'||li==='ma'){document.documentElement.lang=li;}else{document.documentElement.lang='en';}document.documentElement.dir='ltr';}else{document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}})();`,
           }}
         />
         <script

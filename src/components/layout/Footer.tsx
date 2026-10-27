@@ -42,6 +42,12 @@ export default function Footer({
       ? "नमस्ते Victor Mobility, मैं एक परिवहन आवश्यकता पर चर्चा करना चाहता हूँ।"
       : locale === "te"
       ? "నమస్కారం Victor Mobility, నేను రవాణా అవసరం గురించి చర్చించాలనుకుంటున్నాను."
+      : locale === "kn"
+      ? "ನಮಸ್ಕಾರ Victor Mobility, ನಾನು ಸಾರಿಗೆ ಅವಶ್ಯಕತೆಯ ಬಗ್ಗೆ ಚರ್ಚಿಸಲು ಬಯಸುತ್ತೇನೆ."
+      : locale === "ta"
+      ? "வணக்கம் Victor Mobility, நான் ஒரு போக்குவரத்து தேவை பற்றி பேச விரும்புகிறேன்."
+      : locale === "ma"
+      ? "നമസ്കാരം Victor Mobility, എനിക്ക് ഒരു യാത്രാ ആവശ്യത്തെക്കുറിച്ച് സംസാരിക്കണം."
       : "Hello Victor Mobility, I would like to discuss a transport requirement.";
 
   const aboutText = isIndia

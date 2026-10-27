@@ -1,4 +1,31 @@
-# Current Task: Footer Operating Hubs — 10 Cities & Removal of Branch Office Labels — 27 October 2026
+# Current Task: Remove Mohammed Thameem Ahmed from Meet the Team & About, Keep in 24/7 Operations Desk — 27 October 2026
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+1. **Removed from Team Carousels**:
+   - Removed `thameem-ahmed` from `teamProfiles` in both `src/content/india.json` and `src/content/uae.json`.
+   - The team carousel across `/india`, `/uae`, `/india/about`, and `/uae/about` now displays exactly 4 executive profiles:
+     1. Mujeeb Ur Rahman Mohammed (Commercial Lead)
+     2. Syed Kamran Abbas Razvi (Director - Sales & Operations)
+     3. Muhammad Asif (Manager - Admin & Finance)
+     4. Nareinder Reddyy C (Business Head - Bangalore)
+2. **Preserved in 24/7 Live Operations Desk**:
+   - Maintained Mohammed Thameem Ahmed (Head of Operations) in the 24/7 Live Operations Desk (`contact.available247.people` in `src/content/india.json`) alongside Muhammad Asif.
+   - Includes full contact card: authentic photo, phone call (`tel:+919515950808`), instant WhatsApp (`+91 95159 50808`), and direct email link (`thameem@victorluxurylimousine.com`).
+3. **Locale Type Support**:
+   - Updated `src/components/home/TeamCarousel.tsx` to safely index localized copy with fallback, ensuring clean builds across all supported locales.
+
+Validation: TypeScript (`tsc --noEmit`), ESLint (`next lint`), and production build (74/74 static routes compiled) passed with 0 errors. Browser Playwright verification suite (`scripts/verify-thameem-removal.mjs`) confirmed:
+- Exactly 4 profiles in Meet the Team across `/india` and `/uae`.
+- Exactly 4 profiles in About team carousel across `/india/about` and `/uae/about`.
+- 0 instances of Mohammed Thameem Ahmed in any team carousel.
+- Presence of Mohammed Thameem Ahmed in 24/7 Live Operations Desk with working phone, WhatsApp, and mailto links.
+- 0 horizontal overflow at 390px mobile viewport.
+- Captured screenshots: `docs/screenshots/desk-thameem-desktop.png`, `docs/screenshots/about-team-india-4profiles.png`, and `docs/screenshots/desk-thameem-mobile.png`.
+
+---
+
+## Previous Milestone: Footer Operating Hubs — 10 Cities & Removal of Branch Office Labels — 27 October 2026
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
 

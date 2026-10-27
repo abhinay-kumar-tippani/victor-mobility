@@ -130,7 +130,21 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
             <button type="button" onClick={closeAssistant} aria-label={effectiveCopy.close} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"><X className="h-5 w-5" aria-hidden="true" /></button>
           </div>
           <div className="p-5 sm:p-6">
-            <p aria-live="polite" className="text-xs font-bold uppercase tracking-widest text-brand-blue">{locale === "ar" ? `الخطوة ${step + 1} من 3` : locale === "hi" ? `चरण ${step + 1} / 3` : `Step ${step + 1} of 3`}</p>
+            <p aria-live="polite" className="text-xs font-bold uppercase tracking-widest text-brand-blue">
+              {locale === "ar"
+                ? `الخطوة ${step + 1} من 3`
+                : locale === "hi"
+                ? `चरण ${step + 1} / 3`
+                : locale === "te"
+                ? `దశ ${step + 1} / 3`
+                : locale === "kn"
+                ? `ಹಂತ ${step + 1} / 3`
+                : locale === "ta"
+                ? `படி ${step + 1} / 3`
+                : locale === "ma"
+                ? `ഘട്ടം ${step + 1} / 3`
+                : `Step ${step + 1} of 3`}
+            </p>
             <div aria-hidden="true" className="mb-5 mt-3 flex gap-2">{[0, 1, 2].map(index => <span key={index} className={`h-1 flex-1 rounded-full ${index <= step ? "bg-brand-indigo" : "bg-brand-soft-neutral"}`} />)}</div>
             <h3 ref={headingRef} tabIndex={-1} className="mb-5 text-xl font-extrabold tracking-tight outline-none">{effectiveCopy.stepTitles[step]}</h3>
             {step < 2 ? (
@@ -165,7 +179,7 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
             )}
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-brand-soft-neutral pt-4 text-sm">
               <Link href={pathname.startsWith("/uae") ? "/uae/contact" : "/india/contact"} onClick={closeAssistant} className="inline-flex min-h-[44px] items-center font-semibold text-brand-indigo underline underline-offset-4">{effectiveCopy.fullForm}</Link>
-              <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{locale === "ar" ? "اتصل بمكتب العمليات" : copy.callLabel}</a>
+              <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{locale === "ar" ? "اتصل بمكتب العمليات" : locale === "hi" ? "संचालन डेस्क को कॉल करें" : locale === "te" ? "ఆపరేషన్స్ డెస్క్‌కు కాల్ చేయండి" : locale === "kn" ? "ಕಾರ್ಯಾಚರಣೆ ಡೆಸ್ಕ್‌ಗೆ ಕರೆ ಮಾಡಿ" : locale === "ta" ? "செயல்பாட்டு மையத்தை அழைக்கவும்" : locale === "ma" ? "ഓപ്പറേഷൻസ് ഡെസ്കിലേക്ക് വിളിക്കുക" : copy.callLabel}</a>
             </div>
           </div>
         </div>

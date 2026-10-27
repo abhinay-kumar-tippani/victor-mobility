@@ -17,6 +17,9 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
   const isAr = draft.locale === "ar";
   const isHi = draft.locale === "hi";
   const isTe = draft.locale === "te";
+  const isKn = draft.locale === "kn";
+  const isTa = draft.locale === "ta";
+  const isMa = draft.locale === "ma";
 
   if (isAr) {
     return [
@@ -75,6 +78,66 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
       draft.requirement.trim() || "[షిఫ్ట్ సమయాలు, రూట్ కారిడార్, ప్రయాణీకుల సంఖ్య లేదా తేదీలు]",
       "--------------------------------",
       "Victor Mobility విచారణ ద్వారా రూపొందించబడింది",
+    ].join("\n");
+  }
+
+  if (isKn) {
+    return [
+      "*ಸಾರಿಗೆ ಅಗತ್ಯತೆಯ ವಿಚಾರಣೆ*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*ಸಂಪರ್ಕ ಹೆಸರು:* ${draft.fullName.trim() || "[ನಿಮ್ಮ ಹೆಸರು]"}`,
+      ...(draft.company?.trim() ? [`*ಕಂಪನಿ:* ${draft.company.trim()}`] : []),
+      `*ಅಗತ್ಯವಿರುವ ಸೇವೆ:* ${draft.service}`,
+      ...(draft.category ? [`*ವಾಹನ ವರ್ಗ:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*ಕೋರಿದ ವಾಹನ:* ${draft.vehicle.trim()}`] : []),
+      `*ನಗರ / ಪ್ರದೇಶ:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*ಪ್ರಯಾಣಿಕರು:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*ಪ್ರಯಾಣ / ಪ್ರಾರಂಭ ದಿನಾಂಕ:* ${draft.travelDate}`] : []),
+      "*ಪ್ರಯಾಣದ ವಿವರಗಳು:*",
+      draft.requirement.trim() || "[ಶಿಫ್ಟ್ ಸಮಯ, ಮಾರ್ಗ ಕಾರಿಡಾರ್, ಪ್ರಯಾಣಿಕರ ಸಂಖ್ಯೆ ಅಥವಾ ದಿನಾಂಕಗಳು]",
+      "--------------------------------",
+      "Victor Mobility ವಿಚಾರಣೆ ಮೂಲಕ ಸಿದ್ಧಪಡಿಸಲಾಗಿದೆ",
+    ].join("\n");
+  }
+
+  if (isTa) {
+    return [
+      "*போக்குவரத்து தேவை விசாரணை*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*தொடர்பு பெயர்:* ${draft.fullName.trim() || "[உங்கள் பெயர்]"}`,
+      ...(draft.company?.trim() ? [`*நிறுவனம்:* ${draft.company.trim()}`] : []),
+      `*தேவைப்படும் சேவை:* ${draft.service}`,
+      ...(draft.category ? [`*வாகன வகை:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*கோரப்பட்ட வாகனம்:* ${draft.vehicle.trim()}`] : []),
+      `*நகரம் / பகுதி:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*பயணிகள்:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*பயண / தொடக்க தேதி:* ${draft.travelDate}`] : []),
+      "*பயண விவரங்கள்:*",
+      draft.requirement.trim() || "[ஷிப்ட் நேரங்கள், வழித்தடம், பயணிகள் எண்ணிக்கை அல்லது தேதிகள்]",
+      "--------------------------------",
+      "Victor Mobility விசாரணை மூலம் உருவாக்கப்பட்டது",
+    ].join("\n");
+  }
+
+  if (isMa) {
+    return [
+      "*ഗതാഗത ആവശ്യങ്ങളുടെ അന്വേഷണം*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*ബന്ധപ്പെടേണ്ട പേര്:* ${draft.fullName.trim() || "[നിങ്ങളുടെ പേര്]"}`,
+      ...(draft.company?.trim() ? [`*കമ്പനി:* ${draft.company.trim()}`] : []),
+      `*ആവശ്യമായ സേവനം:* ${draft.service}`,
+      ...(draft.category ? [`*വാഹന വിഭാഗം:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*ആവശ്യപ്പെട്ട വാഹനം:* ${draft.vehicle.trim()}`] : []),
+      `*നഗരം / പ്രദേശം:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*യാത്രക്കാർ:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*യാത്രാ / ആരംഭ തീയതി:* ${draft.travelDate}`] : []),
+      "*യാത്രാ വിവരങ്ങൾ:*",
+      draft.requirement.trim() || "[ഷിഫ്റ്റ് സമയം, റൂട്ട്, യാത്രക്കാരുടെ എണ്ണം അല്ലെങ്കിൽ തീയതികൾ]",
+      "--------------------------------",
+      "Victor Mobility അന്വേഷണം വഴി തയ്യാറാക്കിയത്",
     ].join("\n");
   }
 

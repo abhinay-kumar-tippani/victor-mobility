@@ -866,22 +866,6 @@
       "emailEnabled": true
     },
     {
-      "id": "thameem-ahmed",
-      "name": "Mohammed Thameem Ahmed",
-      "role": "Head of Operations",
-      "division": "Operations",
-      "imageSrc": "/images/team/thameem-ahmed.png",
-      "imageAlt": "Portrait of Mohammed Thameem Ahmed, Head of Operations at Victor Mobility",
-      "placeholder": false,
-      "description": "Leading 24/7 fleet dispatch, route optimization, chauffeur protocol governance, and real-time transit coordination.",
-      "phoneDisplay": "+91 95159 50808",
-      "phoneHref": "tel:+919515950808",
-      "whatsappDisplay": "+91 95159 50808",
-      "whatsappDigits": "9515950808",
-      "emailDisplay": "thameem@victorluxurylimousine.com",
-      "emailEnabled": true
-    },
-    {
       "id": "nareinder-reddy",
       "name": "Nareinder Reddyy C",
       "role": "Business Head - Bangalore",

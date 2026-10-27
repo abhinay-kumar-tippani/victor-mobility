@@ -15,12 +15,18 @@ import { INDIA_LOCALES, UAE_LOCALES, SUPPORTED_LOCALES } from "./types";
 import { enDictionary } from "./dictionaries/en";
 import { hiDictionary } from "./dictionaries/hi";
 import { teDictionary } from "./dictionaries/te";
+import { knDictionary } from "./dictionaries/kn";
+import { taDictionary } from "./dictionaries/ta";
+import { maDictionary } from "./dictionaries/ma";
 import { arDictionary } from "./dictionaries/ar";
 
 const DICTIONARIES: Record<SupportedLocale, TranslationDictionary> = {
   en: enDictionary,
   hi: hiDictionary,
   te: teDictionary,
+  kn: knDictionary,
+  ta: taDictionary,
+  ma: maDictionary,
   ar: arDictionary,
 };
 
@@ -60,7 +66,14 @@ function getSavedLocale(region: Region): SupportedLocale {
     } else {
       const indiaSaved = (localStorage.getItem(STORAGE_KEY_INDIA) ||
         localStorage.getItem(STORAGE_KEY_INDIA_LEGACY)) as SupportedLocale | null;
-      if (indiaSaved === "en" || indiaSaved === "hi" || indiaSaved === "te") {
+      if (
+        indiaSaved === "en" ||
+        indiaSaved === "hi" ||
+        indiaSaved === "te" ||
+        indiaSaved === "kn" ||
+        indiaSaved === "ta" ||
+        indiaSaved === "ma"
+      ) {
         return indiaSaved;
       }
       const match = document.cookie.match(
@@ -68,7 +81,15 @@ function getSavedLocale(region: Region): SupportedLocale {
       );
       if (match) {
         const val = decodeURIComponent(match[1]) as SupportedLocale;
-        if (val === "en" || val === "hi" || val === "te") return val;
+        if (
+          val === "en" ||
+          val === "hi" ||
+          val === "te" ||
+          val === "kn" ||
+          val === "ta" ||
+          val === "ma"
+        )
+          return val;
       }
       return "en";
     }
@@ -131,7 +152,15 @@ export function LanguageProvider({ children, region: propRegion }: LanguageProvi
       if (currentRegion === "uae") {
         if (newLocale !== "en" && newLocale !== "ar") return;
       } else {
-        if (newLocale !== "en" && newLocale !== "hi" && newLocale !== "te") return;
+        if (
+          newLocale !== "en" &&
+          newLocale !== "hi" &&
+          newLocale !== "te" &&
+          newLocale !== "kn" &&
+          newLocale !== "ta" &&
+          newLocale !== "ma"
+        )
+          return;
       }
 
       setLocaleState(newLocale);

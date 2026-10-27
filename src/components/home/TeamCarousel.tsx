@@ -44,8 +44,8 @@ const channelCopy = {
 
 export default function TeamCarousel({ featured, featuredEmail, profiles, description, basePath, whatsappMessage, storyLabel }: TeamCarouselProps) {
   const { locale } = useLanguage();
-  const labels = copy[locale];
-  const channels = channelCopy[locale];
+  const labels = (copy as Record<string, Record<string, string>>)[locale] || copy.en;
+  const channels = (channelCopy as Record<string, Record<string, string>>)[locale] || channelCopy.en;
   const reducedMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
