@@ -33,3 +33,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated development captures and local inventory exports
+/project-files.csv
+/docs/screenshots/**/*.png
+/docs/screenshots/**/*.jpg
+/docs/inspection/thumb-*.jpg
+/docs/inspection/screenshots/*.png
+/outputs/victor-comparison-20261017/
