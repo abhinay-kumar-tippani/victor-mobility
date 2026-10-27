@@ -31,7 +31,7 @@ export default function Header({ contact }: HeaderProps) {
   const whatsappHref = `${contact.whatsappBaseUrl}?text=${encodeURIComponent(whatsappMessage)}`;
   const emailHref = contact.emailEnabled
     ? `mailto:${contact.printedEmail}`
-    : `${basePrefix}/contact#email-enquiry`;
+    : `${basePrefix}/contact?channel=email`;
 
   const navItems = [
     { label: dict.nav.home || "Home", href: basePrefix },

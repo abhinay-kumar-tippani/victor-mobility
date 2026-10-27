@@ -95,7 +95,7 @@ export default function CorporateEsgCalculator({
     window.print();
   };
 
-  const waNumber = region === "india" ? "919396546950" : "971524552441";
+  const waNumber = region === "india" ? "919515850808" : "971524552441";
   const waEsgMessage = `*VICTOR MOBILITY · ESG CARBON MITIGATION CONSULTATION*
 Region: ${region === "india" ? "India (Hyderabad / Bengaluru / Pune)" : "UAE (Dubai / Abu Dhabi)"}
 Corporate Commuters: ${commuterCount} employees

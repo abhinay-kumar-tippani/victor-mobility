@@ -53,7 +53,7 @@ export default function ExecutivePresentationDeck({
     window.print();
   };
 
-  const waNumber = region === "india" ? "919396546950" : "971524552441";
+  const waNumber = region === "india" ? "919515850808" : "971524552441";
   const waBrochureMessage = `*VICTOR MOBILITY · REQUEST OFFICIAL PDF COMPANY PROFILE*
 Entity: ${data.companyName}
 Tagline: On Time Every Time.

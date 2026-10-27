@@ -141,14 +141,14 @@ export default function CitiesSection({ cities, offices, contact }: CitiesSectio
 
             <div className="flex flex-wrap gap-3 pt-2">
               <a
-                href={contact?.phoneHref || "tel:+919100777768"}
+                href={contact?.phoneHref || "tel:+919515850808"}
                 className="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-brand-indigo hover:bg-brand-warm-white px-3.5 py-2 rounded-lg transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-indigo" />
-                <span>{contact?.phoneDisplay || "+91 91007 77768"}</span>
+                <span>{contact?.phoneDisplay || "+91 95158 50808"}</span>
               </a>
               <a
-                href={`${contact?.whatsappBaseUrl || "https://wa.me/919396546950"}?text=${encodeURIComponent(
+                href={`${contact?.whatsappBaseUrl || "https://wa.me/919515850808"}?text=${encodeURIComponent(
                   "Hello Victor Mobility, I would like to discuss a corporate transport requirement."
                 )}`}
                 target="_blank"

@@ -44,7 +44,7 @@ export default function MarketsPage() {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+919100777768',
+        telephone: '+919515850808',
         contactType: 'customer service',
         areaServed: 'IN',
         availableLanguage: ['en', 'hi'],

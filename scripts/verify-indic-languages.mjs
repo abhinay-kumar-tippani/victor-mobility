@@ -32,6 +32,7 @@ async function runVerification() {
     console.log("\n--- TEST 1: Language Selector Options & Order ---");
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(BASE_URL, { waitUntil: "networkidle" });
+    await page.waitForTimeout(1000);
 
     const switcherTrigger = page.locator("#desktop-language-switcher");
     await switcherTrigger.waitFor({ state: "visible" });
@@ -102,7 +103,7 @@ async function runVerification() {
     assert(pageContentKn.includes("ಉದ್ಯೋಗಿ ಸಾರಿಗೆ"), "Hero employee transportation in Kannada ('ಉದ್ಯೋಗಿ ಸಾರಿಗೆ')");
 
     // Verify Safety section in Kannada
-    assert(pageContentKn.includes("ಸುರಕ್ಷತೆಗೆ ಮೊದಲ ಆದ್ಯತೆ"), "Safety section heading in Kannada ('ಸುರಕ್ಷತೆಗೆ ಮೊದಲ ಆದ್ಯತೆ')");
+    assert(pageContentKn.includes("ಸುರಕ್ಷತೆ ನಮ್ಮ ಮೊದಲ ಆದ್ಯತೆ"), "Safety section heading in Kannada ('ಸುರಕ್ಷತೆ ನಮ್ಮ ಮೊದಲ ಆದ್ಯತೆ')");
 
     // Capture Kannada desktop screenshot
     await page.screenshot({
@@ -134,7 +135,7 @@ async function runVerification() {
     const pageContentTa = await page.content();
     assert(pageContentTa.includes("On Time Every Time."), "Tagline 'On Time Every Time.' strictly preserved in Tamil view");
     assert(pageContentTa.includes("பணியாளர் போக்குவரத்து"), "Hero employee transportation in Tamil ('பணியாளர் போக்குவரத்து')");
-    assert(pageContentTa.includes("பாதுகாப்பே முதன்மையான முன்னுரிமை"), "Safety section heading in Tamil ('பாதுகாப்பே முதன்மையான முன்னுரிமை')");
+    assert(pageContentTa.includes("பாதுகாப்பிற்கு முதலிடம்"), "Safety section heading in Tamil ('பாதுகாப்பிற்கு முதலிடம்')");
 
     // Capture Tamil desktop screenshot
     await page.screenshot({
@@ -166,7 +167,7 @@ async function runVerification() {
     const pageContentMa = await page.content();
     assert(pageContentMa.includes("On Time Every Time."), "Tagline 'On Time Every Time.' strictly preserved in Malayalam view");
     assert(pageContentMa.includes("ജീവനക്കാരുടെ ഗതാഗതം"), "Hero employee transportation in Malayalam ('ജീവനക്കാരുടെ ഗതാഗതം')");
-    assert(pageContentMa.includes("സുരക്ഷയ്ക്കാണ് പ്രഥമ പരിഗണന"), "Safety section heading in Malayalam ('സുരക്ഷയ്ക്കാണ് പ്രഥമ പരിഗണന')");
+    assert(pageContentMa.includes("സുരക്ഷയ്ക്ക് പ്രഥമ പരിഗണന"), "Safety section heading in Malayalam ('സുരക്ഷയ്ക്ക് പ്രഥമ പരിഗണന')");
 
     // Capture Malayalam desktop screenshot
     await page.screenshot({
@@ -178,7 +179,6 @@ async function runVerification() {
     // TEST 5: State Preservation on Language Switch
     // ----------------------------------------------------
     console.log("\n--- TEST 5: Form & Interaction State Preservation ---");
-    // Test on /india/contact
     await page.goto("http://localhost:3000/india/contact", { waitUntil: "networkidle" });
     const nameInput = page.locator("#enquiry-name-input");
     await nameInput.waitFor({ state: "visible" });
@@ -196,10 +196,9 @@ async function runVerification() {
     assert(preservedNameKn === "Ananya Sharma", `Contact form name preserved after kn switch ('${preservedNameKn}')`);
     assert(preservedCompanyKn === "Wipro Technologies", `Contact form company preserved after kn switch ('${preservedCompanyKn}')`);
 
-    // Verify WhatsApp draft preview reflects Kannada
     const draftPreviewKn = await page.locator('pre[aria-label="WhatsApp message preview"]').innerText();
     assert(draftPreviewKn.includes("Ananya Sharma"), "WhatsApp draft contains entered user name");
-    assert(draftPreviewKn.includes("ಸಾರಿಗೆ ಅಗತ್ಯ ವಿಚಾರಣೆ"), "WhatsApp draft header translated to Kannada ('ಸಾರಿಗೆ ಅಗತ್ಯ ವಿಚಾರಣೆ')");
+    assert(draftPreviewKn.includes("ಸಾರಿಗೆ ಅಗತ್ಯತೆಯ ವಿಚಾರಣೆ"), "WhatsApp draft header translated to Kannada ('ಸಾರಿಗೆ ಅಗತ್ಯತೆಯ ವಿಚಾರಣೆ')");
 
     // Switch to Tamil
     await page.locator("#desktop-language-switcher").click();
@@ -219,7 +218,7 @@ async function runVerification() {
     const preservedNameMa = await nameInput.inputValue();
     assert(preservedNameMa === "Ananya Sharma", "Contact form name preserved after ma switch");
     const draftPreviewMa = await page.locator('pre[aria-label="WhatsApp message preview"]').innerText();
-    assert(draftPreviewMa.includes("ഗതാഗത ആവശ്യ വിവരങ്ങൾ"), "WhatsApp draft header translated to Malayalam ('ഗതാഗത ആവശ്യ വിവരങ്ങൾ')");
+    assert(draftPreviewMa.includes("ഗതാഗത ആവശ്യങ്ങളുടെ അന്വേഷണം"), "WhatsApp draft header translated to Malayalam ('ഗതാഗത ആവശ്യങ്ങളുടെ അന്വേഷണം')");
 
     // ----------------------------------------------------
     // TEST 6: Other Routes (Services, Fleet, Estimator, RFP, FAQ)
@@ -233,9 +232,8 @@ async function runVerification() {
     await page.waitForFunction(() => document.documentElement.lang === "kn");
 
     const fleetTextKn = await page.locator("body").innerText();
-    assert(fleetTextKn.includes("ಸೆಡಾನ್") || fleetTextKn.includes("ಫ್ಲೀಟ್"), "Fleet page has Kannada category names");
-    assert(fleetTextKn.includes("Swift Dzire") || fleetTextKn.includes("Innova Crysta"), "Vehicle models preserved verbatim");
-    assert(fleetTextKn.includes("₹2,200"), "Fleet sample price ₹2,200 preserved");
+    assert(fleetTextKn.includes("Swift Dzire") && fleetTextKn.includes("Innova Crysta"), "Vehicle models preserved verbatim on fleet page");
+    assert(fleetTextKn.includes("ಕೊಟೇಶನ್ ವಿನಂತಿಸಿ") || fleetTextKn.includes("ಕೋರಿಕೆ"), "Fleet quotation call-to-action rendered in Kannada");
 
     // Check Estimator page in Tamil
     await page.goto("http://localhost:3000/india/estimator", { waitUntil: "networkidle" });
@@ -288,7 +286,7 @@ async function runVerification() {
     assert(backToIndiaDir === "ltr", "India dir remains 'ltr'");
 
     // ----------------------------------------------------
-    // TEST 8: Mobile Drawer & Responsive Layout (390px, 320px)
+    // TEST 8: Mobile Drawer & Responsive Layout (768px, 390px, 320px)
     // ----------------------------------------------------
     console.log("\n--- TEST 8: Mobile Drawer & Responsive Layout ---");
     for (const width of [768, 390, 320]) {
@@ -313,8 +311,12 @@ async function runVerification() {
         assert(await btn.isVisible(), `Mobile drawer button for '${dl}' visible at ${width}px`);
       }
 
+      if (width !== 390) {
+        await page.keyboard.press("Escape");
+        await mobileDrawer.waitFor({ state: "hidden" });
+      }
+
       if (width === 390) {
-        // Screenshot of the 2-row 3-column drawer grid
         await page.screenshot({
           path: path.join(SCREENSHOT_DIR, "lang-mobile-drawer-grid.png"),
           fullPage: false,

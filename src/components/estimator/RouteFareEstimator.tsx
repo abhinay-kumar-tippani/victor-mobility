@@ -63,7 +63,7 @@ export default function RouteFareEstimator({ region }: RouteFareEstimatorProps) 
     ] || "Rate on Request";
 
   // WhatsApp numbers & links
-  const whatsappNumber = region === "india" ? "919396546950" : "971524552441";
+  const whatsappNumber = region === "india" ? "919515850808" : "971524552441";
   const entityName =
     region === "india" ? "Victor Mobility (India)" : "Victor Luxury Limousine (UAE)";
 

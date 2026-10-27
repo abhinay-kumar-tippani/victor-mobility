@@ -66,7 +66,7 @@ export default function EventLogisticsStagingDesk({
     window.print();
   };
 
-  const waNumber = region === "india" ? "919396546950" : "971524552441";
+  const waNumber = region === "india" ? "919515850808" : "971524552441";
   const waEventMessage = `*VICTOR MOBILITY · MEGA-EVENT & SUMMIT LOGISTICS BRIEF*
 Region: ${region === "india" ? "India (Hyderabad / Bengaluru / Pune)" : "UAE (Dubai / Abu Dhabi)"}
 Event Archetype: ${selectedEvent.name}

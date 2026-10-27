@@ -21,6 +21,7 @@ import TopBrandsStrip from "@/components/home/TopBrandsStrip";
 import JourneySection from "@/components/about/JourneySection";
 import AboutTeamCarousel from "@/components/about/AboutTeamCarousel";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
+import ImmediateAssistanceCard from "@/components/contact/ImmediateAssistanceCard";
 import indiaData from "@/content/india.json";
 import uaeData from "@/content/uae.json";
 import mediaData from "@/content/media.json";
@@ -68,10 +69,10 @@ export default function UaeAboutPage() {
         {founder && (
           <section className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-              <div className="max-w-3xl">
+              <div className="max-w-5xl">
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue">{aboutCopy.leadershipEyebrow}</p>
-                <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-4xl">{aboutCopy.leadershipTitle}</h2>
-                <p className="text-sm leading-relaxed text-brand-ink/75 sm:text-base">{aboutCopy.leadershipDescription}</p>
+                <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl lg:whitespace-nowrap">{aboutCopy.leadershipTitle}</h2>
+                <p className="max-w-3xl text-sm leading-relaxed text-brand-ink/75 sm:text-base">{aboutCopy.leadershipDescription}</p>
               </div>
               <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 items-center">
                 <div className="lg:col-span-5 relative aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-full min-h-[380px] bg-brand-ink">
@@ -290,42 +291,33 @@ export default function UaeAboutPage() {
           </section>
         )}
 
-        {/* CTA Section */}
-        <section className="py-14 bg-brand-warm-white">
+        {/* Immediate Assistance & Direct Requirement Section */}
+        <section id="immediate-assistance" className="py-16 sm:py-24 bg-brand-warm-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col xl:flex-row items-center justify-between gap-8">
-              <div className="flex min-w-0 flex-col items-start gap-5 sm:flex-row sm:items-center xl:max-w-xl">
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-white/20 bg-white/10 shadow-md sm:h-20 sm:w-20">
-                  <Image src={aboutCopy.commercialImageSrc} alt={`Portrait of ${commercialContact.name}`} fill sizes="(max-width: 640px) 64px, 80px" className="object-cover object-top" />
-                </div>
-                <div className="min-w-0 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-violet block">
-                  {aboutCopy.contactEyebrow}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-6 space-y-5">
+                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
+                  {aboutCopy.contactEyebrow || "Direct UAE Requirement Desk"}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  {aboutCopy.contactTitle}
-                </h3>
-                <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
-                  {aboutCopy.contactDescription}
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight leading-tight">
+                  {aboutCopy.contactTitle || "Discuss Your UAE Itinerary"}
+                </h2>
+                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                  {aboutCopy.contactDescription || "Connect directly with our leadership and operations desk to discuss corporate limousine retainers, airport VIP transfers, and delegation transit across Dubai and Abu Dhabi."}
                 </p>
+                <div className="pt-2">
+                  <Link
+                    href="/uae/contact"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>{aboutCopy.contactAction || "Open Requirement Desk"}</span>
+                  </Link>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 w-full xl:w-auto shrink-0">
-                <Link
-                  href="/uae/contact"
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>{aboutCopy.contactAction}</span>
-                </Link>
-                <a
-                  href={content.contact.phoneHref}
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-xl transition-colors border border-white/20"
-                >
-                  <Phone className="w-4 h-4 text-brand-soft-neutral" />
-                  <span>{content.contact.phoneDisplay}</span>
-                </a>
+              <div className="lg:col-span-6 max-w-lg lg:max-w-none mx-auto w-full">
+                <ImmediateAssistanceCard isUae={true} />
               </div>
             </div>
           </div>

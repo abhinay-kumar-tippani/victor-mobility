@@ -261,7 +261,7 @@ export default function Hero({ content }: HeroProps) {
         <div className="max-w-xl lg:max-w-2xl space-y-5 sm:space-y-6 mt-1 sm:mt-2 mb-auto">
           {/* Service Headline & Subheading: Sculpted Luxury Editorial Hierarchy */}
           <div className="space-y-3 sm:space-y-3.5">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-semibold tracking-[-0.03em] text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-semibold tracking-[-0.03em] text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)] break-words">
               {currentSlide.title}
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
@@ -286,7 +286,7 @@ export default function Hero({ content }: HeroProps) {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-1 sm:pt-2">
             <Link
               href={`${prefix}/services/${currentSlide.slug}`}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-zinc-950 font-semibold text-sm sm:text-base shadow-[0_4px_24px_rgba(255,255,255,0.22)] hover:bg-zinc-100 hover:shadow-[0_6px_32px_rgba(255,255,255,0.32)] hover:-translate-y-0.5 transition-all duration-200 group text-center"
+              className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-zinc-950 font-semibold text-sm sm:text-base shadow-[0_4px_24px_rgba(255,255,255,0.22)] hover:bg-zinc-100 hover:shadow-[0_6px_32px_rgba(255,255,255,0.32)] hover:-translate-y-0.5 transition-all duration-200 group text-center"
             >
               <span>{dict.hero.exploreService}</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" />
@@ -294,7 +294,7 @@ export default function Hero({ content }: HeroProps) {
 
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 backdrop-blur-md font-medium text-sm sm:text-base hover:-translate-y-0.5 transition-all duration-200 text-center shadow-sm"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 backdrop-blur-md font-medium text-sm sm:text-base hover:-translate-y-0.5 transition-all duration-200 text-center shadow-sm"
             >
               <span>{dict.hero.discussRequirement}</span>
             </Link>

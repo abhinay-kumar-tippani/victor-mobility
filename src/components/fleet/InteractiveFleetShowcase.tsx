@@ -85,11 +85,11 @@ export default function InteractiveFleetShowcase({
     categories.find((c) => c.id === calcCategory) || categories[0];
 
   // WhatsApp numbers and contact config
-  const waNumber = region === "india" ? "919396546950" : "971524552441";
+  const waNumber = region === "india" ? "919515850808" : "971524552441";
   const phoneDisplay =
-    region === "india" ? "+91 91007 77768" : "+971 52 455 2441";
+    region === "india" ? "+91 95158 50808" : "+971 52 455 2441";
   const phoneHref =
-    region === "india" ? "tel:+919100777768" : "tel:+971524552441";
+    region === "india" ? "tel:+919515850808" : "tel:+971524552441";
 
   // Duty Labels mapping
   const dutyLabels: Record<string, string> = {

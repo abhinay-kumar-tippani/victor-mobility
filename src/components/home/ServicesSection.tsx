@@ -86,7 +86,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
       id="services"
       tabIndex={-1}
       aria-labelledby="services-heading"
-      className="py-16 sm:py-24 bg-[#F8F9FB] border-b border-brand-soft-neutral focus:outline-none"
+      className="py-16 sm:py-24 bg-[#F8F9FB] border-b border-brand-soft-neutral focus:outline-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

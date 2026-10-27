@@ -3,7 +3,7 @@ import { chromium } from "playwright";
 const baseUrl = process.env.ABOUT_PREVIEW_URL || "http://127.0.0.1:3015";
 const browser = await chromium.launch({ channel: "msedge", headless: true });
 const team = [
-  { name: "Mujeeb Ur Rahman Mohammed", phone: "tel:+919100777768", whatsapp: "919396546950", email: null },
+  { name: "Mujeeb Ur Rahman Mohammed", phone: "tel:+919515850808", whatsapp: "919515850808", email: "mujeeb@victorluxurylimousine.com" },
   { name: "Syed Kamran Abbas Razvi", phone: "tel:+918074160584", whatsapp: "918074160584", email: "syedkamran@victorluxurylimousine.com" },
   { name: "Muhammad Asif", phone: "tel:+919100777768", whatsapp: "919100777768", email: "asif@victorluxurylimousine.com" },
   { name: "Mohammed Thameem Ahmed", phone: "tel:+919515950808", whatsapp: "919515950808", email: "thameem@victorluxurylimousine.com" },

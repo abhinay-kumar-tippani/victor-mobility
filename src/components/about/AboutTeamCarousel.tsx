@@ -26,6 +26,8 @@ export default function AboutTeamCarousel({ featured, featuredDescription, profi
       phoneHref: featured.phoneHref,
       whatsappDisplay: featured.whatsappDisplay,
       whatsappDigits: featured.whatsappDigits,
+      emailDisplay: "mujeeb@victorluxurylimousine.com",
+      emailEnabled: true,
     },
     ...profiles,
   ];

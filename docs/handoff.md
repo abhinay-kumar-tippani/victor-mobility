@@ -1,5 +1,285 @@
 # Handoff
 
+## 27 October 2026 — Updated Mujeeb Ur Rahman Mohammed's Email to mujeeb@victorluxurylimousine.com
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Immediate Assistance Card (`src/components/contact/ImmediateAssistanceCard.tsx`)**:
+   - Updated Slide 1 (Mujeeb Ur Rahman Mohammed) email address and display label from temporary/fallback values to `mujeeb@victorluxurylimousine.com`.
+   - The Direct Email box dynamically creates `mailto:mujeeb@victorluxurylimousine.com?subject=Enquiry%20for%20Mujeeb%20Ur%20Rahman%20Mohammed%20%E2%80%94%20Victor%20Mobility` when Mujeeb's slide is active.
+2. **Content Data Registries (`src/content/india.json` & `src/content/uae.json`)**:
+   - `src/content/india.json`: Updated `contact.printedEmail` to `mujeeb@victorluxurylimousine.com`, enabled `contact.emailEnabled: true`, updated `contact.printedDomain` to `victorluxurylimousine.com` (`domainPurchased: true`), and updated `teamFeaturedEmail` to `display: "mujeeb@victorluxurylimousine.com"`, `enabled: true`.
+   - `src/content/uae.json`: Updated `teamFeaturedEmail` to `display: "mujeeb@victorluxurylimousine.com"`, `enabled: true`.
+3. **About Page Team Slideshow (`src/components/about/AboutTeamCarousel.tsx`)**:
+   - Activated Mujeeb's direct email contact channel (`emailDisplay: "mujeeb@victorluxurylimousine.com"`, `emailEnabled: true`), rendering a functional "Compose email" action on `/india/about` and `/uae/about`.
+4. **Verification & Test Updates**:
+   - Updated `scripts/verify-about-team-carousel.mjs` to assert `email: "mujeeb@victorluxurylimousine.com"`.
+   - Updated `scripts/verify-immediate-assistance-slideshow.mjs` to assert `mailto:mujeeb@victorluxurylimousine.com`.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+
+---
+
+## 27 October 2026 — Single-Line Headline "Leading with Vision. Moving Forward with Trust." on /india/about & /uae/about
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Single-Line Headline on `/india/about` & `/uae/about`**:
+   - Updated the Leadership & Governance heading on both `/india/about` (`src/app/india/about/page.tsx`) and `/uae/about` (`src/app/uae/about/page.tsx`) so the text `"Leading with Vision. Moving Forward with Trust."` renders on a single line on desktop and laptop displays without wrapping awkwardly.
+   - Widened container constraint from `max-w-3xl` (768px, which forced wrapping on all screens) to `max-w-5xl` (1024px).
+   - Applied responsive font styling with desktop whitespace protection: `text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3 lg:whitespace-nowrap`.
+   - Kept subsequent descriptive paragraph constrained to `max-w-3xl` for optimal reading comfort.
+
+2. **UAE Copy Synchronization**:
+   - Updated `src/content/uae.json` (`aboutPage.leadershipTitle`) from `"Steered by Experience. Grounded in Accountability."` to `"Leading with Vision. Moving Forward with Trust."` so both regional pages have matching headline text.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Automated browser verification (`scripts/verify-single-line-heading.mjs`):
+  - Desktop (1440px): Verified `<h2>` height is exactly 40px (1 line, height <= 60px) on both `/india/about` and `/uae/about`.
+  - Mobile (390px): Verified 0 horizontal overflow (`scrollWidth <= clientWidth`).
+- Screenshots captured:
+  - `docs/screenshots/india-about-single-line-desktop.png`
+  - `docs/screenshots/india-about-single-line-mobile.png`
+  - `docs/screenshots/uae-about-single-line-desktop.png`
+  - `docs/screenshots/uae-about-single-line-mobile.png`
+
+---
+
+## 27 October 2026 — Immediate Assistance Card: 3 Boxes (Phone, WhatsApp, Email) & 3-Second Slideshow with Asif & Thameem
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Immediate Assistance 3-Box Contact Grid**:
+   - In the Immediate Assistance card component (`src/components/contact/ImmediateAssistanceCard.tsx`), expanded the contact actions from 2 to **3 dedicated boxes**:
+     1. **Call Direct** (`tel:` action with Phone icon)
+     2. **Direct WhatsApp** (`https://wa.me/...` action with WhatsApp/MessageSquare icon)
+     3. **Direct Email** (`mailto:...` action with Mail icon)
+   - Dynamic synchronization: Whenever the active slide changes, all three contact action links automatically update to route directly to that specific team member's phone number, WhatsApp chat, and email address.
+
+2. **3-Second Auto-Rotating Slideshow with Muhammad Asif & Mohammed Thameem Ahmed**:
+   - Converted the profile section in the card into an accessible **3-second slideshow** featuring 3 team members:
+     - **Slide 1**: Mujeeb Ur Rahman Mohammed (*Business Development Partner*)
+       - Phone: `+91 95158 50808` (`+971 52 455 2441` for UAE)
+       - WhatsApp: `+91 95158 50808` (`+971 52 455 2441` for UAE)
+       - Email: `tippaniabhinay@gmail.com` (`info@victorluxurylimousine.com` for UAE)
+       - Portrait: `/images/india/leadership-mujeeb.jpg`
+     - **Slide 2**: Muhammad Asif (*Manager - Admin & Finance*)
+       - Phone: `+91 9100 77 77 68`
+       - WhatsApp: `+91 9100 77 77 68`
+       - Email: `asif@victorluxurylimousine.com`
+       - Portrait: `/images/team/muhammad-asif.jpg`
+     - **Slide 3**: Mohammed Thameem Ahmed (*Head of Operations*)
+       - Phone: `+91 95159 50808`
+       - WhatsApp: `+91 95159 50808`
+       - Email: `thameem@victorluxurylimousine.com`
+       - Portrait: `/images/team/thameem-ahmed.png`
+   - Integrated tablist dot navigation for manual navigation between team members.
+   - Pauses on hover and focus capture for accessibility.
+
+3. **Placements Updated**:
+   - `src/app/india/about/page.tsx` (`<ImmediateAssistanceCard isUae={false} />`)
+   - `src/app/uae/about/page.tsx` (`<ImmediateAssistanceCard isUae={true} />`)
+   - `src/components/home/EnquirySection.tsx` (`<ImmediateAssistanceCard isUae={isUae} />` in Requirement Desk)
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Playwright browser verification suite (`scripts/verify-immediate-assistance-slideshow.mjs`):
+  - Verified 3 contact action boxes (Phone, WhatsApp, Email) on `/india/about`, `/uae/about`, and Requirement Desk.
+  - Verified initial render of Mujeeb Ur Rahman Mohammed, 3-second auto-transition to Muhammad Asif, and next transition to Mohammed Thameem Ahmed.
+  - Verified slide indicator dots clickability and manual navigation.
+  - Confirmed 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
+- Screenshots captured:
+  - `docs/screenshots/immediate-assistance-slide1-mujeeb.png`
+  - `docs/screenshots/immediate-assistance-slide2-asif.png`
+  - `docs/screenshots/immediate-assistance-slide3-thameem.png`
+  - `docs/screenshots/immediate-assistance-india-about-mobile.png`
+  - `docs/screenshots/immediate-assistance-uae-about.png`
+  - `docs/screenshots/immediate-assistance-contact-desk.png`
+
+---
+
+## 27 October 2026 — Updated Mujeeb Ur Rahman Mohammed's Phone & WhatsApp Number to +91 95158 50808
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Direct Contact Data Update**:
+   - Updated Mujeeb Ur Rahman Mohammed's official phone and WhatsApp details across `src/content/india.json`:
+     - Phone: `+91 95158 50808` (`tel:+919515850808`)
+     - WhatsApp: `+91 95158 50808` (`https://wa.me/919515850808`)
+2. **Propagated Across Key Channels & Action Components**:
+   - Corporate Footer Direct Contact Desk (`Footer.tsx`)
+   - Core Key Contacts Slide 1 (`TeamCarousel.tsx`) on `/india` and `/uae`
+   - About Page Team Carousel (`AboutTeamCarousel.tsx`) on `/india/about` and `/uae/about`
+   - Operational Hubs direct phone/WhatsApp actions (`CitiesSection.tsx`)
+   - 24/7 Operations Desk fallback contacts (`ContactInvitationSection.tsx`)
+   - Emergency & Hot-Swap dispatch contacts (`EmergencyQuickDial.tsx`)
+   - Chauffeur Badge Verification compliance desk (`ChauffeurBadgeVerification.tsx`)
+   - Interactive Fleet Showcase quote request actions (`InteractiveFleetShowcase.tsx`)
+   - Presentation Deck download requests (`ExecutivePresentationDeck.tsx`)
+   - ESG Calculator & Fare Estimator WhatsApp actions (`CorporateEsgCalculator.tsx`, `RouteFareEstimator.tsx`)
+   - Schema.org Organization `contactPoint` in `src/app/markets/page.tsx`
+   - Note: Muhammad Asif's separate contact number (`+91 9100 77 77 68`) is preserved unchanged.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Automated Playwright browser verification (`scripts/verify-mujeeb-phone-update.mjs`):
+  - Verified phone link (`tel:+919515850808`) and WhatsApp link (`https://wa.me/919515850808`) in Footer on `/india`.
+  - Verified phone link and WhatsApp link in Core Key Contacts card on `/india`.
+  - Verified phone link and WhatsApp link in About page carousel on `/india/about`.
+  - Verified phone link and WhatsApp link in Core Key Contacts card on `/uae`.
+  - Verified zero horizontal overflow on 390px mobile viewport.
+  - Captured truth-of-source screenshots:
+    - `docs/screenshots/mujeeb-card-india-desktop.png`
+    - `docs/screenshots/mujeeb-carousel-about-desktop.png`
+    - `docs/screenshots/mujeeb-card-india-mobile.png`
+
+## 27 October 2026 — Compact About team card and homepage Journey timeline
+
+- Reduced the shared employee slideshow below Jahangir's About card to a centered, narrower layout with a shorter portrait and tighter spacing on `/india/about` and `/uae/about`. The current four profiles and their contact controls remain intact; Thameem is retained separately in the 24/7 Operations Desk per the later team update.
+- Replaced the static Journey roadmap image and enlarge modal on `/india` and `/uae` with a contained, scrollable timeline using the 12 approved milestones in `src/content/journey.json`. The highlighted milestone and violet progress rail advance as visitors scroll. Keyboard access, reduced-motion styles, and normal page scrolling at the panel boundary are preserved.
+- Checks: TypeScript, ESLint, and the final production build passed (74/74 routes). `scripts/verify-home-journey-timeline.mjs` passed at 1440px and 390px on both homepages, checking the 12 milestones, scroll progress, keyboard navigation, page scrolling, and width. `scripts/verify-about-team-size.mjs` passed on both About pages: the employee card is 896px wide against Jahangir's 1216px card on desktop and 342px against 358px on mobile.
+- Screenshots: [India Journey desktop](screenshots/journey-timeline-india-desktop.png), [India Journey mobile](screenshots/journey-timeline-india-mobile.png), [India Journey scrolled](screenshots/journey-timeline-india-scrolled.png), [UAE Journey desktop](screenshots/journey-timeline-uae-desktop.png), [UAE Journey mobile](screenshots/journey-timeline-uae-mobile.png), [UAE Journey scrolled](screenshots/journey-timeline-uae-scrolled.png); [India About desktop](screenshots/about-team-compact-india-desktop.png), [India About mobile](screenshots/about-team-compact-india-mobile.png), [UAE About desktop](screenshots/about-team-compact-uae-desktop.png), [UAE About mobile](screenshots/about-team-compact-uae-mobile.png).
+
+
+## 27 October 2026 — Unified WhatsApp & Email Enquiry in Requirement Desk (India & UAE)
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Requirement Desk Channel Toggle Switch (`src/components/home/EnquirySection.tsx`)**:
+   - Upgraded the "Transport Requirement Enquiry" desk on both India (`/india/contact`) and UAE (`/uae/contact`) to include an interactive toggle switcher:
+     - **WhatsApp Tab** (emerald active state with MessageSquare icon)
+     - **Email Tab** (brand indigo active state with Mail icon)
+   - Seamless shared state: customer name, company, service category, operating city, journey planning fields, and requirement text are 100% preserved when toggling between channels.
+   - **WhatsApp Channel**:
+     - Preserves live draft preview, copy-to-clipboard, WhatsApp behavior notice, and "Continue on WhatsApp" action.
+   - **Email Channel**:
+     - Integrates dedicated Phone Number and Email Address inputs.
+     - Automatically adapts phone prefix placeholder for India (`+91 91007 77768`) vs UAE Dubai desk (`+971 52 455 2441`).
+     - Includes the corporate response commitment: *"We usually respond within 24 hours"*.
+     - Dispatches complete requirement details via POST to `/api/contact` (routed to `tippaniabhinay@gmail.com`).
+     - On successful submission, renders the verified confirmation card:
+       - *"Thank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon."*
+       - *"We usually respond within 24 hours"*
+       - Direct "Send another enquiry →" reset action.
+
+2. **Removal of Redundant Bottom Email Enquiry Section (`src/app/india/contact/page.tsx`)**:
+   - Completely removed the duplicate separate `<section id="email-enquiry">` from the bottom of the India Contact page.
+   - Updated navbar header deep link in `src/components/layout/Header.tsx` to link to `/india/contact?channel=email`.
+
+3. **Validation & Quality Gates**:
+   - `npm run type-check`: 0 errors.
+   - `npm run lint`: 0 warnings, 0 errors.
+   - `npm run build`: 74/74 static routes compiled with 0 errors.
+   - Automated Playwright verification (`scripts/verify-contact-toggle.mjs`):
+     - Confirmed absence of duplicate bottom email enquiry section.
+     - Confirmed WhatsApp & Email toggle tabs on `/india/contact` and `/uae/contact`.
+     - Confirmed end-to-end email submission, confirmation banner, and reset behavior.
+     - Confirmed 0 horizontal overflow at 390px mobile viewport (`scrollWidth === clientWidth === 390px`).
+   - Screenshots:
+     - [India Requirement Desk - WhatsApp Mode](file:///d:/victor%20website/docs/screenshots/contact-india-desk-whatsapp.png)
+     - [India Requirement Desk - Email Mode](file:///d:/victor%20website/docs/screenshots/contact-india-desk-email.png)
+     - [India Requirement Desk - Success State](file:///d:/victor%20website/docs/screenshots/contact-india-desk-success.png)
+     - [India Mobile Viewport (390px)](file:///d:/victor%20website/docs/screenshots/contact-india-mobile-390.png)
+     - [UAE Requirement Desk - Email Mode](file:///d:/victor%20website/docs/screenshots/contact-uae-desk-email.png)
+
+---
+
+## 27 October 2026 — Added Kannada, Tamil, and Malayalam Language Support to Victor Mobility India
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Localization Architecture Extended**:
+   - Added complete dictionaries for Kannada (`src/i18n/dictionaries/kn.ts`), Tamil (`src/i18n/dictionaries/ta.ts`), and Malayalam (`src/i18n/dictionaries/ma.ts`) matching 100% of the keys, structure, and nested categories of the English dictionary.
+   - Updated `src/i18n/types.ts` to include `kn`, `ta`, and `ma` in `SupportedLocale`, `INDIA_LOCALES`, and `SUPPORTED_LOCALES`.
+   - The India language selector displays exactly 6 options in this required order:
+     1. English — `en`
+     2. हिन्दी — `hi`
+     3. తెలుగు — `te`
+     4. ಕನ್ನಡ — `kn`
+     5. தமிழ் — `ta`
+     6. മലയാളം — `ma`
+   - Configured `dir="ltr"` for Kannada, Tamil, and Malayalam, and set correct `lang` attributes (`lang="kn"`, `lang="ta"`, `lang="ma"`).
+   - Preserved UAE isolation: UAE pages continue offering strictly English and Arabic (`en` and `ar`). Indic languages never appear on `/uae`.
+
+2. **Typography & Script Font Support**:
+   - Added Google Fonts import in `src/app/globals.css` for `Noto Sans Kannada`, `Noto Sans Tamil`, and `Noto Sans Malayalam`.
+   - Updated `body` font-family fallback list to cleanly render all Kannada, Tamil, and Malayalam glyphs without clipping or missing font symbols.
+
+3. **Anti-Flash Hydration & State Persistence**:
+   - Updated the synchronous `<head>` script in `src/app/layout.tsx` to recognize `'kn'`, `'ta'`, and `'ma'` in `localStorage.getItem('victor_locale_india')`, preventing any flash of incorrect language.
+   - Preserved all state across language transitions: entered form inputs on `/india/contact`, estimator parameters on `/india/estimator`, RFP step status on `/india/rfp`, and vehicle filters on `/india/fleet` remain completely intact when switching languages.
+   - Language preferences are stored in both localStorage and cookies (`victor_locale_india`).
+
+4. **Component & WhatsApp Localization**:
+   - Updated WhatsApp pre-filled enquiry generator (`src/lib/enquiryMessage.ts`) with natural corporate translations for `kn`, `ta`, and `ma`.
+   - Localized interactive components: `Footer.tsx`, `PartnerEnquirySection.tsx`, `GuidedEnquiryAssistant.tsx`, `ContactInvitationSection.tsx`, `EnquirySection.tsx`, `VictorJourneySection.tsx`, `VictorStandardSection.tsx`, `Hero.tsx`, `ServicesSection.tsx`, and `HomeFaqSection.tsx`.
+   - Preserved company names, phone numbers (`+91 91007 77768`), vehicle models (Swift Dzire, Innova Crysta, Tata Tigor, Force Urbania), units, and the exact tagline: `"On Time Every Time."`.
+
+5. **Responsive & Mobile Drawer Integration**:
+   - Both desktop dropdown and mobile navigation drawer (`MobileDrawerLanguageSelector`) dynamically render all 6 languages with native and English names.
+   - Mobile drawer organizes the 6 languages in a clean 2-row x 3-column touch-friendly grid.
+   - Fixed responsive line wrapping and container constraints across 1440px (desktop), 768px (tablet), 390px (mobile), and 320px (compact mobile), guaranteeing zero horizontal overflow (`scrollWidth === clientWidth`).
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Dictionary integrity test (`scripts/verify-dictionary-keys.mjs`): 100% key parity with `en.ts`.
+- Automated Playwright browser verification (`scripts/verify-indic-languages.mjs`):
+  - Verified all 6 languages in exact order in desktop and mobile selectors.
+  - Verified Kannada, Tamil, and Malayalam across all India routes.
+  - Verified tagline `"On Time Every Time."` preserved verbatim.
+  - Verified form inputs and state preserved upon language switching.
+  - Verified WhatsApp enquiry drafts correctly localized in Kannada, Tamil, and Malayalam.
+  - Verified UAE portal strictly isolated with only English and Arabic (`en`, `ar`) and functioning RTL.
+  - Verified 0 horizontal overflow across 1440px, 768px, 390px, and 320px viewports.
+  - Captured truth-of-source screenshots:
+    - `docs/screenshots/lang-selector-all-options.png`
+    - `docs/screenshots/lang-kn-desktop.png`
+    - `docs/screenshots/lang-kn-mobile.png`
+    - `docs/screenshots/lang-ta-desktop.png`
+    - `docs/screenshots/lang-ta-mobile.png`
+    - `docs/screenshots/lang-ma-desktop.png`
+    - `docs/screenshots/lang-ma-mobile.png`
+    - `docs/screenshots/lang-mobile-drawer-grid.png`
+
+
+
+## 27 October 2026 — Removed "Meet the team" Heading from Core Key Contacts Card on /india and /uae
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Core Key Contacts Header Cleaned Up**:
+   - In `src/components/home/TeamCarousel.tsx`, removed the redundant `<h3 ...>{labels.title}</h3>` ("Meet the team") heading above the carousel photo and profile info.
+   - Preserved the semantic and clean header badge (`CORE KEY CONTACTS` with `UserCheckIcon`).
+   - Updated accessibility roles and labels (`aria-label={labels.eyebrow}`) so screen readers announce "Core Key Contacts" consistently without reference to "Meet the team".
+2. **Applies Universally Across India & UAE**:
+   - Both `/india` and `/uae` homepages now present the Core Key Contacts card with uncluttered hierarchy directly featuring the employee name, role, photo, and direct communication channels.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Automated Playwright browser verification (`scripts/verify-no-meet-team.mjs`):
+  - Verified 0 instances of "Meet the team" text inside the Core Key Contacts card on `/india`.
+  - Verified 0 instances of "Meet the team" text inside the Core Key Contacts card on `/uae`.
+  - Verified "Core Key Contacts" header badge is cleanly present.
+  - Verified 0 horizontal overflow at 390px mobile viewport.
+  - Captured truth-of-source screenshots:
+    - `docs/screenshots/core-contacts-india-desktop.png`
+    - `docs/screenshots/core-contacts-india-mobile.png`
+    - `docs/screenshots/core-contacts-uae-desktop.png`
+
 ## 27 October 2026 — Mohammed Thameem Ahmed Removed from Meet the Team & About, Kept in 24/7 Live Operations Desk
 
 Owner: Antigravity, at direct user request.

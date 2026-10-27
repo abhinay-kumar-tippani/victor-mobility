@@ -101,7 +101,7 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
     <div
       className="flex h-full min-h-[590px] flex-col overflow-hidden rounded-3xl border border-brand-soft-neutral bg-white shadow-xs lg:min-h-[640px]"
       aria-roledescription="carousel"
-      aria-label={labels.title}
+      aria-label={labels.eyebrow}
       onMouseEnter={() => setInteracting(true)}
       onMouseLeave={() => setInteracting(false)}
       onFocusCapture={() => setInteracting(true)}
@@ -111,10 +111,9 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
     >
       <div className="flex items-start justify-between gap-4 px-6 pt-6 sm:px-8 sm:pt-8">
         <div>
-          <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">
+          <h3 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">
             <UserCheckIcon className="h-4 w-4" aria-hidden="true" />{labels.eyebrow}
-          </span>
-          <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-3xl">{labels.title}</h3>
+          </h3>
         </div>
       </div>
 
@@ -153,7 +152,7 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
             <button type="button" aria-label={labels.next} onClick={() => setIndex((current) => (current + 1) % slides.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo"><ChevronRight className="h-5 w-5 rtl:rotate-180" aria-hidden="true" /></button>
             {!reducedMotion && <button type="button" aria-label={paused ? labels.play : labels.pause} onClick={() => setPaused((value) => !value)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo">{paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}</button>}
           </div>
-          <div className="flex items-center gap-1" role="group" aria-label={labels.title}>
+          <div className="flex items-center gap-1" role="group" aria-label={labels.eyebrow}>
             {slides.map((slide, slideIndex) => (
               <button key={slide.id} type="button" aria-label={`${labels.goTo} ${slideIndex + 1}`} aria-current={slideIndex === index ? "true" : undefined} onClick={() => setIndex(slideIndex)} className="flex h-11 w-7 items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo">
                 <span className={`block h-1.5 rounded-full transition-all ${slideIndex === index ? "w-5 bg-brand-indigo" : "w-1.5 bg-brand-soft-neutral"}`} />

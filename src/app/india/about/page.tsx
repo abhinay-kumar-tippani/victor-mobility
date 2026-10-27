@@ -26,6 +26,7 @@ import Footer from "@/components/layout/Footer";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
 import JourneySection from "@/components/about/JourneySection";
 import AboutTeamCarousel from "@/components/about/AboutTeamCarousel";
+import ImmediateAssistanceCard from "@/components/contact/ImmediateAssistanceCard";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { IndiaContent, MediaContent } from "@/types/content";
@@ -77,14 +78,14 @@ export default function AboutPage() {
         {founder && (
           <section className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-              <div className="max-w-3xl">
+              <div className="max-w-5xl">
                 <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
                   Leadership & Governance
                 </span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3 lg:whitespace-nowrap">
                   Leading with Vision. Moving Forward with Trust.
                 </h2>
-                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                <p className="max-w-3xl text-sm sm:text-base text-brand-ink/75 leading-relaxed">
                   Every journey with Victor Mobility is backed by visionary leadership and hands-on commercial governance committed to &ldquo;On Time Every Time.&rdquo;
                 </p>
               </div>
@@ -339,49 +340,33 @@ export default function AboutPage() {
           </section>
         )}
 
-        {/* CTA Section */}
-        <section className="py-14 bg-brand-warm-white">
+        {/* Immediate Assistance & Direct Requirement Section */}
+        <section id="immediate-assistance" className="py-16 sm:py-24 bg-brand-warm-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 max-w-xl">
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 border-2 border-white/20 shadow-md bg-white/10">
-                  <Image
-                    src="/images/india/leadership-mujeeb.jpg"
-                    alt={`Portrait of ${content.contact.name}`}
-                    fill
-                    sizes="(max-width: 640px) 64px, 80px"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-brand-violet block">
-                    Direct Requirement Desk
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                    Discuss Your Transport Arrangement
-                  </h3>
-                  <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
-                    Speak directly with our Business Development Partner, <strong className="text-white font-semibold">{content.contact.name}</strong>,
-                    to structure an agreement or itinerary for your organization or special occasion.
-                  </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-6 space-y-5">
+                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
+                  Direct Requirement Desk
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight leading-tight">
+                  Discuss Your Transport Arrangement
+                </h2>
+                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                  Speak directly with our leadership and operations desk to structure custom employee transit retainers, airport fleet allocations, or VIP event transport pan-India.
+                </p>
+                <div className="pt-2">
+                  <Link
+                    href="/india/contact"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Open Requirement Desk</span>
+                  </Link>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">
-                <Link
-                  href="/india/contact"
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Discuss Requirement</span>
-                </Link>
-                <a
-                  href={content.contact.phoneHref}
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-xl transition-colors border border-white/20"
-                >
-                  <Phone className="w-4 h-4 text-brand-soft-neutral" />
-                  <span>{content.contact.phoneDisplay}</span>
-                </a>
+              <div className="lg:col-span-6 max-w-lg lg:max-w-none mx-auto w-full">
+                <ImmediateAssistanceCard isUae={false} />
               </div>
             </div>
           </div>

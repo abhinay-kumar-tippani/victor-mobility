@@ -34,15 +34,15 @@ try {
       });
       const page = await context.newPage();
       await page.goto(`${previewUrl}/${route}`, { waitUntil: "domcontentloaded" });
-      const team = page.locator('[aria-roledescription="carousel"][aria-label="Meet the team"]');
+      const team = page.locator('#about [aria-roledescription="carousel"]');
       await page.waitForLoadState("networkidle");
 
       // Slide 1: Mujeeb
       await team.getByText("Mujeeb Ur Rahman Mohammed").waitFor();
-      if ((await team.locator('a[href="tel:+919100777768"]').count()) !== 1) {
+      if ((await team.locator('a[href="tel:+919515850808"]').count()) !== 1) {
         throw new Error(`${route}: Mujeeb phone link missing`);
       }
-      if ((await team.locator('a[href^="https://wa.me/919396546950"]').count()) !== 1) {
+      if ((await team.locator('a[href^="https://wa.me/919515850808"]').count()) !== 1) {
         throw new Error(`${route}: Mujeeb WhatsApp link missing`);
       }
 

@@ -74,7 +74,7 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
       id="safety"
       tabIndex={-1}
       aria-labelledby="safety-heading"
-      className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral focus:outline-none"
+      className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral focus:outline-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -147,7 +147,7 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
 
         {/* Clear route to Operations Desk */}
         <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-3xl bg-brand-warm-white border border-brand-soft-neutral flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="max-w-xl">
+          <div className="max-w-xl min-w-0 flex-1">
             <h4 className="text-base sm:text-lg font-bold text-brand-ink mb-1">
               {dict.safetySection.bannerTitle}
             </h4>

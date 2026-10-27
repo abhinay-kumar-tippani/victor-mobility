@@ -42,10 +42,10 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
         {
           name: "Mujeeb Ur Rahman Mohammed",
           designation: "Business Development & Operations Partner",
-          phoneDisplay: "+91 91007 77768",
-          phoneHref: "tel:+919100777768",
-          whatsappDisplay: "+91 93965 46950",
-          whatsappDigits: "919396546950",
+          phoneDisplay: "+91 95158 50808",
+          phoneHref: "tel:+919515850808",
+          whatsappDisplay: "+91 95158 50808",
+          whatsappDigits: "919515850808",
         },
         {
           name: "Farhan Ali",

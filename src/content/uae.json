@@ -636,7 +636,7 @@
   },
   "aboutPage": {
     "leadershipEyebrow": "Leadership & Governance",
-    "leadershipTitle": "Steered by Experience. Grounded in Accountability.",
+    "leadershipTitle": "Leading with Vision. Moving Forward with Trust.",
     "leadershipDescription": "Every journey with Victor Mobility is backed by visionary leadership and hands-on commercial governance committed to ‘On Time Every Time.’",
     "commercialEyebrow": "Commercial Leadership & Partnerships",
     "commercialScope": "International Partnerships & UAE Corporate Mobility",
@@ -883,7 +883,7 @@
     }
   ],
   "teamFeaturedEmail": {
-    "display": "mujeeb@example.com",
-    "enabled": false
+    "display": "mujeeb@victorluxurylimousine.com",
+    "enabled": true
   }
 }

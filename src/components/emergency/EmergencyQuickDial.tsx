@@ -26,11 +26,11 @@ export default function EmergencyQuickDial({ region }: EmergencyQuickDialProps) 
   const isIndia = region === "india";
 
   // Contacts
-  const operationsPhoneDisplay = isIndia ? "+91 91007 77768" : "+971 52 455 2441";
-  const operationsPhoneHref = isIndia ? "tel:+919100777768" : "tel:+971524552441";
-  const secondaryPhoneDisplay = isIndia ? "+91 93965 46950" : "+971 52 455 2441";
-  const secondaryPhoneHref = isIndia ? "tel:+919396546950" : "tel:+971524552441";
-  const waNumber = isIndia ? "919396546950" : "971524552441";
+  const operationsPhoneDisplay = isIndia ? "+91 95158 50808" : "+971 52 455 2441";
+  const operationsPhoneHref = isIndia ? "tel:+919515850808" : "tel:+971524552441";
+  const secondaryPhoneDisplay = isIndia ? "+91 95158 50808" : "+971 52 455 2441";
+  const secondaryPhoneHref = isIndia ? "tel:+919515850808" : "tel:+971524552441";
+  const waNumber = isIndia ? "919515850808" : "971524552441";
 
   // Hot-swap dispatch state
   const [vehicleNo, setVehicleNo] = useState("");
