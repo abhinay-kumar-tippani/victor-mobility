@@ -1,0 +1,17 @@
+{
+  "milestones": [
+    { "date": "Q4 2009", "title": "The Idea of Victor", "description": "Victor was conceived." },
+    { "date": "Q1 2010", "title": "Company Registration", "description": "Registered as a private limited company under the Indian Companies Act, 1956." },
+    { "date": "Q1 2012", "title": "First Major Client", "description": "Secured a key client after two years in the industry." },
+    { "date": "Q3 2015", "title": "Fleet Expansion", "description": "Fleet expanded to 800+ vehicles." },
+    { "date": "Q4 2018", "title": "Fleet Expansion", "description": "Fleet expanded to 1,500+ vehicles." },
+    { "date": "Q2–Q4 2020", "title": "Safety & Training", "description": "Trained drivers and partners in WHO-recommended COVID-19 safety practices." },
+    { "date": "Q1–Q4 2022", "title": "Resumed Operations", "description": "Resumed full-capacity operations after pandemic challenges." },
+    { "date": "Q2 2023", "title": "Pan-India Expansion", "description": "Expanded across metropolitan cities in India." },
+    { "date": "Q4 2023", "title": "International Expansion", "description": "Began international expansion in the UAE." },
+    { "date": "Q1 2024", "title": "Sustainability Transition", "description": "Targeting 15–30% electric vehicles in the fleet." },
+    { "date": "Q1 2024", "title": "Digital Expansion", "description": "Launched full-scale operations across India." },
+    { "date": "Q2 2024", "title": "UAE Operations", "description": "Launched full-scale operations in the UAE." },
+    { "date": "2025", "title": "Advancing Sustainable Mobility", "description": "Strengthened market presence, expanded the fleet, enhanced digital solutions and accelerated EV adoption." }
+  ]
+}

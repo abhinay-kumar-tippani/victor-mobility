@@ -33,6 +33,15 @@ export default function Header({ contact }: HeaderProps) {
     ? `mailto:${contact.printedEmail}`
     : `${basePrefix}/contact?channel=email`;
 
+  const asifPhoneHref = "tel:+919100777768";
+  const asifWhatsappMessage = isIndia
+    ? "Hello Muhammad Asif, I would like to discuss a transport requirement with Victor Mobility."
+    : "Hello Muhammad Asif, I would like to discuss UAE transport arrangements with Victor Mobility.";
+  const asifWhatsappHref = `https://wa.me/919100777768?text=${encodeURIComponent(asifWhatsappMessage)}`;
+  const asifEmailHref = `mailto:asif@victorluxurylimousine.com?subject=${encodeURIComponent(
+    "Transport Enquiry for Muhammad Asif — Victor Mobility"
+  )}`;
+
   const navItems = [
     { label: dict.nav.home || "Home", href: basePrefix },
     { label: dict.nav.services || "Services", href: `${basePrefix}/services` },
@@ -358,9 +367,9 @@ export default function Header({ contact }: HeaderProps) {
 
       {!mobileMenuOpen && (
         <StickyContactRail
-          phoneHref={contact.phoneHref}
-          whatsappHref={whatsappHref}
-          emailHref={emailHref}
+          phoneHref={asifPhoneHref}
+          whatsappHref={asifWhatsappHref}
+          emailHref={asifEmailHref}
         />
       )}
     </header>

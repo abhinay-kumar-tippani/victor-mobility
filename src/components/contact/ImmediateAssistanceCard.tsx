@@ -39,8 +39,8 @@ export default function ImmediateAssistanceCard({
       phoneHref: isUae ? "tel:+971524552441" : "tel:+919515850808",
       whatsappDisplay: isUae ? "+971 52 455 2441" : "+91 95158 50808",
       whatsappDigits: isUae ? "971524552441" : "919515850808",
-      email: "mujeeb@victorluxurylimousine.com",
-      emailDisplay: "mujeeb@victorluxurylimousine.com",
+      email: "mujeeburrahman@victorluxurylimousine.com",
+      emailDisplay: "mujeeburrahman@victorluxurylimousine.com",
     },
     {
       id: "asif",

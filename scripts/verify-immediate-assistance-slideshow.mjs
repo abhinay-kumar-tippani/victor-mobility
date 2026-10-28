@@ -51,10 +51,10 @@ async function run() {
 
     const slide1EmailHref = await emailBox.getAttribute("href");
     console.log(`Slide 1 email href: ${slide1EmailHref}`);
-    if (!slide1EmailHref?.includes("mujeeb@victorluxurylimousine.com")) {
-      throw new Error(`FAIL: Mujeeb's email href does not contain mujeeb@victorluxurylimousine.com! Got: ${slide1EmailHref}`);
+    if (!slide1EmailHref?.includes("mujeeburrahman@victorluxurylimousine.com")) {
+      throw new Error(`FAIL: Mujeeb's email href does not contain mujeeburrahman@victorluxurylimousine.com! Got: ${slide1EmailHref}`);
     }
-    console.log("PASS: Verified Mujeeb email is mujeeb@victorluxurylimousine.com");
+    console.log("PASS: Verified Mujeeb email is mujeeburrahman@victorluxurylimousine.com");
 
     // Capture screenshot: Slide 1 (Mujeeb)
     const shotIndiaSlide1 = path.join(SCREENSHOTS_DIR, "immediate-assistance-slide1-mujeeb.png");

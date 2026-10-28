@@ -1,26 +1,27 @@
 import { Mail, Phone } from "lucide-react";
 
 interface StickyContactRailProps {
-  phoneHref: string;
-  whatsappHref: string;
-  emailHref: string;
+  phoneHref?: string;
+  whatsappHref?: string;
+  emailHref?: string;
 }
 
 const actions = [
-  { key: "phone", label: "Call us" },
-  { key: "whatsapp", label: "Open WhatsApp draft" },
-  { key: "email", label: "Email enquiry" },
+  { key: "phone", label: "Call Muhammad Asif (+91 9100 77 77 68)" },
+  { key: "whatsapp", label: "WhatsApp Muhammad Asif (+91 9100 77 77 68)" },
+  { key: "email", label: "Email Muhammad Asif (asif@victorluxurylimousine.com)" },
 ] as const;
 
 export default function StickyContactRail({
-  phoneHref,
-  whatsappHref,
-  emailHref,
+  phoneHref = "tel:+919100777768",
+  whatsappHref = "https://wa.me/919100777768?text=Hello%20Muhammad%20Asif%2C%20I%20would%20like%20to%20discuss%20a%20transport%20requirement%20with%20Victor%20Mobility.",
+  emailHref = "mailto:asif@victorluxurylimousine.com?subject=Enquiry%20for%20Muhammad%20Asif%20%E2%80%94%20Victor%20Mobility",
 }: StickyContactRailProps) {
   const hrefByKey = { phone: phoneHref, whatsapp: whatsappHref, email: emailHref };
 
   return (
     <nav
+      data-testid="sticky-contact-rail"
       aria-label="Quick contact actions"
       className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col overflow-hidden rounded-l-2xl border border-r-0 border-brand-soft-neutral bg-white shadow-[0_8px_28px_rgba(21,22,47,0.16)]"
     >

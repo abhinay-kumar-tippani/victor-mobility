@@ -1,5 +1,64 @@
 # Handoff
 
+## 28 October 2026 — Updated Sticky Contact Rail (3 Buttons) to Muhammad Asif's Contact Details
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Right-Side 3 Sticky Buttons Contact Update**:
+   - Updated the 3 fixed sticky contact buttons on the right edge of the website (`src/components/layout/StickyContactRail.tsx` & `src/components/layout/Header.tsx`):
+     - **Phone Button**: Direct call to Muhammad Asif (`+91 9100 77 77 68`, `tel:+919100777768`).
+     - **WhatsApp Button**: Direct WhatsApp message to Muhammad Asif (`+91 9100 77 77 68`, `https://wa.me/919100777768?text=...`).
+     - **Email Button**: Direct email enquiry to Muhammad Asif (`asif@victorluxurylimousine.com`, `mailto:asif@victorluxurylimousine.com?subject=...`).
+   - Accessible action labels and title attributes updated with Muhammad Asif's contact details.
+   - Built with fallback defaults inside `StickyContactRail.tsx` and dynamically supplied from `Header.tsx` across all pages.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Automated browser test (`scripts/verify-sticky-buttons-asif.mjs`):
+  - Verified Phone link resolves to `tel:+919100777768` on `/india` and `/uae`.
+  - Verified WhatsApp link resolves to `919100777768` on `/india` and `/uae`.
+  - Verified Email link resolves to `asif@victorluxurylimousine.com` on `/india` and `/uae`.
+  - Verified 0 mobile horizontal overflow (`scrollWidth === clientWidth === 390px`).
+  - Captured truth-of-source screenshots: `docs/screenshots/sticky-buttons-asif-*.png`.
+
+---
+
+## 28 October 2026 — Journey layout corrected after review
+
+Restored the Journey of Victor story and three phase summaries on the left of the `/india` and `/uae` home sections, with the supplied 2009–2025 image on the right. The About sections also use a compact left-text/right-image layout. The image is capped at 544px wide so each desktop section fits within an 850px height; full-size viewing and the 13-item text transcript remain available for detail.
+
+- Checks passed: TypeScript, ESLint, production build (74/74 static routes), and browser layout checks at 1440px, 390px, and 320px on all four routes. Browser checks confirm left/right desktop placement, mobile stacking, section height, image loading, transcript, and no horizontal overflow.
+- Screenshots: [India home desktop](screenshots/journey-artwork-india-home-desktop.png), [India home mobile](screenshots/journey-artwork-india-home-mobile.png), [UAE home desktop](screenshots/journey-artwork-uae-home-desktop.png), [UAE home mobile](screenshots/journey-artwork-uae-home-mobile.png), [India About desktop](screenshots/journey-artwork-india-about-desktop.png), [India About mobile](screenshots/journey-artwork-india-about-mobile.png), [UAE About desktop](screenshots/journey-artwork-uae-about-desktop.png), [UAE About mobile](screenshots/journey-artwork-uae-about-mobile.png).
+
+## 28 October 2026 — Supplied Journey artwork replaces timeline
+
+Replaced the interactive Journey timeline with the manager-supplied 2009–2025 infographic on `/india`, `/uae`, `/india/about`, and `/uae/about`. The shared Journey sections now use a light background and the site's indigo, blue, and violet accents to match the artwork. The original PNG is copied unchanged to `public/images/journey/victor-mobility-journey-2025.png`; `src/content/journey.json` points to it.
+
+- The image opens at full size for detailed reading. A collapsible text version transcribes all 13 milestones from the supplied artwork for mobile usability and accessibility.
+- Checks passed: TypeScript, ESLint, production build (74/74 routes), exact source/destination image hash, and `scripts/verify-journey-artwork.mjs` at 1440px, 390px, and 320px across all four routes. Browser checks covered image loading, full-size links, transcript, retired timeline absence, and horizontal overflow.
+- Screenshots: [India home desktop](screenshots/journey-artwork-india-home-desktop.png), [India home mobile](screenshots/journey-artwork-india-home-mobile.png), [UAE home desktop](screenshots/journey-artwork-uae-home-desktop.png), [UAE home mobile](screenshots/journey-artwork-uae-home-mobile.png), [India About desktop](screenshots/journey-artwork-india-about-desktop.png), [India About mobile](screenshots/journey-artwork-india-about-mobile.png), [UAE About desktop](screenshots/journey-artwork-uae-about-desktop.png), [UAE About mobile](screenshots/journey-artwork-uae-about-mobile.png).
+
+
+## 28 October 2026 — Updated Mujeeb Ur Rahman Mohammed's Email to mujeeburrahman@victorluxurylimousine.com
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Immediate Assistance Card (`src/components/contact/ImmediateAssistanceCard.tsx`)**:
+   - Updated Slide 1 (Mujeeb Ur Rahman Mohammed) email address and display label to `mujeeburrahman@victorluxurylimousine.com`.
+   - The Direct Email box dynamically generates `mailto:mujeeburrahman@victorluxurylimousine.com?subject=Enquiry%20for%20Mujeeb%20Ur%20Rahman%20Mohammed%20%E2%80%94%20Victor%20Mobility` when Mujeeb's slide is active.
+2. **Content Data Registries (`src/content/india.json` & `src/content/uae.json`)**:
+   - `src/content/india.json`: Updated `contact.printedEmail` to `mujeeburrahman@victorluxurylimousine.com`, enabled `contact.emailEnabled: true`, updated `contact.printedDomain` to `victorluxurylimousine.com` (`domainPurchased: true`), and updated `teamFeaturedEmail` to `display: "mujeeburrahman@victorluxurylimousine.com"`, `enabled: true`.
+   - `src/content/uae.json`: Updated `teamFeaturedEmail` to `display: "mujeeburrahman@victorluxurylimousine.com"`, `enabled: true`.
+3. **About Page Team Slideshow (`src/components/about/AboutTeamCarousel.tsx`)**:
+   - Updated Mujeeb's direct email contact channel (`emailDisplay: "mujeeburrahman@victorluxurylimousine.com"`, `emailEnabled: true`), rendering a functional "Compose email" action on `/india/about` and `/uae/about`.
+4. **Verification & Test Updates**:
+   - Updated `scripts/verify-about-team-carousel.mjs` to assert `email: "mujeeburrahman@victorluxurylimousine.com"`.
+   - Updated `scripts/verify-immediate-assistance-slideshow.mjs` to assert `mailto:mujeeburrahman@victorluxurylimousine.com`.
+
+---
+
 ## 28 October 2026 — Journey of Victor extended to 2025
 
 Added milestone 13, **Advancing Sustainable Mobility**, to `src/content/journey.json` using the title and description supplied in the user's 2025 artwork. The shared data now shows the milestone on `/india`, `/uae`, `/india/about`, and `/uae/about`. Updated the chapter span and both timeline year ranges to end in 2025; existing milestone details and navigation remain intact.
