@@ -28,7 +28,7 @@ export default function RootPage() {
     <div lang="en" className="flex min-h-screen flex-col bg-brand-warm-white">
       <header className="border-b border-brand-soft-neutral bg-white">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:h-24 sm:px-8 lg:px-12">
-          <BrandLogo className="h-14 aspect-[810/430] sm:h-16" />
+          <BrandLogo className="h-[68px] aspect-[810/430] sm:h-[84px]" />
           <p className="flex items-center gap-2 text-xs font-medium text-brand-ink/70 sm:text-sm">
             <Globe2 className="h-4 w-4 shrink-0 text-brand-indigo" aria-hidden="true" />
             {copy.headerLabel}

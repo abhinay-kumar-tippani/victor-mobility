@@ -1,5 +1,12 @@
 # Handoff
 
+## 29 October 2026 — Country selector logo enlarged
+
+Increased the `/` header logo from 56px to 68px high on phones and from 64px to 84px high on larger screens. The original artwork, aspect ratio, and existing header height are preserved. The change is confined to the root page's logo size classes.
+
+- Checks: targeted ESLint passed; browser checks at 1440px, 390px, and 320px confirmed the logo fits inside the header, stays clear of the country label, and causes no horizontal overflow.
+- Screenshots: [Desktop](screenshots/root-logo-desktop.png), [Mobile](screenshots/root-logo-mobile.png), [Small mobile](screenshots/root-logo-small-mobile.png).
+
 ## 29 October 2026 — Original About Journey timeline restored
 
 Restored `src/components/about/JourneySection.tsx` exactly from commit `df646d40` for `/india/about` and `/uae/about`: the original warm-white section, sticky company story, chapter links, and scrolling timeline through 2025. Existing timeline styles and motion component already match that revision. Homepage Journey components, the shared artwork/modal viewer, homepage route files, and content data were not edited; homepage file hashes match their pre-change values.

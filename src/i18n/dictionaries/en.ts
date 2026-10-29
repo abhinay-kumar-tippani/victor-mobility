@@ -135,7 +135,7 @@ export const enDictionary: TranslationDictionary = {
     eyebrow: "Enterprise Clientele & Partners",
     title: "Our Clients",
     description:
-      "Delivering disciplined, roster-synchronized employee transportation and executive mobility for leading multinational corporations across India.",
+      "LOGO has delivered and continues to deliver disciplined, roster-synchronised employee transportation and executive mobility solutions to leading multinational corporations across India.",
   },
   servicesSection: {
     eyebrow: "Comprehensive Fleet & Commute Solutions",
