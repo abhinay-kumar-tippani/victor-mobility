@@ -52,6 +52,16 @@
       "actualVictorFleetPhoto": false
     },
     {
+      "id": "leadership-jahangir",
+      "src": "/images/india/founder-jahangir.jpg",
+      "alt": "Authentic portrait of Mohammed Jahangir, Founder and Director of Victor Mobility.",
+      "focalPointDesktop": "top",
+      "focalPointMobile": "top",
+      "aiGenerated": false,
+      "temporary": false,
+      "actualVictorFleetPhoto": false
+    },
+    {
       "id": "leadership-mujeeb",
       "src": "/images/india/leadership-mujeeb.jpg",
       "alt": "Portrait of Mujeeb Ur Rahman Mohammed, Business Development Partner at Victor Mobility.",

@@ -1,5 +1,71 @@
 # Handoff
 
+## 29 October 2026 — Original About Journey timeline restored
+
+Restored `src/components/about/JourneySection.tsx` exactly from commit `df646d40` for `/india/about` and `/uae/about`: the original warm-white section, sticky company story, chapter links, and scrolling timeline through 2025. Existing timeline styles and motion component already match that revision. Homepage Journey components, the shared artwork/modal viewer, homepage route files, and content data were not edited; homepage file hashes match their pre-change values.
+
+- Checks passed: TypeScript, ESLint, production build (74/74 routes), and `scripts/verify-about-journey-restore.mjs` at 1440px, 390px, and 320px in both regions. Verified 13 milestones, keyboard chapter navigation, scroll progress, reduced motion, and no horizontal overflow. The existing artwork verification now runs on homepages only and passes on both regions, including the modal viewer.
+- Screenshots: [India About desktop](screenshots/journey-restored-about-india-desktop.png), [India About mobile](screenshots/journey-restored-about-india-mobile.png), [UAE About desktop](screenshots/journey-restored-about-uae-desktop.png), [UAE About mobile](screenshots/journey-restored-about-uae-mobile.png).
+
+## 29 October 2026 — Removed "Read the milestones as text" from Journey of Victor container
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Removed "Read the milestones as text" completely**:
+   - In `src/components/about/JourneyArtwork.tsx` (rendered on `/india`, `/uae`, `/india/about`, and `/uae/about` in the "The Journey of Victor" container), completely removed the `<details>` collapsible element, the summary button with label `"Read the milestones as text"`, the chevron icon, and the 13-item milestone text transcript list.
+   - Simplified image alt text and caption note to avoid referencing a text version below.
+   - Removed unused imports `ChevronDown` and `journey-artwork.json`.
+   - Updated `scripts/verify-journey-artwork.mjs` to assert that no `<details>` or `"Read the milestones as text"` text remains in the Journey section.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Browser Playwright verification suite (`scripts/verify-journey-artwork.mjs`):
+  - Verified Journey section renders infographic artwork and full-size image action link.
+  - Confirmed 0 `<details>` elements and complete absence of "Read the milestones as text" on `/india`, `/uae`, `/india/about`, and `/uae/about`.
+  - Confirmed 0 horizontal overflow across desktop (1440px), mobile (390px), and small mobile (320px).
+  - Captured truth-of-source screenshots: `docs/screenshots/journey-artwork-*.png`.
+
+---
+
+## 29 October 2026 — Journey home background restored
+
+Restored the original deep charcoal background (`#0B0914`) and subtle violet/indigo glows for the Journey of Victor sections on `/india` and `/uae`. Kept the compact text-left/image-right layout and adjusted text, phase cards, image links, and transcript controls for contrast. The About pages retain their earlier light section background.
+
+- Checks: TypeScript, ESLint, production build (74/74 routes), desktop/mobile browser checks at 1440px, 390px, and 320px across both regions. Screenshots: [India desktop](screenshots/journey-artwork-india-home-desktop.png), [India mobile](screenshots/journey-artwork-india-home-mobile.png), [UAE desktop](screenshots/journey-artwork-uae-home-desktop.png), [UAE mobile](screenshots/journey-artwork-uae-home-mobile.png).
+
+## 28 October 2026 — Added Muhammad Asif's Contact Info Below Mujeeb in Footer
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Footer Direct Contact Desk Update (`src/components/layout/Footer.tsx`)**:
+   - Expanded the "Direct Contact Desk" column to feature Muhammad Asif directly below Mujeeb Ur Rahman Mohammed:
+     - **Mujeeb Ur Rahman Mohammed**:
+       - Role: Business Development Partner
+       - Phone: `+91 95158 50808` (`tel:+919515850808`)
+       - WhatsApp: `+91 95158 50808` (`https://wa.me/919515850808?text=...`)
+       - Email: `mujeeburrahman@victorluxurylimousine.com` (`mailto:mujeeburrahman@victorluxurylimousine.com`)
+     - **Muhammad Asif** (Manager - Admin & Finance):
+       - Role: Manager - Admin & Finance
+       - Phone: `+91 9100 77 77 68` (`tel:+919100777768`)
+       - WhatsApp: `+91 9100 77 77 68` (`https://wa.me/919100777768?text=...`)
+       - Email: `asif@victorluxurylimousine.com` (`mailto:asif@victorluxurylimousine.com`)
+   - Maintained clean visual hierarchy, clear separation, and perfect typography harmony with the adjacent Operating Hubs list.
+
+### Validation:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Automated browser Playwright test (`scripts/verify-footer-asif.mjs`):
+  - Verified Mujeeb's name, phone (+91 95158 50808), WhatsApp, and email in Footer.
+  - Verified Asif's name, phone (+91 9100 77 77 68), WhatsApp, and email in Footer.
+  - Verified Asif's element is positioned below Mujeeb's element in the DOM flow.
+  - Verified zero mobile horizontal overflow (`scrollWidth === clientWidth === 390px`).
+  - Captured truth-of-source screenshots: `docs/screenshots/footer-asif-below-mujeeb-*.png`.
+
+---
+
 ## 28 October 2026 — Updated Sticky Contact Rail (3 Buttons) to Muhammad Asif's Contact Details
 
 Owner: Antigravity, at direct user request.

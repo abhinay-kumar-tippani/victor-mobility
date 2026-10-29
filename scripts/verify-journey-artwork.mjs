@@ -6,13 +6,20 @@ const browser = await chromium.launch({ channel: "msedge", headless: true });
 
 try {
   for (const region of ["india", "uae"]) {
-    for (const route of [region, `${region}/about`]) {
+    // About pages use the restored timeline; the homepages retain this artwork.
+    for (const route of [region]) {
       for (const viewport of [{ name: "desktop", width: 1440, height: 900 }, { name: "mobile", width: 390, height: 844 }, { name: "small-mobile", width: 320, height: 700 }]) {
         const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, reducedMotion: "reduce" });
         const page = await context.newPage();
         await page.goto(`${baseUrl}/${route}`, { waitUntil: "networkidle" });
         const section = page.locator("#journey");
         await section.waitFor({ state: "visible" });
+        if (!route.includes("about")) {
+          await page.waitForFunction(() => {
+            const el = document.querySelector("#journey");
+            return el && window.getComputedStyle(el).backgroundColor === "rgb(11, 9, 20)";
+          });
+        }
         const image = section.locator(`img[src="${imagePath}"]`);
         await image.waitFor({ state: "visible" });
         await image.scrollIntoViewIfNeeded();
@@ -22,7 +29,19 @@ try {
         }, imagePath);
 
         if (await section.locator('[data-slot="timeline"], [data-timeline-milestone]').count()) throw new Error(`${route}: old timeline remains`);
-        if (await section.locator(`a[href="${imagePath}"]`).count() < 2) throw new Error(`${route}: missing full-size image actions`);
+        if (await section.locator('button[aria-haspopup="dialog"]').count() < 2) throw new Error(`${route}: missing full-size image actions`);
+
+        // Verify same-page modal opens when clicked and doesn't redirect
+        const initialUrl = page.url();
+        const openBtn = section.locator('button[aria-haspopup="dialog"]').first();
+        await openBtn.click();
+        const dialog = page.locator('div[role="dialog"]');
+        await dialog.waitFor({ state: "visible" });
+        if (page.url() !== initialUrl) throw new Error(`${route}: clicking image redirected instead of staying on same page`);
+        const modalImg = dialog.locator(`img[src="${imagePath}"]`);
+        await modalImg.waitFor({ state: "visible" });
+        await page.keyboard.press("Escape");
+        await dialog.waitFor({ state: "hidden" });
         const layout = await section.evaluate((element) => {
           const heading = element.querySelector("#journey-heading")?.getBoundingClientRect();
           const image = element.querySelector("figure img")?.getBoundingClientRect();
@@ -46,11 +65,14 @@ try {
           await section.screenshot({ path: `docs/screenshots/journey-artwork-${region}-${pageName}-${viewport.name}.png` });
         }
 
-        const transcript = section.locator("details");
-        await transcript.locator("summary").click();
-        if (await transcript.locator("ol > li").count() !== 13) throw new Error(`${route}: text version should contain thirteen milestones`);
-        if (!(await transcript.locator("ol > li").last().innerText()).includes("Advancing Sustainable Mobility")) throw new Error(`${route}: 2025 milestone missing from text version`);
-        console.log(`${route} ${viewport.name}: supplied image, full-size links, text version and width passed`);
+        // Verify "Read the milestones as text" and details element are completely removed
+        const detailsCount = await section.locator("details").count();
+        if (detailsCount > 0) throw new Error(`${route}: details element still present in journey container`);
+        const sectionText = await section.innerText();
+        if (sectionText.includes("Read the milestones as text")) {
+          throw new Error(`${route}: 'Read the milestones as text' text still present in journey container`);
+        }
+        console.log(`${route} ${viewport.name}: supplied image, full-size links, 'Read the milestones as text' removed, and width passed`);
         await context.close();
       }
     }

@@ -1,11 +1,12 @@
 # Team portraits
 
-## Real supplied portraits (Updated 27 October 2026)
+## Real supplied portraits (Updated 29 October 2026)
 
-The fictional placeholder portraits have been replaced with authentic supplied photographs for Victor executive leadership:
+The placeholder portraits have been replaced with authentic supplied photographs for Victor executive leadership:
 
 | Slide | Name | Role | Asset | Channels |
 | --- | --- | --- | --- | --- |
+| 00 | Mohammed Jahangir | Founder & Director | `/images/india/founder-jahangir.jpg` | Founder & Visionary |
 | 01 | Mujeeb Ur Rahman Mohammed | Business Development Partner | `/images/india/leadership-mujeeb.jpg` | Call (+91 91007 77768) · WhatsApp (+91 93965 46950) |
 | 02 | Syed Kamran Abbas Razvi | Director - Sales & Operations | `/images/team/kamran-razvi.jpg` | Call (+91 8074 16 05 84) · WhatsApp (+91 8074 16 05 84) · Email (syedkamran@victorluxurylimousine.com) |
 | 03 | Muhammad Asif | Manager - Admin & Finance | `/images/team/muhammad-asif.jpg` | Call (+91 9100 77 77 68) · WhatsApp (+91 9100 77 77 68) · Email (asif@victorluxurylimousine.com) |

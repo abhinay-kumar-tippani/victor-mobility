@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MessageSquare, Phone, Mail, ArrowRight, Clock, ShieldCheck } from "lucide-react";
+import { MessageSquare, Phone, Mail, ArrowRight, Clock, ShieldCheck, X, ZoomIn } from "lucide-react";
 import type { ContactData, DeskPerson } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -71,6 +72,31 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
       : (locale === "ar"
           ? "تواصل مباشرة مع مكتب العمليات في الهند على مدار الساعة لخدمات النقل السريعة وتأكيد الحجوزات."
           : "Direct round-the-clock coordination with our operations desk or connect on WhatsApp for immediate dispatch and bookings."));
+
+  const [selectedPerson, setSelectedPerson] = useState<DeskPerson | null>(null);
+
+  const handleClose = useCallback(() => {
+    setSelectedPerson(null);
+  }, []);
+
+  useEffect(() => {
+    if (!selectedPerson) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPerson, handleClose]);
 
   const getWhatsappMessage = (personName: string) => {
     if (locale === "ar") {
@@ -142,19 +168,31 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                     <div>
                       {/* Person Details Header */}
                       <div className="flex items-start gap-4">
-                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-brand-violet/20 border border-brand-violet/30 flex items-center justify-center font-bold text-white text-base shrink-0 group-hover:scale-105 transition-transform shadow-inner">
-                          {person.imageSrc ? (
+                        {person.imageSrc ? (
+                          <button
+                            type="button"
+                            onClick={() => setSelectedPerson(person)}
+                            aria-haspopup="dialog"
+                            aria-expanded={selectedPerson?.name === person.name}
+                            aria-label={`View full portrait of ${person.name}`}
+                            className="group/avatar relative w-16 h-20 sm:w-20 sm:h-24 rounded-2xl overflow-hidden bg-brand-violet/20 border-2 border-white/20 hover:border-brand-violet/80 flex items-center justify-center shrink-0 cursor-zoom-in transition-all duration-200 hover:scale-105 shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-violet"
+                          >
                             <Image
                               src={person.imageSrc}
                               alt={`Portrait of ${person.name}`}
                               fill
-                              sizes="64px"
-                              className="object-cover object-top"
+                              sizes="(max-width: 640px) 80px, 96px"
+                              className="object-cover object-top transition duration-300 group-hover/avatar:scale-105"
                             />
-                          ) : (
-                            initials
-                          )}
-                        </div>
+                            <span className="pointer-events-none absolute bottom-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/75 text-white shadow-sm backdrop-blur-xs transition group-hover/avatar:bg-brand-violet">
+                              <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
+                            </span>
+                          </button>
+                        ) : (
+                          <div className="relative w-16 h-20 sm:w-20 sm:h-24 rounded-2xl overflow-hidden bg-brand-violet/20 border border-brand-violet/30 flex items-center justify-center font-bold text-white text-base shrink-0 shadow-inner">
+                            {initials}
+                          </div>
+                        )}
                         <div className="min-w-0 flex-1 space-y-1">
                           <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
                             {person.name}
@@ -167,6 +205,17 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                               ? (locale === "ar" ? "فيكتور ليموزين الإمارات" : "Victor Mobility UAE")
                               : "Victor Mobility Pvt. Ltd."}
                           </p>
+                          {person.imageSrc && (
+                            <button
+                              type="button"
+                              onClick={() => setSelectedPerson(person)}
+                              aria-haspopup="dialog"
+                              className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-brand-violet hover:text-white transition-colors pt-0.5"
+                            >
+                              <ZoomIn className="h-3.5 w-3.5" />
+                              <span>{locale === "ar" ? "عرض الصورة كاملة" : "Click image to view photo"}</span>
+                            </button>
+                          )}
                         </div>
                       </div>
 
@@ -248,6 +297,104 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
           </div>
         </div>
       </div>
+
+      {/* Same-page Image Modal Lightbox for 24/7 Available Team */}
+      {selectedPerson && selectedPerson.imageSrc && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Portrait of ${selectedPerson.name}`}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3.5 sm:p-6 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={handleClose}
+        >
+          <div
+            className="relative flex w-full max-w-sm sm:max-w-md flex-col items-center overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 p-4 sm:p-5 shadow-2xl text-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Bar with Person Info and Close Button */}
+            <div className="flex w-full items-center justify-between pb-3 border-b border-white/10">
+              <div className="min-w-0 pr-2">
+                <h4 className="text-base sm:text-lg font-bold text-white tracking-tight truncate">
+                  {selectedPerson.name}
+                </h4>
+                <p className="text-xs text-brand-violet font-semibold truncate">
+                  {selectedPerson.designation}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleClose}
+                aria-label="Close image viewer"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+
+            {/* High-Resolution Portrait Display with perfect sizing */}
+            <div className="relative my-3.5 flex max-h-[58vh] sm:max-h-[62vh] w-full items-center justify-center overflow-hidden rounded-2xl bg-black/50 border border-white/10 p-2">
+              <Image
+                src={selectedPerson.imageSrc}
+                alt={`Full portrait of ${selectedPerson.name}`}
+                width={790}
+                height={1024}
+                unoptimized
+                priority
+                className="h-auto max-h-[54vh] sm:max-h-[58vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            </div>
+
+            {/* Direct Contact Actions Inside Modal */}
+            <div className="w-full space-y-2 pt-1 text-xs">
+              <div className="flex items-center justify-between text-slate-400 pb-0.5 text-[11px]">
+                <span>Victor Mobility • Operations Desk</span>
+                <span className="font-mono text-emerald-400 flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Available 24/7
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={`https://wa.me/${selectedPerson.whatsappDigits}?text=${encodeURIComponent(getWhatsappMessage(selectedPerson.name))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-2.5 px-3 font-semibold text-white transition shadow-sm"
+                >
+                  <MessageSquare className="h-4 w-4" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href={selectedPerson.phoneHref}
+                  className="flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 py-2.5 px-3 font-semibold text-white transition border border-white/15"
+                >
+                  <Phone className="h-4 w-4 text-brand-violet" />
+                  <span>Call Direct</span>
+                </a>
+              </div>
+
+              {selectedPerson.email && (
+                <a
+                  href={`mailto:${selectedPerson.email}`}
+                  className="flex items-center justify-center gap-2 w-full rounded-xl bg-white/5 hover:bg-white/10 py-2 px-3 font-medium text-slate-300 hover:text-white transition border border-white/10 truncate"
+                >
+                  <Mail className="h-3.5 w-3.5 text-brand-blue shrink-0" />
+                  <span className="truncate">{selectedPerson.email}</span>
+                </a>
+              )}
+
+              <button
+                type="button"
+                onClick={handleClose}
+                className="w-full rounded-xl bg-white/10 hover:bg-white/15 py-1.5 text-center font-medium text-slate-300 hover:text-white transition"
+              >
+                Close (Esc)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

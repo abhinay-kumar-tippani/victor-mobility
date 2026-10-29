@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { Phone, MessageSquare, Mail } from "lucide-react";
+import { Phone, MessageSquare, Mail, X, ZoomIn } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export interface AssistanceContact {
@@ -70,16 +70,40 @@ export default function ImmediateAssistanceCard({
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [selectedPerson, setSelectedPerson] = useState<AssistanceContact | null>(null);
 
-  // 3-second automatic slideshow rotation
+  const handleCloseModal = useCallback(() => {
+    setSelectedPerson(null);
+  }, []);
+
   useEffect(() => {
-    if (isPaused) return;
+    if (!selectedPerson) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPerson, handleCloseModal]);
+
+  // 3-second automatic slideshow rotation (paused if hovered or modal open)
+  useEffect(() => {
+    if (isPaused || selectedPerson) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % people.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [isPaused, people.length]);
+  }, [isPaused, selectedPerson, people.length]);
 
   const person = people[currentIndex];
 
@@ -255,7 +279,14 @@ export default function ImmediateAssistanceCard({
       {/* Slideshow Team Member Footer */}
       <div className="mt-6 pt-5 border-t border-white/15 flex items-center justify-between gap-3.5">
         <div className="flex items-center gap-3.5 min-w-0">
-          <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-white/20 bg-white/10 shadow-xs">
+          <button
+            type="button"
+            onClick={() => setSelectedPerson(person)}
+            aria-haspopup="dialog"
+            aria-expanded={selectedPerson?.id === person.id}
+            aria-label={`View full portrait of ${person.name}`}
+            className="group/avatar relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-white/20 hover:border-brand-violet bg-white/10 shadow-xs cursor-zoom-in transition-transform hover:scale-105"
+          >
             <Image
               key={person.id}
               src={person.imageSrc}
@@ -264,7 +295,10 @@ export default function ImmediateAssistanceCard({
               sizes="48px"
               className="object-cover object-top transition-opacity duration-300"
             />
-          </div>
+            <span className="pointer-events-none absolute bottom-0.5 right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/75 text-white shadow-xs">
+              <ZoomIn className="h-2.5 w-2.5" />
+            </span>
+          </button>
           <div className="min-w-0">
             <span className="font-bold text-white block text-sm truncate">
               {person.name}
@@ -298,6 +332,93 @@ export default function ImmediateAssistanceCard({
           ))}
         </div>
       </div>
+
+      {/* Same-page Image Modal Lightbox */}
+      {selectedPerson && selectedPerson.imageSrc && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Portrait of ${selectedPerson.name}`}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3.5 sm:p-6 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="relative flex w-full max-w-sm sm:max-w-md flex-col items-center overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 p-4 sm:p-5 shadow-2xl text-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex w-full items-center justify-between pb-3 border-b border-white/10">
+              <div className="min-w-0 pr-2">
+                <h4 className="text-base sm:text-lg font-bold text-white tracking-tight truncate">
+                  {selectedPerson.name}
+                </h4>
+                <p className="text-xs text-brand-violet font-semibold truncate">
+                  {selectedPerson.role}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleCloseModal}
+                aria-label="Close image viewer"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="relative my-3.5 flex max-h-[58vh] sm:max-h-[62vh] w-full items-center justify-center overflow-hidden rounded-2xl bg-black/50 border border-white/10 p-2">
+              <Image
+                src={selectedPerson.imageSrc}
+                alt={`Full portrait of ${selectedPerson.name}`}
+                width={790}
+                height={1024}
+                unoptimized
+                priority
+                className="h-auto max-h-[54vh] sm:max-h-[58vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            </div>
+
+            <div className="w-full space-y-2 pt-1 text-xs">
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={`https://wa.me/${selectedPerson.whatsappDigits}?text=${encodeURIComponent(`Hello ${selectedPerson.name}, I would like to discuss a transport requirement with Victor Mobility.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-2.5 px-3 font-semibold text-white transition shadow-sm"
+                >
+                  <MessageSquare className="h-4 w-4" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href={selectedPerson.phoneHref}
+                  className="flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 py-2.5 px-3 font-semibold text-white transition border border-white/15"
+                >
+                  <Phone className="h-4 w-4 text-brand-violet" />
+                  <span>Call Direct</span>
+                </a>
+              </div>
+
+              {selectedPerson.email && (
+                <a
+                  href={`mailto:${selectedPerson.email}`}
+                  className="flex items-center justify-center gap-2 w-full rounded-xl bg-white/5 hover:bg-white/10 py-2 px-3 font-medium text-slate-300 hover:text-white transition border border-white/10 truncate"
+                >
+                  <Mail className="h-3.5 w-3.5 text-brand-blue shrink-0" />
+                  <span className="truncate">{selectedPerson.email}</span>
+                </a>
+              )}
+
+              <button
+                type="button"
+                onClick={handleCloseModal}
+                className="w-full rounded-xl bg-white/10 hover:bg-white/15 py-1.5 text-center font-medium text-slate-300 hover:text-white transition"
+              >
+                Close (Esc)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, MessageSquare, MapPin } from "lucide-react";
+import { Phone, MessageSquare, MapPin, Mail } from "lucide-react";
 import type { ContactData, OfficeItem, CityItem } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -49,6 +49,35 @@ export default function Footer({
       : locale === "ma"
       ? "നമസ്കാരം Victor Mobility, എനിക്ക് ഒരു യാത്രാ ആവശ്യത്തെക്കുറിച്ച് സംസാരിക്കണം."
       : "Hello Victor Mobility, I would like to discuss a transport requirement.";
+
+  const asifPerson = indiaData.contact.available247?.people?.find(
+    (p) => p.name.includes("Asif")
+  ) || {
+    name: "Muhammad Asif",
+    designation: "Manager - Admin & Finance",
+    phoneDisplay: "+91 9100 77 77 68",
+    phoneHref: "tel:+919100777768",
+    whatsappDisplay: "+91 9100 77 77 68",
+    whatsappDigits: "919100777768",
+    email: "asif@victorluxurylimousine.com",
+  };
+
+  const asifWhatsappMessage =
+    locale === "ar"
+      ? "مرحباً محمد آصف، أود مناقشة متطلبات النقل والتنقل مع شركة فيكتور موبيليتي."
+      : locale === "hi"
+      ? "नमस्ते Muhammad Asif, मैं Victor Mobility के साथ परिवहन आवश्यकता पर चर्चा करना चाहता हूँ।"
+      : locale === "te"
+      ? "నమస్కారం Muhammad Asif, నేను Victor Mobility తో రవాణా అవసరాల గురించి చర్చించాలనుకుంటున్నాను."
+      : locale === "kn"
+      ? "ನಮಸ್ಕಾರ Muhammad Asif, ನಾನು Victor Mobility ಯೊಂದಿಗೆ ಸಾರಿಗೆ ಅಗತ್ಯವನ್ನು ಚರ್ಚಿಸಲು ಬಯಸುತ್ತೇನೆ."
+      : locale === "ta"
+      ? "வணக்கம் Muhammad Asif, நான் Victor Mobility உடன் போக்குவரத்து தேவையைப் பற்றி பேச விரும்புகிறேன்."
+      : locale === "ma"
+      ? "നമസ്കാരം Muhammad Asif, Victor Mobility യുമായി യാത്രാ ആവശ്യത്തെക്കുറിച്ച് സംസാരിക്കാൻ ഞാൻ ആഗ്രഹിക്കുന്നു."
+      : "Hello Muhammad Asif, I would like to discuss a transport requirement with Victor Mobility.";
+
+  const showAsif = isIndia || contact.name?.includes("Mujeeb");
 
   const aboutText = isIndia
     ? dict.footer.aboutText
@@ -145,33 +174,100 @@ export default function Footer({
           </div>
 
           {/* Operations & Booking Contact Desk */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-3 space-y-4">
             <h2 className="text-sm font-bold uppercase tracking-wider text-brand-soft-neutral mb-3">
               {dict.footer.contactTitle || "Direct Contact Desk"}
             </h2>
-            <p className="font-semibold text-sm text-white">{contact.name}</p>
-            <p className="text-xs text-brand-soft-neutral/75">{contact.role}</p>
 
-            <div className="space-y-2 pt-1">
-              <a
-                href={contact.phoneHref}
-                className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
-              >
-                <Phone className="w-4 h-4 text-brand-blue shrink-0" />
-                <span dir="ltr">{contact.phoneDisplay}</span>
-              </a>
-              <div>
-                <a
-                  href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
-                >
-                  <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>WhatsApp (<span dir="ltr">{contact.whatsappDisplay}</span>)</span>
-                </a>
+            {/* Mujeeb Ur Rahman Mohammed */}
+            <div className="space-y-1">
+              <p className="font-semibold text-sm text-white">{contact.name}</p>
+              <p className="text-xs text-brand-soft-neutral/75">{contact.role}</p>
+
+              <div className="space-y-1.5 pt-1">
+                <div>
+                  <a
+                    href={contact.phoneHref}
+                    className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
+                  >
+                    <Phone className="w-4 h-4 text-brand-blue shrink-0" />
+                    <span dir="ltr">{contact.phoneDisplay}</span>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href={`${contact.whatsappBaseUrl}?text=${encodeURIComponent(whatsappMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
+                  >
+                    <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>WhatsApp (<span dir="ltr">{contact.whatsappDisplay}</span>)</span>
+                  </a>
+                </div>
+                {contact.printedEmail && contact.emailEnabled && (
+                  <div>
+                    <a
+                      href={`mailto:${contact.printedEmail}`}
+                      className="inline-flex items-center gap-2 text-xs text-brand-soft-neutral hover:text-white transition-colors"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-brand-indigo shrink-0" />
+                      <span dir="ltr">{contact.printedEmail}</span>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
+
+            {/* Muhammad Asif below Mujeeb */}
+            {showAsif && (
+              <div className="pt-3 border-t border-white/10 space-y-1">
+                <p className="font-semibold text-sm text-white">{asifPerson.name}</p>
+                <p className="text-xs text-brand-soft-neutral/75">
+                  {locale === "ar"
+                    ? "مدير - الشؤون الإدارية والمالية"
+                    : locale === "hi"
+                    ? "प्रबंधक - प्रशासन एवं वित्त"
+                    : locale === "te"
+                    ? "మేనేజర్ - అడ్మిన్ & ఫైనాన్స్"
+                    : (asifPerson.designation || "Manager - Admin & Finance")}
+                </p>
+
+                <div className="space-y-1.5 pt-1">
+                  <div>
+                    <a
+                      href={asifPerson.phoneHref}
+                      className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
+                    >
+                      <Phone className="w-4 h-4 text-brand-blue shrink-0" />
+                      <span dir="ltr">{asifPerson.phoneDisplay}</span>
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      href={`https://wa.me/${asifPerson.whatsappDigits}?text=${encodeURIComponent(asifWhatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-brand-soft-neutral hover:text-white transition-colors"
+                    >
+                      <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>WhatsApp (<span dir="ltr">{asifPerson.whatsappDisplay}</span>)</span>
+                    </a>
+                  </div>
+                  {asifPerson.email && (
+                    <div>
+                      <a
+                        href={`mailto:${asifPerson.email}`}
+                        className="inline-flex items-center gap-2 text-xs text-brand-soft-neutral hover:text-white transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-brand-indigo shrink-0" />
+                        <span dir="ltr">{asifPerson.email}</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Operating Hubs Summary */}
