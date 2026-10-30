@@ -18,6 +18,7 @@ import { teDictionary } from "./dictionaries/te";
 import { knDictionary } from "./dictionaries/kn";
 import { taDictionary } from "./dictionaries/ta";
 import { maDictionary } from "./dictionaries/ma";
+import { mrDictionary } from "./dictionaries/mr";
 import { arDictionary } from "./dictionaries/ar";
 
 const DICTIONARIES: Record<SupportedLocale, TranslationDictionary> = {
@@ -27,6 +28,7 @@ const DICTIONARIES: Record<SupportedLocale, TranslationDictionary> = {
   kn: knDictionary,
   ta: taDictionary,
   ma: maDictionary,
+  mr: mrDictionary,
   ar: arDictionary,
 };
 
@@ -72,7 +74,8 @@ function getSavedLocale(region: Region): SupportedLocale {
         indiaSaved === "te" ||
         indiaSaved === "kn" ||
         indiaSaved === "ta" ||
-        indiaSaved === "ma"
+        indiaSaved === "ma" ||
+        indiaSaved === "mr"
       ) {
         return indiaSaved;
       }
@@ -87,7 +90,8 @@ function getSavedLocale(region: Region): SupportedLocale {
           val === "te" ||
           val === "kn" ||
           val === "ta" ||
-          val === "ma"
+          val === "ma" ||
+          val === "mr"
         )
           return val;
       }
@@ -158,7 +162,8 @@ export function LanguageProvider({ children, region: propRegion }: LanguageProvi
           newLocale !== "te" &&
           newLocale !== "kn" &&
           newLocale !== "ta" &&
-          newLocale !== "ma"
+          newLocale !== "ma" &&
+          newLocale !== "mr"
         )
           return;
       }

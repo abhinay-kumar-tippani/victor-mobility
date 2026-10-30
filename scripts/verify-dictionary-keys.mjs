@@ -19,17 +19,20 @@ async function verifyDictionaries() {
   const tempKn = loadTsDict(path.resolve("src/i18n/dictionaries/kn.ts"));
   const tempTa = loadTsDict(path.resolve("src/i18n/dictionaries/ta.ts"));
   const tempMa = loadTsDict(path.resolve("src/i18n/dictionaries/ma.ts"));
+  const tempMr = loadTsDict(path.resolve("src/i18n/dictionaries/mr.ts"));
 
   try {
     const enModule = await import(`file://${tempEn.replace(/\\/g, "/")}`);
     const knModule = await import(`file://${tempKn.replace(/\\/g, "/")}`);
     const taModule = await import(`file://${tempTa.replace(/\\/g, "/")}`);
     const maModule = await import(`file://${tempMa.replace(/\\/g, "/")}`);
+    const mrModule = await import(`file://${tempMr.replace(/\\/g, "/")}`);
 
     const en = enModule.enDictionary;
     const kn = knModule.knDictionary;
     const ta = taModule.taDictionary;
     const ma = maModule.maDictionary;
+    const mr = mrModule.mrDictionary;
 
     function compareKeys(baseObj, testObj, langName, prefix = "") {
       const missingKeys = [];
@@ -51,7 +54,8 @@ async function verifyDictionaries() {
     const langs = [
       { name: "Kannada (kn)", dict: kn },
       { name: "Tamil (ta)", dict: ta },
-      { name: "Malayalam (ma)", dict: ma }
+      { name: "Malayalam (ma)", dict: ma },
+      { name: "Marathi (mr)", dict: mr }
     ];
 
     let totalErrors = 0;
@@ -72,7 +76,7 @@ async function verifyDictionaries() {
       process.exit(1);
     }
   } finally {
-    [tempEn, tempKn, tempTa, tempMa].forEach(f => {
+    [tempEn, tempKn, tempTa, tempMa, tempMr].forEach(f => {
       if (fs.existsSync(f)) fs.unlinkSync(f);
     });
   }

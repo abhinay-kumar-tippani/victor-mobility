@@ -390,7 +390,8 @@ function EnquiryForm({
       locale === "te" ||
       locale === "kn" ||
       locale === "ta" ||
-      locale === "ma"
+      locale === "ma" ||
+      locale === "mr"
     ) {
       return dict.enquiryForm.requirementPlaceholder;
     }
@@ -421,6 +422,14 @@ function EnquiryForm({
       ? "सटीक वाहन क्षमता और शेड्यूलिंग योजना के लिए आवश्यक।"
       : locale === "te"
       ? "ఖచ్చితమైన వాహన సామర్థ్యం మరియు షెడ్యూలింగ్ ప్లానింగ్ కోసం అవసరం."
+      : locale === "kn"
+      ? "ನಿಖರ ವಾಹನ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ವೇಳಾಪಟ್ಟಿ ಯೋಜನೆಯ ಅಗತ್ಯವಿದೆ."
+      : locale === "ta"
+      ? "துல்லியமான வாகனக் கொள்ளளவு மற்றும் பயண அட்டவணை திட்டமிடலுக்கு தேவை."
+      : locale === "ma"
+      ? "കൃത്യമായ വാഹന ശേഷിക്കും ഷെഡ്യൂളിംഗ് പ്ലാനിംഗിനും ആവശ്യമാണ്."
+      : locale === "mr"
+      ? "अचूक वाहन क्षमता आणि शेड्यूलिंग नियोजनासाठी आवश्यक."
       : (enquiry.planningFields.help || "Required for vehicle capacity and scheduling planning."),
     passengerError: dict.enquiryForm.errors.passengers,
     dateError: dict.enquiryForm.errors.date,
@@ -439,6 +448,8 @@ function EnquiryForm({
       ? "தேவைகள் மையம்"
       : locale === "ma"
       ? "ആവശ്യങ്ങളുടെ ഡെസ്ക്"
+      : locale === "mr"
+      ? "आवश्यकता डेस्क"
       : "Requirement Desk";
 
   const deskHeading =
@@ -454,6 +465,8 @@ function EnquiryForm({
       ? "உங்கள் போக்குவரத்து தேவைகளை எங்களிடம் கூறுங்கள்"
       : locale === "ma"
       ? "നിങ്ങളുടെ യാത്രാ ആവശ്യങ്ങൾ ഞങ്ങളോട് പറയൂ"
+      : locale === "mr"
+      ? "तुमच्या प्रवास गरजा आम्हाला सांगा"
       : "Tell us what you need to arrange";
 
   const formTitle =
@@ -469,6 +482,8 @@ function EnquiryForm({
       ? "போக்குவரத்து தேவை விசாரணை"
       : locale === "ma"
       ? "ഗതാഗത ആവശ്യങ്ങളുടെ അന്വേഷണം"
+      : locale === "mr"
+      ? "वाहतूक आवश्यकता चौकशी"
       : "Transport Requirement Enquiry";
 
   const otherCityLabel =
@@ -484,6 +499,8 @@ function EnquiryForm({
       ? "பிற நகரம் / நகரங்களுக்கு இடையே"
       : locale === "ma"
       ? "മറ്റ് നഗരം / നഗരങ്ങൾക്കിടയിൽ"
+      : locale === "mr"
+      ? "इतर शहर / आंतर-शहर"
       : "Other City / Inter-City";
 
   const generalVehicleEnquiryLabel =
@@ -499,6 +516,8 @@ function EnquiryForm({
       ? "பொதுவான வாகன விசாரணை"
       : locale === "ma"
       ? "പൊതുവായ വാഹന അന്വേഷണം"
+      : locale === "mr"
+      ? "सामान्य वाहन चौकशी"
       : "General Vehicle Enquiry";
 
   const summaryTitle =
@@ -514,6 +533,8 @@ function EnquiryForm({
       ? "விசாரணை விவரக் குறிப்பு சுருக்கம்:"
       : locale === "ma"
       ? "അന്വേഷണ വിവരങ്ങളുടെ സംഗ്രഹം:"
+      : locale === "mr"
+      ? "चौकशी तपशील सारांश:"
       : "Enquiry Specification Summary:";
 
   const speakDirectlyTitle =
@@ -529,6 +550,8 @@ function EnquiryForm({
       ? "நேரடியாக பேச விரும்புகிறீர்களா?"
       : locale === "ma"
       ? "നേരിട്ട് സംസാരിക്കാൻ താല്പര്യമുണ്ടോ?"
+      : locale === "mr"
+      ? "थेट बोलायचे आहे का?"
       : "Prefer to Speak Directly?";
 
   const speakDirectlyDesc =
@@ -544,6 +567,8 @@ function EnquiryForm({
       ? "கார்ப்பரேட் ஒப்பந்தங்கள் மற்றும் அவசர பயணத் தேவைகளைப் பற்றி பேச வணிக நேரங்களில் எங்கள் செயல்பாட்டு மற்றும் வணிக மேம்பாட்டு கூட்டாளர் தயாராக உள்ளார்."
       : locale === "ma"
       ? "കോർപ്പറേറ്റ് കരാറുകളും അടിയന്തര യാത്രാ ആവശ്യങ്ങളും ചർച്ച ചെയ്യാൻ ബിസിനസ്സ് സമയങ്ങളിൽ ഞങ്ങളുടെ ഓപ്പറേഷൻസ്, ബിസിനസ്സ് ഡെവലപ്‌മെന്റ് പങ്കാളി ലഭ്യമാണ്."
+      : locale === "mr"
+      ? "कॉर्पोरेट करार आणि तातडीच्या प्रवास गरजांवर चर्चा करण्यासाठी आमचे ऑपरेशन्स आणि व्यवसाय विकास भागीदार कार्यालयीन वेळेत उपलब्ध आहेत."
       : "Our operations and business development partner is available during business hours to discuss corporate contracts and urgent travel needs.";
 
   const callDirectLabel =
@@ -559,6 +584,8 @@ function EnquiryForm({
       ? "நேரடியாக அழைக்கவும்"
       : locale === "ma"
       ? "നേരിട്ട് വിളിക്കുക"
+      : locale === "mr"
+      ? "थेट कॉल करा"
       : "Call Direct";
 
   const directWhatsappLabel =
@@ -574,6 +601,8 @@ function EnquiryForm({
       ? "நேரடி WhatsApp"
       : locale === "ma"
       ? "നേരിട്ട് വാട്ട്‌സ്ആപ്പ്"
+      : locale === "mr"
+      ? "थेट WhatsApp"
       : "Direct WhatsApp";
 
   const transparentProcessTitle =
@@ -589,6 +618,8 @@ function EnquiryForm({
       ? "வெளிப்படையான விசாரணை செயல்முறை"
       : locale === "ma"
       ? "സുതാര്യമായ അന്വേഷണ പ്രക്രിയ"
+      : locale === "mr"
+      ? "पारदर्शक चौकशी प्रक्रिया"
       : "Transparent Enquiry Process";
 
   const transparentStep1 =
@@ -604,6 +635,8 @@ function EnquiryForm({
       ? "வழித்தடம் மற்றும் வாகன ஏற்பாடுகளை மதிப்பாய்வு செய்ய எங்கள் செயல்பாட்டு மையம் விசாரணையை நேரடியாகப் பெறுகிறது."
       : locale === "ma"
       ? "റൂട്ടും വാഹന ലഭ്യതയും പരിശോധിക്കാൻ ഞങ്ങളുടെ ഓപ്പറേഷൻസ് ഡെസ്ക് നേരിട്ട് അന്വേഷണം സ്വീകരിക്കുന്നു."
+      : locale === "mr"
+      ? "मार्ग आणि क्षमता पुनरावलोकनासाठी आमच्या ऑपरेशन्स डेस्कद्वारे चौकशी थेट प्राप्त केली जाते."
       : "Enquiry received directly by our operations desk for route and capacity review.";
 
   const transparentStep2 =
@@ -613,6 +646,14 @@ function EnquiryForm({
       ? "अनुकूलित वाहन विकल्प, रूट शेड्यूल और स्पष्ट शर्तों पर आपके साथ चर्चा की जाती है।"
       : locale === "te"
       ? "అనుకూలమైన వాహన ఎంపికలు, రూట్ షెడ్యూల్ మరియు స్పష్టమైన నిబంధనలు మీతో చర్చించబడతాయి."
+      : locale === "kn"
+      ? "ಅನುಕೂಲಕರ ವಾಹನ ಆಯ್ಕೆಗಳು, ಮಾರ್ಗ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಸ್ಪಷ್ಟ ನಿಯಮಗಳನ್ನು ನಿಮ್ಮೊಂದಿಗೆ ಚರ್ಚಿಸಲಾಗುತ್ತದೆ."
+      : locale === "ta"
+      ? "வாகன தேர்வுகள், பயண அட்டவணை மற்றும் தெளிவான விதிமுறைகள் உங்களுடன் ஆலோசிக்கப்படும்."
+      : locale === "ma"
+      ? "അനുയോജ്യമായ വാഹന ഓപ്ഷനുകൾ, റൂട്ട് ഷെഡ്യൂൾ, വ്യക്തമായ നിബന്ധനകൾ എന്നിവ ചർച്ച ചെയ്യുന്നു."
+      : locale === "mr"
+      ? "अनुकूलित वाहन पर्याय, प्रवास वेळापत्रक आणि स्पष्ट अटींवर आपल्याशी चर्चा केली जाते."
       : "Tailored vehicle options, route schedule, and clear terms discussed with you.";
 
   const transparentStep3 =
@@ -628,6 +669,8 @@ function EnquiryForm({
       ? "பிரத்யேக ஓட்டுநர் மற்றும் வாகன புறப்பாடு விவரங்களுடன் நேரடி உறுதிப்படுத்தல்."
       : locale === "ma"
       ? "പ്രത്യേക ഡ്രൈവറുടെയും വാഹനത്തിന്റെയും വിവരങ്ങളോടെ നേരിട്ടുള്ള സ്ഥിരീകരണം."
+      : locale === "mr"
+      ? "समर्पित चालक आणि वाहन प्रेषण तपशीलांसह थेट पुष्टीकरण."
       : "Direct confirmation with dedicated chauffeur and vehicle dispatch details.";
 
   return (
@@ -728,7 +771,7 @@ function EnquiryForm({
               <div className="mb-5 flex flex-wrap items-center gap-2">
                 {selectedVehicle && (
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-blue/10 border border-brand-blue/25 text-xs font-semibold text-brand-blue">
-                    <span>{locale === "ar" ? "المركبة المطلوبة:" : locale === "hi" ? "चयनित वाहन:" : locale === "te" ? "ఎంచుకున్న వాహనం:" : locale === "kn" ? "ಆಯ್ಕೆಮಾಡಿದ ವಾಹನ:" : locale === "ta" ? "தேர்ந்தெடுக்கப்பட்ட வாகனம்:" : locale === "ma" ? "തിരഞ്ഞെടുത്ത വാഹനം:" : "Selected Vehicle:"} <strong>{selectedVehicle}</strong></span>
+                    <span>{locale === "ar" ? "المركبة المطلوبة:" : locale === "hi" ? "चयनित वाहन:" : locale === "te" ? "ఎంచుకున్న వాహనం:" : locale === "kn" ? "ಆಯ್ಕೆಮಾಡಿದ ವಾಹನ:" : locale === "ta" ? "தேர்ந்தெடுக்கப்பட்ட வாகனம்:" : locale === "ma" ? "തിരഞ്ഞെടുത്ത വാഹനം:" : locale === "mr" ? "निवडलेले वाहन:" : "Selected Vehicle:"} <strong>{selectedVehicle}</strong></span>
                     <button
                       type="button"
                       onClick={() => setSelectedVehicle(null)}
@@ -742,7 +785,7 @@ function EnquiryForm({
 
                 {selectedCategory && (
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-indigo/10 border border-brand-indigo/25 text-xs font-semibold text-brand-indigo">
-                    <span>{locale === "ar" ? "الفئة المفضلة:" : locale === "hi" ? "पसंदीदा श्रेणी:" : locale === "te" ? "ఇష్టపడే విభాగం:" : locale === "kn" ? "ಆದ್ಯತೆಯ ವರ್ಗ:" : locale === "ta" ? "விருப்பமான வகை:" : locale === "ma" ? "മുൻഗണനയുള്ള വിഭാഗം:" : "Preferred Category:"} <strong>{selectedCategory}</strong></span>
+                    <span>{locale === "ar" ? "الفئة المفضلة:" : locale === "hi" ? "पसंदीदा श्रेणी:" : locale === "te" ? "ఇష్టపడే విభాగం:" : locale === "kn" ? "ಆದ್ಯತೆಯ ವರ್ಗ:" : locale === "ta" ? "விருப்பமான வகை:" : locale === "ma" ? "മുൻഗണനയുള്ള വിഭാഗം:" : locale === "mr" ? "प्राधान्यीकृत श्रेणी:" : "Preferred Category:"} <strong>{selectedCategory}</strong></span>
                     <button
                       type="button"
                       onClick={() => setSelectedCategory(null)}

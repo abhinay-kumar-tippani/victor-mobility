@@ -143,6 +143,8 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
                 ? `படி ${step + 1} / 3`
                 : locale === "ma"
                 ? `ഘട്ടം ${step + 1} / 3`
+                : locale === "mr"
+                ? `पायरी ${step + 1} / 3`
                 : `Step ${step + 1} of 3`}
             </p>
             <div aria-hidden="true" className="mb-5 mt-3 flex gap-2">{[0, 1, 2].map(index => <span key={index} className={`h-1 flex-1 rounded-full ${index <= step ? "bg-brand-indigo" : "bg-brand-soft-neutral"}`} />)}</div>
@@ -179,7 +181,7 @@ export default function GuidedEnquiryAssistant({ copy, planningCopy, contact, co
             )}
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-brand-soft-neutral pt-4 text-sm">
               <Link href={pathname.startsWith("/uae") ? "/uae/contact" : "/india/contact"} onClick={closeAssistant} className="inline-flex min-h-[44px] items-center font-semibold text-brand-indigo underline underline-offset-4">{effectiveCopy.fullForm}</Link>
-              <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{locale === "ar" ? "اتصل بمكتب العمليات" : locale === "hi" ? "संचालन डेस्क को कॉल करें" : locale === "te" ? "ఆపరేషన్స్ డెస్క్‌కు కాల్ చేయండి" : locale === "kn" ? "ಕಾರ್ಯಾಚರಣೆ ಡೆಸ್ಕ್‌ಗೆ ಕರೆ ಮಾಡಿ" : locale === "ta" ? "செயல்பாட்டு மையத்தை அழைக்கவும்" : locale === "ma" ? "ഓപ്പറേഷൻസ് ഡെസ്കിലേക്ക് വിളിക്കുക" : copy.callLabel}</a>
+              <a href={contact.phoneHref} className="inline-flex min-h-[44px] items-center gap-1 font-semibold text-brand-indigo"><Phone className="h-4 w-4" aria-hidden="true" />{locale === "ar" ? "اتصل بمكتب العمليات" : locale === "hi" ? "संचालन डेस्क को कॉल करें" : locale === "te" ? "ఆపరేషన్స్ డెస్క్‌కు కాల్ చేయండి" : locale === "kn" ? "ಕಾರ್ಯಾಚರಣೆ ಡೆಸ್ಕ್‌ಗೆ ಕರೆ ಮಾಡಿ" : locale === "ta" ? "செயல்பாட்டு மையத்தை அழைக்கவும்" : locale === "ma" ? "ഓപ്പറേഷൻസ് ഡെസ്കിലേക്ക് വിളിക്കുക" : locale === "mr" ? "ऑपरेशन्स डेस्कला कॉल करा" : copy.callLabel}</a>
             </div>
           </div>
         </div>

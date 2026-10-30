@@ -48,6 +48,8 @@ export default function Footer({
       ? "வணக்கம் Victor Mobility, நான் ஒரு போக்குவரத்து தேவை பற்றி பேச விரும்புகிறேன்."
       : locale === "ma"
       ? "നമസ്കാരം Victor Mobility, എനിക്ക് ഒരു യാത്രാ ആവശ്യത്തെക്കുറിച്ച് സംസാരിക്കണം."
+      : locale === "mr"
+      ? "नमस्ते Victor Mobility, मला वाहतूक व्यवस्थेबद्दल चौकशी करायची आहे."
       : "Hello Victor Mobility, I would like to discuss a transport requirement.";
 
   const asifPerson = indiaData.contact.available247?.people?.find(
@@ -75,6 +77,8 @@ export default function Footer({
       ? "வணக்கம் Muhammad Asif, நான் Victor Mobility உடன் போக்குவரத்து தேவையைப் பற்றி பேச விரும்புகிறேன்."
       : locale === "ma"
       ? "നമസ്കാരം Muhammad Asif, Victor Mobility യുമായി യാത്രാ ആവശ്യത്തെക്കുറിച്ച് സംസാരിക്കാൻ ഞാൻ ആഗ്രഹിക്കുന്നു."
+      : locale === "mr"
+      ? "नमस्ते Muhammad Asif, मला Victor Mobility सोबत वाहतूक गरजेबद्दल चर्चा करायची आहे."
       : "Hello Muhammad Asif, I would like to discuss a transport requirement with Victor Mobility.";
 
   const showAsif = isIndia || contact.name?.includes("Mujeeb");

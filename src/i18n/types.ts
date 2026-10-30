@@ -1,4 +1,4 @@
-export type SupportedLocale = "en" | "hi" | "te" | "kn" | "ta" | "ma" | "ar";
+export type SupportedLocale = "en" | "hi" | "te" | "kn" | "ta" | "ma" | "mr" | "ar";
 export type Region = "india" | "uae";
 
 export interface LocaleMeta {
@@ -16,6 +16,7 @@ export const INDIA_LOCALES: LocaleMeta[] = [
   { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ", dir: "ltr" },
   { code: "ta", name: "Tamil", nativeName: "தமிழ்", dir: "ltr" },
   { code: "ma", name: "Malayalam", nativeName: "മലയാളം", dir: "ltr" },
+  { code: "mr", name: "Marathi", nativeName: "मराठी", dir: "ltr" },
 ];
 
 export const UAE_LOCALES: LocaleMeta[] = [
@@ -30,6 +31,7 @@ export const SUPPORTED_LOCALES: LocaleMeta[] = [
   { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ", dir: "ltr" },
   { code: "ta", name: "Tamil", nativeName: "தமிழ்", dir: "ltr" },
   { code: "ma", name: "Malayalam", nativeName: "മലയാളം", dir: "ltr" },
+  { code: "mr", name: "Marathi", nativeName: "मराठी", dir: "ltr" },
   { code: "ar", name: "Arabic", nativeName: "العربية", dir: "rtl" },
 ];
 

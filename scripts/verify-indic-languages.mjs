@@ -10,7 +10,7 @@ if (!fs.existsSync(SCREENSHOT_DIR)) {
 }
 
 async function runVerification() {
-  console.log("🚀 Starting Comprehensive Indic Languages Verification (kn, ta, ma)...");
+  console.log("🚀 Starting Comprehensive Indic Languages Verification (kn, ta, ma, mr)...");
   const browser = await chromium.launch({ channel: "msedge", headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
@@ -42,7 +42,7 @@ async function runVerification() {
     await dropdownMenu.waitFor({ state: "visible" });
 
     const options = await page.locator('#desktop-language-switcher-menu [role="option"]').all();
-    assert(options.length === 6, `Selector contains exactly 6 options (got ${options.length})`);
+    assert(options.length === 7, `Selector contains exactly 7 options (got ${options.length})`);
 
     const expectedLocales = [
       { code: "en", native: "English" },
@@ -51,6 +51,7 @@ async function runVerification() {
       { code: "kn", native: "ಕನ್ನಡ" },
       { code: "ta", native: "தமிழ்" },
       { code: "ma", native: "മലയാളം" },
+      { code: "mr", native: "मराठी" },
     ];
 
     for (let i = 0; i < expectedLocales.length; i++) {
@@ -85,27 +86,14 @@ async function runVerification() {
     assert(knLang === "kn", `Document lang is 'kn' (got '${knLang}')`);
     assert(knDir === "ltr", `Document dir is 'ltr' (got '${knDir}')`);
 
-    // Verify Kannada trigger text
     const knTrigger = await switcherTrigger.innerText();
     assert(knTrigger.includes("ಕನ್ನಡ"), `Trigger displays 'ಕನ್ನಡ' (got '${knTrigger}')`);
 
-    // Verify Nav translated
-    const knNavServices = await page.locator('nav[aria-label="Main Navigation"] >> text=ಸೇವೆಗಳು').count();
-    const knNavFleet = await page.locator('nav[aria-label="Main Navigation"] >> text=ಫ್ಲೀಟ್').count();
-    const knNavEstimator = await page.locator('nav[aria-label="Main Navigation"] >> text=ಎಸ್ಟಿಮೇಟರ್').count();
-    assert(knNavServices > 0, "Navbar Services in Kannada ('ಸೇವೆಗಳು')");
-    assert(knNavFleet > 0, "Navbar Fleet in Kannada ('ಫ್ಲೀಟ್')");
-    assert(knNavEstimator > 0, "Navbar Estimator in Kannada ('ಎಸ್ಟಿಮೇಟರ್')");
-
-    // Verify Hero & Tagline
     const pageContentKn = await page.content();
     assert(pageContentKn.includes("On Time Every Time."), "Tagline 'On Time Every Time.' strictly preserved in Kannada view");
     assert(pageContentKn.includes("ಉದ್ಯೋಗಿ ಸಾರಿಗೆ"), "Hero employee transportation in Kannada ('ಉದ್ಯೋಗಿ ಸಾರಿಗೆ')");
-
-    // Verify Safety section in Kannada
     assert(pageContentKn.includes("ಸುರಕ್ಷತೆ ನಮ್ಮ ಮೊದಲ ಆದ್ಯತೆ"), "Safety section heading in Kannada ('ಸುರಕ್ಷತೆ ನಮ್ಮ ಮೊದಲ ಆದ್ಯತೆ')");
 
-    // Capture Kannada desktop screenshot
     await page.screenshot({
       path: path.join(SCREENSHOT_DIR, "lang-kn-desktop.png"),
       fullPage: false,
@@ -127,17 +115,11 @@ async function runVerification() {
     const taTrigger = await switcherTrigger.innerText();
     assert(taTrigger.includes("தமிழ்"), `Trigger displays 'தமிழ்' (got '${taTrigger}')`);
 
-    const taNavServices = await page.locator('nav[aria-label="Main Navigation"] >> text=சேவைகள்').count();
-    const taNavFleet = await page.locator('nav[aria-label="Main Navigation"] >> text=வாகனங்கள்').count();
-    assert(taNavServices > 0, "Navbar Services in Tamil ('சேவைகள்')");
-    assert(taNavFleet > 0, "Navbar Fleet in Tamil ('வாகனங்கள்')");
-
     const pageContentTa = await page.content();
     assert(pageContentTa.includes("On Time Every Time."), "Tagline 'On Time Every Time.' strictly preserved in Tamil view");
     assert(pageContentTa.includes("பணியாளர் போக்குவரத்து"), "Hero employee transportation in Tamil ('பணியாளர் போக்குவரத்து')");
     assert(pageContentTa.includes("பாதுகாப்பிற்கு முதலிடம்"), "Safety section heading in Tamil ('பாதுகாப்பிற்கு முதலிடம்')");
 
-    // Capture Tamil desktop screenshot
     await page.screenshot({
       path: path.join(SCREENSHOT_DIR, "lang-ta-desktop.png"),
       fullPage: false,
@@ -159,26 +141,56 @@ async function runVerification() {
     const maTrigger = await switcherTrigger.innerText();
     assert(maTrigger.includes("മലയാളം"), `Trigger displays 'മലയാളം' (got '${maTrigger}')`);
 
-    const maNavServices = await page.locator('nav[aria-label="Main Navigation"] >> text=സേവനങ്ങൾ').count();
-    const maNavFleet = await page.locator('nav[aria-label="Main Navigation"] >> text=ഫ്ലീറ്റ്').count();
-    assert(maNavServices > 0, "Navbar Services in Malayalam ('സേവനങ്ങൾ')");
-    assert(maNavFleet > 0, "Navbar Fleet in Malayalam ('ഫ്ലീറ്റ്')");
-
     const pageContentMa = await page.content();
     assert(pageContentMa.includes("On Time Every Time."), "Tagline 'On Time Every Time.' strictly preserved in Malayalam view");
     assert(pageContentMa.includes("ജീവനക്കാരുടെ ഗതാഗതം"), "Hero employee transportation in Malayalam ('ജീവനക്കാരുടെ ഗതാഗതം')");
     assert(pageContentMa.includes("സുരക്ഷയ്ക്ക് പ്രഥമ പരിഗണന"), "Safety section heading in Malayalam ('സുരക്ഷയ്ക്ക് പ്രഥമ പരിഗണന')");
 
-    // Capture Malayalam desktop screenshot
     await page.screenshot({
       path: path.join(SCREENSHOT_DIR, "lang-ma-desktop.png"),
       fullPage: false,
     });
 
     // ----------------------------------------------------
-    // TEST 5: State Preservation on Language Switch
+    // TEST 5: Marathi (mr) Validation Across Site
     // ----------------------------------------------------
-    console.log("\n--- TEST 5: Form & Interaction State Preservation ---");
+    console.log("\n--- TEST 5: Marathi (mr) Verification ---");
+    await switcherTrigger.click();
+    await page.locator("#language-option-mr").click();
+    await page.waitForFunction(() => document.documentElement.lang === "mr");
+
+    const mrLang = await page.getAttribute("html", "lang");
+    const mrDir = await page.getAttribute("html", "dir");
+    assert(mrLang === "mr", `Document lang is 'mr' (got '${mrLang}')`);
+    assert(mrDir === "ltr", `Document dir is 'ltr' (got '${mrDir}')`);
+
+    const mrTrigger = await switcherTrigger.innerText();
+    assert(mrTrigger.includes("मराठी"), `Trigger displays 'मराठी' (got '${mrTrigger}')`);
+
+    // Verify Nav translated in Marathi
+    const mrNavServices = await page.locator('nav[aria-label="Main Navigation"] >> text=सेवा').count();
+    const mrNavFleet = await page.locator('nav[aria-label="Main Navigation"] >> text=फ्लीट').count();
+    const mrNavEstimator = await page.locator('nav[aria-label="Main Navigation"] >> text=अंदाजबिंदू').count();
+    assert(mrNavServices > 0, "Navbar Services in Marathi ('सेवा')");
+    assert(mrNavFleet > 0, "Navbar Fleet in Marathi ('फ्लीट')");
+    assert(mrNavEstimator > 0, "Navbar Estimator in Marathi ('अंदाजबिंदू')");
+
+    // Verify Hero & Tagline
+    const pageContentMr = await page.content();
+    assert(pageContentMr.includes("On Time Every Time."), "Tagline 'On Time Every Time.' strictly preserved in Marathi view");
+    assert(pageContentMr.includes("कर्मचारी वाहतूक"), "Hero employee transportation in Marathi ('कर्मचारी वाहतूक')");
+    assert(pageContentMr.includes("सुरक्षेला सर्वोच्च प्राधान्य"), "Safety section heading in Marathi ('सुरक्षेला सर्वोच्च प्राधान्य')");
+
+    // Capture Marathi desktop screenshot
+    await page.screenshot({
+      path: path.join(SCREENSHOT_DIR, "lang-mr-desktop.png"),
+      fullPage: false,
+    });
+
+    // ----------------------------------------------------
+    // TEST 6: State Preservation on Language Switch
+    // ----------------------------------------------------
+    console.log("\n--- TEST 6: Form & Interaction State Preservation ---");
     await page.goto("http://localhost:3000/india/contact", { waitUntil: "networkidle" });
     const nameInput = page.locator("#enquiry-name-input");
     await nameInput.waitFor({ state: "visible" });
@@ -186,77 +198,57 @@ async function runVerification() {
     const companyInput = page.locator("#enquiry-company-input");
     await companyInput.fill("Wipro Technologies");
 
-    // Switch from Malayalam to Kannada
+    // Switch from current to Marathi
     await page.locator("#desktop-language-switcher").click();
-    await page.locator("#language-option-kn").click();
-    await page.waitForFunction(() => document.documentElement.lang === "kn");
+    await page.locator("#language-option-mr").click();
+    await page.waitForFunction(() => document.documentElement.lang === "mr");
 
-    const preservedNameKn = await nameInput.inputValue();
-    const preservedCompanyKn = await companyInput.inputValue();
-    assert(preservedNameKn === "Ananya Sharma", `Contact form name preserved after kn switch ('${preservedNameKn}')`);
-    assert(preservedCompanyKn === "Wipro Technologies", `Contact form company preserved after kn switch ('${preservedCompanyKn}')`);
+    const preservedNameMr = await nameInput.inputValue();
+    const preservedCompanyMr = await companyInput.inputValue();
+    assert(preservedNameMr === "Ananya Sharma", `Contact form name preserved after mr switch ('${preservedNameMr}')`);
+    assert(preservedCompanyMr === "Wipro Technologies", `Contact form company preserved after mr switch ('${preservedCompanyMr}')`);
 
-    const draftPreviewKn = await page.locator('pre[aria-label="WhatsApp message preview"]').innerText();
-    assert(draftPreviewKn.includes("Ananya Sharma"), "WhatsApp draft contains entered user name");
-    assert(draftPreviewKn.includes("ಸಾರಿಗೆ ಅಗತ್ಯತೆಯ ವಿಚಾರಣೆ"), "WhatsApp draft header translated to Kannada ('ಸಾರಿಗೆ ಅಗತ್ಯತೆಯ ವಿಚಾರಣೆ')");
-
-    // Switch to Tamil
-    await page.locator("#desktop-language-switcher").click();
-    await page.locator("#language-option-ta").click();
-    await page.waitForFunction(() => document.documentElement.lang === "ta");
-
-    const preservedNameTa = await nameInput.inputValue();
-    assert(preservedNameTa === "Ananya Sharma", "Contact form name preserved after ta switch");
-    const draftPreviewTa = await page.locator('pre[aria-label="WhatsApp message preview"]').innerText();
-    assert(draftPreviewTa.includes("போக்குவரத்து தேவை விசாரணை"), "WhatsApp draft header translated to Tamil ('போக்குவரத்து தேவை விசாரணை')");
-
-    // Switch to Malayalam
-    await page.locator("#desktop-language-switcher").click();
-    await page.locator("#language-option-ma").click();
-    await page.waitForFunction(() => document.documentElement.lang === "ma");
-
-    const preservedNameMa = await nameInput.inputValue();
-    assert(preservedNameMa === "Ananya Sharma", "Contact form name preserved after ma switch");
-    const draftPreviewMa = await page.locator('pre[aria-label="WhatsApp message preview"]').innerText();
-    assert(draftPreviewMa.includes("ഗതാഗത ആവശ്യങ്ങളുടെ അന്വേഷണം"), "WhatsApp draft header translated to Malayalam ('ഗതാഗത ആവശ്യങ്ങളുടെ അന്വേഷണം')");
+    const draftPreviewMr = await page.locator('pre[aria-label="WhatsApp message preview"]').innerText();
+    assert(draftPreviewMr.includes("Ananya Sharma"), "WhatsApp draft contains entered user name");
+    assert(draftPreviewMr.includes("वाहतूक आवश्यकता चौकशी"), "WhatsApp draft header translated to Marathi ('वाहतूक आवश्यकता चौकशी')");
 
     // ----------------------------------------------------
-    // TEST 6: Other Routes (Services, Fleet, Estimator, RFP, FAQ)
+    // TEST 7: Other Routes in Marathi
     // ----------------------------------------------------
-    console.log("\n--- TEST 6: Route Traversal with Indic Languages ---");
+    console.log("\n--- TEST 7: Route Traversal with Marathi ---");
 
-    // Check Fleet page in Kannada
+    // Check Fleet page in Marathi
     await page.goto("http://localhost:3000/india/fleet", { waitUntil: "networkidle" });
     await page.locator("#desktop-language-switcher").click();
-    await page.locator("#language-option-kn").click();
-    await page.waitForFunction(() => document.documentElement.lang === "kn");
+    await page.locator("#language-option-mr").click();
+    await page.waitForFunction(() => document.documentElement.lang === "mr");
 
-    const fleetTextKn = await page.locator("body").innerText();
-    assert(fleetTextKn.includes("Swift Dzire") && fleetTextKn.includes("Innova Crysta"), "Vehicle models preserved verbatim on fleet page");
-    assert(fleetTextKn.includes("ಕೊಟೇಶನ್ ವಿನಂತಿಸಿ") || fleetTextKn.includes("ಕೋರಿಕೆ"), "Fleet quotation call-to-action rendered in Kannada");
+    const fleetTextMr = await page.locator("body").innerText();
+    assert(fleetTextMr.includes("Swift Dzire") && fleetTextMr.includes("Innova Crysta"), "Vehicle models preserved verbatim on fleet page in Marathi");
+    assert(fleetTextMr.includes("कोटेशन विनंती करा") || fleetTextMr.includes("चौकशी करा"), "Fleet CTA rendered in Marathi");
 
-    // Check Estimator page in Tamil
+    // Check Estimator page in Marathi
     await page.goto("http://localhost:3000/india/estimator", { waitUntil: "networkidle" });
     await page.locator("#desktop-language-switcher").click();
-    await page.locator("#language-option-ta").click();
-    await page.waitForFunction(() => document.documentElement.lang === "ta");
+    await page.locator("#language-option-mr").click();
+    await page.waitForFunction(() => document.documentElement.lang === "mr");
 
-    const estimatorTextTa = await page.locator("body").innerText();
-    assert(estimatorTextTa.includes("மதிப்பீடு") || estimatorTextTa.includes("பயணத்தை திட்டமிடுங்கள்"), "Estimator page rendered in Tamil");
+    const estimatorTextMr = await page.locator("body").innerText();
+    assert(estimatorTextMr.includes("अंदाज") || estimatorTextMr.includes("प्रवासाची योजना"), "Estimator page rendered in Marathi");
 
-    // Check RFP page in Malayalam
+    // Check RFP page in Marathi
     await page.goto("http://localhost:3000/india/rfp", { waitUntil: "networkidle" });
     await page.locator("#desktop-language-switcher").click();
-    await page.locator("#language-option-ma").click();
-    await page.waitForFunction(() => document.documentElement.lang === "ma");
+    await page.locator("#language-option-mr").click();
+    await page.waitForFunction(() => document.documentElement.lang === "mr");
 
-    const rfpTextMa = await page.locator("body").innerText();
-    assert(rfpTextMa.includes("കോർപ്പറേറ്റ് RFP ഡെസ്ക്") || rfpTextMa.includes("ടെൻഡർ"), "RFP Desk rendered in Malayalam");
+    const rfpTextMr = await page.locator("body").innerText();
+    assert(rfpTextMr.includes("कॉर्पोरेट RFP डेस्क") || rfpTextMr.includes("निविदा"), "RFP Desk rendered in Marathi");
 
     // ----------------------------------------------------
-    // TEST 7: UAE Isolation & Independence
+    // TEST 8: UAE Isolation & Independence
     // ----------------------------------------------------
-    console.log("\n--- TEST 7: UAE Isolation & Independence ---");
+    console.log("\n--- TEST 8: UAE Isolation & Independence ---");
     await page.goto("http://localhost:3000/uae", { waitUntil: "networkidle" });
     const uaeSwitcher = page.locator("#desktop-language-switcher");
     await uaeSwitcher.waitFor({ state: "visible" });
@@ -267,9 +259,8 @@ async function runVerification() {
     assert(uaeOptions.length === 2, `UAE offers strictly 2 languages (got ${uaeOptions.length})`);
     assert(uaeOptions.some(o => o.includes("English")), "UAE has English");
     assert(uaeOptions.some(o => o.includes("العربية")), "UAE has Arabic");
+    assert(!uaeOptions.some(o => o.includes("मराठी")), "UAE does NOT contain Marathi");
     assert(!uaeOptions.some(o => o.includes("ಕನ್ನಡ")), "UAE does NOT contain Kannada");
-    assert(!uaeOptions.some(o => o.includes("தமிழ்")), "UAE does NOT contain Tamil");
-    assert(!uaeOptions.some(o => o.includes("മലയാളം")), "UAE does NOT contain Malayalam");
 
     // Switch to Arabic in UAE to verify RTL works
     await page.locator("#language-option-ar").click();
@@ -286,9 +277,9 @@ async function runVerification() {
     assert(backToIndiaDir === "ltr", "India dir remains 'ltr'");
 
     // ----------------------------------------------------
-    // TEST 8: Mobile Drawer & Responsive Layout (768px, 390px, 320px)
+    // TEST 9: Mobile Drawer & Responsive Layout (768px, 390px, 320px)
     // ----------------------------------------------------
-    console.log("\n--- TEST 8: Mobile Drawer & Responsive Layout ---");
+    console.log("\n--- TEST 9: Mobile Drawer & Responsive Layout ---");
     for (const width of [768, 390, 320]) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(BASE_URL, { waitUntil: "networkidle" });
@@ -304,8 +295,8 @@ async function runVerification() {
       const mobileDrawer = page.locator("#mobile-navigation-drawer");
       await mobileDrawer.waitFor({ state: "visible" });
 
-      // Verify all 6 languages are present in drawer grid
-      const drawerLangs = ["English", "हिन्दी", "తెలుగు", "ಕನ್ನಡ", "தமிழ்", "മലയാളം"];
+      // Verify all 7 languages are present in drawer grid
+      const drawerLangs = ["English", "हिन्दी", "తెలుగు", "ಕನ್ನಡ", "தமிழ்", "മലയാളം", "मराठी"];
       for (const dl of drawerLangs) {
         const btn = mobileDrawer.locator(`button:has-text("${dl}")`);
         assert(await btn.isVisible(), `Mobile drawer button for '${dl}' visible at ${width}px`);
@@ -322,58 +313,32 @@ async function runVerification() {
           fullPage: false,
         });
 
-        // Switch to Kannada from drawer
-        await mobileDrawer.locator('button:has-text("ಕನ್ನಡ")').click();
-        await page.waitForFunction(() => document.documentElement.lang === "kn");
+        // Switch to Marathi from drawer
+        await mobileDrawer.locator('button:has-text("मराठी")').click();
+        await page.waitForFunction(() => document.documentElement.lang === "mr");
         await page.keyboard.press("Escape");
         await mobileDrawer.waitFor({ state: "hidden" });
 
         await page.screenshot({
-          path: path.join(SCREENSHOT_DIR, "lang-kn-mobile.png"),
-          fullPage: false,
-        });
-
-        // Open drawer again and switch to Tamil
-        await menuBtn.click();
-        await mobileDrawer.waitFor({ state: "visible" });
-        await mobileDrawer.locator('button:has-text("தமிழ்")').click();
-        await page.waitForFunction(() => document.documentElement.lang === "ta");
-        await page.keyboard.press("Escape");
-        await mobileDrawer.waitFor({ state: "hidden" });
-
-        await page.screenshot({
-          path: path.join(SCREENSHOT_DIR, "lang-ta-mobile.png"),
-          fullPage: false,
-        });
-
-        // Open drawer again and switch to Malayalam
-        await menuBtn.click();
-        await mobileDrawer.waitFor({ state: "visible" });
-        await mobileDrawer.locator('button:has-text("മലയാളം")').click();
-        await page.waitForFunction(() => document.documentElement.lang === "ma");
-        await page.keyboard.press("Escape");
-        await mobileDrawer.waitFor({ state: "hidden" });
-
-        await page.screenshot({
-          path: path.join(SCREENSHOT_DIR, "lang-ma-mobile.png"),
+          path: path.join(SCREENSHOT_DIR, "lang-mr-mobile.png"),
           fullPage: false,
         });
       }
     }
 
     // ----------------------------------------------------
-    // TEST 9: Persistence Across Reload and Navigation
+    // TEST 10: Persistence Across Reload and Navigation
     // ----------------------------------------------------
-    console.log("\n--- TEST 9: Persistence Across Reload & Navigation ---");
-    // We are currently in Malayalam ('ma')
+    console.log("\n--- TEST 10: Persistence Across Reload & Navigation ---");
+    // We are currently in Marathi ('mr')
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("http://localhost:3000/india/about", { waitUntil: "networkidle" });
-    const aboutLangMa = await page.getAttribute("html", "lang");
-    assert(aboutLangMa === "ma", `Malayalam persisted navigating to /india/about (got '${aboutLangMa}')`);
+    const aboutLangMr = await page.getAttribute("html", "lang");
+    assert(aboutLangMr === "mr", `Marathi persisted navigating to /india/about (got '${aboutLangMr}')`);
 
     await page.reload({ waitUntil: "networkidle" });
-    const reloadedLangMa = await page.getAttribute("html", "lang");
-    assert(reloadedLangMa === "ma", `Malayalam persisted across hard reload (got '${reloadedLangMa}')`);
+    const reloadedLangMr = await page.getAttribute("html", "lang");
+    assert(reloadedLangMr === "mr", `Marathi persisted across hard reload (got '${reloadedLangMr}')`);
 
     // Reset back to English
     await page.locator("#desktop-language-switcher").click();

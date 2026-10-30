@@ -120,6 +120,8 @@ export default function ImmediateAssistanceCard({
       ? "உடனடி உதவி"
       : locale === "ma"
       ? "ഉടനടി സഹായം"
+      : locale === "mr"
+      ? "त्वरित सहाय्य"
       : "Immediate Assistance";
 
   const cardHeading =
@@ -135,6 +137,8 @@ export default function ImmediateAssistanceCard({
       ? "நேரடியாக பேச விரும்புகிறீர்களா?"
       : locale === "ma"
       ? "നേരിട്ട് സംസാരിക്കാൻ താല്പര്യമുണ്ടോ?"
+      : locale === "mr"
+      ? "थेट बोलायचे आहे का?"
       : "Prefer to Speak Directly?";
 
   const cardDesc =
@@ -150,6 +154,8 @@ export default function ImmediateAssistanceCard({
       ? "கார்ப்பரேட் ஒப்பந்தங்கள் மற்றும் அவசர பயணத் தேவைகளைப் பற்றி பேச வணிக நேரங்களில் எங்கள் செயல்பாட்டு மற்றும் வணிக மேம்பாட்டு கூட்டாளர் தயாராக உள்ளார்."
       : locale === "ma"
       ? "കോർപ്പറേറ്റ് കരാറുകളും അടിയന്തര യാത്രാ ആവശ്യങ്ങളും ചർച്ച ചെയ്യാൻ ബിസിനസ്സ് സമയങ്ങളിൽ ഞങ്ങളുടെ ഓപ്പറേഷൻസ്, ബിസിനസ്സ് ഡെവലപ്‌മെന്റ് പങ്കാളി ലഭ്യമാണ്."
+      : locale === "mr"
+      ? "कॉर्पोरेट करार आणि तात्काळ प्रवासाच्या गरजांवर चर्चा करण्यासाठी आमचे ऑपरेशन्स आणि बिझनेस डेव्हलपमेंट भागीदार व्यावसायिक वेळेत उपलब्ध आहेत."
       : "Our operations and business development partner is available during business hours to discuss corporate contracts and urgent travel needs.";
 
   const callLabel =
@@ -159,6 +165,8 @@ export default function ImmediateAssistanceCard({
       ? "सीधे कॉल करें"
       : locale === "te"
       ? "నేరుగా కాల్ చేయండి"
+      : locale === "mr"
+      ? "थेट कॉल करा"
       : "Call Direct";
 
   const whatsappLabel =
@@ -168,6 +176,8 @@ export default function ImmediateAssistanceCard({
       ? "सीधा व्हाट्सएप"
       : locale === "te"
       ? "డైరెక్ట్ వాట్సాప్"
+      : locale === "mr"
+      ? "थेट WhatsApp"
       : "Direct WhatsApp";
 
   const emailLabel =
@@ -177,6 +187,8 @@ export default function ImmediateAssistanceCard({
       ? "सीधा ईमेल"
       : locale === "te"
       ? "డైరెక్ట్ ఇమెయిల్"
+      : locale === "mr"
+      ? "थेट ईमेल"
       : "Direct Email";
 
   const whatsappMessage = encodeURIComponent(
@@ -186,6 +198,8 @@ export default function ImmediateAssistanceCard({
       ? `नमस्ते ${person.name}, मैं Victor Mobility के साथ परिवहन आवश्यकता पर चर्चा करना चाहता हूँ।`
       : locale === "te"
       ? `నమస్కారం ${person.name}, నేను Victor Mobility తో రవాణా అవసరాల గురించి చర్చించాలనుకుంటున్నాను.`
+      : locale === "mr"
+      ? `नमस्ते ${person.name}, मला Victor Mobility सोबत वाहतूक गरजेबद्दल चर्चा करायची आहे.`
       : `Hello ${person.name}, I would like to discuss a transport requirement with Victor Mobility.`
   );
 

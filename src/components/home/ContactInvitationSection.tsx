@@ -117,6 +117,9 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
     if (locale === "ma") {
       return `നമസ്കാരം ${personName}, Victor Mobility യുമായി യാത്രാ ആവശ്യങ്ങളെക്കുറിച്ച് സംസാരിക്കാൻ ആഗ്രഹിക്കുന്നു.`;
     }
+    if (locale === "mr") {
+      return `नमस्कार ${personName}, मला Victor Mobility सोबत प्रवास गरजांवर चर्चा करायची आहे.`;
+    }
     return `Hello ${personName}, I would like to discuss travel requirements with Victor Mobility.`;
   };
 

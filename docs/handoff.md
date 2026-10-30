@@ -1,5 +1,43 @@
 # Handoff
 
+## 30 October 2026 — Marathi (mr) language support added for India website
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Added Marathi (`mr`) language support**:
+   - Added Marathi to the India language switcher on `/india` and all `/india/*` routes as the 7th option:
+     1. English — `en`
+     2. हिन्दी — `hi`
+     3. తెలుగు — `te`
+     4. ಕನ್ನಡ — `kn`
+     5. தமிழ் — `ta`
+     6. മലയാളം — `ma`
+     7. मराठी — `mr`
+   - Native display name: `मराठी`.
+   - Document attributes: `lang="mr"`, `dir="ltr"`.
+   - Typography: Rendered crisply with `Noto Sans Devanagari` font fallback.
+2. **Translation & Architecture Extension**:
+   - `src/i18n/dictionaries/mr.ts`: Complete Marathi dictionary matching 100% of keys and structure of `en.ts` with natural corporate phrasing.
+   - `src/i18n/types.ts`: Extended `SupportedLocale`, `INDIA_LOCALES`, and `SUPPORTED_LOCALES`.
+   - `src/i18n/LanguageContext.tsx`: Registered `mr` dictionary, allowed `mr` for `india` region in persistence and selection.
+   - `src/app/layout.tsx`: Synchronous head script handles `mr` with 0 flash of unlocalized content.
+   - `src/lib/enquiryMessage.ts`: Formatted Marathi WhatsApp enquiry message (`*वाहतूक आवश्यकता चौकशी*`).
+   - Component strings updated: `EnquirySection.tsx`, `ContactInvitationSection.tsx`, `PartnerEnquirySection.tsx`, `ImmediateAssistanceCard.tsx`, `GuidedEnquiryAssistant.tsx`, and `Footer.tsx`.
+3. **Preserved Boundaries & Invariants**:
+   - Preserved original logo and exact tagline: `"On Time Every Time."`.
+   - UAE routes (`/uae/*`) strictly restricted to English and Arabic (`en`, `ar`).
+   - Root page (`/`) country selector behavior preserved.
+   - Fleet models (`Swift Dzire`, `Innova Crysta`, `Tata Tigor`, `Force Urbania`), pricing, and contact numbers preserved.
+   - Form state, calculator inputs, and vehicle selections preserved across language switches.
+
+- Checks passed:
+  - Dictionary parity: `scripts/verify-dictionary-keys.mjs` (100% key parity, 0 missing keys).
+  - `npm run type-check`: 0 TypeScript errors.
+  - `npm run lint`: 0 ESLint warnings or errors.
+  - `npm run build`: 74/74 static routes compiled successfully.
+  - Playwright end-to-end verification (`scripts/verify-indic-languages.mjs`): 10 test suites passed (0 errors) across desktop (1440px), mobile (768px, 390px, 320px) with 0 horizontal overflow.
+- Screenshots: [Desktop Marathi](screenshots/lang-mr-desktop.png), [Mobile Marathi](screenshots/lang-mr-mobile.png), [Language Selector 7 Options](screenshots/lang-selector-all-options.png).
+
 ## 29 October 2026 — Country selector logo enlarged
 
 Increased the `/` header logo from 56px to 68px high on phones and from 64px to 84px high on larger screens. The original artwork, aspect ratio, and existing header height are preserved. The change is confined to the root page's logo size classes.

@@ -20,6 +20,7 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
   const isKn = draft.locale === "kn";
   const isTa = draft.locale === "ta";
   const isMa = draft.locale === "ma";
+  const isMr = draft.locale === "mr";
 
   if (isAr) {
     return [
@@ -138,6 +139,26 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
       draft.requirement.trim() || "[ഷിഫ്റ്റ് സമയം, റൂട്ട്, യാത്രക്കാരുടെ എണ്ണം അല്ലെങ്കിൽ തീയതികൾ]",
       "--------------------------------",
       "Victor Mobility അന്വേഷണം വഴി തയ്യാറാക്കിയത്",
+    ].join("\n");
+  }
+
+  if (isMr) {
+    return [
+      "*वाहतूक आवश्यकता चौकशी*",
+      `*${draft.companyName}*`,
+      "--------------------------------",
+      `*संपर्क नाव:* ${draft.fullName.trim() || "[तुमचे नाव]"}`,
+      ...(draft.company?.trim() ? [`*कंपनी:* ${draft.company.trim()}`] : []),
+      `*आवश्यक सेवा:* ${draft.service}`,
+      ...(draft.category ? [`*वाहन श्रेणी:* ${draft.category}`] : []),
+      ...(draft.vehicle?.trim() ? [`*मागणी केलेले वाहन:* ${draft.vehicle.trim()}`] : []),
+      `*शहर / परिसर:* ${draft.city}`,
+      ...(draft.passengerCount?.trim() ? [`*प्रवासी:* ${draft.passengerCount.trim()}`] : []),
+      ...(draft.travelDate ? [`*प्रवास / सुरुवात तारीख:* ${draft.travelDate}`] : []),
+      "*प्रवासाचा तपशील:*",
+      draft.requirement.trim() || "[शिफ्टच्या वेळा, मार्ग कॉरिडोअर, प्रवासी संख्या किंवा तारखा]",
+      "--------------------------------",
+      "Victor Mobility चौकशीद्वारे तयार",
     ].join("\n");
   }
 
