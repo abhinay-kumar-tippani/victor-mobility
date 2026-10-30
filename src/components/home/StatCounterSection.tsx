@@ -37,7 +37,7 @@ const DEFAULT_STATS: StatItemData[] = [
   },
   {
     id: "fleet",
-    targetValue: 1500,
+    targetValue: 5000,
     suffix: "+",
     formatCommas: true,
     colorHex: "#2D5090", // Victor Brand Blue
@@ -47,7 +47,7 @@ const DEFAULT_STATS: StatItemData[] = [
   },
   {
     id: "clients",
-    targetValue: 30,
+    targetValue: 50,
     suffix: "+",
     formatCommas: false,
     colorHex: "#31326F", // Victor Brand Indigo
@@ -58,22 +58,12 @@ const DEFAULT_STATS: StatItemData[] = [
   {
     id: "offices",
     targetValue: 10,
-    suffix: "",
+    suffix: "+",
     formatCommas: false,
     colorHex: "#6E57A0", // Victor Brand Violet
     colorClass: "text-brand-violet",
     durationMs: 1200,
     labelLines: ["India offices"],
-  },
-  {
-    id: "services",
-    targetValue: 6,
-    suffix: "",
-    formatCommas: false,
-    colorHex: "#2D5090", // Victor Brand Blue
-    colorClass: "text-brand-blue",
-    durationMs: 1400,
-    labelLines: ["Transport services"],
   },
 ];
 
@@ -82,9 +72,10 @@ interface SingleCounterProps {
   isInView: boolean;
   prefersReducedMotion: boolean;
   index: number;
+  totalCount: number;
 }
 
-function SingleCounter({ stat, isInView, prefersReducedMotion, index }: SingleCounterProps) {
+function SingleCounter({ stat, isInView, prefersReducedMotion, index, totalCount }: SingleCounterProps) {
   const { targetValue, suffix = "", formatCommas, colorClass, durationMs = 1800, labelLines } = stat;
   const [currentValue, setCurrentValue] = useState<number>(prefersReducedMotion ? targetValue : 0);
 
@@ -139,21 +130,23 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index }: SingleCo
     : targetValue.toString();
 
   // Responsive border classes matching grid breakpoints:
-  // Mobile: 2 cols x 3 rows
-  // Tablet (md): 3 cols x 2 rows
-  // Desktop (lg): 6 cols x 1 row
   const borderClasses: string[] = [];
 
   // Mobile (2 cols):
-  if (index % 2 === 0) {
+  const isOddLast = totalCount % 2 !== 0 && index === totalCount - 1;
+  if (!isOddLast && index % 2 === 0) {
     borderClasses.push("border-r border-brand-soft-neutral");
   }
-  if (index < 4) {
+  const lastRowStartIndex = totalCount % 2 === 0 ? totalCount - 2 : totalCount - 1;
+  if (index < lastRowStartIndex) {
     borderClasses.push("border-b border-brand-soft-neutral");
+  }
+  if (isOddLast) {
+    borderClasses.push("col-span-2 md:col-span-1");
   }
 
   // Tablet (3 cols):
-  if (index % 3 !== 2) {
+  if (index % 3 !== 2 && index !== totalCount - 1) {
     borderClasses.push("md:border-r md:border-brand-soft-neutral");
   } else {
     borderClasses.push("md:border-r-0");
@@ -164,8 +157,8 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index }: SingleCo
     borderClasses.push("md:border-b-0");
   }
 
-  // Desktop (6 cols):
-  if (index < 5) {
+  // Desktop (1 row):
+  if (index < totalCount - 1) {
     borderClasses.push("lg:border-r lg:border-b-0 lg:border-brand-soft-neutral");
   } else {
     borderClasses.push("lg:border-r-0 lg:border-b-0");
@@ -241,7 +234,7 @@ export default function StatCounterSection({ stats }: StatCounterSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Brand Theme Crisp White Container with subtle border and elevation */}
         <div className="bg-white border border-brand-soft-neutral rounded-2xl md:rounded-3xl shadow-sm overflow-hidden">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          <div className={`grid grid-cols-2 md:grid-cols-3 ${effectiveStats.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-6"}`}>
             {effectiveStats.map((stat, index) => (
               <SingleCounter
                 key={stat.id}
@@ -249,6 +242,7 @@ export default function StatCounterSection({ stats }: StatCounterSectionProps) {
                 isInView={isInView}
                 prefersReducedMotion={prefersReducedMotion}
                 index={index}
+                totalCount={effectiveStats.length}
               />
             ))}
           </div>

@@ -8,13 +8,14 @@ async function verify() {
     fs.mkdirSync(screenshotsDir, { recursive: true });
   }
 
+  const baseUrl = process.env.STAT_PREVIEW_URL || "http://127.0.0.1:3024";
   const browser = await chromium.launch({ channel: "msedge", headless: true });
 
   console.log("=== 1. DESKTOP VERIFICATION (1440x900) ===");
   const desktopCtx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await desktopCtx.newPage();
 
-  await page.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}/india`, { waitUntil: "networkidle" });
   await page.waitForTimeout(500);
 
   // Check section exists
@@ -26,24 +27,23 @@ async function verify() {
   console.log("Section scrolled into view. Waiting for counter animation (2500ms)...");
   await page.waitForTimeout(2500);
 
-  // Check the 6 counters
+  // Check the 5 counters
   const statGroups = statSection.locator('div[role="group"]');
   const count = await statGroups.count();
-  console.log(`Found ${count} stat items (expected 6)`);
-  if (count !== 6) {
-    throw new Error(`Expected 6 stat items, but found ${count}`);
+  console.log(`Found ${count} stat items (expected 5)`);
+  if (count !== 5) {
+    throw new Error(`Expected 5 stat items, but found ${count}`);
   }
 
   const expectedStats = [
     { value: "2010", label: "Established in Hyderabad", full: "2010 Established in Hyderabad" },
     { value: "15+", label: "Years of industry leadership", full: "15+ Years of industry leadership" },
-    { value: "1,500+", label: "Vehicles managed", full: "1,500+ Vehicles managed" },
-    { value: "30+", label: "Multinational clients", full: "30+ Multinational clients" },
-    { value: "10", label: "India offices", full: "10 India offices" },
-    { value: "6", label: "Transport services", full: "6 Transport services" },
+    { value: "5,000+", label: "Vehicles managed", full: "5,000+ Vehicles managed" },
+    { value: "50+", label: "Multinational clients", full: "50+ Multinational clients" },
+    { value: "10+", label: "India offices", full: "10+ India offices" },
   ];
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 5; i++) {
     const item = statGroups.nth(i);
     const ariaLabel = await item.getAttribute("aria-label");
     const textContent = await item.innerText();
@@ -69,7 +69,7 @@ async function verify() {
   console.log("\n=== 2. TABLET VERIFICATION (768x1024) ===");
   const tabletCtx = await browser.newContext({ viewport: { width: 768, height: 1024 } });
   const tabletPage = await tabletCtx.newPage();
-  await tabletPage.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  await tabletPage.goto(`${baseUrl}/india`, { waitUntil: "networkidle" });
   await tabletPage.waitForTimeout(500);
 
   const tabletStatSection = tabletPage.locator('section[aria-label="Key Performance Statistics"]');
@@ -84,7 +84,7 @@ async function verify() {
   console.log("\n=== 3. MOBILE VERIFICATION (390x844) ===");
   const mobileCtx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const mobilePage = await mobileCtx.newPage();
-  await mobilePage.goto("http://localhost:3000/india", { waitUntil: "networkidle" });
+  await mobilePage.goto(`${baseUrl}/india`, { waitUntil: "networkidle" });
   await mobilePage.waitForTimeout(500);
 
   const mobileStatSection = mobilePage.locator('section[aria-label="Key Performance Statistics"]');
