@@ -1,4 +1,14 @@
-# Current Task: Marathi Language Support for Victor Mobility India — 30 October 2026
+# Current Task: Inline Victor wordmark — 1 November 2026
+
+Owner: Codex, at direct user request. Implementation complete; see `docs/handoff.md` for validation and original-site exceptions.
+
+Follow-up completed: the user approved a pure-white version of the simple wordmark for dark sections. Removed white backing tiles, retained V/o negative space, and refined heading scale/alignment. Light surfaces and the infographic retain the coloured wordmark. The original asset and full-company-name protections are unchanged.
+
+Replace visible standalone English brand words with the supplied simple transparent logo throughout India/UAE/shared pages and language versions. Preserve the entire `Victor Mobility Pvt. Ltd.` company name, including punctuation/case variations and split elements. Preserve nonvisual strings, existing assets and user edits. Implemented with `BrandText` and the unchanged `public/brand/victor-simple.png`; explicit visual rendering only, with accessible text and responsive sizing.
+
+---
+
+# Previous Task: Marathi Language Support for Victor Mobility India — 30 October 2026
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
 

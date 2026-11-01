@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -80,16 +81,16 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
-            {dict.safetySection.eyebrow}
+            <BrandText>{dict.safetySection.eyebrow}</BrandText>
           </span>
           <h2
             id="safety-heading"
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-3"
           >
-            {dict.safetySection.title}
+            <BrandText>{dict.safetySection.title}</BrandText>
           </h2>
           <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
-            {dict.safetySection.subtitle}
+            <BrandText>{dict.safetySection.subtitle}</BrandText>
           </p>
         </div>
 
@@ -131,12 +132,12 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
 
                     {/* Pillar Title */}
                     <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 tracking-tight">
-                      {pillar.title}
+                      <BrandText>{pillar.title}</BrandText>
                     </h3>
 
                     {/* Pillar Description */}
                     <p className="text-sm text-white/85 leading-relaxed">
-                      {pillar.description}
+                      <BrandText>{pillar.description}</BrandText>
                     </p>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -39,13 +40,13 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
         <div className="relative z-10 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/20 border border-brand-blue/30 text-xs font-semibold text-brand-blue-light mb-4">
             <GraduationCap className="w-4 h-4" />
-            <span>The Victor Chauffeur Protocol Academy · Standards of Excellence</span>
+            <span><BrandText>The Victor Chauffeur Protocol Academy · Standards of Excellence</BrandText></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"><BrandText>
             How Victor Engineers Trust Behind the Wheel
-          </h2>
+          </BrandText></h2>
           <p className="mt-4 text-base sm:text-lg text-brand-slate-light leading-relaxed">
-            {academyData.overview}
+            <BrandText>{academyData.overview}</BrandText>
           </p>
 
           <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold text-brand-blue-light">
@@ -117,13 +118,13 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
                     {module.number}
                   </span>
                   <div>
-                    <h4 className="font-bold text-sm leading-snug">{module.title}</h4>
+                    <h4 className="font-bold text-sm leading-snug"><BrandText>{module.title}</BrandText></h4>
                     <p
                       className={`text-xs mt-1 line-clamp-1 ${
                         isActive ? "text-brand-slate-light" : "text-brand-slate"
                       }`}
                     >
-                      {module.tagline}
+                      <BrandText>{module.tagline}</BrandText>
                     </p>
                   </div>
                 </button>
@@ -144,13 +145,13 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
               </div>
 
               <h4 className="text-xl sm:text-2xl font-bold text-brand-indigo mt-4">
-                {activeModule.title}
+                <BrandText>{activeModule.title}</BrandText>
               </h4>
               <p className="text-sm font-semibold text-brand-blue mt-1 italic">
-                &ldquo;{activeModule.tagline}&rdquo;
+                &ldquo;<BrandText>{activeModule.tagline}</BrandText>&rdquo;
               </p>
               <p className="text-sm text-brand-slate mt-3 leading-relaxed">
-                {activeModule.description}
+                <BrandText>{activeModule.description}</BrandText>
               </p>
 
               <div className="mt-6">
@@ -171,8 +172,8 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
             </div>
 
             <div className="mt-8 pt-6 border-t border-brand-soft-neutral flex items-center justify-between">
-              <span className="text-xs text-brand-slate">
-                Grounded in the Victor Standard: <strong className="text-brand-indigo">On Time Every Time.</strong>
+              <span className="text-xs text-brand-slate"><BrandText>
+                Grounded in the Victor Standard: </BrandText><strong className="text-brand-indigo">On Time Every Time.</strong>
               </span>
               <Link
                 href={`/${region}/rfp`}
@@ -196,9 +197,9 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo">
               The 24-Point Pre-Dispatch Audit Checklist
             </h3>
-            <p className="text-sm text-brand-slate mt-1 max-w-2xl">
+            <p className="text-sm text-brand-slate mt-1 max-w-2xl"><BrandText>
               Every Victor vehicle must pass this physical inspection before leaving the dispatch depot for executive or employee transfer assignments.
-            </p>
+            </BrandText></p>
           </div>
 
           {/* Checklist Categories */}
@@ -319,9 +320,9 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-center text-brand-slate-light/70">
+          <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-center text-brand-slate-light/70"><BrandText>
             Backed by Victor Mobility · Tagline: &ldquo;On Time Every Time.&rdquo;
-          </div>
+          </BrandText></div>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -19,7 +20,7 @@ export default function BusinessResourcesPage({ region }: { region: "india" | "u
       </div>
       <div className="grid sm:grid-cols-2 gap-8">
         {india.businessResources.map((group) => <section key={group.title} className="border-t border-brand-soft-neutral pt-6">
-          <h2 className="text-xl font-bold text-brand-ink mb-3">{group.title}</h2>
+          <h2 className="text-xl font-bold text-brand-ink mb-3"><BrandText>{group.title}</BrandText></h2>
           <ul>{group.links.map(([path, label]) => <li key={path}><Link href={`/${region}/${path}`} className="flex items-center min-h-[44px] py-2 text-brand-indigo underline decoration-brand-indigo/25 underline-offset-4 hover:decoration-brand-indigo">{label}</Link></li>)}</ul>
         </section>)}
       </div>

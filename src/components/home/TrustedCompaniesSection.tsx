@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Image from "next/image";
 import { useId } from "react";
 import { usePathname } from "next/navigation";
@@ -40,7 +41,7 @@ function LogoTile({ company }: { company: CompanyItem }) {
         {company.name}
       </span>
       {company.description && (
-        <span className="text-slate-600 text-[10px] leading-snug">{company.description}</span>
+        <span className="text-slate-600 text-[10px] leading-snug"><BrandText>{company.description}</BrandText></span>
       )}
     </div>
   );
@@ -99,16 +100,16 @@ export default function TrustedCompaniesSection() {
       {/* Header Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
         <span className="text-xs uppercase tracking-widest font-bold text-indigo-400 block mb-2">
-          {dict.companies.eyebrow}
+          <BrandText>{dict.companies.eyebrow}</BrandText>
         </span>
         <h2
           id={headingId}
           className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3"
         >
-          {dict.companies.title}
+          <BrandText>{dict.companies.title}</BrandText>
         </h2>
         <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          {effectiveDescription}
+          <BrandText>{effectiveDescription}</BrandText>
         </p>
       </div>
 

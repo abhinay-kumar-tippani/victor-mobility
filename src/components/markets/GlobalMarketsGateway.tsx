@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -125,13 +127,13 @@ export default function GlobalMarketsGateway({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Global Network Overview Metrics */}
@@ -257,8 +259,8 @@ export default function GlobalMarketsGateway({
                     {reg.currency}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">{reg.title}</h3>
-                <p className="text-xs text-indigo-400 font-mono mb-2">{reg.legalEntity}</p>
+                <h3 className="text-xl font-bold text-white mb-1"><BrandText>{reg.title}</BrandText></h3>
+                <p className="text-xs text-indigo-400 font-mono mb-2"><BrandText>{reg.legalEntity}</BrandText></p>
                 <p className="text-xs text-slate-400 leading-relaxed mb-4">
                   Operating Hubs: {reg.operatingHubs.join(', ')}
                 </p>
@@ -281,10 +283,10 @@ export default function GlobalMarketsGateway({
                   <span>{activeRegion.country} Division</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white print:text-black">
-                  {activeRegion.title}
+                  <BrandText>{activeRegion.title}</BrandText>
                 </h3>
                 <p className="text-sm text-slate-300 mt-1 font-mono">
-                  {activeRegion.legalEntity}
+                  <BrandText>{activeRegion.legalEntity}</BrandText>
                 </p>
                 <p className="text-xs text-amber-300 font-mono mt-0.5">
                   {activeRegion.registration}
@@ -384,7 +386,7 @@ export default function GlobalMarketsGateway({
                       {desk.badge}
                     </span>
                     <span className="text-xs font-bold text-white block truncate mt-0.5">
-                      {desk.title}
+                      <BrandText>{desk.title}</BrandText>
                     </span>
                   </Link>
                 ))}
@@ -413,11 +415,11 @@ export default function GlobalMarketsGateway({
                       0{idx + 1}
                     </span>
                     <h3 className="text-base font-bold text-white">
-                      {syn.title}
+                      <BrandText>{syn.title}</BrandText>
                     </h3>
                   </div>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    {syn.description}
+                    <BrandText>{syn.description}</BrandText>
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-indigo-400 font-medium flex items-center gap-1.5">
@@ -446,10 +448,10 @@ export default function GlobalMarketsGateway({
             {faqs.map((faq, idx) => (
               <div key={idx} className="p-5 rounded-xl bg-slate-900/40 border border-slate-800">
                 <h3 className="font-semibold text-white text-base mb-2">
-                  {faq.question}
+                  <BrandText>{faq.question}</BrandText>
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  {faq.answer}
+                  <BrandText>{faq.answer}</BrandText>
                 </p>
               </div>
             ))}
@@ -626,9 +628,9 @@ export default function GlobalMarketsGateway({
                     </svg>
                     Initiate Cross-Border Inquiry via WhatsApp
                   </a>
-                  <p className="text-[11px] text-slate-500 text-center mt-2">
+                  <p className="text-[11px] text-slate-500 text-center mt-2"><BrandText>
                     Note: Initiates an enterprise global mobility inquiry with Victor Mobility and does not constitute a signed contract.
-                  </p>
+                  </BrandText></p>
                 </div>
               </form>
             </div>

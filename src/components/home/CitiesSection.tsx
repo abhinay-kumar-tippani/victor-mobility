@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import { Building2, MapPin, Phone, MessageSquare, ArrowRight, UserCheck } from "lucide-react";
 import type { CityItem, OfficeItem, ContactData } from "@/types/content";
@@ -172,7 +173,7 @@ export default function CitiesSection({ cities, offices, contact }: CitiesSectio
                   <span className="text-xs font-mono font-bold text-brand-violet">
                     {s.num}
                   </span>
-                  <h5 className="text-sm font-bold text-white">{s.title}</h5>
+                  <h5 className="text-sm font-bold text-white"><BrandText>{s.title}</BrandText></h5>
                   <p className="text-[11px] text-brand-soft-neutral/75 leading-relaxed">
                     {s.desc}
                   </p>

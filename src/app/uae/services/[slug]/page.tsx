@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -443,11 +444,11 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
               </div>
 
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                {service.title}
+                <BrandText>{service.title}</BrandText>
               </h1>
 
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
-                {service.description}
+                <BrandText>{service.description}</BrandText>
               </p>
             </div>
           </div>
@@ -473,7 +474,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/30 to-transparent" />
                     <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-white">
                       <span className="text-xs font-bold uppercase tracking-wider text-white/90">
-                        {service.title}
+                        <BrandText>{service.title}</BrandText>
                       </span>
                       <span className="text-[11px] text-white/70 italic">
                         {visualData.caption}
@@ -488,11 +489,11 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                     Service Scope & Planning Overview
                   </h2>
                   <p className="text-sm sm:text-base text-brand-ink/85 leading-relaxed">
-                    {service.description}
+                    <BrandText>{service.description}</BrandText>
                   </p>
-                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed pt-2 border-t border-brand-soft-neutral/70">
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed pt-2 border-t border-brand-soft-neutral/70"><BrandText>
                     Victor Mobility coordinates vehicle allocation, scheduling, chauffeur alignment, and dispatch
-                    supervision to ensure your journey aligns with the company commitment:{" "}
+                    supervision to ensure your journey aligns with the company commitment:</BrandText>{" "}
                     <strong className="text-brand-indigo font-bold">&ldquo;On Time Every Time.&rdquo;</strong>
                   </p>
                   <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -501,7 +502,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                       className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white py-2.5 px-4 rounded-xl transition-colors shadow-xs min-h-[44px]"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Request a quote for {service.title}</span>
+                      <span>Request a quote for <BrandText>{service.title}</BrandText></span>
                     </Link>
                   </div>
                 </div>
@@ -528,7 +529,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                         </div>
                         <div>
                           <h4 className="text-sm font-bold text-brand-ink mb-1">
-                            {item.title}
+                            <BrandText>{item.title}</BrandText>
                           </h4>
                           <p className="text-xs sm:text-sm text-brand-ink/70 leading-relaxed">
                             {item.desc}
@@ -547,10 +548,10 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                         Operational Workflow
                       </span>
                       <h3 className="text-xl font-bold text-brand-ink">
-                        {visualData.scenario.title}
+                        <BrandText>{visualData.scenario.title}</BrandText>
                       </h3>
                       <p className="text-xs sm:text-sm text-brand-ink/70">
-                        {visualData.scenario.subtitle}
+                        <BrandText>{visualData.scenario.subtitle}</BrandText>
                       </p>
                     </div>
 
@@ -658,13 +659,13 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                       {visualData.practicalAnswers.map((item) => (
                         <details key={item.question} className="group py-4">
                           <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-brand-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo [&::-webkit-details-marker]:hidden">
-                            <span>{item.question}</span>
+                            <span><BrandText>{item.question}</BrandText></span>
                             <span className="text-brand-indigo text-lg transition-transform group-open:rotate-45">
                               +
                             </span>
                           </summary>
                           <p className="mt-2 text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                            {item.answer}
+                            <BrandText>{item.answer}</BrandText>
                           </p>
                         </details>
                       ))}
@@ -686,7 +687,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                       >
                         <div>
                           <h3 className="text-sm font-bold text-brand-ink group-hover:text-brand-indigo transition-colors">
-                            {other.title}
+                            <BrandText>{other.title}</BrandText>
                           </h3>
                           <p className="text-xs text-brand-ink/60 mt-0.5 line-clamp-1">
                             {other.shortDescription}

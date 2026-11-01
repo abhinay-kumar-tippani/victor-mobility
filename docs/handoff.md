@@ -1,5 +1,42 @@
 # Handoff
 
+## 1 November 2026 — White wordmark on dark sections
+
+- At the user's request, replaced the coloured wordmark's white backing tiles with a pure-white rendering on dark sections, including the India/UAE journey headings, academy panels and footer copy. Uses CSS `brightness(0) invert(1)` on the existing image; transparency, V stripes and o cutout are preserved exactly.
+- Nearest text/surface context controls the treatment. Light surfaces and the journey infographic keep the original colours. Heading wordmarks are 10% smaller with adjusted baseline and spacing.
+- Only styling and these project notes changed in this follow-up. Full company names, accessibility and the full original logo remain protected.
+- `npm run type-check`, `npm run lint`, and `node scripts/verify-brand-text.cjs` passed. Visually reviewed desktop/mobile India and UAE journey sections and the academy; checked computed filters for coloured light sections and white dark sections. Existing local development preview remains running on port 3000.
+- Screenshots: `docs/screenshots/white-wordmark/journey-desktop.jpg` and `journey-mobile.jpg`.
+
+---
+
+## 1 November 2026 — Inline Victor wordmark throughout the website
+
+Owner: Codex, at the user's direct implementation request.
+
+- Added the supplied transparent PNG unchanged at `public/brand/victor-simple.png` (SHA-256 matches the attachment). Existing logo images remain unchanged.
+- `BrandText` / `VictorWordmark` in `src/components/brand/BrandText.tsx` render the exact artwork at text-relative sizes. Full `Victor Mobility Pvt. Ltd.` names remain text, including case/punctuation variations and names divided across inline elements or line breaks. One visually hidden “Victor” supplies the accessible text; the visual SVG is decorative.
+- Applied the component at explicit JSX copy locations across India, UAE, the country selector, markets, shared components, planning previews, tabs, cards and footers. Content files, dictionaries, metadata, structured data, attributes, URLs, emails, copied/downloaded drafts and submitted messages remain unchanged. The user's pre-existing compact footer edits are preserved.
+- Three words embedded in the journey infographic use proportional overlays of the same component in both the card and modal. The original infographic file is unchanged. The initial white backing on dark sections has been superseded by the white-wordmark refinement above.
+
+Validation:
+- `npm run type-check`, `npm run lint`, production build (74/74 generated routes).
+- `node scripts/verify-brand-text.cjs`: legal-name variants/split names, punctuation, address/file exclusions, preserved attributes and a single accessible announcement.
+- Existing dictionary-key, journey-estimate (34 assertions), Indic-language (10 suites), and journey-artwork desktop/mobile/viewer checks passed.
+- Browser audit: 68 distinct content routes, 299 route/locale combinations across all eight languages, zero missed visible brand words. Additional nine tab states passed after covering fleet safety, MSA benefits and UAE compliance copy. All 15 full-name occurrences captured in the original English-page audit remain intact; the contact draft also preserves its full name after initialization.
+- Responsive sweep: all 68 routes at 320px and 768px, plus the full desktop audit; no wordmark extends beyond the viewport. Visual review and screenshots at 320, 390, 768 and 1440px. Accessible heading name and Escape dismissal of the image viewer verified.
+- Source comparison confirms the existing copy and nonvisual references are preserved. No deployment performed.
+
+Existing issues, verified against an isolated build of the original source:
+- India/UAE homepages and About pages emit the same React hydration errors before and after this change (including reduced-motion and translated-page cases).
+- `/india/corridors` and `/uae/corridors` have the same 5px horizontal overflow at 320px before and after. These unrelated layout issues were left unchanged.
+- The strict browser audit exits nonzero for those pre-existing runtime errors; its word-replacement checks have zero failures. Evidence: `docs/inspection/inline-brand-audit.json`, `inline-brand-responsive.json`, `inline-brand-states.json`, and `inline-brand-baseline-comparison.json`.
+- Optional cleanup of temporary comparison builds was blocked by tool policy. `D:/victor-brand-baseline-20261101` and `C:/Users/tippa/AppData/Local/Temp/victor-brand-baseline-20261101` remain; their servers are stopped. Each contains junctions to the project's `node_modules` and `public` folders, so do not follow those links when removing the temporary folders.
+
+Screenshots: `docs/screenshots/inline-brand/` — `journey-1440.png`, `journey-390.png`, `about-heading-320.png`, `about-heading-768.png`, `journey-viewer-390.png`, `uae-footer-1440.png`, and `academy-1440.png` (plus other reviewed sizes).
+
+---
+
 ## 30 October 2026 — Marathi (mr) language support added for India website
 
 Owner: Antigravity, at direct user request.

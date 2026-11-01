@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -52,15 +53,15 @@ export default function UaeAboutPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
-                <Building2 className="w-3.5 h-3.5 text-brand-violet" />
+                <Building2 className="w-3.5 h-3.5 text-brand-violet" /><BrandText>
                 Victor Mobility UAE
-              </span>
+              </BrandText></span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 International Mobility. Middle East Heritage.
               </h1>
-              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
+              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                 Expanding from our established India foundation into Dubai and Abu Dhabi, Victor Mobility delivers its signature blend of luxury, precision, and passenger accountability to clients across the United Arab Emirates.
-              </p>
+              </BrandText></p>
             </div>
           </div>
         </section>
@@ -72,7 +73,7 @@ export default function UaeAboutPage() {
               <div className="max-w-5xl">
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue">{aboutCopy.leadershipEyebrow}</p>
                 <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl lg:whitespace-nowrap">{aboutCopy.leadershipTitle}</h2>
-                <p className="max-w-3xl text-sm leading-relaxed text-brand-ink/75 sm:text-base">{aboutCopy.leadershipDescription}</p>
+                <p className="max-w-3xl text-sm leading-relaxed text-brand-ink/75 sm:text-base"><BrandText>{aboutCopy.leadershipDescription}</BrandText></p>
               </div>
               <div className="bg-white rounded-3xl overflow-hidden border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 items-center">
                 <div className="lg:col-span-5 relative aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-full min-h-[380px] bg-brand-ink">
@@ -114,7 +115,7 @@ export default function UaeAboutPage() {
 
                   <div className="space-y-4 text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
                     {(founder.aboutBio || [founder.bio]).map((para, i) => (
-                      <p key={i}>{para}</p>
+                      <p key={i}><BrandText>{para}</BrandText></p>
                     ))}
                   </div>
 
@@ -155,9 +156,9 @@ export default function UaeAboutPage() {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
                 Fleet scale ready for summits, delegations, and executive roadshows.
               </h2>
-              <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+              <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed"><BrandText>
                 From our Dubai headquarters, Victor Mobility manages comprehensive transport infrastructure capable of meeting high-volume corporate demand.
-              </p>
+              </BrandText></p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -279,10 +280,10 @@ export default function UaeAboutPage() {
                     className="bg-brand-warm-white rounded-2xl p-6 sm:p-7 border border-brand-soft-neutral shadow-2xs space-y-2"
                   >
                     <h3 className="text-base font-bold text-brand-ink">
-                      {faq.question}
+                      <BrandText>{faq.question}</BrandText>
                     </h3>
                     <p className="text-sm text-brand-ink/75 leading-relaxed">
-                      {faq.answer}
+                      <BrandText>{faq.answer}</BrandText>
                     </p>
                   </div>
                 ))}

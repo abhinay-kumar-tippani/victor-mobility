@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import { Award, CheckCircle, HelpCircle, ArrowRight } from "lucide-react";
 import type { IndiaContent } from "@/types/content";
@@ -18,14 +19,14 @@ export default function AboutSection({ content }: AboutSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Editorial Company Overview */}
           <div className="lg:col-span-6">
-            <div className="text-xs uppercase tracking-widest font-bold text-brand-blue mb-3">
+            <div className="text-xs uppercase tracking-widest font-bold text-brand-blue mb-3"><BrandText>
               About Victor Mobility
-            </div>
+            </BrandText></div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight mb-6 leading-tight">
-              {about.title}
+              <BrandText>{about.title}</BrandText>
             </h2>
             <p className="text-base sm:text-lg text-brand-ink/80 leading-relaxed mb-6">
-              {about.description}
+              <BrandText>{about.description}</BrandText>
             </p>
 
             <div className="p-6 bg-brand-warm-white rounded-2xl border border-brand-soft-neutral mb-8">
@@ -91,10 +92,10 @@ export default function AboutSection({ content }: AboutSectionProps) {
               {faqs.map((faq, idx) => (
                 <div key={faq.question} className={idx > 0 ? "pt-6" : ""}>
                   <h4 className="text-sm font-bold text-brand-ink mb-2">
-                    {faq.question}
+                    <BrandText>{faq.question}</BrandText>
                   </h4>
                   <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}

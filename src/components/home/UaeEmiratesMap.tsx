@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useId, useState } from "react";
 import { Check, Compass } from "lucide-react";
 import geography from "../../../public/maps/uae-emirates.json";
@@ -27,7 +28,7 @@ export default function UaeEmiratesMap({ selectedCity, onSelect, panelId }: {
       <div className="flex items-start gap-3 border-b border-brand-soft-neutral px-5 py-5 sm:px-7">
         <Compass className="mt-0.5 h-5 w-5 shrink-0 text-brand-indigo" aria-hidden="true" />
         <div className="min-w-0 flex-1">
-          <h3 className="text-sm font-bold text-brand-ink">{copy.title}</h3>
+          <h3 className="text-sm font-bold text-brand-ink"><BrandText>{copy.title}</BrandText></h3>
           <p className="mt-1 text-xs text-brand-ink/65">{copy.summary}</p>
         </div>
         <div className="shrink-0 text-end text-sm font-bold text-brand-indigo">

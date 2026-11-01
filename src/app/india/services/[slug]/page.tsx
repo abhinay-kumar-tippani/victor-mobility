@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -437,7 +438,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 </li>
                 <li>/</li>
                 <li className="text-white font-bold" aria-current="page">
-                  {service.title}
+                  <BrandText>{service.title}</BrandText>
                 </li>
               </ol>
             </nav>
@@ -448,7 +449,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 <span>{service.badge || "Corporate Mobility Solution"}</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                {service.title}
+                <BrandText>{service.title}</BrandText>
               </h1>
               <p className="text-base sm:text-xl text-brand-soft-neutral/90 leading-relaxed font-medium">
                 {service.shortDescription}
@@ -492,7 +493,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/75 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-4 right-4 text-xs text-white/90">
-                      <span className="font-semibold block">{service.title} Experience</span>
+                      <span className="font-semibold block"><BrandText>{service.title}</BrandText> Experience</span>
                       <span className="text-[11px] text-brand-soft-neutral/80 italic">{visualData.caption}</span>
                     </div>
                   </div>
@@ -504,11 +505,11 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     Service Scope & Planning Overview
                   </h2>
                   <p className="text-sm sm:text-base text-brand-ink/85 leading-relaxed">
-                    {service.description}
+                    <BrandText>{service.description}</BrandText>
                   </p>
-                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed pt-2 border-t border-brand-soft-neutral/70">
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed pt-2 border-t border-brand-soft-neutral/70"><BrandText>
                     Victor Mobility coordinates vehicle allocation, scheduling, driver alignment, and dispatch
-                    supervision to ensure your journey aligns with the company commitment:{" "}
+                    supervision to ensure your journey aligns with the company commitment:</BrandText>{" "}
                     <strong className="text-brand-indigo font-bold">&ldquo;On Time Every Time.&rdquo;</strong>
                   </p>
                   <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -517,7 +518,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white py-2.5 px-4 rounded-xl transition-colors shadow-xs min-h-[44px]"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Request a quote for {service.title}</span>
+                      <span>Request a quote for <BrandText>{service.title}</BrandText></span>
                     </Link>
                   </div>
                 </div>
@@ -544,7 +545,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                         </div>
                         <div>
                           <h4 className="text-sm font-bold text-brand-ink mb-1">
-                            {item.title}
+                            <BrandText>{item.title}</BrandText>
                           </h4>
                           <p className="text-xs sm:text-sm text-brand-ink/70 leading-relaxed">
                             {item.desc}
@@ -563,10 +564,10 @@ export default function ServiceDetailPage({ params }: PageProps) {
                         Operational Workflow
                       </span>
                       <h3 className="text-xl font-bold text-brand-ink">
-                        {visualData.scenario.title}
+                        <BrandText>{visualData.scenario.title}</BrandText>
                       </h3>
                       <p className="text-xs sm:text-sm text-brand-ink/70">
-                        {visualData.scenario.subtitle}
+                        <BrandText>{visualData.scenario.subtitle}</BrandText>
                       </p>
                     </div>
 
@@ -580,7 +581,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                             {st.step}
                           </h4>
                           <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                            {st.detail}
+                            <BrandText>{st.detail}</BrandText>
                           </p>
                         </div>
                       ))}
@@ -662,7 +663,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                         Common Clarifications
                       </span>
                       <h3 className="text-xl font-bold text-brand-ink">
-                        Practical arrangements for {service.title}
+                        Practical arrangements for <BrandText>{service.title}</BrandText>
                       </h3>
                     </div>
 
@@ -673,10 +674,10 @@ export default function ServiceDetailPage({ params }: PageProps) {
                           className="p-5 rounded-2xl bg-brand-warm-white/60 border border-brand-soft-neutral/70 space-y-1.5"
                         >
                           <h4 className="text-sm font-bold text-brand-ink">
-                            {qa.question}
+                            <BrandText>{qa.question}</BrandText>
                           </h4>
                           <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                            {qa.answer}
+                            <BrandText>{qa.answer}</BrandText>
                           </p>
                         </div>
                       ))}
@@ -711,8 +712,8 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
-                    This service is coordinated actively across Victor Mobility&apos;s established operating cities:{" "}
+                  <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed"><BrandText>
+                    This service is coordinated actively across Victor Mobility&apos;s established operating cities:</BrandText>{" "}
                     <strong>Hyderabad</strong>, <strong>Bengaluru</strong>, and <strong>Pune</strong>, as well as their
                     immediate industrial corridors and airport routes.
                   </p>
@@ -789,7 +790,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   Complementary Solutions
                 </span>
                 <h3 className="text-2xl font-bold text-brand-ink">
-                  Frequently Paired with {service.title}
+                  Frequently Paired with <BrandText>{service.title}</BrandText>
                 </h3>
               </div>
               <Link
@@ -813,14 +814,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       {other.badge || "Mobility Option"}
                     </span>
                     <h4 className="text-lg font-bold text-brand-ink group-hover:text-brand-indigo transition-colors mb-2">
-                      {other.title}
+                      <BrandText>{other.title}</BrandText>
                     </h4>
                     <p className="text-xs sm:text-sm text-brand-ink/70 leading-relaxed">
                       {other.shortDescription}
                     </p>
                   </div>
                   <div className="pt-4 mt-4 border-t border-brand-soft-neutral/60 flex items-center justify-between text-xs font-bold text-brand-indigo">
-                    <span>Explore {other.title}</span>
+                    <span>Explore <BrandText>{other.title}</BrandText></span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </Link>

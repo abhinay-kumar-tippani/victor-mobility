@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -211,13 +212,13 @@ export default function IndiaFleetSection({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue">{eyebrow}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue"><BrandText>{eyebrow}</BrandText></p>
               {standalone ? (
                 <h1 id={`${id}-title`} className="mt-3 text-4xl font-semibold tracking-tight text-brand-ink sm:text-5xl">{copy.pageTitle}</h1>
               ) : (
-                <h2 id={`${id}-title`} className="mt-3 text-3xl font-semibold tracking-tight text-brand-ink sm:text-4xl">{title}</h2>
+                <h2 id={`${id}-title`} className="mt-3 text-3xl font-semibold tracking-tight text-brand-ink sm:text-4xl"><BrandText>{title}</BrandText></h2>
               )}
-              <p className="mt-4 text-base leading-relaxed text-brand-ink/70">{standalone ? copy.pageDescription : description}</p>
+              <p className="mt-4 text-base leading-relaxed text-brand-ink/70"><BrandText>{standalone ? copy.pageDescription : description}</BrandText></p>
             </div>
             {!standalone && (
               <Link href={`${effectiveBasePath}/fleet`} className="inline-flex min-h-[44px] shrink-0 items-center gap-2 text-sm font-bold text-brand-indigo">
@@ -269,13 +270,13 @@ export default function IndiaFleetSection({
             <div className="flex flex-col p-5 sm:p-8 lg:p-10">
               <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-blue">
                 {isEv && <Zap className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
-                <span>{isEv ? (fleetDict?.electric?.title || localizedActiveCategory?.name || "Electric Vehicles") : (localizedActiveCategory?.name || category?.name)}</span>
+                <span><BrandText>{isEv ? (fleetDict?.electric?.title || localizedActiveCategory?.name || "Electric Vehicles") : (localizedActiveCategory?.name || category?.name)}</BrandText></span>
               </div>
               <PanelHeading className="mt-3 max-w-md text-2xl font-semibold leading-snug tracking-tight text-brand-ink sm:text-3xl">
                 {activeUae.headline}
               </PanelHeading>
               <p className="mt-3 text-sm leading-relaxed text-brand-ink/70">
-                {isEv ? (fleetDict?.electric?.introduction || "Explore executive transportation across Dubai and Abu Dhabi.") : category?.description}
+                <BrandText>{isEv ? (fleetDict?.electric?.introduction || "Explore executive transportation across Dubai and Abu Dhabi.") : category?.description}</BrandText>
               </p>
 
               <div className="mt-auto border-t border-brand-ink/15 pt-5">
@@ -327,14 +328,14 @@ export default function IndiaFleetSection({
         {/* Section Header */}
         <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue">{eyebrow}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue"><BrandText>{eyebrow}</BrandText></p>
             {standalone ? (
               <h1 id={`${id}-title`} className="mt-3 text-4xl font-semibold tracking-tight text-brand-ink sm:text-5xl">{copy.pageTitle}</h1>
             ) : (
-              <h2 id={`${id}-title`} className="mt-3 text-3xl font-semibold tracking-tight text-brand-ink sm:text-4xl">{title}</h2>
+              <h2 id={`${id}-title`} className="mt-3 text-3xl font-semibold tracking-tight text-brand-ink sm:text-4xl"><BrandText>{title}</BrandText></h2>
             )}
             <p className="mt-4 text-base leading-relaxed text-brand-ink/70">
-              {standalone ? copy.pageDescription : description}
+              <BrandText>{standalone ? copy.pageDescription : description}</BrandText>
             </p>
           </div>
           {!standalone && (
@@ -449,7 +450,7 @@ export default function IndiaFleetSection({
 
                     {vehicle.description && (
                       <p className="mt-1.5 text-xs leading-relaxed text-brand-ink/70">
-                        {vehicle.description}
+                        <BrandText>{vehicle.description}</BrandText>
                       </p>
                     )}
 

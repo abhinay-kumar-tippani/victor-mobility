@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useId, useState, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin, Phone, Building2, CheckCircle2, Compass } from "lucide-react";
@@ -282,7 +283,7 @@ export default function IndiaPresenceMap({
         {/* Section Header */}
         <div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight">
-            {dict.presence.title}
+            <BrandText>{dict.presence.title}</BrandText>
           </h2>
         </div>
 
@@ -570,7 +571,7 @@ export default function IndiaPresenceMap({
                   {selectedCity.state} Region
                 </p>
                 <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed mt-2">
-                  {selectedCity.description}
+                  <BrandText>{selectedCity.description}</BrandText>
                 </p>
               </div>
 

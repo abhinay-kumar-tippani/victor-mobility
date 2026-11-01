@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import { Plane, Calendar, Sparkles, Key, ArrowRight, CheckCircle2 } from "lucide-react";
 import { selectEnquiryOption } from "@/lib/enquiryEvents";
@@ -46,9 +47,9 @@ export default function SpecializedPathways() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
               Airport, Event & Executive Mobility
             </h2>
-            <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+            <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed"><BrandText>
               Beyond daily workplace shuttles, Victor Mobility coordinates specialized journeys requiring dedicated route supervision.
-            </p>
+            </BrandText></p>
           </div>
 
           <Link
@@ -80,11 +81,11 @@ export default function SpecializedPathways() {
                   </div>
 
                   <h3 className="text-lg font-bold text-brand-ink mb-2">
-                    {item.title}
+                    <BrandText>{item.title}</BrandText>
                   </h3>
 
                   <p className="text-xs sm:text-sm text-brand-ink/70 leading-relaxed mb-4">
-                    {item.description}
+                    <BrandText>{item.description}</BrandText>
                   </p>
 
                   <ul className="space-y-1.5 mb-6 border-t border-brand-soft-neutral/70 pt-3">

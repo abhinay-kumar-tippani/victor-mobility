@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -126,9 +127,9 @@ We would like to consult your corporate mobility desk on integrating Scope 3 emp
             <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight">
               Corporate Commute Carbon Savings Estimator
             </h3>
-            <p className="text-xs sm:text-sm text-brand-slate">
+            <p className="text-xs sm:text-sm text-brand-slate"><BrandText>
               Model the tangible carbon offset achieved by shifting from private uncoordinated transport to Victor&apos;s synchronized shared networks.
-            </p>
+            </BrandText></p>
           </div>
 
           <div className="flex items-center gap-3 print:hidden">
@@ -337,12 +338,12 @@ We would like to consult your corporate mobility desk on integrating Scope 3 emp
           <span className="text-xs font-bold uppercase tracking-widest text-brand-blue block">
             Environmental Governance
           </span>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight"><BrandText>
             How Victor Mobility Delivers Measurable Decarbonization
-          </h3>
-          <p className="text-xs sm:text-sm text-brand-slate leading-relaxed">
+          </BrandText></h3>
+          <p className="text-xs sm:text-sm text-brand-slate leading-relaxed"><BrandText>
             Sustainability at Victor Mobility is not a speculative marketing claim; it is engineered through high-occupancy vehicle routing, driver behavioral training, and disciplined vehicle maintenance.
-          </p>
+          </BrandText></p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -359,12 +360,12 @@ We would like to consult your corporate mobility desk on integrating Scope 3 emp
               </div>
 
               <div>
-                <h4 className="text-lg font-bold text-brand-indigo">{pillar.title}</h4>
+                <h4 className="text-lg font-bold text-brand-indigo"><BrandText>{pillar.title}</BrandText></h4>
                 <span className="text-xs text-brand-blue font-semibold block mb-2">
-                  {pillar.subtitle}
+                  <BrandText>{pillar.subtitle}</BrandText>
                 </span>
                 <p className="text-xs text-brand-slate leading-relaxed">
-                  {pillar.description}
+                  <BrandText>{pillar.description}</BrandText>
                 </p>
               </div>
             </div>

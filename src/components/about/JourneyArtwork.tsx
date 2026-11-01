@@ -1,9 +1,34 @@
 "use client";
 
+import BrandText, { VictorWordmark } from "@/components/brand/BrandText";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { Maximize2, X, ZoomIn } from "lucide-react";
 import journey from "@/content/journey.json";
+
+// Non-destructive overlays replace the three words baked into the supplied
+// infographic. Coordinates follow its 1254px square canvas at every size.
+function JourneyImage({ expanded = false }: { expanded?: boolean }) {
+  return (
+    <span className={expanded
+      ? "relative block aspect-square w-[min(74vh,100%)] shrink-0"
+      : "relative block w-full transition duration-300 group-hover:scale-[1.01]"}>
+      <Image
+        src={journey.imageSrc}
+        alt="The Journey of Victor infographic: thirteen milestones from the idea in 2009 to advancing sustainable mobility in 2025."
+        width={1254}
+        height={1254}
+        sizes="(max-width: 640px) 100vw, 544px"
+        unoptimized
+        priority={expanded}
+        className="block h-auto w-full"
+      />
+      <span aria-hidden="true" className="journey-wordmark-overlay" style={{ left: "62.5%", top: "3.35%", width: "21.5%", height: "4.6%" }}><VictorWordmark /></span>
+      <span aria-hidden="true" className="journey-wordmark-overlay" style={{ left: "16.5%", top: "24.5%", width: "5.75%", height: "2%" }}><VictorWordmark /></span>
+      <span aria-hidden="true" className="journey-wordmark-overlay" style={{ left: "5.7%", top: "27.1%", width: "4.7%", height: "1.7%" }}><VictorWordmark /></span>
+    </span>
+  );
+}
 
 export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,15 +67,7 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
           aria-label="Open the full-size Journey of Victor image in a viewer on this page"
           className="group relative block w-full cursor-zoom-in overflow-hidden rounded-3xl border border-brand-indigo/15 bg-white text-left shadow-[0_22px_65px_rgba(21,22,47,0.09)] transition hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo"
         >
-          <Image
-            src={journey.imageSrc}
-            alt="The Journey of Victor infographic: thirteen milestones from the idea in 2009 to advancing sustainable mobility in 2025."
-            width={1254}
-            height={1254}
-            sizes="(max-width: 640px) 100vw, 544px"
-            unoptimized
-            className="block h-auto w-full transition duration-300 group-hover:scale-[1.01]"
-          />
+          <JourneyImage />
           <span className="pointer-events-none absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-slate-950/75 px-3 py-1.5 text-xs font-semibold text-white shadow-md backdrop-blur-sm transition group-hover:bg-slate-950/90">
             <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Click to view</span>
@@ -85,9 +102,9 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex w-full items-center justify-between border-b border-white/10 pb-2 px-2 text-white">
-              <span className="text-xs font-bold uppercase tracking-wider text-zinc-300 sm:text-sm">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-300 sm:text-sm"><BrandText>
                 The Journey of Victor (2009 — 2025)
-              </span>
+              </BrandText></span>
               <button
                 type="button"
                 onClick={handleClose}
@@ -99,15 +116,7 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
             </div>
 
             <div className="flex max-h-[78vh] w-full items-center justify-center overflow-auto p-2">
-              <Image
-                src={journey.imageSrc}
-                alt="The Journey of Victor infographic: thirteen milestones from the idea in 2009 to advancing sustainable mobility in 2025."
-                width={1254}
-                height={1254}
-                unoptimized
-                priority
-                className="h-auto max-h-[74vh] w-auto max-w-full rounded-lg object-contain"
-              />
+              <JourneyImage expanded />
             </div>
 
             <div className="flex w-full items-center justify-between border-t border-white/10 pt-2 px-2 text-xs text-zinc-400">

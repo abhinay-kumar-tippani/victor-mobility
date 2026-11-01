@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -147,7 +148,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
               </h2>
 
               <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
-                {subtitle}
+                <BrandText>{subtitle}</BrandText>
               </p>
             </div>
 
@@ -204,9 +205,9 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                             {person.designation}
                           </p>
                           <p className="text-[11px] text-white/50">
-                            {isUae
+                            <BrandText>{isUae
                               ? (locale === "ar" ? "فيكتور ليموزين الإمارات" : "Victor Mobility UAE")
-                              : "Victor Mobility Pvt. Ltd."}
+                              : "Victor Mobility Pvt. Ltd."}</BrandText>
                           </p>
                           {person.imageSrc && (
                             <button
@@ -350,7 +351,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
             {/* Direct Contact Actions Inside Modal */}
             <div className="w-full space-y-2 pt-1 text-xs">
               <div className="flex items-center justify-between text-slate-400 pb-0.5 text-[11px]">
-                <span>Victor Mobility • Operations Desk</span>
+                <span><BrandText>Victor Mobility • Operations Desk</BrandText></span>
                 <span className="font-mono text-emerald-400 flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                   Available 24/7

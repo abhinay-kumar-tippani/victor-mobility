@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -107,13 +109,13 @@ export default function FleetSafetyAuditDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key Safety Pillars Bar */}
@@ -247,9 +249,9 @@ export default function FleetSafetyAuditDesk({
                   <h3 className="text-2xl font-bold text-white print:text-black mt-1">
                     {currentAuditCategory.name}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-400 mt-1"><BrandText>
                     Certified Technical Inspection Standard · Victor Mobility Depot Staging
-                  </p>
+                  </BrandText></p>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="bg-emerald-950/60 border border-emerald-800/80 px-4 py-2 rounded-lg text-right">
@@ -274,7 +276,7 @@ export default function FleetSafetyAuditDesk({
                         </span>
                         <h4 className="text-sm font-bold text-white print:text-black">{check.item}</h4>
                       </div>
-                      <p className="text-xs text-slate-400 pl-7 leading-relaxed">{check.spec}</p>
+                      <p className="text-xs text-slate-400 pl-7 leading-relaxed"><BrandText>{check.spec}</BrandText></p>
                     </div>
                     <div className="pl-7 sm:pl-0">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
@@ -303,9 +305,9 @@ export default function FleetSafetyAuditDesk({
                   Print Full Audit Dossier
                 </button>
               </div>
-              <p className="text-[11px] text-slate-500 text-center mt-3 print:hidden">
+              <p className="text-[11px] text-slate-500 text-center mt-3 print:hidden"><BrandText>
                 Prefills WhatsApp inquiry with Victor Mobility safety and compliance team. Technical audit specifications apply.
-              </p>
+              </BrandText></p>
             </div>
           </section>
         )}
@@ -315,9 +317,9 @@ export default function FleetSafetyAuditDesk({
           <section className="mb-12 print:block">
             <div className="pb-4 border-b border-slate-800 mb-6">
               <h2 className="text-2xl font-bold text-white">Onboard IoT Telematics &amp; Safety Hardware</h2>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-sm text-slate-400 mt-1"><BrandText>
                 Every Victor Mobility vehicle is equipped with industrial-grade automotive IoT hardware ensuring uninterrupted real-time telemetry.
-              </p>
+              </BrandText></p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -325,17 +327,17 @@ export default function FleetSafetyAuditDesk({
                 <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl flex flex-col justify-between">
                   <div>
                     <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-                      {hw.tagline}
+                      <BrandText>{hw.tagline}</BrandText>
                     </span>
                     <h3 className="text-xl font-bold text-white mb-2">{hw.name}</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed mb-4">{hw.description}</p>
+                    <p className="text-xs text-slate-300 leading-relaxed mb-4"><BrandText>{hw.description}</BrandText></p>
                   </div>
                   <div className="pt-4 border-t border-slate-800 space-y-1.5">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Technical Hardware Specs:</span>
                     {hw.specs.map((spec, sIdx) => (
                       <div key={sIdx} className="flex items-center gap-2 text-xs text-slate-300">
                         <span className="text-emerald-400">•</span>
-                        <span>{spec}</span>
+                        <span><BrandText>{spec}</BrandText></span>
                       </div>
                     ))}
                   </div>
@@ -352,7 +354,7 @@ export default function FleetSafetyAuditDesk({
               <div className="inline-block px-3 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">
                 {womenSafetyProtocol.badge}
               </div>
-              <h2 className="text-2xl font-bold text-white">{womenSafetyProtocol.title}</h2>
+              <h2 className="text-2xl font-bold text-white"><BrandText>{womenSafetyProtocol.title}</BrandText></h2>
               <p className="text-sm text-slate-400 mt-1">
                 Mandatory residential drop and nighttime commute protocol enforced across all enterprise tech park and BPO shift rotations.
               </p>
@@ -362,8 +364,8 @@ export default function FleetSafetyAuditDesk({
               {womenSafetyProtocol.steps.map((st) => (
                 <div key={st.step} className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow space-y-3 relative">
                   <span className="text-2xl font-black text-amber-400 opacity-60">Step {st.step}</span>
-                  <h3 className="text-base font-bold text-white">{st.title}</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">{st.description}</p>
+                  <h3 className="text-base font-bold text-white"><BrandText>{st.title}</BrandText></h3>
+                  <p className="text-xs text-slate-300 leading-relaxed"><BrandText>{st.description}</BrandText></p>
                 </div>
               ))}
             </div>
@@ -384,10 +386,10 @@ export default function FleetSafetyAuditDesk({
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-2">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">Q:</span> {faq.question}
+                    <span className="text-emerald-400 font-bold">Q:</span> <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed pl-5">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}

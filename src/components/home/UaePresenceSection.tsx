@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useId, useState } from "react";
 import Link from "next/link";
 import { Building2, MapPin, Phone, ArrowRight, ShieldCheck, Car, Bus } from "lucide-react";
@@ -76,8 +77,8 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
             {dict.presence?.uaeTitle || "Our UAE presence."}
           </h2>
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            {dict.presence?.uaeDescription ||
-              "Headquartered near Dubai International Airport (DXB), Victor Mobility delivers seamless luxury limousine, airport VIP, and delegation transport across the Emirates."}
+            <BrandText>{dict.presence?.uaeDescription ||
+              "Headquartered near Dubai International Airport (DXB), Victor Mobility delivers seamless luxury limousine, airport VIP, and delegation transport across the Emirates."}</BrandText>
           </p>
         </div>
 

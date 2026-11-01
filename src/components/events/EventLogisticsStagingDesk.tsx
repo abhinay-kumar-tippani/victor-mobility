@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -150,7 +151,7 @@ Please review our event transit parameters and provide an operational staging bl
                       isSelected ? "text-brand-slate-light" : "text-brand-slate"
                     }`}
                   >
-                    {et.description}
+                    <BrandText>{et.description}</BrandText>
                   </p>
                 </div>
 
@@ -380,9 +381,9 @@ Please review our event transit parameters and provide an operational staging bl
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight">
             The 4-Phase Event Transportation Playbook
           </h3>
-          <p className="text-xs sm:text-sm text-brand-slate leading-relaxed">
+          <p className="text-xs sm:text-sm text-brand-slate leading-relaxed"><BrandText>
             Every major gathering managed by Victor Mobility follows an uncompromising 4-stage operational sequence to prevent congestion, delays, or passenger confusion.
-          </p>
+          </BrandText></p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -394,9 +395,9 @@ Please review our event transit parameters and provide an operational staging bl
               <div className="text-3xl font-black text-brand-indigo/15">
                 {phase.phase}
               </div>
-              <h4 className="text-base font-bold text-brand-indigo">{phase.title}</h4>
+              <h4 className="text-base font-bold text-brand-indigo"><BrandText>{phase.title}</BrandText></h4>
               <p className="text-xs text-brand-slate leading-relaxed">
-                {phase.description}
+                <BrandText>{phase.description}</BrandText>
               </p>
             </div>
           ))}

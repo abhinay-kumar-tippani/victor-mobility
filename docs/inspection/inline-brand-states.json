@@ -1,0 +1,47 @@
+[
+  {
+    "route": "/india/rate-card",
+    "label": "MSA & Governance",
+    "missed": []
+  },
+  {
+    "route": "/india/rate-card",
+    "label": "FAQ",
+    "missed": []
+  },
+  {
+    "route": "/uae/sla",
+    "label": "Statutory",
+    "missed": []
+  },
+  {
+    "route": "/uae/sla",
+    "label": "FAQ",
+    "missed": []
+  },
+  {
+    "route": "/india/academy",
+    "label": "Radar Punctuality",
+    "missed": []
+  },
+  {
+    "route": "/india/academy",
+    "label": "Discretion",
+    "missed": []
+  },
+  {
+    "route": "/india/academy",
+    "label": "Cabin Audit",
+    "missed": []
+  },
+  {
+    "route": "/india/academy",
+    "label": "Background Verification",
+    "missed": []
+  },
+  {
+    "route": "/india/academy",
+    "label": "Defensive",
+    "missed": []
+  }
+]

@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -271,7 +272,7 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
                 {activeHub.name}
               </h3>
               <p className="text-sm text-brand-ink/80 mt-2 leading-relaxed">
-                {activeHub.description}
+                <BrandText>{activeHub.description}</BrandText>
               </p>
             </div>
 

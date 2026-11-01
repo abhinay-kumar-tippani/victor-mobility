@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -43,10 +44,10 @@ export default function PrivacyPage() {
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Privacy Notice
               </h1>
-              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
+              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                 Victor Mobility Pvt. Ltd. is committed to protecting your personal and corporate details.
                 This notice explains how we collect, use, and protect the information you share with us.
-              </p>
+              </BrandText></p>
             </div>
           </div>
         </section>
@@ -119,8 +120,8 @@ export default function PrivacyPage() {
                   3. Zero Data Brokering or Marketing Resale
                 </h2>
               </div>
-              <p className="text-sm text-brand-ink/80 leading-relaxed">
-                Victor Mobility does <strong>not</strong> sell, rent, lease, or monetize your contact or enquiry data
+              <p className="text-sm text-brand-ink/80 leading-relaxed"><BrandText>
+                Victor Mobility does </BrandText><strong>not</strong> sell, rent, lease, or monetize your contact or enquiry data
                 to third-party advertising brokers or marketing agencies. We do not engage in unsolicited mass email or
                 SMS marketing campaigns.
               </p>
@@ -160,7 +161,7 @@ export default function PrivacyPage() {
               </p>
 
               <div className="bg-brand-warm-white rounded-2xl p-6 border border-brand-soft-neutral space-y-2 text-xs sm:text-sm text-brand-ink/85 mt-4">
-                <p className="font-bold text-brand-ink">{content.companyName}</p>
+                <p className="font-bold text-brand-ink"><BrandText>{content.companyName}</BrandText></p>
                 <p>Representative: {content.contact.name} ({content.contact.role})</p>
                 <p>Telephone: <a href={content.contact.phoneHref} className="text-brand-indigo font-semibold">{content.contact.phoneDisplay}</a></p>
                 <p>Registered Address: {headOffice?.address}</p>

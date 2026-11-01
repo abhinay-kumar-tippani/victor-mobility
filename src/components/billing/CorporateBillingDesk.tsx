@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -126,13 +128,13 @@ export default function CorporateBillingDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Quick Metrics Bar */}
@@ -259,9 +261,9 @@ export default function CorporateBillingDesk({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 print:border-slate-300 gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs uppercase font-extrabold tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded print:text-slate-900 print:border-slate-400">
+                    <span className="text-xs uppercase font-extrabold tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded print:text-slate-900 print:border-slate-400"><BrandText>
                       VICTOR MOBILITY · VERIFIED MANIFEST
-                    </span>
+                    </BrandText></span>
                     <span className="text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2 py-0.5 rounded print:hidden">
                       {currentSlip.gpsVerified}
                     </span>
@@ -409,7 +411,7 @@ export default function CorporateBillingDesk({
                             {idx === 1 && isIndia ? '100% ITC Eligible' : 'Standard'}
                           </span>
                         </div>
-                        <p className="text-slate-400 leading-relaxed">{rate.description}</p>
+                        <p className="text-slate-400 leading-relaxed"><BrandText>{rate.description}</BrandText></p>
                       </button>
                     ))}
                   </div>
@@ -569,7 +571,7 @@ export default function CorporateBillingDesk({
                       onClick={() => setOpenFaq(isOpen ? null : index)}
                       className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-slate-800/50"
                     >
-                      <span className="text-sm font-semibold text-white">{faq.question}</span>
+                      <span className="text-sm font-semibold text-white"><BrandText>{faq.question}</BrandText></span>
                       <svg
                         className={`w-4 h-4 text-amber-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                         fill="none"
@@ -581,7 +583,7 @@ export default function CorporateBillingDesk({
                     </button>
                     {isOpen && (
                       <div className="px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
-                        {faq.answer}
+                        <BrandText>{faq.answer}</BrandText>
                       </div>
                     )}
                   </div>

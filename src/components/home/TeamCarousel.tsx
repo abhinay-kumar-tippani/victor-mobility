@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -112,7 +113,7 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
       <div className="flex items-start justify-between gap-4 px-6 pt-6 sm:px-8 sm:pt-8">
         <div>
           <h3 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">
-            <UserCheckIcon className="h-4 w-4" aria-hidden="true" />{labels.eyebrow}
+            <UserCheckIcon className="h-4 w-4" aria-hidden="true" /><BrandText>{labels.eyebrow}</BrandText>
           </h3>
         </div>
       </div>
@@ -140,7 +141,7 @@ export default function TeamCarousel({ featured, featuredEmail, profiles, descri
           </h4>
           <p className="mt-2 text-sm font-semibold text-brand-indigo">{active.placeholder ? labels.pending : active.role}</p>
           {!active.placeholder && (active.id === "mujeeb" ? description : active.description) && (
-            <p className="mt-5 max-w-[17rem] text-sm leading-relaxed text-brand-ink/75 sm:max-w-sm">{active.id === "mujeeb" ? description : active.description}</p>
+            <p className="mt-5 max-w-[17rem] text-sm leading-relaxed text-brand-ink/75 sm:max-w-sm"><BrandText>{active.id === "mujeeb" ? description : active.description}</BrandText></p>
           )}
         </div>
       </div>

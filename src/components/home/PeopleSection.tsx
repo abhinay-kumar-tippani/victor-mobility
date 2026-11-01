@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Quote, Award } from "lucide-react";
@@ -57,13 +58,13 @@ export default function PeopleSection({ contact, teamContact, teamProfiles = [],
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
           <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
-            {dict.people?.eyebrow || "Leadership & Accountability"}
+            <BrandText>{dict.people?.eyebrow || "Leadership & Accountability"}</BrandText>
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
-            {dict.people?.title || "The people behind Victor."}
+            <BrandText>{dict.people?.title || "The people behind Victor."}</BrandText>
           </h2>
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            {dict.people?.subtitle || "Every journey is backed by visionary leadership, commercial governance, and 24/7 on-ground route controllers dedicated to \"On Time Every Time.\""}
+            <BrandText>{dict.people?.subtitle || "Every journey is backed by visionary leadership, commercial governance, and 24/7 on-ground route controllers dedicated to \"On Time Every Time.\""}</BrandText>
           </p>
         </div>
 
@@ -100,7 +101,7 @@ export default function PeopleSection({ contact, teamContact, teamProfiles = [],
                     </p>
                   </div>
                   <p className="text-xs text-brand-ink/75 leading-relaxed">
-                    {founderBio}
+                    <BrandText>{founderBio}</BrandText>
                   </p>
                 </div>
 

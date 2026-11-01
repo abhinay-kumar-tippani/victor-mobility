@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -125,13 +127,13 @@ export default function TechParkCorridorDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Quick Metrics Bar */}
@@ -407,9 +409,9 @@ export default function TechParkCorridorDesk({
                     Print Corridor Blueprint
                   </button>
                 </div>
-                <p className="text-[11px] text-slate-400 text-center">
+                <p className="text-[11px] text-slate-400 text-center"><BrandText>
                   Prefills WhatsApp inquiry with Victor Mobility transit team. Does not constitute an instant confirmed booking.
-                </p>
+                </BrandText></p>
               </div>
             </div>
           </section>
@@ -431,7 +433,7 @@ export default function TechParkCorridorDesk({
                   <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-white">{city.name}</h3>
-                      <p className="text-xs text-amber-400 mt-0.5">{city.tagline}</p>
+                      <p className="text-xs text-amber-400 mt-0.5"><BrandText>{city.tagline}</BrandText></p>
                     </div>
                     <span className="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
                       {city.hubs.length} Active Corridors
@@ -487,7 +489,7 @@ export default function TechParkCorridorDesk({
                       </span>
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{shift.name}</h3>
-                    <p className="text-xs text-slate-300 leading-relaxed mb-4">{shift.description}</p>
+                    <p className="text-xs text-slate-300 leading-relaxed mb-4"><BrandText>{shift.description}</BrandText></p>
                   </div>
                   <div className="pt-3 border-t border-slate-800 text-xs text-emerald-400 font-medium">
                     Fleet Allocation: <strong className="text-slate-200 block mt-0.5">{shift.fleetRecommendation}</strong>
@@ -517,7 +519,7 @@ export default function TechParkCorridorDesk({
                       onClick={() => setOpenFaq(isOpen ? null : index)}
                       className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-slate-800/50"
                     >
-                      <span className="text-sm font-semibold text-white">{faq.question}</span>
+                      <span className="text-sm font-semibold text-white"><BrandText>{faq.question}</BrandText></span>
                       <svg
                         className={`w-4 h-4 text-amber-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                         fill="none"
@@ -529,7 +531,7 @@ export default function TechParkCorridorDesk({
                     </button>
                     {isOpen && (
                       <div className="px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
-                        {faq.answer}
+                        <BrandText>{faq.answer}</BrandText>
                       </div>
                     )}
                   </div>

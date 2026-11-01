@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import Image from "next/image";
 import indiaData from "@/content/india.json";
 
@@ -5,7 +6,7 @@ export default function TopBrandsStrip({ title = indiaData.topBrandsCarried.titl
   const { brands } = indiaData.topBrandsCarried;
   return (
     <section id="top-brands-carried" aria-labelledby="top-brands-title" className="rounded-3xl bg-[#07182C] px-5 py-8 sm:p-10">
-      <h2 id="top-brands-title" className="mb-7 text-center text-2xl font-extrabold tracking-tight text-white sm:text-3xl">{title}</h2>
+      <h2 id="top-brands-title" className="mb-7 text-center text-2xl font-extrabold tracking-tight text-white sm:text-3xl"><BrandText>{title}</BrandText></h2>
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
         {brands.map((brand) => (
           <li key={brand.name} className="flex min-w-0 flex-col items-center justify-center gap-4 rounded-2xl bg-white px-4 py-6 sm:py-7">
@@ -14,7 +15,7 @@ export default function TopBrandsStrip({ title = indiaData.topBrandsCarried.titl
           </li>
         ))}
       </ul>
-      {caption && <p className="mt-6 text-center text-xs leading-relaxed text-white/75">{caption}</p>}
+      {caption && <p className="mt-6 text-center text-xs leading-relaxed text-white/75"><BrandText>{caption}</BrandText></p>}
     </section>
   );
 }

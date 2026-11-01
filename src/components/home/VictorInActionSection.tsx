@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import { CheckCircle2, Shield, Calendar, MapPin, Users, Building2, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -145,7 +146,7 @@ export default function VictorInActionSection({
                 <span>{current.category}</span>
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                {current.title}
+                <BrandText>{current.title}</BrandText>
               </h3>
               <p className="text-xs text-brand-ink/70 mt-1">
                 Client Profile: <span className="font-semibold text-brand-ink">{current.clientType}</span>
@@ -179,7 +180,7 @@ export default function VictorInActionSection({
             <div className="space-y-3 bg-brand-warm-white/50 p-5 rounded-2xl border border-brand-soft-neutral/70">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
                 <Shield className="w-4 h-4" />
-                <span>2. Victor&apos;s Solution</span>
+                <span><BrandText>2. Victor&apos;s Solution</BrandText></span>
               </div>
               <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
                 {current.solution}

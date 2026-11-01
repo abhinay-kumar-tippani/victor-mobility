@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, Shield, MapPin, ArrowRight, Bus, MessageSquare } from "lucide-react";
@@ -48,10 +49,10 @@ export default function EmployeeTransportFeature({
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
             Employee transport, planned around your team
           </h2>
-          <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed">
+          <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed"><BrandText>
             Daily employee commute demands the same operational discipline as executive travel. Victor Mobility
             coordinates dedicated corporate shuttles, employee pickup networks, and dependable campus transit.
-          </p>
+          </BrandText></p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -116,7 +117,7 @@ export default function EmployeeTransportFeature({
                     </div>
                     <div>
                       <h3 className="text-sm font-bold text-brand-ink mb-1">
-                        {item.title}
+                        <BrandText>{item.title}</BrandText>
                       </h3>
                       <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
                         {item.desc}

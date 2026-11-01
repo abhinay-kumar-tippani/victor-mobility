@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, FileText } from "lucide-react";
 import type indiaData from "@/content/india.json";
@@ -206,7 +207,7 @@ export default function RfpDesk({ copy, actions, cities, services, vehicles, wha
         </form>
       ) : (
         <div className="space-y-6">
-          <pre aria-label="RFP brief preview" className="whitespace-pre-wrap break-words rounded-xl border border-brand-soft-neutral bg-brand-warm-white p-4 font-sans text-sm leading-relaxed text-brand-ink sm:p-6">{draft}</pre>
+          <pre aria-label="RFP brief preview" className="whitespace-pre-wrap break-words rounded-xl border border-brand-soft-neutral bg-brand-warm-white p-4 font-sans text-sm leading-relaxed text-brand-ink sm:p-6"><BrandText>{draft}</BrandText></pre>
           <div className="flex flex-wrap gap-3">
             <button type="button" onClick={() => changeStep(0)} className="min-h-[44px] rounded-lg px-3 text-sm font-bold text-brand-indigo hover:bg-brand-warm-white">{copy.companyEdit}</button>
             <button type="button" onClick={() => changeStep(1)} className="min-h-[44px] rounded-lg px-3 text-sm font-bold text-brand-indigo hover:bg-brand-warm-white">{copy.edit}</button>

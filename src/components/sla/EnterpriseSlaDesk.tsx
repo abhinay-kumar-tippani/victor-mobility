@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -128,13 +130,13 @@ export default function EnterpriseSlaDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Quick Metrics Bar */}
@@ -266,10 +268,10 @@ export default function EnterpriseSlaDesk({
                         {pillar.target}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-1 print:text-black">{pillar.title}</h3>
+                    <h3 className="text-lg font-bold text-white mb-1 print:text-black"><BrandText>{pillar.title}</BrandText></h3>
                     <p className="text-xs text-emerald-400 font-medium mb-3 print:text-slate-700">{pillar.metric}</p>
                     <p className="text-sm text-slate-300 mb-4 leading-relaxed print:text-slate-700">
-                      {pillar.description}
+                      <BrandText>{pillar.description}</BrandText>
                     </p>
                   </div>
 
@@ -466,9 +468,9 @@ export default function EnterpriseSlaDesk({
                     Print Calculated SLA Dossier
                   </button>
                 </div>
-                <p className="text-[11px] text-slate-400 text-center">
+                <p className="text-[11px] text-slate-400 text-center"><BrandText>
                   Inquiry opens prefilled WhatsApp draft with Victor Mobility central operations. Does not constitute a binding booking or contract.
-                </p>
+                </BrandText></p>
               </div>
             </div>
           </section>
@@ -530,7 +532,7 @@ export default function EnterpriseSlaDesk({
               {statutoryCompliance.map((comp) => (
                 <div key={comp.title} className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-                    <h3 className="text-base font-bold text-white">{comp.title}</h3>
+                    <h3 className="text-base font-bold text-white"><BrandText>{comp.title}</BrandText></h3>
                     <span className="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                       {comp.status}
                     </span>
@@ -541,7 +543,7 @@ export default function EnterpriseSlaDesk({
                         <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>{item}</span>
+                        <span><BrandText>{item}</BrandText></span>
                       </li>
                     ))}
                   </ul>
@@ -590,7 +592,7 @@ export default function EnterpriseSlaDesk({
                       onClick={() => setOpenFaq(isOpen ? null : index)}
                       className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-slate-800/50"
                     >
-                      <span className="text-sm font-semibold text-white">{faq.question}</span>
+                      <span className="text-sm font-semibold text-white"><BrandText>{faq.question}</BrandText></span>
                       <svg
                         className={`w-4 h-4 text-amber-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                         fill="none"
@@ -602,7 +604,7 @@ export default function EnterpriseSlaDesk({
                     </button>
                     {isOpen && (
                       <div className="px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
-                        {faq.answer}
+                        <BrandText>{faq.answer}</BrandText>
                       </div>
                     )}
                   </div>
@@ -618,9 +620,9 @@ export default function EnterpriseSlaDesk({
             <span className="text-xs uppercase font-bold tracking-wider text-amber-400">
               Corporate Vendor Onboarding & Enterprise Contracts
             </span>
-            <h3 className="text-2xl font-bold text-white mt-1 mb-3 print:text-black">
+            <h3 className="text-2xl font-bold text-white mt-1 mb-3 print:text-black"><BrandText>
               Formalize Your SLA with Victor Mobility
-            </h3>
+            </BrandText></h3>
             <p className="text-sm text-slate-300 mb-6 leading-relaxed print:text-slate-700">
               Our enterprise mobility team partners with procurement directors, HR leaders, and facilities heads to configure custom multi-city transit agreements with audited SLA thresholds, transparent GST/VAT invoicing, and 24/7 dedicated dispatch desks.
             </p>

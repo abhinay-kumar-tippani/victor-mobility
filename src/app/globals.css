@@ -4,6 +4,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Inline wordmark scales with its sentence; the source pixels stay unchanged. */
+.victor-wordmark {
+  display: inline-block;
+  width: 3.23em;
+  height: 1em;
+  vertical-align: -0.1em;
+  line-height: 1;
+  white-space: nowrap;
+  text-indent: 0;
+}
+.victor-wordmark > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Pure white changes RGB only; the supplied artwork's alpha and cutouts stay intact. */
+  filter: var(--victor-wordmark-filter, none);
+}
+:where(h1, h2, h3) .victor-wordmark {
+  width: 2.907em;
+  height: 0.9em;
+  vertical-align: -0.05em;
+  margin-inline: 0.035em;
+}
+.journey-wordmark-overlay {
+  position: absolute;
+  display: block;
+  background: white;
+  --victor-wordmark-filter: none;
+}
+.journey-wordmark-overlay .victor-wordmark {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* Follow the nearest text/surface context, rather than painting a white tile.
+   User-authorised white treatment for the simple wordmark only (1 Nov 2026). */
+:where(.text-white,
+  [class*="text-white/"],
+  [class*="text-brand-slate-light"],
+  [class*="text-zinc-300"],
+  [class*="text-slate-300"],
+  [class*="text-slate-400"],
+  [class*="text-cyan-300"],
+  [class*="text-amber-400"],
+  [class*="text-brand-soft-neutral"]) {
+  --victor-wordmark-filter: brightness(0) invert(1);
+}
+:where(.bg-white, .bg-brand-warm-white,
+  [class*="text-brand-ink"], .text-brand-indigo,
+  .text-slate-900, .text-slate-800, .text-slate-700, .text-slate-600) {
+  --victor-wordmark-filter: none;
+}
+
 :root {
   --color-indigo: #31326F;
   --color-blue: #2D5090;

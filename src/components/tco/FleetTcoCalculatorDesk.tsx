@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -198,13 +200,13 @@ export default function FleetTcoCalculatorDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key Financial Impact Metrics Banner */}
@@ -389,7 +391,7 @@ export default function FleetTcoCalculatorDesk({
                               {model.name}
                             </span>
                             <span className="text-[11px] text-slate-400">
-                              {model.tagline}
+                              <BrandText>{model.tagline}</BrandText>
                             </span>
                           </div>
                           <span className="text-xs font-mono font-semibold px-2 py-1 rounded bg-slate-800 text-amber-300">
@@ -500,9 +502,9 @@ export default function FleetTcoCalculatorDesk({
                     </div>
 
                     <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-500/50 print:bg-slate-50 print:border-slate-300">
-                      <span className="text-xs font-semibold text-cyan-400 block mb-1">
+                      <span className="text-xs font-semibold text-cyan-400 block mb-1"><BrandText>
                         Victor Retainer Spend
-                      </span>
+                      </BrandText></span>
                       <span className="text-xl sm:text-2xl font-bold font-mono text-cyan-300 print:text-black">
                         {formatAmount(calculations.totalVictorMonthlyCost)}
                       </span>
@@ -566,7 +568,7 @@ export default function FleetTcoCalculatorDesk({
                     <strong className="text-emerald-400 font-semibold block text-sm mb-1">
                       CFO Value Proposition:
                     </strong>
-                    Switching {fleetSize} vehicles to a Victor Mobility managed retainer generates{' '}
+                    Switching {fleetSize}<BrandText> vehicles to a Victor Mobility managed retainer generates</BrandText>{' '}
                     <strong className="text-white font-mono">{formatAmount(calculations.netMonthlySavings)}</strong> monthly net savings ({calculations.percentageSavings}% overall spend reduction), while unlocking{' '}
                     <strong className="text-white font-mono">{formatAmount(calculations.totalUpfrontCapex)}</strong> in capital expenditure.
                   </div>
@@ -583,9 +585,9 @@ export default function FleetTcoCalculatorDesk({
               <h2 className="text-xl font-bold text-white mb-2">
                 CAPEX vs OPEX Institutional Risk Transfer Schedule
               </h2>
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-slate-400"><BrandText>
                 Detailed side-by-side risk assessment showing how Victor Mobility transfers vehicle depreciation, unscheduled downtime, and statutory compliance liabilities away from your corporate balance sheet.
-              </p>
+              </BrandText></p>
             </div>
 
             <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/50">
@@ -594,7 +596,7 @@ export default function FleetTcoCalculatorDesk({
                   <tr>
                     <th scope="col" className="px-5 py-4 font-semibold">Operational Dimension</th>
                     <th scope="col" className="px-5 py-4 font-semibold text-rose-300">Company-Owned / Self-Managed</th>
-                    <th scope="col" className="px-5 py-4 font-semibold text-cyan-300">Victor Mobility Retainer</th>
+                    <th scope="col" className="px-5 py-4 font-semibold text-cyan-300"><BrandText>Victor Mobility Retainer</BrandText></th>
                     <th scope="col" className="px-5 py-4 font-semibold text-emerald-400">Strategic Benefit</th>
                   </tr>
                 </thead>
@@ -608,7 +610,7 @@ export default function FleetTcoCalculatorDesk({
                         {row.selfManaged}
                       </td>
                       <td className="px-5 py-4 text-xs text-cyan-200 font-medium">
-                        {row.victorManaged}
+                        <BrandText>{row.victorManaged}</BrandText>
                       </td>
                       <td className="px-5 py-4">
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
@@ -641,7 +643,7 @@ export default function FleetTcoCalculatorDesk({
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs font-bold uppercase tracking-wider text-rose-400">
-                        {model.tagline}
+                        <BrandText>{model.tagline}</BrandText>
                       </span>
                       <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20">
                         +{Math.round((model.overheadFactor - 1) * 100)}% Leakage
@@ -678,19 +680,19 @@ export default function FleetTcoCalculatorDesk({
               <h2 className="text-xl font-bold text-white mb-2">
                 CFO &amp; Institutional Procurement FAQs
               </h2>
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-slate-400"><BrandText>
                 Essential contractual, tax, and service level questions regarding Victor Mobility fleet transition agreements.
-              </p>
+              </BrandText></p>
             </div>
 
             <div className="space-y-4">
               {faqs.map((faq, idx) => (
                 <div key={idx} className="p-5 rounded-xl bg-slate-900/40 border border-slate-800">
                   <h3 className="font-semibold text-white text-base mb-2">
-                    {faq.question}
+                    <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}
@@ -842,9 +844,9 @@ export default function FleetTcoCalculatorDesk({
                     </svg>
                     Send CFO Fleet Transition Request via WhatsApp
                   </button>
-                  <p className="text-[11px] text-slate-500 text-center mt-2">
+                  <p className="text-[11px] text-slate-500 text-center mt-2"><BrandText>
                     Note: Initiates an enterprise fleet TCO inquiry with Victor Mobility and does not constitute a signed contract.
-                  </p>
+                  </BrandText></p>
                 </div>
               </form>
             </div>

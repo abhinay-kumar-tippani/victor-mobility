@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -68,7 +69,7 @@ export default function CustomerJourneys({ journeys }: CustomerJourneysProps) {
                     <div className="absolute top-3 left-3">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[10px] font-bold text-brand-indigo uppercase tracking-wider shadow-xs">
                         <Icon className="w-3 h-3 text-brand-blue" />
-                        <span>{journey.eyebrow}</span>
+                        <span><BrandText>{journey.eyebrow}</BrandText></span>
                       </span>
                     </div>
                   </div>
@@ -76,10 +77,10 @@ export default function CustomerJourneys({ journeys }: CustomerJourneysProps) {
                   {/* Card Editorial: Title, Tagline & Tangible Key Highlights */}
                   <div className="p-5 sm:p-6 space-y-3">
                     <h3 className="text-lg sm:text-xl font-bold text-brand-ink tracking-tight">
-                      {journey.title}
+                      <BrandText>{journey.title}</BrandText>
                     </h3>
                     <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
-                      {journey.tagline}
+                      <BrandText>{journey.tagline}</BrandText>
                     </p>
 
                     {/* Verified Tangible Deliverables */}

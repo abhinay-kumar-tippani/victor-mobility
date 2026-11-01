@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Calculator, Route } from "lucide-react";
@@ -143,10 +144,10 @@ export default function JourneyEstimator({ copy, actions, cities, whatsappBaseUr
               </p>
               <p className="mt-2 text-xs leading-relaxed text-brand-ink/65">{effectiveCopy.basisHelp}</p>
             </div>
-            <p className="text-xs leading-relaxed text-brand-ink/65">{effectiveCopy.exclusions}</p>
+            <p className="text-xs leading-relaxed text-brand-ink/65"><BrandText>{effectiveCopy.exclusions}</BrandText></p>
             <details>
               <summary className="cursor-pointer py-3 text-sm font-bold text-brand-indigo">{effectiveCopy.review}</summary>
-              <pre className="whitespace-pre-wrap break-words rounded-xl bg-brand-warm-white p-4 font-sans text-xs leading-relaxed">{draft}</pre>
+              <pre className="whitespace-pre-wrap break-words rounded-xl bg-brand-warm-white p-4 font-sans text-xs leading-relaxed"><BrandText>{draft}</BrandText></pre>
             </details>
             <DraftActions draft={draft} filename="victor-journey-estimate.txt" whatsappBaseUrl={whatsappBaseUrl} copy={actions} />
           </>

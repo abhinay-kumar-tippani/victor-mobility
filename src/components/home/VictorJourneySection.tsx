@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Globe, Leaf, ShieldCheck } from "lucide-react";
@@ -54,11 +55,11 @@ export default function VictorJourneySection() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
           <div className="min-w-0 lg:col-span-5">
-            <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#A790D7]">{eyebrow}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#A790D7]"><BrandText>{eyebrow}</BrandText></p>
             <h2 id="journey-heading" className="mt-2 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.65rem]">
-              {title}
+              <BrandText>{title}</BrandText>
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base">{subtitle}</p>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base"><BrandText>{subtitle}</BrandText></p>
 
             <div className="mt-5 space-y-2.5">
               {phases.map((phase) => {
@@ -68,10 +69,10 @@ export default function VictorJourneySection() {
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-brand-violet/20 text-[#B9A6E2]" aria-hidden="true"><Icon className="size-4" /></span>
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                        <h3 className="text-xs font-bold uppercase tracking-wide text-white">{phase.title}</h3>
+                        <h3 className="text-xs font-bold uppercase tracking-wide text-white"><BrandText>{phase.title}</BrandText></h3>
                         <span dir="ltr" className="rounded-full bg-brand-violet/20 px-2 py-0.5 text-[10px] font-bold text-[#C5B5E5]">{phase.years}</span>
                       </div>
-                      <p className="mt-1 text-xs leading-relaxed text-zinc-300">{phase.description}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-zinc-300"><BrandText>{phase.description}</BrandText></p>
                     </div>
                   </div>
                 );

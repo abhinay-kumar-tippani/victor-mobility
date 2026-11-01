@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -147,7 +148,7 @@ export default function UaeServicesPage() {
                       </div>
 
                       <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
-                        {service.title}
+                        <BrandText>{service.title}</BrandText>
                       </h2>
 
                       <p className="text-sm font-semibold text-brand-soft-neutral/90 mb-3">
@@ -155,7 +156,7 @@ export default function UaeServicesPage() {
                       </p>
 
                       <p className="text-xs text-white/80 leading-relaxed mb-6 flex-1">
-                        {service.description}
+                        <BrandText>{service.description}</BrandText>
                       </p>
 
                       {service.enquiryDetails && (
@@ -239,9 +240,9 @@ export default function UaeServicesPage() {
                   <h3 className="text-xl font-bold text-brand-indigo mb-2">
                     UAE Chauffeur Protocol Academy
                   </h3>
-                  <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6"><BrandText>
                     Discover the 5-pillar limousine curriculum, 24-point pre-dispatch vehicle inspection audit, and RTA compliant luxury chauffeur standards at Victor Dubai.
-                  </p>
+                  </BrandText></p>
                 </div>
                 <Link
                   href="/uae/academy"

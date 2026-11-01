@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -133,13 +135,13 @@ export default function VendorDueDiligenceDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key Compliance Metrics Grid */}
@@ -149,7 +151,7 @@ export default function VendorDueDiligenceDesk({
                 Legal Entity
               </span>
               <span className="text-sm font-bold text-teal-400 block mt-1 truncate print:text-black">
-                {entity.legalName}
+                <BrandText>{entity.legalName}</BrandText>
               </span>
               <span className="text-xs text-slate-500 block mt-0.5">
                 {isIndia ? `CIN: ${entity.cin}` : `License: ${entity.licenseNumber}`}
@@ -273,9 +275,9 @@ export default function VendorDueDiligenceDesk({
               <h2 className="text-xl font-bold text-white mb-2 print:text-black">
                 Institutional Statutory Pillars
               </h2>
-              <p className="text-sm text-slate-400 mb-6 print:text-slate-600">
+              <p className="text-sm text-slate-400 mb-6 print:text-slate-600"><BrandText>
                 Explore the four pillars of corporate compliance governing Victor Mobility operations. All records are updated and audited monthly by certified chartered accountants and legal counsel.
-              </p>
+              </BrandText></p>
 
               {/* Pillar Selector Pills */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 print:hidden">
@@ -300,10 +302,10 @@ export default function VendorDueDiligenceDesk({
                         )}
                       </div>
                       <h3 className="font-semibold text-sm text-white line-clamp-1">
-                        {pillar.title}
+                        <BrandText>{pillar.title}</BrandText>
                       </h3>
                       <p className="text-xs text-slate-400 mt-1 line-clamp-2">
-                        {pillar.description}
+                        <BrandText>{pillar.description}</BrandText>
                       </p>
                     </button>
                   );
@@ -319,10 +321,10 @@ export default function VendorDueDiligenceDesk({
                     {activePillar.badge}
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white print:text-black">
-                    {activePillar.title}
+                    <BrandText>{activePillar.title}</BrandText>
                   </h3>
                   <p className="text-sm text-slate-300 mt-1 max-w-2xl print:text-slate-600">
-                    {activePillar.description}
+                    <BrandText>{activePillar.description}</BrandText>
                   </p>
                 </div>
                 <div className="shrink-0 print:hidden">
@@ -357,7 +359,7 @@ export default function VendorDueDiligenceDesk({
                           {rec.framework}
                         </td>
                         <td className="px-4 py-3.5 font-mono text-xs text-amber-300 print:text-black">
-                          {rec.regNumber}
+                          <BrandText>{rec.regNumber}</BrandText>
                         </td>
                         <td className="px-4 py-3.5">
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 print:border-slate-300 print:text-slate-800">
@@ -368,7 +370,7 @@ export default function VendorDueDiligenceDesk({
                           </span>
                         </td>
                         <td className="px-4 py-3.5 text-xs text-slate-400 print:text-slate-700">
-                          {rec.details}
+                          <BrandText>{rec.details}</BrandText>
                         </td>
                       </tr>
                     ))}
@@ -410,11 +412,11 @@ export default function VendorDueDiligenceDesk({
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
                   <span className="text-xs text-slate-400 font-medium block">Legal Corporate Name</span>
-                  <span className="text-sm font-semibold text-white mt-1 block">{entity.legalName}</span>
+                  <span className="text-sm font-semibold text-white mt-1 block"><BrandText>{entity.legalName}</BrandText></span>
                 </div>
                 <div className="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
                   <span className="text-xs text-slate-400 font-medium block">Trade Name</span>
-                  <span className="text-sm font-semibold text-teal-400 mt-1 block">{entity.tradeName}</span>
+                  <span className="text-sm font-semibold text-teal-400 mt-1 block"><BrandText>{entity.tradeName}</BrandText></span>
                 </div>
                 <div className="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
                   <span className="text-xs text-slate-400 font-medium block">Entity Constitution</span>
@@ -499,9 +501,9 @@ export default function VendorDueDiligenceDesk({
               <h2 className="text-xl font-bold text-white mb-2">
                 Ethical Procurement &amp; Corporate Code of Conduct
               </h2>
-              <p className="text-sm text-slate-400 mb-6">
+              <p className="text-sm text-slate-400 mb-6"><BrandText>
                 Victor Mobility adheres to stringent international business conduct standards, guaranteeing ethical labor practices, transparency, and integrity across all client engagements.
-              </p>
+              </BrandText></p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -517,7 +519,7 @@ export default function VendorDueDiligenceDesk({
                       </h3>
                     </div>
                     <p className="text-sm text-slate-300 leading-relaxed">
-                      {item.clause}
+                      <BrandText>{item.clause}</BrandText>
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-teal-400 font-medium flex items-center gap-1.5">
@@ -534,9 +536,9 @@ export default function VendorDueDiligenceDesk({
               <h3 className="text-base font-bold text-white mb-2">
                 Corporate Governance &amp; Whistleblower Protection
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-slate-300 leading-relaxed"><BrandText>
                 Victor Mobility maintains an independent corporate compliance email hotline for all client procurement teams, drivers, and partners. Any deviation from statutory wages, safety limits, or ethical standards can be reported confidentially with zero retaliation risk.
-              </p>
+              </BrandText></p>
             </div>
           </div>
         )}
@@ -577,10 +579,10 @@ export default function VendorDueDiligenceDesk({
               {faqs.map((faq, idx) => (
                 <div key={idx} className="p-5 rounded-xl bg-slate-900/40 border border-slate-800">
                   <h3 className="font-semibold text-white text-base mb-2">
-                    {faq.question}
+                    <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}
@@ -753,9 +755,9 @@ export default function VendorDueDiligenceDesk({
                     </svg>
                     Send Due Diligence Dossier Request via WhatsApp
                   </button>
-                  <p className="text-[11px] text-slate-500 text-center mt-2">
+                  <p className="text-[11px] text-slate-500 text-center mt-2"><BrandText>
                     Note: Initiates an enterprise vendor due diligence inquiry with Victor Mobility and does not constitute a signed contract.
-                  </p>
+                  </BrandText></p>
                 </div>
               </form>
             </div>

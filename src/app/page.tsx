@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,11 +39,11 @@ export default function RootPage() {
 
       <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-7xl flex-1 px-5 py-10 focus:outline-none sm:px-8 sm:py-14 lg:px-12">
         <div className="mb-8 sm:mb-10">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue">{copy.eyebrow}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue"><BrandText>{copy.eyebrow}</BrandText></p>
           <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl">
-            {copy.title}
+            <BrandText>{copy.title}</BrandText>
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-ink/70 sm:text-lg">{copy.description}</p>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-ink/70 sm:text-lg"><BrandText>{copy.description}</BrandText></p>
         </div>
 
         <nav aria-label={copy.headerLabel} className="grid gap-5 md:grid-cols-2 lg:gap-7">
@@ -83,8 +84,8 @@ export default function RootPage() {
 
       <footer className="border-t border-brand-soft-neutral">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs text-brand-ink/65 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
-          <p>© {new Date().getFullYear()} Victor Mobility</p>
-          <p className="font-semibold text-brand-indigo">{brand.tagline}</p>
+          <p>© {new Date().getFullYear()}<BrandText> Victor Mobility</BrandText></p>
+          <p className="font-semibold text-brand-indigo"><BrandText>{brand.tagline}</BrandText></p>
         </div>
       </footer>
     </div>

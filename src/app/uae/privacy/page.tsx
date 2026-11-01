@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import {
   ShieldCheck,
@@ -37,10 +38,10 @@ export default function UaePrivacyPage() {
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 UAE Privacy Notice
               </h1>
-              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
+              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                 Victor Luxury Limousine LLC (Victor Mobility UAE) is committed to protecting your corporate delegations
                 and personal passenger details in alignment with UAE Federal Decree-Law No. 45 of 2021 regarding Personal Data Protection.
-              </p>
+              </BrandText></p>
             </div>
           </div>
         </section>
@@ -113,8 +114,8 @@ export default function UaePrivacyPage() {
                   3. Zero Marketing Data Resale
                 </h2>
               </div>
-              <p className="text-sm text-brand-ink/80 leading-relaxed">
-                Victor Luxury Limousine LLC does <strong>not</strong> sell, lease, or monetize your contact or itinerary details
+              <p className="text-sm text-brand-ink/80 leading-relaxed"><BrandText>
+                Victor Luxury Limousine LLC does </BrandText><strong>not</strong> sell, lease, or monetize your contact or itinerary details
                 to third-party advertisers, telemarketers, or commercial brokers. We do not participate in unsolicited mass marketing.
               </p>
             </div>
@@ -152,7 +153,7 @@ export default function UaePrivacyPage() {
               </p>
 
               <div className="bg-brand-warm-white rounded-2xl p-6 border border-brand-soft-neutral space-y-2 text-xs sm:text-sm text-brand-ink/85 mt-4">
-                <p className="font-bold text-brand-ink">{uaeData.legalEntityName}</p>
+                <p className="font-bold text-brand-ink"><BrandText>{uaeData.legalEntityName}</BrandText></p>
                 <p>Operations Desk: {uaeData.contact.name}</p>
                 <p>Telephone: <a href={uaeData.contact.phoneHref} className="text-brand-indigo font-semibold">{uaeData.contact.phoneDisplay}</a></p>
                 <p>Registered Address: {headOffice?.address}</p>

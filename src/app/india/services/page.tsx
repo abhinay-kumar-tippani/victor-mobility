@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -90,10 +91,10 @@ export default function ServicesPage() {
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Corporate & Group Transport Solutions
               </h1>
-              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
+              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                 From daily employee shift shuttles to executive airport transfers and large-scale event logistics,
                 Victor Mobility provides dependable vehicle arrangements across 10 operational hubs pan-India.
-              </p>
+              </BrandText></p>
             </div>
           </div>
         </section>
@@ -140,7 +141,7 @@ export default function ServicesPage() {
                       </div>
 
                       <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
-                        {service.title}
+                        <BrandText>{service.title}</BrandText>
                       </h2>
 
                       <p className="text-sm font-semibold text-brand-soft-neutral/90 mb-3">
@@ -148,7 +149,7 @@ export default function ServicesPage() {
                       </p>
 
                       <p className="text-xs text-white/80 leading-relaxed mb-6 flex-1">
-                        {service.description}
+                        <BrandText>{service.description}</BrandText>
                       </p>
 
                       {/* Key Enquiry Scope Details */}
@@ -260,10 +261,10 @@ export default function ServicesPage() {
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">
                   Operating across 10 Operational Hubs Pan-India
                 </h3>
-                <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
+                <p className="text-sm text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                   Victor Mobility coordinates scheduled transportation across Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata.
                   Tell our team your route corridors, shift timings, or travel schedules for custom planning.
-                </p>
+                </BrandText></p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">

@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -141,13 +143,13 @@ export default function ExecutiveRoadshowDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key SLA Metric Highlights */}
@@ -414,7 +416,7 @@ export default function ExecutiveRoadshowDesk({
                       {tier.name}
                     </h3>
                     <p className="text-xs text-slate-400 mb-4">
-                      {tier.tagline}
+                      <BrandText>{tier.tagline}</BrandText>
                     </p>
 
                     <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 mb-4 space-y-1.5">
@@ -502,10 +504,10 @@ export default function ExecutiveRoadshowDesk({
             <div className="p-6 rounded-2xl bg-slate-900/30 border border-slate-800">
               <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                {spocModel.title}
+                <BrandText>{spocModel.title}</BrandText>
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                {spocModel.description}
+                <BrandText>{spocModel.description}</BrandText>
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {spocModel.slaHighlights.map((highlight, hIdx) => (
@@ -539,10 +541,10 @@ export default function ExecutiveRoadshowDesk({
                 <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                {securityAndNda.title}
+                <BrandText>{securityAndNda.title}</BrandText>
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                {securityAndNda.statement}
+                <BrandText>{securityAndNda.statement}</BrandText>
               </p>
             </div>
 
@@ -551,10 +553,10 @@ export default function ExecutiveRoadshowDesk({
               {faqs.map((faq, idx) => (
                 <div key={idx} className="p-5 rounded-xl bg-slate-900/40 border border-slate-800">
                   <h3 className="font-semibold text-white text-base mb-2">
-                    {faq.question}
+                    <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}
@@ -754,9 +756,9 @@ export default function ExecutiveRoadshowDesk({
                     </svg>
                     Send Roadshow Dispatch Request via WhatsApp
                   </button>
-                  <p className="text-[11px] text-slate-500 text-center mt-2">
+                  <p className="text-[11px] text-slate-500 text-center mt-2"><BrandText>
                     Note: Initiates an enterprise roadshow inquiry with Victor Mobility and does not constitute a signed contract.
-                  </p>
+                  </BrandText></p>
                 </div>
               </form>
             </div>

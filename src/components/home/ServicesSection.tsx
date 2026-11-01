@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -93,16 +94,16 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
             <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
-              {dict.servicesSection.eyebrow}
+              <BrandText>{dict.servicesSection.eyebrow}</BrandText>
             </span>
             <h2
               id="services-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-3"
             >
-              {dict.servicesSection.title}
+              <BrandText>{dict.servicesSection.title}</BrandText>
             </h2>
             <p className="text-base sm:text-lg text-brand-ink/75 leading-relaxed">
-              {sectionDescription}
+              <BrandText>{sectionDescription}</BrandText>
             </p>
           </div>
 
@@ -160,12 +161,12 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
 
                   {/* Service Title */}
                   <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2.5">
-                    {dict.servicesSection.items[service.slug]?.title || service.title}
+                    <BrandText>{dict.servicesSection.items[service.slug]?.title || service.title}</BrandText>
                   </h3>
 
                   {/* Service Description */}
                   <p className="text-sm sm:text-[15px] text-white/85 leading-relaxed">
-                    {dict.servicesSection.items[service.slug]?.description || service.shortDescription}
+                    <BrandText>{dict.servicesSection.items[service.slug]?.description || service.shortDescription}</BrandText>
                   </p>
                 </div>
 

@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -65,9 +66,9 @@ export default function AboutPage() {
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Punctual mobility built on trust and accountability.
               </h1>
-              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed">
+              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                 From executive VIP chauffeur protocols to multi-vehicle wedding convoys and tech workforce commutes,
-                Victor Mobility unites three customer dimensions under one discipline:{" "}
+                Victor Mobility unites three customer dimensions under one discipline:</BrandText>{" "}
                 <strong className="text-white font-bold">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
             </div>
@@ -85,9 +86,9 @@ export default function AboutPage() {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3 lg:whitespace-nowrap">
                   Leading with Vision. Moving Forward with Trust.
                 </h2>
-                <p className="max-w-3xl text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                <p className="max-w-3xl text-sm sm:text-base text-brand-ink/75 leading-relaxed"><BrandText>
                   Every journey with Victor Mobility is backed by visionary leadership and hands-on commercial governance committed to &ldquo;On Time Every Time.&rdquo;
-                </p>
+                </BrandText></p>
               </div>
 
               {/* Founder Card */}
@@ -133,7 +134,7 @@ export default function AboutPage() {
 
                   <div className="space-y-4 text-xs sm:text-sm text-brand-ink/80 leading-relaxed">
                     {(founder.aboutBio || [founder.bio]).map((para, i) => (
-                      <p key={i}>{para}</p>
+                      <p key={i}><BrandText>{para}</BrandText></p>
                     ))}
                   </div>
 
@@ -174,9 +175,9 @@ export default function AboutPage() {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
                   A decade of disciplined growth and operational milestones.
                 </h2>
-                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
+                <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed"><BrandText>
                   Founded in Hyderabad with a focus on enterprise reliability, Victor Mobility has systematically expanded into a multi-city mobility provider across India.
-                </p>
+                </BrandText></p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -190,10 +191,10 @@ export default function AboutPage() {
                         {m.year}
                       </span>
                       <h3 className="text-base font-bold text-brand-ink">
-                        {m.title}
+                        <BrandText>{m.title}</BrandText>
                       </h3>
                       <p className="text-xs text-brand-ink/75 leading-relaxed">
-                        {m.description}
+                        <BrandText>{m.description}</BrandText>
                       </p>
                     </div>
                     <div className="pt-3 border-t border-brand-soft-neutral/70 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-blue">
@@ -256,10 +257,10 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink">
                 Established India Operating Network
               </h2>
-              <p className="text-base text-brand-ink/75 leading-relaxed">
+              <p className="text-base text-brand-ink/75 leading-relaxed"><BrandText>
                 Victor Mobility maintains verified physical presence across India&apos;s leading commercial and technology
                 centers. Contact our branch teams directly for local allocations.
-              </p>
+              </BrandText></p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -328,10 +329,10 @@ export default function AboutPage() {
                     className="bg-brand-warm-white rounded-2xl p-6 sm:p-7 border border-brand-soft-neutral shadow-2xs space-y-2"
                   >
                     <h3 className="text-base font-bold text-brand-ink">
-                      {faq.question}
+                      <BrandText>{faq.question}</BrandText>
                     </h3>
                     <p className="text-sm text-brand-ink/75 leading-relaxed">
-                      {faq.answer}
+                      <BrandText>{faq.answer}</BrandText>
                     </p>
                   </div>
                 ))}

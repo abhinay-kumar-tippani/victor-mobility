@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { Suspense, useState, useId, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -697,7 +698,7 @@ function EnquiryForm({
             </h2>
           )}
           <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-            {dict.enquiryForm.subtitle}
+            <BrandText>{dict.enquiryForm.subtitle}</BrandText>
           </p>
         </div>
 
@@ -811,9 +812,9 @@ function EnquiryForm({
                 </div>
 
                 <div className="space-y-3 max-w-lg mx-auto">
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-brand-ink leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-brand-ink leading-snug"><BrandText>
                     Thank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon.
-                  </h3>
+                  </BrandText></h3>
                   <span className="sr-only">
                     hank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon.
                   </span>
@@ -1190,7 +1191,7 @@ function EnquiryForm({
                     <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/70">
-                          {summaryTitle}
+                          <BrandText>{summaryTitle}</BrandText>
                         </span>
                         <button
                           type="button"
@@ -1212,7 +1213,7 @@ function EnquiryForm({
                         </button>
                       </div>
 
-                      <pre aria-label="WhatsApp message preview" className="whitespace-pre-wrap break-words rounded-lg border border-brand-soft-neutral/70 bg-brand-warm-white p-3.5 font-sans text-sm leading-relaxed text-brand-ink/85">{draftMessage}</pre>
+                      <pre aria-label="WhatsApp message preview" className="whitespace-pre-wrap break-words rounded-lg border border-brand-soft-neutral/70 bg-brand-warm-white p-3.5 font-sans text-sm leading-relaxed text-brand-ink/85"><BrandText>{draftMessage}</BrandText></pre>
                       {copyFailed && <p role="status" className="text-sm text-brand-ink/75">Copy is unavailable here. Select and copy the message above, or continue on WhatsApp.</p>}
                     </div>
 

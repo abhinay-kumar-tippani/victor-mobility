@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -116,13 +118,13 @@ export default function CorporateCreditDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key Facility Metrics Grid */}
@@ -391,10 +393,10 @@ export default function CorporateCreditDesk({
                     {step.timeline}
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">
-                    {step.title}
+                    <BrandText>{step.title}</BrandText>
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    {step.description}
+                    <BrandText>{step.description}</BrandText>
                   </p>
                   <div className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-emerald-400 flex items-center gap-1">
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -505,10 +507,10 @@ export default function CorporateCreditDesk({
               {faqs.map((faq, idx) => (
                 <div key={idx} className="p-5 rounded-xl bg-slate-900/40 border border-slate-800">
                   <h3 className="font-semibold text-white text-base mb-2">
-                    {faq.question}
+                    <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}
@@ -699,9 +701,9 @@ export default function CorporateCreditDesk({
                     </svg>
                     Submit Corporate Credit Application via WhatsApp
                   </button>
-                  <p className="text-[11px] text-slate-500 text-center mt-2">
+                  <p className="text-[11px] text-slate-500 text-center mt-2"><BrandText>
                     Note: Initiates a corporate credit assessment inquiry with Victor Mobility and does not constitute an approved credit facility.
-                  </p>
+                  </BrandText></p>
                 </div>
               </form>
             </div>

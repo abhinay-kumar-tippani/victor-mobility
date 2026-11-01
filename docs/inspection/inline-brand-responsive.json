@@ -1,0 +1,818 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/emergency",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/emergency",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/credit-application",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/credit-application",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/business",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/markets",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/markets",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/business",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/contact",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/contact",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/due-diligence",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/due-diligence",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/billing",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/billing",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/corridors",
+    "width": 320,
+    "overflow": true,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/corridors",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/academy/verify",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/academy/verify",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/protocol",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/protocol",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/roster",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/roster",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/rate-card",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/rate-card",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/esg",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/esg",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/brochure",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/brochure",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/rfp",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/rfp",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/privacy",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/privacy",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/safety",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/safety",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/events",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/events",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/portal",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/portal",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/academy",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/academy",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/estimator",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/estimator",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/fleet",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/fleet",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/about",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/about",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/business",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/sla",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/business",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/sla",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/roadshows",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/billing",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/roadshows",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/billing",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/emergency",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/emergency",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/due-diligence",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/due-diligence",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/academy",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/academy",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/contact",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/brochure",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/contact",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/brochure",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/estimator",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/estimator",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/privacy",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/privacy",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/portal",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/portal",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/rfp",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/rfp",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/esg",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/esg",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/protocol",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/protocol",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/credit-application",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/credit-application",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/roadshows",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/roadshows",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/rate-card",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/rate-card",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/academy/verify",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/academy/verify",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/about",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/about",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/sla",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/events",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/sla",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/events",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/corridors",
+    "width": 320,
+    "overflow": true,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/tco-calculator",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/corridors",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/tco-calculator",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/safety",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/safety",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/tco-calculator",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/roster",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/tco-calculator",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/airport-transfers",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/roster",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/airport-transfers",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/chauffeur-luxury",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/chauffeur-luxury",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/rent-a-car",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/employee-transportation",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/rent-a-car",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/employee-transportation",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/event-transportation",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/event-transportation",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/tourism-travel",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services/tourism-travel",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/fleet",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/fleet",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/uae/services",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/airport-transfers",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/airport-transfers",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/bus-shuttle-transport",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/bus-shuttle-transport",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/employee-transportation",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/employee-transportation",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/event-transportation",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/event-transportation",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/chauffeur-luxury",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/chauffeur-luxury",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/rent-a-car",
+    "width": 320,
+    "overflow": false,
+    "clippedLogos": 0
+  },
+  {
+    "route": "/india/services/rent-a-car",
+    "width": 768,
+    "overflow": false,
+    "clippedLogos": 0
+  }
+]

@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState, useId } from "react";
 import { Send, CheckCircle2, AlertCircle, Clock, User, Phone, Mail, MessageSquare } from "lucide-react";
 
@@ -109,9 +110,9 @@ export default function DirectContactForm({
 
         <div className="space-y-3 max-w-lg mx-auto">
           {/* Main confirmation message */}
-          <h3 className="text-xl sm:text-2xl font-extrabold text-brand-ink leading-snug">
+          <h3 className="text-xl sm:text-2xl font-extrabold text-brand-ink leading-snug"><BrandText>
             Thank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon.
-          </h3>
+          </BrandText></h3>
           {/* Exact verbatim matcher fallback */}
           <span className="sr-only">
             hank you for contacting Victor Mobility. We have received your enquiry, and a member of our team will get in touch with you soon.

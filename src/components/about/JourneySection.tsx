@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import {
   ArrowDownRight, Award, Building2, Car, CheckCircle2, Globe, GraduationCap,
   Leaf, MapPin, Rocket, Route, ShieldCheck, Sparkles, TrendingUp,
@@ -20,9 +21,9 @@ export default function JourneySection() {
     <section id="journey" aria-labelledby="journey-heading" className={styles.section}>
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${styles.layout}`}>
         <div className={styles.intro}>
-          <p className={styles.eyebrow}>{journey.eyebrow}</p>
-          <h2 id="journey-heading" className={styles.heading}>{journey.title}</h2>
-          <p dir="auto" className={styles.summary}>{journey.subtitle}</p>
+          <p className={styles.eyebrow}><BrandText>{journey.eyebrow}</BrandText></p>
+          <h2 id="journey-heading" className={styles.heading}><BrandText>{journey.title}</BrandText></h2>
+          <p dir="auto" className={styles.summary}><BrandText>{journey.subtitle}</BrandText></p>
 
           <div className={styles.journeyMark}>
             <div dir="ltr" className={styles.yearRange}>
@@ -34,7 +35,7 @@ export default function JourneySection() {
               </div>
               <span>{lastYear}</span>
             </div>
-            <p dir="auto">{brand.tagline}</p>
+            <p dir="auto"><BrandText>{brand.tagline}</BrandText></p>
           </div>
 
           <nav aria-label="Journey chapters" className={styles.chapters}>
@@ -42,7 +43,7 @@ export default function JourneySection() {
               <a key={chapter.milestoneId} href={`#journey-milestone-${chapter.milestoneId}`}>
                 <span>
                   <span dir="ltr" className={styles.chapterYears}>{chapter.years}</span>
-                  <span className={styles.chapterTitle}>{chapter.title}</span>
+                  <span className={styles.chapterTitle}><BrandText>{chapter.title}</BrandText></span>
                 </span>
                 <ArrowDownRight size={19} strokeWidth={1.5} aria-hidden="true" />
               </a>
@@ -71,8 +72,8 @@ export default function JourneySection() {
                         {String(milestone.id).padStart(2, "0")}
                       </span>
                     </div>
-                    <h3 id={`journey-title-${milestone.id}`}>{milestone.title}</h3>
-                    <p dir="auto">{milestone.description}</p>
+                    <h3 id={`journey-title-${milestone.id}`}><BrandText>{milestone.title}</BrandText></h3>
+                    <p dir="auto"><BrandText>{milestone.description}</BrandText></p>
                   </article>
                 </li>
               );

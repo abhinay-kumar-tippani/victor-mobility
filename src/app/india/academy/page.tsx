@@ -1,3 +1,4 @@
+import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -53,9 +54,9 @@ export default function IndiaAcademyPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
-                <GraduationCap className="w-3.5 h-3.5 text-brand-violet" />
+                <GraduationCap className="w-3.5 h-3.5 text-brand-violet" /><BrandText>
                 The Victor Standard Substantiated
-              </span>
+              </BrandText></span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Chauffeur Protocol Academy
               </h1>
@@ -91,9 +92,9 @@ export default function IndiaAcademyPage() {
         {/* Bottom CTA */}
         <section className="py-12 bg-brand-soft-neutral/30 border-t border-brand-soft-neutral">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold text-brand-indigo">
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-indigo"><BrandText>
               Experience the Victor Chauffeur Protocol Firsthand
-            </h3>
+            </BrandText></h3>
             <p className="text-sm text-brand-slate max-w-2xl mx-auto leading-relaxed">
               Calculate point-to-point corridor fares or request an enterprise corporate mobility quotation backed by certified chauffeurs.
             </p>

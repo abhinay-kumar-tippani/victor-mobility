@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Award, Building2, Car, CheckCircle2, GraduationCap, Globe, Leaf,
@@ -90,8 +91,8 @@ export default function JourneyTimelinePanel({ milestones }: { milestones: Miles
                     <span className={`text-[11px] font-bold uppercase tracking-[0.12em] ${active ? "text-[#BCA9EA]" : "text-white/55"}`}>{milestone.date}</span>
                     <span className="text-[10px] font-semibold tabular-nums text-white/35">{String(index + 1).padStart(2, "0")}</span>
                   </div>
-                  <h4 className="mt-1.5 text-sm font-bold leading-snug text-white sm:text-base">{milestone.title}</h4>
-                  <p className={`mt-1.5 text-xs leading-relaxed sm:text-sm ${active ? "text-white/80" : "text-white/60"}`}>{milestone.description}</p>
+                  <h4 className="mt-1.5 text-sm font-bold leading-snug text-white sm:text-base"><BrandText>{milestone.title}</BrandText></h4>
+                  <p className={`mt-1.5 text-xs leading-relaxed sm:text-sm ${active ? "text-white/80" : "text-white/60"}`}><BrandText>{milestone.description}</BrandText></p>
                 </article>
               </li>
             );
@@ -100,7 +101,7 @@ export default function JourneyTimelinePanel({ milestones }: { milestones: Miles
       </div>
 
       <div className="flex items-center justify-between gap-3 border-t border-white/10 px-5 py-3 text-[11px] font-medium text-white/50 sm:px-7">
-        <span>Scroll within the timeline to follow Victor&apos;s journey</span>
+        <span><BrandText>Scroll within the timeline to follow Victor&apos;s journey</BrandText></span>
         <span dir="ltr" className="shrink-0 tabular-nums">{firstYear} — {lastYear}</span>
       </div>
     </div>

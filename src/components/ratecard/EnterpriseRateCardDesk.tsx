@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -125,13 +127,13 @@ export default function EnterpriseRateCardDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key Commercial Metrics Bar */}
@@ -390,9 +392,9 @@ export default function EnterpriseRateCardDesk({
                   Print Selected Category Dossier
                 </button>
               </div>
-              <p className="text-[11px] text-slate-500 text-center mt-3 print:hidden">
+              <p className="text-[11px] text-slate-500 text-center mt-3 print:hidden"><BrandText>
                 Prefills WhatsApp corporate inquiry with Victor Mobility commercial desk. Standard corporate terms apply.
-              </p>
+              </BrandText></p>
             </div>
 
             {/* Inclusions & Exclusions Grid */}
@@ -657,7 +659,7 @@ export default function EnterpriseRateCardDesk({
                         {tier.perks.map((perk, idx) => (
                           <li key={idx} className="flex items-start gap-1.5">
                             <span className="text-amber-400 mt-0.5">•</span>
-                            <span>{perk}</span>
+                            <span><BrandText>{perk}</BrandText></span>
                           </li>
                         ))}
                       </ul>
@@ -683,10 +685,10 @@ export default function EnterpriseRateCardDesk({
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-2">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
-                    <span className="text-amber-400 font-bold">Q:</span> {faq.question}
+                    <span className="text-amber-400 font-bold">Q:</span> <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed pl-5">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}

@@ -10,6 +10,8 @@ Supporting design colours: ink #15162F, warm white #F6F5F2, pure white #FFFFFF, 
 Use violet in small accents. The full logo remains unchanged.
 
 The standalone logo reads "On Time Every Time." Keep that exact public wording and punctuation.
+
+1 November 2026 user-approved exception: render the simple inline Victor wordmark in pure white on dark backgrounds, preserving its transparent gaps (including the V stripes and o cutout). This is a CSS treatment of the supplied wordmark, not a redrawn asset. Keep the original colours on light surfaces; the full horse/tagline logo remains unchanged.
 The final card has an old tagline in its faint watermark; do not use that watermark or extract the logo from the card.
 The PNG has substantial white margins. Present the intact artwork in a white header/brand area; a non-destructive CSS viewport may exclude exterior empty margins but must never clip the horse, stripes, registration mark or tagline. Preserve aspect ratio. Do not apply colour filters.
 

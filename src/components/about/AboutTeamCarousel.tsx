@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
@@ -88,11 +89,11 @@ export default function AboutTeamCarousel({ featured, featuredDescription, profi
 
       <div className="flex min-w-0 flex-col justify-between gap-5 p-5 sm:p-8 lg:col-span-7 lg:p-9">
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">The people behind Victor</p>
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-blue"><BrandText>The people behind Victor</BrandText></p>
           <h3 className="break-words text-2xl font-extrabold leading-tight tracking-tight text-brand-ink sm:text-3xl">{person.name}</h3>
           <p className="mt-2 text-sm font-semibold text-brand-indigo">{person.role}</p>
           {person.division && <p className="mt-1 text-xs font-medium uppercase tracking-wider text-brand-violet">{person.division}</p>}
-          {person.description && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-ink/75">{person.description}</p>}
+          {person.description && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-ink/75"><BrandText>{person.description}</BrandText></p>}
         </div>
 
         <div>

@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useId, useState } from "react";
 import Link from "next/link";
 import { Download, ArrowRight } from "lucide-react";
@@ -34,15 +35,15 @@ export default function CorporatePortalDashboard({ region }: { region: "india" |
           </div>
           <div className="rounded-xl bg-brand-warm-white p-5">
             <h4 className="font-bold text-brand-indigo">{shift.name}</h4>
-            <p className="mt-2 text-brand-slate">{shift.description}</p>
+            <p className="mt-2 text-brand-slate"><BrandText>{shift.description}</BrandText></p>
             <ol className="mt-5 space-y-3">{shift.stops.map((stop, index) => <li key={stop} className="flex gap-3 text-brand-ink"><span className="font-bold text-brand-blue">{index + 1}.</span>{stop}</li>)}</ol>
           </div>
           <p className="text-sm leading-relaxed text-brand-slate">Vehicles, chauffeurs and locations have not been assigned. This example does not track a journey or change a roster.</p>
         </div>}
         {view === "sla" && <div className="space-y-6">
           <h3 className="text-2xl font-bold text-brand-ink">Example reporting fields</h3>
-          <div className="grid gap-4 sm:grid-cols-2">{sample.metrics.map(metric => <div key={metric.label} className="rounded-xl border border-brand-soft-neutral p-5"><h4 className="font-bold text-brand-indigo">{metric.label}</h4><p className="mt-2 text-brand-slate">{metric.description}</p><p className="mt-4 text-sm font-semibold text-brand-blue">No measured data</p></div>)}</div>
-          <p className="text-sm leading-relaxed text-brand-slate">Reporting requirements and service commitments must be agreed with the team. These examples are not Victor performance results or guarantees.</p>
+          <div className="grid gap-4 sm:grid-cols-2">{sample.metrics.map(metric => <div key={metric.label} className="rounded-xl border border-brand-soft-neutral p-5"><h4 className="font-bold text-brand-indigo">{metric.label}</h4><p className="mt-2 text-brand-slate"><BrandText>{metric.description}</BrandText></p><p className="mt-4 text-sm font-semibold text-brand-blue">No measured data</p></div>)}</div>
+          <p className="text-sm leading-relaxed text-brand-slate"><BrandText>Reporting requirements and service commitments must be agreed with the team. These examples are not Victor performance results or guarantees.</BrandText></p>
         </div>}
         {view === "billing" && <div className="space-y-6">
           <h3 className="text-2xl font-bold text-brand-ink">Sample statement layout</h3>

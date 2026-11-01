@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { ArrowUpRight, Bus } from "lucide-react";
 import indiaData from "@/content/india.json";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -51,9 +52,9 @@ export default function PartnerEnquirySection({ contact: propContact, copy: prop
         <div className="flex max-w-2xl items-start gap-4">
           <Bus className="mt-1 h-7 w-7 shrink-0 text-brand-indigo" aria-hidden="true" />
           <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue">{eyebrow}</p>
-            <h2 id="partner-title" className="text-2xl font-extrabold text-brand-ink">{title}</h2>
-            <p className="mt-3 text-base leading-relaxed text-brand-ink/75">{description}</p>
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue"><BrandText>{eyebrow}</BrandText></p>
+            <h2 id="partner-title" className="text-2xl font-extrabold text-brand-ink"><BrandText>{title}</BrandText></h2>
+            <p className="mt-3 text-base leading-relaxed text-brand-ink/75"><BrandText>{description}</BrandText></p>
           </div>
         </div>
         <div className="max-w-sm md:shrink-0">

@@ -1,4 +1,6 @@
 'use client';
+import BrandText from "@/components/brand/BrandText";
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -114,13 +116,13 @@ export default function EmployeeShiftRosterDesk({
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse print:hidden"></span>
-            {eyebrow}
+            <BrandText>{eyebrow}</BrandText>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 print:text-black">
-            {title}
+            <BrandText>{title}</BrandText>
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl leading-relaxed mb-8 print:text-slate-700">
-            {description}
+            <BrandText>{description}</BrandText>
           </p>
 
           {/* Key Operations SLA Bar */}
@@ -341,9 +343,9 @@ export default function EmployeeShiftRosterDesk({
                   Print Selected Manifest Dossier
                 </button>
               </div>
-              <p className="text-[11px] text-slate-500 text-center mt-3 print:hidden">
+              <p className="text-[11px] text-slate-500 text-center mt-3 print:hidden"><BrandText>
                 Prefills WhatsApp corporate inquiry with Victor Mobility route planning team. Standard NDA terms apply.
-              </p>
+              </BrandText></p>
             </div>
           </section>
         )}
@@ -405,8 +407,8 @@ export default function EmployeeShiftRosterDesk({
               {optimizationRules.map((rule, idx) => (
                 <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow space-y-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Rule 0{idx + 1}</span>
-                  <h3 className="text-lg font-bold text-white">{rule.title}</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">{rule.description}</p>
+                  <h3 className="text-lg font-bold text-white"><BrandText>{rule.title}</BrandText></h3>
+                  <p className="text-xs text-slate-300 leading-relaxed"><BrandText>{rule.description}</BrandText></p>
                 </div>
               ))}
             </div>
@@ -475,10 +477,10 @@ export default function EmployeeShiftRosterDesk({
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-2">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
-                    <span className="text-indigo-400 font-bold">Q:</span> {faq.question}
+                    <span className="text-indigo-400 font-bold">Q:</span> <BrandText>{faq.question}</BrandText>
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed pl-5">
-                    {faq.answer}
+                    <BrandText>{faq.answer}</BrandText>
                   </p>
                 </div>
               ))}

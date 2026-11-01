@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -84,9 +85,9 @@ Our corporate security/procurement team is conducting a vendor driver audit. Ple
           <h3 className="text-xl sm:text-2xl font-extrabold text-brand-indigo">
             Audit Chauffeur Background &amp; Protocol Credentials
           </h3>
-          <p className="text-xs sm:text-sm text-brand-slate">
+          <p className="text-xs sm:text-sm text-brand-slate"><BrandText>
             Enter a Victor Chauffeur Badge ID to view authenticated police clearance, medical fitness, sobriety logs, and academy certification level.
-          </p>
+          </BrandText></p>
         </div>
 
         {/* Search Input Form */}
@@ -289,9 +290,9 @@ Our corporate security/procurement team is conducting a vendor driver audit. Ple
 
             {/* Defensive Driving Score Banner */}
             <div className="p-4 rounded-2xl bg-brand-soft-neutral/40 border border-brand-soft-neutral flex items-center justify-between text-xs">
-              <span className="text-brand-slate font-medium">
+              <span className="text-brand-slate font-medium"><BrandText>
                 Victor Academy Defensive Driving &amp; Telematics Rating:
-              </span>
+              </BrandText></span>
               <span className="font-extrabold text-brand-indigo text-base bg-white px-3 py-1 rounded-lg border border-brand-soft-neutral">
                 {currentRecord.defensiveDrivingScore} Compliance Score
               </span>

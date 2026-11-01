@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -224,7 +225,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                     <div className="absolute top-4 left-4">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/80 backdrop-blur-md border border-white/20 text-[11px] font-bold tracking-wide uppercase text-white shadow-sm">
                         <Zap className="w-3.5 h-3.5 text-brand-blue" />
-                        {evTitle}
+                        <BrandText>{evTitle}</BrandText>
                       </span>
                     </div>
 
@@ -238,7 +239,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                     {/* Title overlay */}
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <h3 className="text-2xl font-extrabold tracking-tight">
-                        {evTitle}
+                        <BrandText>{evTitle}</BrandText>
                       </h3>
                       <p className="text-xs text-white/80 line-clamp-1 mt-0.5">
                         {fleetDict?.imageCaption || "Vehicle imagery is illustrative."}
@@ -424,7 +425,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                       {category.safetyTelematics.slice(0, 2).map((item, idx) => (
                         <div key={idx} className="flex items-start gap-1.5">
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                          <span className="line-clamp-1">{item}</span>
+                          <span className="line-clamp-1"><BrandText>{item}</BrandText></span>
                         </div>
                       ))}
                     </div>
@@ -522,7 +523,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                     : `${inspectingCategory.luggageCapacity.largeSuitcases} Large + ${inspectingCategory.luggageCapacity.cabinBags} Cabin Bags`}
                 </p>
                 <p className="text-xs text-brand-slate">
-                  {inspectingCategory.luggageCapacity.description}
+                  <BrandText>{inspectingCategory.luggageCapacity.description}</BrandText>
                 </p>
               </div>
             </div>
@@ -540,7 +541,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                     className="p-3 rounded-xl bg-emerald-50/50 border border-emerald-200/60 text-xs text-emerald-950 flex items-start gap-2"
                   >
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <span><BrandText>{item}</BrandText></span>
                   </div>
                 ))}
               </div>

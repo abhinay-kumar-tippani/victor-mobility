@@ -1,0 +1,236 @@
+[
+  {
+    "route": "/india",
+    "width": 1440,
+    "locale": "en",
+    "before": {
+      "errors": [
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/uae",
+    "width": 1440,
+    "locale": "en",
+    "before": {
+      "errors": [
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #425",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/india/about",
+    "width": 1440,
+    "locale": "en",
+    "before": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/uae/about",
+    "width": 1440,
+    "locale": "en",
+    "before": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/india/privacy",
+    "width": 1440,
+    "locale": "en",
+    "before": {
+      "errors": [],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/india/academy",
+    "width": 1440,
+    "locale": "en",
+    "before": {
+      "errors": [],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/india/about",
+    "width": 1440,
+    "locale": "mr",
+    "before": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/uae/about",
+    "width": 1440,
+    "locale": "ar",
+    "before": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    },
+    "after": {
+      "errors": [
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #418",
+        "error #423"
+      ],
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/india/corridors",
+    "width": 320,
+    "locale": "en",
+    "before": {
+      "errors": [],
+      "overflow": 5
+    },
+    "after": {
+      "errors": [],
+      "overflow": 5
+    }
+  },
+  {
+    "route": "/uae/corridors",
+    "width": 320,
+    "locale": "en",
+    "before": {
+      "errors": [],
+      "overflow": 5
+    },
+    "after": {
+      "errors": [],
+      "overflow": 5
+    }
+  }
+]

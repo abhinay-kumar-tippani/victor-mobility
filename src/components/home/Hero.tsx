@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -262,10 +263,10 @@ export default function Hero({ content }: HeroProps) {
           {/* Service Headline & Subheading: Sculpted Luxury Editorial Hierarchy */}
           <div className="space-y-3 sm:space-y-3.5">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-semibold tracking-[-0.03em] text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)] break-words">
-              {currentSlide.title}
+              <BrandText>{currentSlide.title}</BrandText>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
-              {currentSlide.subtitle}
+              <BrandText>{currentSlide.subtitle}</BrandText>
             </p>
           </div>
 

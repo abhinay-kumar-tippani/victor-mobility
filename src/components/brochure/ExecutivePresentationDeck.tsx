@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
@@ -134,10 +135,10 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                 </div>
                 <div>
                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brand-blue-light block">
-                    {data.companyName}
+                    <BrandText>{data.companyName}</BrandText>
                   </span>
                   <span className="text-xs sm:text-sm text-brand-slate-light font-semibold">
-                    Tagline: &ldquo;{data.tagline}&rdquo;
+                    Tagline: &ldquo;<BrandText>{data.tagline}</BrandText>&rdquo;
                   </span>
                 </div>
               </div>
@@ -154,17 +155,17 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
               <div className="max-w-4xl mx-auto w-full space-y-6">
                 <div>
                   <span className="text-xs font-bold text-brand-blue uppercase tracking-widest block mb-1">
-                    {currentSlide.subtitle}
+                    <BrandText>{currentSlide.subtitle}</BrandText>
                   </span>
                   <h3 className="text-2xl sm:text-4xl font-extrabold text-brand-indigo tracking-tight">
-                    {currentSlide.title}
+                    <BrandText>{currentSlide.title}</BrandText>
                   </h3>
                 </div>
 
                 {/* Narrative Text */}
                 {currentSlide.content && (
                   <p className="text-base sm:text-lg text-brand-slate leading-relaxed">
-                    {currentSlide.content}
+                    <BrandText>{currentSlide.content}</BrandText>
                   </p>
                 )}
 
@@ -234,7 +235,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                           {tier.models}
                         </h5>
                         <p className="text-xs text-brand-slate leading-relaxed">
-                          {tier.spec}
+                          <BrandText>{tier.spec}</BrandText>
                         </p>
                       </div>
                     ))}
@@ -251,7 +252,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                       >
                         <h5 className="font-bold text-sm text-brand-indigo flex items-center gap-1.5">
                           <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <span>{std.title}</span>
+                          <span><BrandText>{std.title}</BrandText></span>
                         </h5>
                         <p className="text-xs text-brand-slate leading-relaxed">
                           {std.desc}
@@ -385,10 +386,10 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-brand-slate block">
-                      {data.companyName}
+                      <BrandText>{data.companyName}</BrandText>
                     </span>
                     <span className="text-xs text-brand-indigo font-bold">
-                      &ldquo;{data.tagline}&rdquo;
+                      &ldquo;<BrandText>{data.tagline}</BrandText>&rdquo;
                     </span>
                   </div>
                 </div>
@@ -399,15 +400,15 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
 
               <div className="space-y-4">
                 <span className="text-xs font-bold text-brand-blue uppercase tracking-wider block">
-                  {slide.subtitle}
+                  <BrandText>{slide.subtitle}</BrandText>
                 </span>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-brand-indigo">
-                  {slide.title}
+                  <BrandText>{slide.title}</BrandText>
                 </h3>
 
                 {slide.content && (
                   <p className="text-sm text-brand-slate leading-relaxed">
-                    {slide.content}
+                    <BrandText>{slide.content}</BrandText>
                   </p>
                 )}
 
@@ -470,7 +471,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                         <h6 className="font-bold text-xs text-brand-indigo">
                           {tier.models}
                         </h6>
-                        <p className="text-xs text-brand-slate mt-0.5">{tier.spec}</p>
+                        <p className="text-xs text-brand-slate mt-0.5"><BrandText>{tier.spec}</BrandText></p>
                       </div>
                     ))}
                   </div>
@@ -485,7 +486,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                       >
                         <h6 className="font-bold text-xs text-brand-indigo flex items-center gap-1.5">
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                          <span>{std.title}</span>
+                          <span><BrandText>{std.title}</BrandText></span>
                         </h6>
                         <p className="text-xs text-brand-slate mt-0.5">{std.desc}</p>
                       </div>

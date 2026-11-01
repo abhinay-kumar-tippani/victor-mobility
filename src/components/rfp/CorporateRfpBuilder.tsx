@@ -1,5 +1,6 @@
 "use client";
 
+import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import {
   Building2,
@@ -325,7 +326,7 @@ export default function CorporateRfpBuilder({
                 {errors.companyName && (
                   <p className="mt-1 text-xs text-red-600 font-semibold flex items-center gap-1">
                     <AlertCircle className="w-3.5 h-3.5" />
-                    <span>{errors.companyName}</span>
+                    <span><BrandText>{errors.companyName}</BrandText></span>
                   </p>
                 )}
               </div>
@@ -622,12 +623,12 @@ export default function CorporateRfpBuilder({
               <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex items-start gap-3">
                 <Zap className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="space-y-1 text-xs">
-                  <span className="font-bold text-emerald-950 block">
+                  <span className="font-bold text-emerald-950 block"><BrandText>
                     Victor Environmental Stewardship Pledge (15%–30% EV Allocation)
-                  </span>
-                  <p className="text-emerald-900/80">
+                  </BrandText></span>
+                  <p className="text-emerald-900/80"><BrandText>
                     Victor supports your enterprise net-zero targets with electric vehicle (EV) deployments across our corporate cab and shuttle routes.
-                  </p>
+                  </BrandText></p>
                 </div>
               </div>
             </div>
@@ -645,9 +646,9 @@ export default function CorporateRfpBuilder({
               <h3 className="text-xl font-bold text-brand-ink">
                 4. Review & Dispatch Enterprise RFP
               </h3>
-              <p className="text-xs sm:text-sm text-brand-ink/75 mt-1">
+              <p className="text-xs sm:text-sm text-brand-ink/75 mt-1"><BrandText>
                 Your formal mobility specification is ready. Choose your preferred dispatch channel to submit to Victor&apos;s corporate desk.
-              </p>
+              </BrandText></p>
             </div>
 
             {/* Generated RFP Document Preview */}
@@ -680,7 +681,7 @@ export default function CorporateRfpBuilder({
                 id="rfp-preview-document"
                 className="text-xs font-mono text-brand-ink/85 whitespace-pre-wrap max-h-64 overflow-y-auto leading-relaxed select-all"
               >
-                {rfpText}
+                <BrandText>{rfpText}</BrandText>
               </pre>
             </div>
 
