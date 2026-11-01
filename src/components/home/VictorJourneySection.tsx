@@ -35,11 +35,11 @@ export default function VictorJourneySection() {
     },
     {
       icon: Globe,
-      years: "2023 – 2025",
-      title: isArabic ? "التوسع الإقليمي والدولي في الإمارات" : "Pan-India & International",
+      years: "2023 – 2027",
+      title: isArabic ? "التوسع الإقليمي والدولي والأسطول المستدام" : "Pan-India, UAE & Fleet Expansion",
       description: isArabic
-        ? "توسع الشبكة، الالتزام بالاستدامة، وإطلاق العمليات الرسمية في دبي وأبوظبي والإمارات."
-        : "Metropolitan pan-India network reach, 15%–30% EV sustainability commitment, and full UAE international operations.",
+        ? "توسع الشبكة، إطلاق العمليات في الإمارات، دمج المركبات الكهربائية، والتوسع بأسطول الشركة حتى 2027."
+        : "Metropolitan pan-India reach, full UAE international launch, EV fleet integration, and 100-car fleet expansions looking into 2027.",
     },
   ];
 

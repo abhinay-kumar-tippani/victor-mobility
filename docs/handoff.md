@@ -1,5 +1,49 @@
 # Handoff
 
+## 1 November 2026 — Replaced Journey of Victor Infographic Image & Updated Milestone Dataset
+
+Owner: Antigravity, at direct user request.
+Scope:
+1. **Replaced Infographic Asset (`public/images/journey/victor-mobility-journey.jpg`)**:
+   - Replaced previous square graphic with user-provided 1024x768 4:3 dark-mode infographic illustrating Victor's growth milestones from 2009 to 2027.
+   - Milestones highlighted:
+     - 2009: The ideation of Victor (incorporates native stylized Victor wordmark)
+     - 2010–2011: Secured leading MNC clients and grew our fleet to 100+ vehicles
+     - 2012–2014: Expanded our fleet to 300+ vehicles
+     - 2015–2017: Added leading MNC clients and expanded our fleet to 500+ vehicles
+     - 2018: Welcomed more leading MNC clients and grew to 700+ vehicles
+     - 2019: Reached a fleet of 1,000+ vehicles
+     - 2020: During COVID-19, re-educated drivers and partners on new WHO guidelines
+     - 2022: Overcame pandemic challenges and resumed operations at full capacity
+     - 2023: Expanded across India, building on Hyderabad operations
+     - 2024: Expanded internationally with our UAE launch
+     - 2025: Introduced electric vehicles into our existing fleet
+     - 2026: Purchased 100 brand-new Hyundai Aura cars in a single order, expanding company-owned ICE fleet
+     - 2027: LOOKING AHEAD — Ready for new clients, with plans to purchase 100 ICE vehicles and 100 EVs
+2. **Component & Layout Adjustments (`src/components/about/JourneyArtwork.tsx` & `src/components/home/VictorJourneySection.tsx`)**:
+   - Reconfigured image display container to native `aspect-[4/3]`, dark slate container background (`bg-slate-950`), and removed obsolete overlay masks.
+   - Updated modal dialog viewer to 4:3 responsive proportions with clean header (`2009 — 2027`).
+   - Synchronized homepage journey phase 3 to `"2023 – 2027"` with updated descriptions.
+   - Synchronized `src/content/journey.json` and `src/content/journey-artwork.json`.
+3. **Footer & Contact Desk Updates (Preserved from Previous Milestone)**:
+   - Footer height reduced to compact 342px on desktop across `/india` and `/uae`.
+   - Mujeeb Ur Rahman removed from footer contact desk; India shows Muhammad Asif and UAE shows UAE Operations Desk.
+4. **Validation**:
+   - `npm run type-check`: 0 errors.
+   - `npm run lint`: 0 warnings, 0 errors.
+   - `npm run build`: 74/74 static routes compiled cleanly.
+   - Playwright automated browser test (`scripts/verify-journey-image.mjs`):
+     - Confirmed complete image load (1024x768) on desktop and mobile.
+     - Confirmed modal full-size dialog viewer open, display, and dismiss.
+     - Confirmed zero horizontal overflow on mobile (`390px`).
+   - Screenshots:
+     - `docs/screenshots/india-journey-section-desktop.png`
+     - `docs/screenshots/india-journey-section-mobile.png`
+     - `docs/screenshots/journey-modal-viewer-desktop.png`
+     - `docs/screenshots/uae-journey-section-desktop.png`
+
+---
+
 ## 1 November 2026 — White wordmark on dark sections
 
 - At the user's request, replaced the coloured wordmark's white backing tiles with a pure-white rendering on dark sections, including the India/UAE journey headings, academy panels and footer copy. Uses CSS `brightness(0) invert(1)` on the existing image; transparency, V stripes and o cutout are preserved exactly.

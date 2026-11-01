@@ -2,116 +2,116 @@
   "eyebrow": "Company Milestone Chronicle",
   "title": "The Journey of Victor",
   "subtitle": "From initial ideation in 2009 to a pan-India corporate fleet and international expansion across the United Arab Emirates.",
-  "imageSrc": "/images/journey/victor-mobility-journey-2025.png",
+  "imageSrc": "/images/journey/victor-mobility-journey.jpg",
   "chapters": [
     { "milestoneId": 1, "years": "2009 – 2018", "title": "Foundation & fleet growth" },
-    { "milestoneId": 6, "years": "2020 – 2022", "title": "Resilience & recovery" },
-    { "milestoneId": 8, "years": "2023 – 2025", "title": "Expanding horizons" }
+    { "milestoneId": 6, "years": "2019 – 2022", "title": "Scale & resilience" },
+    { "milestoneId": 9, "years": "2023 – 2027", "title": "Pan-India, UAE & fleet expansion" }
   ],
   "milestones": [
     {
       "id": 1,
-      "quarter": "Q4. 2009",
-      "date": "Q4 2009",
-      "title": "The Beginning",
+      "quarter": "2009",
+      "date": "2009",
+      "title": "The Ideation of Victor",
       "description": "The ideation of Victor.",
       "icon": "Sparkles"
     },
     {
       "id": 2,
-      "quarter": "Q1. 2010",
-      "date": "Q1 2010",
-      "title": "Official Registration",
-      "description": "Victor was registered as a private limited company under the Indian Companies Act, 1956.",
+      "quarter": "2010 – 2011",
+      "date": "2010–2011",
+      "title": "MNC Partnerships & Fleet Growth",
+      "description": "Secured leading MNC clients and grew our fleet to 100+ vehicles.",
       "icon": "Award"
     },
     {
       "id": 3,
-      "quarter": "Q1. 2012",
-      "date": "Q1 2012",
-      "title": "First Major Client",
-      "description": "Victor secured a major corporate client after two years in the industry.",
+      "quarter": "2012 – 2014",
+      "date": "2012–2014",
+      "title": "Fleet Expansion to 300+",
+      "description": "Expanded our fleet to 300+ vehicles.",
       "icon": "Rocket"
     },
     {
       "id": 4,
-      "quarter": "Q3. 2015",
-      "date": "Q3 2015",
-      "title": "Fleet Expansion",
-      "description": "The fleet grew to more than 800 vehicles.",
+      "quarter": "2015 – 2017",
+      "date": "2015–2017",
+      "title": "MNC Scale to 500+",
+      "description": "Added leading MNC clients and expanded our fleet to 500+ vehicles.",
       "icon": "Car"
     },
     {
       "id": 5,
-      "quarter": "Q4. 2018",
-      "date": "Q4 2018",
-      "title": "Continued Growth",
-      "description": "The fleet expanded to more than 1,500 vehicles.",
+      "quarter": "2018",
+      "date": "2018",
+      "title": "Enterprise Fleet to 700+",
+      "description": "Welcomed more leading MNC clients and grew to 700+ vehicles.",
       "icon": "TrendingUp"
     },
     {
       "id": 6,
-      "quarter": "Q2 to Q4. 2020",
-      "date": "Q2–Q4 2020",
-      "title": "Navigating COVID-19",
-      "description": "Victor focused on educating drivers and partners about WHO-recommended safety norms.",
-      "icon": "GraduationCap"
+      "quarter": "2019",
+      "date": "2019",
+      "title": "1,000+ Vehicle Milestone",
+      "description": "Reached a fleet of 1,000+ vehicles.",
+      "icon": "Car"
     },
     {
       "id": 7,
-      "quarter": "Q1 to Q4 2022",
-      "date": "Q1–Q4 2022",
-      "title": "Business Recovery",
-      "description": "Victor successfully navigated the pandemic and resumed operations at full capacity.",
-      "icon": "ShieldCheck"
+      "quarter": "2020",
+      "date": "2020",
+      "title": "Driver Safety & WHO Norms",
+      "description": "During COVID-19, we re-educated our drivers and partners on new WHO guidelines.",
+      "icon": "GraduationCap"
     },
     {
       "id": 8,
-      "quarter": "Q2. 2023",
-      "date": "Q2 2023",
-      "title": "Pan-India Expansion",
-      "description": "Victor decided to expand operations into metropolitan cities across India.",
-      "icon": "MapPin"
+      "quarter": "2022",
+      "date": "2022",
+      "title": "Full Operational Recovery",
+      "description": "Overcame pandemic challenges and resumed operations at full capacity.",
+      "icon": "ShieldCheck"
     },
     {
       "id": 9,
-      "quarter": "Q4. 2023",
-      "date": "Q4 2023",
-      "title": "International Expansion",
-      "description": "Victor expanded into international markets, beginning with the United Arab Emirates.",
-      "icon": "Globe"
+      "quarter": "2023",
+      "date": "2023",
+      "title": "Pan-India Expansion",
+      "description": "Expanded across India, building on our Hyderabad operations.",
+      "icon": "MapPin"
     },
     {
       "id": 10,
-      "quarter": "Q1. 2024",
-      "date": "Q1 2024",
-      "title": "Sustainability Commitment",
-      "description": "Victor committed to working toward a fleet comprising 15–30% electric vehicles.",
-      "icon": "Leaf"
+      "quarter": "2024",
+      "date": "2024",
+      "title": "International UAE Launch",
+      "description": "Expanded internationally with our UAE launch.",
+      "icon": "Globe"
     },
     {
       "id": 11,
-      "quarter": "Q1. 2024",
-      "date": "Q1 2024",
-      "title": "Pan-India Operations",
-      "description": "Victor commenced full-fledged operations across India.",
-      "icon": "CheckCircle2"
+      "quarter": "2025",
+      "date": "2025",
+      "title": "Electric Vehicle Integration",
+      "description": "Introduced electric vehicles into our existing fleet.",
+      "icon": "Leaf"
     },
     {
       "id": 12,
-      "quarter": "Q2. 2024",
-      "date": "Q2 2024",
-      "title": "UAE Operations",
-      "description": "Victor commenced full-fledged operations in the United Arab Emirates.",
-      "icon": "Building2"
+      "quarter": "2026",
+      "date": "2026",
+      "title": "100 New Hyundai Aura Cars",
+      "description": "Purchased 100 brand-new Hyundai Aura cars in a single order, expanding our company-owned ICE fleet.",
+      "icon": "Car"
     },
     {
       "id": 13,
-      "quarter": "2025",
-      "date": "2025",
-      "title": "Advancing Sustainable Mobility",
-      "description": "Strengthened market presence, expanded fleet, enhanced digital solutions and accelerated EV adoption for a cleaner tomorrow.",
-      "icon": "Leaf"
+      "quarter": "2027",
+      "date": "2027",
+      "title": "Looking Ahead",
+      "description": "Ready for new clients, with plans to purchase 100 ICE vehicles and 100 EVs.",
+      "icon": "CheckCircle2"
     }
   ]
 }

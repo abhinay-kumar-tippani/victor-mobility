@@ -1,17 +1,17 @@
 {
   "milestones": [
-    { "date": "Q4 2009", "title": "The Idea of Victor", "description": "Victor was conceived." },
-    { "date": "Q1 2010", "title": "Company Registration", "description": "Registered as a private limited company under the Indian Companies Act, 1956." },
-    { "date": "Q1 2012", "title": "First Major Client", "description": "Secured a key client after two years in the industry." },
-    { "date": "Q3 2015", "title": "Fleet Expansion", "description": "Fleet expanded to 800+ vehicles." },
-    { "date": "Q4 2018", "title": "Fleet Expansion", "description": "Fleet expanded to 1,500+ vehicles." },
-    { "date": "Q2–Q4 2020", "title": "Safety & Training", "description": "Trained drivers and partners in WHO-recommended COVID-19 safety practices." },
-    { "date": "Q1–Q4 2022", "title": "Resumed Operations", "description": "Resumed full-capacity operations after pandemic challenges." },
-    { "date": "Q2 2023", "title": "Pan-India Expansion", "description": "Expanded across metropolitan cities in India." },
-    { "date": "Q4 2023", "title": "International Expansion", "description": "Began international expansion in the UAE." },
-    { "date": "Q1 2024", "title": "Sustainability Transition", "description": "Targeting 15–30% electric vehicles in the fleet." },
-    { "date": "Q1 2024", "title": "Digital Expansion", "description": "Launched full-scale operations across India." },
-    { "date": "Q2 2024", "title": "UAE Operations", "description": "Launched full-scale operations in the UAE." },
-    { "date": "2025", "title": "Advancing Sustainable Mobility", "description": "Strengthened market presence, expanded the fleet, enhanced digital solutions and accelerated EV adoption." }
+    { "date": "2009", "title": "The Ideation of Victor", "description": "The ideation of Victor." },
+    { "date": "2010–2011", "title": "MNC Partnerships & Fleet Growth", "description": "Secured leading MNC clients and grew our fleet to 100+ vehicles." },
+    { "date": "2012–2014", "title": "Fleet Expansion to 300+", "description": "Expanded our fleet to 300+ vehicles." },
+    { "date": "2015–2017", "title": "MNC Scale to 500+", "description": "Added leading MNC clients and expanded our fleet to 500+ vehicles." },
+    { "date": "2018", "title": "Enterprise Fleet to 700+", "description": "Welcomed more leading MNC clients and grew to 700+ vehicles." },
+    { "date": "2019", "title": "1,000+ Vehicle Milestone", "description": "Reached a fleet of 1,000+ vehicles." },
+    { "date": "2020", "title": "Driver Safety & WHO Norms", "description": "During COVID-19, we re-educated our drivers and partners on new WHO guidelines." },
+    { "date": "2022", "title": "Full Operational Recovery", "description": "Overcame pandemic challenges and resumed operations at full capacity." },
+    { "date": "2023", "title": "Pan-India Expansion", "description": "Expanded across India, building on our Hyderabad operations." },
+    { "date": "2024", "title": "International UAE Launch", "description": "Expanded internationally with our UAE launch." },
+    { "date": "2025", "title": "Electric Vehicle Integration", "description": "Introduced electric vehicles into our existing fleet." },
+    { "date": "2026", "title": "100 New Hyundai Aura Cars", "description": "Purchased 100 brand-new Hyundai Aura cars in a single order, expanding our company-owned ICE fleet." },
+    { "date": "2027", "title": "Looking Ahead", "description": "Ready for new clients, with plans to purchase 100 ICE vehicles and 100 EVs." }
   ]
 }

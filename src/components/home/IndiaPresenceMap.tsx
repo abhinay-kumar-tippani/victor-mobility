@@ -3,7 +3,7 @@
 import BrandText from "@/components/brand/BrandText";
 import { useId, useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Building2, CheckCircle2, Compass } from "lucide-react";
+import { ArrowRight, MapPin, Phone, Building2, Compass } from "lucide-react";
 import geography from "@/content/india-map.json";
 import type { OfficeItem, ContactData, CityItem } from "@/types/content";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
@@ -491,16 +491,7 @@ export default function IndiaPresenceMap({
               )}
             </div>
 
-            {/* Map Footnote & Attribution */}
-            <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-brand-ink/70 gap-2">
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                Hover state to view operational cities · Click to inspect hub
-              </span>
-              <span className="text-xs text-brand-ink/50">
-                Boundaries: DataMeet (CC BY 4.0) · Simplified graphic
-              </span>
-            </div>
+
           </div>
 
           {/* Right Column: Active Hub Dossier */}
