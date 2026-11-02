@@ -85,7 +85,7 @@ export default function UaeServicesPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <Briefcase className="w-3.5 h-3.5 text-brand-violet" />
                 UAE Mobility Services
               </span>
@@ -213,7 +213,7 @@ export default function UaeServicesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-2">
+                  <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
                     Pricing Transparency
                   </span>
                   <h3 className="text-xl font-bold text-brand-indigo mb-2">
@@ -234,7 +234,7 @@ export default function UaeServicesPage() {
 
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-2">
+                  <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
                     Operational Standards
                   </span>
                   <h3 className="text-xl font-bold text-brand-indigo mb-2">
@@ -261,7 +261,7 @@ export default function UaeServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="space-y-2 max-w-xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-violet block">
+                <span className="uppercase text-brand-violet block section-eyebrow section-eyebrow--compact">
                   UAE Reservation Desk
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold">

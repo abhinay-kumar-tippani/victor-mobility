@@ -59,7 +59,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <Building2 className="w-3.5 h-3.5 text-brand-violet" />
                 Company Story & Philosophy
               </span>
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <section className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
               <div className="max-w-5xl">
-                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+                <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
                   Leadership & Governance
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3 lg:whitespace-nowrap">
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent lg:hidden" />
                   <div className="absolute bottom-4 left-4 right-4 text-white lg:hidden">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1">
+                    <span className="uppercase text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1 section-eyebrow section-eyebrow--compact">
                       {founder.role}
                     </span>
                     <h3 className="text-xl font-bold">{founder.name}</h3>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 {/* Founder Narrative Column */}
                 <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 space-y-6">
                   <div>
-                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+                    <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
                       Meet our Founder & Visionary
                     </span>
                     <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
@@ -169,7 +169,7 @@ export default function AboutPage() {
           <section className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
               <div className="max-w-3xl">
-                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+                <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
                   Company Evolution (2010 – 2024)
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
@@ -216,7 +216,7 @@ export default function AboutPage() {
           <section className="py-16 bg-white border-b border-brand-soft-neutral">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
+                <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
                   Enterprise Client Relationships
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">
@@ -251,7 +251,7 @@ export default function AboutPage() {
         <section id="network" className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-2xl space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo block">
+              <span className="uppercase text-brand-indigo block section-eyebrow">
                 Office Locations
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink">
@@ -274,7 +274,7 @@ export default function AboutPage() {
                       <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                         <MapPin className="w-5 h-5" />
                       </div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-warm-white px-3 py-1 rounded-full border border-brand-soft-neutral">
+                      <span className="uppercase text-brand-blue bg-brand-warm-white px-3 py-1 rounded-full border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
                         {office.label}
                       </span>
                     </div>
@@ -310,7 +310,7 @@ export default function AboutPage() {
           <section className="py-16 sm:py-20 bg-white border-b border-brand-soft-neutral">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
               <div className="text-center space-y-3">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
+                <div className="inline-flex items-center gap-2 uppercase text-brand-indigo section-eyebrow section-eyebrow--compact">
                   <HelpCircle className="w-4 h-4" />
                   <span>Clarifications & Guidance</span>
                 </div>
@@ -346,7 +346,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-6 space-y-5">
-                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
+                <span className="uppercase text-brand-blue block section-eyebrow">
                   Direct Requirement Desk
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight leading-tight">

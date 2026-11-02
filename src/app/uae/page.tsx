@@ -113,13 +113,14 @@ export default function UaePage() {
         {/* 1c. Enterprise Clientele: Companies We Work With (3 Continuous Directional Sliders) */}
         <TrustedCompaniesSection />
 
-        {/* 2. Fleet: Real Brochure Models (S-Class, BMW 7, Maybach, Escalade, Coaches) & Capacities */}
+        {/* 2. Fleet: Homepage Preview of 4 Featured Models & View Full Fleet CTA */}
         <IndiaFleetSection
           categories={content.fleetCategories}
           copy={uaeData.fleetPresentation}
           vehicles={uaeData.fleetVehicles as FleetVehicle[]}
           basePath="/uae"
           currencySymbol="AED "
+          preview={true}
         />
 
         {/* 2b. Core Services Portfolio: What do you need to arrange? */}
@@ -134,13 +135,12 @@ export default function UaePage() {
         {/* 5. The Journey of Victor: 2009 Founding to International Expansion */}
         <VictorJourneySection />
 
-        {/* 6. Leadership & Operations Accountability: Founder Jahangir & UAE Operations Desk */}
+        {/* 6. Leadership & Operations Accountability: Core Team & Regional Leadership */}
         <PeopleSection
           contact={content.contact}
           teamContact={indiaData.contact}
           teamProfiles={content.teamProfiles || indiaData.teamProfiles}
           teamFeaturedEmail={content.teamFeaturedEmail || indiaData.teamFeaturedEmail}
-          founder={content.founder}
           basePath="/uae"
         />
 

@@ -48,7 +48,7 @@
         "tolls": "₹160 (ORR Fastag Electronic Toll Pass)",
         "parking": "₹150 (RGIA Aeromall Multi-Level Parking)",
         "gpsVerified": "Yes (AIS-140 Automated Telematics Log)",
-        "signatureStatus": "Digitally Authenticated by Passenger via Corporate OTP"
+        "signatureStatus": "Digitally Authenticated by Employee via Corporate OTP"
       },
       {
         "slipId": "VIC-DS-9102",

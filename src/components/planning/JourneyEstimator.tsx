@@ -47,7 +47,7 @@ export default function JourneyEstimator({ copy, actions, cities, whatsappBaseUr
     "",
     `City: ${values.city === "Other" ? (effectiveCopy.otherCity || "Inter-city / other") : values.city}`,
     `Route: ${values.pickup.trim()} → ${values.dropoff.trim()}`,
-    `Passengers travelling together: ${values.passengers}`,
+    `Employees travelling together: ${values.passengers}`,
     `Passenger seats per vehicle: ${values.seats}`,
     `Vehicles per journey: ${result.vehicles}`,
     `One-way distance per vehicle: ${values.distance} km`,

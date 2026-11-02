@@ -31,18 +31,6 @@ export default function ImmediateAssistanceCard({
 
   const people: AssistanceContact[] = [
     {
-      id: "mujeeb",
-      name: "Mujeeb Ur Rahman Mohammed",
-      role: "Business Development Partner",
-      imageSrc: "/images/india/leadership-mujeeb.jpg",
-      phoneDisplay: isUae ? "+971 52 455 2441" : "+91 95158 50808",
-      phoneHref: isUae ? "tel:+971524552441" : "tel:+919515850808",
-      whatsappDisplay: isUae ? "+971 52 455 2441" : "+91 95158 50808",
-      whatsappDigits: isUae ? "971524552441" : "919515850808",
-      email: "mujeeburrahman@victorluxurylimousine.com",
-      emailDisplay: "mujeeburrahman@victorluxurylimousine.com",
-    },
-    {
       id: "asif",
       name: "Muhammad Asif",
       role: "Manager - Admin & Finance",
@@ -53,18 +41,6 @@ export default function ImmediateAssistanceCard({
       whatsappDigits: "919100777768",
       email: "asif@victorluxurylimousine.com",
       emailDisplay: "asif@victorluxurylimousine.com",
-    },
-    {
-      id: "thameem",
-      name: "Mohammed Thameem Ahmed",
-      role: "Head of Operations",
-      imageSrc: "/images/team/thameem-ahmed.png",
-      phoneDisplay: "+91 95159 50808",
-      phoneHref: "tel:+919515950808",
-      whatsappDisplay: "+91 95159 50808",
-      whatsappDigits: "9515950808",
-      email: "thameem@victorluxurylimousine.com",
-      emailDisplay: "thameem@victorluxurylimousine.com",
     },
   ];
 
@@ -212,7 +188,7 @@ export default function ImmediateAssistanceCard({
       onBlurCapture={() => setIsPaused(false)}
       className={`bg-brand-ink text-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-lg border border-white/10 ${className}`}
     >
-      <span className="text-xs font-bold uppercase tracking-widest text-brand-soft-neutral/70 block mb-2">
+      <span className="uppercase text-brand-soft-neutral/70 block mb-2 section-eyebrow section-eyebrow--compact">
         {cardEyebrow}
       </span>
       <h3 className="text-2xl font-bold mb-3">{cardHeading}</h3>
@@ -324,27 +300,29 @@ export default function ImmediateAssistanceCard({
         </div>
 
         {/* Slide indicator dots */}
-        <div
-          className="flex items-center gap-1.5 shrink-0"
-          role="tablist"
-          aria-label="Leadership slide indicators"
-        >
-          {people.map((p, idx) => (
-            <button
-              key={p.id}
-              type="button"
-              role="tab"
-              aria-selected={idx === currentIndex}
-              aria-label={`Show ${p.name}`}
-              onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all cursor-pointer ${
-                idx === currentIndex
-                  ? "w-6 bg-white"
-                  : "w-2 bg-white/30 hover:bg-white/60"
-              }`}
-            />
-          ))}
-        </div>
+        {people.length > 1 && (
+          <div
+            className="flex items-center gap-1.5 shrink-0"
+            role="tablist"
+            aria-label="Leadership slide indicators"
+          >
+            {people.map((p, idx) => (
+              <button
+                key={p.id}
+                type="button"
+                role="tab"
+                aria-selected={idx === currentIndex}
+                aria-label={`Show ${p.name}`}
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-2 rounded-full transition-all cursor-pointer ${
+                  idx === currentIndex
+                    ? "w-6 bg-white"
+                    : "w-2 bg-white/30 hover:bg-white/60"
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Same-page Image Modal Lightbox */}

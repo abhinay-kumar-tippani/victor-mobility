@@ -70,7 +70,7 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
     <section id="network" tabIndex={-1} className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral focus:outline-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+          <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
             {dict.presence?.uaeEyebrow || "Emirates Network"}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
@@ -146,7 +146,7 @@ export default function UaePresenceSection({ contact }: UaePresenceSectionProps)
           <div id={panelId} aria-live="polite" aria-atomic="true" className="min-w-0 lg:col-span-5 bg-brand-warm-white rounded-3xl p-5 sm:p-7 border border-brand-soft-neutral shadow-xs space-y-6">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-blue block mb-1">
+                <span className="uppercase text-brand-blue block mb-1 section-eyebrow section-eyebrow--compact">
                   {locale === "ar" ? "الإمارات العربية المتحدة" : "United Arab Emirates"}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">

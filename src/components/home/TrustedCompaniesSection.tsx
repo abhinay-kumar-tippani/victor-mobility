@@ -99,7 +99,7 @@ export default function TrustedCompaniesSection() {
 
       {/* Header Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
-        <span className="text-xs uppercase tracking-widest font-bold text-indigo-400 block mb-2">
+        <span className="uppercase text-indigo-400 block mb-2 section-eyebrow">
           <BrandText>{dict.companies.eyebrow}</BrandText>
         </span>
         <h2

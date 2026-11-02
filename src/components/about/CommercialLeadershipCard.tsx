@@ -28,7 +28,7 @@ export default function CommercialLeadershipCard({ contact, copy }: CommercialLe
       </div>
       <div className="space-y-6 p-8 sm:p-12 lg:col-span-7 lg:p-14">
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue">{copy.commercialEyebrow}</p>
+          <p className="mb-2 uppercase text-brand-blue section-eyebrow">{copy.commercialEyebrow}</p>
           <h2 id="commercial-leadership-name" className="text-2xl font-extrabold tracking-tight text-brand-ink sm:text-4xl">{contact.name}</h2>
           <p className="mt-1 text-xs font-semibold text-brand-indigo sm:text-sm">{contact.role} · {copy.commercialScope}</p>
         </div>

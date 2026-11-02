@@ -83,7 +83,7 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
       {/* Curriculum Module Tabs */}
       <div>
         <div className="max-w-2xl mb-8">
-          <span className="text-xs uppercase font-bold tracking-widest text-brand-blue block mb-2">
+          <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
             Professional Standards
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo">
@@ -191,7 +191,7 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
       <div className="bg-brand-soft-neutral/40 rounded-3xl p-6 sm:p-10 border border-brand-soft-neutral">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs uppercase font-bold tracking-widest text-brand-blue block mb-2">
+            <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
               Vehicle Quality Assurance
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo">
@@ -242,7 +242,7 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
       {/* Chauffeur Verification Badge Interactive Preview */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl border border-brand-soft-neutral p-6 sm:p-10 shadow-sm">
         <div className="lg:col-span-7 space-y-4">
-          <span className="text-xs uppercase font-bold tracking-widest text-brand-blue block">
+          <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
             Digital Credential Verification
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo">
@@ -315,7 +315,7 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
               <span className="font-bold text-white">99.4% On-Time Index</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-brand-slate-light">Passenger Discretion NDA:</span>
+              <span className="text-brand-slate-light">Employee Discretion NDA:</span>
               <span className="font-bold text-emerald-400">Signed &amp; Active</span>
             </div>
           </div>

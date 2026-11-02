@@ -535,7 +535,7 @@ export default function IndiaPresenceMap({
                             : "bg-white text-brand-ink/80 hover:bg-brand-indigo/10 hover:text-brand-ink border border-brand-soft-neutral"
                         }`}
                       >
-                        {city.name}
+                        {city.name}({city.state})
                       </button>
                     );
                   })}
@@ -544,7 +544,7 @@ export default function IndiaPresenceMap({
 
               {/* Header with Classification Badge */}
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-soft-neutral text-[11px] font-bold uppercase tracking-wider text-brand-indigo">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-soft-neutral uppercase text-brand-indigo section-eyebrow section-eyebrow--compact">
                   <Building2 className="w-3.5 h-3.5 text-brand-blue" />
                   <span>{selectedCity.label}</span>
                 </span>
@@ -556,10 +556,12 @@ export default function IndiaPresenceMap({
               {/* City & State Title */}
               <div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">
-                  {selectedCity.name}
+                  {selectedCity.name}({selectedCity.state})
                 </h3>
                 <p className="text-xs font-bold uppercase tracking-wider text-brand-blue mt-0.5">
-                  {selectedCity.state} Region
+                  {selectedCity.state.toLowerCase() === "telangana" || canonicalCityName(selectedCity.name) === "hyderabad"
+                    ? "Regional Office"
+                    : "Pan-India office"}
                 </p>
                 <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed mt-2">
                   <BrandText>{selectedCity.description}</BrandText>

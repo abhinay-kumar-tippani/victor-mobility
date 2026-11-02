@@ -27,7 +27,7 @@ async function run() {
 
   const pillars = [
     "Verified drivers (BGV & PCC)",
-    "Safety for women passengers",
+    "Safety for female employees",
     "Defensive driving",
     "Pre-trip vehicle checks"
   ];

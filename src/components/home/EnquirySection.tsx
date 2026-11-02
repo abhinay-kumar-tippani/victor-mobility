@@ -9,14 +9,11 @@ import {
   Phone,
   Mail,
   Send,
-  Info,
   User,
   Building2,
   Briefcase,
   MapPin,
   FileText,
-  Copy,
-  Check,
   AlertCircle,
   CheckCircle2,
   Clock,
@@ -94,8 +91,6 @@ function EnquiryForm({
     requirement: false,
   });
   const [submissionAttempted, setSubmissionAttempted] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [copyFailed, setCopyFailed] = useState(false);
 
   // Email specific states
   const [isEmailSubmitting, setIsEmailSubmitting] = useState(false);
@@ -255,18 +250,6 @@ function EnquiryForm({
     locale,
   });
 
-  const handleCopyDraft = async () => {
-    setCopyFailed(false);
-    try {
-      await navigator.clipboard.writeText(draftMessage);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    } catch {
-      setCopied(false);
-      setCopyFailed(true);
-    }
-  };
-
   const handleContinueWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmissionAttempted(true);
@@ -295,6 +278,37 @@ function EnquiryForm({
     const encodedMessage = encodeURIComponent(draftMessage);
     const url = `${contact.whatsappBaseUrl}?text=${encodedMessage}`;
     window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleContinueEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmissionAttempted(true);
+
+    if (!fullName.trim()) {
+      document.getElementById("enquiry-name-input")?.focus();
+      return;
+    }
+    if (selectedCity === "Other" && !customCity.trim()) {
+      document.getElementById(customCityId)?.focus();
+      return;
+    }
+    if (enquiry.planningFields && !isValidPassengerCount(passengerCount)) {
+      (document.querySelector('[name="passengerCount"]') as HTMLElement)?.focus();
+      return;
+    }
+    if (enquiry.planningFields && !isValidTravelDate(travelDate)) {
+      (document.querySelector('[name="travelDate"]') as HTMLElement)?.focus();
+      return;
+    }
+    if (!requirementText.trim()) {
+      document.getElementById("enquiry-requirement-input")?.focus();
+      return;
+    }
+
+    const recipientEmail = isUae ? "info@victorluxurylimousine.com" : "asif@victorluxurylimousine.com";
+    const subject = encodeURIComponent(`Transport Requirement Enquiry - ${fullName.trim()} (Victor Mobility)`);
+    const body = encodeURIComponent(draftMessage);
+    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
   };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -342,7 +356,7 @@ function EnquiryForm({
       company.trim() ? `Company: ${company.trim()}` : null,
       selectedVehicle ? `Selected Vehicle: ${selectedVehicle}` : null,
       selectedCategory ? `Preferred Category: ${selectedCategory}` : null,
-      enquiry.planningFields && passengerCount ? `Passengers: ${passengerCount}` : null,
+      enquiry.planningFields && passengerCount ? `Employees: ${passengerCount}` : null,
       enquiry.planningFields && travelDate ? `Travel Date: ${travelDate}` : null,
       `Region: ${isUae ? "UAE (Dubai Desk)" : "India"}`,
     ].filter(Boolean).join("\n");
@@ -521,22 +535,6 @@ function EnquiryForm({
       ? "सामान्य वाहन चौकशी"
       : "General Vehicle Enquiry";
 
-  const summaryTitle =
-    locale === "ar"
-      ? "ملخص مواصفات الاستفسار:"
-      : locale === "hi"
-      ? "पूछताछ विवरण सारांश:"
-      : locale === "te"
-      ? "విచారణ స్పెసిఫికేషన్ సారాంశం:"
-      : locale === "kn"
-      ? "ವಿಚಾರಣಾ ವಿವರಣೆ ಸಾರಾಂಶ:"
-      : locale === "ta"
-      ? "விசாரணை விவரக் குறிப்பு சுருக்கம்:"
-      : locale === "ma"
-      ? "അന്വേഷണ വിവരങ്ങളുടെ സംഗ്രഹം:"
-      : locale === "mr"
-      ? "चौकशी तपशील सारांश:"
-      : "Enquiry Specification Summary:";
 
   const speakDirectlyTitle =
     locale === "ar"
@@ -685,7 +683,7 @@ function EnquiryForm({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className={`max-w-3xl ${isStandalonePage ? "mb-6 sm:mb-8" : "mb-8 sm:mb-12"}`}>
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+          <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--hero">
             {deskBadge}
           </span>
           {isStandalonePage ? (
@@ -881,10 +879,10 @@ function EnquiryForm({
                         onChange={(e) => setFullName(e.target.value)}
                         onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
                         placeholder={dict.enquiryForm.namePlaceholder}
-                        className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                        className={`w-full px-4 py-3 rounded-xl border-[1.5px] bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                           nameError
                             ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                            : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                            : "border-slate-300 hover:border-slate-400 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
                         }`}
                       />
                       {nameError && (
@@ -910,7 +908,7 @@ function EnquiryForm({
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
                         placeholder={dict.enquiryForm.companyPlaceholder}
-                        className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border-[1.5px] border-slate-300 hover:border-slate-400 bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -939,10 +937,10 @@ function EnquiryForm({
                         onChange={(e) => setFullName(e.target.value)}
                         onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
                         placeholder={dict.enquiryForm.namePlaceholder}
-                        className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                        className={`w-full px-4 py-3 rounded-xl border-[1.5px] bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                           nameError
                             ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                            : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                            : "border-slate-300 hover:border-slate-400 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
                         }`}
                       />
                       {nameError && (
@@ -973,10 +971,10 @@ function EnquiryForm({
                         onChange={(e) => setPhone(e.target.value)}
                         onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
                         placeholder={isUae ? "e.g. +971 52 455 2441" : "e.g. +91 91007 77768"}
-                        className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                        className={`w-full px-4 py-3 rounded-xl border-[1.5px] bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                           phoneError
                             ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                            : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                            : "border-slate-300 hover:border-slate-400 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
                         }`}
                       />
                       {phoneError && (
@@ -1012,10 +1010,10 @@ function EnquiryForm({
                         onChange={(e) => setEmail(e.target.value)}
                         onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
                         placeholder="e.g. yourname@company.com"
-                        className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                        className={`w-full px-4 py-3 rounded-xl border-[1.5px] bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                           emailInputError
                             ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                            : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                            : "border-slate-300 hover:border-slate-400 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
                         }`}
                       />
                       {emailInputError && (
@@ -1041,7 +1039,7 @@ function EnquiryForm({
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
                         placeholder={dict.enquiryForm.companyPlaceholder}
-                        className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border-[1.5px] border-slate-300 hover:border-slate-400 bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -1061,7 +1059,7 @@ function EnquiryForm({
                       id={serviceId}
                       value={selectedService}
                       onChange={(e) => setSelectedService(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
+                      className="w-full px-4 py-3 rounded-xl border-[1.5px] border-slate-300 hover:border-slate-400 bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
                     >
                       <option value="General Vehicle Enquiry">{generalVehicleEnquiryLabel}</option>
                       {publishedServices.map((s) => (
@@ -1084,7 +1082,7 @@ function EnquiryForm({
                       id={cityId}
                       value={selectedCity}
                       onChange={(e) => setSelectedCity(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-brand-soft-neutral bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none"
+                      className="w-full px-4 py-3 rounded-xl border-[1.5px] border-slate-300 hover:border-slate-400 bg-white text-sm text-brand-ink focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo outline-none transition-all"
                     >
                       {publishedCities.map((c: any) => (
                         <option key={c.name} value={c.name}>
@@ -1116,10 +1114,10 @@ function EnquiryForm({
                       onChange={(e) => setCustomCity(e.target.value)}
                       onBlur={() => setTouched((prev) => ({ ...prev, customCity: true }))}
                       placeholder={dict.enquiryForm.customCityPlaceholder}
-                      className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
+                      className={`w-full px-4 py-3 rounded-xl border-[1.5px] bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none transition-all ${
                         customCityError
                           ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                          : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo"
+                          : "border-slate-300 hover:border-slate-400 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
                       }`}
                     />
                     {customCityError && (
@@ -1171,10 +1169,10 @@ function EnquiryForm({
                     onChange={(e) => setRequirementText(e.target.value)}
                     onBlur={() => setTouched((prev) => ({ ...prev, requirement: true }))}
                     placeholder={getRequirementPlaceholder()}
-                    className={`w-full px-4 py-3 rounded-xl border bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none resize-none transition-all ${
+                    className={`w-full px-4 py-3 rounded-xl border-[1.5px] bg-white text-sm text-brand-ink placeholder:text-brand-ink/40 outline-none resize-none transition-all ${
                       requirementError
                         ? "border-red-500 focus:ring-2 focus:ring-red-400"
-                        : "border-brand-soft-neutral focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
+                        : "border-slate-300 hover:border-slate-400 focus:ring-2 focus:ring-brand-indigo focus:border-brand-indigo"
                     }`}
                   />
                   {requirementError && (
@@ -1185,53 +1183,28 @@ function EnquiryForm({
                   )}
                 </div>
 
-                {/* WhatsApp Mode: Summary Box & Notice */}
+                {/* WhatsApp Mode: Submit Actions */}
                 {enquiryMode === "whatsapp" && (
-                  <>
-                    <div className="bg-white rounded-xl p-4 border border-brand-soft-neutral space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/70">
-                          <BrandText>{summaryTitle}</BrandText>
-                        </span>
-                        <button
-                          type="button"
-                          onClick={handleCopyDraft}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded bg-brand-warm-white hover:bg-brand-soft-neutral text-brand-ink/80 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo cursor-pointer"
-                          aria-label="Copy draft enquiry specification to clipboard"
-                        >
-                          {copied ? (
-                            <>
-                              <Check className="w-3.5 h-3.5 text-emerald-600" />
-                              <span className="text-emerald-700 font-bold">{dict.enquiryForm.copied}</span>
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="w-3.5 h-3.5 text-brand-indigo" />
-                              <span>{dict.enquiryForm.copyDraft}</span>
-                            </>
-                          )}
-                        </button>
-                      </div>
-
-                      <pre aria-label="WhatsApp message preview" className="whitespace-pre-wrap break-words rounded-lg border border-brand-soft-neutral/70 bg-brand-warm-white p-3.5 font-sans text-sm leading-relaxed text-brand-ink/85"><BrandText>{draftMessage}</BrandText></pre>
-                      {copyFailed && <p role="status" className="text-sm text-brand-ink/75">Copy is unavailable here. Select and copy the message above, or continue on WhatsApp.</p>}
-                    </div>
-
-                    <div className="flex items-start gap-2.5 p-3 rounded-xl bg-brand-soft-neutral/40 border border-brand-soft-neutral text-xs text-brand-ink/80 leading-relaxed">
-                      <Info className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
-                      <div>
-                        {dict.enquiryForm.whatsappExplainer}
-                      </div>
-                    </div>
-
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1">
                     <button
-                      type="submit"
-                      className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer"
+                      type="button"
+                      onClick={handleContinueWhatsApp}
+                      className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 py-3.5 px-2.5 sm:px-5 rounded-xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-xs hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>{dict.enquiryForm.submit}</span>
+                      <MessageSquare className="w-4 h-4 shrink-0" />
+                      <span className="hidden sm:inline">Continue on WhatsApp</span>
+                      <span className="sm:hidden">WhatsApp</span>
                     </button>
-                  </>
+                    <button
+                      type="button"
+                      onClick={handleContinueEmail}
+                      className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 py-3.5 px-2.5 sm:px-5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-indigo hover:bg-brand-blue shadow-xs hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:ring-offset-2 cursor-pointer"
+                    >
+                      <Mail className="w-4 h-4 shrink-0" />
+                      <span className="hidden sm:inline">Send via Email</span>
+                      <span className="sm:hidden">Email</span>
+                    </button>
+                  </div>
                 )}
 
                 {/* Email Mode: Response Pledge & Submit Button */}
@@ -1242,23 +1215,36 @@ function EnquiryForm({
                       <span>We usually respond within 24 hours</span>
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isEmailSubmitting}
-                      className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm text-white bg-brand-indigo hover:bg-brand-blue shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
-                    >
-                      {isEmailSubmitting ? (
-                        <>
-                          <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>Sending your enquiry...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Send Email Enquiry</span>
-                        </>
-                      )}
-                    </button>
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1">
+                      <button
+                        type="button"
+                        onClick={handleContinueWhatsApp}
+                        className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 py-3.5 px-2.5 sm:px-5 rounded-xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-xs hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer"
+                      >
+                        <MessageSquare className="w-4 h-4 shrink-0" />
+                        <span className="hidden sm:inline">Continue on WhatsApp</span>
+                        <span className="sm:hidden">WhatsApp</span>
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={isEmailSubmitting}
+                        className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 py-3.5 px-2.5 sm:px-5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-indigo hover:bg-brand-blue shadow-xs hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                      >
+                        {isEmailSubmitting ? (
+                          <>
+                            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin shrink-0" />
+                            <span className="hidden sm:inline">Sending...</span>
+                            <span className="sm:hidden">Sending</span>
+                          </>
+                        ) : (
+                          <>
+                            <Mail className="w-4 h-4 shrink-0" />
+                            <span className="hidden sm:inline">Send via Email</span>
+                            <span className="sm:hidden">Email</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </>
                 )}
               </form>

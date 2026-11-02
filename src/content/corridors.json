@@ -161,7 +161,7 @@
         "highlights": [
           "Hinjawadi campus gate-level drop-offs",
           "Pre-assigned vetted chauffeurs with company ID",
-          "Real-time GPS tracking link shared with passenger"
+          "Real-time GPS tracking link shared with employee"
         ]
       },
       {
@@ -196,7 +196,7 @@
         "id": "sedan",
         "name": "First Class Saloon",
         "models": "Mercedes-Benz S-Class / BMW 7 Series",
-        "capacity": "3 Passengers · 3 Large Bags",
+        "capacity": "3 Employees · 3 Large Bags",
         "baseMultiplier": 1.0,
         "hourlyRetainer": "AED 850 (5h Executive Package)"
       },
@@ -212,7 +212,7 @@
         "id": "mpv",
         "name": "Executive SUV & MPV",
         "models": "Cadillac Escalade / Mercedes V-Class / GMC Yukon",
-        "capacity": "6-7 Passengers · 5 Large Bags",
+        "capacity": "6-7 Employees · 5 Large Bags",
         "baseMultiplier": 1.35,
         "hourlyRetainer": "AED 1,150 (5h Group Package)"
       },
@@ -220,7 +220,7 @@
         "id": "bus",
         "name": "Luxury Coach / Minibus",
         "models": "22-Seater VIP Coach / 44-Seater Luxury Bus",
-        "capacity": "18–50 Passengers · Spacious Cargo",
+        "capacity": "18–50 Employees · Spacious Cargo",
         "baseMultiplier": 2.2,
         "hourlyRetainer": "AED 1,950 (5h Delegation Package)"
       }

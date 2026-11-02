@@ -16,6 +16,8 @@ The final card has an old tagline in its faint watermark; do not use that waterm
 The PNG has substantial white margins. Present the intact artwork in a white header/brand area; a non-destructive CSS viewport may exclude exterior empty margins but must never clip the horse, stripes, registration mark or tagline. Preserve aspect ratio. Do not apply colour filters.
 
 ## Composition
+2 November 2026 journey refinement: the user rejected neutral charcoal because it did not fit the website. Use the established warm-white surround, rounded panels, brand indigo `#31326F`, brand ink `#15162F` and restrained violet accents. The journey artwork uses an isolated `lighten` blend over brand ink to integrate its dark background while preserving white lettering and the original source file. Exclude only the asset's decorative outer margin through CSS; keep every milestone visible and the full-size action below the image.
+
 Aim for a distinct editorial automotive website with precise corporate service information.
 Header: white, crisp full logo, Services / Fleet / About / Contact, strong enquiry action.
 Hero: use public/images/india/hero.png. Place copy in the darker left space on desktop; protect readability with a subtle dark overlay. On mobile use a deliberate image crop or separate image region so the subject and text stay clear.
@@ -32,6 +34,8 @@ Vary section structure. Avoid repeating six identical icon boxes, oversized pill
 
 Start with one readable sans family such as Manrope, using weight and scale carefully. The brand wordmark itself is never typeset with a substitute font.
 Generous spacing with clear alignment. Body copy around 16–18 px. Target at least 44 px interactive hit areas as a project preference.
+
+2 November 2026 typography refinement: use a restrained editorial scale for eyebrows. Main section labels are 12px on phones, 13px on tablets, and 14px on desktops, at weight 700 and 0.12em letter spacing. Compact card labels use 11–12px and 0.08em spacing. Page introductions use 13–14px, weight 600 and 0.1em spacing. The `/` welcome line uses 14/15/16px across phone/tablet/desktop, weight 600 and 0.14em spacing. All use a 1.5 line height and natural wrapping. Keep title sizes and brand colours as designed.
 
 ## Motion
 Hero: short fade/settle, roughly 650 ms. Do not make text unusable or wait for an intro.

@@ -223,7 +223,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
                     <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/80 backdrop-blur-md border border-white/20 text-[11px] font-bold tracking-wide uppercase text-white shadow-sm">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/80 backdrop-blur-md border border-white/20 uppercase text-white shadow-sm section-eyebrow section-eyebrow--compact">
                         <Zap className="w-3.5 h-3.5 text-brand-blue" />
                         <BrandText>{evTitle}</BrandText>
                       </span>
@@ -271,7 +271,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                         <Users className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
                         <div>
                           <dt className="text-[10px] uppercase font-bold text-brand-slate block">
-                            {fleetDict?.electric?.passengerRequirementsLabel || "Passenger requirements"}
+                            {fleetDict?.electric?.passengerRequirementsLabel || "Employee requirements"}
                           </dt>
                           <dd className="font-semibold text-brand-indigo text-xs sm:text-sm mt-0.5">
                             {fleetDict?.electric?.passengerRequirementsValue || "Number of travellers and luggage."}
@@ -349,7 +349,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/80 backdrop-blur-md border border-white/20 text-[11px] font-bold tracking-wide uppercase text-white shadow-sm">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/80 backdrop-blur-md border border-white/20 uppercase text-white shadow-sm section-eyebrow section-eyebrow--compact">
                       <IconComp className="w-3.5 h-3.5 text-brand-violet" />
                       {category.categoryBadge}
                     </span>
@@ -383,7 +383,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                       </div>
                       <div>
                         <span className="text-[10px] uppercase font-bold text-brand-slate block">
-                          Passengers
+                          Employees
                         </span>
                         <span className="font-bold text-brand-indigo">
                           {category.passengerCapacity} Seats
@@ -476,7 +476,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
             {/* Modal Header */}
             <div className="flex items-start justify-between border-b border-brand-soft-neutral pb-4">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-indigo/10 text-brand-indigo text-[10px] font-bold uppercase tracking-wider mb-1">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-indigo/10 text-brand-indigo uppercase mb-1 section-eyebrow section-eyebrow--compact">
                   {inspectingCategory.categoryBadge}
                 </span>
                 <h3 className="text-2xl font-extrabold text-brand-indigo">
@@ -503,7 +503,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
             <div className="bg-brand-soft-neutral/30 rounded-2xl p-5 border border-brand-soft-neutral/60 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-brand-slate block">
-                  Passenger Configuration
+                  Employee Configuration
                 </span>
                 <p className="text-sm font-bold text-brand-indigo">
                   {inspectingCategory.passengerLabel}
@@ -616,7 +616,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
       <section className="bg-brand-ink text-white rounded-3xl p-6 sm:p-10 border border-brand-indigo/30 shadow-xl overflow-hidden relative">
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-brand-indigo/20 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-3xl mb-8 space-y-2">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-[11px] font-bold tracking-widest uppercase text-brand-violet">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-violet section-eyebrow section-eyebrow--compact">
             <FileSpreadsheet className="w-3.5 h-3.5" />
             Corporate Rate Card &amp; Tariff Estimator
           </span>
@@ -740,7 +740,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                 <span className="font-semibold text-white">{calcCity}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span>Passenger Seating:</span>
+                <span>Employee Seating:</span>
                 <span className="font-semibold text-white">
                   {isCalcEv ? "Confirmed during enquiry" : activeCategoryForCalc.passengerLabel}
                 </span>

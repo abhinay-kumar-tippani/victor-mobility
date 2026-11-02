@@ -50,6 +50,7 @@ export interface FleetVehicle {
   image: string;
   imageAlt: string;
   description?: string;
+  seatingCapacity?: string;
 }
 
 export interface FleetCategory {

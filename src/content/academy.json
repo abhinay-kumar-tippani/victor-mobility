@@ -29,10 +29,10 @@
       "tagline": "The quiet sanctuary of the cabin is strictly preserved.",
       "description": "Every Victor chauffeur operates under strict corporate Non-Disclosure Agreements (NDAs). Training emphasizes respectful silence, professional communication only when addressed, discrete door-opening protocols, and luggage concierge handling.",
       "keyPractices": [
-        "Zero unsolicited conversation during passenger transit",
-        "Confidentiality regarding passenger identity, phone calls, and discussions",
+        "Zero unsolicited conversation during employee transit",
+        "Confidentiality regarding employee identity, phone calls, and discussions",
         "Uniformity standards: Pressed black suit, formal tie, and polished shoes",
-        "Curbside luggage loading and passenger door opening sequence"
+        "Curbside luggage loading and door opening sequence"
       ]
     },
     {
@@ -40,12 +40,12 @@
       "number": "03",
       "title": "24-Point Cabin Audit & Ambient Comfort",
       "tagline": "Climate preset to 22°C with tailored amenities in place.",
-      "description": "Prior to rolling out of the depot, each vehicle passes a 24-point cleanliness and amenity inspection. The cabin is vacuumed, leather conditioned, glass cleaned without chemical scent, and outfitted with passenger essentials.",
+      "description": "Prior to rolling out of the depot, each vehicle passes a 24-point cleanliness and amenity inspection. The cabin is vacuumed, leather conditioned, glass cleaned without chemical scent, and outfitted with employee essentials.",
       "keyPractices": [
         "Odor-free, neutralized cabin environment with no artificial fragrances",
         "Sealed mineral water bottles, tissue box, and umbrella in door pocket",
         "Multi-pin fast chargers (USB-C and Lightning) tested and ready",
-        "Dual-zone climate control preset to 22°C (adjusted to passenger preference)"
+        "Dual-zone climate control preset to 22°C (adjusted to employee preference)"
       ]
     },
     {
@@ -53,7 +53,7 @@
       "number": "04",
       "title": "Background Verification (BGV) & Night Escort Safety",
       "tagline": "Verified identity with continuous telematics tracking.",
-      "description": "Safety is non-negotiable for enterprise and VIP clients. Victor enforces rigorous background checks, state police verification, drug & alcohol screening, and strict female passenger night-safety drop-off protocols.",
+      "description": "Safety is non-negotiable for enterprise and VIP clients. Victor enforces rigorous background checks, state police verification, drug & alcohol screening, and strict female employee night-safety drop-off protocols.",
       "keyPractices": [
         "100% Police verification and dual residential address checks",
         "Randomised medical, vision, and substance screening",
@@ -65,8 +65,8 @@
       "id": "defensive-driving",
       "number": "05",
       "title": "Defensive Telematics & Smooth Ride Dynamics",
-      "tagline": "Passengers can read or type comfortably without centrifugal disruption.",
-      "description": "Chauffeurs master progressive braking, gentle throttle response, and safe highway lane changes. In-vehicle telematics track G-force deceleration and acceleration indices to ensure passengers can work uninterrupted.",
+      "tagline": "Employees can read or type comfortably without centrifugal disruption.",
+      "description": "Chauffeurs master progressive braking, gentle throttle response, and safe highway lane changes. In-vehicle telematics track G-force deceleration and acceleration indices to ensure employees can work uninterrupted.",
       "keyPractices": [
         "Progressive two-stage braking for jolt-free stops",
         "Strict adherence to expressway speed limits and lane discipline",
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "category": "Passenger Amenities",
+      "category": "Employee Amenities",
       "items": [
         "Two sealed mineral water bottles in console",
         "Clean tissue box & hand sanitiser available",

@@ -48,24 +48,22 @@ export default function VictorJourneySection() {
       id="journey"
       tabIndex={-1}
       aria-labelledby="journey-heading"
-      className="relative scroll-mt-24 overflow-hidden border-y border-white/10 bg-[#0B0914] py-10 text-white focus:outline-none sm:py-12"
+      className="relative scroll-mt-24 overflow-hidden bg-brand-warm-white py-10 text-white focus:outline-none sm:py-12 lg:py-16"
     >
-      <div className="pointer-events-none absolute right-1/4 top-0 h-[500px] w-full max-w-[500px] rounded-full bg-brand-violet/10 blur-[140px]" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-[400px] w-full max-w-[400px] rounded-full bg-brand-indigo/10 blur-[120px]" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
+        <div className="grid items-center gap-8 rounded-3xl border border-brand-indigo/15 bg-gradient-to-br from-brand-indigo via-brand-ink to-brand-ink p-5 shadow-xl shadow-brand-indigo/10 sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-10">
           <div className="min-w-0 lg:col-span-5">
-            <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#A790D7]"><BrandText>{eyebrow}</BrandText></p>
+            <p className="uppercase text-[#C5B5E5] section-eyebrow"><BrandText>{eyebrow}</BrandText></p>
             <h2 id="journey-heading" className="mt-2 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.65rem]">
               <BrandText>{title}</BrandText>
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base"><BrandText>{subtitle}</BrandText></p>
+            <p className="mt-3 text-sm leading-relaxed text-brand-soft-neutral sm:text-base"><BrandText>{subtitle}</BrandText></p>
 
             <div className="mt-5 space-y-2.5">
               {phases.map((phase) => {
                 const Icon = phase.icon;
                 return (
-                  <div key={phase.years} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.045] p-3.5">
+                  <div key={phase.years} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-3.5">
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-brand-violet/20 text-[#B9A6E2]" aria-hidden="true"><Icon className="size-4" /></span>
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1">

@@ -172,10 +172,10 @@ export function buildEnquiryMessage(draft: EnquiryDraft): string {
     ...(draft.category ? [`*Vehicle Category:* ${draft.category}`] : []),
     ...(draft.vehicle?.trim() ? [`*Vehicle Requested:* ${draft.vehicle.trim()}`] : []),
     `*City / Region:* ${draft.city}`,
-    ...(draft.passengerCount?.trim() ? [`*Passengers:* ${draft.passengerCount.trim()}`] : []),
+    ...(draft.passengerCount?.trim() ? [`*Employees:* ${draft.passengerCount.trim()}`] : []),
     ...(draft.travelDate ? [`*Travel / Start Date:* ${draft.travelDate}`] : []),
     "*Journey Details:*",
-    draft.requirement.trim() || "[Shift timings, route corridor, passenger count or dates]",
+    draft.requirement.trim() || "[Shift timings, route corridor, employee count or dates]",
     "--------------------------------",
     "Prepared via Victor Mobility Enquiry",
   ].join("\n");

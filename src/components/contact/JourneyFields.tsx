@@ -15,7 +15,7 @@ interface Props {
 
 export default function JourneyFields({ copy, passengerCount, travelDate, onPassengerChange, onDateChange, passengerError, dateError }: Props) {
   const id = useId();
-  const fieldStyle = "min-h-[48px] w-full min-w-0 rounded-xl border border-brand-soft-neutral bg-white px-3 py-3 text-base text-brand-ink outline-none focus:ring-2 focus:ring-brand-indigo";
+  const fieldStyle = "min-h-[48px] w-full min-w-0 rounded-xl border-[1.5px] border-slate-300 hover:border-slate-400 bg-white px-3 py-3 text-base text-brand-ink outline-none focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo transition-all";
   return (
     <div className="space-y-2">
       <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">

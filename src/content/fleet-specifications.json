@@ -11,7 +11,7 @@
         "popularModels": ["Swift Dzire", "Tata Tigor"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 4,
-        "passengerLabel": "Up to 4 Passengers",
+        "passengerLabel": "Up to 4 Employees",
         "luggageCapacity": {
           "largeSuitcases": 2,
           "cabinBags": 2,
@@ -48,7 +48,7 @@
         "popularModels": ["Toyota Innova Crysta", "Mahindra Marazzo", "Force Urbania"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 7,
-        "passengerLabel": "6 to 7 Passengers (Up to 13 in Urbania)",
+        "passengerLabel": "6 to 7 Employees (Up to 13 in Urbania)",
         "luggageCapacity": {
           "largeSuitcases": 4,
           "cabinBags": 4,
@@ -85,7 +85,7 @@
         "popularModels": ["Executive Saloons"],
         "heroImage": "/images/india/luxury-interior.png",
         "passengerCapacity": 3,
-        "passengerLabel": "Up to 3 Executive Passengers",
+        "passengerLabel": "Up to 3 Executive Employees",
         "luggageCapacity": {
           "largeSuitcases": 2,
           "cabinBags": 2,
@@ -122,7 +122,7 @@
         "popularModels": ["22-Seater Executive Coach", "44-Seater Luxury Bus"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 44,
-        "passengerLabel": "22 or 44 Passengers",
+        "passengerLabel": "22 or 44 Employees",
         "luggageCapacity": {
           "largeSuitcases": 35,
           "cabinBags": 44,
@@ -131,7 +131,7 @@
         "cabinLayout": {
           "seats": "High-back pushback push-back pushback luxury seats with aisle armrests",
           "climate": "High-tonnage roof-mounted central air conditioning duct system",
-          "connectivity": "Individual reading lamps and USB charging sockets per passenger pair"
+          "connectivity": "Individual reading lamps and USB charging sockets per employee pair"
         },
         "safetyTelematics": [
           "Dual emergency exit doors, roof escape hatch & side window hammers",
@@ -165,10 +165,10 @@
         "luggageCapacity": {
           "largeSuitcases": 0,
           "cabinBags": 0,
-          "description": "Passenger and luggage requirements confirmed during enquiry"
+          "description": "Employee and luggage requirements confirmed during enquiry"
         },
         "cabinLayout": {
-          "seats": "Passenger requirements: number of travellers and luggage",
+          "seats": "Employee requirements: number of travellers and luggage",
           "climate": "Vehicle allocation: confirmed during enquiry",
           "connectivity": "Journey requirements: route, timings and travel frequency"
         },
@@ -199,7 +199,7 @@
         "popularModels": ["Mercedes-Benz S-Class", "BMW 7 Series"],
         "heroImage": "/images/india/luxury-interior.png",
         "passengerCapacity": 3,
-        "passengerLabel": "Up to 3 Passengers",
+        "passengerLabel": "Up to 3 Employees",
         "luggageCapacity": {
           "largeSuitcases": 2,
           "cabinBags": 2,
@@ -214,7 +214,7 @@
           "RTA-licensed professional executive chauffeur",
           "Radar flight synchronization (DXB, AUH, DWC)",
           "Live GPS dispatch monitoring with Dubai Al Garhoud central control",
-          "Comprehensive commercial passenger insurance"
+          "Comprehensive commercial employee insurance"
         ],
         "amenities": [
           "Chilled premium bottled water (Evian / Perrier)",
@@ -240,7 +240,7 @@
         "popularModels": ["Mercedes-Maybach S-Class"],
         "heroImage": "/images/india/luxury-interior.png",
         "passengerCapacity": 2,
-        "passengerLabel": "Up to 2-3 Passengers",
+        "passengerLabel": "Up to 2-3 Employees",
         "luggageCapacity": {
           "largeSuitcases": 2,
           "cabinBags": 2,
@@ -281,7 +281,7 @@
         "popularModels": ["Cadillac Escalade", "GMC Yukon Denali", "Mercedes-Benz V-Class"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 6,
-        "passengerLabel": "5 to 7 Passengers",
+        "passengerLabel": "5 to 7 Employees",
         "luggageCapacity": {
           "largeSuitcases": 6,
           "cabinBags": 6,
@@ -300,7 +300,7 @@
         ],
         "amenities": [
           "Bottled spring water and dry snacks",
-          "Deep tinted rear passenger privacy glass",
+          "Deep tinted rear employee privacy glass",
           "Spacious conference table for en-route business meetings (V-Class)",
           "Fast multi-phone charging ports"
         ],
@@ -322,7 +322,7 @@
         "popularModels": ["22-Seater VIP Coach", "44-Seater Luxury Bus"],
         "heroImage": "/images/india/hero.png",
         "passengerCapacity": 44,
-        "passengerLabel": "22 or 44 Passengers",
+        "passengerLabel": "22 or 44 Employees",
         "luggageCapacity": {
           "largeSuitcases": 40,
           "cabinBags": 44,
@@ -334,7 +334,7 @@
           "connectivity": "Individual USB charging ports at each seat pair"
         },
         "safetyTelematics": [
-          "RTA-licensed heavy commercial passenger bus driver",
+          "RTA-licensed heavy commercial bus driver",
           "Mandatory speed limiter and lane departure alert",
           "Comprehensive safety equipment, emergency exits, and medical kit",
           "Direct dispatch radio communication with Dubai control room"
@@ -369,10 +369,10 @@
         "luggageCapacity": {
           "largeSuitcases": 0,
           "cabinBags": 0,
-          "description": "Passenger and luggage requirements confirmed during enquiry"
+          "description": "Employee and luggage requirements confirmed during enquiry"
         },
         "cabinLayout": {
-          "seats": "Passenger requirements: number of travellers and luggage",
+          "seats": "Employee requirements: number of travellers and luggage",
           "climate": "Vehicle allocation: confirmed during enquiry",
           "connectivity": "Journey requirements: route, timings and travel frequency"
         },

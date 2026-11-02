@@ -52,7 +52,7 @@ export default function UaeAboutPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <Building2 className="w-3.5 h-3.5 text-brand-violet" /><BrandText>
                 Victor Mobility UAE
               </BrandText></span>
@@ -60,7 +60,7 @@ export default function UaeAboutPage() {
                 International Mobility. Middle East Heritage.
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
-                Expanding from our established India foundation into Dubai and Abu Dhabi, Victor Mobility delivers its signature blend of luxury, precision, and passenger accountability to clients across the United Arab Emirates.
+                Expanding from our established India foundation into Dubai and Abu Dhabi, Victor Mobility delivers its signature blend of luxury, precision, and employee accountability to clients across the United Arab Emirates.
               </BrandText></p>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function UaeAboutPage() {
           <section className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
               <div className="max-w-5xl">
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand-blue">{aboutCopy.leadershipEyebrow}</p>
+                <p className="mb-2 uppercase text-brand-blue section-eyebrow">{aboutCopy.leadershipEyebrow}</p>
                 <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-ink sm:text-3xl lg:text-4xl lg:whitespace-nowrap">{aboutCopy.leadershipTitle}</h2>
                 <p className="max-w-3xl text-sm leading-relaxed text-brand-ink/75 sm:text-base"><BrandText>{aboutCopy.leadershipDescription}</BrandText></p>
               </div>
@@ -86,7 +86,7 @@ export default function UaeAboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent lg:hidden" />
                   <div className="absolute bottom-4 left-4 right-4 text-white lg:hidden">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1">
+                    <span className="uppercase text-brand-violet bg-white/90 px-2.5 py-0.5 rounded-full inline-block mb-1 section-eyebrow section-eyebrow--compact">
                       {founder.role}
                     </span>
                     <h3 className="text-xl font-bold">{founder.name}</h3>
@@ -95,7 +95,7 @@ export default function UaeAboutPage() {
 
                 <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 space-y-6">
                   <div>
-                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+                    <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
                       Meet our Founder & Visionary
                     </span>
                     <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
@@ -150,7 +150,7 @@ export default function UaeAboutPage() {
         <section className="py-16 sm:py-24 bg-white border-b border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-3xl">
-              <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+              <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
                 Operational Capabilities
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
@@ -199,7 +199,7 @@ export default function UaeAboutPage() {
         <section id="network" className="py-16 sm:py-24 bg-brand-warm-white border-b border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-2xl space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo block">
+              <span className="uppercase text-brand-indigo block section-eyebrow">
                 UAE Headquarters
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-ink">
@@ -220,7 +220,7 @@ export default function UaeAboutPage() {
                     <div className="w-12 h-12 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                       <MapPin className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-brand-blue bg-brand-warm-white px-3 py-1 rounded-full border border-brand-soft-neutral">
+                    <span className="uppercase text-brand-blue bg-brand-warm-white px-3 py-1 rounded-full border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
                       {office.label}
                     </span>
                   </div>
@@ -261,7 +261,7 @@ export default function UaeAboutPage() {
           <section className="py-16 sm:py-20 bg-white border-b border-brand-soft-neutral">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
               <div className="text-center space-y-3">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
+                <div className="inline-flex items-center gap-2 uppercase text-brand-indigo section-eyebrow section-eyebrow--compact">
                   <HelpCircle className="w-4 h-4" />
                   <span>Clarifications & Guidance</span>
                 </div>
@@ -297,7 +297,7 @@ export default function UaeAboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
               <div className="lg:col-span-6 space-y-5">
-                <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block">
+                <span className="uppercase text-brand-blue block section-eyebrow">
                   {aboutCopy.contactEyebrow || "Direct UAE Requirement Desk"}
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight leading-tight">

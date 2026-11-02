@@ -128,7 +128,7 @@ export default function EnterpriseSlaDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -394,7 +394,7 @@ export default function EnterpriseSlaDesk({
               <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                    <span className="uppercase text-amber-400 section-eyebrow section-eyebrow--compact">
                       Calculated SLA Blueprint
                     </span>
                     <h3 className="text-xl font-bold text-white mt-0.5">{currentTierObj.name}</h3>
@@ -617,7 +617,7 @@ export default function EnterpriseSlaDesk({
         {/* Procurement Direct Contact Section */}
         <section className="mt-12 bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 print:border-slate-300 print:bg-white print:text-black">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase font-bold tracking-wider text-amber-400">
+            <span className="uppercase text-amber-400 section-eyebrow section-eyebrow--compact">
               Corporate Vendor Onboarding & Enterprise Contracts
             </span>
             <h3 className="text-2xl font-bold text-white mt-1 mb-3 print:text-black"><BrandText>

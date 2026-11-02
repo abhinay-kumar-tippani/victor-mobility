@@ -109,13 +109,13 @@ async function verifyPhase17() {
       throw new Error('IoT hardware items (AIS-140 Tracker / Speed Governor) not found');
     }
 
-    // Switch to Women Safety Tab
-    await page.click('button:has-text("Women Night Protocol")');
+    // Switch to Female Safety Tab
+    await page.click('button:has-text("Female Night Protocol")');
     await page.waitForTimeout(400);
 
-    const hasWomenTitle = await page.locator('h2:has-text("Women Passenger Night Transit Protocol")').isVisible();
+    const hasWomenTitle = await page.locator('h2:has-text("Female Employee Night Transit Protocol")').isVisible();
     if (!hasWomenTitle) {
-      throw new Error('Women Passenger Night Transit Protocol section not visible');
+      throw new Error('Female Employee Night Transit Protocol section not visible');
     }
 
     // Check WhatsApp inquiry link

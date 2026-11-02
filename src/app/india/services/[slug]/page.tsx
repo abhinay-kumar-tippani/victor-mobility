@@ -70,7 +70,7 @@ const serviceVisualMap: Record<
     highlights: [
       {
         title: "Discretion & Executive Etiquette",
-        desc: "Experienced, courteous chauffeurs trained in executive etiquette, non-intrusive service, and strict passenger confidentiality.",
+        desc: "Experienced, courteous chauffeurs trained in executive etiquette, non-intrusive service, and strict employee confidentiality.",
       },
       {
         title: "Cabin Comfort & Amenities",
@@ -88,7 +88,7 @@ const serviceVisualMap: Record<
       steps: [
         {
           step: "1. Flight Tracking & Terminal Greeting",
-          detail: "Chauffeurs track inbound flight status dynamically and meet passengers with a clean nameboard at the designated airport terminal arrival bay.",
+          detail: "Chauffeurs track inbound flight status dynamically and meet employees with a clean nameboard at the designated airport terminal arrival bay.",
         },
         {
           step: "2. Executive Cabin Readiness",
@@ -296,11 +296,11 @@ const serviceVisualMap: Record<
         },
         {
           step: "2. Safe Boarding & Ergonomic Cabins",
-          detail: "Designated boarding zones, orderly passenger entry, high-back seats, and climate-controlled cabin environments.",
+          detail: "Designated boarding zones, orderly employee entry, high-back seats, and climate-controlled cabin environments.",
         },
         {
           step: "3. Dispatch Redundancy",
-          detail: "Standby fleet readiness to maintain scheduled frequency during unexpected route traffic or peak passenger loads.",
+          detail: "Standby fleet readiness to maintain scheduled frequency during unexpected route traffic or peak employee loads.",
         },
       ],
     },
@@ -310,7 +310,7 @@ const serviceVisualMap: Record<
         answer: "Yes. We design high-frequency loop corridors connecting metro hubs, campus parking structures, and distinct facility buildings.",
       },
       {
-        question: "What passenger capacity options exist?",
+        question: "What employee capacity options exist?",
         answer: "We offer 22-seater and 44-seater air-conditioned commuter configurations based on route volume requirements.",
       },
     ],
@@ -444,7 +444,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             </nav>
 
             <div className="max-w-3xl space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <IconComponent className="w-3.5 h-3.5 text-brand-violet" />
                 <span>{service.badge || "Corporate Mobility Solution"}</span>
               </div>
@@ -526,7 +526,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 {/* Experiential Highlights / Standards */}
                 <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
                   <div>
-                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-1">
+                    <span className="uppercase text-brand-blue block mb-1 section-eyebrow section-eyebrow--compact">
                       Service Standards
                     </span>
                     <h3 className="text-xl font-bold text-brand-ink">
@@ -560,7 +560,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 {visualData.scenario && (
                   <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
                     <div>
-                      <span className="text-xs uppercase tracking-widest font-bold text-brand-indigo block mb-1">
+                      <span className="uppercase text-brand-indigo block mb-1 section-eyebrow section-eyebrow--compact">
                         Operational Workflow
                       </span>
                       <h3 className="text-xl font-bold text-brand-ink">
@@ -594,7 +594,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   <div className="bg-brand-ink text-white rounded-3xl p-7 sm:p-9 border border-brand-indigo/30 shadow-xl space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
-                        <span className="text-xs uppercase tracking-widest font-bold text-brand-violet block mb-1">
+                        <span className="uppercase text-brand-violet block mb-1 section-eyebrow section-eyebrow--compact">
                           Airport Meet &amp; Greet
                         </span>
                         <h3 className="text-xl font-bold text-white">
@@ -659,7 +659,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 {visualData.practicalAnswers && visualData.practicalAnswers.length > 0 && (
                   <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-5">
                     <div>
-                      <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-1">
+                      <span className="uppercase text-brand-blue block mb-1 section-eyebrow section-eyebrow--compact">
                         Common Clarifications
                       </span>
                       <h3 className="text-xl font-bold text-brand-ink">
@@ -724,7 +724,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
               <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
                 <div className="bg-brand-ink text-white rounded-3xl p-7 sm:p-8 border border-brand-indigo/30 space-y-6 shadow-md">
                   <div className="space-y-2">
-                    <span className="text-xs font-bold uppercase tracking-widest text-brand-violet block">
+                    <span className="uppercase text-brand-violet block section-eyebrow section-eyebrow--compact">
                       Direct Engagement
                     </span>
                     <h3 className="text-xl font-bold text-white">
@@ -732,7 +732,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                     </h3>
                     <p className="text-xs text-brand-soft-neutral/80 leading-relaxed">
                       Connect directly with our corporate development team to discuss route schedules,
-                      vehicle preferences, and passenger capacity.
+                      vehicle preferences, and employee capacity.
                     </p>
                   </div>
 
@@ -786,7 +786,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo block mb-1">
+                <span className="uppercase text-brand-indigo block mb-1 section-eyebrow section-eyebrow--compact">
                   Complementary Solutions
                 </span>
                 <h3 className="text-2xl font-bold text-brand-ink">

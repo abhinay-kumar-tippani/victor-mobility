@@ -93,7 +93,7 @@ export default function ServicesSection({ services, basePath = "/india" }: Servi
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
+            <span className="uppercase text-brand-blue block mb-2.5 section-eyebrow">
               <BrandText>{dict.servicesSection.eyebrow}</BrandText>
             </span>
             <h2

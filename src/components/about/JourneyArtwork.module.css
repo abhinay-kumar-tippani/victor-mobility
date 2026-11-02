@@ -1,0 +1,26 @@
+.imageViewport {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1000 / 744;
+  overflow: hidden;
+  border-radius: 12px;
+  isolation: isolate;
+  background: #15162f;
+}
+
+/* The supplied 1024 × 768 artwork has a 12px decorative outer frame.
+   Hide only that frame without altering the file or any milestone content.
+   Equal scaling on both axes preserves the original artwork's proportions. */
+.image {
+  position: absolute;
+  display: block;
+  width: 102.4%;
+  max-width: none;
+  height: auto;
+  left: -1.2%;
+  top: -1.612903%;
+  /* Lift only the dark image tones into brand ink. White lettering remains
+     white and the supplied source file is preserved. */
+  mix-blend-mode: lighten;
+}

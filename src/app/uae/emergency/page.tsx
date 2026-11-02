@@ -53,7 +53,7 @@ export default function UaeEmergencyPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-xs font-bold tracking-widest uppercase text-rose-300">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 uppercase text-rose-300 section-eyebrow section-eyebrow--hero">
                 <PhoneCall className="w-3.5 h-3.5" />
                 Dubai Al Garhoud Dispatch Control
               </span>

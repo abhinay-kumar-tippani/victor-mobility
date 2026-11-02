@@ -28,7 +28,7 @@ export default function HomeFaqSection({ faqs: propFaqs, copy: propCopy, contact
     <section id="questions" aria-labelledby="home-faq-title" className="border-b border-brand-soft-neutral bg-brand-warm-white py-16 sm:py-20 overflow-hidden">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
         <div className="lg:col-span-4 min-w-0">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-blue"><BrandText>{copy.eyebrow}</BrandText></p>
+          <p className="mb-3 uppercase text-brand-blue section-eyebrow"><BrandText>{copy.eyebrow}</BrandText></p>
           <h2 id="home-faq-title" className="text-3xl font-extrabold tracking-tight text-brand-ink sm:text-4xl break-words"><BrandText>{copy.title}</BrandText></h2>
           <p className="mt-4 text-base leading-relaxed text-brand-ink/75 break-words"><BrandText>{copy.description}</BrandText></p>
           <Link href={targetHref} className="mt-5 inline-flex min-h-[44px] items-center gap-2 font-bold text-brand-indigo underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-indigo">

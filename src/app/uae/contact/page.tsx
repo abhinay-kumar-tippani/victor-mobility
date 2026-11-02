@@ -44,7 +44,7 @@ export default function UaeContactPage() {
         <section className="py-16 sm:py-24 bg-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-2xl space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo block">
+              <span className="uppercase text-brand-indigo block section-eyebrow section-eyebrow--compact">
                 Regional Headquarters
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
@@ -65,7 +65,7 @@ export default function UaeContactPage() {
                     <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                       <Building2 className="w-5 h-5" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-white px-3 py-1 rounded-full border border-brand-soft-neutral">
+                    <span className="uppercase text-brand-blue bg-white px-3 py-1 rounded-full border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
                       {office.label}
                     </span>
                   </div>

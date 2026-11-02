@@ -85,7 +85,7 @@ export default function RfpDesk({ copy, actions, cities, services, vehicles, wha
     "",
     `${effectiveCopy.service || copy.service}: ${values.service}`,
     `${effectiveCopy.city || copy.city}: ${values.city === "Other" ? values.customCity.trim() : values.city}`,
-    `Passengers per day: ${values.passengers || effectiveCopy.notSpecified || copy.notSpecified}`,
+    `Employees per day: ${values.passengers || effectiveCopy.notSpecified || copy.notSpecified}`,
     `Target start date: ${values.date || effectiveCopy.notSpecified || copy.notSpecified}`,
     `${effectiveCopy.schedule || copy.schedule}: ${values.schedule}`,
     `Preferred vehicles: ${selectedVehicles.length ? selectedVehicles.join(", ") : (effectiveCopy.notSpecified || copy.notSpecified)}`,

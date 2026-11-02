@@ -116,7 +116,7 @@ export default function CorporateCreditDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -522,7 +522,7 @@ export default function CorporateCreditDesk({
         <div id="credit-application-form" className="mt-16 pt-12 border-t border-slate-800 print:hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-5 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 uppercase section-eyebrow section-eyebrow--compact">
                 Direct Credit Desk
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white">

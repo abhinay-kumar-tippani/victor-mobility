@@ -114,7 +114,7 @@ export default function EmployeeShiftRosterDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -250,7 +250,7 @@ export default function EmployeeShiftRosterDesk({
               {/* Manifest Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 print:border-slate-300 gap-4">
                 <div>
-                  <span className="text-xs uppercase tracking-wider font-bold text-indigo-400">
+                  <span className="uppercase text-indigo-400 section-eyebrow section-eyebrow--compact">
                     Active Shift Route Manifest
                   </span>
                   <h3 className="text-2xl font-bold text-white print:text-black mt-1">

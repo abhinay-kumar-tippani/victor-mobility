@@ -180,7 +180,7 @@ export const enDictionary: TranslationDictionary = {
     eyebrow: "Operational Rigour & Security",
     title: "Safety comes first",
     subtitle:
-      "Passenger security and chauffeur professionalism are the foundation of every trip.",
+      "Employee security and chauffeur professionalism are the foundation of every trip.",
     pillars: [
       {
         id: "verified-drivers",
@@ -192,9 +192,9 @@ export const enDictionary: TranslationDictionary = {
       {
         id: "women-safety",
         number: "02",
-        title: "Safety for women passengers",
+        title: "Safety for female employees",
         description:
-          "Escort protocols, live route monitoring and SOS coordination for evening and night shifts.",
+          "Escort protocols, live route monitoring and SOS coordination for specific shifts.",
       },
       {
         id: "defensive-driving",
@@ -222,7 +222,7 @@ export const enDictionary: TranslationDictionary = {
     description: "Choose a category, compare the essentials and tell us what you need.",
     tabLabel: "Choose a vehicle category",
     modelsLabel: "Vehicle references",
-    capacityLabel: "Passenger planning",
+    capacityLabel: "Employee planning",
     useLabel: "Best suited for",
     priceLabel: "Sample starting price",
     priceNote:
@@ -255,8 +255,8 @@ export const enDictionary: TranslationDictionary = {
         "Explore electric travel for employee commutes, airport journeys and corporate requirements. Our team will confirm suitable vehicle options for your location and schedule.",
       journeyRequirementsLabel: "Journey requirements",
       journeyRequirementsValue: "Route, timings and travel frequency.",
-      passengerRequirementsLabel: "Passenger requirements",
-      passengerRequirementsValue: "Number of travellers and luggage.",
+      passengerRequirementsLabel: "Employee requirements",
+      passengerRequirementsValue: "Number of employees and luggage.",
       vehicleAllocationLabel: "Vehicle allocation",
       vehicleAllocationValue: "Confirmed during the enquiry.",
       pricingLabel: "Pricing",
@@ -273,13 +273,13 @@ export const enDictionary: TranslationDictionary = {
       },
       sedans: {
         name: "Sedans",
-        capacity: "1 to 4 passengers · 2 to 3 bags",
+        capacity: "1 to 4 employees · 2 to 3 bags",
         models: "Swift Dzire, Tata Tigor or similar",
         use: "Airport journeys, business visits and city travel for small groups.",
       },
       mpvs: {
         name: "MPVs & Group Vehicles",
-        capacity: "4 to 6 passengers · 4 to 5 bags",
+        capacity: "4 to 6 employees · 4 to 5 bags",
         models: "Innova Crysta, Marazzo, Force Urbania or similar",
         use: "Team site visits, airport runs with luggage and delegation travel.",
       },
@@ -291,31 +291,31 @@ export const enDictionary: TranslationDictionary = {
       },
       luxury: {
         name: "Luxury & Limousines",
-        capacity: "1 to 3 passengers · Chauffeur service",
+        capacity: "1 to 3 employees · Chauffeur service",
         models: "Executive and premium saloons",
         use: "Senior leadership, VIP delegations and high-profile meetings.",
       },
       "first-class": {
         name: "First Class Saloons",
-        capacity: "Up to 3–4 passengers · 2–3 suitcases",
+        capacity: "Up to 3–4 employees · 2–3 suitcases",
         models: "Mercedes-Benz S-Class, BMW 7 Series",
         use: "Airport VIP transfers · Financial district standby (DIFC) · Inter-Emirate travel.",
       },
       "ultra-luxury": {
         name: "Ultra-Luxury & VIP",
-        capacity: "Up to 3 passengers · Executive cabin",
+        capacity: "Up to 3 employees · Executive cabin",
         models: "Mercedes-Maybach S-Class",
         use: "VIP delegations · Board members · Red carpet galas · Royal terminal arrivals.",
       },
       "executive-suvs": {
         name: "Executive SUVs",
-        capacity: "Up to 6 passengers · 5–6 suitcases",
+        capacity: "Up to 6 employees · 5–6 suitcases",
         models: "Cadillac Escalade, GMC Yukon Denali",
         use: "International airport arrivals · Diplomatic security convoys · Executive groups.",
       },
       "executive-vans": {
         name: "Executive MPVs",
-        capacity: "Up to 6–7 passengers · 4–5 suitcases",
+        capacity: "Up to 6–7 employees · 4–5 suitcases",
         models: "Mercedes-Benz V-Class",
         use: "Visiting business teams · Corporate site visits · VIP hotel loop transit.",
       },
@@ -397,7 +397,7 @@ export const enDictionary: TranslationDictionary = {
   },
   presence: {
     eyebrow: "Pan-India Operations",
-    title: "Our Pan India Presence",
+    title: "Our Pan-India Presence",
     searchPlaceholder: "Search city or state…",
     clearSearch: "Clear search",
     noResults: "No listed city matches your search.",
@@ -411,9 +411,9 @@ export const enDictionary: TranslationDictionary = {
   },
   people: {
     eyebrow: "Leadership & Accountability",
-    title: "Grounded Leadership. Direct Accountability.",
+    title: "Grounded Leadership.",
     subtitle:
-      "Victor Mobility is led by experienced transportation veterans who remain personally accessible to corporate clients.",
+      "Victor is led by experienced transportation veterans who remain personally accessible to corporate clients.",
     founderTitle: "Founder & Managing Director",
     founderName: "Syed Jahangir",
     founderBio: [
@@ -434,7 +434,7 @@ export const enDictionary: TranslationDictionary = {
       {
         question: "What types of transportation can I enquire about?",
         answer:
-          "You can enquire about employee transportation, campus bus shuttles, corporate event travel, airport transfers, luxury chauffeur journeys and vehicle rental. Our team will recommend suitable categories based on your passenger numbers and schedule.",
+          "You can enquire about employee transportation, campus bus shuttles, corporate event travel, airport transfers, luxury chauffeur journeys and vehicle rental. Our team will recommend suitable categories based on your employee numbers and schedule.",
       },
       {
         question: "Which India locations are listed?",
@@ -489,8 +489,8 @@ export const enDictionary: TranslationDictionary = {
     otherCity: "Inter-city / other",
     pickup: "Pickup point",
     dropoff: "Drop-off point",
-    passengers: "Passengers travelling together",
-    seats: "Passenger seats per vehicle",
+    passengers: "Employees travelling together",
+    seats: "Employee seats per vehicle",
     capacityHelp: "For example 4 for a sedan, 6 for an MPV or 22 for a mini-bus.",
     distance: "One-way distance (km)",
     days: "Number of days",
@@ -501,7 +501,7 @@ export const enDictionary: TranslationDictionary = {
     resultTitle: "Journey estimate",
     emptyTitle: "Your estimate appears here",
     emptyHelp:
-      "Enter your passengers, distance and vehicle capacity to calculate vehicle count, total kilometres and an optional budget.",
+      "Enter your employees, distance and vehicle capacity to calculate vehicle count, total kilometres and an optional budget.",
     vehicleLabel: "Vehicles required",
     distanceLabel: "Total vehicle km",
     budgetLabel: "Estimated budget",
@@ -516,7 +516,7 @@ export const enDictionary: TranslationDictionary = {
     errors: {
       pickup: "Enter a pickup point.",
       dropoff: "Enter a drop-off point.",
-      passengers: "Enter a valid passenger count (1 or more).",
+      passengers: "Enter a valid employee count (1 or more).",
       seats: "Enter seats per vehicle (1 or more).",
       distance: "Enter distance in kilometres.",
       days: "Enter number of days (1 or more).",
@@ -540,7 +540,7 @@ export const enDictionary: TranslationDictionary = {
     city: "City of operation",
     customCity: "Other city / route",
     service: "Primary service requirement",
-    passengers: "Passengers per day (estimate)",
+    passengers: "Employees per day (estimate)",
     date: "Target start date",
     schedule: "Shift / schedule pattern",
     details: "Route, timing & fleet requirements",
@@ -562,7 +562,7 @@ export const enDictionary: TranslationDictionary = {
       name: "Enter your contact person name.",
       email: "Enter a valid email address.",
       city: "Enter your operating city or route.",
-      passengers: "Enter estimated passengers per day.",
+      passengers: "Enter estimated employees per day.",
       date: "Choose a valid date.",
       details: "Describe your route and transport requirements.",
     },
@@ -591,7 +591,7 @@ export const enDictionary: TranslationDictionary = {
     companyLabel: "Company (optional)",
     detailsLabel: "Journey details",
     detailsPlaceholder: "Pickup and drop-off locations, timings, luggage or shift requirements…",
-    passengerLabel: "Passengers (optional)",
+    passengerLabel: "Employees (optional)",
     dateLabel: "Travel / start date (optional)",
     next: "Continue",
     back: "Back",
@@ -605,7 +605,7 @@ export const enDictionary: TranslationDictionary = {
       name: "Please enter your name.",
       city: "Please enter your city or route.",
       details: "Please add your pickup, schedule or travel requirements.",
-      passengers: "Enter a whole number of passengers greater than zero.",
+      passengers: "Enter a whole number of employees greater than zero.",
       date: "Choose a valid calendar date.",
     },
   },
@@ -621,8 +621,8 @@ export const enDictionary: TranslationDictionary = {
     customCity: "Specify City or Route",
     customCityPlaceholder: "e.g. Hyderabad to Vijayawada, Vizag",
     requirement: "Requirement Details",
-    requirementPlaceholder: "Number of passengers, pickup points, timings, shift schedules…",
-    passengers: "Passengers (Optional)",
+    requirementPlaceholder: "Number of employees, pickup points, timings, shift schedules…",
+    passengers: "Employees (Optional)",
     date: "Travel / Start Date (Optional)",
     submit: "Continue on WhatsApp",
     whatsappExplainer:
@@ -634,7 +634,7 @@ export const enDictionary: TranslationDictionary = {
       name: "Please enter your name.",
       customCity: "Please enter your route or operating city.",
       requirement: "Please describe your transport requirement.",
-      passengers: "Enter a whole number of passengers greater than zero.",
+      passengers: "Enter a whole number of employees greater than zero.",
       date: "Choose a valid calendar date.",
     },
   },

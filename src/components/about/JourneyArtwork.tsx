@@ -3,16 +3,15 @@
 import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
-import { Maximize2, X, ZoomIn } from "lucide-react";
+import { Maximize2, X } from "lucide-react";
 import journey from "@/content/journey.json";
+import styles from "./JourneyArtwork.module.css";
 
 function JourneyImage({ expanded = false }: { expanded?: boolean }) {
   return (
     <span
       className={
-        expanded
-          ? "relative block aspect-[4/3] w-full max-w-4xl shrink-0"
-          : "relative block aspect-[4/3] w-full transition duration-300 group-hover:scale-[1.01]"
+        `${styles.imageViewport} ${expanded ? "max-w-4xl shrink-0" : ""}`
       }
     >
       <Image
@@ -20,10 +19,10 @@ function JourneyImage({ expanded = false }: { expanded?: boolean }) {
         alt="The Journey of Victor infographic: milestones from 2009 ideation to 2026 fleet expansion and 2027 vision."
         width={1024}
         height={768}
-        sizes={expanded ? "(max-width: 1024px) 94vw, 960px" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 580px"}
+        sizes={expanded ? "(max-width: 1024px) 94vw, 960px" : "(max-width: 1023px) 94vw, 700px"}
         unoptimized
         priority={expanded}
-        className="block h-full w-full object-contain rounded-2xl"
+        className={styles.image}
       />
     </span>
   );
@@ -57,24 +56,20 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
 
   return (
     <>
-      <figure className="mx-auto w-full max-w-[38rem]" lang="en" dir="ltr">
+      <figure className="mx-auto w-full max-w-[44rem]" lang="en" dir="ltr">
         <button
           type="button"
           onClick={() => setIsOpen(true)}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
           aria-label="Open the full-size Journey of Victor image in a viewer on this page"
-          className="group relative block w-full cursor-zoom-in overflow-hidden rounded-3xl border border-white/10 bg-slate-950 text-left shadow-[0_22px_65px_rgba(21,22,47,0.2)] transition hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-indigo"
+          className={`relative block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/10 bg-brand-ink p-2 text-left transition-colors hover:border-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${dark ? "focus-visible:outline-white" : "focus-visible:outline-brand-indigo"}`}
         >
           <JourneyImage />
-          <span className="pointer-events-none absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-slate-950/75 px-3 py-1.5 text-xs font-semibold text-white shadow-md backdrop-blur-sm transition group-hover:bg-slate-950/90">
-            <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Click to view</span>
-          </span>
         </button>
 
-        <figcaption className={`mt-2 flex flex-wrap items-center justify-between gap-1 px-1 text-xs ${dark ? "text-zinc-300" : "text-brand-ink/65"}`}>
-          <span className={`font-semibold tabular-nums ${dark ? "text-white" : "text-brand-indigo"}`}>2009 — 2027</span>
+        <figcaption className={`mt-2 flex flex-wrap items-center justify-between gap-1 text-xs ${dark ? "text-zinc-300" : "text-brand-ink/65"}`}>
+          <span className={`font-semibold tabular-nums ${dark ? "text-zinc-300" : "text-brand-indigo"}`}>2009 — 2027</span>
           <button
             type="button"
             onClick={() => setIsOpen(true)}
@@ -84,7 +79,6 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
           >
             Open full-size image <Maximize2 className="h-4 w-4" aria-hidden="true" />
           </button>
-          <span className="w-full text-xs sm:hidden">Click the image to view in full size.</span>
         </figcaption>
       </figure>
 
@@ -97,7 +91,7 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
           onClick={handleClose}
         >
           <div
-            className="relative flex max-h-[94vh] max-w-5xl w-full flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-slate-950 p-2 shadow-2xl sm:p-4"
+            className="relative flex max-h-[94vh] max-w-5xl w-full flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-brand-ink p-2 shadow-2xl sm:p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex w-full items-center justify-between border-b border-white/10 pb-2 px-2 text-white">

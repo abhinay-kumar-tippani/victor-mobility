@@ -133,7 +133,7 @@ export default function VendorDueDiligenceDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -317,7 +317,7 @@ export default function VendorDueDiligenceDesk({
             <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 print:bg-white print:border-slate-300 print:text-black">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800 print:border-slate-300 mb-6">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-teal-500/10 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-2 print:text-slate-700 print:bg-slate-100">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-teal-500/10 text-teal-400 uppercase mb-2 print:text-slate-700 print:bg-slate-100 section-eyebrow section-eyebrow--compact">
                     {activePillar.badge}
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white print:text-black">
@@ -594,7 +594,7 @@ export default function VendorDueDiligenceDesk({
         <div id="procurement-inquiry" className="mt-16 pt-12 border-t border-slate-800 print:hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-5 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 uppercase section-eyebrow section-eyebrow--compact">
                 Direct Procurement Desk
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white">

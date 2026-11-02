@@ -198,7 +198,7 @@ export default function FleetTcoCalculatorDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -476,7 +476,7 @@ export default function FleetTcoCalculatorDesk({
               <div className="lg:col-span-6 space-y-6">
                 <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-6 print:bg-white print:border-slate-300 print:text-black">
                   <div>
-                    <span className="text-xs uppercase tracking-wider text-cyan-400 font-semibold block mb-1">
+                    <span className="uppercase text-cyan-400 block mb-1 section-eyebrow section-eyebrow--compact">
                       Financial TCO Analysis
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold text-white print:text-black">
@@ -642,7 +642,7 @@ export default function FleetTcoCalculatorDesk({
                 <div key={model.id} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold uppercase tracking-wider text-rose-400">
+                      <span className="uppercase text-rose-400 section-eyebrow section-eyebrow--compact">
                         <BrandText>{model.tagline}</BrandText>
                       </span>
                       <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20">
@@ -704,7 +704,7 @@ export default function FleetTcoCalculatorDesk({
         <div id="cfo-transition-inquiry" className="mt-16 pt-12 border-t border-slate-800 print:hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-5 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 uppercase section-eyebrow section-eyebrow--compact">
                 CFO Financial Advisory Desk
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white">

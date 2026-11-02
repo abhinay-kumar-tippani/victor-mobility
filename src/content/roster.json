@@ -43,7 +43,7 @@
         "commuteType": "Toyota Innova HyCross & Executive MPVs",
         "routingStrategy": "100% Doorstep Security Escort Drops",
         "avgTravelTime": "30–40 mins",
-        "occupancyTarget": "Dedicated 4–6 Passengers / Vehicle"
+        "occupancyTarget": "Dedicated 4–6 Employees / Vehicle"
       }
     ],
     "sampleManifests": [
@@ -95,7 +95,7 @@
         "shift": "Evening Logout Shift (11:00 PM Outbound Drops)",
         "vehicleType": "Executive MPV (Toyota Innova HyCross)",
         "plateNumber": "MH 12 QX 9918",
-        "chauffeur": "D. Shinde (Women Safety Escort Certified)",
+        "chauffeur": "D. Shinde (Female Safety Escort Certified)",
         "supervisor": "P. Deshmukh (Pune Night Ops Desk)",
         "capacity": 6,
         "bookedSeats": 5,
@@ -159,7 +159,7 @@
         "commuteType": "First Class Saloons & Executive MPVs",
         "routingStrategy": "Executive Residence to Financial Towers",
         "avgTravelTime": "25–35 mins",
-        "occupancyTarget": "VIP 1–3 Passengers"
+        "occupancyTarget": "VIP 1–3 Employees"
       },
       {
         "id": "freezone-campus",

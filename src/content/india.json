@@ -143,7 +143,7 @@
     "viewAll": "Explore the fleet",
     "tabLabel": "Choose a vehicle category",
     "modelsLabel": "Vehicle references",
-    "capacityLabel": "Passenger planning",
+    "capacityLabel": "Employee planning",
     "useLabel": "Best suited for",
     "priceLabel": "Pricing",
     "priceDisplay": "Request a quote",
@@ -159,7 +159,7 @@
         "id": "sedans",
         "tab": "Sedans",
         "headline": "Everyday travel, thoughtfully arranged.",
-        "capacity": "Up to 3–4 passengers",
+        "capacity": "Up to 3–4 employees",
         "bestFor": "City travel · Airport transfers · Daily commutes",
         "image": "/images/india/hero.png",
         "imageAlt": "Illustrative executive sedan and passenger vehicles",
@@ -192,7 +192,7 @@
         "id": "luxury",
         "tab": "Luxury",
         "headline": "A little more space. A different pace.",
-        "capacity": "Tell us your passenger and luggage needs",
+        "capacity": "Tell us your employee and luggage needs",
         "bestFor": "Executive travel · Delegations · Special occasions",
         "image": "/images/india/luxury-interior.png",
         "imageAlt": "Illustrative luxury passenger cabin",
@@ -226,7 +226,7 @@
       "estimator": {
         "number": "01",
         "title": "Journey estimator",
-        "description": "Work out vehicle numbers and route distance using your passenger count, then request a formal quote.",
+        "description": "Work out vehicle numbers and route distance using your employee count, then request a formal quote.",
         "cta": "Open the estimator",
         "detail": "Vehicle planning · Transparent calculations"
       },
@@ -248,8 +248,8 @@
       "otherCity": "Other city / inter-city",
       "pickup": "Pickup location",
       "dropoff": "Drop-off location",
-      "passengers": "Passengers travelling together",
-      "seats": "Passenger seats per vehicle",
+      "passengers": "Employees travelling together",
+      "seats": "Employee seats per vehicle",
       "capacityHelp": "Use the capacity you want to plan with, excluding the driver. Our team will confirm suitable vehicles.",
       "distance": "One-way distance (km)",
       "days": "Travel days",
@@ -273,7 +273,7 @@
       "errors": {
         "pickup": "Enter a pickup location.",
         "dropoff": "Enter a drop-off location.",
-        "passengers": "Enter a whole passenger count greater than zero.",
+        "passengers": "Enter a whole employee count greater than zero.",
         "seats": "Enter a whole seat count greater than zero.",
         "distance": "Enter a distance greater than zero.",
         "days": "Enter a whole number of days greater than zero.",
@@ -301,7 +301,7 @@
       "city": "City",
       "customCity": "City / route",
       "service": "Service required",
-      "passengers": "Passengers per day (optional)",
+      "passengers": "Employees per day (optional)",
       "date": "Target start date (optional)",
       "schedule": "Operating schedule",
       "scheduleOptions": [
@@ -335,7 +335,7 @@
         "name": "Enter the contact person's name.",
         "email": "Enter a valid email address, or leave it blank.",
         "city": "Enter your city or route.",
-        "passengers": "Enter a whole passenger count greater than zero.",
+        "passengers": "Enter a whole employee count greater than zero.",
         "date": "Choose a valid calendar date.",
         "details": "Add your routes, timings or transport requirements."
       }
@@ -557,7 +557,7 @@
       "title": "Corporate Campus Bus Transit",
       "eyebrow": "Group & Campus Shuttles",
       "tagline": "High-capacity 22 and 44-seater luxury coaches for arterial workforce corridors.",
-      "description": "Fixed-corridor group transit connecting major residential clusters with enterprise tech campuses. Equipped with AIS-140 GPS telematics, speed governors, and automated passenger rosters.",
+      "description": "Fixed-corridor group transit connecting major residential clusters with enterprise tech campuses. Equipped with AIS-140 GPS telematics, speed governors, and automated employee rosters.",
       "serviceSlug": "bus-shuttle-transport",
       "serviceTitle": "Bus & Shuttle Transport",
       "category": "Buses & Shuttles",
@@ -607,7 +607,7 @@
         },
         {
           "title": "Driver Dignity & Verified Vetting",
-          "description": "Chauffeurs and bus captains carry verified commercial driver licenses, background verifications, and route familiarity. We prioritize professional demeanor, passenger safety, and fair working standards."
+          "description": "Chauffeurs and bus captains carry verified commercial driver licenses, background verifications, and route familiarity. We prioritize professional demeanor, employee safety, and fair working standards."
         },
         {
           "title": "Cabin Cleanliness & Pre-Dispatch Checks",
@@ -643,7 +643,7 @@
       "title": "Employee Transportation",
       "badge": "Workplace Commute Solutions",
       "shortDescription": "Transport for daily employee travel and workplace shuttles.",
-      "description": "Discuss your employee commute and shuttle requirements with Victor. Share your operating locations, shift timings and approximate passenger numbers so the team can plan a suitable transport arrangement.",
+      "description": "Discuss your employee commute and shuttle requirements with Victor. Share your operating locations, shift timings and approximate employee numbers so the team can plan a suitable transport arrangement.",
       "source": "Brochure cover and page 3",
       "enquiryDetails": [
         "Company",
@@ -658,11 +658,11 @@
       "title": "Bus & Shuttle Transport",
       "badge": "Group & Campus Shuttles",
       "shortDescription": "Group transport for workplaces, venues and scheduled travel.",
-      "description": "Explore bus and shuttle options for moving groups between offices, pickup points and event venues. Tell the team your route, schedule and expected passenger count to discuss an appropriate vehicle category.",
+      "description": "Explore bus and shuttle options for moving groups between offices, pickup points and event venues. Tell the team your route, schedule and expected employee count to discuss an appropriate vehicle category.",
       "source": "Brochure cover and page 10",
       "enquiryDetails": [
         "Route or pickup points",
-        "Passenger count",
+        "Employee count",
         "Schedule"
       ],
       "published": true
@@ -672,13 +672,13 @@
       "title": "Event Transportation",
       "badge": "Weddings, Galas & Summits",
       "shortDescription": "Vehicle arrangements for conferences, celebrations and event guests.",
-      "description": "Coordinate your event travel requirements with Victor, from guest arrivals and departures to group and VIP transfers. Share event dates, locations and the approximate number of passengers.",
+      "description": "Coordinate your event travel requirements with Victor, from guest arrivals and departures to group and VIP transfers. Share event dates, locations and the approximate number of employees.",
       "source": "Brochure page 3",
       "enquiryDetails": [
         "Event type",
         "Dates",
         "Venues",
-        "Approximate passenger count"
+        "Approximate employee count"
       ],
       "published": true
     },
@@ -687,13 +687,13 @@
       "title": "Airport Transfers",
       "badge": "Terminal Punctuality",
       "shortDescription": "Pickup and drop-off arrangements for airport journeys.",
-      "description": "Arrange transport to or from the airport. Share your pickup and drop-off locations, travel date and time, passenger count and luggage requirements so the team can discuss a suitable option.",
+      "description": "Arrange transport to or from the airport. Share your pickup and drop-off locations, travel date and time, employee count and luggage requirements so the team can discuss a suitable option.",
       "source": "Brochure page 3",
       "enquiryDetails": [
         "Airport or pickup location",
         "Destination",
         "Local travel date and time",
-        "Passengers and luggage"
+        "Employees and luggage"
       ],
       "published": true
     },
@@ -984,7 +984,7 @@
     {
       "id": "mpvs",
       "name": "MPVs & Group Vehicles",
-      "description": "Passenger travel for teams and small groups.",
+      "description": "Employee travel for teams and small groups.",
       "brochureModels": [
         "Toyota Innova Crysta",
         "Mahindra Marazzo",
@@ -1084,10 +1084,10 @@
     ],
     "fallback": "Call us",
     "planningFields": {
-      "passengerLabel": "Passengers (optional)",
+      "passengerLabel": "Employees (optional)",
       "dateLabel": "Travel / start date (optional)",
       "help": "An estimate is fine. Leave these blank if you are still planning; add recurring dates or shift times in the details.",
-      "passengerError": "Enter a whole number of passengers greater than zero.",
+      "passengerError": "Enter a whole number of employees greater than zero.",
       "dateError": "Choose a valid calendar date."
     }
   },
@@ -1123,7 +1123,7 @@
     "experience": "15+ Years Industry Leadership",
     "quote": "I am committed to providing unwavering service to my clients.",
     "imageSrc": "/images/india/founder-jahangir.jpg",
-    "bio": "Jahangir, Founder and Director of Victor Mobility, brings over 15 years of experience across transportation, logistics, and corporate mobility. Driven by an unwavering commitment to trust, punctuality, and passenger safety, he leads Victor Mobility to deliver dependable, thoughtfully planned mobility experiences across premier commercial corridors.",
+    "bio": "Jahangir, Founder and Director of Victor Mobility, brings over 15 years of experience across transportation, logistics, and corporate mobility. Driven by an unwavering commitment to trust, punctuality, and employee safety, he leads Victor Mobility to deliver dependable, thoughtfully planned mobility experiences across premier commercial corridors.",
     "aboutBio": [
       "Jahangir, Founder and Director of Victor Mobility, brings extensive experience in travel, transportation, logistics, and mobility solutions, guided by a strong commitment to service excellence and customer satisfaction. With over 15 years of experience in the transportation industry, he believes that successful mobility services are built on trust, reliability, attention to detail, and a genuine understanding of each client's needs.",
       "Under his leadership, Victor Mobility is driven by a clear purpose: to deliver seamless, dependable, and thoughtfully planned mobility experiences. His approach combines strategic vision with a practical understanding of operations, ensuring that quality, punctuality, safety, and professionalism remain central to the company's service philosophy.",
@@ -1135,7 +1135,7 @@
   "safetyCommitments": [
     {
       "title": "Background-Verified Drivers",
-      "description": "Every chauffeur carries a valid commercial license, background verification, and training in passenger safety and professional etiquette."
+      "description": "Every chauffeur carries a valid commercial license, background verification, and training in employee safety and professional etiquette."
     },
     {
       "title": "Punctual, GPS-Monitored Fleet",

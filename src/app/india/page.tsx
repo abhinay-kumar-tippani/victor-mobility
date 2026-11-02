@@ -42,11 +42,12 @@ export default function IndiaPage() {
         {/* 1c. Enterprise Clientele: Companies We Work With (3 Continuous Directional Sliders) */}
         <TrustedCompaniesSection />
 
-        {/* 2. Fleet: Real Brochure Models (Dzire, Tigor, Innova, Urbania, Coaches) & Seating Capacities */}
+        {/* 2. Fleet: Homepage Preview of 4 Featured Models & View Full Fleet CTA */}
         <IndiaFleetSection
           categories={content.fleetCategories}
           copy={indiaData.fleetPresentation}
           vehicles={indiaData.fleetVehicles as FleetVehicle[]}
+          preview={true}
         />
 
         {/* 2b. Core Services Portfolio: What do you need to arrange? */}
@@ -66,12 +67,11 @@ export default function IndiaPage() {
         {/* 5. The Journey of Victor: 2009 Founding to International Expansion */}
         <VictorJourneySection />
 
-        {/* 6. Leadership & Operations Accountability: Founder Jahangir & Commercial Lead Mujeeb */}
+        {/* 6. Leadership & Operations Accountability: Core Team & Regional Leadership */}
         <PeopleSection
           contact={content.contact}
           teamProfiles={content.teamProfiles}
           teamFeaturedEmail={content.teamFeaturedEmail}
-          founder={content.founder}
         />
 
         <HomeFaqSection />

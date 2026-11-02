@@ -19,7 +19,7 @@ export default function CorporatePortalDashboard({ region }: { region: "india" |
   return (
     <div className="space-y-6">
       <div className="rounded-2xl bg-brand-indigo p-6 sm:p-8 text-white">
-        <p className="text-sm font-bold uppercase tracking-wider">{sample.label}</p>
+        <p className="uppercase section-eyebrow section-eyebrow--compact">{sample.label}</p>
         <h2 className="mt-3 text-2xl font-bold">Example company</h2>
         <p className="mt-3 max-w-3xl leading-relaxed text-white/90">{sample.notice}</p>
       </div>

@@ -105,7 +105,7 @@
       "enquiryDetails": [
         "Airport terminal (DXB/DWC/AUH)",
         "Flight number",
-        "Passenger count",
+        "Employee count",
         "Luggage requirements"
       ],
       "published": true
@@ -150,7 +150,7 @@
       "enquiryDetails": [
         "Tour duration",
         "Destinations",
-        "Passenger count",
+        "Employee count",
         "Special requests"
       ],
       "published": true
@@ -245,7 +245,7 @@
     {
       "id": "coaches",
       "name": "Luxury Buses & Coaches",
-      "description": "Group passenger transit for summits and corporate tours.",
+      "description": "Group employee transit for summits and corporate tours.",
       "brochureModels": [
         "22-Seater VIP Coach",
         "44-Seater Luxury Bus"
@@ -337,7 +337,7 @@
     "viewAll": "Explore the fleet",
     "tabLabel": "Choose a vehicle category",
     "modelsLabel": "Brochure references",
-    "capacityLabel": "Passenger & luggage capacity",
+    "capacityLabel": "Employee & luggage capacity",
     "useLabel": "Best suited for",
     "priceDisplay": "Request a quote",
     "priceLabel": "Pricing",
@@ -353,7 +353,7 @@
         "id": "first-class",
         "tab": "First Class",
         "headline": "First-class executive chauffeur travel across Dubai & Abu Dhabi.",
-        "capacity": "Up to 3–4 passengers · 2–3 suitcases",
+        "capacity": "Up to 3–4 employees · 2–3 suitcases",
         "bestFor": "Airport VIP transfers · Financial district standby (DIFC) · Inter-Emirate travel",
         "image": "/images/india/services/service-airport-transfers.jpg",
         "imageAlt": "Mercedes-Benz S-Class luxury executive saloon",
@@ -364,7 +364,7 @@
         "id": "ultra-luxury",
         "tab": "Ultra-Luxury",
         "headline": "Pinnacle luxury and state delegation transport.",
-        "capacity": "Up to 3 passengers · Executive cabin",
+        "capacity": "Up to 3 employees · Executive cabin",
         "bestFor": "VIP delegations · Board members · Red carpet galas · Royal terminal arrivals",
         "image": "/images/india/luxury-interior.png",
         "imageAlt": "Mercedes-Maybach luxury passenger cabin",
@@ -375,7 +375,7 @@
         "id": "executive-suvs",
         "tab": "Executive SUVs",
         "headline": "Spacious luxury travel with generous luggage room.",
-        "capacity": "Up to 6 passengers · 5–6 suitcases",
+        "capacity": "Up to 6 employees · 5–6 suitcases",
         "bestFor": "International airport arrivals · Diplomatic security convoys · Executive groups",
         "image": "/images/uae/uae-hero.jpg",
         "imageAlt": "Cadillac Escalade executive SUV",
@@ -385,8 +385,8 @@
       {
         "id": "executive-vans",
         "tab": "Executive MPVs",
-        "headline": "Refined multi-passenger transit for delegations and project teams.",
-        "capacity": "Up to 6–7 passengers · 4–5 suitcases",
+        "headline": "Refined multi-employee transit for delegations and project teams.",
+        "capacity": "Up to 6–7 employees · 4–5 suitcases",
         "bestFor": "Visiting business teams · Corporate site visits · VIP hotel loop transit",
         "image": "/images/india/services/service-employee-transport.jpg",
         "imageAlt": "Mercedes-Benz V-Class luxury MPV",
@@ -453,8 +453,8 @@
       "otherCity": "Other Emirate / Corridor",
       "pickup": "Pickup location (e.g. DXB Terminal 3, DIFC)",
       "dropoff": "Drop-off location (e.g. Downtown, Abu Dhabi Corniche)",
-      "passengers": "Passengers travelling together",
-      "seats": "Passenger seats per vehicle",
+      "passengers": "Employees travelling together",
+      "seats": "Employee seats per vehicle",
       "capacityHelp": "Use the capacity you want to plan with, excluding the chauffeur. Our team will confirm suitable vehicles.",
       "distance": "One-way distance (km)",
       "days": "Travel days",
@@ -478,7 +478,7 @@
       "errors": {
         "pickup": "Enter a pickup location.",
         "dropoff": "Enter a drop-off location.",
-        "passengers": "Enter a whole passenger count greater than zero.",
+        "passengers": "Enter a whole employee count greater than zero.",
         "seats": "Enter a whole seat count greater than zero.",
         "distance": "Enter a distance greater than zero.",
         "days": "Enter a whole number of days greater than zero.",
@@ -506,7 +506,7 @@
       "city": "Emirate",
       "customCity": "Emirate / route",
       "service": "Service required",
-      "passengers": "Passengers per day (optional)",
+      "passengers": "Employees per day (optional)",
       "date": "Target start date (optional)",
       "schedule": "Operating schedule",
       "scheduleOptions": [
@@ -540,7 +540,7 @@
         "name": "Enter the contact person's name.",
         "email": "Enter a valid email address, or leave it blank.",
         "city": "Enter your Emirate or route.",
-        "passengers": "Enter a whole passenger count greater than zero.",
+        "passengers": "Enter a whole employee count greater than zero.",
         "date": "Choose a valid calendar date.",
         "details": "Add your routes, timings, or transport requirements."
       }
@@ -575,10 +575,10 @@
     ],
     "fallback": "Call us at +971 52 455 2441",
     "planningFields": {
-      "passengerLabel": "Passengers (optional)",
+      "passengerLabel": "Employees (optional)",
       "dateLabel": "Travel / start date (optional)",
       "help": "An estimate is fine. Leave these blank if you are still planning; add recurring dates or flight times in the details.",
-      "passengerError": "Enter a whole number of passengers greater than zero.",
+      "passengerError": "Enter a whole number of employees greater than zero.",
       "dateError": "Choose a valid calendar date."
     }
   },
@@ -654,11 +654,11 @@
   },
   "about": {
     "title": "International Mobility. Middle East Heritage.",
-    "description": "Victor Mobility UAE delivers executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi. Built on trust and passenger accountability under 'On Time Every Time.'",
+    "description": "Victor Mobility UAE delivers executive limousine services, DXB terminal transfers, corporate delegations, and luxury mobility across Dubai and Abu Dhabi. Built on trust and employee accountability under 'On Time Every Time.'",
     "coverage": "Dubai, Abu Dhabi, Sharjah, and Inter-Emirate Corridors",
     "cta": "Discuss your UAE transport requirement.",
     "story": {
-      "foundingVision": "Expanding from our established India foundation into Dubai and Abu Dhabi, Victor Mobility delivers its signature blend of luxury, precision, and passenger accountability to clients across the United Arab Emirates. Operating from our Dubai headquarters near Dubai International Airport, we serve multinational enterprises, aviation VIPs, and trade summit delegations.",
+      "foundingVision": "Expanding from our established India foundation into Dubai and Abu Dhabi, Victor Mobility delivers its signature blend of luxury, precision, and employee accountability to clients across the United Arab Emirates. Operating from our Dubai headquarters near Dubai International Airport, we serve multinational enterprises, aviation VIPs, and trade summit delegations.",
       "leadershipName": "Mujeeb Ur Rahman Mohammed",
       "leadershipRole": "Business Development Partner",
       "commitments": [
@@ -701,7 +701,7 @@
   "safetyCommitments": [
     {
       "title": "RTA-Licensed & Vetted Chauffeurs",
-      "description": "Every chauffeur carries a valid commercial limousine licence, comprehensive background vetting, and training in passenger safety and professional etiquette."
+      "description": "Every chauffeur carries a valid commercial limousine licence, comprehensive background vetting, and training in employee safety and professional etiquette."
     },
     {
       "title": "Punctual, Flight-Radar Monitored Fleet",
@@ -719,7 +719,7 @@
       "cabType": "Sedan",
       "fuelType": "Petrol",
       "isElectric": false,
-      "seatingCapacity": "3 Passengers",
+      "seatingCapacity": "3 Employees",
       "image": "/images/uae/services/service-chauffeur-luxury.webp",
       "imageAlt": "Mercedes-Benz S-Class luxury saloon",
       "description": "First-class executive limousine for airport VIP transfers and corporate roadshows across Dubai and Abu Dhabi."
@@ -730,7 +730,7 @@
       "cabType": "Sedan",
       "fuelType": "Petrol",
       "isElectric": false,
-      "seatingCapacity": "3 Passengers",
+      "seatingCapacity": "3 Employees",
       "image": "/images/uae/services/service-airport-transfers.webp",
       "imageAlt": "BMW 7 Series prestige saloon",
       "description": "Prestige executive saloon offering boardroom connectivity and quiet luxury for visiting leadership."
@@ -741,7 +741,7 @@
       "cabType": "Sedan",
       "fuelType": "Petrol",
       "isElectric": false,
-      "seatingCapacity": "3 Passengers",
+      "seatingCapacity": "3 Employees",
       "image": "/images/india/luxury-interior.png",
       "imageAlt": "Mercedes-Maybach ultra-luxury cabin",
       "description": "Pinnacle hospitality with first-class reclining Ottoman seating for private jet arrivals and VIP delegations."
@@ -752,9 +752,9 @@
       "cabType": "SUV",
       "fuelType": "Petrol",
       "isElectric": false,
-      "seatingCapacity": "6 Passengers",
-      "image": "/images/uae/uae-hero.jpg",
-      "imageAlt": "Cadillac Escalade executive SUV",
+      "seatingCapacity": "6 Employees",
+      "image": "/images/uae/fleet/cadillac-escalade.webp",
+      "imageAlt": "Cadillac Escalade luxury executive SUV",
       "description": "Commanding luxury SUV with spacious three-row seating and expansive luggage room for executive travel."
     },
     {
@@ -763,7 +763,7 @@
       "cabType": "SUV",
       "fuelType": "Petrol",
       "isElectric": false,
-      "seatingCapacity": "6 Passengers",
+      "seatingCapacity": "6 Employees",
       "image": "/images/uae/services/service-event-transport.webp",
       "imageAlt": "GMC Yukon Denali luxury SUV",
       "description": "Executive SUV tailored for delegation convoys, financial roadshows, and inter-emirate transit."
@@ -774,10 +774,10 @@
       "cabType": "12 Seater",
       "fuelType": "Diesel",
       "isElectric": false,
-      "seatingCapacity": "7 Passengers",
-      "image": "/images/uae/services/service-employee-transport.webp",
+      "seatingCapacity": "7 Employees",
+      "image": "/images/uae/fleet/mercedes-v-class.webp",
       "imageAlt": "Mercedes-Benz V-Class executive MPV",
-      "description": "Refined multi-passenger transit featuring face-to-face conference seating for visiting project teams."
+      "description": "Refined multi-employee transit featuring face-to-face conference seating for visiting project teams."
     },
     {
       "id": "vip-coach-22",
@@ -785,7 +785,7 @@
       "cabType": "12 Seater",
       "fuelType": "Diesel",
       "isElectric": false,
-      "seatingCapacity": "22 Passengers",
+      "seatingCapacity": "22 Employees",
       "image": "/images/uae/services/service-bus-shuttle.webp",
       "imageAlt": "22-Seater VIP Coach",
       "description": "Luxury mini-coach for trade summit delegations (GITEX, ADIPEC) and executive hotel shuttle loops."
@@ -796,7 +796,7 @@
       "cabType": "12 Seater",
       "fuelType": "Diesel",
       "isElectric": false,
-      "seatingCapacity": "44 Passengers",
+      "seatingCapacity": "44 Employees",
       "image": "/images/services/bus-shuttle-transport.webp",
       "imageAlt": "44-Seater Luxury Coach Bus",
       "description": "High-capacity luxury motorcoach connecting international convention centers, hotels, and airports."
@@ -807,7 +807,7 @@
       "cabType": "Sedan",
       "fuelType": "Electric Vehicle",
       "isElectric": true,
-      "seatingCapacity": "4 Passengers",
+      "seatingCapacity": "4 Employees",
       "image": "/images/india/electric-fleet.jpg",
       "imageAlt": "Executive Electric Limousine",
       "description": "Sustainable zero-emission executive transportation across Dubai and Abu Dhabi business corridors."
@@ -818,7 +818,7 @@
       "cabType": "SUV",
       "fuelType": "Long Range Electric Vehicle",
       "isElectric": true,
-      "seatingCapacity": "6 Passengers",
+      "seatingCapacity": "6 Employees",
       "image": "/images/fleet/mg-zs-ev.webp",
       "imageAlt": "Electric VIP Shuttle SUV",
       "description": "Eco-friendly premium delegation shuttle with long-range battery capability and silent acoustic cabin."

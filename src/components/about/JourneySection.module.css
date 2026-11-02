@@ -11,21 +11,18 @@
   gap: clamp(3rem, 6vw, 6rem);
 }
 
-.intro { position: sticky; top: 8rem; }
+.intro { --journey-title-size: clamp(2rem, 3.6vw, 3rem); position: sticky; top: 8rem; }
 
 .eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--color-blue);
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .heading {
   max-width: 9em;
   color: var(--color-ink);
-  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-size: var(--journey-title-size);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.045em;
@@ -192,8 +189,8 @@
 @media (max-width: 1023px) {
   .section { padding-block: 4rem; }
   .layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
-  .intro { position: static; }
-  .heading { max-width: none; font-size: 2.5rem; }
+  .intro { --journey-title-size: 2.5rem; position: static; }
+  .heading { max-width: none; }
   .summary { max-width: 42rem; }
   .journeyMark { max-width: 26rem; }
   .chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
@@ -202,8 +199,8 @@
 
 @media (max-width: 639px) {
   .section { padding-block: 3.5rem; }
-  .eyebrow { font-size: 0.625rem; }
-  .heading { max-width: 10em; font-size: 2.125rem; }
+  .intro { --journey-title-size: 2.125rem; }
+  .heading { max-width: 10em; }
   .summary { margin-top: 1rem; font-size: 0.9375rem; line-height: 1.75; }
   .journeyMark { margin-top: 1.5rem; padding: 1.25rem 4rem 1.25rem 1.5rem; border-radius: 1.25rem; }
   .yearRange { gap: 0.5rem; font-size: 1.75rem; }

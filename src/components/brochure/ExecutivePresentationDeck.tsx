@@ -154,7 +154,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
             <div className="p-6 sm:p-10 lg:p-12 flex-1 flex flex-col justify-center">
               <div className="max-w-4xl mx-auto w-full space-y-6">
                 <div>
-                  <span className="text-xs font-bold text-brand-blue uppercase tracking-widest block mb-1">
+                  <span className="text-brand-blue uppercase block mb-1 section-eyebrow">
                     <BrandText>{currentSlide.subtitle}</BrandText>
                   </span>
                   <h3 className="text-2xl sm:text-4xl font-extrabold text-brand-indigo tracking-tight">
@@ -399,7 +399,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
               </div>
 
               <div className="space-y-4">
-                <span className="text-xs font-bold text-brand-blue uppercase tracking-wider block">
+                <span className="text-brand-blue uppercase block section-eyebrow section-eyebrow--compact">
                   <BrandText>{slide.subtitle}</BrandText>
                 </span>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-brand-indigo">

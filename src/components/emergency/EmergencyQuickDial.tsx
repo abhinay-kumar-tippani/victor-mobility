@@ -35,7 +35,7 @@ export default function EmergencyQuickDial({ region }: EmergencyQuickDialProps) 
   // Hot-swap dispatch state
   const [vehicleNo, setVehicleNo] = useState("");
   const [currentLocation, setCurrentLocation] = useState("");
-  const [passengerCount, setPassengerCount] = useState("1-4 Passengers");
+  const [passengerCount, setPassengerCount] = useState("1-4 Employees");
   const [natureOfRequest, setNatureOfRequest] = useState("Vehicle Technical Assistance / Hot-Swap");
   const [copied, setCopied] = useState(false);
 
@@ -72,7 +72,7 @@ Immediate Operations Room review for nearest depot replacement vehicle dispatch 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="max-w-2xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-bold uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 uppercase section-eyebrow section-eyebrow--compact">
                 <Radio className="w-3.5 h-3.5 animate-pulse" />
                 24/7 Live Operations Desk
               </span>
@@ -193,7 +193,7 @@ Immediate Operations Room review for nearest depot replacement vehicle dispatch 
       {/* Interactive Priority Dispatch Brief Form */}
       <div className="bg-white rounded-3xl border border-brand-soft-neutral p-6 sm:p-10 shadow-sm">
         <div className="max-w-3xl mb-8">
-          <span className="text-xs uppercase font-bold tracking-widest text-brand-blue block mb-2">
+          <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
             Priority Incident Coordination
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo">
@@ -260,17 +260,17 @@ Immediate Operations Room review for nearest depot replacement vehicle dispatch 
 
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-brand-slate mb-2">
-              Passenger Volume Onboard
+              Employee Volume Onboard
             </label>
             <select
               value={passengerCount}
               onChange={(e) => setPassengerCount(e.target.value)}
               className="w-full px-4 py-3 bg-white border border-brand-soft-neutral rounded-xl text-brand-indigo font-medium text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
             >
-              <option value="1-4 Passengers">1 – 4 Passengers (Sedan / MPV)</option>
-              <option value="5-7 Passengers">5 – 7 Passengers (Executive MPV / SUV)</option>
-              <option value="8-20 Passengers">8 – 20 Passengers (Tempo Traveler / Minibus)</option>
-              <option value="20+ Passengers">20+ Passengers (Luxury Staff Coach)</option>
+              <option value="1-4 Employees">1 – 4 Employees (Sedan / MPV)</option>
+              <option value="5-7 Employees">5 – 7 Employees (Executive MPV / SUV)</option>
+              <option value="8-20 Employees">8 – 20 Employees (Tempo Traveler / Minibus)</option>
+              <option value="20+ Employees">20+ Employees (Luxury Staff Coach)</option>
             </select>
           </div>
         </div>

@@ -114,9 +114,9 @@
       },
       {
         "modelId": "night-escort",
-        "name": "Women Passenger Night Escort Protocol",
+        "name": "Female Employee Night Escort Protocol",
         "timings": "08:00 PM to 06:00 AM Night Drops",
-        "description": "Mandatory security escort protocol for women employees: GPS route monitoring, panic button telemetry, safe doorstep drops, and verified escort chauffeurs.",
+        "description": "Mandatory security escort protocol for female employees: GPS route monitoring, panic button telemetry, safe doorstep drops, and verified escort chauffeurs.",
         "fleetRecommendation": "GPS-monitored Executive MPVs with Certified Night Escort Badge Chauffeurs."
       }
     ],
@@ -130,8 +130,8 @@
         "answer": "Yes. Our vehicles carry pre-registered RFID windshield tags and commercial transport permits required for direct access into parks such as Mindspace Hyderabad, Manyata Bengaluru, and EON Kharadi."
       },
       {
-        "question": "How does the Women Passenger Night Escort Protocol operate?",
-        "answer": "For pickups and drops between 08:00 PM and 06:00 AM, vehicles are assigned verified chauffeurs who hold our Women Safety Escort Badge (/india/academy/verify). Chauffeurs remain stationary at the employee's residential gate until safe indoor entry is visually confirmed."
+        "question": "How does the Female Employee Night Escort Protocol operate?",
+        "answer": "For pickups and drops between 08:00 PM and 06:00 AM, vehicles are assigned verified chauffeurs who hold our Female Safety Escort Badge (/india/academy/verify). Chauffeurs remain stationary at the employee's residential gate until safe indoor entry is visually confirmed."
       },
       {
         "question": "Can we configure custom nodal pickup points in residential clusters?",

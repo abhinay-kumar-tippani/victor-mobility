@@ -121,7 +121,7 @@ export default function AirportProtocolDesk({
       `Guest Name on Placard: ${guestName}`,
       `Corporate Entity: ${organization}`,
       `Selected Fleet Class: ${currentClass.className} (${currentClass.models})`,
-      `Passengers: ${passengerCount} | Luggage Bags: ${luggageCount}`,
+      `Employees: ${passengerCount} | Luggage Bags: ${luggageCount}`,
       `Designated Meeting Bay: ${currentTerminal.pickupBay}`,
       `Requested Amenities: ${amenitiesList.join(', ')}`,
       '',
@@ -144,7 +144,7 @@ export default function AirportProtocolDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -376,7 +376,7 @@ export default function AirportProtocolDesk({
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                      Passengers
+                      Employees
                     </label>
                     <select
                       value={passengerCount}
@@ -488,7 +488,7 @@ export default function AirportProtocolDesk({
                   </div>
 
                   <div className="py-8 space-y-3">
-                    <span className="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Welcome to {currentAirport.city}</span>
+                    <span className="uppercase text-slate-400 section-eyebrow section-eyebrow--compact">Welcome to {currentAirport.city}</span>
                     <h3 className="text-2xl sm:text-3xl font-black text-amber-400 tracking-tight leading-tight px-2">
                       {guestName || 'GUEST NAME'}
                     </h3>
@@ -733,7 +733,7 @@ export default function AirportProtocolDesk({
         {/* Direct Concierge Contact Box */}
         <section className="mt-12 bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 print:border-slate-300 print:bg-white print:text-black">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase font-bold tracking-wider text-amber-400">
+            <span className="uppercase text-amber-400 section-eyebrow section-eyebrow--compact">
               Airport Terminal &amp; Flight Protocol Dispatch Desk
             </span>
             <h3 className="text-2xl font-bold text-white mt-1 mb-3 print:text-black">

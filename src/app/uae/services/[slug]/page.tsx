@@ -69,7 +69,7 @@ const serviceVisualMap: Record<
     highlights: [
       {
         title: "Discretion & Executive Etiquette",
-        desc: "Experienced, courteous bilingual chauffeurs trained in executive etiquette, non-intrusive service, and strict passenger confidentiality.",
+        desc: "Experienced, courteous bilingual chauffeurs trained in executive etiquette, non-intrusive service, and strict employee confidentiality.",
       },
       {
         title: "First Class Cabin Comfort & Amenities",
@@ -91,7 +91,7 @@ const serviceVisualMap: Record<
         },
         {
           step: "2. Executive Greeting & Route Review",
-          detail: "Chauffeur greets passengers courteously, assists with luggage, and confirms the optimal expressway or city corridor route.",
+          detail: "Chauffeur greets employees courteously, assists with luggage, and confirms the optimal expressway or city corridor route.",
         },
         {
           step: "3. Route Discretion & Cabin Privacy",
@@ -233,7 +233,7 @@ const serviceVisualMap: Record<
       },
       {
         title: "RTA Compliant Fleet",
-        desc: "Air-conditioned 22 & 44-seater luxury coaches and passenger vans maintained under strict commercial inspection standards.",
+        desc: "Air-conditioned 22 & 44-seater luxury coaches and commuter vans maintained under strict commercial inspection standards.",
       },
     ],
     recommendedComplementary: ["rent-a-car", "event-transportation"],
@@ -436,7 +436,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                   <Icon className="w-3.5 h-3.5 text-brand-violet" />
                   <span>{service.badge || "UAE Service"}</span>
                 </span>
@@ -510,7 +510,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                 {/* Experiential Highlights / Standards */}
                 <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
                   <div>
-                    <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-1">
+                    <span className="uppercase text-brand-blue block mb-1 section-eyebrow section-eyebrow--compact">
                       Service Standards
                     </span>
                     <h3 className="text-xl font-bold text-brand-ink">
@@ -544,7 +544,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                 {visualData.scenario && (
                   <div className="bg-white rounded-3xl p-7 sm:p-9 border border-brand-soft-neutral shadow-sm space-y-6">
                     <div>
-                      <span className="text-xs uppercase tracking-widest font-bold text-brand-indigo block mb-1">
+                      <span className="uppercase text-brand-indigo block mb-1 section-eyebrow section-eyebrow--compact">
                         Operational Workflow
                       </span>
                       <h3 className="text-xl font-bold text-brand-ink">
@@ -578,7 +578,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
                   <div className="bg-slate-950 text-white rounded-3xl p-7 sm:p-9 border border-slate-800 shadow-xl space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
-                        <span className="text-xs uppercase tracking-widest font-bold text-amber-400 block mb-1">
+                        <span className="uppercase text-amber-400 block mb-1 section-eyebrow section-eyebrow--compact">
                           VIP Aviation Protocol
                         </span>
                         <h3 className="text-xl font-bold text-white">
@@ -704,7 +704,7 @@ export default function UaeServiceDetailPage({ params }: PageProps) {
               <div className="lg:col-span-4 space-y-6">
                 <div className="bg-white rounded-3xl p-7 border border-brand-soft-neutral shadow-sm space-y-6 sticky top-28">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue block mb-1">
+                    <span className="uppercase text-brand-blue block mb-1 section-eyebrow section-eyebrow--compact">
                       Direct Reservation
                     </span>
                     <h3 className="text-xl font-bold text-brand-ink">

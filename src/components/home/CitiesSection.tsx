@@ -57,7 +57,7 @@ export default function CitiesSection({ cities, offices, contact }: CitiesSectio
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+            <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
               Corporate Presence
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
@@ -94,7 +94,7 @@ export default function CitiesSection({ cities, offices, contact }: CitiesSectio
                     <div className="w-9 h-9 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                       <Building2 className="w-4 h-4" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-brand-soft-neutral/70 text-brand-indigo">
+                    <span className="uppercase px-2 py-0.5 rounded bg-brand-soft-neutral/70 text-brand-indigo section-eyebrow section-eyebrow--compact">
                       {highlight.role}
                     </span>
                   </div>

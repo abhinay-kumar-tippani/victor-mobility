@@ -126,7 +126,7 @@ export default function CorporateBillingDesk({
       {/* Hero Header */}
       <section className="bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 print:bg-white print:text-black print:py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 print:text-slate-800 print:border-slate-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 uppercase mb-4 print:text-slate-800 print:border-slate-300 section-eyebrow section-eyebrow--hero">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse print:hidden"></span>
             <BrandText>{eyebrow}</BrandText>
           </div>
@@ -233,7 +233,7 @@ export default function CorporateBillingDesk({
               <div>
                 <h2 className="text-2xl font-bold text-white print:text-black">Digital Duty Slip Audit Inspector</h2>
                 <p className="text-sm text-slate-400 mt-1 print:text-slate-600">
-                  Inspect authentic corporate trip records with automated GPS odometer readings, Fastag/Salik toll logging, and passenger OTP authentication.
+                  Inspect authentic corporate trip records with automated GPS odometer readings, Fastag/Salik toll logging, and employee OTP authentication.
                 </p>
               </div>
 
@@ -261,7 +261,7 @@ export default function CorporateBillingDesk({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 print:border-slate-300 gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs uppercase font-extrabold tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded print:text-slate-900 print:border-slate-400"><BrandText>
+                    <span className="uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded print:text-slate-900 print:border-slate-400 section-eyebrow section-eyebrow--compact"><BrandText>
                       VICTOR MOBILITY · VERIFIED MANIFEST
                     </BrandText></span>
                     <span className="text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2 py-0.5 rounded print:hidden">
@@ -318,7 +318,7 @@ export default function CorporateBillingDesk({
                   <span className="font-semibold text-white print:text-black">{currentSlip.endKm}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between py-1 gap-1">
-                  <span className="text-slate-400">Passenger Authentication:</span>
+                  <span className="text-slate-400">Employee Authentication:</span>
                   <span className="font-semibold text-emerald-400 print:text-black">{currentSlip.signatureStatus}</span>
                 </div>
               </div>
@@ -422,7 +422,7 @@ export default function CorporateBillingDesk({
               <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                    <span className="uppercase text-amber-400 section-eyebrow section-eyebrow--compact">
                       Corporate Tax Reconciliation
                     </span>
                     <h3 className="text-xl font-bold text-white mt-0.5">
@@ -596,7 +596,7 @@ export default function CorporateBillingDesk({
         {/* Corporate Finance Contact Box */}
         <section className="mt-12 bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 print:border-slate-300 print:bg-white print:text-black">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase font-bold tracking-wider text-amber-400">
+            <span className="uppercase text-amber-400 section-eyebrow section-eyebrow--compact">
               Corporate Accounts &amp; Credit Desk
             </span>
             <h3 className="text-2xl font-bold text-white mt-1 mb-3 print:text-black">

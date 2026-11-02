@@ -200,7 +200,7 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-indigo inline-flex items-center gap-1.5">
+            <span className="uppercase text-brand-indigo inline-flex items-center gap-1.5 section-eyebrow">
               <Route className="w-3.5 h-3.5 text-brand-violet" />
               Strategic Transit Corridors
             </span>
@@ -258,7 +258,7 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
           {/* Left Column: Hub Overview & Key Zones */}
           <div className="lg:col-span-6 space-y-6">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-brand-warm-white text-brand-indigo border border-brand-soft-neutral">
+              <span className="uppercase px-3 py-1 rounded-full bg-brand-warm-white text-brand-indigo border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
                 {activeHub.badge}
               </span>
               <span className="text-xs font-medium text-brand-ink/60 flex items-center gap-1.5">

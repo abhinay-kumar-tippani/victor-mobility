@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "india": {
     "title": "Enterprise Fleet Safety, IoT Telematics & Vehicle Audit Desk",
-    "eyebrow": "AIS-140 Telematics · 50-Point Audits · Women Safety Protocols",
+    "eyebrow": "AIS-140 Telematics · 50-Point Audits · Female Safety Protocols",
     "description": "Comprehensive fleet safety architecture, onboard AIS-140 IoT telematics, pre-dispatch 50-point mechanical audits, and specialized night transit security protocols across 10 operational hubs pan-India.",
     "auditCategories": [
       {
@@ -31,7 +31,7 @@
       },
       {
         "id": "passenger-safety",
-        "name": "Passenger Cabin Safety & First Aid",
+        "name": "Employee Cabin Safety & First Aid",
         "icon": "user-check",
         "checks": [
           { "item": "3-Point Inertia-Reel Seatbelts", "spec": "All passenger seats equipped with tested retractable lock seatbelts", "status": "Passed" },
@@ -81,18 +81,18 @@
       }
     ],
     "womenSafetyProtocol": {
-      "title": "Women Passenger Night Transit Protocol (20:00 to 06:00)",
+      "title": "Female Employee Night Transit Protocol (20:00 to 06:00)",
       "badge": "Escort Chauffeur Certified",
       "steps": [
         {
           "step": "01",
           "title": "Chauffeur Credential Verification",
-          "description": "Only top-rated chauffeurs who have completed our Women Passenger Safety Certification and verified background police checks are assigned to night shift rosters."
+          "description": "Only top-rated chauffeurs who have completed our Female Employee Safety Certification and verified background police checks are assigned to night shift rosters."
         },
         {
           "step": "02",
           "title": "Encrypted Live Geofence Tracking",
-          "description": "A live encrypted tracking link is automatically dispatched via SMS/WhatsApp to the passenger and her corporate transport supervisor upon vehicle arrival."
+          "description": "A live encrypted tracking link is automatically dispatched via SMS/WhatsApp to the employee and her corporate transport supervisor upon vehicle arrival."
         },
         {
           "step": "03",
@@ -102,7 +102,7 @@
         {
           "step": "04",
           "title": "Visual Handshake Trip Completion",
-          "description": "The chauffeur remains stationary until the passenger enters her residence, securely closes the door, and provides a visual or wave confirmation. Only then is the digital duty slip closed."
+          "description": "The chauffeur remains stationary until the employee enters her residence, securely closes the door, and provides a visual or wave confirmation. Only then is the digital duty slip closed."
         }
       ]
     },
@@ -117,7 +117,7 @@
       },
       {
         "question": "Are your chauffeurs trained in emergency first aid and CPR?",
-        "answer": "Yes. Through the Victor Chauffeur Academy (/india/academy), all chauffeurs undergo certified first-aid training, CPR protocols, and basic emergency vehicle handling to assist passengers in unforeseen medical situations."
+        "answer": "Yes. Through the Victor Chauffeur Academy (/india/academy), all chauffeurs undergo certified first-aid training, CPR protocols, and basic emergency vehicle handling to assist employees in unforeseen medical situations."
       },
       {
         "question": "How do you ensure alcohol-free driving across your fleet?",
@@ -156,7 +156,7 @@
       },
       {
         "id": "passenger-safety",
-        "name": "VIP Passenger Cabin Protection & Medical",
+        "name": "VIP Employee Cabin Protection & Medical",
         "icon": "user-check",
         "checks": [
           { "item": "Acoustic & Security Privacy Glass", "spec": "RTA-compliant legal tinted security windows with UV heat rejection", "status": "Passed" },
@@ -189,7 +189,7 @@
       {
         "name": "Executive Emergency SOS Bridge",
         "tagline": "Direct Central Control & Police Link",
-        "description": "Silent security distress bridge allowing executive passengers or chauffeurs to signal emergency response without drawing external attention.",
+        "description": "Silent security distress bridge allowing executive employees or chauffeurs to signal emergency response without drawing external attention.",
         "specs": ["Encrypted silent cloud alert", "Automatic Dubai Police / Abu Dhabi Police bridge", "Command desk live audio patch", "Priority dispatch interception"]
       },
       {
@@ -212,7 +212,7 @@
         {
           "step": "01",
           "title": "Vetted Executive Chauffeur Assignment",
-          "description": "Chauffeurs assigned to international delegations, women executives, and diplomatic missions hold advanced security driving certifications."
+          "description": "Chauffeurs assigned to international delegations, female executives, and diplomatic missions hold advanced security driving certifications."
         },
         {
           "step": "02",
@@ -242,11 +242,11 @@
       },
       {
         "question": "Can corporate clients request female chauffeurs for executive transfers?",
-        "answer": "Yes. Upon prior reservation, Victor Mobility provides certified professional female chauffeurs for corporate women executives, families, and diplomatic guests across Dubai and Abu Dhabi."
+        "answer": "Yes. Upon prior reservation, Victor Mobility provides certified professional female chauffeurs for corporate female executives, families, and diplomatic guests across Dubai and Abu Dhabi."
       },
       {
-        "question": "What is the procedure if a passenger accidentally leaves valuables inside the limousine?",
-        "answer": "All cabins undergo an immediate inspection by the chauffeur upon passenger drop-off. Any left items are logged with our 24/7 Dubai Dispatch Desk and returned via secure courier within 2 hours."
+        "question": "What is the procedure if an employee accidentally leaves valuables inside the limousine?",
+        "answer": "All cabins undergo an immediate inspection by the chauffeur upon employee drop-off. Any left items are logged with our 24/7 Dubai Dispatch Desk and returned via secure courier within 2 hours."
       }
     ]
   }

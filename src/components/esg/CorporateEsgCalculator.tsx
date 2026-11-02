@@ -120,7 +120,7 @@ We would like to consult your corporate mobility desk on integrating Scope 3 emp
         {/* Workspace Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-brand-soft-neutral pb-6">
           <div className="space-y-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-bold uppercase tracking-wider text-emerald-700">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 uppercase text-emerald-700 section-eyebrow section-eyebrow--compact">
               <Leaf className="w-3.5 h-3.5" />
               Scope 3 Carbon Modeling Tool
             </span>
@@ -158,7 +158,7 @@ We would like to consult your corporate mobility desk on integrating Scope 3 emp
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-brand-slate">Daily Corporate Commuters</span>
                 <span className="font-extrabold text-brand-indigo text-base bg-white px-3 py-1 rounded-lg border border-brand-soft-neutral shadow-2xs">
-                  {commuterCount} Passengers
+                  {commuterCount} Employees
                 </span>
               </div>
               <input
@@ -335,7 +335,7 @@ We would like to consult your corporate mobility desk on integrating Scope 3 emp
       {/* 4 ESG OPERATIONAL PILLARS */}
       <div className="space-y-6">
         <div className="max-w-2xl space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-blue block">
+          <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
             Environmental Governance
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight"><BrandText>

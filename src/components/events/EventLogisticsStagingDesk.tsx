@@ -96,7 +96,7 @@ Please review our event transit parameters and provide an operational staging bl
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-brand-soft-neutral pb-4">
           <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-blue block">
+            <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
               Step 1 · Event Profile
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold text-brand-indigo">
@@ -173,7 +173,7 @@ Please review our event transit parameters and provide an operational staging bl
       {/* SECTION 2: INTERACTIVE FLEET STAGING CALCULATOR */}
       <div className="bg-white rounded-3xl border-2 border-brand-indigo/10 shadow-xl p-6 sm:p-10 space-y-8">
         <div className="max-w-2xl space-y-1">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-blue block">
+          <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
             Step 2 · Scale &amp; Staging Parameters
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight">
@@ -375,7 +375,7 @@ Please review our event transit parameters and provide an operational staging bl
       {/* SECTION 3: 4-PHASE OPERATIONAL PLAYBOOK */}
       <div className="space-y-6">
         <div className="max-w-2xl space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-blue block">
+          <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
             Operational Governance
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-indigo tracking-tight">

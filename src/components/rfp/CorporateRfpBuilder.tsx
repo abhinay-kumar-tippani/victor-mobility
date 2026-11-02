@@ -85,7 +85,7 @@ export default function CorporateRfpBuilder({
         ];
 
   const commuterTiers = [
-    "Under 50 Passengers / Day",
+    "Under 50 Employees / Day",
     "50 – 200 Commuters / Day",
     "200 – 500 Commuters / Day",
     "500 – 1,500 Commuters / Day",
@@ -248,7 +248,7 @@ export default function CorporateRfpBuilder({
       <div className="bg-brand-ink text-white p-6 sm:p-8 border-b border-brand-indigo/30">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-violet block">
+            <span className="uppercase text-brand-violet block section-eyebrow section-eyebrow--compact">
               Enterprise Procurement Desk · {region === "uae" ? "UAE" : "India"}
             </span>
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">
@@ -639,7 +639,7 @@ export default function CorporateRfpBuilder({
         {step === 4 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div className="max-w-xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 uppercase mb-2 section-eyebrow section-eyebrow--compact">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 RFP Specification Compiled
               </span>

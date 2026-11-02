@@ -18,7 +18,7 @@
         "title": "High-Contrast Digital Tablet Paging",
         "subtitle": "Pristine Terminal Meeting Standard",
         "metric": "Curbside / Arrivals Gate Paging",
-        "description": "Uniformed chauffeurs in dark business suits display high-visibility illuminated digital tablets featuring passenger name, corporate logo, and flight number at the designated terminal greeting bay.",
+        "description": "Uniformed chauffeurs in dark business suits display high-visibility illuminated digital tablets featuring employee or guest name, corporate logo, and flight number at the designated terminal greeting bay.",
         "badge": "Executive Paging"
       },
       {
@@ -47,13 +47,13 @@
           {
             "name": "Terminal 1 (Domestic & International Arrivals)",
             "pickupBay": "Arrivals Gate 4 / Aeromall Dedicated Commercial Staging Bay",
-            "curbsideInstructions": "Chauffeur holds digital placard directly outside Passenger Arrival Exit Bay 4. Dedicated vehicle staged at Aeromall Level 1 VIP parking with immediate curbside pull-up.",
+            "curbsideInstructions": "Chauffeur holds digital placard directly outside Arrival Exit Bay 4. Dedicated vehicle staged at Aeromall Level 1 VIP parking with immediate curbside pull-up.",
             "averageTransitToTechCorridor": "35–45 minutes to Gachibowli & Hitec City via PVNR Expressway and ORR."
           },
           {
             "name": "CIP / VIP Executive Lounge (Tarmac Liaison)",
             "pickupBay": "VIP Protocol Terminal Gate",
-            "curbsideInstructions": "Direct tarmac liaison and protocol escort for high-ranking dignitaries and private charter passengers.",
+            "curbsideInstructions": "Direct tarmac liaison and protocol escort for high-ranking dignitaries and private charter employees.",
             "averageTransitToTechCorridor": "30–40 minutes to Financial District via Nehru Outer Ring Road."
           }
         ]
@@ -118,7 +118,7 @@
       },
       {
         "classId": "vip-coach",
-        "className": "Luxury Passenger Shuttle Coach",
+        "className": "Luxury Shuttle Coach",
         "models": "22-Seater & 44-Seater AC Luxury Executive Coach",
         "passengers": "Up to 20 / 40 Delegation Guests",
         "luggage": "Dedicated Underfloor Luggage Bays (Up to 30+ Bags)",
@@ -132,7 +132,7 @@
       },
       {
         "question": "Where exactly will the chauffeur greet the visiting executive at Hyderabad RGIA?",
-        "answer": "For commercial flights at RGIA Hyderabad, your chauffeur awaits directly outside Arrivals Gate 4 holding a digital tablet with the passenger's name and company logo. For CIP/VIP lounge users, protocol liaison is staged at the VIP gate."
+        "answer": "For commercial flights at RGIA Hyderabad, your chauffeur awaits directly outside Arrivals Gate 4 holding a digital tablet with the employee's name and company logo. For CIP/VIP lounge users, protocol liaison is staged at the VIP gate."
       },
       {
         "question": "Can Victor Mobility accommodate large group arrivals with significant luggage?",
@@ -197,7 +197,7 @@
           {
             "name": "Terminal 1 (International Airlines Arrivals)",
             "pickupBay": "Arrivals Concourse B Meeting Area / Commercial Limousine Bay",
-            "curbsideInstructions": "Paging at the central T1 passenger exit gate. Vehicle staged at T1 Pre-Booked Limousine Lane.",
+            "curbsideInstructions": "Paging at the central T1 arrival exit gate. Vehicle staged at T1 Pre-Booked Limousine Lane.",
             "averageTransitToTechCorridor": "20–25 minutes to Sheikh Zayed Road commercial towers."
           },
           {
@@ -229,7 +229,7 @@
           {
             "name": "Terminal A (Flagship Terminal - Etihad & Global Airlines)",
             "pickupBay": "Terminal A Ground Transportation Center / VIP Valet Curbside",
-            "curbsideInstructions": "Chauffeur welcomes passenger at Terminal A Arrivals Walkway. Limousine staged in VIP express lane for swift departure.",
+            "curbsideInstructions": "Chauffeur welcomes guest at Terminal A Arrivals Walkway. Limousine staged in VIP express lane for swift departure.",
             "averageTransitToTechCorridor": "25–30 minutes to Abu Dhabi Global Market (ADGM) & Corniche."
           }
         ]

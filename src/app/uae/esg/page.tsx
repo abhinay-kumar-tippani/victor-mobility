@@ -54,7 +54,7 @@ export default function UaeEsgPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-xs font-bold tracking-widest uppercase text-emerald-300">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 uppercase text-emerald-300 section-eyebrow section-eyebrow--hero">
                 <Leaf className="w-3.5 h-3.5" />
                 UAE Net Zero 2050 Alignment
               </span>

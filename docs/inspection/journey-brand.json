@@ -1,0 +1,74 @@
+[
+  {
+    "route": "india",
+    "width": 320,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "india",
+    "width": 390,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "india",
+    "width": 768,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "india",
+    "width": 1440,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "uae",
+    "width": 320,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "uae",
+    "width": 390,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "uae",
+    "width": 768,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  },
+  {
+    "route": "uae",
+    "width": 1440,
+    "overflow": 0,
+    "background": "rgb(246, 245, 242)",
+    "blend": "lighten",
+    "wordmarkFilter": "brightness(0) invert(1)",
+    "loaded": true
+  }
+]

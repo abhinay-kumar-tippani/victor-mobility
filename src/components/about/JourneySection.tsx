@@ -21,7 +21,7 @@ export default function JourneySection() {
     <section id="journey" aria-labelledby="journey-heading" className={styles.section}>
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${styles.layout}`}>
         <div className={styles.intro}>
-          <p className={styles.eyebrow}><BrandText>{journey.eyebrow}</BrandText></p>
+          <p className={`${styles.eyebrow} section-eyebrow`}><BrandText>{journey.eyebrow}</BrandText></p>
           <h2 id="journey-heading" className={styles.heading}><BrandText>{journey.title}</BrandText></h2>
           <p dir="auto" className={styles.summary}><BrandText>{journey.subtitle}</BrandText></p>
 

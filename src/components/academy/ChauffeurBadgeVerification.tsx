@@ -79,7 +79,7 @@ Our corporate security/procurement team is conducting a vendor driver audit. Ple
       {/* Search Bar & Sample Badge Chips */}
       <div className="bg-white rounded-3xl border border-brand-soft-neutral shadow-sm p-6 sm:p-8 space-y-5 print:hidden">
         <div className="max-w-2xl space-y-1">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-blue block">
+          <span className="uppercase text-brand-blue block section-eyebrow section-eyebrow--compact">
             Central Safety Registry
           </span>
           <h3 className="text-xl sm:text-2xl font-extrabold text-brand-indigo">
@@ -268,12 +268,12 @@ Our corporate security/procurement team is conducting a vendor driver audit. Ple
                 </div>
               </div>
 
-              {/* Pillar 4: Women Passenger Night Safety */}
+              {/* Pillar 4: Female Employee Night Safety */}
               <div className="p-5 rounded-2xl bg-purple-50/40 border border-purple-200/70 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-purple-950 flex items-center gap-1.5">
                     <Moon className="w-4 h-4 text-purple-600" />
-                    Women Passenger Night Escort
+                    Female Employee Night Escort
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-purple-600 text-white text-[10px] font-bold uppercase">
                     {currentRecord.womenSafetyRating.rating}

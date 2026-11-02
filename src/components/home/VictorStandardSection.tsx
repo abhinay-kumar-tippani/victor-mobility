@@ -40,11 +40,11 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
       icon: Clock,
       number: "02",
       imageSrc: "/images/india/safety/safety-women-safety.jpg",
-      imageAlt: "Corporate woman passenger safely commuting with real-time GPS route monitoring",
-      title: dict.safetySection?.pillars?.[1]?.title || "Safety for women passengers",
+      imageAlt: "Corporate female employee safely commuting with real-time GPS route monitoring",
+      title: dict.safetySection?.pillars?.[1]?.title || "Safety for female employees",
       description:
         dict.safetySection?.pillars?.[1]?.description ||
-        "Escort protocols, live route monitoring and SOS coordination for evening and night shifts.",
+        "Escort protocols, live route monitoring and SOS coordination for specific shifts.",
     },
     {
       id: "defensive-driving",
@@ -80,7 +80,7 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2.5">
+          <span className="uppercase text-brand-blue block mb-2.5 section-eyebrow">
             <BrandText>{dict.safetySection.eyebrow}</BrandText>
           </span>
           <h2

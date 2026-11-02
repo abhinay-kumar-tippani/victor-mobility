@@ -53,7 +53,7 @@ export default function IndiaEmergencyPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-xs font-bold tracking-widest uppercase text-rose-300">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 uppercase text-rose-300 section-eyebrow section-eyebrow--hero">
                 <PhoneCall className="w-3.5 h-3.5" />
                 24/7 Central Operations Control
               </span>
@@ -61,7 +61,7 @@ export default function IndiaEmergencyPage() {
                 Operations &amp; Emergency Quick-Dial
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Connect immediately with our central fleet controllers for flight schedule changes, immediate vehicle hot-swaps, or emergency passenger support, backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Connect immediately with our central fleet controllers for flight schedule changes, immediate vehicle hot-swaps, or emergency employee support, backed by: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">
@@ -75,7 +75,7 @@ export default function IndiaEmergencyPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Women Safety Night Escort Support</span>
+                  <span>Female Safety Night Escort Support</span>
                 </div>
               </div>
             </div>

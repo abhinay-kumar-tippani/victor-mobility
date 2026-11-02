@@ -73,7 +73,7 @@ export default function UaeFleetPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <Car className="w-3.5 h-3.5 text-brand-violet" />
                 UAE Executive Fleet &amp; Virtual Inspection Desk
               </span>
@@ -98,14 +98,14 @@ export default function UaeFleetPage() {
         <section className="py-16 sm:py-20 bg-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div className="max-w-3xl">
-              <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+              <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
                 Capacity &amp; Amenities
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight mb-3">
                 Vehicle Standards &amp; Luggage Allowances
               </h2>
               <p className="text-sm sm:text-base text-brand-ink/75 leading-relaxed">
-                Choose the optimal vehicle category based on passenger numbers, luggage volumes, and desired travel atmosphere.
+                Choose the optimal vehicle category based on employee numbers, luggage volumes, and desired travel atmosphere.
               </p>
             </div>
 
@@ -116,7 +116,7 @@ export default function UaeFleetPage() {
                 </div>
                 <h3 className="text-xl font-bold text-brand-ink">First Class Saloons</h3>
                 <p className="text-xs text-brand-ink/70">
-                  Mercedes-Benz S-Class &amp; BMW 7 Series. Comfortably accommodates up to 3 passengers with 2 large suitcases and 2 cabin bags.
+                  Mercedes-Benz S-Class &amp; BMW 7 Series. Comfortably accommodates up to 3 employees with 2 large suitcases and 2 cabin bags.
                 </p>
                 <div className="pt-3 border-t border-brand-soft-neutral text-xs text-brand-indigo font-semibold">
                   Ideal for: Airport VIP, Executive Meetings &amp; Board Travel
@@ -129,7 +129,7 @@ export default function UaeFleetPage() {
                 </div>
                 <h3 className="text-xl font-bold text-brand-ink">Executive SUVs &amp; MPVs</h3>
                 <p className="text-xs text-brand-ink/70">
-                  Cadillac Escalade, GMC Yukon &amp; Mercedes-Benz V-Class. Accommodates 5 to 7 passengers with up to 6 large suitcases.
+                  Cadillac Escalade, GMC Yukon &amp; Mercedes-Benz V-Class. Accommodates 5 to 7 employees with up to 6 large suitcases.
                 </p>
                 <div className="pt-3 border-t border-brand-soft-neutral text-xs text-brand-indigo font-semibold">
                   Ideal for: Family Occasions, Delegation Convoys &amp; Golf Excursions
@@ -157,7 +157,7 @@ export default function UaeFleetPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="space-y-2 max-w-xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-violet block">
+                <span className="uppercase text-brand-violet block section-eyebrow section-eyebrow--compact">
                   Reserve UAE Fleet
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold">

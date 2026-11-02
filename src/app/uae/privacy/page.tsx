@@ -31,7 +31,7 @@ export default function UaePrivacyPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-violet" />
                 UAE Data Protection & Transparency
               </span>
@@ -40,7 +40,7 @@ export default function UaePrivacyPage() {
               </h1>
               <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
                 Victor Luxury Limousine LLC (Victor Mobility UAE) is committed to protecting your corporate delegations
-                and personal passenger details in alignment with UAE Federal Decree-Law No. 45 of 2021 regarding Personal Data Protection.
+                and personal employee details in alignment with UAE Federal Decree-Law No. 45 of 2021 regarding Personal Data Protection.
               </BrandText></p>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function UaePrivacyPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-brand-violet shrink-0 mt-0.5" />
-                  <span><strong>Flight & Journey Details:</strong> Flight numbers (for DXB / AUH terminal radar tracking), arrival times, pickup points, hotel destinations, passenger counts, and luggage volume.</span>
+                  <span><strong>Flight & Journey Details:</strong> Flight numbers (for DXB / AUH terminal radar tracking), arrival times, pickup points, hotel destinations, employee counts, and luggage volume.</span>
                 </li>
               </ul>
             </div>

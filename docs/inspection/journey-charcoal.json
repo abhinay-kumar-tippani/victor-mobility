@@ -1,0 +1,82 @@
+[
+  {
+    "route": "india",
+    "width": 320,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 1136.875,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "india",
+    "width": 390,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 1037.203125,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "india",
+    "width": 768,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 1175.375,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "india",
+    "width": 1440,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 701.9375,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "india",
+    "viewerClosed": true
+  },
+  {
+    "route": "uae",
+    "width": 320,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 1136.875,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "uae",
+    "width": 390,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 1037.203125,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "uae",
+    "width": 768,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 1175.375,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "uae",
+    "width": 1440,
+    "overflow": 0,
+    "imageLoaded": true,
+    "heading": "The Journey of Victor",
+    "sectionHeight": 701.9375,
+    "background": "rgb(20, 20, 20)"
+  },
+  {
+    "route": "uae",
+    "viewerClosed": true
+  }
+]

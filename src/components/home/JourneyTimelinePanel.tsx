@@ -52,7 +52,7 @@ export default function JourneyTimelinePanel({ milestones }: { milestones: Miles
     <div className="overflow-hidden rounded-[28px] border border-white/15 bg-[linear-gradient(145deg,#1D1B31_0%,#10101D_58%,#1B172B_100%)] shadow-[0_28px_80px_rgba(0,0,0,0.42)]">
       <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7 sm:py-5">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-violet">A legacy in motion</p>
+          <p className="uppercase text-brand-violet section-eyebrow section-eyebrow--compact">A legacy in motion</p>
           <h3 className="mt-1 text-lg font-semibold tracking-tight text-white sm:text-xl">Milestone timeline</h3>
         </div>
         <p className="shrink-0 font-semibold tabular-nums text-white/85" aria-label={`Milestone ${activeIndex + 1} of ${milestones.length}`}>

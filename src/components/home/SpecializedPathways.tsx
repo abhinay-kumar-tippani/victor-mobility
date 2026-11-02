@@ -41,7 +41,7 @@ export default function SpecializedPathways() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+            <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
               Tailored Travel Scenarios
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">
@@ -75,7 +75,7 @@ export default function SpecializedPathways() {
                     <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-brand-blue bg-brand-warm-white px-2.5 py-1 rounded-full border border-brand-soft-neutral">
+                    <span className="uppercase text-brand-blue bg-brand-warm-white px-2.5 py-1 rounded-full border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
                       {item.tag}
                     </span>
                   </div>

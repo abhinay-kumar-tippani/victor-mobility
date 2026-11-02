@@ -4,6 +4,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Restrained editorial labels keep the main heading as the visual anchor. */
+.section-eyebrow {
+  max-width: 100%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+.section-eyebrow--compact {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+}
+.section-eyebrow--hero {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.section-eyebrow--intro {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+@media (min-width: 640px) {
+  .section-eyebrow { font-size: 0.8125rem; }
+  .section-eyebrow--compact { font-size: 0.75rem; }
+  .section-eyebrow--hero { font-size: 0.875rem; }
+  .section-eyebrow--intro { font-size: 0.9375rem; }
+}
+@media (min-width: 1024px) {
+  .section-eyebrow { font-size: 0.875rem; }
+  .section-eyebrow--compact { font-size: 0.75rem; }
+  .section-eyebrow--hero { font-size: 0.875rem; }
+  .section-eyebrow--intro { font-size: 1rem; }
+}
+.section-eyebrow > svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
 /* Inline wordmark scales with its sentence; the source pixels stay unchanged. */
 .victor-wordmark {
   display: inline-block;

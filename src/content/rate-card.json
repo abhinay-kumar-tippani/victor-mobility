@@ -175,7 +175,7 @@
         "id": "first-class-saloon",
         "name": "First Class Saloon",
         "models": "Mercedes-Benz S-Class / BMW 7 Series",
-        "capacity": "3 VIP Passengers · 3 Bags",
+        "capacity": "3 VIP Employees · 3 Bags",
         "bestFor": "Executive meetings, financial corridor transit, DXB airport VIP transfers",
         "rates": {
           "halfDay": "AED 850 (5 Hours / 100 km)",
@@ -209,7 +209,7 @@
         "id": "executive-suv",
         "name": "Executive SUV & Luxury MPV",
         "models": "Cadillac Escalade / GMC Yukon Denali / Mercedes-Benz V-Class",
-        "capacity": "6–7 Passengers · 5 Large Bags",
+        "capacity": "6–7 Employees · 5 Large Bags",
         "bestFor": "Corporate executive groups, family office transfers, roadshow convoys",
         "rates": {
           "halfDay": "AED 1,150 (5 Hours / 100 km)",
@@ -226,7 +226,7 @@
         "id": "vip-coach",
         "name": "Luxury VIP & Tourism Coach",
         "models": "22-Seater VIP Coach / 44-Seater Luxury Bus",
-        "capacity": "18–50 Passengers · Cargo Compartment",
+        "capacity": "18–50 Employees · Cargo Compartment",
         "bestFor": "Corporate summits, free zone employee shuttles, international delegations",
         "rates": {
           "halfDay": "AED 1,950 (5 Hours / 100 km)",

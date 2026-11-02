@@ -43,7 +43,7 @@ export default function EmployeeTransportFeature({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+          <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
             Workplace Commute Solutions
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">

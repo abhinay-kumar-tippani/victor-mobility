@@ -47,7 +47,7 @@
         "id": "insurance",
         "title": "Commercial Motor Insurance & Liability Indemnity",
         "badge": "₹10 Crore Aggregate Cover",
-        "description": "Comprehensive institutional insurance policy schedule safeguarding corporate passengers, vehicles, and third-party liabilities across all operational corridors.",
+        "description": "Comprehensive institutional insurance policy schedule safeguarding corporate employees, vehicles, and third-party liabilities across all operational corridors.",
         "records": [
           { "framework": "Comprehensive Motor Liability", "regNumber": "HDFC-ERGO / TATA-AIG Commercial Policy", "status": "Active & Renewed", "details": "100% of fleet covered with valid commercial passenger carriage insurance." },
           { "framework": "Passenger Personal Accident Cover", "regNumber": "Occupant Cover Policy Add-On", "status": "Enrolled", "details": "₹10,00,000 per passenger seat personal accident compensation endorsement." },
@@ -75,7 +75,7 @@
       },
       {
         "principle": "Workplace Diversity & Non-Discrimination",
-        "clause": "Equal opportunity employment regardless of gender, caste, religion, or background, with dedicated women chauffeur empowerment programs."
+        "clause": "Equal opportunity employment regardless of gender, caste, religion, or background, with dedicated female chauffeur empowerment programs."
       },
       {
         "principle": "Driver Rest Hour & Fatigue Mandates",
@@ -83,7 +83,7 @@
       },
       {
         "principle": "Customer Data Privacy & Telematics Security",
-        "clause": "Passenger mobile numbers, travel coordinates, and telematics logs are encrypted under ISO 27001 data governance standards and never shared with third parties."
+        "clause": "Employee mobile numbers, travel coordinates, and telematics logs are encrypted under ISO 27001 data governance standards and never shared with third parties."
       }
     ],
     "faqs": [
@@ -147,7 +147,7 @@
         "id": "insurance-uae",
         "title": "UAE Commercial Passenger Insurance & Indemnity",
         "badge": "Comprehensive Motor Cover",
-        "description": "Leading UAE institutional insurance policies covering executive passengers, limousines, and international delegations.",
+        "description": "Leading UAE institutional insurance policies covering executive employees, limousines, and international delegations.",
         "records": [
           { "framework": "Comprehensive Executive Limousine Cover", "regNumber": "Oman Insurance / Sukoon Policy", "status": "Active & Valid", "details": "Full vehicle loss, passenger personal accident, and third-party liability coverage." },
           { "framework": "Diplomatic & VIP Passenger Indemnity", "regNumber": "Corporate MSA Schedule D", "status": "Enrolled", "details": "Bilateral indemnity safeguarding sovereign missions, MNC directors, and visiting delegations." }
@@ -161,7 +161,7 @@
       },
       {
         "principle": "Discreet VIP Confidentiality",
-        "clause": "Executive chauffeurs sign stringent non-disclosure agreements regarding passenger identities, conversations, and destination routes."
+        "clause": "Executive chauffeurs sign stringent non-disclosure agreements regarding employee identities, conversations, and destination routes."
       },
       {
         "principle": "Impeccable Vehicle Presentation Standards",

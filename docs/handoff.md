@@ -1,5 +1,262 @@
 # Handoff
 
+## 2 November 2026 — Leadership Section: Centered Core Team Members & Removal of Founder Card
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### UI/UX Design Analysis & Front-End Implementation
+- **Removal of Founder Jahangir's Details**:
+  - Removed Card 1 (`Founder & Visionary` / Jahangir portrait, quote, bio, and founded badge) from [`src/components/home/PeopleSection.tsx`](file:///d:/victor%20website/src/components/home/PeopleSection.tsx).
+  - Omitted `founder` prop in [`src/app/india/page.tsx`](file:///d:/victor%20website/src/app/india/page.tsx) and [`src/app/uae/page.tsx`](file:///d:/victor%20website/src/app/uae/page.tsx).
+- **Centered Layout & Architectural Balance**:
+  - Centered the section header (`max-w-3xl mx-auto text-center mb-10 sm:mb-14`) with balanced typography (`Leadership & Accountability` eyebrow, `Grounded Leadership.` heading, and executive subtitle).
+  - Placed the `TeamCarousel` inside a dedicated `max-w-4xl mx-auto w-full` container (896px width). Playwright automated testing verified an exact **0.0px horizontal difference** from viewport center on desktop (cardCenter: 720px, viewportCenter: 720px).
+- **Core Team Members Card Polish ([`src/components/home/TeamCarousel.tsx`](file:///d:/victor%20website/src/components/home/TeamCarousel.tsx))**:
+  - Removed artificial `min-h-[640px]` constraint so the card sizes organically to its content.
+  - Added an executive slide counter badge on the top right (`01 / 04`).
+  - Added subtle luxury frame and soft elevation to the portrait photo.
+  - Refined the division badge as a modern pill (`bg-brand-violet/10 border-brand-violet/20 text-brand-violet`).
+  - Modernized the 3 contact channel action boxes (Phone, WhatsApp, Email) with crisp icon badges and interactive hover states.
+  - Refined story link (`Read our company story →`).
+- **Quality & Responsive Verification**:
+  - `npm run type-check`: 0 errors.
+  - `npm run lint`: 0 warnings, 0 errors.
+  - `npm run build`: 74/74 static routes compiled cleanly.
+  - Playwright test (`scripts/verify-leadership-centered.mjs`):
+    - Confirmed Jahangir details completely removed from `#about` on `/india` and `/uae`.
+    - Confirmed core team card is centered at `720px` (0.0px delta).
+    - Confirmed zero horizontal overflow on desktop (1440px) and mobile (390px).
+    - Captured screenshots:
+      - `docs/screenshots/leadership-centered-india-desktop.png`
+      - `docs/screenshots/leadership-centered-india-mobile.png`
+      - `docs/screenshots/leadership-centered-uae-desktop.png`
+      - `docs/screenshots/leadership-centered-uae-mobile.png`
+
+---
+
+## 2 November 2026 — Homepage Fleet Preview: Card Hover Size Increase & Premium Elevation (India & UAE)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### UI/UX Design Analysis & Front-End Implementation
+- **The Visual Goal**:
+  - Increase the card size upon hover to provide visual prominence, tactile depth, and immediate interactive feedback without causing layout thrashing or cumulative layout shift (CLS).
+- **Engineering Architecture**:
+  - Rather than resizing DOM box dimensions (which would force jittery reflows of the CSS grid row and neighboring cards), implemented a GPU-composited transform:
+    - **Scale Expansion**: `sm:hover:scale-[1.045]` (4.5% enlargement). For an ~280px wide card, this extends the width by ~12.6px (+6.3px per side), which leaves 11.4px of clear margin within the 24px (`gap-6`) grid gap, preventing awkward collision with adjacent cards.
+    - **3D Lift**: `sm:hover:-translate-y-2.5` (10px upward lift). Gives a physical floating elevation off the warm-white page plane.
+    - **Z-Index Layering**: `hover:z-20 focus-within:z-20` over idle `relative z-0`. Ensures the hovered card renders cleanly *above* neighboring cards.
+    - **Layered Brand Ambient Shadow**: `hover:shadow-[0_22px_40px_-12px_rgba(30,27,78,0.20)]` with Victor brand-ink hue (`#1E1B4E`) and subtle indigo ring highlight (`hover:border-brand-indigo/40 hover:ring-1 hover:ring-brand-indigo/25`).
+    - **Smooth Easing**: `transition-all duration-300 ease-out` with `motion-reduce:transform-none motion-reduce:transition-none` for WCAG accessibility.
+    - **Grid Padding**: Added `py-3` to the grid container to grant comfortable clearance for the upward 10px lift without encroaching on the section heading or the primary CTA below.
+    - **Micro-Interactions**: Vehicle photograph subtly zooms (`group-hover:scale-105 transition-transform duration-500 ease-out`), and the enquiry button arrow slides forward (`group-hover:translate-x-1`, `rtl:group-hover:-translate-x-1`).
+- **Complete Vehicle Information Presentation (Matching `/fleet`)**:
+  - Retained directly visible car specifications on every card:
+    1. 16:9 vehicle model reference photograph with caption overlay.
+    2. Cab type badge, fuel version badge with `Zap` icon for electric vehicles, and seating capacity badge when present.
+    3. Verbatim model name wrapped in `<span dir="ltr">`.
+    4. Full car information / description paragraph.
+    5. Quotation pricing block (`"Pricing"` -> `"Request a quote"`).
+    6. Shared allocation disclaimer.
+    7. Direct pre-filled enquiry action button: `/contact?vehicle=${vehicle.name}&category=${vehicle.cabType}`.
+- **Curated Four Vehicles Per Region**:
+  - **India**: `swift-dzire`, `tata-tigor`, `innova-crysta`, `urbania`.
+  - **UAE**: `mercedes-s-class`, `cadillac-escalade`, `mercedes-v-class`, `vip-coach-22`.
+- **Primary CTA**: Prominent `"View full fleet →"` button linking to `/india/fleet` or `/uae/fleet`.
+
+### Validation & Quality Gates
+- **TypeScript**: `npm run type-check` passed with 0 errors.
+- **ESLint**: `npm run lint` passed with 0 warnings and 0 errors.
+- **Production Build**: `npm run build` passed with all 74/74 static routes compiled cleanly.
+- **Automated Verification Suite** (`scripts/verify-homepage-fleet-redesign.mjs`):
+  1. India homepage: 4 featured vehicles verified, card hover scale transform verified (`matrix(1.045, 0, 0, 1.045, 0, -10)`), CTA verified.
+  2. UAE homepage: 4 featured vehicles verified, card hover scale transform verified (`matrix(1.045, 0, 0, 1.045, 0, -10)`), CTA verified.
+  3. Full catalogue integrity: 5 filter tabs, 4 EV vehicles on EV filter, `/india/fleet#electric` deep linking, UAE fleet showcase.
+  4. Responsive layout & 0 horizontal overflow at 1440px, 768px, 390px, and 320px.
+  5. Arabic RTL: `dir="rtl"`, mirrored reading order, CTA arrow rotation, unmirrored vehicle photographs, 0 horizontal overflow.
+- **Screenshots Saved**:
+  - `docs/screenshots/india-homepage-fleet-1440.png` (capturing Tata Tigor card enlargement on hover)
+  - `docs/screenshots/india-homepage-fleet-768.png`
+  - `docs/screenshots/india-homepage-fleet-390.png`
+  - `docs/screenshots/uae-homepage-fleet-1440.png` (capturing Mercedes-Benz S-Class card enlargement on hover)
+  - `docs/screenshots/uae-homepage-fleet-768.png`
+  - `docs/screenshots/uae-homepage-fleet-390.png`
+  - `docs/screenshots/uae-homepage-fleet-arabic-390.png`
+
+---
+
+
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview & Architecture
+- **Complete Vehicle Information Presentation (Matching `/fleet`)**:
+  - Upgraded the 4 featured vehicle cards on the India (`/india`) and UAE (`/uae`) homepages in the section *"The right vehicle. For every journey."* to match the full information display of `/fleet` cards.
+  - Each card now renders:
+    1. **16:9 Model Reference Image**: Responsive widescreen container (`aspect-[16/9]`) with subtle zoom on card hover and discreet model disclaimer banner overlay (`"Images show vehicle models; actual assigned vehicles may vary."`).
+    2. **Specification Badges**:
+       - Cab type badge (Sedan, SUV, 12 Seater).
+       - Fuel version badge with `Zap` icon for electric vehicles (Petrol, Diesel, Electric Vehicle).
+       - Seating capacity badge when present and non-redundant (e.g. `3 Employees`, `6 Employees`, `7 Employees`, `22 Employees`).
+    3. **Verbatim Model Name**: Rendered with `<span dir="ltr">` to isolate model names and prevent BiDi text reversal in Arabic RTL (e.g. `22-Seater VIP Coach`).
+    4. **Car Information / Description**: Authoritative model description paragraph (e.g., *"Executive sedan for city commutes and corporate transfers."*, *"Zero-emission electric sedan for sustainable corporate travel."*, *"First-class executive limousine for airport VIP transfers..."*).
+    5. **Quotation Pricing Display**: Clean pricing block displaying `"Pricing"` and `"Request a quote"` (matching `/fleet` quotation architecture).
+    6. **Shared Allocation Disclaimer**: `"Vehicle allocation and pricing are confirmed for your location, dates and requirements."`
+    7. **Pre-filled Direct Enquiry Button**: Dedicated `"Enquire about this vehicle"` button pre-filling the vehicle name and cab type: `/contact?vehicle=${vehicle.name}&category=${vehicle.cabType}`.
+- **Curated Four Vehicles Per Region**:
+  - **India**: `swift-dzire` (Petrol Sedan), `tata-tigor` (EV Sedan), `innova-crysta` (Diesel SUV), `urbania` (Diesel 12-Seater Group Transport).
+  - **UAE**: `mercedes-s-class` (Petrol Executive Saloon), `cadillac-escalade` (Petrol SUV), `mercedes-v-class` (Diesel Passenger Van), `vip-coach-22` (Diesel 12-Seater VIP Coach).
+  - Managed via `src/content/featured-fleet.json`.
+- **Primary CTA to Complete Catalogue**:
+  - Below the 4 cards, a prominent primary button (`"View full fleet →"`) links directly to `/india/fleet` on `/india` and `/uae/fleet` on `/uae`.
+- **Responsive Layout**:
+  - **Desktop (1440px)**: 4 cards in a single aligned row (`lg:grid-cols-4`) with equalized heights and aligned action footers.
+  - **Tablet (768px)**: Balanced 2×2 grid (`sm:grid-cols-2`).
+  - **Mobile (<640px, 390px, 320px)**: Clean 1-column stack (`grid-cols-1`) matching the responsive structure of `/fleet`, providing generous space for images, badges, descriptions, pricing, and enquiry actions with normal vertical scrolling and 0 horizontal overflow.
+- **BiDi Localization**:
+  - Arabic RTL mirrors layout reading order and CTA arrow direction (`rtl:rotate-180`), while vehicle photographs and model names remain unmirrored.
+
+### Validation & Quality Gates
+- **TypeScript**: `npm run type-check` passed with 0 errors.
+- **ESLint**: `npm run lint` passed with 0 warnings and 0 errors.
+- **Production Build**: `npm run build` passed with all 74/74 static routes compiled cleanly.
+- **Automated Verification Suite** (`scripts/verify-homepage-fleet-redesign.mjs`):
+  1. India homepage: 4 featured vehicles in order, complete badges, descriptions, pricing, enquiry URLs, 1200px image dimensions, primary CTA button.
+  2. UAE homepage: 4 featured vehicles in order, complete badges, descriptions, pricing, enquiry URLs, 1200px image dimensions, primary CTA button.
+  3. Full catalogue integrity: 5 filter tabs, 4 EV vehicles on EV filter, `/india/fleet#electric` deep linking, UAE fleet showcase.
+  4. Responsive layout & 0 horizontal overflow at 1440px, 768px, 390px, and 320px.
+  5. Arabic RTL: `dir="rtl"`, mirrored reading order, CTA arrow rotation, unmirrored vehicle photographs, 0 horizontal overflow.
+- **Screenshots Saved**:
+  - `docs/screenshots/india-homepage-fleet-1440.png`
+  - `docs/screenshots/india-homepage-fleet-768.png`
+  - `docs/screenshots/india-homepage-fleet-390.png`
+  - `docs/screenshots/uae-homepage-fleet-1440.png`
+  - `docs/screenshots/uae-homepage-fleet-768.png`
+  - `docs/screenshots/uae-homepage-fleet-390.png`
+  - `docs/screenshots/uae-homepage-fleet-arabic-390.png`
+
+---
+
+
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview & Architecture
+- **Dedicated Homepage Preview Component**: Implemented `src/components/fleet/HomepageFleetPreview.tsx` to display a compact preview of 4 featured vehicles per region on `/india` and `/uae`, while delegating through `IndiaFleetSection` with `preview={true}`.
+- **Preserved Existing Catalogues**: The complete catalogues on `/india/fleet` and `/uae/fleet` remain 100% intact, including all vehicle categories, 5 filter tabs (All, Sedan, SUV, EV, 12 Seater), EV filter logic (4 EVs), interactive pricing calculators, and deep links (such as `/india/fleet#electric`). The existing homepage `#fleet` anchor is preserved.
+- **Shared Editable Storage**: Configured `src/content/featured-fleet.json` holding the short, editable list of featured vehicle IDs per region:
+  - **India**: `["swift-dzire", "tata-tigor", "innova-crysta", "urbania"]` (Petrol Sedan, EV, SUV, Group Transport).
+  - **UAE**: `["mercedes-s-class", "cadillac-escalade", "mercedes-v-class", "vip-coach-22"]` (Executive Saloon, Large SUV, Passenger Van, VIP Coach).
+- **Vehicle Imagery Substitutions & Compliance**:
+  - Identified that UAE inventory records previously pointed `cadillac-escalade` to `uae-hero.jpg` (which only depicted a Rolls-Royce Cullinan and Mercedes-Benz S-Class) and `mercedes-v-class` to `service-employee-transport.webp` (showing generic Sprinter vans).
+  - Sourced, cropped (16:9 widescreen, 1200×675 WebP, full visibility of roof, wheels, and bumpers with natural framing), and placed dedicated model-reference assets:
+    - `cadillac-escalade`: `public/images/uae/fleet/cadillac-escalade.webp` (2021 Cadillac Escalade ESV, CC BY-SA 4.0, Kevauto via Wikimedia Commons).
+    - `mercedes-v-class`: `public/images/uae/fleet/mercedes-v-class.webp` (2023 Mercedes-Benz V-Class 300d W447, CC BY-SA 4.0, Alexander-93 via Wikimedia Commons).
+  - Documented full licensing, provenance, and attribution details in `docs/fleet-image-sources.md`.
+- **Preview Design & Typography**:
+  - Reused brand tokens from `src/content/brand.json`: warm-white section background (`bg-[#fcfbf9]`), white cards (`bg-white`), brand-ink headings, fine neutral borders (`border-slate-200/80`), and one solid brand-indigo primary button (`bg-brand-indigo`).
+  - Section heading and localized translations preserved; tab-switching and specification comparison instructions cleanly omitted on the homepage preview.
+  - Single discreet model-reference caption maintained.
+  - Cards are intentionally non-interactive (no hover cursor or pseudo-button styling) to avoid misleading users.
+- **Responsive Layout**:
+  - **Desktop (1440px)**: Single aligned row of 4 cards (`lg:grid-cols-4`).
+  - **Tablet (768px)**: Balanced 2×2 grid (`sm:grid-cols-2`).
+  - **Mobile (<640px, 390px, 320px)**: 4 compact horizontal cards with 16:9 thumbnail beside model name and quiet metadata line (`{localizedCab} · {localizedFuel}`), allowing natural vertical scrolling without horizontal overflows.
+  - **Primary CTA**: Prominent "View full fleet →" button placed immediately after the cards, opening `/india/fleet` on `/india` and `/uae/fleet` on `/uae`.
+- **Localization & BiDi RTL**:
+  - Integrated existing regional translation dictionaries for category and fuel metadata.
+  - Wrapped model names in `<span dir="ltr">` to prevent BiDi reordering of numbered titles (e.g. `22-Seater VIP Coach`) in Arabic.
+  - In Arabic RTL, reading order and CTA arrow direction (`rtl:rotate-180`) mirror correctly while vehicle photographs remain unmirrored in their authentic perspective.
+
+### Validation & Quality Gates
+- **TypeScript**: `npm run type-check` passed with 0 errors.
+- **ESLint**: `npm run lint` passed with 0 warnings and 0 errors.
+- **Production Build**: `npm run build` passed with all 74/74 static routes compiled cleanly.
+- **Automated Verification Suite** (`scripts/verify-homepage-fleet-redesign.mjs`):
+  1. India homepage: 4 featured vehicles in order, metadata line, 1200px image dimensions, CTA button, no tab instructions.
+  2. UAE homepage: 4 featured vehicles in order, metadata line, 1200px image dimensions, CTA button.
+  3. Full catalogue integrity: 5 filter tabs, 4 EV vehicles on EV filter, `/india/fleet#electric` deep linking, UAE fleet showcase.
+  4. Responsive layout & 0 horizontal overflow at 1440px, 768px, 390px, and 320px.
+  5. Arabic RTL: `dir="rtl"`, mirrored reading order, CTA arrow rotation, unmirrored vehicle photographs, 0 horizontal overflow.
+- **Screenshots Saved**:
+  - `docs/screenshots/india-homepage-fleet-1440.png`
+  - `docs/screenshots/india-homepage-fleet-768.png`
+  - `docs/screenshots/india-homepage-fleet-390.png`
+  - `docs/screenshots/uae-homepage-fleet-1440.png`
+  - `docs/screenshots/uae-homepage-fleet-768.png`
+  - `docs/screenshots/uae-homepage-fleet-390.png`
+  - `docs/screenshots/uae-homepage-fleet-arabic-390.png`
+
+---
+
+
+
+## 2 November 2026 — Eyebrow typography refined after visual review
+
+- Replaced proportional eyebrow sizing with a shared editorial scale: section labels 12/13/14px across phone/tablet/desktop, compact card labels 11–12px, page introductions 13–14px, and the `/` welcome line 14/15/16px. Section labels use 0.12em tracking; compact labels use 0.08em, with lighter weight and restrained tracking on introductions. The shared styles provide natural wrapping and a 1.5 line height. All marked eyebrows now use semantic classes instead of duplicated responsive font-size values.
+- Reviewed the root page, India/UAE services sections, About timeline, Journey panel, and service hero at desktop/mobile sizes. The revised welcome line fits on one line at 390px, and long labels wrap at smaller widths.
+- Validation: TypeScript, ESLint, production build (74/74 routes), and all 272 browser checks across 68 public pages at 1440px, 768px, 390px, and 320px passed. Eyebrows remain within the 11–16px scale, clearly smaller than their titles, with no horizontal overflow. Updated evidence: `docs/inspection/eyebrow-scale.json`.
+- Screenshots: [Root desktop](screenshots/eyebrow-root-desktop.png), [Root mobile](screenshots/eyebrow-root-mobile.png), [Section desktop](screenshots/eyebrow-india-desktop.png), [Section mobile](screenshots/eyebrow-india-mobile.png), [Journey desktop](screenshots/eyebrow-journey-desktop.png), [Journey mobile](screenshots/eyebrow-journey-mobile.png), [Service hero desktop](screenshots/eyebrow-service-hero-desktop.png), [Service hero mobile](screenshots/eyebrow-service-hero-mobile.png).
+
+## 2 November 2026 — Contact Page Transport Enquiry & Immediate Assistance Refinements
+
+- **Message Draft & Copy Button Removed**: Completely removed the message draft preview card and the `"Copy message draft"` button from `src/components/home/EnquirySection.tsx`. The enquiry form flows directly from the requirement field into the 50-50 submit buttons without redundant raw text blocks.
+- **Specification Title & Disclaimer Removed**: Removed `"Enquiry Specification Summary:"` and `"Clicking opens a prefilled message draft in WhatsApp for you to send to our team. It does not submit an automated booking"`.
+- **50-50 Submit Layout**: Split the submission actions into a balanced two-column grid (`grid grid-cols-2 gap-3 sm:gap-4`):
+  - Left (50%): Emerald green WhatsApp button (`Continue on WhatsApp` on desktop, `WhatsApp` on mobile).
+  - Right (50%): Brand indigo email button (`Send via Email` on desktop, `Email` on mobile).
+  - Both channels prefill and trigger dispatch with validated form data.
+- **Enhanced Idle Border Thickness**: Updated all enquiry input fields (`fullName`, `company`, `phone`, `email`, `service`, `city`, `customCity`, `requirement`, and `JourneyFields`) to `border-[1.5px] border-slate-300 hover:border-slate-400`, ensuring clear visual boundaries when idle while retaining the crisp 2px blue ring (`focus:ring-2 focus:ring-brand-indigo`) upon focus.
+- **Immediate Assistance Contact**: Trimmed `src/components/contact/ImmediateAssistanceCard.tsx` to only Muhammad Asif (`asif@victorluxurylimousine.com`, `+91 9100 77 77 68`) and removed pagination indicator dots.
+- **Quality Verification**:
+  - TypeScript: `npm run type-check` passed (0 errors).
+  - ESLint: `npm run lint` passed (0 errors, 0 warnings).
+  - Production build: `npm run build` passed (74/74 static routes compiled).
+  - Playwright test (`scripts/verify-contact-enquiry-updates.mjs`):
+    - Verified button layout width ratio (303.65px vs 303.67px = exact 50-50).
+    - Verified input border thickness and class attributes.
+    - Verified single-contact Immediate Assistance card.
+    - Verified zero horizontal scroll overflow on desktop (1440px) and mobile (390px) on both `/india/contact` and `/uae/contact`.
+    - Screenshots captured:
+      - `docs/screenshots/india-contact-desktop.png`
+      - `docs/screenshots/india-contact-mobile.png`
+      - `docs/screenshots/uae-contact-desktop.png`
+      - `docs/screenshots/uae-contact-mobile.png`
+
+---
+
+## 2 November 2026 — Eyebrows sized to half of their titles
+
+- Applied the requested 50% eyebrow/title font-size proportion across page and section headings on the India/UAE sites and `/`. Each eyebrow follows its paired title's responsive sizes; the About timeline uses a shared fluid size variable, and the fleet header follows its homepage or standalone title variant. Long labels wrap with a 1.4 line height, and heading-badge icons scale with their text.
+- On `/`, the welcome line is 30px beside the 60px desktop title, 24px beside the 48px tablet title, and 18px beside the 36px phone title. Existing content, title sizes, logo artwork, and earlier user edits are preserved.
+- Checks passed: TypeScript, ESLint, and production build (74/74 routes). `scripts/verify-eyebrow-scale.mjs` checked 68 public pages at 1440px, 768px, 390px, and 320px: 272 route/viewport checks, 988 rendered eyebrow/title comparisons, no ratio failures, and no horizontal overflow. The final report is `docs/inspection/eyebrow-scale.json`. A long corridor metric also now wraps at 320px.
+- Screenshots: [Root desktop](screenshots/eyebrow-root-desktop.png), [Root mobile](screenshots/eyebrow-root-mobile.png), [India section desktop](screenshots/eyebrow-india-desktop.png), [India section mobile](screenshots/eyebrow-india-mobile.png), [UAE section desktop](screenshots/eyebrow-uae-desktop.png), [UAE section mobile](screenshots/eyebrow-uae-mobile.png), [About timeline desktop](screenshots/eyebrow-india-about-desktop.png), [About timeline mobile](screenshots/eyebrow-india-about-mobile.png).
+
+## 2 November 2026 — Journey section aligned with the website's brand
+
+- Supersedes the charcoal pass below. The user requested consistency with the website's overall colour theme.
+- Reused the site's warm-white background, rounded panels, indigo-to-ink palette, violet accents and subtle shadow. Summary cards and light copy match the panel; the heading retains the approved white wordmark.
+- Blended the infographic's dark tones into brand ink using isolated CSS `mix-blend-mode: lighten`. White lettering stays white; milestone content, proportions and the original image file are preserved. The full-size viewer also uses brand ink.
+- Type-check/lint and responsive browser review cover both India/UAE at 320, 390, 768 and 1440px, with no horizontal overflow and a loaded image at each size. Image-viewer open/close and Escape were checked.
+- Evidence: `docs/inspection/journey-brand.json`; desktop, tablet and mobile screenshots in `docs/screenshots/journey-brand/`. Earlier charcoal screenshots represent the superseded iteration.
+- No deployment. Other ongoing workspace changes were preserved.
+
+---
+
+## 2 November 2026 — Cohesive journey section and infographic
+
+Owner: Codex, at the user's direct design request.
+
+- Matched the shared India/UAE journey section to the infographic's neutral charcoal background (`#141414`). Removed the purple background glows and softened the milestone cards so the artwork is the main visual.
+- Increased the artwork's available desktop width, replaced the heavy purple surround with a thin neutral frame and restrained padding, and matched the full-size viewer's background.
+- The original 1024 × 768 image file is unchanged. `JourneyArtwork.module.css` non-destructively excludes only its 12px decorative outer frame, preserving all milestone content and image proportions. Rounded viewport corners conceal the remaining curved frame corners.
+- Removed the overlay that covered the 2027 milestone. The full image remains clickable, with the clearly labelled full-size action underneath, visible keyboard focus, and Escape dismissal.
+- Checks: type-check and lint passed. Browser checks on `/india` and `/uae` at 320, 390, 768 and 1440px confirmed loaded artwork and no horizontal overflow. Verified viewer opening, close button and Escape dismissal. Desktop, tablet, phone and viewer screenshots were visually reviewed.
+- Evidence: `docs/inspection/journey-charcoal.json`; screenshots in `docs/screenshots/journey-charcoal/` (`before-desktop.png`, `india-desktop.png`, `india-mobile.png`, `india-tablet.png`, equivalent UAE views, and `viewer-desktop.png`). The already documented development hydration notice also appeared during the baseline capture; this styling change does not address it.
+- Preserved existing edits in `TeamCarousel.tsx`, India/UAE content and the English dictionary. No deployment performed; the local preview remains on port 3000.
+
+---
+
 ## 1 November 2026 — Replaced Journey of Victor Infographic Image & Updated Milestone Dataset
 
 Owner: Antigravity, at direct user request.

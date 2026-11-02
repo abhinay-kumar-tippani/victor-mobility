@@ -256,7 +256,7 @@ export default function DirectContactForm({
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Tell us about your requirement: city, preferred vehicle category, passenger count, travel dates, or any special instructions..."
+              placeholder="Tell us about your requirement: city, preferred vehicle category, employee count, travel dates, or any special instructions..."
               className="w-full pl-10 pr-4 py-3 text-sm bg-brand-warm-white/60 border border-brand-soft-neutral rounded-xl text-brand-ink placeholder:text-brand-ink/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:bg-white transition-all resize-y"
             />
           </div>

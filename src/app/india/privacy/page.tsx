@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 text-xs font-bold tracking-widest uppercase text-brand-soft-neutral">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-violet" />
                 Data Protection & Transparency
               </span>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-brand-violet shrink-0 mt-0.5" />
-                  <span><strong>Mobility Requirements:</strong> Selected service (e.g. employee commute, bus shuttles, airport transfers), operating city, route corridors, shift timings, and estimated passenger counts.</span>
+                  <span><strong>Mobility Requirements:</strong> Selected service (e.g. employee commute, bus shuttles, airport transfers), operating city, route corridors, shift timings, and estimated employee counts.</span>
                 </li>
               </ul>
             </div>

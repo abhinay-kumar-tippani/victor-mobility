@@ -10,6 +10,7 @@ import indiaData from "@/content/india.json";
 import type uaeData from "@/content/uae.json";
 import type { FleetCategory, FleetVehicle } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
+import HomepageFleetPreview from "./HomepageFleetPreview";
 
 interface Props {
   categories: FleetCategory[];
@@ -18,6 +19,7 @@ interface Props {
   basePath?: string;
   currencySymbol?: string;
   vehicles?: FleetVehicle[];
+  preview?: boolean;
 }
 
 type TabId = "all" | "sedan" | "suv" | "12-seater" | "electric";
@@ -35,6 +37,7 @@ export default function IndiaFleetSection({
   basePath,
   currencySymbol,
   vehicles,
+  preview,
 }: Props) {
   const pathname = usePathname();
   const effectiveBasePath = basePath || (pathname.startsWith("/uae") ? "/uae" : "/india");
@@ -196,6 +199,21 @@ export default function IndiaFleetSection({
   const packageLabel = fleetDict?.packageLabel || copy.packageLabel;
   const imageCaption = fleetDict?.imageCaption || copy.imageCaption;
 
+  // --------------------------------------------------------------------------
+  // Homepage Compact Preview Mode
+  // --------------------------------------------------------------------------
+  if (preview) {
+    return (
+      <HomepageFleetPreview
+        region={isUae ? "uae" : "india"}
+        copy={copy}
+        vehicles={allVehicles}
+        basePath={effectiveBasePath}
+        categories={categories}
+      />
+    );
+  }
+
   // ==========================================================================
   // UAE ROUTE RENDERING (Regional Isolation - Fallback if no specific vehicles list)
   // ==========================================================================
@@ -212,7 +230,7 @@ export default function IndiaFleetSection({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue"><BrandText>{eyebrow}</BrandText></p>
+              <p className={`uppercase text-brand-blue section-eyebrow ${standalone ? "section-eyebrow--hero" : ""}`}><BrandText>{eyebrow}</BrandText></p>
               {standalone ? (
                 <h1 id={`${id}-title`} className="mt-3 text-4xl font-semibold tracking-tight text-brand-ink sm:text-5xl">{copy.pageTitle}</h1>
               ) : (
@@ -328,7 +346,7 @@ export default function IndiaFleetSection({
         {/* Section Header */}
         <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue"><BrandText>{eyebrow}</BrandText></p>
+            <p className={`uppercase text-brand-blue section-eyebrow ${standalone ? "section-eyebrow--hero" : ""}`}><BrandText>{eyebrow}</BrandText></p>
             {standalone ? (
               <h1 id={`${id}-title`} className="mt-3 text-4xl font-semibold tracking-tight text-brand-ink sm:text-5xl">{copy.pageTitle}</h1>
             ) : (

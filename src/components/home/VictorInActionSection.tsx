@@ -102,7 +102,7 @@ export default function VictorInActionSection({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="max-w-3xl">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+          <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
             Operational Track Record & Performance
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-3">
@@ -141,7 +141,7 @@ export default function VictorInActionSection({
           {/* Header Row */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-brand-soft-neutral">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo mb-1.5">
+              <span className="inline-flex items-center gap-1.5 uppercase text-brand-indigo mb-1.5 section-eyebrow section-eyebrow--compact">
                 <Icon className="w-3.5 h-3.5 text-brand-blue" />
                 <span>{current.category}</span>
               </span>

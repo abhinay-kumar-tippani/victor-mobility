@@ -19,7 +19,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Editorial Company Overview */}
           <div className="lg:col-span-6">
-            <div className="text-xs uppercase tracking-widest font-bold text-brand-blue mb-3"><BrandText>
+            <div className="uppercase text-brand-blue mb-3 section-eyebrow"><BrandText>
               About Victor Mobility
             </BrandText></div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight mb-6 leading-tight">

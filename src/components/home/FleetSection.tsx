@@ -53,7 +53,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
     badge: "Executive Sedans",
     headline: "Comfortable Saloons for Commutes & Business Travel",
     models: ["Swift Dzire", "Hyundai Aura", "Tata Tigor", "Tata Nexon", "MG ZS EV"],
-    capacity: "Up to 3–4 Passengers · 2 Luggage Bags",
+    capacity: "Up to 3–4 Employees · 2 Luggage Bags",
     uses: "Daily employee commute, airport transfers, and point-to-point city travel.",
     features: [
       "Fuel-efficient, air-conditioned comfortable cabins",
@@ -67,7 +67,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
     badge: "MPVs & SUVs",
     headline: "Spacious Multi-Utility Vehicles for Teams & Delegations",
     models: ["Mahindra Marazzo", "Ertiga CNG", "Innova Crysta", "Kia Carens Clavis EV"],
-    capacity: "Up to 6–7 Passengers · 4–5 Suitcases",
+    capacity: "Up to 6–7 Employees · 4–5 Suitcases",
     uses: "Visiting executive delegations, project teams, multi-stop site visits, and family travel.",
     features: [
       "Reclining captain seats with generous legroom",
@@ -151,7 +151,7 @@ export default function FleetSection({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-widest font-bold text-brand-blue block mb-2">
+            <span className="uppercase text-brand-blue block mb-2 section-eyebrow">
               Vehicle Categories
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight mb-2">

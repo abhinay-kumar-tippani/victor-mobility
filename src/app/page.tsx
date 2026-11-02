@@ -39,7 +39,7 @@ export default function RootPage() {
 
       <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-7xl flex-1 px-5 py-10 focus:outline-none sm:px-8 sm:py-14 lg:px-12">
         <div className="mb-8 sm:mb-10">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-blue"><BrandText>{copy.eyebrow}</BrandText></p>
+          <p className="uppercase text-brand-blue section-eyebrow section-eyebrow--intro"><BrandText>{copy.eyebrow}</BrandText></p>
           <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl">
             <BrandText>{copy.title}</BrandText>
           </h1>
