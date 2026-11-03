@@ -240,6 +240,7 @@ export const enDictionary: TranslationDictionary = {
       sedan: "Sedan",
       suv: "SUV",
       twelveSeater: "12 Seater",
+      groupTransport: "Group Transport & Buses",
       electric: "Electric Vehicles",
     },
     fuelBadges: {
@@ -248,6 +249,7 @@ export const enDictionary: TranslationDictionary = {
       electricVehicle: "Electric Vehicle",
       longRangeElectricVehicle: "Long Range Electric Vehicle",
       diesel: "Diesel",
+      hybrid: "Hybrid",
     },
     electric: {
       title: "Electric Vehicles",
@@ -274,7 +276,7 @@ export const enDictionary: TranslationDictionary = {
       sedans: {
         name: "Sedans",
         capacity: "1 to 4 employees · 2 to 3 bags",
-        models: "Swift Dzire, Tata Tigor or similar",
+        models: "Swift Dzire, Hyundai Aura or similar",
         use: "Airport journeys, business visits and city travel for small groups.",
       },
       mpvs: {

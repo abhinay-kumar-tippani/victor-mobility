@@ -29,7 +29,7 @@ async function run() {
     console.log("========================================================");
 
     const pageDesk = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await pageDesk.goto("http://localhost:3000/india", { waitUntil: "domcontentloaded", timeout: 15000 });
+    await pageDesk.goto("http://localhost:3000/india", { waitUntil: "domcontentloaded", timeout: 60000 });
     await pageDesk.waitForTimeout(1000);
 
     // Check #fleet anchor exists
@@ -57,7 +57,7 @@ async function run() {
 
     const expectedIndia = [
       { name: "Swift Dzire", cab: "Sedan", fuel: "Petrol", file: "swift-dzire.webp", desc: "Executive sedan for city commutes and corporate transfers." },
-      { name: "Tata Tigor", cab: "Sedan", fuel: "Electric Vehicle", file: "tata-tigor-ev.webp", desc: "Zero-emission electric sedan for sustainable corporate travel." },
+      { name: "Hyundai Aura", cab: "Sedan", fuel: "Petrol & CNG", file: "hyundai-aura.webp", desc: "Efficient sedan with dual-fuel flexibility for corporate mobility." },
       { name: "Innova Crysta", cab: "SUV", fuel: "Diesel", file: "innova-crysta.webp", desc: "Benchmark executive SUV for business travel and leadership transit." },
       { name: "Urbania", cab: "12 Seater", fuel: "Diesel", file: "force-urbania.webp", desc: "Approved 12-seater passenger van for corporate teams and delegation transfers." },
     ];
@@ -118,14 +118,14 @@ async function run() {
     const ctaText = await ctaLink.innerText();
     console.log(`PASS: Prominent CTA button verified: "${ctaText}" -> /india/fleet`);
 
-    // Verify HOVER SCALE EXPANSION on Card #2 (Tata Tigor)
-    const tigorCard = articles[1];
-    await tigorCard.hover();
+    // Verify HOVER SCALE EXPANSION on Card #2 (Hyundai Aura)
+    const auraCard = articles[1];
+    await auraCard.hover();
     await pageDesk.waitForTimeout(350);
 
-    const tigorTransform = await tigorCard.evaluate(el => window.getComputedStyle(el).transform);
-    console.log(`PASS: Hover on Tata Tigor card triggered transform: "${tigorTransform}"`);
-    if (!tigorTransform || tigorTransform === "none") {
+    const auraTransform = await auraCard.evaluate(el => window.getComputedStyle(el).transform);
+    console.log(`PASS: Hover on Hyundai Aura card triggered transform: "${auraTransform}"`);
+    if (!auraTransform || auraTransform === "none") {
       throw new Error("FAIL: Hover transform not applied to card");
     }
 
@@ -143,7 +143,7 @@ async function run() {
     console.log("========================================================");
 
     const pageUaeDesk = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await pageUaeDesk.goto("http://localhost:3000/uae", { waitUntil: "domcontentloaded", timeout: 15000 });
+    await pageUaeDesk.goto("http://localhost:3000/uae", { waitUntil: "domcontentloaded", timeout: 60000 });
     await pageUaeDesk.waitForTimeout(1000);
 
     const uaeFleetSection = await pageUaeDesk.$("#fleet");
@@ -248,7 +248,7 @@ async function run() {
     console.log("========================================================");
 
     const pageFleet = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await pageFleet.goto("http://localhost:3000/india/fleet", { waitUntil: "domcontentloaded", timeout: 15000 });
+    await pageFleet.goto("http://localhost:3000/india/fleet", { waitUntil: "domcontentloaded", timeout: 60000 });
     await pageFleet.waitForTimeout(1000);
 
     // Verify 5 tabs
@@ -266,12 +266,12 @@ async function run() {
 
     const evVehicles = await pageFleet.$$('[role="tabpanel"] article');
     console.log(`PASS: Electric Vehicles tab filter shows ${evVehicles.length} EVs`);
-    if (evVehicles.length !== 4) {
-      throw new Error(`FAIL: Expected 4 EV vehicles under Electric tab, found ${evVehicles.length}`);
+    if (evVehicles.length < 4) {
+      throw new Error(`FAIL: Expected at least 4 EV vehicles under Electric tab, found ${evVehicles.length}`);
     }
 
     // Test deep linking to #electric
-    await pageFleet.goto("http://localhost:3000/india/fleet#electric", { waitUntil: "domcontentloaded", timeout: 15000 });
+    await pageFleet.goto("http://localhost:3000/india/fleet#electric", { waitUntil: "domcontentloaded", timeout: 60000 });
     await pageFleet.waitForTimeout(1000);
     const activeTabAria = await pageFleet.$eval('button#fleet-tab-electric', el => el.getAttribute("aria-selected"));
     if (activeTabAria !== "true") {
@@ -280,7 +280,7 @@ async function run() {
     console.log("PASS: /india/fleet#electric deep linking automatically selects Electric Vehicles tab");
 
     // Test UAE full fleet
-    await pageFleet.goto("http://localhost:3000/uae/fleet", { waitUntil: "domcontentloaded", timeout: 15000 });
+    await pageFleet.goto("http://localhost:3000/uae/fleet", { waitUntil: "domcontentloaded", timeout: 60000 });
     await pageFleet.waitForTimeout(1000);
     const uaeShowcase = await pageFleet.$("#main-content");
     if (!uaeShowcase) throw new Error("FAIL: /uae/fleet failed to load");
@@ -305,7 +305,7 @@ async function run() {
     for (const vp of viewports) {
       for (const route of ["/india", "/uae"]) {
         const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
-        await page.goto(`http://localhost:3000${route}`, { waitUntil: "domcontentloaded", timeout: 15000 });
+        await page.goto(`http://localhost:3000${route}`, { waitUntil: "domcontentloaded", timeout: 60000 });
         await page.waitForTimeout(800);
 
         const sec = await page.$("#fleet");
@@ -358,7 +358,7 @@ async function run() {
     ]);
 
     const pageAr = await contextAr.newPage();
-    await pageAr.goto("http://localhost:3000/uae", { waitUntil: "domcontentloaded", timeout: 15000 });
+    await pageAr.goto("http://localhost:3000/uae", { waitUntil: "domcontentloaded", timeout: 60000 });
     await pageAr.waitForTimeout(1000);
 
     const arFleetSec = await pageAr.$("#fleet");

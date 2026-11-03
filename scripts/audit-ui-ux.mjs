@@ -28,8 +28,6 @@ const PAGES_TO_AUDIT = [
   { name: "india-service-employee", path: "/india/services/employee-transportation" },
   { name: "india-fleet", path: "/india/fleet" },
   { name: "india-about", path: "/india/about" },
-  { name: "india-rfp", path: "/india/rfp" },
-  { name: "india-estimator", path: "/india/estimator" },
   { name: "markets", path: "/markets" },
   { name: "root", path: "/" },
 ];

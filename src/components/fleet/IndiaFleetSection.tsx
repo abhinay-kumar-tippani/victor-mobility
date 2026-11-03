@@ -22,7 +22,7 @@ interface Props {
   preview?: boolean;
 }
 
-type TabId = "all" | "sedan" | "suv" | "12-seater" | "electric";
+type TabId = "all" | "sedan" | "suv" | "group-transport" | "electric" | "12-seater";
 
 interface TabItem {
   id: TabId;
@@ -56,7 +56,7 @@ export default function IndiaFleetSection({
   const uaeTabsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
   // --------------------------------------------------------------------------
-  // India Fleet: Modern Categorization Grid (5 Filter Tabs & 10 Manager Vehicles)
+  // India Fleet: Modern Categorization Grid (5 Filter Tabs & 16 Manager Vehicles)
   // --------------------------------------------------------------------------
   const allVehicles: FleetVehicle[] = useMemo(() => {
     return (vehicles && vehicles.length > 0)
@@ -70,17 +70,24 @@ export default function IndiaFleetSection({
   // Calculate exact partition counts from single source of truth
   const tabAllCount = allVehicles.length;
   const tabSedanCount = allVehicles.filter(v => v.cabType === "Sedan").length;
-  const tabSuvCount = allVehicles.filter(v => v.cabType === "SUV").length;
-  const tab12Count = allVehicles.filter(v => v.cabType === "12 Seater").length;
+  const tabSuvCount = allVehicles.filter(v => v.cabType === "SUV" || v.cabType === "MPV").length;
+  const tabGroupCount = allVehicles.filter(v =>
+    v.cabType === "12 Seater" ||
+    v.cabType === "16 Seater" ||
+    v.cabType === "Bus" ||
+    v.cabType === "Group Transport" ||
+    v.cabType.includes("Seater") ||
+    v.cabType.includes("Bus")
+  ).length;
   const tabEvCount = allVehicles.filter(v => Boolean(v.isElectric)).length;
 
   const tabs: TabItem[] = useMemo(() => [
     { id: "all", label: fleetDict?.filterTabs?.all || "All Vehicles", count: tabAllCount },
     { id: "sedan", label: fleetDict?.filterTabs?.sedan || "Sedan", count: tabSedanCount },
     { id: "suv", label: fleetDict?.filterTabs?.suv || "SUV", count: tabSuvCount },
-    { id: "12-seater", label: fleetDict?.filterTabs?.twelveSeater || "12 Seater", count: tab12Count },
+    { id: "group-transport", label: fleetDict?.filterTabs?.groupTransport || "Group Transport & Buses", count: tabGroupCount },
     { id: "electric", label: fleetDict?.filterTabs?.electric || "Electric Vehicles", count: tabEvCount },
-  ], [fleetDict, tabAllCount, tabSedanCount, tabSuvCount, tab12Count, tabEvCount]);
+  ], [fleetDict, tabAllCount, tabSedanCount, tabSuvCount, tabGroupCount, tabEvCount]);
 
   const getLocalizedFuel = (fuelType: string): string => {
     switch (fuelType) {
@@ -94,6 +101,9 @@ export default function IndiaFleetSection({
         return fleetDict?.fuelBadges?.longRangeElectricVehicle || "Long Range Electric Vehicle";
       case "Diesel":
         return fleetDict?.fuelBadges?.diesel || "Diesel";
+      case "Hybrid":
+      case "Petrol & Hybrid":
+        return fleetDict?.fuelBadges?.hybrid || "Hybrid";
       default:
         return fuelType;
     }
@@ -101,7 +111,7 @@ export default function IndiaFleetSection({
 
   const hasVehicleCards = Boolean(vehicles && vehicles.length > 0) || !isUae;
 
-  // Handle URL deep linking for #electric (mount and dynamic hashchange)
+  // Handle URL deep linking for #electric and group transport (mount and dynamic hashchange)
   useEffect(() => {
     function applyHash() {
       if (typeof window === "undefined") return;
@@ -121,6 +131,10 @@ export default function IndiaFleetSection({
             setActiveUaeId("electric");
           }
         }
+      } else if (hash === '#group-transport' || hash === '#buses' || hash === '#bus' || hash === '#12-seater') {
+        if (hasVehicleCards) {
+          setActiveTab("group-transport");
+        }
       }
     }
 
@@ -135,7 +149,9 @@ export default function IndiaFleetSection({
     if (typeof window !== "undefined") {
       if (tabId === "electric") {
         window.history.replaceState(null, "", "#electric");
-      } else if (window.location.hash === "#electric") {
+      } else if (tabId === "group-transport") {
+        window.history.replaceState(null, "", "#group-transport");
+      } else if (window.location.hash === "#electric" || window.location.hash === "#group-transport") {
         window.history.replaceState(null, "", window.location.pathname);
       }
     }
@@ -163,9 +179,17 @@ export default function IndiaFleetSection({
       case "sedan":
         return allVehicles.filter(v => v.cabType === "Sedan");
       case "suv":
-        return allVehicles.filter(v => v.cabType === "SUV");
+        return allVehicles.filter(v => v.cabType === "SUV" || v.cabType === "MPV");
+      case "group-transport":
       case "12-seater":
-        return allVehicles.filter(v => v.cabType === "12 Seater");
+        return allVehicles.filter(v =>
+          v.cabType === "12 Seater" ||
+          v.cabType === "16 Seater" ||
+          v.cabType === "Bus" ||
+          v.cabType === "Group Transport" ||
+          v.cabType.includes("Seater") ||
+          v.cabType.includes("Bus")
+        );
       case "electric":
         return allVehicles.filter(v => Boolean(v.isElectric));
       case "all":
@@ -323,12 +347,6 @@ export default function IndiaFleetSection({
                   <span>{fleetDict?.enquireVehicle || fleetDict?.enquireCta || "Enquire about this vehicle"}</span>
                   <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
                 </Link>
-                <Link
-                  href={`${effectiveBasePath}/estimator`}
-                  className="inline-flex min-h-[44px] items-center justify-center gap-2 px-2 text-sm font-bold text-brand-indigo"
-                >
-                  <span>{fleetDict?.estimateCta || "Plan a journey"}</span>
-                </Link>
               </div>
             </div>
           </div>
@@ -439,7 +457,7 @@ export default function IndiaFleetSection({
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/40 to-transparent p-2.5">
                       <p className="text-[10px] leading-tight text-white/90">
-                        Images show vehicle models; actual assigned vehicles may vary.
+                        Vehicle illustrations are for reference; the assigned vehicle may differ.
                       </p>
                     </div>
                   </div>
@@ -451,6 +469,11 @@ export default function IndiaFleetSection({
                       <span className="inline-flex items-center rounded-md border border-brand-soft-neutral bg-white px-2.5 py-0.5 text-xs font-semibold text-brand-ink">
                         {vehicle.cabType}
                       </span>
+                      {vehicle.seatingCapacity && vehicle.seatingCapacity !== vehicle.cabType && (
+                        <span className="inline-flex items-center rounded-md border border-brand-soft-neutral bg-white px-2.5 py-0.5 text-xs font-semibold text-brand-ink">
+                          {vehicle.seatingCapacity}
+                        </span>
+                      )}
                       <span
                         className={`inline-flex items-center gap-1 rounded-md px-2.5 py-0.5 text-xs font-semibold ${
                           isEvVehicle
@@ -507,7 +530,7 @@ export default function IndiaFleetSection({
         {/* Section Footnote Disclaimers */}
         <div className="mt-8 border-t border-brand-soft-neutral pt-4">
           <p className="text-xs leading-relaxed text-brand-ink/65">
-            {fleetDict?.sharedNote || "Vehicle allocation and pricing are confirmed for your location, dates and requirements."} Images show vehicle models; actual assigned vehicles may vary.
+            {fleetDict?.sharedNote || "Vehicle allocation and pricing are confirmed for your location, dates and requirements."} Vehicle illustrations are for reference; the assigned vehicle may differ.
           </p>
         </div>
       </div>

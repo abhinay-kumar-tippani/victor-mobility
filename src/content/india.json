@@ -213,148 +213,6 @@
       }
     ]
   },
-  "planningTools": {
-    "eyebrow": "Victor Mobility · India",
-    "nav": {
-      "estimator": "Estimator",
-      "rfp": "RFP Desk"
-    },
-    "home": {
-      "eyebrow": "Plan with Victor",
-      "title": "Every journey starts with a clear plan.",
-      "description": "Explore your transport requirements, then take the next step with our team.",
-      "estimator": {
-        "number": "01",
-        "title": "Journey estimator",
-        "description": "Work out vehicle numbers and route distance using your employee count, then request a formal quote.",
-        "cta": "Open the estimator",
-        "detail": "Vehicle planning · Transparent calculations"
-      },
-      "rfp": {
-        "number": "02",
-        "title": "Corporate RFP desk",
-        "description": "Bring your routes, schedules and fleet preferences together in one clear request for proposal.",
-        "cta": "Build your RFP",
-        "detail": "Company brief · Routes & schedules"
-      }
-    },
-    "estimator": {
-      "title": "A clearer picture of your journey.",
-      "description": "Estimate the vehicles and distance your plan needs, then request a formal quote from our operations team.",
-      "eyebrow": "Journey estimator",
-      "formTitle": "Shape your journey",
-      "formHelp": "One group, travelling together. Enter the same journey for each travel day.",
-      "city": "City",
-      "otherCity": "Other city / inter-city",
-      "pickup": "Pickup location",
-      "dropoff": "Drop-off location",
-      "passengers": "Employees travelling together",
-      "seats": "Employee seats per vehicle",
-      "capacityHelp": "Use the capacity you want to plan with, excluding the driver. Our team will confirm suitable vehicles.",
-      "distance": "One-way distance (km)",
-      "days": "Travel days",
-      "returnTrip": "Include a return journey each day",
-      "rate": "Your planning rate (₹ / vehicle / km)",
-      "rateHelp": "Optional. Enter a rate you want to model. Victor's quotation will be confirmed by the team.",
-      "calculate": "Calculate my estimate",
-      "emptyTitle": "Your plan, at a glance.",
-      "emptyHelp": "Add your journey details to see vehicle numbers, total distance and request a formal quote.",
-      "resultTitle": "Your planning estimate",
-      "vehicleLabel": "Vehicles per journey",
-      "distanceLabel": "Total vehicle kilometres",
-      "budgetLabel": "Estimated pricing",
-      "noRate": "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
-      "basisTitle": "How this is calculated",
-      "basisHelp": "One journey per vehicle each day, doubled if return travel is selected. Distance is multiplied by the number of vehicles and travel days.",
-      "exclusions": "Vehicle allocation and pricing are confirmed for your location, dates and requirements. Toll, parking, tax, driver allowance, waiting, minimum hire and vehicle availability must be confirmed in Victor's quotation.",
-      "review": "View the enquiry draft",
-      "rfpLink": "Planning a corporate contract? Build an RFP",
-      "summaryTitle": "JOURNEY ESTIMATE ENQUIRY",
-      "errors": {
-        "pickup": "Enter a pickup location.",
-        "dropoff": "Enter a drop-off location.",
-        "passengers": "Enter a whole employee count greater than zero.",
-        "seats": "Enter a whole seat count greater than zero.",
-        "distance": "Enter a distance greater than zero.",
-        "days": "Enter a whole number of days greater than zero.",
-        "rate": "Enter a rate greater than zero, or leave it blank.",
-        "total": "These inputs produce a total that is too large. Reduce the values."
-      }
-    },
-    "rfp": {
-      "title": "Your requirements. One considered proposal.",
-      "description": "Prepare a Request for Proposal for employee transport, events or corporate travel. Review your brief, then share it with Victor to discuss a tailored quotation.",
-      "eyebrow": "Corporate RFP desk",
-      "steps": [
-        "Company details",
-        "Transport requirements",
-        "Review your brief"
-      ],
-      "intro": "Start with your organisation and the person we should speak with.",
-      "requirementsHelp": "Share what you know. Optional details can be discussed with our team.",
-      "reviewHelp": "Check your brief before opening WhatsApp. You can also copy it or save a text file for your procurement records.",
-      "company": "Company / organisation",
-      "name": "Contact person",
-      "role": "Role / designation (optional)",
-      "email": "Business email (optional)",
-      "phone": "Contact phone (optional)",
-      "city": "City",
-      "customCity": "City / route",
-      "service": "Service required",
-      "passengers": "Employees per day (optional)",
-      "date": "Target start date (optional)",
-      "schedule": "Operating schedule",
-      "scheduleOptions": [
-        "To be discussed",
-        "Office hours",
-        "Two shifts",
-        "Three shifts",
-        "Event / one-off travel",
-        "Custom schedule"
-      ],
-      "vehicles": "Preferred vehicle categories (optional)",
-      "vehicleHelp": "Select all that suit your requirement. Availability and specifications will be discussed.",
-      "details": "Routes and requirements",
-      "detailsPlaceholder": "Pickup and drop-off areas, shift timings, frequency, luggage, accessibility or safety requirements…",
-      "continue": "Continue",
-      "back": "Back",
-      "edit": "Edit requirements",
-      "companyEdit": "Edit company details",
-      "review": "Review my RFP",
-      "sideTitle": "A brief built around your business.",
-      "sideDescription": "Give our team the context to discuss routes, vehicle options and commercial terms.",
-      "sideItems": [
-        "Your organisation and contact",
-        "Routes, volume and schedule",
-        "A complete brief to review and share"
-      ],
-      "summaryTitle": "CORPORATE TRANSPORT — REQUEST FOR PROPOSAL",
-      "notSpecified": "To be discussed",
-      "errors": {
-        "company": "Enter your company or organisation.",
-        "name": "Enter the contact person's name.",
-        "email": "Enter a valid email address, or leave it blank.",
-        "city": "Enter your city or route.",
-        "passengers": "Enter a whole employee count greater than zero.",
-        "date": "Choose a valid calendar date.",
-        "details": "Add your routes, timings or transport requirements."
-      }
-    },
-    "actions": {
-      "whatsapp": "Continue on WhatsApp",
-      "copy": "Copy brief",
-      "copied": "Copied",
-      "copyFailed": "Copy is unavailable here. Select the draft text to copy it manually.",
-      "download": "Download brief",
-      "handoff": "Opens a WhatsApp draft for you to review and send. It does not submit a tender or confirm a booking."
-    },
-    "help": {
-      "title": "Prefer a conversation?",
-      "description": "Speak with our team about the details that matter to your journey.",
-      "contact": "Discuss your requirement",
-      "call": "Call our team"
-    }
-  },
   "enquiryExperience": {
     "faq": {
       "eyebrow": "Before you travel",
@@ -411,14 +269,6 @@
     {
       "title": "Plan your transport",
       "links": [
-        [
-          "rfp",
-          "Request a corporate proposal"
-        ],
-        [
-          "estimator",
-          "Route and fare estimator"
-        ],
         [
           "rate-card",
           "Rate cards and retainers"
@@ -940,12 +790,12 @@
     },
     {
       "id": "innova-crysta",
-      "name": "Innova Crysta",
+      "name": "Toyota Innova Crysta",
       "cabType": "SUV",
       "fuelType": "Diesel",
       "isElectric": false,
       "image": "/images/fleet/innova-crysta.webp",
-      "imageAlt": "Innova Crysta SUV",
+      "imageAlt": "Toyota Innova Crysta SUV",
       "description": "Benchmark executive SUV for business travel and leadership transit."
     },
     {
@@ -960,7 +810,7 @@
     },
     {
       "id": "urbania",
-      "name": "Urbania",
+      "name": "Urbania (12 Seater)",
       "cabType": "12 Seater",
       "fuelType": "Diesel",
       "isElectric": false,
@@ -968,6 +818,70 @@
       "image": "/images/fleet/force-urbania.webp",
       "imageAlt": "Urbania 12 Seater",
       "description": "Approved 12-seater passenger van for corporate teams and delegation transfers."
+    },
+    {
+      "id": "mg-windsor-ev",
+      "name": "MG Windsor EV",
+      "cabType": "Sedan",
+      "fuelType": "Electric Vehicle",
+      "isElectric": true,
+      "image": "/images/fleet/mg-windsor-ev.webp",
+      "imageAlt": "MG Windsor EV electric crossover",
+      "description": "All-electric executive crossover for quiet, zero-emission corporate travel."
+    },
+    {
+      "id": "force-urbania-16",
+      "name": "Force Urbania (16 Seater)",
+      "cabType": "16 Seater",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "16 Seater",
+      "image": "/images/fleet/force-urbania-16.webp",
+      "imageAlt": "Force Urbania 16 Seater passenger van",
+      "description": "Spacious 16-seater passenger van configured for corporate teams and delegation transfers."
+    },
+    {
+      "id": "tata-marcopolo-40",
+      "name": "Tata Marcopolo (40 Seater Bus)",
+      "cabType": "40 Seater Bus",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "40 Seater",
+      "image": "/images/fleet/tata-marcopolo.webp",
+      "imageAlt": "Tata Marcopolo 40 Seater Bus",
+      "description": "High-capacity 40-seater coach for corporate employee shuttles and major event logistics."
+    },
+    {
+      "id": "sml-22",
+      "name": "SML (22 Seater Bus)",
+      "cabType": "22 Seater Bus",
+      "fuelType": "Diesel",
+      "isElectric": false,
+      "seatingCapacity": "22 Seater",
+      "image": "/images/fleet/sml-22-seater-bus.webp",
+      "imageAlt": "SML 22 Seater Bus",
+      "description": "Medium-capacity 22-seater executive shuttle for team transfers and corporate route operations."
+    },
+    {
+      "id": "toyota-rumion",
+      "name": "Toyota Rumion",
+      "cabType": "SUV",
+      "fuelType": "Petrol & CNG",
+      "isElectric": false,
+      "seatingCapacity": "7 Seater",
+      "image": "/images/fleet/toyota-rumion.webp",
+      "imageAlt": "Toyota Rumion MPV",
+      "description": "Flexible 7-seater MPV offering practical comfort for corporate teams and airport travel."
+    },
+    {
+      "id": "toyota-urban-cruiser-hyryder",
+      "name": "Toyota Urban Cruiser Hyryder",
+      "cabType": "SUV",
+      "fuelType": "Petrol & Hybrid",
+      "isElectric": false,
+      "image": "/images/fleet/toyota-hyryder.webp",
+      "imageAlt": "Toyota Urban Cruiser Hyryder SUV",
+      "description": "Modern executive SUV engineered with hybrid efficiency for city and intercity business transit."
     }
   ],
   "fleetCategories": [
@@ -977,7 +891,7 @@
       "description": "Everyday and business travel.",
       "brochureModels": [
         "Swift Dzire",
-        "TATA Tigor"
+        "Hyundai Aura"
       ],
       "source": "Brochure page 10"
     },

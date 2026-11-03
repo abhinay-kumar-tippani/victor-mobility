@@ -7,7 +7,7 @@
       {
         "id": "sedan",
         "name": "Executive Sedan",
-        "models": "Swift Dzire / Hyundai Aura / Tata Tigor",
+        "models": "Swift Dzire / Hyundai Aura",
         "capacity": "Capacity confirmed on enquiry",
         "baseMultiplier": 1.0,
         "hourlyRetainer": "Quote on request (8h / 80km)"

@@ -1,5 +1,210 @@
 # Handoff
 
+## 4 November 2026 — Comprehensive Navbar Refinement & Pointer-Intercept Fix
+
+Owner: Antigravity, at direct user request ("fix navbar"). Status: COMPLETED.
+
+### Overview
+- Resolved structural, visual, and interaction defects in Victor Mobility's shared navbar ([`Header.tsx`](file:///d:/victor%20website/src/components/layout/Header.tsx)) across India and UAE versions.
+- Fixed pointer-event interception caused by `<StickyContactRail>` being nested inside `<header>`, isolating them via a clean React fragment.
+- Eliminated visual competition between active navigation items and the primary `ENQUIRE` CTA button by adopting a refined, executive active state (`text-brand-indigo font-bold bg-brand-indigo/10 border border-brand-indigo/15`).
+- Increased logo height and legibility, eliminated duplicate SVG clip-path IDs via `useId()`, corrected unsupported `ltr:` Tailwind classes in [`LanguageSwitcher.tsx`](file:///d:/victor%20website/src/components/layout/LanguageSwitcher.tsx), removed duplicate close buttons from the mobile drawer, and balanced desktop CTA distribution across 1024px and 1440px viewports.
+
+### Key Changes
+1. **Isolated `<StickyContactRail>` from `<header>`**:
+   - Resolved issue where `<header>` DOM container was vertically stretched by the fixed contact rail, allowing mobile menu buttons to be tapped reliably without pointer interception.
+2. **Logo Prominence & Unique Clip Paths**:
+   - Enlarged `BrandLogo` to `h-12 sm:h-[58px] aspect-[810/430]`, improving tagline legibility while preserving the complete original artwork, Pegasus horse, and registration mark.
+   - Refactored `BrandLogo.tsx` to generate unique clipPath IDs via React's `useId()`.
+3. **Visual Hierarchy & Typography**:
+   - Softened active link background to `bg-brand-indigo/10` so that `ENQUIRE` stands out as the single primary call to action.
+   - Set consistent `text-sm font-semibold` and `px-3 xl:px-3.5` padding across nav items.
+   - Enhanced header background with `bg-white/95 backdrop-blur-md` for clean glassmorphism when scrolling.
+   - Displayed phone CTA across all desktop screens (`hidden lg:inline-flex`), filling previous empty voids on 1024px.
+4. **Mobile Drawer Polish**:
+   - Removed duplicate close `[X]` button inside drawer header, keeping the top toggle button as the sole clear dismiss controller.
+   - Enhanced active mobile link styling with an indigo accent indicator.
+5. **Language Switcher Alignment**:
+   - Corrected dropdown positioning from `ltr:right-0 rtl:left-0` to `right-0 rtl:right-auto rtl:left-0` for reliable right-anchored alignment in LTR and left-anchored in RTL.
+
+### Verification
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 70/70 static routes built cleanly.
+- Playwright automated multi-viewport verification across 1440px, 1024px, 768px, and 390px.
+- Verified Arabic RTL layout on `/uae`.
+- Screenshots saved: `navbar-fixed-1440.png`, `navbar-fixed-page-1440.png`, `navbar-fixed-1024.png`, `navbar-fixed-768.png`, `navbar-fixed-390.png`, `navbar-fixed-drawer-390.png`, `navbar-fixed-arabic-1440.png`.
+
+---
+
+## 3 November 2026 — Complete Retirement of RFP Desk & Fare Estimator (India & UAE)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Completely removed the RFP Desk and the fleet/journey fare estimator across both India and UAE regions of Victor Mobility website.
+- Deleted the 4 Next.js page routes (`/india/rfp`, `/india/estimator`, `/uae/rfp`, `/uae/estimator`), ensuring direct visits return standard HTTP 404 without redirecting or creating phantom routes.
+- Fully removed all public entry points from shared navigation (Header & mobile drawer), footer, sitemap, regional pages, and promotional blocks.
+- Cleaned up feature-specific code and data schemas while preserving all existing fleet catalogues (16 India vehicles), homepage previews, EV filters, vehicle enquiry flows, and unrelated ESG/TCO calculators.
+
+### Detailed Actions Taken
+1. **Route Deletions**:
+   - `src/app/india/rfp/page.tsx` -> Deleted
+   - `src/app/india/estimator/page.tsx` -> Deleted
+   - `src/app/uae/rfp/page.tsx` -> Deleted
+   - `src/app/uae/estimator/page.tsx` -> Deleted
+   - Verified that direct visits with and without query parameters return HTTP 404.
+2. **Component & Codebase Cleanups**:
+   - Deleted `src/components/estimator/RouteFareEstimator.tsx`
+   - Deleted `src/components/rfp/CorporateRfpBuilder.tsx`
+   - Deleted `src/components/planning/` (`JourneyEstimator.tsx`, `RfpDesk.tsx`, `PlanningPageShell.tsx`, `PlanningField.tsx`, `DraftActions.tsx`)
+   - Deleted `src/components/home/PlanningToolsSection.tsx`
+   - Removed `planningTools` from `src/content/india.json` and `src/content/uae.json`.
+   - Removed `rfp` and `estimator` tuples from `businessResources` in `src/content/india.json`.
+   - Updated `rfpUrl` in `src/content/brochure.json` and `src/content/markets.json` to point to contact pages.
+   - Updated TypeScript definitions in `src/i18n/types.ts`.
+3. **Navigation & Entry Point Removals**:
+   - `Header.tsx`: Removed `Estimator` and `RFP Desk` from desktop nav and mobile drawer.
+   - `Footer.tsx`: Removed `Estimator` and `RFP Desk` from `Explore` links.
+   - `sitemap.ts`: Removed estimator and rfp routes; 0 entries in `sitemap.xml`.
+   - `/india/fleet`: Removed post-catalogue RFP promotional banner; preserved the 16-vehicle catalogue.
+   - `/uae/services`: Removed Fare Estimator promo card; preserved Chauffeur Academy card.
+   - Replaced surviving promotional/breadcrumb links in `ChauffeurAcademy.tsx`, `/business`, `/corridors`, `/sla`, `/billing`, and `/markets` with clearly labelled "Request a quote" pointing to `/${region}/contact`.
+4. **Preserved Features**:
+   - India Fleet Catalogue (16 verified vehicles).
+   - India Electric Vehicles filter (`#electric`).
+   - India Homepage Fleet Preview (4 featured vehicles: Swift Dzire, Hyundai Aura, Innova Crysta, Urbania).
+   - Vehicle enquiry parameter passing (`/india/contact?vehicle=...&category=...`).
+   - Unrelated calculators (Corporate Commute Carbon Savings Estimator, Fleet TCO Calculator).
+5. **Verification & Quality Gates**:
+   - `npm run type-check`: 0 errors.
+   - `npm run lint`: 0 warnings, 0 errors.
+   - `npm run build`: 70/70 static routes built cleanly.
+   - Playwright automated audit (`scripts/verify-retired-features.mjs`):
+     - Confirmed HTTP 404 on all 4 routes (and with query params).
+     - Confirmed 0 retired routes in `sitemap.xml`.
+     - Confirmed 0 links to retired tools across 20 audited pages.
+     - Confirmed responsive navigation and layout (1440px, 768px, 390px, 320px) with 0 horizontal overflow.
+     - Confirmed Arabic RTL rendering intact.
+   - Screenshots: `retired-features-404-check.png`, `india-header-desktop-1440.png`, `india-footer-desktop-1440.png`, `india-fleet-post-catalogue-1440.png`, `uae-services-academy-banner-1440.png`, `uae-homepage-rtl-1440.png`.
+
+---
+
+## 3 November 2026 — Replace Tata Tigor with Hyundai Aura on Homepage Vehicle Preview
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Replaced the second vehicle card ("Tata Tigor", Sedan / Electric Vehicle) on the `/india` homepage vehicle preview with **Hyundai Aura** (Sedan / Petrol & CNG).
+- UAE homepage preview (`/uae`) regional isolation preserved, featuring the luxury executive fleet (Mercedes-Benz S-Class, Cadillac Escalade, Mercedes-Benz V-Class, 22-Seater VIP Coach).
+
+### Key Updates Completed
+1. **Homepage Preview Vehicle Card**:
+   - Model name: `Hyundai Aura`
+   - Image: `/images/fleet/hyundai-aura.webp`
+   - Badges: `Sedan`, `Petrol & CNG`
+   - Description: `Efficient sedan with dual-fuel flexibility for corporate mobility.`
+   - Pricing: `Request a quote`
+   - Enquiry CTA: `Enquire about this vehicle →` linking directly to `/india/contact?vehicle=Hyundai%20Aura&category=Sedan`
+2. **Configuration & Data Files**:
+   - `src/content/featured-fleet.json`: updated `"india"` to `["swift-dzire", "hyundai-aura", "innova-crysta", "urbania"]`.
+   - `src/components/fleet/HomepageFleetPreview.tsx`: updated fallback array from `"tata-tigor"` to `"hyundai-aura"`.
+   - `src/content/fleet-specifications.json`: popular models updated to `["Swift Dzire", "Hyundai Aura"]`.
+   - `src/content/corridors.json` & `src/content/rate-card.json`: updated Sedan models to `"Swift Dzire / Hyundai Aura"`.
+   - `src/components/home/FleetSection.tsx`: removed Tata Tigor from sedans string.
+   - `src/content/india.json`: updated `fleetCategories[0].brochureModels` to `"Hyundai Aura"`.
+   - `src/i18n/dictionaries/` (`en`, `ar`, `hi`, `kn`, `ma`, `mr`, `ta`, `te`): replaced `"Tata Tigor"` with `"Hyundai Aura"`.
+3. **Responsive Layout Fix**:
+   - Resolved 320px horizontal overflow in `src/components/home/IndiaPresenceMap.tsx` by adding `flex-wrap` and container constraints.
+4. **Verification**:
+   - Type check: 0 errors (`npm run type-check`).
+   - Linter: 0 warnings/errors (`npm run lint`).
+   - Production build: all 70 static pages rendered cleanly (`npm run build`).
+   - Playwright: all 5 tests passed with zero overflow across 1440px, 768px, 390px, and 320px.
+
+---
+
+## 3 November 2026 — India Fleet Catalogue Expansion & Illustration Integration
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview & Data Baseline
+Additive expansion of Victor Mobility's India fleet catalogue from 10 to exactly 16 verified records in [`src/content/india.json`](file:///d:/victor%20website/src/content/india.json):
+- **10 Existing Records Retained**:
+  - `mg-zs-ev`: Kept MG ZS EV (Sedan / Long Range Electric Vehicle).
+  - `kia-carens-clavis-ev`: Kept Kia Carens Clavis EV (SUV / Long Range Electric Vehicle).
+  - `tata-nexon`: Kept Tata Nexon EV (no petrol Nexon added).
+  - `swift-dzire`: Kept Swift Dzire (Sedan / Petrol).
+  - `innova-crysta`: Updated display name to `"Toyota Innova Crysta"`.
+  - `hyundai-aura`: Kept Hyundai Aura (Sedan / Petrol & CNG).
+  - `ertiga-cng`: Kept Ertiga CNG (SUV / Petrol & CNG).
+  - `urbania`: Updated display name to `"Urbania (12 Seater)"` with explicit `seatingCapacity: "12 Seater"`.
+  - `tata-tigor`: Preserved Tata Tigor (Electric Vehicle).
+  - `mahindra-marazzo`: Preserved Mahindra Marazzo (Diesel MPV).
+- **6 New Records Added Additively**:
+  1. `mg-windsor-ev`: MG Windsor EV — Electric Vehicle (Sedan / Electric Vehicle). Included in Electric Vehicles filter.
+  2. `force-urbania-16`: Force Urbania (16 Seater) — 16 Seater, Diesel passenger van. Distinct ID and enquiry selection from 12-seater.
+  3. `tata-marcopolo-40`: Tata Marcopolo (40 Seater Bus) — 40 Seater Bus, Diesel coach for employee shuttles and major event logistics.
+  4. `sml-22`: SML (22 Seater Bus) — 22 Seater Bus, Diesel executive shuttle. No unconfirmed trim or model invented.
+  5. `toyota-rumion`: Toyota Rumion — SUV / Petrol & CNG.
+  6. `toyota-urban-cruiser-hyryder`: Toyota Urban Cruiser Hyryder — SUV / Petrol & Hybrid.
+
+### Visual Illustrations & Asset Status
+- **Generated Studio Illustrations (`public/images/fleet/`)**:
+  - `mg-windsor-ev.webp` (1200×675 WebP): Pearl white MG Windsor EV on soft neutral studio background.
+  - `force-urbania-16.webp` (1200×675 WebP): Silver 16-seater extended passenger van with complete wheels, bumpers, and roofline visible.
+  - `tata-marcopolo.webp` (1200×675 WebP): Commercial 40-seater coach with full horizontal clearance.
+- **Specific Image Generation Gap Report**:
+  - Image generation API hit quota limit (`429 RESOURCE_EXHAUSTED`, resets in ~5 hours) for:
+    - SML (22 Seater Bus)
+    - Toyota Rumion
+    - Toyota Urban Cruiser Hyryder
+  - Strictly followed user instruction: *"If image generation is unavailable for an entry, report that specific gap rather than silently substituting a different vehicle."*
+  - Generated elegant, branded reference placeholders (`sml-22-seater-bus.webp`, `toyota-rumion.webp`, `toyota-hyryder.webp`) with discrete pending illustration indicators, preserving strict visual integrity without misleading customers.
+- **Section Footnote & Overlay Caption**:
+  - Discreet caption updated to: *"Vehicle illustrations are for reference; the assigned vehicle may differ."*
+
+### Filtering, Navigation & Enquiry Usability
+- **Group Transport & Buses Filter**:
+  - Replaced legacy `"12-seater"` tab with accurately labelled `"Group Transport & Buses"` (`group-transport`), grouping all 4 group travel vehicles (Urbania 12 Seater, Force Urbania 16 Seater, SML 22 Seater Bus, Tata Marcopolo 40 Seater Bus).
+  - Maintained backward compatibility for URL hash links: `#group-transport`, `#12-seater`, `#bus`, and `#buses`.
+- **Electric Vehicles Filter (`#electric`)**:
+  - Preserved `#electric` tab and deep linking, displaying all 5 electric models (Tigor, Nexon, ZS EV, Clavis EV, Windsor EV).
+- **Unambiguous Enquiry Parameters**:
+  - Pre-fill link passes distinct parameters:
+    - Urbania 12 Seater: `/india/contact?vehicle=Urbania%20(12%20Seater)&category=12%20Seater`
+    - Force Urbania 16 Seater: `/india/contact?vehicle=Force%20Urbania%20(16%20Seater)&category=16%20Seater`
+  - Requirement form renders separate, dismissible badges: `Selected Vehicle: Urbania (12 Seater)` vs `Selected Vehicle: Force Urbania (16 Seater)`.
+- **Multilingual Support**:
+  - Added localized strings for `groupTransport` and `hybrid` across all 8 supported dictionaries (`en`, `hi`, `te`, `kn`, `ta`, `mr`, `ma`, and `ar`).
+- **India Homepage Preview & UAE Isolation**:
+  - India homepage preview preserved at exactly 4 featured vehicles (`swift-dzire`, `tata-tigor`, `innova-crysta`, `urbania`), with "View full fleet" opening `/india/fleet`.
+  - Confirmed `/uae/fleet` remains completely isolated without any India vehicle records leaking.
+
+### Verification & Quality Gates
+- `npm run type-check`: 0 TypeScript errors.
+- `npm run lint`: 0 ESLint warnings or errors.
+- Playwright automated browser test (`scripts/verify-fleet-update.mjs`):
+  - [Check 1] Verified all 16 vehicle cards render in "All Vehicles" tab.
+  - [Check 2] Verified every expected vehicle model title is present.
+  - [Check 3] Verified section caption: *"Vehicle illustrations are for reference; the assigned vehicle may differ."*
+  - [Check 4] Group Transport tab filters exactly 4 vehicles (Urbania 12, Force Urbania 16, Tata Marcopolo, SML 22).
+  - [Check 5] Electric Vehicles tab filters exactly 5 vehicles (including MG Windsor EV).
+  - [Check 6] Deep link `#electric` automatically activates the Electric Vehicles tab.
+  - [Check 7] Pre-fill links for Urbania 12-seater and 16-seater pass unambiguous parameters and render correct badges on `/india/contact`.
+  - [Check 8] India homepage preview displays 4 cards with "View full fleet" pointing to `/india/fleet`.
+  - [Check 9] UAE fleet isolation confirmed (0 India vehicles present on `/uae/fleet`).
+  - [Check 10] Zero horizontal overflow across all tested viewports: 1440px, 768px, 390px, and 320px.
+- **Screenshots Saved**:
+  - `docs/screenshots/india-fleet-catalogue-1440.png`
+  - `docs/screenshots/india-fleet-group-transport-1440.png`
+  - `docs/screenshots/india-fleet-electric-1440.png`
+  - `docs/screenshots/india-fleet-mobile-390.png`
+  - `docs/screenshots/india-enquiry-urbania-12.png`
+  - `docs/screenshots/india-enquiry-urbania-16.png`
+
+---
+
 ## 3 November 2026 — Country-Selection (`/`) Introduction Redesign & Prominent Logo Integration
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.

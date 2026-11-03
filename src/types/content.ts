@@ -44,8 +44,8 @@ export interface OfficeItem {
 export interface FleetVehicle {
   id: string;
   name: string;
-  cabType: "Sedan" | "SUV" | "12 Seater";
-  fuelType: "Petrol" | "Petrol & CNG" | "Electric Vehicle" | "Long Range Electric Vehicle" | "Diesel";
+  cabType: string;
+  fuelType: string;
   isElectric: boolean;
   image: string;
   imageAlt: string;

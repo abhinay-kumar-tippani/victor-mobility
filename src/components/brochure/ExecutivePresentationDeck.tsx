@@ -317,7 +317,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                         href={currentSlide.contact.rfpUrl}
                         className="px-5 py-3 rounded-xl bg-brand-blue text-white hover:bg-brand-blue-dark transition-all"
                       >
-                        Launch 4-Step RFP Desk
+                        Request a quote
                       </Link>
                     </div>
                   </div>
@@ -542,7 +542,7 @@ Please share your authorized 2024-2026 Executive Company Profile & Corporate Mob
                       href={slide.contact.rfpUrl}
                       className="px-4 py-2 rounded-lg bg-brand-indigo text-white text-xs font-bold"
                     >
-                      Open RFP Desk
+                      Request a quote
                     </Link>
                   </div>
                 )}

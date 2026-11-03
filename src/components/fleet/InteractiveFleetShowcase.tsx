@@ -313,17 +313,10 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
                 <div className="p-6 sm:p-8 pt-0 flex flex-wrap sm:flex-nowrap items-center gap-3">
                   <Link
                     href={`${region === "india" ? "/india" : "/uae"}/contact?category=${encodeURIComponent("Electric Vehicles")}`}
-                    className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-brand-indigo hover:bg-brand-blue text-white text-xs font-bold transition-all shadow-xs"
+                    className="w-full sm:w-auto inline-flex min-h-[44px] items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-brand-indigo hover:bg-brand-blue text-white text-xs font-bold transition-all shadow-xs"
                   >
                     <span>{fleetDict?.electric?.enquireCta || "Enquire about electric vehicles"}</span>
                     <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
-                  </Link>
-
-                  <Link
-                    href={`${region === "india" ? "/india" : "/uae"}/estimator`}
-                    className="flex-1 sm:flex-initial inline-flex min-h-[44px] items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-brand-indigo/30 bg-white text-brand-indigo hover:bg-brand-soft-neutral/40 text-xs font-bold transition-all"
-                  >
-                    <span>{fleetDict?.estimateCta || "Plan a journey"}</span>
                   </Link>
                 </div>
               </article>
@@ -618,7 +611,7 @@ I would like to enquire about ${isCalcEv ? "electric vehicle options" : "vehicle
         <div className="relative max-w-3xl mb-8 space-y-2">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-violet section-eyebrow section-eyebrow--compact">
             <FileSpreadsheet className="w-3.5 h-3.5" />
-            Corporate Rate Card &amp; Tariff Estimator
+            Corporate Rate Card &amp; Tariff Calculator
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
             Configure {region === "india" ? "India National" : "UAE Executive"} Tariff

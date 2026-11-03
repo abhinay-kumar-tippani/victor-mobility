@@ -240,6 +240,7 @@ export const taDictionary: TranslationDictionary = {
       sedan: "செடான்",
       suv: "எஸ்யூவி",
       twelveSeater: "12 இருக்கை",
+      groupTransport: "குழு போக்குவரத்து & பேருந்துகள்",
       electric: "மின்சார வாகனங்கள்",
     },
     fuelBadges: {
@@ -248,6 +249,7 @@ export const taDictionary: TranslationDictionary = {
       electricVehicle: "மின்சார வாகனம்",
       longRangeElectricVehicle: "லாங் ரேஞ்ச் மின்சார வாகனம்",
       diesel: "டீசல்",
+      hybrid: "ஹைப்ரிட்",
     },
     electric: {
       title: "மின்சார வாகனங்கள்",
@@ -274,7 +276,7 @@ export const taDictionary: TranslationDictionary = {
       sedans: {
         name: "செடான்கள்",
         capacity: "1 முதல் 4 பயணிகள் · 2 முதல் 3 பைகள்",
-        models: "Swift Dzire, Tata Tigor அல்லது அதற்கு இணையானவை",
+        models: "Swift Dzire, Hyundai Aura அல்லது அதற்கு இணையானவை",
         use: "விமான நிலையப் பயணம், வணிகப் பயணங்கள் மற்றும் சிறு குழுக்களுக்கான நகரப் பயணம்.",
       },
       mpvs: {

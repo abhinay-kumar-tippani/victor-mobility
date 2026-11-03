@@ -146,7 +146,7 @@ export default function LanguageSwitcher({
 
       {isOpen && (
         <div
-          className="absolute ltr:right-0 rtl:left-0 mt-2 w-48 sm:w-52 ltr:origin-top-right rtl:origin-top-left bg-white rounded-2xl shadow-xl border border-brand-soft-neutral py-2 px-1 z-50 animate-in fade-in zoom-in-95 duration-150"
+          className="absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-48 sm:w-52 origin-top-right rtl:origin-top-left bg-white rounded-2xl shadow-xl border border-brand-soft-neutral py-2 px-1 z-50 animate-in fade-in zoom-in-95 duration-150"
           role="presentation"
         >
           <div className="px-3 py-1.5 border-b border-brand-soft-neutral/60 mb-1">

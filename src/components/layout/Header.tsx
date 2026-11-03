@@ -46,8 +46,6 @@ export default function Header({ contact }: HeaderProps) {
     { label: dict.nav.home || "Home", href: basePrefix },
     { label: dict.nav.services || "Services", href: `${basePrefix}/services` },
     { label: dict.nav.fleet || "Fleet", href: `${basePrefix}/fleet` },
-    { label: dict.nav.estimator || "Estimator", href: `${basePrefix}/estimator` },
-    { label: dict.nav.rfp || "RFP Desk", href: `${basePrefix}/rfp` },
     { label: dict.nav.about || "About", href: `${basePrefix}/about` },
     { label: dict.nav.contact || "Contact", href: `${basePrefix}/contact` },
   ];
@@ -193,177 +191,174 @@ export default function Header({ contact }: HeaderProps) {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-brand-soft-neutral shadow-xs transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-[72px] gap-2">
-          {/* Logo container: Crisp white background, intact Victor Artwork & Tagline */}
-          <Link
-            href={basePrefix}
-            className="flex items-center group py-1 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded shrink-0"
-            aria-label="Victor Mobility - Home"
-          >
-            <BrandLogo className="h-11 sm:h-[52px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
-          </Link>
-
-          {/* Main destinations and India planning tools */}
-          <nav
-            className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap"
-            aria-label="Main Navigation"
-          >
-            {navItems.map((item) => {
-              const active = isItemActive(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`min-h-[44px] inline-flex items-center text-xs xl:text-sm font-semibold transition-all duration-150 px-2 xl:px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
-                    active
-                      ? "bg-brand-indigo text-white shadow-xs hover:bg-brand-blue"
-                      : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-indigo/10 active:bg-brand-indigo active:text-white"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Desktop CTAs: Language Switcher, Direct Call & Request Quote */}
-          <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5 whitespace-nowrap shrink-0">
-            <LanguageSwitcher id="desktop-language-switcher" />
-
-            <a
-              href={contact.phoneHref}
-              className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[44px]"
-              title={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span dir="ltr">{contact.phoneDisplay}</span>
-            </a>
-
+    <>
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-soft-neutral shadow-xs transition-all duration-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-[74px] gap-2 sm:gap-4">
+            {/* Logo container: Crisp white background, intact Victor Artwork & Tagline */}
             <Link
-              href={`${basePrefix}/contact`}
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-4 xl:px-5 py-2.5 rounded-xl shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[44px]"
+              href={basePrefix}
+              className="flex items-center group py-1 focus:outline-none focus:ring-2 focus:ring-brand-indigo rounded shrink-0"
+              aria-label="Victor Mobility - Home"
             >
-              {dict.nav.enquire || "Enquire"}
+              <BrandLogo className="h-12 sm:h-[58px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
             </Link>
-          </div>
 
-          {/* Mobile Menu Actions: Compact Language Switcher, Call, Drawer Trigger */}
-          <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
-            <LanguageSwitcher id="mobile-language-switcher" compactOnMobile={true} />
-
-            <a
-              href={contact.phoneHref}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
-              aria-label={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
+            {/* Main navigation destinations */}
+            <nav
+              className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap"
+              aria-label="Main Navigation"
             >
-              <Phone className="w-5 h-5" />
-            </a>
-
-            <button
-              ref={menuButtonRef}
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-ink rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
-              aria-label={mobileMenuOpen ? dict.nav.closeMenu : dict.nav.menuLabel}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-navigation-drawer"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div
-          className="lg:hidden fixed inset-x-0 top-16 sm:top-[72px] bottom-0 z-40 bg-brand-ink/40 backdrop-blur-xs"
-          onClick={() => closeMenu(true)}
-          aria-hidden={!mobileMenuOpen}
-        >
-          <div
-            id="mobile-navigation-drawer"
-            ref={drawerRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation Menu"
-            className="bg-white border-b border-brand-soft-neutral px-6 pt-5 pb-8 space-y-5 shadow-xl max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.5rem)] overflow-y-auto text-start"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-3">
-              <span className="text-sm font-bold text-brand-ink">
-                {dict.nav.menuLabel}
-              </span>
-              <button
-                type="button"
-                onClick={() => closeMenu(true)}
-                aria-label={dict.nav.closeMenu}
-                className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-brand-indigo focus:outline-none focus:ring-2 focus:ring-brand-indigo"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <nav className="space-y-1.5">
               {navItems.map((item) => {
                 const active = isItemActive(item.href);
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => closeMenu(false)}
                     aria-current={active ? "page" : undefined}
-                    className={`block text-base sm:text-lg font-semibold py-3 px-4 rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                    className={`min-h-[42px] inline-flex items-center text-sm font-semibold transition-all duration-150 px-3 xl:px-3.5 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                       active
-                        ? "bg-brand-indigo text-white font-bold shadow-xs hover:bg-brand-blue"
-                        : "text-brand-ink hover:text-brand-indigo hover:bg-brand-indigo/10 active:bg-brand-indigo active:text-white"
+                        ? "text-brand-indigo font-bold bg-brand-indigo/10 border border-brand-indigo/15 shadow-2xs"
+                        : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-indigo/8 active:bg-brand-indigo/15"
                     }`}
                   >
                     {item.label}
                   </Link>
                 );
               })}
-              <Link
-                href={`${basePrefix}/privacy`}
-                onClick={() => closeMenu(false)}
-                className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo hover:bg-brand-indigo/5 py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
-              >
-                {dict.nav.privacy}
-              </Link>
             </nav>
 
-            {/* Prominent Mobile Drawer Language Switcher */}
-            <MobileDrawerLanguageSelector />
+            {/* Desktop CTAs: Language Switcher, Direct Call & Request Quote */}
+            <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 whitespace-nowrap shrink-0">
+              <LanguageSwitcher id="desktop-language-switcher" />
 
-            <div className="pt-2 space-y-3">
-              <Link
-                href={`${basePrefix}/contact`}
-                onClick={() => closeMenu(false)}
-                className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo shadow-xs"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>{dict.nav.discussRequirement || "Discuss Your Requirement"}</span>
-              </Link>
               <a
                 href={contact.phoneHref}
-                className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue hover:bg-brand-indigo/5 transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[42px]"
+                title={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
               >
-                <Phone className="w-4 h-4" />
-                <span dir="ltr">
-                  {dict.nav.call || "Call"} {contact.phoneDisplay}
-                </span>
+                <Phone className="w-3.5 h-3.5" />
+                <span dir="ltr">{contact.phoneDisplay}</span>
               </a>
+
+              <Link
+                href={`${basePrefix}/contact`}
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-4 xl:px-5 py-2.5 rounded-xl shadow-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[42px]"
+              >
+                {dict.nav.enquire || "Enquire"}
+              </Link>
             </div>
 
-            <div className="pt-2 text-xs text-brand-ink/60 text-center font-medium">
-              {isIndia ? "Hyderabad · Bengaluru · Pune" : "Dubai · Abu Dhabi · Sharjah"}
+            {/* Mobile Menu Actions: Compact Language Switcher, Call, Drawer Trigger */}
+            <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
+              <LanguageSwitcher id="mobile-language-switcher" compactOnMobile={true} />
+
+              <a
+                href={contact.phoneHref}
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
+                aria-label={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
+              >
+                <Phone className="w-5 h-5" />
+              </a>
+
+              <button
+                ref={menuButtonRef}
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-ink rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
+                aria-label={mobileMenuOpen ? dict.nav.closeMenu : dict.nav.menuLabel}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation-drawer"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6 text-brand-indigo" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
         </div>
-      )}
+
+        {/* Mobile Drawer */}
+        {mobileMenuOpen && (
+          <div
+            className="lg:hidden fixed inset-x-0 top-16 sm:top-[74px] bottom-0 z-40 bg-brand-ink/40 backdrop-blur-xs"
+            onClick={() => closeMenu(true)}
+            aria-hidden={!mobileMenuOpen}
+          >
+            <div
+              id="mobile-navigation-drawer"
+              ref={drawerRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation Menu"
+              className="bg-white border-b border-brand-soft-neutral px-6 pt-4 pb-8 space-y-4 shadow-xl max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.75rem)] overflow-y-auto text-start"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between border-b border-brand-soft-neutral pb-2.5">
+                <span className="text-xs font-bold tracking-wider uppercase text-brand-ink/60">
+                  {dict.nav.menuLabel}
+                </span>
+                <span className="text-xs font-semibold text-brand-indigo">
+                  Victor Mobility
+                </span>
+              </div>
+
+              <nav className="space-y-1">
+                {navItems.map((item) => {
+                  const active = isItemActive(item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => closeMenu(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={`block text-base sm:text-lg font-semibold py-2.5 px-4 rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                        active
+                          ? "bg-brand-indigo/10 text-brand-indigo font-bold border-l-4 rtl:border-l-0 rtl:border-r-4 border-brand-indigo"
+                          : "text-brand-ink hover:text-brand-indigo hover:bg-brand-indigo/5 active:bg-brand-indigo/10"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+                <Link
+                  href={`${basePrefix}/privacy`}
+                  onClick={() => closeMenu(false)}
+                  className="block text-sm font-medium text-brand-ink/70 hover:text-brand-indigo hover:bg-brand-indigo/5 py-2 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                >
+                  {dict.nav.privacy}
+                </Link>
+              </nav>
+
+              {/* Prominent Mobile Drawer Language Switcher */}
+              <MobileDrawerLanguageSelector />
+
+              <div className="pt-2 space-y-3">
+                <Link
+                  href={`${basePrefix}/contact`}
+                  onClick={() => closeMenu(false)}
+                  className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo shadow-xs"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>{dict.nav.discussRequirement || "Discuss Your Requirement"}</span>
+                </Link>
+                <a
+                  href={contact.phoneHref}
+                  className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span dir="ltr">
+                    {dict.nav.call || "Call"} {contact.phoneDisplay}
+                  </span>
+                </a>
+              </div>
+
+              <div className="pt-2 text-xs text-brand-ink/60 text-center font-medium">
+                {isIndia ? "Hyderabad · Bengaluru · Pune" : "Dubai · Abu Dhabi · Sharjah"}
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
 
       {!mobileMenuOpen && (
         <StickyContactRail
@@ -372,6 +367,6 @@ export default function Header({ contact }: HeaderProps) {
           emailHref={asifEmailHref}
         />
       )}
-    </header>
+    </>
   );
 }

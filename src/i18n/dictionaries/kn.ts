@@ -240,6 +240,7 @@ export const knDictionary: TranslationDictionary = {
       sedan: "ಸೆಡಾನ್",
       suv: "ಎಸ್‌ಯುವಿ",
       twelveSeater: "12 ಸೀಟರ್",
+      groupTransport: "ಗುಂಪು ಸಾರಿಗೆ ಮತ್ತು ಬಸ್‌ಗಳು",
       electric: "ಎಲೆಕ್ಟ್ರಿಕ್ ವಾಹನಗಳು",
     },
     fuelBadges: {
@@ -248,6 +249,7 @@ export const knDictionary: TranslationDictionary = {
       electricVehicle: "ಎಲೆಕ್ಟ್ರಿಕ್ ವಾಹನ",
       longRangeElectricVehicle: "ಲಾಂಗ್ ರೇಂಜ್ ಎಲೆಕ್ಟ್ರಿಕ್ ವಾಹನ",
       diesel: "ಡೀಸೆಲ್",
+      hybrid: "ಹೈಬ್ರಿಡ್",
     },
     electric: {
       title: "ಎಲೆಕ್ಟ್ರಿಕ್ ವಾಹನಗಳು",
@@ -274,7 +276,7 @@ export const knDictionary: TranslationDictionary = {
       sedans: {
         name: "ಸೆಡಾನ್‌ಗಳು",
         capacity: "1 ರಿಂದ 4 ಪ್ರಯಾಣಿಕರು · 2 ರಿಂದ 3 ಬ್ಯಾಗ್‌ಗಳು",
-        models: "Swift Dzire, Tata Tigor ಅಥವಾ ಸಮಾನವಾದವು",
+        models: "Swift Dzire, Hyundai Aura ಅಥವಾ ಸಮಾನವಾದವು",
         use: "ವಿಮಾನ ನಿಲ್ದಾಣ ಪ್ರಯಾಣ, ವ್ಯಾಪಾರ ಭೇಟಿಗಳು ಮತ್ತು ಸಣ್ಣ ಗುಂಪುಗಳ ನಗರ ಪ್ರಯಾಣ.",
       },
       mpvs: {

@@ -65,8 +65,8 @@ export default function IndiaBillingPage() {
               Home
             </Link>
             <span>/</span>
-            <Link href="/india/rfp" className="hover:text-amber-400 transition">
-              Corporate RFP
+            <Link href="/india/business" className="hover:text-amber-400 transition">
+              Corporate Resources
             </Link>
             <span>/</span>
             <span className="text-slate-200 font-medium">Billing &amp; Duty Slip Desk</span>

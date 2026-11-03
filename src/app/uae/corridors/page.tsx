@@ -71,8 +71,8 @@ export default function UaeCorridorsPage() {
               Home
             </Link>
             <span>/</span>
-            <Link href="/uae/rfp" className="hover:text-amber-400 transition">
-              Corporate RFP
+            <Link href="/uae/business" className="hover:text-amber-400 transition">
+              Corporate Resources
             </Link>
             <span>/</span>
             <span className="text-slate-200 font-medium">UAE Commercial Corridors</span>

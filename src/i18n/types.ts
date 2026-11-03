@@ -40,8 +40,8 @@ export interface TranslationDictionary {
     home: string;
     services: string;
     fleet: string;
-    estimator: string;
-    rfp: string;
+    estimator?: string;
+    rfp?: string;
     about: string;
     contact: string;
     enquire: string;
@@ -143,7 +143,8 @@ export interface TranslationDictionary {
       all: string;
       sedan: string;
       suv: string;
-      twelveSeater: string;
+      twelveSeater?: string;
+      groupTransport?: string;
       electric: string;
     };
     fuelBadges: {
@@ -152,6 +153,7 @@ export interface TranslationDictionary {
       electricVehicle: string;
       longRangeElectricVehicle: string;
       diesel: string;
+      hybrid?: string;
     };
     electric?: {
       title: string;
@@ -270,7 +272,7 @@ export interface TranslationDictionary {
     privacyNotice: string;
     isoCommitment: string;
   };
-  estimator: {
+  estimator?: {
     title: string;
     description: string;
     formTitle: string;
@@ -311,7 +313,7 @@ export interface TranslationDictionary {
       rate: string;
     };
   };
-  rfp: {
+  rfp?: {
     title: string;
     sideTitle: string;
     sideDescription: string;
@@ -348,7 +350,7 @@ export interface TranslationDictionary {
       details: string;
     };
   };
-  planningActions: {
+  planningActions?: {
     whatsapp: string;
     whatsappNote: string;
     copy: string;

@@ -6,12 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const publishedServices = indiaData.services.filter((s) => s.published);
 
   const coreRoutes: MetadataRoute.Sitemap = [
-    ...["estimator", "rfp"].map(route => ({
-      url: `${baseUrl}/india/${route}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
     {
       url: `${baseUrl}`,
       lastModified: new Date(),

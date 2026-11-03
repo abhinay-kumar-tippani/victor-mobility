@@ -16,7 +16,7 @@ export default function BusinessResourcesPage({ region }: { region: "india" | "u
         <p className="text-sm font-semibold text-brand-blue mb-3">Corporate resources</p>
         <h1 className="text-3xl sm:text-5xl font-bold text-brand-ink mb-5">For businesses</h1>
         <p className="text-lg text-brand-ink/75 leading-relaxed">Find planning tools, company information and the right team for your transport requirements.</p>
-        <Link href={`/${region}/rfp`} className="inline-flex mt-6 min-h-[48px] items-center px-6 py-3 bg-brand-indigo text-white rounded-xl font-semibold">Request a proposal</Link>
+        <Link href={`/${region}/contact`} className="inline-flex mt-6 min-h-[48px] items-center px-6 py-3 bg-brand-indigo text-white rounded-xl font-semibold">Request a quote</Link>
       </div>
       <div className="grid sm:grid-cols-2 gap-8">
         {india.businessResources.map((group) => <section key={group.title} className="border-t border-brand-soft-neutral pt-6">

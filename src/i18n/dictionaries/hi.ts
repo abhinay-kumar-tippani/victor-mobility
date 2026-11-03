@@ -186,6 +186,7 @@ export const hiDictionary: TranslationDictionary = {
       sedan: "सेडान",
       suv: "एसयूवी",
       twelveSeater: "12 सीटर",
+      groupTransport: "समूह परिवहन एवं बसें",
       electric: "इलेक्ट्रिक वाहन",
     },
     fuelBadges: {
@@ -194,6 +195,7 @@ export const hiDictionary: TranslationDictionary = {
       electricVehicle: "इलेक्ट्रिक वाहन",
       longRangeElectricVehicle: "लॉन्ग रेंज इलेक्ट्रिक वाहन",
       diesel: "डीजल",
+      hybrid: "हाइब्रिड",
     },
     electric: {
       title: "इलेक्ट्रिक वाहन",
@@ -220,7 +222,7 @@ export const hiDictionary: TranslationDictionary = {
       sedans: {
         name: "सेडान",
         capacity: "1 से 4 यात्री · 2 से 3 बैग",
-        models: "Swift Dzire, Tata Tigor या समकक्ष",
+        models: "Swift Dzire, Hyundai Aura या समकक्ष",
         use: "एयरपोर्ट यात्रा, व्यापारिक बैठकें और छोटे समूहों के लिए शहर आवागमन।",
       },
       mpvs: {

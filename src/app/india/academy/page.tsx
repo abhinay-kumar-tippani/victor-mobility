@@ -96,7 +96,7 @@ export default function IndiaAcademyPage() {
               Experience the Victor Chauffeur Protocol Firsthand
             </BrandText></h3>
             <p className="text-sm text-brand-slate max-w-2xl mx-auto leading-relaxed">
-              Calculate point-to-point corridor fares or request an enterprise corporate mobility quotation backed by certified chauffeurs.
+              Discuss point-to-point transit corridors or request an enterprise corporate mobility quotation backed by certified chauffeurs.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-4">
               <Link
@@ -107,16 +107,10 @@ export default function IndiaAcademyPage() {
                 <span>Verify Driver Badge</span>
               </Link>
               <Link
-                href="/india/estimator"
+                href="/india/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs font-bold transition-all shadow-md"
               >
-                <span>Calculate Corridor Fares</span>
-              </Link>
-              <Link
-                href="/india/rfp"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold transition-all shadow-md"
-              >
-                <span>Submit Enterprise RFP</span>
+                <span>Request a quote</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

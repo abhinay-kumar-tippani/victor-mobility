@@ -110,8 +110,6 @@ export default function GlobalMarketsGateway({
     { title: 'Corporate Credit', path: `${prefix}/credit-application`, badge: '30-Day Billing' },
     { title: 'Corporate Invoicing', path: `${prefix}/billing`, badge: 'Tax & ITC' },
     { title: 'Corridor Navigator', path: `${prefix}/corridors`, badge: 'Tech Parks' },
-    { title: 'Fare Estimator', path: `${prefix}/estimator`, badge: 'Calculator' },
-    { title: 'Procurement RFP', path: `${prefix}/rfp`, badge: 'Formal RFP' },
     { title: 'Chauffeur Academy', path: `${prefix}/academy`, badge: 'Training' },
     { title: 'Chauffeur Verification', path: `${prefix}/academy/verify`, badge: 'QR Badges' },
     { title: 'Client Telematics', path: `${prefix}/portal`, badge: 'Live Tracking' },
@@ -310,7 +308,7 @@ export default function GlobalMarketsGateway({
                   href={activeRegion.rfpUrl}
                   className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
                 >
-                  Submit RFP
+                  Request a quote
                 </Link>
               </div>
             </div>

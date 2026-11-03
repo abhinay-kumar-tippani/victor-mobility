@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 interface BrandLogoProps {
   className?: string;
@@ -11,6 +11,9 @@ interface BrandLogoProps {
  * and tagline "On Time Every Time." intact.
  */
 export default function BrandLogo({ className = "h-12 sm:h-[56px] aspect-[810/430]" }: BrandLogoProps) {
+  const clipId = useId().replace(/:/g, "-");
+  const clipPathId = `victor-logo-viewport-clip-${clipId}`;
+
   return (
     <div className={`relative flex items-center justify-start overflow-hidden shrink-0 ${className}`}>
       <svg
@@ -21,7 +24,7 @@ export default function BrandLogo({ className = "h-12 sm:h-[56px] aspect-[810/43
         aria-label="Victor Mobility - On Time Every Time."
       >
         <defs>
-          <clipPath id="victor-logo-viewport-clip">
+          <clipPath id={clipPathId}>
             <rect x="130" y="160" width="810" height="430" />
           </clipPath>
         </defs>
@@ -29,7 +32,7 @@ export default function BrandLogo({ className = "h-12 sm:h-[56px] aspect-[810/43
           href="/brand/victor-original.png"
           width="1074"
           height="751"
-          clipPath="url(#victor-logo-viewport-clip)"
+          clipPath={`url(#${clipPathId})`}
         />
       </svg>
     </div>

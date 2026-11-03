@@ -95,7 +95,7 @@ export default function UaeAcademyPage() {
               Reserve First Class Limousine Mobility in Dubai &amp; Abu Dhabi
             </h3>
             <p className="text-sm text-brand-slate max-w-2xl mx-auto leading-relaxed">
-              Calculate indicative corridor fares or initiate an enterprise RFP with our Dubai Head Office desk at +971 52 455 2441.
+              Discuss executive corridor requirements or request a customized quotation with our Dubai Head Office desk at +971 52 455 2441.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-4">
               <Link
@@ -106,16 +106,10 @@ export default function UaeAcademyPage() {
                 <span>Verify RTA Driver Badge</span>
               </Link>
               <Link
-                href="/uae/estimator"
+                href="/uae/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs font-bold transition-all shadow-md"
               >
-                <span>Calculate UAE Limousine Fares</span>
-              </Link>
-              <Link
-                href="/uae/rfp"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold transition-all shadow-md"
-              >
-                <span>Submit Enterprise RFP</span>
+                <span>Request a quote</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

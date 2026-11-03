@@ -575,10 +575,10 @@ export default function TechParkCorridorDesk({
                 Request Corridor Route Study on WhatsApp
               </a>
               <Link
-                href={isIndia ? '/india/rfp' : '/uae/rfp'}
+                href={isIndia ? '/india/contact' : '/uae/contact'}
                 className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-lg border border-slate-700 transition"
               >
-                Submit Corporate Commute RFP
+                Request a quote
               </Link>
             </div>
           </div>

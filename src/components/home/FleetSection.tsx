@@ -52,7 +52,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
   sedans: {
     badge: "Executive Sedans",
     headline: "Comfortable Saloons for Commutes & Business Travel",
-    models: ["Swift Dzire", "Hyundai Aura", "Tata Tigor", "Tata Nexon", "MG ZS EV"],
+    models: ["Swift Dzire", "Hyundai Aura", "Tata Nexon", "MG ZS EV"],
     capacity: "Up to 3–4 Employees · 2 Luggage Bags",
     uses: "Daily employee commute, airport transfers, and point-to-point city travel.",
     features: [

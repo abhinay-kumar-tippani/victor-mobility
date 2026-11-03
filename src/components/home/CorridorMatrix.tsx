@@ -57,56 +57,6 @@ const indiaHubs: CorridorHub[] = [
     ],
     airportConnectors: "RGIA Shamshabad via 8-lane ORR Expressway (35-45 min scheduled window)",
   },
-  {
-    id: "bengaluru",
-    name: "Bengaluru Hub",
-    stateOrEmirate: "Karnataka",
-    badge: "Technology Corridor Hub",
-    description: "Punctual workforce transit architecture across Silicon Valley's major tech parks and elevated arterial corridors.",
-    keyZones: [
-      "Electronic City (Phases 1 & 2)",
-      "Whitefield (ITPB & EPIP Zone)",
-      "Outer Ring Road (Bellandur - Marathahalli)",
-      "Manyata Embassy Business Park",
-      "Bagmane Tech Park",
-    ],
-    expressways: [
-      "Hosur Road Elevated Expressway",
-      "NICE Road Peripheral Expressway",
-      "Hebbal - Airport Expressway",
-    ],
-    serviceCapabilities: [
-      "Fixed-Route Enterprise Employee Shuttles",
-      "Dedicated Chauffeur Standby for MNCs",
-      "Inter-Campus Executive Transit",
-    ],
-    airportConnectors: "Kempegowda International Airport (BLR) via Bellary Road Expressway",
-  },
-  {
-    id: "pune",
-    name: "Pune Hub",
-    stateOrEmirate: "Maharashtra",
-    badge: "Automotive & IT Hub",
-    description: "High-reliability employee transport and executive mobility across Pune's sprawling software parks and industrial manufacturing corridors.",
-    keyZones: [
-      "Hinjawadi Rajiv Gandhi Infotech Park (Phases 1, 2, 3)",
-      "Magarpatta Cybercity",
-      "Kharadi EON Free Zone",
-      "Viman Nagar Commerce Hub",
-      "Chakan Industrial Belt",
-    ],
-    expressways: [
-      "Mumbai - Pune Expressway Connector",
-      "Katraj - Dehu Road Bypass",
-      "Pune - Ahmednagar Highway",
-    ],
-    serviceCapabilities: [
-      "Scheduled Shift Roster Transport",
-      "Industrial Facility Commute Convoys",
-      "Executive Saloons for Leadership Delegations",
-    ],
-    airportConnectors: "Pune International Airport (PNQ) via Airport Road corridor",
-  },
 ];
 
 const uaeHubs: CorridorHub[] = [
@@ -189,7 +139,7 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
   const [activeTab, setActiveTab] = useState<string>(hubs[0].id);
 
   const activeHub = hubs.find((h) => h.id === activeTab) || hubs[0];
-  const targetRfpHref = rfpHref || (region === "uae" ? "/uae/rfp" : "/india/rfp");
+  const targetRfpHref = rfpHref || (region === "uae" ? "/uae/contact" : "/india/contact");
 
   return (
     <section
@@ -220,8 +170,8 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
             href={targetRfpHref}
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-indigo hover:bg-brand-blue text-white text-xs font-bold uppercase tracking-wider transition-colors shrink-0 shadow-sm"
           >
-            <span>Request Corporate RFP</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Request a quote</span>
+            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
 
@@ -351,8 +301,8 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
                 href={`${targetRfpHref}?city=${encodeURIComponent(activeHub.name.replace(/ Hub| Network| Corridor| Free Zones/g, ""))}`}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-ink hover:bg-brand-indigo text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
               >
-                <span>Request {activeHub.name} Tender Quote</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Request a quote for {activeHub.name}</span>
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </Link>
             </div>
           </div>

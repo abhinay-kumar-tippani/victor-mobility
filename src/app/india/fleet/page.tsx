@@ -1,10 +1,7 @@
-import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import IndiaFleetSection from "@/components/fleet/IndiaFleetSection";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { FleetVehicle } from "@/types/content";
@@ -25,28 +22,6 @@ export default function FleetPage() {
           vehicles={indiaData.fleetVehicles as FleetVehicle[]}
           standalone={true}
         />
-        <section className="bg-brand-ink text-white">
-          <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center lg:px-8">
-            <div>
-              <p className="uppercase text-white/65 section-eyebrow section-eyebrow--compact">
-                <BrandText>{indiaData.planningTools.rfp.eyebrow}</BrandText>
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">
-                <BrandText>{indiaData.planningTools.home.rfp.title}</BrandText>
-              </h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
-                <BrandText>{indiaData.planningTools.home.rfp.description}</BrandText>
-              </p>
-            </div>
-            <Link
-              href="/india/rfp"
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-brand-indigo"
-            >
-              {indiaData.planningTools.home.rfp.cta}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </div>
-        </section>
       </main>
       <Footer
         contact={indiaData.contact}

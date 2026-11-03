@@ -277,7 +277,7 @@ export default function IndiaPresenceMap({
     <section
       id="network"
       tabIndex={-1}
-      className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral focus:outline-none"
+      className="py-14 sm:py-20 bg-white border-b border-brand-soft-neutral focus:outline-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         {/* Section Header */}
@@ -290,8 +290,8 @@ export default function IndiaPresenceMap({
         {/* 2-Column Split: Map on Left, Active City Details on Right */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Interactive India Map with Cursor-Tracking Floating Tooltip */}
-          <div className="lg:col-span-7 rounded-3xl bg-white p-5 sm:p-7 border border-slate-200/90 relative shadow-sm">
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+          <div className="lg:col-span-7 rounded-3xl bg-white p-4 sm:p-7 border border-slate-200/90 relative shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <Compass className="w-4 h-4 text-brand-indigo" />
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-ink">
@@ -501,11 +501,11 @@ export default function IndiaPresenceMap({
               id={panelId}
               aria-live="polite"
               aria-atomic="true"
-              className="rounded-3xl bg-brand-warm-white p-6 sm:p-7 border border-brand-soft-neutral shadow-xs space-y-5"
+              className="rounded-3xl bg-brand-warm-white p-4 sm:p-7 border border-brand-soft-neutral shadow-xs space-y-5"
             >
               {/* Operational Cities Selector on Card */}
               <div className="space-y-2 pb-4 border-b border-brand-soft-neutral/80">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-brand-ink/70 block">
                     Select Operational City:
                   </span>
@@ -543,7 +543,7 @@ export default function IndiaPresenceMap({
               </div>
 
               {/* Header with Classification Badge */}
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-soft-neutral uppercase text-brand-indigo section-eyebrow section-eyebrow--compact">
                   <Building2 className="w-3.5 h-3.5 text-brand-blue" />
                   <span>{selectedCity.label}</span>
@@ -555,8 +555,8 @@ export default function IndiaPresenceMap({
 
               {/* City & State Title */}
               <div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">
-                  {selectedCity.name}({selectedCity.state})
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-ink break-words">
+                  {selectedCity.name} ({selectedCity.state})
                 </h3>
                 <p className="text-xs font-bold uppercase tracking-wider text-brand-blue mt-0.5">
                   {selectedCity.state.toLowerCase() === "telangana" || canonicalCityName(selectedCity.name) === "hyderabad"

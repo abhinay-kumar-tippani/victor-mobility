@@ -153,22 +153,6 @@ export default function Footer({
             <ul className="space-y-1 text-xs sm:text-sm text-brand-soft-neutral/80">
               <li>
                 <Link
-                  href={`${prefix}/estimator`}
-                  className="inline-block py-0.5 transition-colors hover:text-white"
-                >
-                  {dict.nav.estimator || "Estimator"}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`${prefix}/rfp`}
-                  className="inline-block py-0.5 transition-colors hover:text-white"
-                >
-                  {dict.nav.rfp || "RFP Desk"}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href={`${prefix}/services`}
                   className="inline-block py-0.5 transition-colors hover:text-white"
                 >

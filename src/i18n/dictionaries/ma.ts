@@ -240,6 +240,7 @@ export const maDictionary: TranslationDictionary = {
       sedan: "സെഡാൻ",
       suv: "എസ്‌യുവി",
       twelveSeater: "12 സീറ്റർ",
+      groupTransport: "ഗ്രൂപ്പ് ട്രാൻസ്‌പോർട്ട് & ബസുകൾ",
       electric: "ഇലക്ട്രിക് വാഹനങ്ങൾ",
     },
     fuelBadges: {
@@ -248,6 +249,7 @@ export const maDictionary: TranslationDictionary = {
       electricVehicle: "ഇലക്ട്രിക് വാഹനം",
       longRangeElectricVehicle: "ലോംഗ് റേഞ്ച് ഇലക്ട്രിക് വാഹനം",
       diesel: "ഡീസൽ",
+      hybrid: "ഹൈബ്രിഡ്",
     },
     electric: {
       title: "ഇലക്ട്രിക് വാഹനങ്ങൾ",
@@ -274,7 +276,7 @@ export const maDictionary: TranslationDictionary = {
       sedans: {
         name: "സെഡാനുകൾ",
         capacity: "1 മുതൽ 4 യാത്രക്കാർ · 2 മുതൽ 3 ബാഗുകൾ",
-        models: "Swift Dzire, Tata Tigor അല്ലെങ്കിൽ സമാനമായവ",
+        models: "Swift Dzire, Hyundai Aura അല്ലെങ്കിൽ സമാനമായവ",
         use: "എയർപോർട്ട് യാത്രകൾ, ബിസിനസ്സ് സന്ദർശനങ്ങൾ, ചെറിയ ഗ്രൂപ്പ് നഗര യാത്രകൾ.",
       },
       mpvs: {

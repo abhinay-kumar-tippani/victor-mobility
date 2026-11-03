@@ -71,8 +71,8 @@ export default function IndiaSlaPage() {
               Home
             </Link>
             <span>/</span>
-            <Link href="/india/rfp" className="hover:text-amber-400 transition">
-              Enterprise RFP
+            <Link href="/india/business" className="hover:text-amber-400 transition">
+              Corporate Resources
             </Link>
             <span>/</span>
             <span className="text-slate-200 font-medium">SLA &amp; Compliance Desk</span>

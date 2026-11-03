@@ -154,7 +154,7 @@
           "whatsapp": "+91 93965 46950",
           "email": "operations@victormobility.com",
           "web": "https://victor-mobility.vercel.app/india",
-          "rfpUrl": "/india/rfp"
+          "rfpUrl": "/india/contact"
         }
       }
     ]
@@ -302,14 +302,14 @@
       },
       {
         "slideNo": "08",
-        "title": "UAE Reservation & Corporate RFP Desk",
+        "title": "UAE Reservation & Corporate Enquiries",
         "subtitle": "Reserve Your First Class Limousine Journey Today",
         "contact": {
           "phone": "+971 52 455 2441",
           "whatsapp": "+971 52 455 2441",
           "email": "info@victorluxurylimousine.com",
           "web": "https://victor-mobility.vercel.app/uae",
-          "rfpUrl": "/uae/rfp"
+          "rfpUrl": "/uae/contact"
         }
       }
     ]

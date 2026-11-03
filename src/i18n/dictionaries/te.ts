@@ -186,6 +186,7 @@ export const teDictionary: TranslationDictionary = {
       sedan: "సెడాన్",
       suv: "ఎస్ యూ వి",
       twelveSeater: "12 సీటర్",
+      groupTransport: "గ్రూప్ రవాణా & బస్సులు",
       electric: "ఎలక్ట్రిక్ వాహనాలు",
     },
     fuelBadges: {
@@ -194,6 +195,7 @@ export const teDictionary: TranslationDictionary = {
       electricVehicle: "ఎలక్ట్రిక్ వాహనం",
       longRangeElectricVehicle: "లాంగ్ రేంజ్ ఎలక్ట్రిక్ వాహనం",
       diesel: "డీజిల్",
+      hybrid: "హైబ్రిడ్",
     },
     electric: {
       title: "ఎలక్ట్రిక్ వాహనాలు",
@@ -220,7 +222,7 @@ export const teDictionary: TranslationDictionary = {
       sedans: {
         name: "సెడాన్లు",
         capacity: "1 నుండి 4 ప్రయాణీకులు · 2 నుండి 3 బ్యాగులు",
-        models: "Swift Dzire, Tata Tigor లేదా సమానమైనవి",
+        models: "Swift Dzire, Hyundai Aura లేదా సమానమైనవి",
         use: "ఎయిర్‌పోర్ట్ ప్రయాణాలు, వ్యాపార పర్యటనలు మరియు చిన్న బృందాల నగర ప్రయాణాలకు.",
       },
       mpvs: {

@@ -41,7 +41,7 @@ export default function HomepageFleetPreview({
       ? featuredIds
       : (featuredFleetData as Record<string, string[]>)[effectiveRegion] || [
           "swift-dzire",
-          "tata-tigor",
+          "hyundai-aura",
           "innova-crysta",
           "urbania",
         ];
@@ -75,6 +75,9 @@ export default function HomepageFleetPreview({
         );
       case "Diesel":
         return fleetDict?.fuelBadges?.diesel || "Diesel";
+      case "Hybrid":
+      case "Petrol & Hybrid":
+        return fleetDict?.fuelBadges?.hybrid || "Hybrid";
       default:
         return fuelType;
     }
@@ -99,7 +102,7 @@ export default function HomepageFleetPreview({
   const imageCaption =
     fleetDict?.imageCaption ||
     copy.imageCaption ||
-    "Images show vehicle models; actual assigned vehicles may vary.";
+    "Vehicle illustrations are for reference; the assigned vehicle may differ.";
 
   // Labels matching the authoritative fleet cards
   const pricingLabel = fleetDict?.electric?.pricingLabel || "Pricing";

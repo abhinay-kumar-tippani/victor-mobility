@@ -176,11 +176,11 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
                 Grounded in the Victor Standard: </BrandText><strong className="text-brand-indigo">On Time Every Time.</strong>
               </span>
               <Link
-                href={`/${region}/rfp`}
+                href={`/${region}/contact`}
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
               >
-                <span>Audit RFP Protocols</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Request a quote</span>
+                <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
               </Link>
             </div>
           </div>
@@ -254,18 +254,11 @@ export default function ChauffeurAcademy({ region }: ChauffeurAcademyProps) {
 
           <div className="pt-2 flex flex-col sm:flex-row gap-3">
             <Link
-              href={`/${region}/estimator`}
+              href={`/${region}/contact`}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white font-bold text-xs transition-colors"
             >
-              <Car className="w-4 h-4" />
-              <span>Calculate Corridor Fares</span>
-            </Link>
-            <Link
-              href={`/${region}/rfp`}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-soft-neutral hover:bg-brand-soft-neutral/80 text-brand-indigo font-bold text-xs transition-colors"
-            >
-              <FileCheck2 className="w-4 h-4 text-brand-blue" />
-              <span>Review Compliance in RFP</span>
+              <span>Request a quote</span>
+              <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
             </Link>
           </div>
         </div>

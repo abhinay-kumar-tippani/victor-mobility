@@ -248,6 +248,7 @@ export const arDictionary: TranslationDictionary = {
       sedan: "سيدان",
       suv: "دفع رباعي",
       twelveSeater: "12 راكب",
+      groupTransport: "النقل الجماعي والحافلات",
       electric: "المركبات الكهربائية",
     },
     fuelBadges: {
@@ -256,6 +257,7 @@ export const arDictionary: TranslationDictionary = {
       electricVehicle: "مركبة كهربائية",
       longRangeElectricVehicle: "مركبة كهربائية طويلة المدى",
       diesel: "ديزل",
+      hybrid: "هجين",
     },
     electric: {
       title: "المركبات الكهربائية",
@@ -282,7 +284,7 @@ export const arDictionary: TranslationDictionary = {
       sedans: {
         name: "سيارات صالون تنفيذية",
         capacity: "1 إلى 4 ركاب · 2 إلى 3 حقائب",
-        models: "Swift Dzire, Tata Tigor أو ما يعادلها",
+        models: "Swift Dzire, Hyundai Aura أو ما يعادلها",
         use: "مشاوير المطار، والاجتماعات التجارية، وتنقلات المدن للمجموعات الصغيرة.",
       },
       mpvs: {
