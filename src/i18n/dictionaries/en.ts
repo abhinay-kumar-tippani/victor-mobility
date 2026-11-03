@@ -133,7 +133,7 @@ export const enDictionary: TranslationDictionary = {
   },
   companies: {
     eyebrow: "Enterprise Clientele & Partners",
-    title: "Our Clients",
+    title: "Our Esteemed Clientele",
     description:
       "LOGO has delivered and continues to deliver disciplined, roster-synchronised employee transportation and executive mobility solutions to leading multinational corporations across India.",
   },
