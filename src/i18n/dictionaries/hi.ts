@@ -131,9 +131,9 @@ export const hiDictionary: TranslationDictionary = {
       {
         id: "verified-drivers",
         number: "01",
-        title: "सत्यापित चालक (BGV एवं PCC)",
+        title: "सत्यापित चालक (BGV एवं PVC)",
         description:
-          "प्रत्येक चालक के पास वैध वाणिज्यिक लाइसेंस, पृष्ठभूमि सत्यापन और पुलिस क्लीयरेंस प्रमाणपत्र होता है।",
+          "प्रत्येक चालक के पास वैध वाणिज्यिक लाइसेंस, पृष्ठभूमि सत्यापन और पुलिस सत्यापन प्रमाणपत्र होता है।",
       },
       {
         id: "women-safety",

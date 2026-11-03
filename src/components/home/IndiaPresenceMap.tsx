@@ -535,7 +535,7 @@ export default function IndiaPresenceMap({
                             : "bg-white text-brand-ink/80 hover:bg-brand-indigo/10 hover:text-brand-ink border border-brand-soft-neutral"
                         }`}
                       >
-                        {city.name}({city.state})
+                        {city.name}
                       </button>
                     );
                   })}

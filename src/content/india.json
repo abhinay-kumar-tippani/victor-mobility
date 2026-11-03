@@ -117,8 +117,8 @@
     "imageNote": "Vehicle imagery is illustrative.",
     "countries": [
       {
-        "name": "India",
-        "label": "India",
+        "name": "INDIA",
+        "label": "INDIA",
         "href": "/india",
         "action": "Explore India",
         "image": "/images/india/hero.png",

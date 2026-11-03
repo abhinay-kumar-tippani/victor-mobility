@@ -2,8 +2,9 @@ import BrandText from "@/components/brand/BrandText";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Globe2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import BrandLogo from "@/components/brand/BrandLogo";
+import { IndiaFlag, UaeFlag } from "@/components/brand/CountryFlag";
 import indiaData from "@/content/india.json";
 import brand from "@/content/brand.json";
 
@@ -27,23 +28,26 @@ export const metadata: Metadata = {
 export default function RootPage() {
   return (
     <div lang="en" className="flex min-h-screen flex-col bg-brand-warm-white">
-      <header className="border-b border-brand-soft-neutral bg-white">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:h-24 sm:px-8 lg:px-12">
-          <BrandLogo className="h-[68px] aspect-[810/430] sm:h-[84px]" />
-          <p className="flex items-center gap-2 text-xs font-medium text-brand-ink/70 sm:text-sm">
-            <Globe2 className="h-4 w-4 shrink-0 text-brand-indigo" aria-hidden="true" />
-            {copy.headerLabel}
-          </p>
-        </div>
-      </header>
+      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-7xl flex-1 px-5 pt-8 pb-12 focus:outline-none sm:px-8 sm:pt-12 sm:pb-16 lg:px-12 lg:pt-16 lg:pb-20">
+        {/* Intro Section: 65/35 split on desktop, stacked on mobile with centered logo */}
+        <div className="mb-8 grid grid-cols-1 items-center gap-6 sm:mb-10 sm:gap-8 lg:mb-12 lg:grid-cols-12 lg:gap-10 xl:gap-12">
+          {/* Logo block: order-1 centered on mobile, order-2 on desktop right column (~35%) */}
+          <div className="order-1 flex justify-center lg:order-2 lg:col-span-4 lg:justify-end">
+            <BrandLogo className="w-[210px] sm:w-[260px] lg:w-[320px] aspect-[810/430] h-auto mix-blend-multiply" />
+          </div>
 
-      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-7xl flex-1 px-5 py-10 focus:outline-none sm:px-8 sm:py-14 lg:px-12">
-        <div className="mb-8 sm:mb-10">
-          <p className="uppercase text-brand-blue section-eyebrow section-eyebrow--intro"><BrandText>{copy.eyebrow}</BrandText></p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl">
-            <BrandText>{copy.title}</BrandText>
-          </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-ink/70 sm:text-lg"><BrandText>{copy.description}</BrandText></p>
+          {/* Text block: order-2 left-aligned on mobile, order-1 on desktop left column (~65%) */}
+          <div className="order-2 text-left lg:order-1 lg:col-span-8">
+            <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-semibold uppercase tracking-[0.14em] text-brand-blue leading-normal">
+              <BrandText>{copy.eyebrow}</BrandText>
+            </p>
+            <h1 className="mt-3 text-[30px] sm:text-[36px] lg:text-[42px] font-semibold leading-[1.2] sm:leading-[1.18] lg:leading-[1.15] tracking-tight text-brand-ink">
+              <BrandText>{copy.title}</BrandText>
+            </h1>
+            <p className="mt-3.5 max-w-2xl text-base leading-relaxed text-brand-ink/75 sm:text-lg sm:leading-relaxed">
+              <BrandText>{copy.description}</BrandText>
+            </p>
+          </div>
         </div>
 
         <nav aria-label={copy.headerLabel} className="grid gap-5 md:grid-cols-2 lg:gap-7">
@@ -65,9 +69,26 @@ export default function RootPage() {
                   style={{ objectPosition: country.imagePosition }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/95 via-brand-ink/10 to-transparent" />
+                
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                  <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">{country.name}</h2>
-                  {country.label !== country.name && <p className="mt-2 text-sm font-medium text-white/85">{country.label}</p>}
+                  <div className={`flex gap-3.5 sm:gap-4 ${country.label !== country.name ? "items-start" : "items-center"}`}>
+                    <div className={`shrink-0 ${country.label !== country.name ? "pt-1 sm:pt-1.5" : ""}`}>
+                      {country.href === "/india" && (
+                        <IndiaFlag className="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-lg ring-2 ring-white/70" />
+                      )}
+                      {country.href === "/uae" && (
+                        <UaeFlag className="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-lg ring-2 ring-white/70" />
+                      )}
+                    </div>
+                    <div>
+                      <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl leading-tight">
+                        {country.name}
+                      </h2>
+                      {country.label !== country.name && (
+                        <p className="mt-1 text-sm font-medium text-white/85">{country.label}</p>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="flex min-h-[76px] items-center justify-between gap-4 px-6 py-4 sm:px-8">

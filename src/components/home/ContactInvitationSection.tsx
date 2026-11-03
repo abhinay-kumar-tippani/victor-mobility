@@ -241,7 +241,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                           <MessageSquare className="w-4 h-4 shrink-0 text-white" />
                           <span>{dict.contactSection.whatsappCta || "Continue on WhatsApp"}</span>
                         </span>
-                        <span className="font-mono text-xs text-white/90 bg-black/20 py-1 px-2.5 rounded-lg border border-white/10" dir="ltr">
+                        <span className="text-xs font-bold text-white/95 bg-black/20 py-1 px-2.5 rounded-lg border border-white/10 tracking-wide" dir="ltr">
                           {person.whatsappDisplay}
                         </span>
                       </a>
@@ -256,7 +256,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                           <Phone className="w-4 h-4 shrink-0 text-brand-violet" />
                           <span>{locale === "ar" ? "اتصال هاتفي مباشر" : "Direct Phone"}</span>
                         </span>
-                        <span className="font-mono text-xs text-slate-200" dir="ltr">
+                        <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide" dir="ltr">
                           {person.phoneDisplay}
                         </span>
                       </a>
@@ -272,7 +272,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                             <Mail className="w-4 h-4 shrink-0 text-brand-blue" />
                             <span>{locale === "ar" ? "البريد الإلكتروني" : "Direct Email"}</span>
                           </span>
-                          <span className="font-mono text-[11px] sm:text-xs text-slate-200 truncate max-w-full" dir="ltr">
+                          <span className="text-[11px] sm:text-xs font-medium text-slate-200 truncate max-w-full" dir="ltr">
                             {person.email}
                           </span>
                         </a>

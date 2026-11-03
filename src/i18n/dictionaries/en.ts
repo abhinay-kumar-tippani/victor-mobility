@@ -185,9 +185,9 @@ export const enDictionary: TranslationDictionary = {
       {
         id: "verified-drivers",
         number: "01",
-        title: "Verified drivers (BGV & PCC)",
+        title: "Verified drivers (BGV & PVC)",
         description:
-          "Every chauffeur holds a valid commercial licence, background verification and a Police Clearance Certificate.",
+          "Every chauffeur holds a valid commercial licence, background verification and a Police Verification Certificate.",
       },
       {
         id: "women-safety",

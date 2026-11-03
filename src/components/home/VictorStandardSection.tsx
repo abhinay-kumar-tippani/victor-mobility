@@ -30,10 +30,10 @@ export default function VictorStandardSection({ basePath }: VictorStandardSectio
       number: "01",
       imageSrc: "/images/india/safety/safety-verified-drivers.jpg",
       imageAlt: "Verified chauffeur with commercial licence and background verification badge",
-      title: dict.safetySection?.pillars?.[0]?.title || "Verified drivers (BGV & PCC)",
+      title: dict.safetySection?.pillars?.[0]?.title || "Verified drivers (BGV & PVC)",
       description:
         dict.safetySection?.pillars?.[0]?.description ||
-        "Every chauffeur holds a valid commercial licence, background verification and a Police Clearance Certificate.",
+        "Every chauffeur holds a valid commercial licence, background verification and a Police Verification Certificate.",
     },
     {
       id: "women-safety",

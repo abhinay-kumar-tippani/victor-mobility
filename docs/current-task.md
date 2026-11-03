@@ -1,4 +1,52 @@
-# Current Task: Centered Core Team Members & Removal of Founder Card in Leadership Section — 2 November 2026
+# Current Task: Country-Selection (`/`) Introduction Redesign & Prominent Logo Integration — 3 November 2026
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+## Summary of Accomplished Requirements:
+1. **Header Removal (`/` Only)**:
+   - Removed the top header bar from [`src/app/page.tsx`](file:///d:/victor%20website/src/app/page.tsx).
+   - Preserved shared navigation headers on `/india` and `/uae`.
+
+2. **Balanced Desktop Introduction (65/35 Split)**:
+   - Implemented a 12-column responsive layout:
+     - **Left Block (~65%)**:
+       - Welcome line: `text-[14px] sm:text-[15px] lg:text-[16px]` ("Welcome to Victor Mobility Pvt Ltd.", restrained, uppercase tracking `0.14em`, `text-brand-blue`).
+       - Headline: `text-[30px] sm:text-[36px] lg:text-[42px]` ("Your Journey. Our Commitment.", reduced from 60px).
+       - Description: `text-base sm:text-lg` ("Choose your country to explore our services and plan your journey with Victor.").
+     - **Right Block (~35%)**:
+       - Prominent Victor Logo: 320px wide on desktop (within 300–340px range) using [`BrandLogo`](file:///d:/victor%20website/src/components/brand/BrandLogo.tsx) with `mix-blend-multiply` on `#F6F5F2` warm-white background.
+       - Vertically balanced with `items-center` against the complete text block.
+
+3. **Mobile Layout Ordering**:
+   - Stack hierarchy on mobile viewports (< `lg`):
+     1. Centred logo: 210px wide (within 200–220px range), centered with exact 90px margins on 390px viewport.
+     2. Welcome line: 14px, restrained, left-aligned.
+     3. Headline (30px) and description (left-aligned).
+     4. Country-selection cards: India and UAE destination cards immediately accessible.
+
+4. **Preservation**:
+   - Authentic logo artwork, Pegasus illustration, ray marks, ®, and "On Time Every Time." tagline preserved without distortion.
+   - Preserved country cards, images, destination links, footer, and brand tokens.
+
+## Verification:
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Playwright automated browser test (`scripts/verify-root-intro.mjs`):
+  - Confirmed 0 `<header>` elements on `/`.
+  - Confirmed shared `<header>` preserved on `/india` and `/uae`.
+  - Confirmed desktop 65/35 split, 42px headline, and 320px logo.
+  - Confirmed mobile stack order: Centered logo (210px) -> Welcome line (14px) -> Headline (30px) -> Description -> Cards.
+  - Confirmed zero horizontal overflow across 1440px, 768px, 390px, and 320px.
+- Screenshots saved:
+  - `docs/screenshots/root-desktop-1440.png`
+  - `docs/screenshots/root-tablet-768.png`
+  - `docs/screenshots/root-mobile-390.png`
+  - `docs/screenshots/root-compact-320.png`
+
+---
+
+# Previous Task: Centered Core Team Members & Removal of Founder Card in Leadership Section — 2 November 2026
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
 

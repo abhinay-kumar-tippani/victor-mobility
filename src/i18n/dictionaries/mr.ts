@@ -185,9 +185,9 @@ export const mrDictionary: TranslationDictionary = {
       {
         id: "verified-drivers",
         number: "01",
-        title: "प्रमाणित चालक (BGV आणि PCC)",
+        title: "प्रमाणित चालक (BGV आणि PVC)",
         description:
-          "प्रत्येक चालकाकडे वैध व्यावसायिक परवाना, पार्श्वभूमी पडताळणी आणि पोलीस क्लिअरन्स प्रमाणपत्र असते.",
+          "प्रत्येक चालकाकडे वैध व्यावसायिक परवाना, पार्श्वभूमी पडताळणी आणि पोलीस पडताळणी प्रमाणपत्र असते.",
       },
       {
         id: "women-safety",

@@ -26,7 +26,7 @@ async function run() {
   console.log(`Subtitle: "${subtitleText}"`);
 
   const pillars = [
-    "Verified drivers (BGV & PCC)",
+    "Verified drivers (BGV & PVC)",
     "Safety for female employees",
     "Defensive driving",
     "Pre-trip vehicle checks"

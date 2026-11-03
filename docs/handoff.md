@@ -1,5 +1,55 @@
 # Handoff
 
+## 3 November 2026 — Country-Selection (`/`) Introduction Redesign & Prominent Logo Integration
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### UI/UX Design Analysis & Front-End Implementation
+- **Top Header Bar Removal (`/` Only)**:
+  - Completely removed the redundant top header bar from [`src/app/page.tsx`](file:///d:/victor%20website/src/app/page.tsx), creating a pure, editorial country-gateway introduction without visual clutter.
+  - Shared navigation headers on India (`/india`) and UAE (`/uae`) remain untouched and fully intact.
+- **Desktop Introduction (~65/35 Split & Vertical Harmony)**:
+  - Implemented a 12-column responsive layout (`lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 xl:gap-12`):
+    - **Left Text Block (~65%, `lg:col-span-8`)**:
+      - Restrained Welcome Line: `text-[14px] sm:text-[15px] lg:text-[16px] font-semibold uppercase tracking-[0.14em] text-brand-blue` ("Welcome to Victor Mobility Pvt Ltd.").
+      - Compact Editorial Headline: `text-[30px] sm:text-[36px] lg:text-[42px] font-semibold leading-[1.2] sm:leading-[1.18] lg:leading-[1.15] tracking-tight text-brand-ink` ("Your Journey. Our Commitment.", reduced from 60px).
+      - Description: `max-w-2xl text-base leading-relaxed text-brand-ink/75 sm:text-lg` ("Choose your country to explore our services and plan your journey with Victor.").
+    - **Right Logo Block (~35%, `lg:col-span-4 lg:flex lg:justify-end`)**:
+      - Prominent Victor Logo: Sized to `320px` wide on desktop (`w-[320px] aspect-[810/430] h-auto`), sitting within the 300–340px requirement.
+      - Integrated seamlessly with `mix-blend-multiply` so the original raster edges blend invisibly with `#F6F5F2` warm-white background.
+      - Aligned vertically with `items-center` to optically balance the text block height (~180–200px vs 170px logo height).
+- **Mobile Stack Order & Touch Ergonomics**:
+  - CSS Grid ordering ensures strict mobile hierarchy:
+    1. **Centred Logo**: `order-1 flex justify-center` with `w-[210px] aspect-[810/430] h-auto` (within 200–220px requirement), centered horizontally with equal 90px left/right margins on 390px viewport.
+    2. **Welcome Line**: `text-[14px]` (left-aligned).
+    3. **Headline & Description**: `text-[30px]` headline and `text-base` description (left-aligned).
+    4. **Country-Selection Cards**: Two large cards (India and UAE) immediately reachable and visible above/near the fold.
+- **Preservation of Authentic Brand Identity**:
+  - Reused existing [`BrandLogo`](file:///d:/victor%20website/src/components/brand/BrandLogo.tsx) component and original vector/raster artwork.
+  - Preserved authentic Pegasus horse illustration, ray accents, registration mark ®, and tagline ("On Time Every Time.").
+  - Maintained country cards, images, destination actions (`Explore India`, `Explore UAE`), and footer.
+
+### Verification & Quality Gates
+- `npm run type-check`: 0 errors.
+- `npm run lint`: 0 warnings, 0 errors.
+- `npm run build`: 74/74 static routes compiled cleanly.
+- Playwright automated browser test (`scripts/verify-root-intro.mjs`):
+  - Confirmed 0 `<header>` elements on `/`.
+  - Confirmed shared `<header>` preserved on `/india` (count: 1) and `/uae` (count: 1).
+  - Confirmed desktop 65/35 split: text on left (`x=128px`), logo on right (`x=992px`, width=`320px`).
+  - Confirmed desktop typography: 42px headline, 16px welcome line.
+  - Confirmed mobile 390px stack order: Logo (`y=32.0`) -> Eyebrow (`y=167.5`) -> Headline (`y=200.5`) -> Description (`y=286.5`) -> Cards (`y=370.5`).
+  - Confirmed mobile logo centering: 90.0px left margin, 90.0px right margin (exact 0.0px delta).
+  - Confirmed mobile typography: 30px headline, 14px welcome line, 210px logo width.
+  - Confirmed zero horizontal overflow across 1440px, 768px, 390px, and 320px.
+- **Screenshots Saved**:
+  - `docs/screenshots/root-desktop-1440.png`
+  - `docs/screenshots/root-tablet-768.png`
+  - `docs/screenshots/root-mobile-390.png`
+  - `docs/screenshots/root-compact-320.png`
+
+---
+
 ## 2 November 2026 — Leadership Section: Centered Core Team Members & Removal of Founder Card
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
