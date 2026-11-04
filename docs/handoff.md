@@ -3217,3 +3217,14 @@ Owner: Antigravity. Replaced the placeholder/illustrative profiles in the "Leade
 - Checks passed: JSON validity, unique names, all logo files present, `npm run type-check`, `npm run lint`, and browser checks at 1440px, 390px and 320px on both homepages. All twelve supplied brands appeared in both sections, logo files loaded, and no page-level horizontal overflow was observed.
 - Screenshots: `docs/screenshots/clientele-update-india-desktop.png`, `clientele-update-india-mobile.png`, `clientele-update-india-320.png`, `clientele-update-uae-desktop.png`, `clientele-update-uae-mobile.png`, `clientele-update-uae-320.png`.
 
+## 4 November 2026 — Client logo disclaimer
+
+- Added the user's exact disclaimer below the three logo rows in the shared `TrustedCompaniesSection`, so it appears at the end of “Our Esteemed Clientele” on both `/india` and `/uae`.
+- TypeScript and lint passed. Browser checks confirmed the sentence appears once per page and neither page has horizontal overflow at 1440px or 390px.
+- Screenshots: `docs/screenshots/client-disclaimer-india-desktop.png`, `client-disclaimer-india-mobile.png`, `client-disclaimer-uae-desktop.png`, and `client-disclaimer-uae-mobile.png`.
+
+## 4 November 2026 — Client disclaimer footer refinement
+
+- Kept the supplied logo ownership sentence verbatim, but placed it as a right-aligned footer note beneath a subtle divider in the shared India/UAE clientele section. The note follows the content gutter and uses restrained, readable 12px type.
+- Browser checks confirmed right alignment and no horizontal overflow at 1440px and 390px on `/india` and `/uae`; visually reviewed desktop/mobile screenshots: `docs/screenshots/client-disclaimer-right-india-desktop.png`, `client-disclaimer-right-india-mobile.png`, `client-disclaimer-right-uae-desktop.png`, and `client-disclaimer-right-uae-mobile.png`.
+

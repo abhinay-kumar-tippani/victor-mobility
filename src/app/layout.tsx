@@ -87,7 +87,10 @@ const jsonLdData = {
       "areaServed": [
         { "@type": "City", "name": "Hyderabad" },
         { "@type": "City", "name": "Bengaluru" },
-        { "@type": "City", "name": "Pune" }
+        { "@type": "City", "name": "Pune" },
+        { "@type": "City", "name": "Chennai" },
+        { "@type": "City", "name": "Kolkata" },
+        { "@type": "City", "name": "Delhi" }
       ],
       "knowsAbout": [
         "Employee Transportation",
@@ -136,6 +139,48 @@ const jsonLdData = {
         "streetAddress": "Flat No. S-3, 1st Floor, Tanishka Prestige, Manjari Budruk, Hadapsar",
         "addressLocality": "Pune",
         "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "urn:victor-mobility:chennai-office",
+      "name": "Victor Luxury Limousine Private Limited - Chennai Branch Office",
+      "telephone": "+91 91007 77768",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2nd Floor, Campus 1A, RMZ Millenia Business Park, MGR Main Road",
+        "addressLocality": "Chennai",
+        "postalCode": "600096",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "urn:victor-mobility:kolkata-office",
+      "name": "Victor Luxury Limousine Private Limited - Kolkata Branch Office",
+      "telephone": "+91 91007 77768",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11th Floor, Techno Polis IT Park Gate No 3, Street Number 18, Bidhan Nagar",
+        "addressLocality": "Kolkata",
+        "postalCode": "700091",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "urn:victor-mobility:delhi-office",
+      "name": "Victor Luxury Limousine Private Limited - Delhi Branch Office",
+      "telephone": "+91 91007 77768",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd Floor, Innov8 Okhla, Okhla Phase 3 Road",
+        "addressLocality": "New Delhi",
+        "postalCode": "110020",
+        "addressRegion": "Delhi",
         "addressCountry": "IN"
       }
     }

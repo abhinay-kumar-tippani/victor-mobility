@@ -146,6 +146,12 @@ export default function TrustedCompaniesSection() {
           </div>
         </div>
       </div>
+
+      <div className="mx-auto mt-10 max-w-7xl border-t border-white/15 px-4 pt-5 sm:mt-12 sm:px-6 lg:px-8">
+        <p className="ml-auto max-w-4xl text-right text-xs leading-5 text-slate-400">
+          All the logos are properties of their subjective companies, we do not own and we do not condone the misuse of the logo(s) provided above
+        </p>
+      </div>
     </section>
   );
 }
