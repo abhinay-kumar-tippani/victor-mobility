@@ -1,5 +1,49 @@
 # Handoff
 
+## 4 November 2026 — Clientele introduction wordmark
+
+- Replaced the English clientele introduction's literal `LOGO` placeholder with `Victor`, which the existing `BrandText` component renders as the approved simple white logo on the navy background.
+- Confirmed one accessible “Victor” announcement, text-baseline alignment, no remaining placeholder and clean mobile wrapping. Desktop/mobile screenshots: `docs/screenshots/clientele-wordmark/`.
+- `npm run lint` passed. Preserved the surrounding sentence and other ongoing edits.
+
+---
+
+## 4 November 2026 — Inline Victor logo baseline alignment
+
+Owner: Codex, at the user's direct request after the leadership subtitle screenshot.
+
+- Corrected the shared wordmark's SVG viewport to exclude excess top padding while retaining the complete visible lettering, V stripes and o cutout. The supplied PNG file is unchanged.
+- Replaced separate body/heading offsets with font-relative capital-height sizing (`cap`, with an `em` fallback) and a real inline baseline. This applies to all uses of `BrandText` without page-specific adjustments.
+- Existing coloured/white treatments, accessible “Victor” text and legal-company-name protection are preserved.
+- Passed `node scripts/verify-brand-text.cjs`, `npm run type-check` and `npm run lint`. Browser measurements covered 92 visible wordmarks in 14 route/viewport combinations across India, UAE, About, Academy, Contact and the country selector: zero baseline differences and zero wordmarks outside the viewport. India included 320, 390, 768 and 1440px widths.
+- Visually reviewed leadership copy on desktop/mobile, the white journey heading and footer text. Evidence: `docs/inspection/wordmark-alignment.json`; screenshots in `docs/screenshots/wordmark-alignment/`, including the before/after leadership views.
+- The previously documented homepage hydration notice still appeared during review. No unrelated page changes or deployment were made. The local preview is running on port 3000.
+
+---
+
+## 4 November 2026 — Navigation Links Enlargement & Even Distribution
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Updated Victor Mobility's navigation destinations exclusively across `Home`, `Services`, `Fleet`, `About`, and `Contact` in [`Header.tsx`](file:///d:/victor%20website/src/components/layout/Header.tsx).
+- Enlarged text size from `text-sm` (14px) to `text-base xl:text-lg font-semibold` (16px–18px), significantly improving legibility and presence.
+- Distributed the 5 links evenly across the middle space of the navbar using `flex-1 justify-evenly mx-2 xl:mx-6`, eliminating previous clustering and asymmetrical voids.
+- Preserved all surrounding elements unchanged (brand logo, language switcher, direct call button, and enquiry CTA).
+
+### Verification
+- `npm run type-check`: 0 TypeScript errors.
+- `npm run lint`: 0 ESLint warnings or errors.
+- `npm run build`: 70/70 static routes compiled cleanly.
+- Visual inspection & screenshots across 1440px, 1280px, and 1024px:
+  - `docs/screenshots/navbar-spread-1440.png`
+  - `docs/screenshots/navbar-spread-page-1440.png`
+  - `docs/screenshots/navbar-spread-1280.png`
+  - `docs/screenshots/navbar-spread-1024.png`
+  - `docs/screenshots/navbar-active-services.png`
+
+---
+
 ## 4 November 2026 — Comprehensive Navbar Refinement & Pointer-Intercept Fix
 
 Owner: Antigravity, at direct user request ("fix navbar"). Status: COMPLETED.
@@ -3165,4 +3209,11 @@ Owner: Antigravity. Replaced the placeholder/illustrative profiles in the "Leade
 
 3. **Verification**:
    - `npm run build`: 74/74 static routes compiled cleanly with 0 type errors and 0 lint warnings.
+
+## 4 November 2026 — Clientele from supplied image
+
+- Added Amazon, Teleperformance, Oracle Corporation, Wipro Solutions & Technologies, Alphabet Corporation (Google), and Godrej Properties to `src/content/india.json`. The other six brands in the image were already present, so the shared client list now has 22 unique entries without duplicates. Placed the image's 12 brands first so they appear promptly in the marquee on `/india` and `/uae`.
+- Reused the six existing logo assets in `public/images/clients`. Added region-neutral English UAE description in `src/i18n/dictionaries/en.ts` so its section does not describe the displayed brands as India-only relationships.
+- Checks passed: JSON validity, unique names, all logo files present, `npm run type-check`, `npm run lint`, and browser checks at 1440px, 390px and 320px on both homepages. All twelve supplied brands appeared in both sections, logo files loaded, and no page-level horizontal overflow was observed.
+- Screenshots: `docs/screenshots/clientele-update-india-desktop.png`, `clientele-update-india-mobile.png`, `clientele-update-india-320.png`, `clientele-update-uae-desktop.png`, `clientele-update-uae-mobile.png`, `clientele-update-uae-320.png`.
 

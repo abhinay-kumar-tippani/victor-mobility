@@ -27,6 +27,18 @@ export default function CitiesSection({ cities, offices, contact }: CitiesSectio
       role: "Branch Office",
       focus: "Hadapsar, Hinjawadi Infotech Park, Magarpatta, industrial corridors, and Pune Airport connectivity.",
     },
+    Chennai: {
+      role: "Branch Office",
+      focus: "RMZ Millenia, OMR IT Corridor, Guindy, Sriperumbudur, and Chennai International Airport transfers.",
+    },
+    Delhi: {
+      role: "Branch Office",
+      focus: "Innov8 Okhla, Connaught Place, Aerocity, Nehru Place, and Indira Gandhi International Airport transfers.",
+    },
+    Kolkata: {
+      role: "Branch Office",
+      focus: "Techno Polis IT Park, Salt Lake Sector V, New Town, Rajarhat, and Netaji Subhash Chandra Bose Airport transfers.",
+    },
   };
 
   const steps = [

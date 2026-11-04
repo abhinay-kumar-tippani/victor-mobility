@@ -276,13 +276,13 @@ export const mrDictionary: TranslationDictionary = {
       sedans: {
         name: "सेडान",
         capacity: "1 ते 4 प्रवासी · 2 ते 3 बॅगा",
-        models: "Swift Dzire, Hyundai Aura किंवा समतुल्य",
+        models: "Swift Dzire, Hyundai AURA किंवा समतुल्य",
         use: "विमानतळ प्रवास, व्यावसायिक भेटी आणि छोट्या गटांसाठी शहर प्रवास.",
       },
       mpvs: {
         name: "एमपीव्ही आणि गट वाहने",
         capacity: "4 ते 6 प्रवासी · 4 ते 5 बॅगा",
-        models: "Innova Crysta, Marazzo, Force Urbania किंवा समतुल्य",
+        models: "Innova Crysta, Force Urbania किंवा समतुल्य",
         use: "टीमच्या साईट भेटी, सामानासह विमानतळ प्रवास आणि प्रतिनिधी मंडळ वाहतूक.",
       },
       buses: {

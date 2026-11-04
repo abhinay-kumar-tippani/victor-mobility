@@ -222,13 +222,13 @@ export const teDictionary: TranslationDictionary = {
       sedans: {
         name: "సెడాన్లు",
         capacity: "1 నుండి 4 ప్రయాణీకులు · 2 నుండి 3 బ్యాగులు",
-        models: "Swift Dzire, Hyundai Aura లేదా సమానమైనవి",
+        models: "Swift Dzire, Hyundai AURA లేదా సమానమైనవి",
         use: "ఎయిర్‌పోర్ట్ ప్రయాణాలు, వ్యాపార పర్యటనలు మరియు చిన్న బృందాల నగర ప్రయాణాలకు.",
       },
       mpvs: {
         name: "ఎంపివి & గ్రూప్ వాహనాలు",
         capacity: "4 నుండి 6 ప్రయాణీకులు · 4 నుండి 5 బ్యాగులు",
-        models: "Innova Crysta, Mahindra Marazzo, Force Urbania లేదా సమానమైనవి",
+        models: "Innova Crysta, Force Urbania లేదా సమానమైనవి",
         use: "టీమ్ సైట్ విజిట్లు, లగేజ్‌తో ఎయిర్‌పోర్ట్ ప్రయాణాలు మరియు ప్రతినిధుల పర్యటనలకు.",
       },
       buses: {

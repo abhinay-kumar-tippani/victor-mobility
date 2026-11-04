@@ -7,7 +7,7 @@
       {
         "id": "sedan",
         "name": "Executive Sedan",
-        "models": "Swift Dzire / Hyundai Aura",
+        "models": "Swift Dzire / Hyundai AURA",
         "capacity": "Capacity confirmed on enquiry",
         "baseMultiplier": 1.0,
         "hourlyRetainer": "Quote on request (8h / 80km)"
@@ -23,7 +23,7 @@
       {
         "id": "mpv",
         "name": "Executive SUV",
-        "models": "Innova Crysta / Mahindra Marazzo / Ertiga CNG / Kia Carens Clavis EV",
+        "models": "Innova Crysta / Ertiga CNG / Kia Carens Clavis EV",
         "capacity": "Capacity confirmed on enquiry",
         "baseMultiplier": 1.4,
         "hourlyRetainer": "Quote on request (8h / 80km)"

@@ -135,7 +135,9 @@ export const enDictionary: TranslationDictionary = {
     eyebrow: "Enterprise Clientele & Partners",
     title: "Our Esteemed Clientele",
     description:
-      "LOGO has delivered and continues to deliver disciplined, roster-synchronised employee transportation and executive mobility solutions to leading multinational corporations across India.",
+      "Victor has delivered and continues to deliver disciplined, roster-synchronised employee transportation and executive mobility solutions to leading multinational corporations across India.",
+    uaeDescription:
+      "These companies are part of Victor Mobility's wider client portfolio.",
   },
   servicesSection: {
     eyebrow: "Comprehensive Fleet & Commute Solutions",
@@ -276,13 +278,13 @@ export const enDictionary: TranslationDictionary = {
       sedans: {
         name: "Sedans",
         capacity: "1 to 4 employees · 2 to 3 bags",
-        models: "Swift Dzire, Hyundai Aura or similar",
+        models: "Swift Dzire, Hyundai AURA or similar",
         use: "Airport journeys, business visits and city travel for small groups.",
       },
       mpvs: {
         name: "MPVs & Group Vehicles",
         capacity: "4 to 6 employees · 4 to 5 bags",
-        models: "Innova Crysta, Marazzo, Force Urbania or similar",
+        models: "Innova Crysta, Force Urbania or similar",
         use: "Team site visits, airport runs with luggage and delegation travel.",
       },
       buses: {

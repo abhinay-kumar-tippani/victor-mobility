@@ -204,9 +204,9 @@ export default function Header({ contact }: HeaderProps) {
               <BrandLogo className="h-12 sm:h-[58px] aspect-[810/430] transition-transform duration-150 group-hover:scale-102" />
             </Link>
 
-            {/* Main navigation destinations */}
+            {/* Main navigation destinations: evenly spread with increased text size */}
             <nav
-              className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap"
+              className="hidden lg:flex flex-1 items-center justify-evenly mx-2 xl:mx-6 whitespace-nowrap"
               aria-label="Main Navigation"
             >
               {navItems.map((item) => {
@@ -216,10 +216,10 @@ export default function Header({ contact }: HeaderProps) {
                     key={item.href}
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`min-h-[42px] inline-flex items-center text-sm font-semibold transition-all duration-150 px-3 xl:px-3.5 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                    className={`min-h-[44px] inline-flex items-center text-base xl:text-lg font-semibold transition-all duration-150 px-3.5 xl:px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                       active
                         ? "text-brand-indigo font-bold bg-brand-indigo/10 border border-brand-indigo/15 shadow-2xs"
-                        : "text-brand-ink/80 hover:text-brand-indigo hover:bg-brand-indigo/8 active:bg-brand-indigo/15"
+                        : "text-brand-ink/85 hover:text-brand-indigo hover:bg-brand-indigo/8 active:bg-brand-indigo/15"
                     }`}
                   >
                     {item.label}

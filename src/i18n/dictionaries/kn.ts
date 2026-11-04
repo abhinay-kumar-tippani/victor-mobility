@@ -276,13 +276,13 @@ export const knDictionary: TranslationDictionary = {
       sedans: {
         name: "ಸೆಡಾನ್‌ಗಳು",
         capacity: "1 ರಿಂದ 4 ಪ್ರಯಾಣಿಕರು · 2 ರಿಂದ 3 ಬ್ಯಾಗ್‌ಗಳು",
-        models: "Swift Dzire, Hyundai Aura ಅಥವಾ ಸಮಾನವಾದವು",
+        models: "Swift Dzire, Hyundai AURA ಅಥವಾ ಸಮಾನವಾದವು",
         use: "ವಿಮಾನ ನಿಲ್ದಾಣ ಪ್ರಯಾಣ, ವ್ಯಾಪಾರ ಭೇಟಿಗಳು ಮತ್ತು ಸಣ್ಣ ಗುಂಪುಗಳ ನಗರ ಪ್ರಯಾಣ.",
       },
       mpvs: {
         name: "ಎಂಪಿವಿ ಮತ್ತು ಗುಂಪು ವಾಹನಗಳು",
         capacity: "4 ರಿಂದ 6 ಪ್ರಯಾಣಿಕರು · 4 ರಿಂದ 5 ಬ್ಯಾಗ್‌ಗಳು",
-        models: "Innova Crysta, Marazzo, Force Urbania ಅಥವಾ ಸಮಾನವಾದವು",
+        models: "Innova Crysta, Force Urbania ಅಥವಾ ಸಮಾನವಾದವು",
         use: "ತಂಡದ ಸೈಟ್ ಭೇಟಿಗಳು, ಲಗೇಜ್‌ನೊಂದಿಗೆ ವಿಮಾನ ನಿಲ್ದಾಣ ಪ್ರಯಾಣ ಮತ್ತು ನಿಯೋಗ ಸಾರಿಗೆ.",
       },
       buses: {

@@ -59,18 +59,20 @@ const citiesData: CityMeta[] = [
   {
     name: "Chennai",
     state: "Tamil Nadu",
-    label: "Operational Presence",
-    badge: "Southern Commerce Corridor",
-    corridors: "OMR IT Corridor · Guindy · Tidel Park · Sriperumbudur · Ambattur · Chennai Airport (MAA)",
+    label: "Branch Office",
+    badge: "Southern Regional Hub",
+    corridors: "RMZ Millenia · OMR IT Corridor · Guindy · Tidel Park · Sriperumbudur · Ambattur · Chennai Airport (MAA)",
     description: "Manufacturing corridor bus transit, technology park employee shuttles, and airport protocol services.",
+    isRegisteredOffice: true,
   },
   {
     name: "Delhi",
     state: "Delhi",
-    label: "Operational Presence",
+    label: "Branch Office",
     badge: "National Capital Hub",
-    corridors: "Aerocity · Connaught Place · Nehru Place · South Extension · IGI Airport (DEL Terminal 1-3)",
+    corridors: "Innov8 Okhla · Aerocity · Connaught Place · Nehru Place · South Extension · IGI Airport (DEL Terminal 1-3)",
     description: "Diplomatic and executive delegation mobility, corporate roadshows, and round-the-clock airport connections.",
+    isRegisteredOffice: true,
   },
   {
     name: "Noida",
@@ -99,10 +101,11 @@ const citiesData: CityMeta[] = [
   {
     name: "Kolkata",
     state: "West Bengal",
-    label: "Operational Presence",
-    badge: "Eastern Commerce Network",
-    corridors: "Salt Lake Sector V · New Town Action Area 1-3 · Rajarhat · Park Street · Netaji Subhash Airport (CCU)",
+    label: "Branch Office",
+    badge: "Eastern Regional Hub",
+    corridors: "Techno Polis IT Park · Salt Lake Sector V · New Town Action Area 1-3 · Rajarhat · Park Street · Netaji Subhash Airport (CCU)",
     description: "IT workforce campus shuttles, executive corporate transit, and 24/7 commercial airport transfers.",
+    isRegisteredOffice: true,
   },
 ];
 
@@ -560,8 +563,10 @@ export default function IndiaPresenceMap({
                 </h3>
                 <p className="text-xs font-bold uppercase tracking-wider text-brand-blue mt-0.5">
                   {selectedCity.state.toLowerCase() === "telangana" || canonicalCityName(selectedCity.name) === "hyderabad"
-                    ? "Regional Office"
-                    : "Pan-India office"}
+                    ? "India Head Office & Command Center"
+                    : registeredOffice
+                    ? "Branch Office & Operations Hub"
+                    : "Pan-India Operational Hub"}
                 </p>
                 <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed mt-2">
                   <BrandText>{selectedCity.description}</BrandText>

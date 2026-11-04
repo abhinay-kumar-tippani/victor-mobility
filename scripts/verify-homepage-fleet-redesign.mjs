@@ -59,7 +59,7 @@ async function run() {
       { name: "Swift Dzire", cab: "Sedan", fuel: "Petrol", file: "swift-dzire.webp", desc: "Executive sedan for city commutes and corporate transfers." },
       { name: "Hyundai Aura", cab: "Sedan", fuel: "Petrol & CNG", file: "hyundai-aura.webp", desc: "Efficient sedan with dual-fuel flexibility for corporate mobility." },
       { name: "Innova Crysta", cab: "SUV", fuel: "Diesel", file: "innova-crysta.webp", desc: "Benchmark executive SUV for business travel and leadership transit." },
-      { name: "Urbania", cab: "12 Seater", fuel: "Diesel", file: "force-urbania.webp", desc: "Approved 12-seater passenger van for corporate teams and delegation transfers." },
+      { name: "Tata Marcopolo", cab: "40 Seater Bus", fuel: "Diesel", file: "tata-marcopolo.webp", desc: "High-capacity 40-seater coach for corporate employee shuttles and major event logistics." },
     ];
 
     for (let i = 0; i < 4; i++) {

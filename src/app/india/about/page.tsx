@@ -263,11 +263,11 @@ export default function AboutPage() {
               </BrandText></p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {publishedOffices.map((office) => (
                 <div
                   key={office.city}
-                  className="bg-white rounded-3xl p-8 border border-brand-soft-neutral flex flex-col justify-between shadow-2xs"
+                  className="bg-white rounded-3xl p-6 sm:p-7 border border-brand-soft-neutral flex flex-col justify-between shadow-2xs space-y-5"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -280,20 +280,20 @@ export default function AboutPage() {
                     </div>
 
                     <div>
-                      <h3 className="text-2xl font-bold text-brand-ink mb-2">
+                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink mb-1.5">
                         {office.city}
                       </h3>
-                      <p className="text-xs text-brand-ink/70 leading-relaxed">
+                      <p className="text-xs text-brand-ink/75 leading-relaxed min-h-[48px]">
                         {office.address}
                       </p>
                       <OfficeMapLinks office={office} />
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-brand-soft-neutral flex items-center justify-between">
+                  <div className="pt-4 mt-auto border-t border-brand-soft-neutral flex items-center justify-between">
                     <Link
                       href={`/india/contact?city=${encodeURIComponent(office.city)}`}
-                      className="text-xs font-bold text-brand-indigo hover:text-brand-blue inline-flex items-center gap-1"
+                      className="text-xs font-bold text-brand-indigo hover:text-brand-blue inline-flex items-center gap-1.5"
                     >
                       <span>Enquire for {office.city}</span>
                       <CheckCircle2 className="w-3.5 h-3.5" />

@@ -222,13 +222,13 @@ export const hiDictionary: TranslationDictionary = {
       sedans: {
         name: "सेडान",
         capacity: "1 से 4 यात्री · 2 से 3 बैग",
-        models: "Swift Dzire, Hyundai Aura या समकक्ष",
+        models: "Swift Dzire, Hyundai AURA या समकक्ष",
         use: "एयरपोर्ट यात्रा, व्यापारिक बैठकें और छोटे समूहों के लिए शहर आवागमन।",
       },
       mpvs: {
         name: "एमपीवी एवं समूह वाहन",
         capacity: "4 से 6 यात्री · 4 से 5 बैग",
-        models: "Innova Crysta, Mahindra Marazzo, Force Urbania या समकक्ष",
+        models: "Innova Crysta, Force Urbania या समकक्ष",
         use: "टीम साइट विजिट, सामान के साथ एयरपोर्ट रन और प्रतिनिधिमंडल यात्रा।",
       },
       buses: {

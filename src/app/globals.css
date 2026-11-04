@@ -46,13 +46,17 @@
   flex-shrink: 0;
 }
 
-/* Inline wordmark scales with its sentence; the source pixels stay unchanged. */
+/* Match the surrounding font's capital height and text baseline. The em sizes
+   are fallbacks for browsers without cap units; artwork proportions stay fixed. */
 .victor-wordmark {
   display: inline-block;
-  width: 3.23em;
-  height: 1em;
-  vertical-align: -0.1em;
-  line-height: 1;
+  width: 2.6656em;
+  height: 0.74em;
+  width: 3.60217cap;
+  height: 1cap;
+  vertical-align: baseline;
+  overflow: hidden;
+  line-height: 0;
   white-space: nowrap;
   text-indent: 0;
 }
@@ -65,9 +69,6 @@
   filter: var(--victor-wordmark-filter, none);
 }
 :where(h1, h2, h3) .victor-wordmark {
-  width: 2.907em;
-  height: 0.9em;
-  vertical-align: -0.05em;
   margin-inline: 0.035em;
 }
 .journey-wordmark-overlay {

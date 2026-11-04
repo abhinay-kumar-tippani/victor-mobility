@@ -33,6 +33,7 @@ Then event/airport/luxury pathways, cities, concise company story and final cont
 Vary section structure. Avoid repeating six identical icon boxes, oversized pill buttons, floating abstract shapes and neon gradients.
 
 Start with one readable sans family such as Manrope, using weight and scale carefully. The brand wordmark itself is never typeset with a substitute font.
+4 November 2026 inline wordmark refinement: match the surrounding font's capital height and baseline for both headings and body copy. Use the shared trimmed SVG viewport and proportional `cap` sizing (with an `em` fallback), rather than per-heading vertical offsets. Keep the source artwork, colour treatments and accessible text intact.
 Generous spacing with clear alignment. Body copy around 16–18 px. Target at least 44 px interactive hit areas as a project preference.
 
 2 November 2026 typography refinement: use a restrained editorial scale for eyebrows. Main section labels are 12px on phones, 13px on tablets, and 14px on desktops, at weight 700 and 0.12em letter spacing. Compact card labels use 11–12px and 0.08em spacing. Page introductions use 13–14px, weight 600 and 0.1em spacing. The `/` welcome line uses 14/15/16px across phone/tablet/desktop, weight 600 and 0.14em spacing. All use a 1.5 line height and natural wrapping. Keep title sizes and brand colours as designed.

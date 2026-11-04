@@ -39,6 +39,8 @@ export interface OfficeItem {
   address: string;
   source: string;
   published: boolean;
+  mapQuery?: string;
+  mapUrl?: string;
 }
 
 export interface FleetVehicle {

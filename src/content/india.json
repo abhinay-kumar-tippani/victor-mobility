@@ -2,16 +2,52 @@
   "schemaVersion": 1,
   "clientCompanies": [
     {
+      "name": "Amazon",
+      "logo": "/images/clients/amazon.svg"
+    },
+    {
+      "name": "Synechron",
+      "logo": "/images/clients/synechron.jpg"
+    },
+    {
+      "name": "Teleperformance",
+      "logo": "/images/clients/teleperformance.svg"
+    },
+    {
+      "name": "Otis",
+      "logo": "/images/clients/otis.svg"
+    },
+    {
       "name": "JP Morgan & Chase",
       "logo": "/images/clients/jpmorgan.svg"
+    },
+    {
+      "name": "Tata Docomo",
+      "logo": "/images/clients/tatadocomo.svg"
+    },
+    {
+      "name": "Oracle Corporation",
+      "logo": "/images/clients/oracle.svg"
+    },
+    {
+      "name": "Wipro Solutions & Technologies",
+      "logo": "/images/clients/wipro.svg"
+    },
+    {
+      "name": "Alphabet Corporation (Google)",
+      "logo": "/images/clients/google.svg"
+    },
+    {
+      "name": "Godrej Properties",
+      "logo": "/images/clients/godrej.svg"
     },
     {
       "name": "HDFC",
       "logo": "/images/clients/hdfc.svg"
     },
     {
-      "name": "Otis",
-      "logo": "/images/clients/otis.svg"
+      "name": "Synchrony Financials",
+      "logo": "/images/clients/synchrony.svg"
     },
     {
       "name": "Matrix Pharma",
@@ -34,24 +70,12 @@
       "logo": "/images/clients/entain.svg"
     },
     {
-      "name": "Synchrony Financials",
-      "logo": "/images/clients/synchrony.svg"
-    },
-    {
       "name": "Coforge",
       "logo": "/images/clients/coforge.svg"
     },
     {
       "name": "Vector 97",
       "logo": "/images/clients/vector97.png"
-    },
-    {
-      "name": "Synechron",
-      "logo": "/images/clients/synechron.jpg"
-    },
-    {
-      "name": "Tata Docomo",
-      "logo": "/images/clients/tatadocomo.svg"
     },
     {
       "name": "GlobalLogic",
@@ -700,21 +724,48 @@
       "label": "India Head Office",
       "address": "2-48/3&5, VSGGC/4th Floor, Venkata Sai's Ganapathi Gold Complex, Telecom Nagar, Gachibowli - 500032, Hyderabad, Telangana, India.",
       "source": "Brochure page 12",
-      "published": true
+      "published": true,
+      "mapQuery": "Venkata Sai's Ganapathi Gold Complex, Telecom Nagar, Gachibowli, Hyderabad, Telangana 500032"
     },
     {
       "city": "Bengaluru",
       "label": "Branch Office",
       "address": "#22 Hamsa Mansion, B-Block, 4th Main Road, Cybela Greens BDA Layout, Phase-2, Maragondanahalli - 560036, Bengaluru, Karnataka, India.",
       "source": "Brochure page 12",
-      "published": true
+      "published": true,
+      "mapQuery": "Hamsa Mansion, Cybela Greens, Maragondanahalli, Bengaluru, Karnataka 560036"
     },
     {
       "city": "Pune",
       "label": "Branch Office",
       "address": "Flat No. S-3, 1st Floor, Tanishka Prestige, Manjari Budruk, Hadapsar, Pune, Maharashtra, India.",
       "source": "Brochure page 12",
-      "published": true
+      "published": true,
+      "mapQuery": "Tanishka Prestige, Manjari Budruk, Hadapsar, Pune, Maharashtra 412307"
+    },
+    {
+      "city": "Chennai",
+      "label": "Branch Office",
+      "address": "2nd Floor, Campus 1A, RMZ Millenia Business Park, MGR Main Road, Chennai, Tamil Nadu - 600096, India.",
+      "source": "Registered Office",
+      "published": true,
+      "mapQuery": "RMZ Millenia Business Park, Campus 1A, MGR Main Road, Perungudi, Chennai, Tamil Nadu 600096"
+    },
+    {
+      "city": "Kolkata",
+      "label": "Branch Office",
+      "address": "11th Floor, Techno Polis IT Park Gate No 3, Street Number 18, Bidhan Nagar, North Twenty Four Parganas, Kolkata, West Bengal - 700091, India.",
+      "source": "Registered Office",
+      "published": true,
+      "mapQuery": "Techno Polis IT Park, Gate No 3, Street Number 18, Sector V, Bidhannagar, Kolkata, West Bengal 700091"
+    },
+    {
+      "city": "Delhi",
+      "label": "Branch Office",
+      "address": "3rd Floor, Innov8 Okhla, Okhla Phase 3 Road, New Delhi, South East Delhi, Delhi - 110020, India.",
+      "source": "Registered Office",
+      "published": true,
+      "mapQuery": "Innov8 Okhla, Okhla Phase 3 Road, Okhla Industrial Estate, New Delhi, Delhi 110020"
     }
   ],
   "fleetVehicles": [
@@ -730,12 +781,12 @@
     },
     {
       "id": "hyundai-aura",
-      "name": "Hyundai Aura",
+      "name": "Hyundai AURA",
       "cabType": "Sedan",
       "fuelType": "Petrol & CNG",
       "isElectric": false,
       "image": "/images/fleet/hyundai-aura.webp",
-      "imageAlt": "Hyundai Aura sedan",
+      "imageAlt": "Hyundai AURA sedan",
       "description": "Efficient sedan with dual-fuel flexibility for corporate mobility."
     },
     {
@@ -767,16 +818,6 @@
       "image": "/images/fleet/mg-zs-ev.webp",
       "imageAlt": "MG ZS EV sedan",
       "description": "Premium long-range electric vehicle for executive ground transport."
-    },
-    {
-      "id": "mahindra-marazzo",
-      "name": "Mahindra Marazzo",
-      "cabType": "SUV",
-      "fuelType": "Diesel",
-      "isElectric": false,
-      "image": "/images/fleet/mahindra-marazzo.webp",
-      "imageAlt": "Mahindra Marazzo SUV",
-      "description": "Spacious SUV suited for team journeys and delegation transport."
     },
     {
       "id": "ertiga-cng",
@@ -891,7 +932,7 @@
       "description": "Everyday and business travel.",
       "brochureModels": [
         "Swift Dzire",
-        "Hyundai Aura"
+        "Hyundai AURA"
       ],
       "source": "Brochure page 10"
     },
@@ -901,7 +942,6 @@
       "description": "Employee travel for teams and small groups.",
       "brochureModels": [
         "Toyota Innova Crysta",
-        "Mahindra Marazzo",
         "Force Urbania"
       ],
       "source": "Brochure page 10"

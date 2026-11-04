@@ -276,13 +276,13 @@ export const maDictionary: TranslationDictionary = {
       sedans: {
         name: "സെഡാനുകൾ",
         capacity: "1 മുതൽ 4 യാത്രക്കാർ · 2 മുതൽ 3 ബാഗുകൾ",
-        models: "Swift Dzire, Hyundai Aura അല്ലെങ്കിൽ സമാനമായവ",
+        models: "Swift Dzire, Hyundai AURA അല്ലെങ്കിൽ സമാനമായവ",
         use: "എയർപോർട്ട് യാത്രകൾ, ബിസിനസ്സ് സന്ദർശനങ്ങൾ, ചെറിയ ഗ്രൂപ്പ് നഗര യാത്രകൾ.",
       },
       mpvs: {
         name: "എംപിവി & ഗ്രൂപ്പ് വാഹനങ്ങൾ",
         capacity: "4 മുതൽ 6 യാത്രക്കാർ · 4 മുതൽ 5 ബാഗുകൾ",
-        models: "Innova Crysta, Marazzo, Force Urbania അല്ലെങ്കിൽ സമാനമായവ",
+        models: "Innova Crysta, Force Urbania അല്ലെങ്കിൽ സമാനമായവ",
         use: "ടീം സൈറ്റ് സന്ദർശനങ്ങൾ, ലഗേജുള്ള എയർപോർട്ട് യാത്രകൾ, പ്രതിനിധി യാത്രകൾ.",
       },
       buses: {

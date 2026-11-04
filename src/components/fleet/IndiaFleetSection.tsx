@@ -469,7 +469,9 @@ export default function IndiaFleetSection({
                       <span className="inline-flex items-center rounded-md border border-brand-soft-neutral bg-white px-2.5 py-0.5 text-xs font-semibold text-brand-ink">
                         {vehicle.cabType}
                       </span>
-                      {vehicle.seatingCapacity && vehicle.seatingCapacity !== vehicle.cabType && (
+                      {vehicle.seatingCapacity &&
+                        vehicle.seatingCapacity !== vehicle.cabType &&
+                        !vehicle.cabType.includes(vehicle.seatingCapacity) && (
                         <span className="inline-flex items-center rounded-md border border-brand-soft-neutral bg-white px-2.5 py-0.5 text-xs font-semibold text-brand-ink">
                           {vehicle.seatingCapacity}
                         </span>

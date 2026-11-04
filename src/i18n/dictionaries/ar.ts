@@ -284,13 +284,13 @@ export const arDictionary: TranslationDictionary = {
       sedans: {
         name: "سيارات صالون تنفيذية",
         capacity: "1 إلى 4 ركاب · 2 إلى 3 حقائب",
-        models: "Swift Dzire, Hyundai Aura أو ما يعادلها",
+        models: "Swift Dzire, Hyundai AURA أو ما يعادلها",
         use: "مشاوير المطار، والاجتماعات التجارية، وتنقلات المدن للمجموعات الصغيرة.",
       },
       mpvs: {
         name: "مركبات MPV والمجموعات",
         capacity: "4 إلى 6 ركاب · 4 إلى 5 حقائب",
-        models: "Innova Crysta, Mahindra Marazzo, Force Urbania أو ما يعادلها",
+        models: "Innova Crysta, Force Urbania أو ما يعادلها",
         use: "زيارات فرق العمل الميدانية، واستقبال المطار بالأمتعة، وتنقلات الوفود.",
       },
       buses: {

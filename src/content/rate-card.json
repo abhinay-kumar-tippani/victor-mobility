@@ -10,7 +10,7 @@
       {
         "id": "executive-sedan",
         "name": "Executive Sedan",
-        "models": "Swift Dzire / Hyundai Aura",
+        "models": "Swift Dzire / Hyundai AURA",
         "capacity": "Capacity confirmed on enquiry",
         "bestFor": "Daily corporate local meetings, employee nodal drops, airport transfers",
         "rates": {
@@ -27,7 +27,7 @@
       {
         "id": "corporate-mpv",
         "name": "Corporate SUV",
-        "models": "Innova Crysta / Mahindra Marazzo / Ertiga CNG",
+        "models": "Innova Crysta / Ertiga CNG",
         "capacity": "Capacity confirmed on enquiry",
         "bestFor": "Leadership transit, site visits, visiting client delegations",
         "rates": {

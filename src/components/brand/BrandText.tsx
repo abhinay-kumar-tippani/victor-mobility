@@ -21,7 +21,7 @@ export function VictorWordmark() {
   return (
     <span className="victor-wordmark">
       <span className="sr-only">Victor</span>
-      <svg viewBox="88 50 1992 617" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false">
+      <svg viewBox="88 114 1992 553" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false">
         <image href="/brand/victor-simple.png" width="2172" height="724" />
       </svg>
     </span>

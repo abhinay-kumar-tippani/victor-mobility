@@ -52,7 +52,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
   sedans: {
     badge: "Executive Sedans",
     headline: "Comfortable Saloons for Commutes & Business Travel",
-    models: ["Swift Dzire", "Hyundai Aura", "Tata Nexon", "MG ZS EV"],
+    models: ["Swift Dzire", "Hyundai AURA", "Tata Nexon", "MG ZS EV"],
     capacity: "Up to 3–4 Employees · 2 Luggage Bags",
     uses: "Daily employee commute, airport transfers, and point-to-point city travel.",
     features: [
@@ -66,7 +66,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
   mpvs: {
     badge: "MPVs & SUVs",
     headline: "Spacious Multi-Utility Vehicles for Teams & Delegations",
-    models: ["Mahindra Marazzo", "Ertiga CNG", "Innova Crysta", "Kia Carens Clavis EV"],
+    models: ["Ertiga CNG", "Innova Crysta", "Kia Carens Clavis EV"],
     capacity: "Up to 6–7 Employees · 4–5 Suitcases",
     uses: "Visiting executive delegations, project teams, multi-stop site visits, and family travel.",
     features: [

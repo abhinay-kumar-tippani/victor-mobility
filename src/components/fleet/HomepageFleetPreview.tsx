@@ -43,7 +43,7 @@ export default function HomepageFleetPreview({
           "swift-dzire",
           "hyundai-aura",
           "innova-crysta",
-          "urbania",
+          "tata-marcopolo-40",
         ];
 
   // Authoritative catalogue source with fallback
@@ -199,7 +199,8 @@ export default function HomepageFleetPreview({
                       <span>{localizedFuel}</span>
                     </span>
                     {vehicle.seatingCapacity &&
-                      vehicle.seatingCapacity !== vehicle.cabType && (
+                      vehicle.seatingCapacity !== vehicle.cabType &&
+                      !vehicle.cabType.includes(vehicle.seatingCapacity) && (
                         <span className="inline-flex items-center rounded-md border border-brand-soft-neutral/80 bg-brand-soft-neutral/30 px-2.5 py-0.5 text-xs font-semibold text-brand-ink/80">
                           {vehicle.seatingCapacity}
                         </span>
