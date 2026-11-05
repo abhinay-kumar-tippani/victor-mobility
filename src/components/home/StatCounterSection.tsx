@@ -135,7 +135,7 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index, totalCount
   // Mobile (2 cols):
   const isOddLast = totalCount % 2 !== 0 && index === totalCount - 1;
   if (!isOddLast && index % 2 === 0) {
-    borderClasses.push("border-r border-brand-soft-neutral");
+    borderClasses.push("border-e border-brand-soft-neutral");
   }
   const lastRowStartIndex = totalCount % 2 === 0 ? totalCount - 2 : totalCount - 1;
   if (index < lastRowStartIndex) {
@@ -147,9 +147,9 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index, totalCount
 
   // Tablet (3 cols):
   if (index % 3 !== 2 && index !== totalCount - 1) {
-    borderClasses.push("md:border-r md:border-brand-soft-neutral");
+    borderClasses.push("md:border-e md:border-brand-soft-neutral");
   } else {
-    borderClasses.push("md:border-r-0");
+    borderClasses.push("md:border-e-0");
   }
   if (index < 3) {
     borderClasses.push("md:border-b md:border-brand-soft-neutral");
@@ -159,9 +159,9 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index, totalCount
 
   // Desktop (1 row):
   if (index < totalCount - 1) {
-    borderClasses.push("lg:border-r lg:border-b-0 lg:border-brand-soft-neutral");
+    borderClasses.push("lg:border-e lg:border-b-0 lg:border-brand-soft-neutral");
   } else {
-    borderClasses.push("lg:border-r-0 lg:border-b-0");
+    borderClasses.push("lg:border-e-0 lg:border-b-0");
   }
 
   const accessibleFullText = `${finalFormattedTarget}${suffix} ${labelLines.join(" ")}`;
@@ -170,7 +170,7 @@ function SingleCounter({ stat, isInView, prefersReducedMotion, index, totalCount
     <div
       role="group"
       aria-label={accessibleFullText}
-      className={`p-5 pb-7 sm:p-6 lg:py-7 lg:px-6 flex flex-col justify-start items-start text-left transition-colors duration-150 hover:bg-brand-warm-white/50 ${borderClasses.join(
+      className={`p-5 pb-7 sm:p-6 lg:py-7 lg:px-6 flex flex-col justify-start items-start text-start transition-colors duration-150 hover:bg-brand-warm-white/50 ${borderClasses.join(
         " "
       )}`}
     >

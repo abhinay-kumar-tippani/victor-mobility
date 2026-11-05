@@ -42,6 +42,41 @@ export default function Header({ contact }: HeaderProps) {
     "Transport Enquiry for Muhammad Asif — Victor Mobility"
   )}`;
 
+  // Contact Rail Destinations: India routes to Muhammad Asif; UAE routes to configured UAE Operations Desk
+  const contactRailPhoneHref = isIndia
+    ? asifPhoneHref
+    : (contact.phoneHref || "tel:+971524552441");
+
+  const uaeDeskWhatsappMessage = isIndia
+    ? "Hello Victor Mobility, I would like to discuss a transport requirement."
+    : "Hello Victor Mobility UAE, I would like to discuss UAE transport arrangements.";
+
+  const contactRailWhatsappHref = isIndia
+    ? asifWhatsappHref
+    : `${contact.whatsappBaseUrl || `https://wa.me/${contact.whatsappDigits || "971524552441"}`}?text=${encodeURIComponent(
+        uaeDeskWhatsappMessage
+      )}`;
+
+  const contactRailEmailHref = isIndia
+    ? asifEmailHref
+    : (contact.emailEnabled && contact.printedEmail
+        ? `mailto:${contact.printedEmail}?subject=${encodeURIComponent(
+            "Transport Enquiry — Victor Mobility UAE"
+          )}`
+        : `${basePrefix}/contact?channel=email`);
+
+  const contactRailPhoneLabel = isIndia
+    ? "Call Muhammad Asif (+91 9100 77 77 68)"
+    : `${dict.nav.call || "Call"} ${contact.phoneDisplay || "+971 52 455 2441"}`;
+
+  const contactRailWhatsappLabel = isIndia
+    ? "WhatsApp Muhammad Asif (+91 9100 77 77 68)"
+    : `WhatsApp ${contact.name || "UAE Operations Desk"} (${contact.whatsappDisplay || "+971 52 455 2441"})`;
+
+  const contactRailEmailLabel = isIndia
+    ? "Email Muhammad Asif (asif@victorluxurylimousine.com)"
+    : `Email ${contact.name || "UAE Operations Desk"} (${contact.printedEmail || "info@victorluxurylimousine.com"})`;
+
   const navItems = [
     { label: dict.nav.home || "Home", href: basePrefix },
     { label: dict.nav.services || "Services", href: `${basePrefix}/services` },
@@ -362,9 +397,12 @@ export default function Header({ contact }: HeaderProps) {
 
       {!mobileMenuOpen && (
         <StickyContactRail
-          phoneHref={asifPhoneHref}
-          whatsappHref={asifWhatsappHref}
-          emailHref={asifEmailHref}
+          phoneHref={contactRailPhoneHref}
+          whatsappHref={contactRailWhatsappHref}
+          emailHref={contactRailEmailHref}
+          phoneLabel={contactRailPhoneLabel}
+          whatsappLabel={contactRailWhatsappLabel}
+          emailLabel={contactRailEmailLabel}
         />
       )}
     </>

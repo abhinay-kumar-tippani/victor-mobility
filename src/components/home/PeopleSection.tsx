@@ -70,8 +70,8 @@ export default function PeopleSection({
           </p>
         </div>
 
-        {/* Centered Core Team Member Card */}
-        <div className="max-w-4xl mx-auto w-full">
+        {/* 2x2 Core Team Grid */}
+        <div className="w-full">
           <TeamCarousel
             featured={teamContact || contact}
             featuredEmail={teamFeaturedEmail}

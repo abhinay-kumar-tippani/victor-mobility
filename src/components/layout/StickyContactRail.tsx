@@ -4,20 +4,24 @@ interface StickyContactRailProps {
   phoneHref?: string;
   whatsappHref?: string;
   emailHref?: string;
+  phoneLabel?: string;
+  whatsappLabel?: string;
+  emailLabel?: string;
 }
-
-const actions = [
-  { key: "phone", label: "Call Muhammad Asif (+91 9100 77 77 68)" },
-  { key: "whatsapp", label: "WhatsApp Muhammad Asif (+91 9100 77 77 68)" },
-  { key: "email", label: "Email Muhammad Asif (asif@victorluxurylimousine.com)" },
-] as const;
 
 export default function StickyContactRail({
   phoneHref = "tel:+919100777768",
   whatsappHref = "https://wa.me/919100777768?text=Hello%20Muhammad%20Asif%2C%20I%20would%20like%20to%20discuss%20a%20transport%20requirement%20with%20Victor%20Mobility.",
   emailHref = "mailto:asif@victorluxurylimousine.com?subject=Enquiry%20for%20Muhammad%20Asif%20%E2%80%94%20Victor%20Mobility",
+  phoneLabel = "Call Muhammad Asif (+91 9100 77 77 68)",
+  whatsappLabel = "WhatsApp Muhammad Asif (+91 9100 77 77 68)",
+  emailLabel = "Email Muhammad Asif (asif@victorluxurylimousine.com)",
 }: StickyContactRailProps) {
-  const hrefByKey = { phone: phoneHref, whatsapp: whatsappHref, email: emailHref };
+  const actions = [
+    { key: "phone", label: phoneLabel, href: phoneHref },
+    { key: "whatsapp", label: whatsappLabel, href: whatsappHref },
+    { key: "email", label: emailLabel, href: emailHref },
+  ] as const;
 
   return (
     <nav
@@ -25,10 +29,10 @@ export default function StickyContactRail({
       aria-label="Quick contact actions"
       className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col overflow-hidden rounded-l-2xl border border-r-0 border-brand-soft-neutral bg-white shadow-[0_8px_28px_rgba(21,22,47,0.16)]"
     >
-      {actions.map(({ key, label }, index) => (
+      {actions.map(({ key, label, href }, index) => (
         <a
           key={key}
-          href={hrefByKey[key]}
+          href={href}
           target={key === "whatsapp" ? "_blank" : undefined}
           rel={key === "whatsapp" ? "noopener noreferrer" : undefined}
           aria-label={label}
