@@ -708,22 +708,6 @@
       "emailEnabled": true
     },
     {
-      "id": "muhammad-asif",
-      "name": "Muhammad Asif",
-      "role": "Manager - Admin & Finance",
-      "division": "Admin & Finance",
-      "imageSrc": "/images/team/muhammad-asif.jpg",
-      "imageAlt": "Portrait of Muhammad Asif, Manager - Admin & Finance at Victor Mobility",
-      "placeholder": false,
-      "description": "Managing corporate administration, financial operations, vendor compliance, and commercial accounts.",
-      "phoneDisplay": "+91 9100 77 77 68",
-      "phoneHref": "tel:+919100777768",
-      "whatsappDisplay": "+91 9100 77 77 68",
-      "whatsappDigits": "919100777768",
-      "emailDisplay": "asif@victorluxurylimousine.com",
-      "emailEnabled": true
-    },
-    {
       "id": "nareinder-reddy",
       "name": "Nareinder Reddyy C",
       "role": "Business Head - Bangalore",
@@ -737,6 +721,22 @@
       "whatsappDisplay": "+91 99000 04172",
       "whatsappDigits": "919900004172",
       "emailDisplay": "nreddy@jvictorgroup.com",
+      "emailEnabled": true
+    },
+    {
+      "id": "muhammad-asif",
+      "name": "Muhammad Asif",
+      "role": "Manager - Admin & Finance",
+      "division": "Admin & Finance",
+      "imageSrc": "/images/team/muhammad-asif.jpg",
+      "imageAlt": "Portrait of Muhammad Asif, Manager - Admin & Finance at Victor Mobility",
+      "placeholder": false,
+      "description": "Managing corporate administration, financial operations, vendor compliance, and commercial accounts.",
+      "phoneDisplay": "+91 9100 77 77 68",
+      "phoneHref": "tel:+919100777768",
+      "whatsappDisplay": "+91 9100 77 77 68",
+      "whatsappDigits": "919100777768",
+      "emailDisplay": "asif@victorluxurylimousine.com",
       "emailEnabled": true
     }
   ],

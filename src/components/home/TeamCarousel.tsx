@@ -60,24 +60,34 @@ export default function TeamCarousel({
   const { locale } = useLanguage();
   const actionLabels = actionCopy[locale] || actionCopy.en;
 
-  // Combine featured contact (first) and teamProfiles in exact order without duplicates
-  const members: TeamProfile[] = [
-    {
-      id: "mujeeb",
-      name: featured.name,
-      role: featured.role,
-      imageSrc: featured.imageSrc || "/images/india/leadership-mujeeb.jpg",
-      imageAlt: `Portrait of ${featured.name}, ${featured.role} at Victor Mobility`,
-      placeholder: false,
-      phoneDisplay: featured.phoneDisplay,
-      phoneHref: featured.phoneHref,
-      whatsappDisplay: featured.whatsappDisplay,
-      whatsappDigits: featured.whatsappDigits,
-      emailDisplay: featuredEmail?.display,
-      emailEnabled: featuredEmail?.enabled,
-    },
-    ...profiles,
-  ];
+  // Assemble team members in exact order: 1. Kamran, 2. Narender reddy, 3. Mujeeb, 4. Asif
+  const mujeebProfile: TeamProfile = {
+    id: "mujeeb",
+    name: featured.name,
+    role: featured.role,
+    imageSrc: featured.imageSrc || "/images/india/leadership-mujeeb.jpg",
+    imageAlt: `Portrait of ${featured.name}, ${featured.role} at Victor Mobility`,
+    placeholder: false,
+    phoneDisplay: featured.phoneDisplay,
+    phoneHref: featured.phoneHref,
+    whatsappDisplay: featured.whatsappDisplay,
+    whatsappDigits: featured.whatsappDigits,
+    emailDisplay: featuredEmail?.display,
+    emailEnabled: featuredEmail?.enabled,
+  };
+
+  const allProfiles = [mujeebProfile, ...profiles];
+
+  const getOrderRank = (p: TeamProfile) => {
+    const key = `${p.id} ${p.name}`.toLowerCase();
+    if (key.includes("kamran")) return 1;
+    if (key.includes("nareinder") || key.includes("narender")) return 2;
+    if (key.includes("mujeeb")) return 3;
+    if (key.includes("asif")) return 4;
+    return 99;
+  };
+
+  const members: TeamProfile[] = [...allProfiles].sort((a, b) => getOrderRank(a) - getOrderRank(b));
 
   return (
     <div className="w-full">

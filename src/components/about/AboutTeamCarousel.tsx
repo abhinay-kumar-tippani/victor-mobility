@@ -14,24 +14,35 @@ interface AboutTeamCarouselProps {
 }
 
 export default function AboutTeamCarousel({ featured, featuredDescription, profiles }: AboutTeamCarouselProps) {
-  const people: TeamProfile[] = [
-    {
-      id: "mujeeb",
-      name: featured.name,
-      role: featured.role,
-      description: featuredDescription,
-      imageSrc: featured.imageSrc || "/images/india/leadership-mujeeb.jpg",
-      imageAlt: `Portrait of ${featured.name}`,
-      placeholder: false,
-      phoneDisplay: featured.phoneDisplay,
-      phoneHref: featured.phoneHref,
-      whatsappDisplay: featured.whatsappDisplay,
-      whatsappDigits: featured.whatsappDigits,
-      emailDisplay: "mujeeburrahman@victorluxurylimousine.com",
-      emailEnabled: true,
-    },
-    ...profiles,
-  ];
+  // Assemble team members in exact order: 1. Kamran, 2. Narender reddy, 3. Mujeeb, 4. Asif
+  const mujeebProfile: TeamProfile = {
+    id: "mujeeb",
+    name: featured.name,
+    role: featured.role,
+    description: featuredDescription,
+    imageSrc: featured.imageSrc || "/images/india/leadership-mujeeb.jpg",
+    imageAlt: `Portrait of ${featured.name}`,
+    placeholder: false,
+    phoneDisplay: featured.phoneDisplay,
+    phoneHref: featured.phoneHref,
+    whatsappDisplay: featured.whatsappDisplay,
+    whatsappDigits: featured.whatsappDigits,
+    emailDisplay: "mujeeburrahman@victorluxurylimousine.com",
+    emailEnabled: true,
+  };
+
+  const allPeople = [mujeebProfile, ...profiles];
+
+  const getOrderRank = (p: TeamProfile) => {
+    const key = `${p.id} ${p.name}`.toLowerCase();
+    if (key.includes("kamran")) return 1;
+    if (key.includes("nareinder") || key.includes("narender")) return 2;
+    if (key.includes("mujeeb")) return 3;
+    if (key.includes("asif")) return 4;
+    return 99;
+  };
+
+  const people: TeamProfile[] = [...allPeople].sort((a, b) => getOrderRank(a) - getOrderRank(b));
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [interacting, setInteracting] = useState(false);
