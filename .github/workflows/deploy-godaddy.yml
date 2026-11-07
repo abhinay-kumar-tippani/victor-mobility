@@ -77,6 +77,7 @@ jobs:
           echo "Preview import timed out"
           exit 1
 
+
       - name: Publish to live website
         id: publish
         shell: bash
@@ -85,10 +86,13 @@ jobs:
 
           RESPONSE=$(curl -fsS -X POST \
             "$API/apps/$APP_ID/deployments" \
-            -H "Authorization: Bearer $GODADDY_PAT")
+            -H "Authorization: Bearer $GODADDY_PAT" \
+            -H "Content-Type: application/json" \
+            -d '{}')
 
           DEPLOY_ID=$(echo "$RESPONSE" | jq -er '.deploymentId')
           echo "deployment_id=$DEPLOY_ID" >> "$GITHUB_OUTPUT"
+
 
       - name: Verify production deployment
         shell: bash
