@@ -1,0 +1,119 @@
+
+name: Deploy Victor Mobility to GoDaddy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: victor-godaddy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      GODADDY_PAT: ${{ secrets.GODADDY_PAT }}
+      APP_ID: ${{ vars.GODADDY_APP_ID }}
+      REPO: ${{ github.repository }}
+      BRANCH: main
+      API: https://api.godaddy.com/v1/hosting
+
+    steps:
+      - name: Check configuration
+        run: |
+          test -n "$GODADDY_PAT" || exit 1
+          test -n "$APP_ID" || exit 1
+
+      - name: Pull GitHub code into GoDaddy Preview
+        id: import
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BODY=$(jq -n \
+            --arg repo "$REPO" \
+            --arg branch "$BRANCH" \
+            '{repositoryFullName:$repo,branch:$branch}')
+
+          RESPONSE=$(curl -fsS -X POST \
+            "$API/apps/$APP_ID/imports" \
+            -H "Authorization: Bearer $GODADDY_PAT" \
+            -H "Content-Type: application/json" \
+            -d "$BODY")
+
+          IMPORT_ID=$(echo "$RESPONSE" | jq -er '.importId')
+          echo "import_id=$IMPORT_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for successful Preview import
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for i in {1..120}; do
+            RESPONSE=$(curl -fsS \
+              "$API/apps/$APP_ID/imports/${{ steps.import.outputs.import_id }}" \
+              -H "Authorization: Bearer $GODADDY_PAT")
+
+            STATUS=$(echo "$RESPONSE" | jq -r '.status')
+            echo "Preview status: $STATUS"
+
+            case "$STATUS" in
+              COMPLETED) exit 0 ;;
+              FAILED)
+                echo "$RESPONSE" | jq -r '.error.message // "Import failed"'
+                exit 1 ;;
+            esac
+
+            sleep 5
+          done
+
+          echo "Preview import timed out"
+          exit 1
+
+      - name: Publish to live website
+        id: publish
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RESPONSE=$(curl -fsS -X POST \
+            "$API/apps/$APP_ID/deployments" \
+            -H "Authorization: Bearer $GODADDY_PAT")
+
+          DEPLOY_ID=$(echo "$RESPONSE" | jq -er '.deploymentId')
+          echo "deployment_id=$DEPLOY_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Verify production deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for i in {1..120}; do
+            RESPONSE=$(curl -fsS \
+              "$API/apps/$APP_ID/deployments/${{ steps.publish.outputs.deployment_id }}" \
+              -H "Authorization: Bearer $GODADDY_PAT")
+
+            STATUS=$(echo "$RESPONSE" | jq -r '.status')
+            echo "Production status: $STATUS"
+
+            case "$STATUS" in
+              COMPLETED)
+                echo "Victor Mobility deployment successful!"
+                exit 0 ;;
+              FAILED)
+                echo "$RESPONSE" | jq -r '.error.message // "Deployment failed"'
+                exit 1 ;;
+            esac
+
+            sleep 5
+          done
+
+          echo "Production deployment timed out"
+          exit 1
