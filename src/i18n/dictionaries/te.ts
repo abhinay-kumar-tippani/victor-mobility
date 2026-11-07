@@ -8,6 +8,8 @@ export const teDictionary: TranslationDictionary = {
     estimator: "ఎస్టిమేటర్",
     rfp: "ఆర్.ఎఫ్.పి డెస్క్",
     about: "మా గురించి",
+    achievements: "విజయాలు మరియు గుర్తింపు",
+    driverTraining: "డ్రైవర్ శిక్షణ",
     contact: "సంప్రదించండి",
     enquire: "విచారించండి",
     call: "కాల్ చేయండి",

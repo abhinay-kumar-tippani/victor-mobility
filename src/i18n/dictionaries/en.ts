@@ -8,6 +8,8 @@ export const enDictionary: TranslationDictionary = {
     estimator: "Estimator",
     rfp: "RFP Desk",
     about: "About",
+    achievements: "Achievements & Recognition",
+    driverTraining: "Driver Training",
     contact: "Contact",
     enquire: "Enquire",
     call: "Call",

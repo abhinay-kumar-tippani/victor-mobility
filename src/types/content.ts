@@ -235,6 +235,63 @@ export interface IndiaContent {
     title: string;
     description: string;
   }>;
+  achievements?: AchievementsContent;
+  driverTraining?: DriverTrainingContent;
+}
+
+export interface SampleCertificate {
+  title: string;
+  sampleLabel: string;
+  eyebrow: string;
+  caption: string;
+  imageSrc: string;
+  imageAlt: string;
+  actionLabel: string;
+  modalTitle: string;
+}
+
+export interface SampleMilestone {
+  id: string;
+  title: string;
+  label: string;
+  description: string;
+}
+
+export interface AchievementsContent {
+  title: string;
+  subtitle: string;
+  sampleCertificate: SampleCertificate;
+  sampleMilestones: SampleMilestone[];
+}
+
+export interface DriverTrainingCurriculumMoment {
+  moment: number;
+  title: string;
+  description: string;
+  practicalExample: string;
+}
+
+export interface DriverTrainingScenario {
+  badge: string;
+  title: string;
+  question: string;
+  disclosureLabel: string;
+  suggestedResponse: string;
+  educationalNote: string;
+}
+
+export interface DriverTrainingContent {
+  title: string;
+  intro: string;
+  curriculumSectionLabel: string;
+  curriculumMoments: DriverTrainingCurriculumMoment[];
+  scenario: DriverTrainingScenario;
+  academyCta: {
+    heading: string;
+    description: string;
+    buttonLabel: string;
+    href: string;
+  };
 }
 
 export interface MediaAsset {

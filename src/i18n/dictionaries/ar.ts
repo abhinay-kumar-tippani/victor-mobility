@@ -8,6 +8,8 @@ export const arDictionary: TranslationDictionary = {
     estimator: "حاسبة الأسعار",
     rfp: "طلب العروض",
     about: "من نحن",
+    achievements: "الإنجازات والتقدير",
+    driverTraining: "تدريب السائقين",
     contact: "اتصل بنا",
     enquire: "طلب حجز",
     call: "اتصال",

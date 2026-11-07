@@ -8,6 +8,8 @@ export const knDictionary: TranslationDictionary = {
     estimator: "ಎಸ್ಟಿಮೇಟರ್",
     rfp: "ಆರ್.ಎಫ್.ಪಿ ಡೆಸ್ಕ್",
     about: "ನಮ್ಮ ಬಗ್ಗೆ",
+    achievements: "ಸಾಧನೆಗಳು ಮತ್ತು ಮಾನ್ಯತೆ",
+    driverTraining: "ಚಾಲಕ ತರಬೇತಿ",
     contact: "ಸಂಪರ್ಕಿಸಿ",
     enquire: "ವಿಚಾರಿಸಿ",
     call: "ಕರೆ ಮಾಡಿ",

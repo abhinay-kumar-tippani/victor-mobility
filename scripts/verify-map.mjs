@@ -67,7 +67,7 @@ async function main() {
   });
   console.log("Saved docs/screenshots/map-maharashtra-hover.png");
 
-  // 4. Hover over Karnataka (Bangalore is 171.3, 390.8)
+  // 4. Hover over Karnataka (Bengaluru is 171.3, 390.8)
   const karnatakaX = svgBox.x + svgBox.width * (165.0 / 500);
   const karnatakaY = svgBox.y + svgBox.height * (380.0 / 510);
   console.log(`Hovering over Karnataka at (${karnatakaX}, ${karnatakaY})...`);

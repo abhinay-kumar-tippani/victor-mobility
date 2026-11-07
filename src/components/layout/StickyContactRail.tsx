@@ -13,8 +13,8 @@ export default function StickyContactRail({
   phoneHref = "tel:+919100777768",
   whatsappHref = "https://wa.me/919100777768?text=Hello%20Muhammad%20Asif%2C%20I%20would%20like%20to%20discuss%20a%20transport%20requirement%20with%20Victor%20Mobility.",
   emailHref = "mailto:asif@victorluxurylimousine.com?subject=Enquiry%20for%20Muhammad%20Asif%20%E2%80%94%20Victor%20Mobility",
-  phoneLabel = "Call Muhammad Asif (+91 9100 77 77 68)",
-  whatsappLabel = "WhatsApp Muhammad Asif (+91 9100 77 77 68)",
+  phoneLabel = "Call Muhammad Asif (+91 91007 77768)",
+  whatsappLabel = "WhatsApp Muhammad Asif (+91 91007 77768)",
   emailLabel = "Email Muhammad Asif (asif@victorluxurylimousine.com)",
 }: StickyContactRailProps) {
   const actions = [

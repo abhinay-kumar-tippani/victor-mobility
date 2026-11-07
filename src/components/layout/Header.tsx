@@ -34,6 +34,7 @@ export default function Header({ contact }: HeaderProps) {
     : `${basePrefix}/contact?channel=email`;
 
   const asifPhoneHref = "tel:+919100777768";
+  const asifPhoneDisplay = "+91 91007 77768";
   const asifWhatsappMessage = isIndia
     ? "Hello Muhammad Asif, I would like to discuss a transport requirement with Victor Mobility."
     : "Hello Muhammad Asif, I would like to discuss UAE transport arrangements with Victor Mobility.";
@@ -41,6 +42,10 @@ export default function Header({ contact }: HeaderProps) {
   const asifEmailHref = `mailto:asif@victorluxurylimousine.com?subject=${encodeURIComponent(
     "Transport Enquiry for Muhammad Asif — Victor Mobility"
   )}`;
+
+  // Navbar phone destination & display: India routes to +91 91007 77768; UAE routes to configured UAE Operations Desk
+  const navPhoneDisplay = isIndia ? asifPhoneDisplay : (contact.phoneDisplay || "+971 52 455 2441");
+  const navPhoneHref = isIndia ? asifPhoneHref : (contact.phoneHref || "tel:+971524552441");
 
   // Contact Rail Destinations: India routes to Muhammad Asif; UAE routes to configured UAE Operations Desk
   const contactRailPhoneHref = isIndia
@@ -66,11 +71,11 @@ export default function Header({ contact }: HeaderProps) {
         : `${basePrefix}/contact?channel=email`);
 
   const contactRailPhoneLabel = isIndia
-    ? "Call Muhammad Asif (+91 9100 77 77 68)"
+    ? "Call Muhammad Asif (+91 91007 77768)"
     : `${dict.nav.call || "Call"} ${contact.phoneDisplay || "+971 52 455 2441"}`;
 
   const contactRailWhatsappLabel = isIndia
-    ? "WhatsApp Muhammad Asif (+91 9100 77 77 68)"
+    ? "WhatsApp Muhammad Asif (+91 91007 77768)"
     : `WhatsApp ${contact.name || "UAE Operations Desk"} (${contact.whatsappDisplay || "+971 52 455 2441"})`;
 
   const contactRailEmailLabel = isIndia
@@ -268,12 +273,12 @@ export default function Header({ contact }: HeaderProps) {
               <LanguageSwitcher id="desktop-language-switcher" />
 
               <a
-                href={contact.phoneHref}
+                href={navPhoneHref}
                 className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue hover:bg-brand-indigo/5 transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[42px]"
-                title={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
+                title={`${dict.nav.call || "Call"} ${navPhoneDisplay}`}
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span dir="ltr">{contact.phoneDisplay}</span>
+                <span dir="ltr">{navPhoneDisplay}</span>
               </a>
 
               <Link
@@ -289,9 +294,9 @@ export default function Header({ contact }: HeaderProps) {
               <LanguageSwitcher id="mobile-language-switcher" compactOnMobile={true} />
 
               <a
-                href={contact.phoneHref}
+                href={navPhoneHref}
                 className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
-                aria-label={`${dict.nav.call || "Call"} ${contact.phoneDisplay}`}
+                aria-label={`${dict.nav.call || "Call"} ${navPhoneDisplay}`}
               >
                 <Phone className="w-5 h-5" />
               </a>
@@ -377,12 +382,12 @@ export default function Header({ contact }: HeaderProps) {
                   <span>{dict.nav.discussRequirement || "Discuss Your Requirement"}</span>
                 </Link>
                 <a
-                  href={contact.phoneHref}
+                  href={navPhoneHref}
                   className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
                 >
                   <Phone className="w-4 h-4" />
                   <span dir="ltr">
-                    {dict.nav.call || "Call"} {contact.phoneDisplay}
+                    {dict.nav.call || "Call"} {navPhoneDisplay}
                   </span>
                 </a>
               </div>

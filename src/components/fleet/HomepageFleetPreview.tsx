@@ -40,7 +40,7 @@ export default function HomepageFleetPreview({
     featuredIds && featuredIds.length > 0
       ? featuredIds
       : (featuredFleetData as Record<string, string[]>)[effectiveRegion] || [
-          "swift-dzire",
+          "kia-carens-clavis-ev",
           "hyundai-aura",
           "innova-crysta",
           "tata-marcopolo-40",

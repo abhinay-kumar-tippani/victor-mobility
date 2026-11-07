@@ -1,5 +1,106 @@
 # Handoff
 
+## 7 November 2026 — Update Navbar Phone Number to +91 91007 77768
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Updated the navbar phone number across desktop and mobile to **+91 91007 77768** (`tel:+919100777768`).
+- **Key Changes**:
+  - `src/components/layout/Header.tsx`:
+    - Updated desktop header CTA button to display `+91 91007 77768` with direct dial `tel:+919100777768`.
+    - Updated mobile header call button action to `tel:+919100777768` with aria-label `Call +91 91007 77768`.
+    - Updated mobile navigation drawer call action to `tel:+919100777768` and label `Call +91 91007 77768`.
+    - Maintained regional isolation on UAE pages (`+971 52 455 2441`).
+  - `src/content/india.json`:
+    - Updated primary contact object to Muhammad Asif with `phoneDisplay: "+91 91007 77768"`, `phoneHref: "tel:+919100777768"`, and `whatsappDisplay: "+91 91007 77768"`.
+  - Standardized formatting across `StickyContactRail.tsx`, `Footer.tsx`, and `ImmediateAssistanceCard.tsx`.
+- **Verification**:
+  - `npm run type-check`: 0 TypeScript errors.
+  - `npm run lint`: 0 ESLint warnings or errors.
+  - `npm run build`: 73/73 static pages compiled successfully.
+  - Playwright automated verification (`scripts/verify-navbar-phone.mjs`) passed all checks:
+    - India desktop navbar phone button: `+91 91007 77768` (`tel:+919100777768`).
+    - India mobile navbar call action: `Call +91 91007 77768` (`tel:+919100777768`).
+    - India mobile drawer action: `Call +91 91007 77768` (`tel:+919100777768`).
+    - UAE regional isolation: `+971 52 455 2441`.
+    - Screenshots captured in `docs/screenshots/navbar-phone-india-desktop.png` and `docs/screenshots/navbar-phone-india-mobile.png`.
+
+---
+
+## 7 November 2026 — Replace Circular Flags with Waving Flags on Root Page (`/`)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Replaced the circular clipped flag badges on the root landing page (`/`) with gently waving/fluttering flags for both India and UAE.
+- **Key Changes**:
+  - `src/components/brand/CountryFlag.tsx`:
+    - Updated `IndiaFlag`: 54x36 waving flag geometry with cubic Bézier undulating contours, Saffron/White/Green horizontal bands following the wave curve, 24-spoke Ashoka Chakra, silk lighting gradient overlay with `mixBlendMode: "overlay"`, and subtle 1px border contour.
+    - Updated `UaeFlag`: 54x36 waving flag geometry with Red vertical hoist bar, undulating Green/White/Black fly stripes, silk lighting gradient overlay, and subtle 1px border contour.
+  - `src/app/page.tsx`:
+    - Removed `rounded-full ring-2 ring-white/70`.
+    - Applied responsive aspect-ratio sizing `w-10 h-[27px] sm:w-12 sm:h-8 drop-shadow-md` aligning the waving flag height with the cap-height of "INDIA" and "UAE" typography.
+- **Verification**:
+  - `npm run type-check`: 0 TypeScript errors.
+  - `npm run lint`: 0 ESLint warnings or errors.
+  - `npm run build`: 73/73 static pages compiled successfully.
+  - Playwright visual tests:
+    - Desktop (1440px): `docs/screenshots/root-waving-flags-1440.png`
+    - Mobile (390px): `docs/screenshots/root-waving-flags-390.png`
+
+---
+
+## 7 November 2026 — Standardize Bangalore to Bengaluru Pan-Website
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Standardized all references of "Bangalore" to "Bengaluru" across UI components, map data, team leadership dossiers, corridor descriptions, and media metadata.
+- **Key Changes**:
+  - `src/content/india-map.json`: City point name updated to `"Bengaluru"`.
+  - `src/components/home/IndiaPresenceMap.tsx`: `citiesData` entry, Karnataka state mapping, and map pin label alignments updated to `Bengaluru`.
+  - `src/content/india.json` & `src/content/uae.json`: Nareinder Reddyy C's role updated to `"Business Head - Bengaluru"`, alt text and description updated to Bengaluru commercial corridor.
+  - `src/content/media.json`: Photo alt text updated to `"Business Head - Bengaluru"`.
+  - `src/content/tech-corridors.json`: Updated park name to `"International Tech Park Bengaluru (ITPB)"`.
+  - Updated verification scripts and documentation references.
+- **Verification**:
+  - `npm run type-check`: 0 TypeScript errors.
+  - `npm run lint`: 0 ESLint warnings or errors.
+  - `npm run build`: 71/71 static pages compiled successfully.
+  - Live check on `/india` and `/uae`: zero occurrences of "Bangalore", fully replaced with "Bengaluru".
+  - Automated Playwright verification (`scripts/verify-map.mjs`): Karnataka map hover confirms `KARNATAKA / Bengaluru`.
+
+---
+
+## 7 November 2026 — Homepage Fleet Preview Update (Kia Carens Clavis EV & Tata Marcopolo)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Replaced the first vehicle card ("Swift Dzire", Sedan / Petrol) with **Kia Carens Clavis EV** (SUV / Long Range Electric Vehicle) on the `/india` homepage vehicle preview section (`#fleet`).
+- Card attributes for Kia Carens Clavis EV:
+  - **Illustration**: `/images/fleet/kia-carens-clavis-ev.webp`
+  - **Badges**: `SUV` and emerald green `Long Range Electric Vehicle` with `Zap` icon
+  - **Description**: `Next-generation long-range electric SUV combining capacity with clean mobility.`
+  - **Pricing**: `Request a quote`
+  - **CTA**: `Enquire about this vehicle →` linking to `/india/contact?vehicle=Kia%20Carens%20Clavis%20EV&category=SUV`
+- Current 4-card India featured lineup:
+  1. Kia Carens Clavis EV (SUV / Long Range Electric Vehicle)
+  2. Hyundai AURA (Sedan / Petrol & CNG)
+  3. Toyota Innova Crysta (SUV / Diesel)
+  4. Tata Marcopolo (40 Seater Bus) (40 Seater Bus / Diesel)
+- UAE homepage preview (`/uae`) isolation preserved with luxury fleet (Mercedes-Benz S-Class, Cadillac Escalade, Mercedes-Benz V-Class, 22-Seater VIP Coach).
+
+### Verification
+- `npm run type-check`: 0 TypeScript errors.
+- `npm run lint`: 0 ESLint warnings or errors.
+- `npm run build`: 71/71 static pages compiled successfully.
+- `node scripts/verify-homepage-fleet-redesign.mjs`: All 5 tests passed (India preview with 4 vehicles in exact order and hover expansion, UAE luxury preview, full catalogue deep linking, responsive zero overflow across 1440px/768px/390px/320px, and Arabic RTL layout).
+- Screenshots captured in `docs/screenshots/india-homepage-fleet-1440.png`, `india-homepage-fleet-768.png`, and `india-homepage-fleet-390.png`.
+
+---
+
 ## 4 November 2026 — Clientele introduction wordmark
 
 - Replaced the English clientele introduction's literal `LOGO` placeholder with `Victor`, which the existing `BrandText` component renders as the approved simple white logo on the navy background.

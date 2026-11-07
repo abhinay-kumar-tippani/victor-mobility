@@ -8,6 +8,8 @@ export const taDictionary: TranslationDictionary = {
     estimator: "மதிப்பீட்டாளர்",
     rfp: "RFP டெஸ்க்",
     about: "எங்களை பற்றி",
+    achievements: "சாதனைகள் மற்றும் அங்கீகாரம்",
+    driverTraining: "ஓட்டுநர் பயிற்சி",
     contact: "தொடர்பு கொள்ள",
     enquire: "விசாரிக்க",
     call: "அழைக்கவும்",

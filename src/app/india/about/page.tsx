@@ -204,6 +204,17 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+
+              <div className="pt-2 flex justify-start">
+                <Link
+                  href="/india/achievements"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-warm-white border border-brand-indigo/20 text-brand-indigo hover:bg-brand-indigo hover:text-white text-xs sm:text-sm font-bold transition-all shadow-2xs"
+                >
+                  <Award className="w-4 h-4" />
+                  <span>View Achievements &amp; Recognition Gallery</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
           </section>
         )}

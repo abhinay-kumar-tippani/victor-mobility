@@ -31,7 +31,7 @@ const citiesData: CityMeta[] = [
     isRegisteredOffice: true,
   },
   {
-    name: "Bangalore",
+    name: "Bengaluru",
     state: "Karnataka",
     label: "Branch Office",
     badge: "Regional Operations Hub",
@@ -124,9 +124,9 @@ const stateCityMap: Record<
     primaryCity: "Hyderabad",
   },
   Karnataka: {
-    cities: ["Bangalore"],
-    citiesDisplay: "Bangalore",
-    primaryCity: "Bangalore",
+    cities: ["Bengaluru"],
+    citiesDisplay: "Bengaluru",
+    primaryCity: "Bengaluru",
   },
   Maharashtra: {
     cities: ["Mumbai", "Pune"],
@@ -212,7 +212,7 @@ export default function IndiaPresenceMap({
     (o) =>
       o.published &&
       (o.city.toLowerCase() === selectedCity.name.toLowerCase() ||
-        (selectedCity.name === "Bangalore" && o.city.toLowerCase() === "bengaluru"))
+        (canonicalCityName(selectedCity.name) === "bengaluru" && canonicalCityName(o.city) === "bengaluru"))
   );
 
   const updateTooltipCoords = (clientX: number, clientY: number) => {
@@ -376,13 +376,13 @@ export default function IndiaPresenceMap({
                   const [cx, cy] = city.point;
                   const isSelected = canonicalCityName(selectedCity.name) === canonicalCityName(city.name);
 
-                  // Label alignments (Bangalore on left to prevent overlap with Chennai)
+                  // Label alignments (Bengaluru on left to prevent overlap with Chennai)
                   const isLeftLabel =
                     city.name === "Pune" ||
                     city.name === "Mumbai" ||
                     city.name === "Ahmedabad" ||
                     city.name === "Gurgaon" ||
-                    city.name === "Bangalore";
+                    city.name === "Bengaluru";
                   const textAnchor = isLeftLabel ? "end" : "start";
                   const dx = isLeftLabel ? -9 : 9;
                   const dy =

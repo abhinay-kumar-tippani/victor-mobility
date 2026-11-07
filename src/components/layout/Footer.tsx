@@ -58,9 +58,9 @@ export default function Footer({
   ) || {
     name: "Muhammad Asif",
     designation: "Manager - Admin & Finance",
-    phoneDisplay: "+91 9100 77 77 68",
+    phoneDisplay: "+91 91007 77768",
     phoneHref: "tel:+919100777768",
-    whatsappDisplay: "+91 9100 77 77 68",
+    whatsappDisplay: "+91 91007 77768",
     whatsappDigits: "919100777768",
     email: "asif@victorluxurylimousine.com",
   };
@@ -175,6 +175,26 @@ export default function Footer({
                   <BrandText>{dict.nav.about || "About Victor"}</BrandText>
                 </Link>
               </li>
+              {isIndia && (
+                <>
+                  <li>
+                    <Link
+                      href="/india/achievements"
+                      className="inline-block py-0.5 transition-colors hover:text-white"
+                    >
+                      {dict.nav.achievements || "Achievements & Recognition"}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/india/driver-training"
+                      className="inline-block py-0.5 transition-colors hover:text-white"
+                    >
+                      {dict.nav.driverTraining || "Driver Training"}
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link
                   href={`${prefix}#network`}

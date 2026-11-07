@@ -43,6 +43,8 @@ export interface TranslationDictionary {
     estimator?: string;
     rfp?: string;
     about: string;
+    achievements?: string;
+    driverTraining?: string;
     contact: string;
     enquire: string;
     call: string;

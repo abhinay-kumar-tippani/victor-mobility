@@ -100,6 +100,13 @@ export default function IndiaAcademyPage() {
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-4">
               <Link
+                href="/india/driver-training"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-warm-white border border-brand-indigo/20 text-brand-indigo hover:bg-brand-indigo hover:text-white text-xs font-bold transition-all shadow-md"
+              >
+                <span>Driver Training Overview</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
                 href="/india/academy/verify"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md"
               >

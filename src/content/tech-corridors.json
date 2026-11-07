@@ -40,7 +40,7 @@
           {
             "id": "whitefield",
             "name": "Whitefield IT Export Corridor",
-            "parks": ["International Tech Park Bangalore (ITPB)", "Prestige Shantiniketan", "Brigade Tech Gardens"],
+            "parks": ["International Tech Park Bengaluru (ITPB)", "Prestige Shantiniketan", "Brigade Tech Gardens"],
             "transitTime": "40–60 mins from Marathahalli / Indiranagar / KR Puram",
             "peakWindows": "07:45 – 09:30 AM (Inbound) | 05:30 – 07:45 PM (Outbound)",
             "gateProtocol": "Commercial Transport Pass & Staged Ground Bus Terminal Bay",

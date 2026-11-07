@@ -28,7 +28,7 @@ async function run() {
     { name: "Mujeeb Ur Rahman Mohammed", role: "Business Development Partner" },
     { name: "Syed Kamran Abbas Razvi", role: "Director - Sales & Operations" },
     { name: "Muhammad Asif", role: "Manager - Admin & Finance" },
-    { name: "Nareinder Reddyy C", role: "Business Head - Bangalore" },
+    { name: "Nareinder Reddyy C", role: "Business Head - Bengaluru" },
   ];
 
   for (let i = 0; i < count; i++) {

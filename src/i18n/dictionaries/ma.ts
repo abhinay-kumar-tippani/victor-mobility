@@ -8,6 +8,8 @@ export const maDictionary: TranslationDictionary = {
     estimator: "എസ്റ്റിമേറ്റർ",
     rfp: "RFP ഡെസ്ക്",
     about: "ഞങ്ങളെക്കുറിച്ച്",
+    achievements: "നേട്ടങ്ങളും അംഗീകാരങ്ങളും",
+    driverTraining: "ഡ്രൈവർ പരിശീലനം",
     contact: "ബന്ധപ്പെടുക",
     enquire: "വിവരങ്ങൾ അറിയാൻ",
     call: "വിളിക്കുക",

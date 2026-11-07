@@ -56,8 +56,8 @@ async function run() {
     console.log("PASS: Exactly 4 vehicle cards displayed on /india preview");
 
     const expectedIndia = [
-      { name: "Swift Dzire", cab: "Sedan", fuel: "Petrol", file: "swift-dzire.webp", desc: "Executive sedan for city commutes and corporate transfers." },
-      { name: "Hyundai Aura", cab: "Sedan", fuel: "Petrol & CNG", file: "hyundai-aura.webp", desc: "Efficient sedan with dual-fuel flexibility for corporate mobility." },
+      { name: "Kia Carens Clavis EV", cab: "SUV", fuel: "Long Range Electric Vehicle", file: "kia-carens-clavis-ev.webp", desc: "Next-generation long-range electric SUV combining capacity with clean mobility." },
+      { name: "Hyundai AURA", cab: "Sedan", fuel: "Petrol & CNG", file: "hyundai-aura.webp", desc: "Efficient sedan with dual-fuel flexibility for corporate mobility." },
       { name: "Innova Crysta", cab: "SUV", fuel: "Diesel", file: "innova-crysta.webp", desc: "Benchmark executive SUV for business travel and leadership transit." },
       { name: "Tata Marcopolo", cab: "40 Seater Bus", fuel: "Diesel", file: "tata-marcopolo.webp", desc: "High-capacity 40-seater coach for corporate employee shuttles and major event logistics." },
     ];
