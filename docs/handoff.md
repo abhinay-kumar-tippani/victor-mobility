@@ -1,5 +1,27 @@
 # Handoff
 
+## 7 November 2026 — Implement Exact Client-Specified Waving Flags on Root Page (`/`)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+### Overview
+- Replaced the custom SVG flags on the root landing page (`/`) with high-definition, transparent waving flag graphics matching the exact aesthetic of the image uploaded by the user (`media_1794050735635_f1593387.jpg`).
+- **Key Changes**:
+  - `public/images/brand/`:
+    - Created `flag-india.webp` and `flag-india.png` matching the client-specified waving flag with parallel S-curve wave, centered Ashoka Chakra, and silk lighting folds.
+    - Created `flag-uae.webp` and `flag-uae.png` with identical wave curvature, vertical red hoist, and horizontal green/white/black stripes for unified visual styling.
+  - `src/components/brand/CountryFlag.tsx`:
+    - Updated `IndiaFlag` and `UaeFlag` components to render the high-res waving flag graphics with `priority` and `object-contain`.
+  - `src/app/page.tsx`:
+    - Sized to `h-7 sm:h-9 w-auto aspect-[142/102]` to align with the cap-height of the regional title typography.
+- **Verification**:
+  - `npm run type-check`: 0 TypeScript errors.
+  - `npm run lint`: 0 ESLint warnings or errors.
+  - `npm run build`: 73/73 static pages compiled successfully.
+  - Verified with Playwright screenshots: `docs/screenshots/root-waving-flags-1440.png` and `docs/screenshots/root-waving-flags-390.png`.
+
+---
+
 ## 7 November 2026 — Update Navbar Phone Number to +91 91007 77768
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.

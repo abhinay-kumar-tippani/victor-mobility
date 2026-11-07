@@ -222,6 +222,31 @@ export default function AboutPage() {
         {/* The Journey of Victor */}
         <JourneySection />
 
+        {/* Achievements & Recognition Discovery Banner */}
+        <section className="py-12 bg-brand-warm-white border-b border-brand-soft-neutral">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="space-y-1.5 max-w-2xl">
+              <span className="uppercase text-brand-indigo font-bold text-xs tracking-wider block section-eyebrow">
+                Operational Excellence &amp; Recognition
+              </span>
+              <h2 className="text-xl sm:text-2xl font-extrabold text-brand-ink">
+                Achievements &amp; Strategic Benchmarks
+              </h2>
+              <p className="text-sm text-brand-ink/75 leading-relaxed">
+                Explore Victor Mobility’s sample recognition gallery, fleet readiness workshops, and professional partnership milestones.
+              </p>
+            </div>
+            <Link
+              href="/india/achievements"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs sm:text-sm font-bold shadow-sm transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:ring-offset-2"
+            >
+              <Award className="w-4 h-4" />
+              <span>View Achievements Gallery</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
         {/* Esteemed Clientele (Brochure Page 9) */}
         {clientele.length > 0 && (
           <section className="py-16 bg-white border-b border-brand-soft-neutral">

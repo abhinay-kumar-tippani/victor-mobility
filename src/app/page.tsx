@@ -74,10 +74,10 @@ export default function RootPage() {
                   <div className={`flex gap-3.5 sm:gap-4 ${country.label !== country.name ? "items-start" : "items-center"}`}>
                     <div className={`shrink-0 ${country.label !== country.name ? "pt-1 sm:pt-1.5" : ""}`}>
                       {(country.id === "india" || country.name === "INDIA") && (
-                        <IndiaFlag className="w-10 h-[27px] sm:w-12 sm:h-8 drop-shadow-md" />
+                        <IndiaFlag className="h-7 sm:h-9 w-auto aspect-[142/102]" />
                       )}
                       {(country.id === "uae" || country.name === "UAE") && (
-                        <UaeFlag className="w-10 h-[27px] sm:w-12 sm:h-8 drop-shadow-md" />
+                        <UaeFlag className="h-7 sm:h-9 w-auto aspect-[142/102]" />
                       )}
                     </div>
                     <div>

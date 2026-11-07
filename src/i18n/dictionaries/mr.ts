@@ -8,7 +8,7 @@ export const mrDictionary: TranslationDictionary = {
     estimator: "अंदाजबिंदू (एस्टिमेटर)",
     rfp: "आरएफपी डेस्क",
     about: "आमच्याबद्दल",
-    achievements: "यश आणि सन्मान",
+    achievements: "यश",
     driverTraining: "चालक प्रशिक्षण",
     contact: "संपर्क",
     enquire: "चौकशी करा",

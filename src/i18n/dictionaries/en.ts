@@ -8,7 +8,7 @@ export const enDictionary: TranslationDictionary = {
     estimator: "Estimator",
     rfp: "RFP Desk",
     about: "About",
-    achievements: "Achievements & Recognition",
+    achievements: "Achievements",
     driverTraining: "Driver Training",
     contact: "Contact",
     enquire: "Enquire",

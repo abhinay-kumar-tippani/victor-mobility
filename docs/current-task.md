@@ -1,26 +1,21 @@
-# Current Task: Update Navbar Phone Number to +91 91007 77768 — 7 November 2026
+# Current Task: Implement Exact Client-Specified Waving Flags on Root Page (`/`) — 7 November 2026
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
 
 ## Summary of Accomplished Requirements:
 
-### 1. Updated Navbar Phone Number to +91 91007 77768
-- **Primary Layout Header ([`src/components/layout/Header.tsx`](file:///d:/victor%20website/src/components/layout/Header.tsx))**:
-  - Calibrated `navPhoneDisplay` and `navPhoneHref` for the navbar CTA actions.
-  - On `/india` routes, the desktop call button, mobile header phone action, and mobile navigation drawer now explicitly link to `tel:+919100777768` and display `+91 91007 77768`.
-  - Regional isolation preserved for UAE (`/uae`), retaining the UAE Operations Desk number (`+971 52 455 2441`).
-- **Data Source Update ([`src/content/india.json`](file:///d:/victor%20website/src/content/india.json))**:
-  - Replaced legacy contact phone details with Muhammad Asif (`+91 91007 77768`, `tel:+919100777768`, and WhatsApp `919100777768`), ensuring consistency across all subpages.
-- **Related Contact Touchpoints**:
-  - Standardized phone display formatting in [`src/components/layout/StickyContactRail.tsx`](file:///d:/victor%20website/src/components/layout/StickyContactRail.tsx), [`src/components/layout/Footer.tsx`](file:///d:/victor%20website/src/components/layout/Footer.tsx), and [`src/components/contact/ImmediateAssistanceCard.tsx`](file:///d:/victor%20website/src/components/contact/ImmediateAssistanceCard.tsx).
+### 1. Replaced Flag Graphics with the Client-Specified Waving Flag Style
+- **Flag Component Updates ([`src/components/brand/CountryFlag.tsx`](file:///d:/victor%20website/src/components/brand/CountryFlag.tsx))**:
+  - Replaced the previous generic SVG flag paths with high-definition, transparent waving flag graphics matching the exact Apple/waving emoji flag visual uploaded by the user (`media_1794050735635_f1593387.jpg`).
+  - **India Flag (`IndiaFlag`)**: Rendered using `/images/brand/flag-india.webp` (`142x102` transparent asset with parallel undulating waves, Saffron/White/Green bands, centered Ashoka Chakra, and silk highlight/shadow lighting).
+  - **UAE Flag (`UaeFlag`)**: Rendered using `/images/brand/flag-uae.webp` in identical matching waving flag styling (Red hoist bar, Green/White/Black horizontal stripes, and identical lighting/wave geometry).
+- **Landing Page Sizing ([`src/app/page.tsx`](file:///d:/victor%20website/src/app/page.tsx))**:
+  - Configured `h-7 sm:h-9 w-auto aspect-[142/102]` to maintain crisp proportional rendering aligning with the capital letter height of "INDIA" and "UAE" typography across all viewports.
 
 ### 2. Verification & Quality Gates
 - `npm run type-check`: 0 TypeScript errors.
 - `npm run lint`: 0 ESLint warnings or errors.
 - `npm run build`: 73/73 static pages compiled successfully.
-- Automated Playwright verification (`scripts/verify-navbar-phone.mjs`):
-  - Desktop India navbar: text `+91 91007 77768`, href `tel:+919100777768`.
-  - Mobile India navbar: aria-label `Call +91 91007 77768`, href `tel:+919100777768`.
-  - Mobile India drawer: text `Call +91 91007 77768`, href `tel:+919100777768`.
-  - UAE navbar: verified `+971 52 455 2441` with `tel:+971524552441`.
-  - Visual verification captured in `docs/screenshots/navbar-phone-india-desktop.png` and `docs/screenshots/navbar-phone-india-mobile.png`.
+- Playwright Production Screenshot Verification:
+  - Desktop 1440px: `docs/screenshots/root-waving-flags-1440.png`
+  - Mobile 390px: `docs/screenshots/root-waving-flags-390.png`

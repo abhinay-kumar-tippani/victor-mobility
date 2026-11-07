@@ -87,6 +87,12 @@ export default function Header({ contact }: HeaderProps) {
     { label: dict.nav.services || "Services", href: `${basePrefix}/services` },
     { label: dict.nav.fleet || "Fleet", href: `${basePrefix}/fleet` },
     { label: dict.nav.about || "About", href: `${basePrefix}/about` },
+    ...(isIndia
+      ? [
+          { label: dict.nav.achievements || "Achievements", href: `${basePrefix}/achievements` },
+          { label: dict.nav.driverTraining || "Driver Training", href: `${basePrefix}/driver-training` },
+        ]
+      : []),
     { label: dict.nav.contact || "Contact", href: `${basePrefix}/contact` },
   ];
 
@@ -246,7 +252,7 @@ export default function Header({ contact }: HeaderProps) {
 
             {/* Main navigation destinations: evenly spread with increased text size */}
             <nav
-              className="hidden lg:flex flex-1 items-center justify-evenly mx-2 xl:mx-6 whitespace-nowrap"
+              className="hidden lg:flex flex-1 items-center justify-evenly mx-1 xl:mx-4 2xl:mx-6 whitespace-nowrap"
               aria-label="Main Navigation"
             >
               {navItems.map((item) => {
@@ -256,7 +262,7 @@ export default function Header({ contact }: HeaderProps) {
                     key={item.href}
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`min-h-[44px] inline-flex items-center text-base xl:text-lg font-semibold transition-all duration-150 px-3.5 xl:px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
+                    className={`min-h-[40px] xl:min-h-[44px] inline-flex items-center text-xs lg:text-[13px] xl:text-sm 2xl:text-base font-semibold transition-all duration-150 px-2 lg:px-2.5 xl:px-3.5 2xl:px-4 py-1.5 xl:py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-indigo ${
                       active
                         ? "text-brand-indigo font-bold bg-brand-indigo/10 border border-brand-indigo/15 shadow-2xs"
                         : "text-brand-ink/85 hover:text-brand-indigo hover:bg-brand-indigo/8 active:bg-brand-indigo/15"
@@ -274,7 +280,7 @@ export default function Header({ contact }: HeaderProps) {
 
               <a
                 href={navPhoneHref}
-                className="inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue hover:bg-brand-indigo/5 transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[42px]"
+                className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue hover:bg-brand-indigo/5 transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[42px]"
                 title={`${dict.nav.call || "Call"} ${navPhoneDisplay}`}
               >
                 <Phone className="w-3.5 h-3.5" />

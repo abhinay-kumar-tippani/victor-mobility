@@ -8,7 +8,7 @@ export const hiDictionary: TranslationDictionary = {
     estimator: "एस्टीमेटर",
     rfp: "आरएफ़पी डेस्क",
     about: "हमारे बारे में",
-    achievements: "उपलब्धियां और मान्यता",
+    achievements: "उपलब्धियां",
     driverTraining: "चालक प्रशिक्षण",
     contact: "संपर्क",
     enquire: "पूछताछ करें",

@@ -150,12 +150,12 @@ async function runVerification() {
     console.log("\n--- Testing Cross-Page Links & Discovery ---");
     // About page -> Achievements
     await page.goto("http://localhost:3002/india/about", { waitUntil: "networkidle" });
-    const aboutToAchLink = page.locator("a[href='/india/achievements']").first();
+    const aboutToAchLink = page.locator("main a[href='/india/achievements']").first();
     assert(await aboutToAchLink.isVisible(), "Link to /india/achievements is present on /india/about page");
 
     // Academy page -> Driver Training
     await page.goto("http://localhost:3002/india/academy", { waitUntil: "networkidle" });
-    const academyToDtLink = page.locator("a[href='/india/driver-training']").first();
+    const academyToDtLink = page.locator("main a[href='/india/driver-training']").first();
     assert(await academyToDtLink.isVisible(), "Link to /india/driver-training is present on /india/academy page");
 
     // Footer links on India
