@@ -1,5 +1,12 @@
 # Handoff
 
+## 8 November 2026 — Restored Mujeeb's team card and Thameem's 24/7 contact
+
+- Restored Mujeeb Ur Rahman Mohammed as the third team member with his original portrait, Business Development Partner role, phone/WhatsApp `+91 95158 50808`, and `mujeeburrahman@victorluxurylimousine.com`. Added a dedicated `teamContact` record in `src/content/india.json` and connected both regions' home and About team displays to it. This resolves the duplicate Asif card caused when the general enquiry contact changed to Asif in commit `186d1cad`.
+- Restored Mohammed Thameem Ahmed (Head of Operations) alongside Asif in the India 24/7 desk, using his historical portrait, phone/WhatsApp `+91 95159 50808`, and `thameem@victorluxurylimousine.com`. WhatsApp uses the complete international digits `919515950808`. Original details were recovered from the preceding `8e9b274c` revision. General enquiry and Immediate Assistance contacts continue to use Asif.
+- Checks passed: TypeScript, ESLint, production build (73/73 static pages), and `scripts/verify-restored-team-contacts.mjs`. Browser checks at 1440px, 390px, and 320px verified the four unique team members in the correct order, Mujeeb's home/About links, Thameem's 24/7 links, portrait loading, and no horizontal overflow.
+- Screenshots: [Team desktop](screenshots/restored-team-india-desktop.png), [Team mobile](screenshots/restored-team-india-mobile.png), [24/7 desktop](screenshots/restored-247-india-desktop.png), [24/7 mobile](screenshots/restored-247-india-mobile.png).
+
 ## 7 November 2026 — Implement Exact Client-Specified Waving Flags on Root Page (`/`)
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.

@@ -39,7 +39,7 @@ export default function UaeAboutPage() {
   const media = mediaData as unknown as MediaContent;
   const founder = content.founder;
   const aboutCopy = uaeData.aboutPage;
-  const commercialContact = indiaData.contact;
+  const commercialContact = indiaData.teamContact;
   const publishedOffices = content.offices.filter((o) => o.published);
 
   return (

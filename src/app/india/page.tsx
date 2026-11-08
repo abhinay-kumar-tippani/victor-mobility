@@ -70,6 +70,7 @@ export default function IndiaPage() {
         {/* 6. Leadership & Operations Accountability: Core Team & Regional Leadership */}
         <PeopleSection
           contact={content.contact}
+          teamContact={content.teamContact}
           teamProfiles={content.teamProfiles}
           teamFeaturedEmail={content.teamFeaturedEmail}
         />

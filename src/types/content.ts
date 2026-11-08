@@ -189,6 +189,7 @@ export interface IndiaContent {
   fleetNote: string;
   fleetModelDisplayDefault: boolean;
   contact: ContactData;
+  teamContact?: ContactData;
   teamProfiles?: TeamProfile[];
   teamFeaturedEmail?: { display: string; enabled: boolean };
   enquiry: EnquiryData;

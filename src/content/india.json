@@ -1005,6 +1005,16 @@
       "subtitle": "Direct round-the-clock coordination with our operations desk or connect on WhatsApp for immediate dispatch and bookings.",
       "people": [
         {
+          "name": "Mohammed Thameem Ahmed",
+          "designation": "Head of Operations",
+          "imageSrc": "/images/team/thameem-ahmed.png",
+          "phoneDisplay": "+91 95159 50808",
+          "phoneHref": "tel:+919515950808",
+          "whatsappDisplay": "+91 95159 50808",
+          "whatsappDigits": "919515950808",
+          "email": "thameem@victorluxurylimousine.com"
+        },
+        {
           "name": "Muhammad Asif",
           "designation": "Manager - Admin & Finance",
           "imageSrc": "/images/team/muhammad-asif.jpg",
@@ -1016,6 +1026,20 @@
         }
       ]
     }
+  },
+  "teamContact": {
+    "name": "Mujeeb Ur Rahman Mohammed",
+    "role": "Business Development Partner",
+    "imageSrc": "/images/india/leadership-mujeeb.jpg",
+    "phoneDisplay": "+91 95158 50808",
+    "phoneHref": "tel:+919515850808",
+    "whatsappDisplay": "+91 95158 50808",
+    "whatsappDigits": "919515850808",
+    "whatsappBaseUrl": "https://wa.me/919515850808",
+    "printedEmail": "mujeeburrahman@victorluxurylimousine.com",
+    "emailEnabled": true,
+    "printedDomain": "victorluxurylimousine.com",
+    "domainPurchased": true
   },
   "enquiry": {
     "mode": "whatsapp-draft",

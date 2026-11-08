@@ -152,7 +152,7 @@ export default function AboutPage() {
               </div>
 
               <AboutTeamCarousel
-                featured={content.contact}
+                featured={content.teamContact || content.contact}
                 featuredDescription="Directing enterprise client partnerships, corporate transport governance, and multi-city fleet coordination across all 10 operational hubs pan-India. Personally accessible to corporate procurement and travel administration teams to structure custom retainers, employee commute loops, and VIP delegations."
                 profiles={content.teamProfiles || []}
               />

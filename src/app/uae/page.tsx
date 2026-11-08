@@ -138,7 +138,7 @@ export default function UaePage() {
         {/* 6. Leadership & Operations Accountability: Core Team & Regional Leadership */}
         <PeopleSection
           contact={content.contact}
-          teamContact={indiaData.contact}
+          teamContact={indiaData.teamContact}
           teamProfiles={content.teamProfiles || indiaData.teamProfiles}
           teamFeaturedEmail={content.teamFeaturedEmail || indiaData.teamFeaturedEmail}
           basePath="/uae"

@@ -1,4 +1,12 @@
-# Current Task: Implement Exact Client-Specified Waving Flags on Root Page (`/`) — 7 November 2026
+# Current Task: Restore Mujeeb and Thameem contact cards — 8 November 2026
+
+Owner: Codex, at direct user request. Status: COMPLETED.
+
+Restored Mujeeb as the third team card and in the About team slideshow, with a dedicated team contact record that is independent of the general enquiry contact. Restored Thameem alongside Asif in the India 24/7 desk using the earlier verified contact details and portrait. TypeScript, ESLint, the production build (73/73 pages), and desktop/mobile contact-link checks passed. See `docs/handoff.md` for details and screenshots.
+
+---
+
+# Previous Task: Implement Exact Client-Specified Waving Flags on Root Page (`/`) — 7 November 2026
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
 
