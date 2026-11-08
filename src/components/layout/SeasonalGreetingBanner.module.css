@@ -1,0 +1,82 @@
+.banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(231 193 121 / 25%);
+  background: linear-gradient(100deg, var(--color-ink), var(--color-indigo) 55%, var(--color-ink));
+  color: #fff4db;
+}
+
+.viewport {
+  height: 2.75rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 24px, black calc(100% - 72px), transparent calc(100% - 44px));
+  mask-image: linear-gradient(90deg, transparent, black 24px, black calc(100% - 72px), transparent calc(100% - 44px));
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: greeting-scroll 32s linear infinite;
+}
+
+.group {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+  gap: clamp(3rem, 8vw, 8rem);
+  padding-inline: clamp(1.5rem, 4vw, 4rem);
+}
+
+.greeting {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.diya { font-size: 1.4rem; letter-spacing: 0; }
+.still { display: none; height: 100%; align-items: center; justify-content: center; }
+
+.control {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  display: grid;
+  width: 44px;
+  place-items: center;
+  color: #fff4db;
+  background: var(--color-ink);
+  transition: background-color 150ms ease;
+}
+.control:hover { background: var(--color-indigo); }
+.control:focus-visible { outline: 2px solid #f2d28f; outline-offset: -4px; }
+
+.banner[data-paused="true"] .track { animation-play-state: paused; }
+
+@keyframes greeting-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (min-width: 640px) {
+  .viewport { height: 3rem; }
+  .greeting { font-size: 1rem; }
+  .diya { font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport { -webkit-mask-image: none; mask-image: none; }
+  .track { display: none; animation: none; }
+  .still { display: flex; }
+  .control { display: none; }
+}
+
+@media print { .banner { display: none; } }

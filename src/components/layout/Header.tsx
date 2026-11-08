@@ -8,6 +8,7 @@ import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import LanguageSwitcher, { MobileDrawerLanguageSelector } from "@/components/layout/LanguageSwitcher";
 import StickyContactRail from "@/components/layout/StickyContactRail";
+import SeasonalGreetingBanner from "@/components/layout/SeasonalGreetingBanner";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface HeaderProps {
@@ -405,6 +406,8 @@ export default function Header({ contact }: HeaderProps) {
           </div>
         )}
       </header>
+
+      <SeasonalGreetingBanner />
 
       {!mobileMenuOpen && (
         <StickyContactRail

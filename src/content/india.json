@@ -1,5 +1,10 @@
 {
   "schemaVersion": 1,
+  "seasonalGreeting": {
+    "message": "Happy Diwali",
+    "startsAt": "2026-11-08T12:25:47Z",
+    "expiresAt": "2026-11-09T12:25:47Z"
+  },
   "clientCompanies": [
     {
       "name": "Amazon",

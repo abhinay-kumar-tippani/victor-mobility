@@ -1,4 +1,12 @@
-# Current Task: Restore Mujeeb and Thameem contact cards — 8 November 2026
+# Current Task: Temporary Diwali greeting banner — 8 November 2026
+
+Owner: Codex, at direct user request. Status: COMPLETED.
+
+Added a sliding Happy Diwali greeting with diyas below the shared navbar. One fixed 24-hour window ends on 9 November 2026 at 5:55:47 PM IST. The banner automatically unmounts at expiry, including on already-open pages, with no leftover space or restart on later visits. Pause/resume and reduced-motion support are included. TypeScript, ESLint, production build (73/73 pages), and desktop/mobile/clock-based browser checks passed. See `docs/handoff.md` for details and screenshots.
+
+---
+
+# Previous Task: Restore Mujeeb and Thameem contact cards — 8 November 2026
 
 Owner: Codex, at direct user request. Status: COMPLETED.
 

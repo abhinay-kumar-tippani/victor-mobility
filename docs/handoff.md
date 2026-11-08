@@ -1,5 +1,12 @@
 # Handoff
 
+## 8 November 2026 — Temporary Diwali greeting below the navbar
+
+- Added a slim indigo banner to the shared Header with scrolling `🪔 Happy Diwali 🪔` greetings. Includes a keyboard-accessible pause/resume control, one accessible announcement, and a centred still version for reduced-motion preferences. The strip participates in normal page flow below the navbar.
+- One global 24-hour window is configured in `src/content/india.json`: **8 November 2026, 5:55:47 PM IST → 9 November 2026, 5:55:47 PM IST** (`2026-11-08T12:25:47Z` → `2026-11-09T12:25:47Z`). It is not a visitor-specific timer. The component renders nothing outside that window, removes itself from already-open pages at expiry, and rechecks when a suspended/restored page becomes visible. Cached initial HTML contains no greeting, preventing an expired banner from flashing on new visits. No rebuild or scheduled agent run is needed for the strip to disappear.
+- Validation: TypeScript, ESLint and production build (73/73 static pages) passed. `scripts/verify-diwali-banner.mjs` verified navbar placement, actual sliding, diyas, pause/resume, 1440px/390px/320px fit, reduced motion, shared navbar routes, the start boundary, the live 24-hour expiry, repeat/new visits after expiry, and removal of the strip's layout space. Browser checks used an isolated local preview because another local preview was sharing `.next` output.
+- Screenshots: [Desktop](screenshots/diwali-banner-desktop.png), [Mobile](screenshots/diwali-banner-mobile.png).
+
 ## 8 November 2026 — Restored Mujeeb's team card and Thameem's 24/7 contact
 
 - Restored Mujeeb Ur Rahman Mohammed as the third team member with his original portrait, Business Development Partner role, phone/WhatsApp `+91 95158 50808`, and `mujeeburrahman@victorluxurylimousine.com`. Added a dedicated `teamContact` record in `src/content/india.json` and connected both regions' home and About team displays to it. This resolves the duplicate Asif card caused when the general enquiry contact changed to Asif in commit `186d1cad`.
