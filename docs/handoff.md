@@ -1,5 +1,15 @@
 # Handoff
 
+## 8 November 2026 — Refined temporary Diwali banner for luxury aesthetic
+
+- Redesigned the temporary Diwali banner below the shared navbar according to user feedback:
+  1. **Luxury & Premium Aesthetic**: Replaced the previous cartoon emoji ticker with a bespoke obsidian-indigo (`#0B0E1B` to `#1D214A`) and antique gold aesthetic. Used tracked uppercase typography (`HAPPY DIWALI`) with 24k metallic gold foil gradient (`linear-gradient(135deg, #FFF, #F5D77F, #DFB15B)`), ambient golden glow, pulsing starburst accents (`✦`), and an editorial tagline (`FESTIVAL OF LIGHTS · WISHING YOU PROSPERITY`).
+  2. **Down-Facing Hanging Diyas**: Replaced the right-facing emoji `🪔` with custom SVG brass hanging lamps suspended downward from the navbar's lower golden rail (`y=0`). Features a hanging brass chain, upright glowing flame with radial ambient halo, engraved scalloped diya bowl, and an ornate downward-facing finial/drop at the base.
+  3. **Removed Play/Pause Button**: Completely eliminated the square right-side pause/play control button. The banner glides with calm, stately motion (45s cycle) and gracefully pauses on `:hover` or `:focus-within`. Left and right edges now feature symmetrical fade masks.
+- Maintained automatic 24-hour expiration window configured in `src/content/india.json` (`2026-11-08T12:25:47Z` to `2026-11-09T12:25:47Z`), ensuring auto-unmount at the deadline with no leftover layout space.
+- Verification: TypeScript (`tsc --noEmit`), ESLint (`next lint`), and production build (73/73 static pages) passed. Playwright browser verification (`scripts/verify-diwali-banner.mjs`) verified navbar placement, down-facing hanging diyas, removal of buttons, sliding, 1440px/390px/320px responsiveness, reduced motion (`prefers-reduced-motion: reduce`), and clock-based 24h expiration unmount.
+- Screenshots: [Desktop](screenshots/diwali-banner-desktop.png), [Mobile](screenshots/diwali-banner-mobile.png).
+
 ## 8 November 2026 — Temporary Diwali greeting below the navbar
 
 - Added a slim indigo banner to the shared Header with scrolling `🪔 Happy Diwali 🪔` greetings. Includes a keyboard-accessible pause/resume control, one accessible announcement, and a centred still version for reduced-motion preferences. The strip participates in normal page flow below the navbar.
