@@ -237,6 +237,7 @@ export const enDictionary: TranslationDictionary = {
     exploreAll: "Explore the fleet",
     imageCaption: "Vehicle imagery is illustrative.",
     requestQuote: "Request a quote",
+    closePhoto: "Close photo",
     enquireVehicle: "Enquire about this vehicle",
     sharedNote: "Vehicle allocation and pricing are confirmed for your location, dates and requirements.",
     filterTabs: {

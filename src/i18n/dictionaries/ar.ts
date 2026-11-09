@@ -243,6 +243,7 @@ export const arDictionary: TranslationDictionary = {
     exploreAll: "استكشف الأسطول كاملاً",
     imageCaption: "صور المركبات توضيحية. يتم تأكيد تخصيص المركبة الفعلية عند الحجز.",
     requestQuote: "طلب عرض أسعار",
+    closePhoto: "إغلاق الصورة",
     enquireVehicle: "استفسر عن هذه المركبة",
     sharedNote: "يتم تأكيد تخصيص المركبة والتسعير لموقعك والتواريخ والمتطلبات.",
     filterTabs: {

@@ -181,6 +181,7 @@ export const hiDictionary: TranslationDictionary = {
     exploreAll: "पूरी फ्लीट देखें",
     imageCaption: "वाहन चित्र सांकेतिक हैं।",
     requestQuote: "कोटेशन का अनुरोध करें",
+    closePhoto: "फ़ोटो बंद करें",
     enquireVehicle: "इस वाहन के लिए पूछताछ करें",
     sharedNote: "वाहन आवंटन और मूल्य निर्धारण आपके स्थान, तिथियों और आवश्यकताओं के लिए पुष्ट किए जाते हैं।",
     filterTabs: {

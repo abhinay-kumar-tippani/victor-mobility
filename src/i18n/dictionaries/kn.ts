@@ -235,6 +235,7 @@ export const knDictionary: TranslationDictionary = {
     exploreAll: "ಫ್ಲೀಟ್ ಅನ್ವೇಷಿಸಿ",
     imageCaption: "ವಾಹನದ ಚಿತ್ರಗಳು ವಿವರಣಾತ್ಮಕವಾಗಿವೆ.",
     requestQuote: "ಕೊಟೇಶನ್ ವಿನಂತಿಸಿ",
+    closePhoto: "ಚಿತ್ರವನ್ನು ಮುಚ್ಚಿ",
     enquireVehicle: "ಈ ವಾಹನದ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",
     sharedNote: "ನಿಮ್ಮ ಸ್ಥಳ, ದಿನಾಂಕಗಳು ಮತ್ತು ಅಗತ್ಯಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ವಾಹನ ಹಂಚಿಕೆ ಮತ್ತು ಬೆಲೆಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತದೆ.",
     filterTabs: {

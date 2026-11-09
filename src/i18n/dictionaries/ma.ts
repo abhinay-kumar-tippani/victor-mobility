@@ -235,6 +235,7 @@ export const maDictionary: TranslationDictionary = {
     exploreAll: "ഫ്ലീറ്റ് കാണുക",
     imageCaption: "വാഹന ചിത്രങ്ങൾ ചിത്രീകരണത്തിന് മാത്രമുള്ളതാണ്.",
     requestQuote: "കൊട്ടേഷൻ ആവശ്യപ്പെടുക",
+    closePhoto: "ചിത്രം അടയ്ക്കുക",
     enquireVehicle: "ഈ വാഹനത്തെക്കുറിച്ച് ചോദിച്ചറിയൂ",
     sharedNote: "നിങ്ങളുടെ ലൊക്കേഷൻ, തീയതികൾ, ആവശ്യങ്ങൾ എന്നിവ അടിസ്ഥാനമാക്കി വാഹന വിതരണവും നിരക്കും സ്ഥിരീകരിക്കും.",
     filterTabs: {

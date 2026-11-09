@@ -181,6 +181,7 @@ export const teDictionary: TranslationDictionary = {
     exploreAll: "మొత్తం ఫ్లీట్‌ను చూడండి",
     imageCaption: "వాహనాల చిత్రాలు దృష్టాంతం మాత్రమే.",
     requestQuote: "కొటేషన్ అభ్యర్థించండి",
+    closePhoto: "చిత్రాన్ని మూసివేయండి",
     enquireVehicle: "ఈ వాహనం గురించి విచారించండి",
     sharedNote: "వాహన కేటాయింపు మరియు ధర మీ స్థానం, తేదీలు మరియు అవసరాలకు నిర్ధారించబడతాయి.",
     filterTabs: {

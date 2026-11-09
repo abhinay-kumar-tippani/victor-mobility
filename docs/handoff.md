@@ -1,5 +1,15 @@
 # Handoff
 
+## 9 November 2026 — India Fleet illustrations
+
+Fourteen of the 15 cards on `/india/fleet` now show a new pearl-white vehicle on the reference forecourt. Each 1600 × 900 WebP includes the original door artwork and hand-placed, perspective-fitted model lettering. The main images range from 158 to 204 KiB. Selecting a photo opens the vehicle and higher-resolution details of the same door and plate. On narrower screens the contact links sit in their own row so they cannot cover the vehicle.
+
+**Pending company input.** The SML 22-seat bus needs an exact model or a reference photo. Its existing placeholder is still in use. The 12- and 16-seat Force Urbania entries each have their own illustration.
+
+**Verification.** TypeScript, ESLint and the production build passed (73 static pages). Chromium rendered the production HTML and its compiled assets at 1440, 390 and 320 px. All 15 card mappings and all 14 branded photo dialogs were checked at each width, including complete image decoding, uncropped frames, readable detail views, Escape and close-button behavior, focus return, category filters and horizontal overflow. Desktop and phone screenshots were visually reviewed. The changes are local to the website project.
+
+[Desktop grid](screenshots/fleet-forecourt-desktop.png) · [Mobile grid](screenshots/fleet-forecourt-mobile.png) · [Mobile Kia detail](screenshots/fleet-forecourt-mobile-detail.png)
+
 ## 8 November 2026 — Refined temporary Diwali banner for luxury aesthetic
 
 - Redesigned the temporary Diwali banner below the shared navbar according to user feedback:

@@ -11,6 +11,7 @@ import type uaeData from "@/content/uae.json";
 import type { FleetCategory, FleetVehicle } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 import HomepageFleetPreview from "./HomepageFleetPreview";
+import FleetPhoto from "./FleetPhoto";
 
 interface Props {
   categories: FleetCategory[];
@@ -430,7 +431,9 @@ export default function IndiaFleetSection({
           })}
         </div>
 
-        {/* Active Tabpanel: Responsive 10-Vehicle Card Grid */}
+        {!isUae && <p className="mb-4 text-sm text-brand-ink/65">{imageCaption}</p>}
+
+        {/* Active vehicle cards */}
         <div
           role="tabpanel"
           id={currentTab === "electric" ? "fleet-panel-electric" : `fleet-panel-${currentTab}`}
@@ -438,7 +441,7 @@ export default function IndiaFleetSection({
           tabIndex={0}
           className="scroll-mt-24 sm:scroll-mt-28 focus-visible:outline-none"
         >
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className={isUae ? "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid grid-cols-1 gap-6 md:grid-cols-2"}>
             {filteredVehicles.map(vehicle => {
               const isEvVehicle = Boolean(vehicle.isElectric);
               return (
@@ -447,6 +450,7 @@ export default function IndiaFleetSection({
                   className="group flex flex-col overflow-hidden rounded-2xl border border-brand-soft-neutral bg-brand-warm-white shadow-xs transition-all duration-200 hover:shadow-md"
                 >
                   {/* Vehicle Reference Image */}
+                  {!isUae ? <FleetPhoto vehicle={vehicle} /> : (
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-soft-neutral/30">
                     <Image
                       src={vehicle.image}
@@ -461,6 +465,7 @@ export default function IndiaFleetSection({
                       </p>
                     </div>
                   </div>
+                  )}
 
                   {/* Vehicle Specifications & Quotation Card Body */}
                   <div className="flex flex-1 flex-col p-5">

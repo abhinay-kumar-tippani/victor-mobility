@@ -235,6 +235,7 @@ export const taDictionary: TranslationDictionary = {
     exploreAll: "வாகனங்களை ஆராயுங்கள்",
     imageCaption: "வாகனப் படங்கள் விளக்கத்திற்காக மட்டுமே.",
     requestQuote: "மேற்கோளைக் கோருங்கள்",
+    closePhoto: "படத்தை மூடு",
     enquireVehicle: "இந்த வாகனத்தைப் பற்றி விசாரிக்கவும்",
     sharedNote: "உங்கள் இருப்பிடம், தேதிகள் மற்றும் தேவைகளுக்கு ஏற்ப வாகன ஒதுக்கீடு மற்றும் விலை உறுதி செய்யப்படும்.",
     filterTabs: {

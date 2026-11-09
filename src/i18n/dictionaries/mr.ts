@@ -235,6 +235,7 @@ export const mrDictionary: TranslationDictionary = {
     exploreAll: "संपूर्ण फ्लीट पहा",
     imageCaption: "वाहनांची चित्रे प्रातिनिधिक आहेत.",
     requestQuote: "कोटेशन मागवा",
+    closePhoto: "फोटो बंद करा",
     enquireVehicle: "या वाहनाबद्दल चौकशी करा",
     sharedNote: "तुमचे स्थान, तारखा आणि गरजांनुसार वाहन वाटप आणि दर निश्चित केले जातात.",
     filterTabs: {

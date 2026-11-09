@@ -27,7 +27,7 @@ export default function StickyContactRail({
     <nav
       data-testid="sticky-contact-rail"
       aria-label="Quick contact actions"
-      className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col overflow-hidden rounded-l-2xl border border-r-0 border-brand-soft-neutral bg-white shadow-[0_8px_28px_rgba(21,22,47,0.16)]"
+      className="contact-rail fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col overflow-hidden rounded-l-2xl border border-r-0 border-brand-soft-neutral bg-white shadow-[0_8px_28px_rgba(21,22,47,0.16)]"
     >
       {actions.map(({ key, label, href }, index) => (
         <a

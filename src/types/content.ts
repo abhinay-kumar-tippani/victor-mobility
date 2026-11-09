@@ -51,6 +51,11 @@ export interface FleetVehicle {
   isElectric: boolean;
   image: string;
   imageAlt: string;
+  imageDetails?: {
+    doorImage: string;
+    plateImage: string;
+    plateText: string;
+  };
   description?: string;
   seatingCapacity?: string;
 }

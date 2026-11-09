@@ -1,4 +1,8 @@
-# Current Task: Refine Temporary Diwali Banner for Luxury Aesthetic — 8 November 2026
+# Current task — India Fleet photography, 9 November 2026
+
+The India Fleet page now uses a matching set of branded forecourt illustrations for 14 named vehicle entries. Both Urbania sizes are identified in the fleet data. The SML 22-seat bus needs an exact model before its illustration can be produced. See the November 9 entry in [the handoff](handoff.md) for review evidence.
+
+## Previous task — Diwali banner, 8 November 2026
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
 

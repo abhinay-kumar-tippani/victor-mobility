@@ -1,0 +1,17 @@
+/* Once the page gutters are narrower than the rail, give the contact links their own row. */
+@media (max-width: 1340px) {
+  .page :global(.contact-rail) {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-inline: clamp(1rem, 3vw, 2rem);
+    border-width: 0 0 1px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .page :global(.contact-rail) a {
+    border-top: 0;
+  }
+}

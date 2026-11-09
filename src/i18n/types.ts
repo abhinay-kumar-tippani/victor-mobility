@@ -139,6 +139,7 @@ export interface TranslationDictionary {
     exploreAll: string;
     imageCaption: string;
     requestQuote: string;
+    closePhoto: string;
     enquireVehicle: string;
     sharedNote: string;
     filterTabs: {

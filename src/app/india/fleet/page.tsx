@@ -5,6 +5,7 @@ import IndiaFleetSection from "@/components/fleet/IndiaFleetSection";
 import indiaData from "@/content/india.json";
 import mediaData from "@/content/media.json";
 import type { FleetVehicle } from "@/types/content";
+import styles from "./fleet.module.css";
 
 export const metadata: Metadata = {
   title: "Fleet & Vehicle Categories | Victor Mobility India",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function FleetPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className={`${styles.page} flex min-h-screen flex-col bg-white`}>
       <Header contact={indiaData.contact} />
       <main id="main-content" className="flex-1">
         <IndiaFleetSection
