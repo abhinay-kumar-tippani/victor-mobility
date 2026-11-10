@@ -3393,3 +3393,10 @@ Owner: Antigravity. Replaced the placeholder/illustrative profiles in the "Leade
 - Kept the supplied logo ownership sentence verbatim, but placed it as a right-aligned footer note beneath a subtle divider in the shared India/UAE clientele section. The note follows the content gutter and uses restrained, readable 12px type.
 - Browser checks confirmed right alignment and no horizontal overflow at 1440px and 390px on `/india` and `/uae`; visually reviewed desktop/mobile screenshots: `docs/screenshots/client-disclaimer-right-india-desktop.png`, `client-disclaimer-right-india-mobile.png`, `client-disclaimer-right-uae-desktop.png`, and `client-disclaimer-right-uae-mobile.png`.
 
+## 10 November 2026 — Infosys and Accenture clientele
+
+- Added Infosys and Accenture near the start of the shared `clientCompanies` array in `src/content/india.json`, bringing the list to 24 unique companies on both `/india` and `/uae`.
+- Added logo assets at `public/images/clients/infosys.svg` and `accenture.svg`. Sources: [Infosys SVG](https://commons.wikimedia.org/wiki/File:Infosys_logo.svg) (extracted from Infosys material) and [Accenture SVG](https://commons.wikimedia.org/wiki/File:Accenture.svg) (sourced from Accenture). The existing logo ownership note remains below the section.
+- Checks passed: JSON parsing, logo file presence and SVG decoding, TypeScript, lint, and browser checks at 1440px and 390px on both routes. Both new logo names appeared in the shared section and no horizontal overflow was observed.
+- Screenshots: `docs/screenshots/clientele-infosys-accenture-india-desktop.png`, `clientele-infosys-accenture-india-mobile.png`, `clientele-infosys-accenture-uae-desktop.png`, and `clientele-infosys-accenture-uae-mobile.png`.
+

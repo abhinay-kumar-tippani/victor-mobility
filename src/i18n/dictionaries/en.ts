@@ -335,7 +335,7 @@ export const enDictionary: TranslationDictionary = {
     },
   },
   journey: {
-    eyebrow: "15+ Years of Grounded Execution",
+    eyebrow: "18+ Years of Grounded Execution",
     title: "The Journey of Victor",
     subtitle:
       "From a single corporate contract in Hyderabad to a pan-India mobility network spanning 10 key commercial hubs and expanding into the GCC.",
@@ -425,7 +425,7 @@ export const enDictionary: TranslationDictionary = {
     founderName: "Syed Jahangir",
     founderBio: [
       "Founded Victor Mobility in 2009 with a commitment to disciplined, punctual corporate employee transportation.",
-      "Over 15 years of hands-on operations experience scaling from a single vehicle contract to managing over 1,500 vehicles across India.",
+      "Over 18 years of hands-on operations experience scaling from a single vehicle contract to managing over 1,500 vehicles across India.",
     ],
     accountabilityTitle: "Direct Operations Access",
     accountabilityText:
