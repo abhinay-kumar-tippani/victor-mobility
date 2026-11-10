@@ -53,6 +53,7 @@ export interface FleetVehicle {
   imageAlt: string;
   imageDetails?: {
     doorImage: string;
+    headerImage?: string;
     plateImage: string;
     plateText: string;
   };

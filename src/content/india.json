@@ -904,9 +904,10 @@
       "isElectric": false,
       "seatingCapacity": "12 Seater",
       "image": "/images/fleet/forecourt/force-urbania.webp",
-      "imageAlt": "Pearl-white Urbania (12 Seater) with the Victor Mobility door decal",
+      "imageAlt": "Pearl-white Urbania (12 Seater) with the Victor logo above the windshield and below the passenger windows",
       "imageDetails": {
         "doorImage": "/images/fleet/forecourt/details/force-urbania-door.webp",
+        "headerImage": "/images/fleet/forecourt/details/force-urbania-header.webp",
         "plateImage": "/images/fleet/forecourt/details/force-urbania-plate.webp",
         "plateText": "Urbania"
       },
@@ -935,9 +936,10 @@
       "isElectric": false,
       "seatingCapacity": "16 Seater",
       "image": "/images/fleet/forecourt/force-urbania-16.webp",
-      "imageAlt": "Pearl-white Force Urbania (16 Seater) with the Victor Mobility door decal",
+      "imageAlt": "Pearl-white Force Urbania (16 Seater) with the Victor logo above the windshield and below the passenger windows",
       "imageDetails": {
         "doorImage": "/images/fleet/forecourt/details/force-urbania-16-door.webp",
+        "headerImage": "/images/fleet/forecourt/details/force-urbania-16-header.webp",
         "plateImage": "/images/fleet/forecourt/details/force-urbania-16-plate.webp",
         "plateText": "Urbania"
       },
@@ -951,9 +953,10 @@
       "isElectric": false,
       "seatingCapacity": "40 Seater",
       "image": "/images/fleet/forecourt/tata-marcopolo.webp",
-      "imageAlt": "Pearl-white Tata Marcopolo (40 Seater Bus) with the Victor Mobility door decal",
+      "imageAlt": "Pearl-white Tata Marcopolo (40 Seater Bus) with the Victor logo above the windshield and below the passenger windows",
       "imageDetails": {
         "doorImage": "/images/fleet/forecourt/details/tata-marcopolo-door.webp",
+        "headerImage": "/images/fleet/forecourt/details/tata-marcopolo-header.webp",
         "plateImage": "/images/fleet/forecourt/details/tata-marcopolo-plate.webp",
         "plateText": "Marcopolo"
       },
@@ -966,8 +969,14 @@
       "fuelType": "Diesel",
       "isElectric": false,
       "seatingCapacity": "22 Seater",
-      "image": "/images/fleet/sml-22-seater-bus.webp",
-      "imageAlt": "SML 22 Seater Bus",
+      "image": "/images/fleet/forecourt/sml-22-seater-bus.webp",
+      "imageAlt": "Pearl-white SML (22 Seater Bus) with the Victor logo above the windshield and below the passenger windows",
+      "imageDetails": {
+        "doorImage": "/images/fleet/forecourt/details/sml-22-seater-bus-door.webp",
+        "headerImage": "/images/fleet/forecourt/details/sml-22-seater-bus-header.webp",
+        "plateImage": "/images/fleet/forecourt/details/sml-22-seater-bus-plate.webp",
+        "plateText": "SML"
+      },
       "description": "Medium-capacity 22-seater executive shuttle for team transfers and corporate route operations."
     },
     {

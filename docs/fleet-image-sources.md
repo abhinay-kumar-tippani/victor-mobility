@@ -1,12 +1,12 @@
 # Victor Mobility — Fleet Model Reference Imagery Provenance & Attribution
 
-## India forecourt illustrations, 9 November 2026
+## India forecourt illustrations, 9–10 November 2026
 
-The India Fleet grid reads `fleetVehicles` in `src/content/india.json`. Fourteen entries use newly generated vehicle illustrations in `public/images/fleet/forecourt/`. The supplied Kia photograph established the camera angle, pearl-white finish, architecture and daylight. Each vehicle was generated with a clean front door and a blank green plate. The supplied Victor artwork and separately typeset model name were then fitted to the door and plate on each vehicle. The full-size image and its two detail views use the same placements.
+The India Fleet grid reads `fleetVehicles` in `src/content/india.json`. All 15 entries use vehicle illustrations in `public/images/fleet/forecourt/`. The supplied Kia photograph established the camera angle, pearl-white finish, architecture and daylight. Passenger cars carry the supplied Victor artwork on their front doors. The two Urbania vans and both buses carry the separate official artwork on the passenger-side panel and front header as shown in the bus placement reference. The green plates were typeset separately.
 
 The main images are 1600 × 900 WebP files. The 720 × 360 door and plate details load when a visitor enlarges an image. These illustrations do not document a particular Victor vehicle, trim level or allocation. The two Force Urbania cards have separate medium- and long-wheelbase illustrations.
 
-The SML 22-seater lists the manufacturer and capacity only. Its existing placeholder remains pending the exact model. No substitute bus has been selected.
+The SML 22-seater uses a representative staff bus illustration. The card and display plate identify SML. The exact trim is unconfirmed. The S7 staff bus was used as a visual reference because the manufacturer lists a 22-passenger version. [SML staff bus specifications](https://smlmahindra.com/IN/product/buses/s7-bus-2)
 
 The registry below records earlier assets outside the `forecourt` directory. Its historical credits apply to those files.
 

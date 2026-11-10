@@ -1,5 +1,13 @@
 # Handoff
 
+## 10 November 2026 — Bus and Urbania branding
+
+The 12- and 16-seat Force Urbania vans, Tata Marcopolo 40-seater and SML 22-seater now have separate 1600 × 900 WebP illustrations. The customer’s bus photo guided the placement. Both decals on every vehicle use the separately supplied original logo, fitted to the passenger side and front header. The detail viewer includes the two decals and the green display plate. The SML plate reads “SML” because the exact model is unspecified.
+
+The production build generated all 73 pages. Chromium checked all 15 fleet cards, their detail images, filters, aspect ratios and keyboard focus at 1440, 390 and 320 pixels. The four updated cards retain their original names, seating information and enquiry targets.
+
+[Desktop fleet](screenshots/fleet-bus-branding-desktop.png) · [Mobile fleet](screenshots/fleet-bus-branding-mobile.png) · [Desktop SML details](screenshots/fleet-bus-branding-desktop-detail.png) · [Mobile SML details](screenshots/fleet-bus-branding-mobile-detail.png)
+
 ## 9 November 2026 — India Fleet illustrations
 
 Fourteen of the 15 cards on `/india/fleet` now show a new pearl-white vehicle on the reference forecourt. Each 1600 × 900 WebP includes the original door artwork and hand-placed, perspective-fitted model lettering. The main images range from 158 to 204 KiB. Selecting a photo opens the vehicle and higher-resolution details of the same door and plate. On narrower screens the contact links sit in their own row so they cannot cover the vehicle.

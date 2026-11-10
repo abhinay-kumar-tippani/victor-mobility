@@ -1,6 +1,6 @@
-# Current task — India Fleet photography, 9 November 2026
+# Current task — India bus and Urbania branding, 10 November 2026
 
-The India Fleet page now uses a matching set of branded forecourt illustrations for 14 named vehicle entries. Both Urbania sizes are identified in the fleet data. The SML 22-seat bus needs an exact model before its illustration can be produced. See the November 9 entry in [the handoff](handoff.md) for review evidence.
+The two Urbania sizes, Tata Marcopolo and SML 22-seater use the supplied Victor artwork on the front header and passenger side. All 15 fleet cards now have forecourt illustrations. The SML illustration represents the confirmed manufacturer and capacity. Its exact model is still unspecified.
 
 ## Previous task — Diwali banner, 8 November 2026
 

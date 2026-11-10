@@ -58,9 +58,10 @@ export default function FleetPhoto({ vehicle }: { vehicle: FleetVehicle }) {
           {expanded && (
             <>
               <Image src={vehicle.image} alt={vehicle.imageAlt} width={1600} height={900} className="h-auto w-full rounded-lg" />
-              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className={`mt-3 grid grid-cols-1 gap-3 ${details.headerImage ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
                 {[
-                  { image: details.doorImage, label: "Victor Mobility · On Time Every Time." },
+                  { image: details.doorImage, label: details.headerImage ? "Victor logo below the passenger windows" : "Victor Mobility · On Time Every Time." },
+                  ...(details.headerImage ? [{ image: details.headerImage, label: "Victor logo above the windshield" }] : []),
                   { image: details.plateImage, label: details.plateText },
                 ].map(({ image, label }) => (
                   <Image key={image} src={image} alt={label} width={720} height={360} className="h-auto w-full rounded-lg" />
