@@ -37,7 +37,7 @@ async function verify() {
 
   const expectedStats = [
     { value: "2010", label: "Established in Hyderabad", full: "2010 Established in Hyderabad" },
-    { value: "18+", label: "Years of industry leadership", full: "18+ Years of industry leadership" },
+    { value: "15+", label: "Years of industry leadership", full: "15+ Years of industry leadership" },
     { value: "5,000+", label: "Vehicles managed", full: "5,000+ Vehicles managed" },
     { value: "50+", label: "Multinational clients", full: "50+ Multinational clients" },
     { value: "10+", label: "India offices", full: "10+ India offices" },

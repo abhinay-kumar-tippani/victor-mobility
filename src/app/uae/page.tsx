@@ -38,7 +38,7 @@ const UAE_STATS: StatItemData[] = [
   },
   {
     id: "experience",
-    targetValue: 18,
+    targetValue: 15,
     suffix: "+",
     formatCommas: false,
     colorHex: "#6E57A0",
