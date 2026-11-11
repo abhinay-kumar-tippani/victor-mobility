@@ -70,7 +70,8 @@ async function main() {
     // 1. Desktop Verification at 1536 x 960 (Image 2 Target)
     // -------------------------------------------------------------
     console.log("\n--- 1. Desktop Layout Verification (1536 x 960) ---");
-    const desktopPage = await context.newPage({ viewport: { width: 1536, height: 960 } });
+    const desktopPage = await context.newPage();
+    await desktopPage.setViewportSize({ width: 1536, height: 960 });
     const resMujeeb = await desktopPage.goto(`${BASE_URL}/team/mujeeb`, { waitUntil: "networkidle" });
     record("Desktop profile /team/mujeeb returns 200", resMujeeb.status() === 200);
 
@@ -144,7 +145,8 @@ async function main() {
     // 2. Mobile Verification at 390 x 844 (Image 3 Target)
     // -------------------------------------------------------------
     console.log("\n--- 2. Mobile Layout Verification (390 x 844) ---");
-    const mobilePage = await context.newPage({ viewport: { width: 390, height: 844 } });
+    const mobilePage = await context.newPage();
+    await mobilePage.setViewportSize({ width: 390, height: 844 });
     await mobilePage.goto(`${BASE_URL}/team/mujeeb`, { waitUntil: "networkidle" });
 
     // Verify Mobile Hero Composition
@@ -172,7 +174,8 @@ async function main() {
     // 3. Small Mobile Verification at 320 x 700
     // -------------------------------------------------------------
     console.log("\n--- 3. Small Mobile Layout Verification (320 x 700) ---");
-    const smallMobilePage = await context.newPage({ viewport: { width: 320, height: 700 } });
+    const smallMobilePage = await context.newPage();
+    await smallMobilePage.setViewportSize({ width: 320, height: 700 });
     await smallMobilePage.goto(`${BASE_URL}/team/mujeeb`, { waitUntil: "networkidle" });
 
     // Verify no horizontal overflow

@@ -6,6 +6,7 @@ Owner: Antigravity, at direct user request. Status: COMPLETED.
 
 1. **Pixel-Accurate Visual Redesign Matching Reference Designs**:
    - Replaced previous floating card UI with the exact corporate profile layout specified in Image 2 (Desktop) and Image 3 (Mobile).
+   - Fixed mobile hero portrait background alignment: Removed outer padding trapping the portrait in a box; positioned portrait to span full hero height from `top-0` to `bottom-0` and right edge, with smooth linear left feathering mask (`maskImage: linear-gradient(...)`) and matching radial studio gradient (`#22263C` into `#12172B`), completely eliminating hard box edges.
    - Component architecture modularized into:
      - `EmployeeProfileHeader`: Full-width white header with Victor Mobility logo, vertical divider, company name on desktop, and native "Share Profile" with clipboard fallback.
      - `EmployeeDesktopProfilePanel`: Deep midnight navy left panel (~40% width) featuring chest-up portrait seamlessly blended into the dark navy background with subtle gradient masks, elegant white serif typography for full name, designation, purple accent line (`#8A71E6`), location pin with city, and parallel neon purple diagonal stripes in the bottom-right corner.

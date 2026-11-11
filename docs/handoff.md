@@ -24,7 +24,8 @@ Redesigned the employee digital business card page (`/team/[employeename]`) into
 2. **Mobile Layout (< 1024px, Image 3)**:
    - Clean white header adapting to viewport width.
    - Distinct full-width dark navy hero (`EmployeeHero`) with employee name, designation, purple accent line, company name, and location on the left, and chest-up portrait seamlessly integrated on the right, plus bottom-right diagonal stripes.
-   - White lower content container with Save Contact / Show QR Code buttons, stacked Call, WhatsApp, Email rows featuring rounded pale-purple icon containers, 3-button social profile row, and profile URL.
+   - Fixed photo-background alignment: Removed inset padding that created a box artifact; portrait now spans full height from header divider to bottom edge and flushes right, with smooth horizontal left-edge feathering into the `#13182C` navy backdrop and centered studio glow matching Image 3.
+   - White lower content container with Save Contact / Show QR Code buttons (no text truncation on narrow viewports), stacked Call, WhatsApp, Email rows featuring rounded pale-purple icon containers, 3-button social profile row, and profile URL.
 
 3. **Dynamic Features & Preservation**:
    - Save Contact generates valid RFC 6350 vCard 4.0 file.
