@@ -247,29 +247,42 @@ export interface IndiaContent {
   driverTraining?: DriverTrainingContent;
 }
 
-export interface SampleCertificate {
-  title: string;
-  sampleLabel: string;
-  eyebrow: string;
-  caption: string;
+export interface AchievementItem {
+  id: string;
+  category: string;
+  heading: string;
+  paragraphs: string[];
+  highlightStatement: string;
+  appreciationLine?: string;
+  closingLine?: string;
+  dealerTag?: string;
   imageSrc: string;
   imageAlt: string;
-  actionLabel: string;
-  modalTitle: string;
+  width: number;
+  height: number;
+  layout: "imageRight" | "imageLeft";
+  ctaLabel?: string;
+  ctaHref?: string;
 }
 
-export interface SampleMilestone {
-  id: string;
+export interface AchievementsHero {
+  eyebrow: string;
   title: string;
-  label: string;
+  intro: string;
+}
+
+export interface AchievementsClosing {
+  heading: string;
   description: string;
+  tagline: string;
+  ctaLabel: string;
+  ctaHref: string;
 }
 
 export interface AchievementsContent {
-  title: string;
-  subtitle: string;
-  sampleCertificate: SampleCertificate;
-  sampleMilestones: SampleMilestone[];
+  hero: AchievementsHero;
+  featuredAchievements: AchievementItem[];
+  closingSection: AchievementsClosing;
 }
 
 export interface DriverTrainingCurriculumMoment {

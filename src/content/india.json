@@ -1288,32 +1288,59 @@
     "enabled": true
   },
   "achievements": {
-    "title": "Achievements & Recognition",
-    "subtitle": "An editorial record of collaborative benchmarks, fleet readiness standards, and corporate mobility recognition.",
-    "sampleCertificate": {
-      "title": "Certificate of Strategic Business Partnership",
-      "sampleLabel": "Sample certificate",
-      "eyebrow": "Featured recognition",
-      "caption": "Sample recognition certificate highlighting collaborative fleet operational benchmarks and professional partnership standards.",
-      "imageSrc": "/images/achievements/sample-certificate.svg",
-      "imageAlt": "Sample Certificate of Strategic Business Partnership presented to Victor Luxury Limousine Private Limited",
-      "actionLabel": "View certificate",
-      "modalTitle": "Sample Certificate — Strategic Business Partnership"
+    "hero": {
+      "eyebrow": "OUR JOURNEY IN MOTION",
+      "title": "Achievements & Recognition",
+      "intro": "Every milestone tells a story of progress, partnership, and purpose. From welcoming the next generation of vehicles into our fleet to celebrating the people and partnerships behind our journey, each achievement strengthens our commitment to exceptional corporate mobility."
     },
-    "sampleMilestones": [
+    "featuredAchievements": [
       {
-        "id": "fleet-readiness-workshop",
-        "title": "Fleet readiness workshop",
-        "label": "Sample milestone",
-        "description": "Multi-point technical vehicle health reviews and passenger cabin comfort workshops conducted across regional fleet operating hubs."
+        "id": "kia-clavis-ev-fleet-expansion",
+        "category": "FLEET EXPANSION • ELECTRIC MOBILITY",
+        "heading": "Welcoming the Kia Clavis EV to Our Growing Fleet",
+        "paragraphs": [
+          "We are proud to celebrate another important milestone in Victor's journey — the addition of brand-new Kia Clavis EV vehicles to our growing fleet.",
+          "This expansion represents our continued commitment to modernizing corporate transportation and embracing electric mobility. By introducing more electric vehicle options, we aim to deliver a travel experience that brings together passenger comfort, operational reliability, and a forward-looking approach to mobility.",
+          "Every new vehicle represents more than an addition to our fleet. It reflects our dedication to evolving alongside the transportation needs of the businesses and passengers we serve."
+        ],
+        "highlightStatement": "Expanding our fleet. Embracing electric mobility. Driving progress.",
+        "appreciationLine": "We also extend our sincere appreciation to the Malik Kia team for their support and coordination throughout the vehicle delivery experience.",
+        "dealerTag": "Malik Kia Coordination",
+        "imageSrc": "/images/achievements/kia-clavis-ev-fleet-expansion.jpg",
+        "imageAlt": "Victor Luxury Limousine fleet expansion announcement celebrating brand-new Kia Clavis EV vehicles with special thanks to Malik Kia",
+        "width": 819,
+        "height": 1024,
+        "layout": "imageRight",
+        "ctaLabel": "View Our Fleet",
+        "ctaHref": "/india/fleet"
       },
       {
-        "id": "driver-mentoring-initiative",
-        "title": "Driver mentoring initiative",
-        "label": "Sample milestone",
-        "description": "Structured peer-to-peer mentoring on executive etiquette, defensive road safety, and discreet passenger care for corporate chauffeurs."
+        "id": "landmark-kia-gratitude",
+        "category": "PARTNERSHIPS • MOMENTS OF APPRECIATION",
+        "heading": "Celebrating Partnerships That Make Every Journey Memorable",
+        "paragraphs": [
+          "Behind every successful milestone are dedicated people whose commitment, professionalism, and attention to detail make a meaningful difference.",
+          "We extend our heartfelt gratitude to Mr. Sandeep and the entire Landmark Kia team for their exceptional hospitality, thoughtful arrangements, and dedicated support during our vehicle delivery experience.",
+          "From seamless coordination to the warm welcome extended to our team, their efforts helped make the occasion truly memorable.",
+          "At Victor, we believe strong professional relationships are built on trust, mutual respect, and shared standards of excellence. We value the relationships that support our continued journey of growth."
+        ],
+        "highlightStatement": "Great partnerships are built on trust, strengthened through collaboration, and remembered through meaningful experiences.",
+        "closingLine": "With sincere appreciation to Mr. Sandeep and the entire Landmark Kia team.",
+        "dealerTag": "Landmark Kia Hospitality",
+        "imageSrc": "/images/achievements/landmark-kia-gratitude.jpg",
+        "imageAlt": "Heartfelt note of gratitude from Victor Luxury Limousine to Mr. Sandeep and the Landmark Kia team for vehicle delivery ceremony and hospitality",
+        "width": 935,
+        "height": 1024,
+        "layout": "imageLeft"
       }
-    ]
+    ],
+    "closingSection": {
+      "heading": "Every Milestone Moves Us Forward.",
+      "description": "Our story continues through the trust of our clients, the dedication of our team, and the partnerships that help us grow. As our fleet evolves, our focus remains unchanged — delivering dependable, comfortable, and professional mobility experiences.",
+      "tagline": "On Time Every Time.",
+      "ctaLabel": "Explore Our Fleet",
+      "ctaHref": "/india/fleet"
+    }
   },
   "driverTraining": {
     "title": "Driver Training",

@@ -9,11 +9,11 @@ import type { IndiaContent, MediaContent } from "@/types/content";
 export const metadata: Metadata = {
   title: "Achievements & Recognition | Victor Mobility India",
   description:
-    "Editorial gallery of Victor Mobility's collaborative operational benchmarks, fleet readiness workshops, and professional partnership recognitions.",
+    "Explore Victor Mobility's genuine milestones in electric corporate mobility, featuring the brand-new Kia Clavis EV fleet expansion and industry partnership recognition.",
   alternates: {
-    canonical: "https://victor-mobility.vercel.app/india/achievements",
+    canonical: "https://victormobility.in/india/achievements",
     languages: {
-      "en-IN": "https://victor-mobility.vercel.app/india/achievements",
+      "en-IN": "https://victormobility.in/india/achievements",
     },
   },
 };
@@ -21,50 +21,30 @@ export const metadata: Metadata = {
 export default function IndiaAchievementsPage() {
   const content = indiaData as unknown as IndiaContent;
   const media = mediaData as unknown as MediaContent;
-  const achievements = content.achievements || {
-    title: "Achievements & Recognition",
-    subtitle:
-      "An editorial record of collaborative benchmarks, fleet readiness standards, and corporate mobility recognition.",
-    sampleCertificate: {
-      title: "Certificate of Strategic Business Partnership",
-      sampleLabel: "Sample certificate",
-      eyebrow: "Featured recognition",
-      caption:
-        "Sample recognition certificate highlighting collaborative fleet operational benchmarks and professional partnership standards.",
-      imageSrc: "/images/achievements/sample-certificate.svg",
-      imageAlt:
-        "Sample Certificate of Strategic Business Partnership presented to Victor Luxury Limousine Private Limited",
-      actionLabel: "View certificate",
-      modalTitle: "Sample Certificate — Strategic Business Partnership",
-    },
-    sampleMilestones: [
-      {
-        id: "fleet-readiness-workshop",
-        title: "Fleet readiness workshop",
-        label: "Sample milestone",
-        description:
-          "Multi-point technical vehicle health reviews and passenger cabin comfort workshops conducted across regional fleet operating hubs.",
-      },
-      {
-        id: "driver-mentoring-initiative",
-        title: "Driver mentoring initiative",
-        label: "Sample milestone",
-        description:
-          "Structured peer-to-peer mentoring on executive etiquette, defensive road safety, and discreet passenger care for corporate chauffeurs.",
-      },
-    ],
-  };
+  const achievements = content.achievements;
+
+  if (!achievements) {
+    return null;
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemPage",
+    "@type": "CollectionPage",
     name: "Victor Mobility Achievements & Recognition",
-    description: achievements.subtitle,
+    description: achievements.hero.intro,
+    url: "https://victormobility.in/india/achievements",
     provider: {
       "@type": "Organization",
       name: content.companyName,
-      url: "https://victor-mobility.vercel.app/india",
+      url: "https://victormobility.in/india",
     },
+    mainEntity: achievements.featuredAchievements.map((item) => ({
+      "@type": "Article",
+      headline: item.heading,
+      articleSection: item.category,
+      image: `https://victormobility.in${item.imageSrc}`,
+      description: item.highlightStatement,
+    })),
   };
 
   return (
@@ -77,12 +57,7 @@ export default function IndiaAchievementsPage() {
 
       <main id="main-content" className="flex-1 focus:outline-none py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AchievementsGallery
-            title={achievements.title}
-            subtitle={achievements.subtitle}
-            sampleCertificate={achievements.sampleCertificate}
-            sampleMilestones={achievements.sampleMilestones}
-          />
+          <AchievementsGallery achievements={achievements} />
         </div>
       </main>
 
