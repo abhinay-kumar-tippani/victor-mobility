@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
+import { ArrowRight, Building2, Mail, Phone, QrCode } from "lucide-react";
 import type { ContactData, TeamProfile } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -29,15 +29,15 @@ interface TeamCarouselProps {
   storyLabel: string;
 }
 
-const actionCopy: Record<string, { call: string; whatsapp: string; office: string; email: string }> = {
-  en: { call: "Call", whatsapp: "WhatsApp", office: "Office", email: "Email" },
-  ar: { call: "اتصال", whatsapp: "واتساب", office: "المكتب", email: "بريد" },
-  hi: { call: "कॉल करें", whatsapp: "व्हाट्सऐप", office: "कार्यालय", email: "ईमेल" },
-  te: { call: "కాల్ చేయండి", whatsapp: "వాట్సాప్", office: "కార్యాలయం", email: "ఇమెయిల్" },
-  kn: { call: "ಕರೆ ಮಾಡಿ", whatsapp: "ವಾಟ್ಸಾಪ್", office: "ಕಚೇರಿ", email: "ಇಮೇಲ್" },
-  ta: { call: "அழைக்கவும்", whatsapp: "வாட்ஸ்அப்", office: "அலுவலகம்", email: "மின்னஞ்சல்" },
-  mr: { call: "कॉल करा", whatsapp: "व्हॉट्सअॅप", office: "कार्यालय", email: "ईमेल" },
-  ma: { call: "വിളിക്കുക", whatsapp: "വാട്ട്സ്ആപ്പ്", office: "ഓഫീസ്", email: "ഇമെയിൽ" },
+const actionCopy: Record<string, { call: string; whatsapp: string; office: string; email: string; profile: string }> = {
+  en: { call: "Call", whatsapp: "WhatsApp", office: "Office", email: "Email", profile: "QR Profile" },
+  ar: { call: "اتصال", whatsapp: "واتساب", office: "المكتب", email: "بريد", profile: "الملف الرقمي" },
+  hi: { call: "कॉल करें", whatsapp: "व्हाट्सऐप", office: "कार्यालय", email: "ईमेल", profile: "क्यूआर प्रोफ़ाइल" },
+  te: { call: "కాల్ చేయండి", whatsapp: "వాట్సాప్", office: "కార్యాలయం", email: "ఇమెయిల్", profile: "క్యూఆర్ ప్రొఫైల్" },
+  kn: { call: "ಕರೆ ಮಾಡಿ", whatsapp: "ವಾಟ್ಸಾಪ್", office: "ಕಚೇರಿ", email: "ಇಮೇಲ್", profile: "ಕ್ಯೂಆರ್ ಪ್ರೊಫೈಲ್" },
+  ta: { call: "அழைக்கவும்", whatsapp: "வாட்ஸ்அப்", office: "அலுவலகம்", email: "மின்னஞ்சல்", profile: "QR சுயவிவரம்" },
+  mr: { call: "कॉल करा", whatsapp: "व्हॉट्सअॅप", office: "कार्यालय", email: "ईमेल", profile: "क्यूआर प्रोफाइल" },
+  ma: { call: "വിളിക്കുക", whatsapp: "വാട്ട്സ്ആപ്പ്", office: "ഓഫീസ്", email: "ഇമെയിൽ", profile: "ക്യുആർ പ്രൊഫൈൽ" },
 };
 
 type ContactChannel = {
@@ -142,6 +142,31 @@ export default function TeamCarousel({
               href: `mailto:${member.emailDisplay}`,
               ariaLabel: `${actionLabels.email} ${member.name}`,
               Icon: Mail,
+              isExternal: false,
+            });
+          }
+
+          const profileSlug =
+            member.profileSlug ||
+            (member.id === "mujeeb"
+              ? "mujeeb"
+              : member.id === "kamran-razvi"
+              ? "kamran-razvi"
+              : member.id === "nareinder-reddy"
+              ? "nareinder-reddy"
+              : member.id === "muhammad-asif"
+              ? "muhammad-asif"
+              : member.id === "thameem-ahmed"
+              ? "thameem-ahmed"
+              : undefined);
+
+          if (profileSlug) {
+            channels.push({
+              id: "profile",
+              label: actionLabels.profile,
+              href: `/team/${profileSlug}`,
+              ariaLabel: `${actionLabels.profile} for ${member.name}`,
+              Icon: QrCode,
               isExternal: false,
             });
           }

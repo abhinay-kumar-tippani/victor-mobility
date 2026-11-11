@@ -4,7 +4,7 @@ import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Mail, MessageSquare, Pause, Phone, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Mail, MessageSquare, Pause, Phone, Play, QrCode } from "lucide-react";
 import type { ContactData, TeamProfile } from "@/types/content";
 
 interface AboutTeamCarouselProps {
@@ -127,6 +127,34 @@ export default function AboutTeamCarousel({ featured, featuredDescription, profi
                 <span className="min-w-0"><span className="block text-[10px] font-bold uppercase tracking-wider">Compose email</span><bdi dir="ltr" className="block break-all text-xs font-semibold">{person.emailDisplay}</bdi></span>
               </a>
             )}
+            {(() => {
+              const profileSlug =
+                person.profileSlug ||
+                (person.id === "mujeeb"
+                  ? "mujeeb"
+                  : person.id === "kamran-razvi"
+                  ? "kamran-razvi"
+                  : person.id === "nareinder-reddy"
+                  ? "nareinder-reddy"
+                  : person.id === "muhammad-asif"
+                  ? "muhammad-asif"
+                  : undefined);
+              if (!profileSlug) return null;
+              return (
+                <a
+                  href={`/team/${profileSlug}`}
+                  className="flex min-h-12 min-w-0 items-center gap-3 rounded-xl border border-brand-indigo/20 bg-brand-warm-white px-4 py-2 text-brand-indigo transition-colors hover:border-brand-indigo hover:bg-brand-indigo/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo sm:col-span-2"
+                >
+                  <QrCode className="h-4 w-4 shrink-0 text-brand-indigo" aria-hidden="true" />
+                  <span className="min-w-0">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-indigo/70">
+                      Digital Business Card &amp; QR
+                    </span>
+                    <span className="block text-xs font-semibold">View verified profile</span>
+                  </span>
+                </a>
+              );
+            })()}
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-brand-soft-neutral pt-4">

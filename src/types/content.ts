@@ -109,6 +109,7 @@ export interface TeamProfile {
   imageSrc: string;
   imageAlt: string;
   placeholder: boolean;
+  profileSlug?: string;
   division?: string;
   description?: string;
   phoneDisplay?: string;

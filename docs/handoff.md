@@ -1,5 +1,90 @@
 # Handoff
 
+## 11 November 2026 — Employee Digital Business Card Visual Redesign
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Redesigned the employee digital business card page (`/team/[employeename]`) into a pixel-accurate luxury corporate profile layout matching the uploaded desktop reference (Image 2) and mobile reference (Image 3):
+
+1. **Desktop Layout (>= 1024px, Image 2)**:
+   - Full-width white header with Victor Mobility logo (horse + tagline), vertical separator `|`, "Victor Mobility Pvt. Ltd.", and "Share Profile" action.
+   - Dark midnight navy left profile panel (`#101731`, ~40% width):
+     - Large chest-up employee portrait seamlessly blended into the dark background via gradient masks.
+     - Full name in bold white serif typography (`font-serif`).
+     - Designation in clean white sans text.
+     - Purple accent line (`#8A71E6`).
+     - Location pin with "Hyderabad, India" (dynamically configured per employee).
+     - 4 parallel diagonal neon purple stripes in the bottom-right corner.
+   - Right content panel (white background, ~60% width):
+     - Primary actions: side-by-side equal-height buttons: "Save Contact" (filled `#31326F` deep purple/navy) and "Show QR Code" (white with `#31326F` border).
+     - "Contact" section in serif typography with "Copy details" clipboard action and clean horizontal rows for Call, WhatsApp, and Email with thin dividers.
+     - "Social profiles" section in serif typography with 3 outlined buttons in exact order: Instagram, Facebook, and LinkedIn with authentic official brand icons.
+     - Clickable and copyable profile URL (`victormobility.in/team/<slug>`).
+
+2. **Mobile Layout (< 1024px, Image 3)**:
+   - Clean white header adapting to viewport width.
+   - Distinct full-width dark navy hero (`EmployeeHero`) with employee name, designation, purple accent line, company name, and location on the left, and chest-up portrait seamlessly integrated on the right, plus bottom-right diagonal stripes.
+   - White lower content container with Save Contact / Show QR Code buttons, stacked Call, WhatsApp, Email rows featuring rounded pale-purple icon containers, 3-button social profile row, and profile URL.
+
+3. **Dynamic Features & Preservation**:
+   - Save Contact generates valid RFC 6350 vCard 4.0 file.
+   - Show QR Code opens accessible modal with downloadable PNG and SVG vector QR codes.
+   - Share Profile leverages native `navigator.share` with clipboard copy fallback.
+   - Copy details copies formatted text to clipboard with confirmation indicator.
+   - No hardcoded data; dynamically renders any employee record from `src/content/team.json`.
+
+**Verification & Quality Gates**:
+- TypeScript (`npm run type-check`): 0 errors.
+- ESLint (`npm run lint`): 0 warnings or errors.
+- Production build (`npm run build`): 75/75 routes compiled successfully.
+- Playwright automated verification (`scripts/verify-redesigned-profile.mjs`): 28/28 checks passed.
+- Screenshots:
+  - [Desktop 1536px](screenshots/team-redesign-desktop-1536.png)
+  - [Mobile 390px](screenshots/team-redesign-mobile-390.png)
+  - [Small Mobile 320px](screenshots/team-redesign-mobile-320.png)
+
+## 11 November 2026 — Employee QR Profiles & Administration
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Implemented lightweight, laptop-managed employee QR profiles matching Victor Mobility luxury branding, complete with RFC 6350 vCard 4.0 contact download, QR code generation, and directory administration:
+
+1. **Laptop-Editable Content Storage (`src/content/team.json`)**:
+   - Replaced complex DB/auth requirements with a clean JSON content store editable directly on laptop.
+   - Pre-seeded with 6 verified leadership members: Mujeeb Ur Rahman Mohammed, Syed Kamran Abbas Razvi, Nareinder Reddyy C, Muhammad Asif, Mohammed Thameem Ahmed, and Mohammed Jahangir.
+   - Supports custom slugs, alias redirects, full names, designations, phone/WhatsApp, email, social links (Instagram, LinkedIn, Facebook), bio statements, and homepage/about visibility flags with display orders.
+
+2. **Dynamic Digital Business Cards (`/team/[employeename]`)**:
+   - Executive editorial styling with `#31326F` indigo header, `#15162F` brand ink, `#F6F5F2` warm-white, and verified profile shield.
+   - Primary **Save Contact** CTA generating `.vcf` file.
+   - Direct communication channels: WhatsApp (`wa.me`), Email (`mailto:`), optional direct phone Call (`tel:`).
+   - Social links (Instagram, LinkedIn, Facebook) appear only when configured.
+   - Interactive QR Code modal with one-click copy and instant PNG/SVG vector download buttons.
+   - Canonical URLs (`https://victormobility.in/team/<slug>`), 307 alias redirects (e.g. `/team/mujeeb-ur-rahman` -> `/team/mujeeb`), and generic 404 for unknown/draft records.
+   - `noindex, nofollow` metadata to ensure privacy.
+
+3. **RFC 6350 vCard 4.0 Generator (`/team/[employeename]/contact.vcf`)**:
+   - Full specification compliance with UTF-8 encoding, CRLF delimiters, 75-octet line folding, deterministic UID, FN, N, ORG, TITLE, TEL, EMAIL, and canonical URL.
+
+4. **Server-Side QR Code Engine (`/team/[employeename]/qr`)**:
+   - High-res PNG (1024px) and pure SVG vector output with 4-module quiet zone, black modules on white background.
+
+5. **Admin Hub (`/team/admin`)**:
+   - Directory table with employee photo, live status badges, QR code previews, PNG/SVG download links, visibility indicators, and editing documentation.
+
+6. **Homepage & About Page Integration**:
+   - Linked `/india` and `/india/about` team carousels with direct QR profile links.
+
+**Verification & Quality Gates**:
+- TypeScript (`npm run type-check`): 0 errors.
+- ESLint (`npm run lint`): 0 warnings or errors.
+- Production build (`npm run build`): 75/75 pages compiled successfully.
+- Playwright automated suite (`scripts/verify-team-profiles.mjs`): 27/27 checks passed across desktop (1440px) and mobile (390px).
+- Screenshots:
+  - [Profile desktop](screenshots/team-profile-mujeeb-desktop.png)
+  - [Profile mobile](screenshots/team-profile-mujeeb-mobile.png)
+  - [Admin directory desktop](screenshots/team-admin-desktop.png)
+
 ## 10 November 2026 — Bus and Urbania branding
 
 The 12- and 16-seat Force Urbania vans, Tata Marcopolo 40-seater and SML 22-seater now have separate 1600 × 900 WebP illustrations. The customer’s bus photo guided the placement. Both decals on every vehicle use the separately supplied original logo, fitted to the passenger side and front header. The detail viewer includes the two decals and the green display plate. The SML plate reads “SML” because the exact model is unspecified.
