@@ -285,7 +285,8 @@ export interface AchievementsContent {
   closingSection: AchievementsClosing;
 }
 
-export interface TrainingPhoto {
+export interface BriefingPhotoItem {
+  id: string;
   src: string;
   alt: string;
   caption: string;
@@ -293,83 +294,65 @@ export interface TrainingPhoto {
   height: number;
 }
 
-export interface BriefingBeforeDeparture {
-  title: string;
-  intro: string;
-  photo: TrainingPhoto;
-  driverReadiness: {
-    title: string;
-    items: string[];
-  };
-  vehicleChecks: {
-    title: string;
-    items: string[];
-  };
-}
-
-export interface BriefingOnTheRoad {
-  title: string;
-  intro: string;
-  photo: TrainingPhoto;
-  conductStandards: Array<{
-    title: string;
-    description: string;
-  }>;
-  explicitSafetyRules: {
-    title: string;
-    rules: string[];
-  };
-  incidentReporting: {
-    title: string;
-    description: string;
-  };
-}
-
-export interface BriefingSupervisorFollowUp {
-  title: string;
-  intro: string;
-  photo: TrainingPhoto;
-  responsibilities: Array<{
-    title: string;
-    description: string;
-  }>;
-  mandatoryRule: string;
-  staffProtocolNotice: string;
-}
-
-export interface DailyDriverBriefingSection {
-  title: string;
-  eyebrow: string;
-  intro: string;
-  mandatoryNotice: string;
-  leadPhoto: TrainingPhoto;
-  beforeDeparture: BriefingBeforeDeparture;
-  onTheRoad: BriefingOnTheRoad;
-  supervisorFollowUp: BriefingSupervisorFollowUp;
-}
-
-export interface ClassroomTrainingSection {
-  title: string;
-  eyebrow: string;
-  intro: string;
-  photo: TrainingPhoto;
-  keyPoints: Array<{
-    title: string;
-    description: string;
-  }>;
+export interface SupportingTrainingPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
 }
 
 export interface DriverTrainingContent {
   title: string;
-  eyebrow: string;
-  intro: string;
-  dailyBriefing: DailyDriverBriefingSection;
-  classroomTraining: ClassroomTrainingSection;
-  academyCta: {
+  tagline: string;
+  page1: {
     heading: string;
-    description: string;
-    buttonLabel: string;
-    href: string;
+    subheading: string;
+    dearTeam: string;
+    instruction: string;
+    pointsTitle: string;
+    points: string[];
+    mandatoryReporting: {
+      title: string;
+      instruction: string;
+    };
+    banner: string;
+  };
+  page2: {
+    heading: string;
+    subheading: string;
+    callout: string;
+    standards: string[];
+  };
+  page3: {
+    heading: string;
+    subheading: string;
+    safeDriving: {
+      title: string;
+      rules: string[];
+    };
+    serviceReporting: {
+      title: string;
+      rules: string[];
+    };
+  };
+  page4: {
+    heading: string;
+    caption: string;
+    photos: BriefingPhotoItem[];
+  };
+  page5: {
+    heading: string;
+    subheading: string;
+    checklistTitle: string;
+    checklist: string[];
+    banner: string;
+    closingReminder: string;
+  };
+  supportingClassroom: {
+    title: string;
+    intro: string;
+    photos: SupportingTrainingPhoto[];
   };
 }
 

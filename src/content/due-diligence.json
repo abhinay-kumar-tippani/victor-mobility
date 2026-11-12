@@ -64,7 +64,7 @@
           { "framework": "Criminal Record & Police Verification", "regNumber": "State Police Crime Records Bureau", "status": "Mandatory Clearance", "details": "Permanent residential verification, local police station clearance certificate on file." },
           { "framework": "Commercial Driving License Audit", "regNumber": "Parivahan Sarathi Database", "status": "Verified Commercial", "details": "Continuous digital license validity, zero heavy penalty points or suspension records." },
           { "framework": "Zero-Tolerance Drug & Alcohol Screen", "regNumber": "Pre-Employment + Random Depot Checks", "status": "Enforced", "details": "Mandatory diagnostic pre-employment toxicology screen and daily digital breathalyzer logs." },
-          { "framework": "Chauffeur Safety Credential Badge", "regNumber": "Victor Academy Verification System", "status": "Active Badge Issued", "details": "Accessible via public QR verification at /india/academy/verify." }
+          { "framework": "Chauffeur Safety Credential Badge", "regNumber": "Victor Academy Verification System", "status": "Active Badge Issued", "details": "Accessible via public QR verification at /india/driver-training." }
         ]
       }
     ],

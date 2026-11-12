@@ -30,9 +30,9 @@ export default function IndiaDriverTrainingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Victor Mobility Daily Driver Briefing & Training Standards",
-    description: driverTraining.dailyBriefing.intro,
-    image: `https://victormobility.in${driverTraining.dailyBriefing.leadPhoto.src}`,
+    name: "Victor Mobility Daily Drivers Briefing",
+    description: driverTraining.page1.instruction,
+    image: `https://victormobility.in${driverTraining.page4.photos[0].src}`,
     provider: {
       "@type": "Organization",
       name: content.companyName,

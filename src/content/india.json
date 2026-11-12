@@ -355,12 +355,8 @@
       "title": "Company and standards",
       "links": [
         [
-          "academy",
-          "Chauffeur training"
-        ],
-        [
-          "academy/verify",
-          "Chauffeur verification information"
+          "driver-training",
+          "Driver training"
         ],
         [
           "safety",
@@ -1344,148 +1340,136 @@
   },
   "driverTraining": {
     "title": "Driver Training",
-    "eyebrow": "Professional Chauffeur Standards",
-    "intro": "Professional corporate mobility demands continuous discipline, rigorous vehicle preparation, and respectful passenger care across every corridor. Discover how Victor Mobility prepares, briefs, and supports drivers before, during, and after every shift.",
-    "dailyBriefing": {
-      "title": "Daily Driver Briefing",
-      "eyebrow": "Mandatory Shift-Start Protocol",
-      "intro": "Before every shift, Victor's operations supervisors or trackers conduct an in-person Daily Drivers Briefing at the vehicle parking area. Every driver must understand safety, service, and operational expectations before deployment.",
-      "mandatoryNotice": "Daily briefing is mandatory for all shifts — without fail.",
-      "leadPhoto": {
-        "src": "/images/training/daily-briefing-parking-group.jpg",
-        "alt": "Victor Mobility operations supervisor conducting daily driver briefing at vehicle parking area with assembled drivers and fleet vehicles",
-        "caption": "Operations supervisor conducting the daily driver briefing at the vehicle parking area before shift deployment.",
-        "width": 1536,
-        "height": 479
+    "tagline": "On Time Every Time.",
+    "page1": {
+      "heading": "DAILY DRIVERS BRIEFING",
+      "subheading": "IMPORTANT INSTRUCTIONS",
+      "dearTeam": "Dear Team,",
+      "instruction": "All Supervisors and Trackers are instructed to conduct a Daily Drivers Briefing before the start of each shift.",
+      "pointsTitle": "Briefing Points",
+      "points": [
+        "Driver grooming, uniform & ID card check.",
+        "Vehicle cleanliness and condition check.",
+        "Check fuel/CNG, tyres, brakes, lights & AC.",
+        "Ensure drivers report on time for duty.",
+        "Follow traffic rules and speed limits.",
+        "Strictly no mobile phone usage while driving.",
+        "No rash driving, overspeeding or drunk driving.",
+        "Maintain professional behaviour with employees and clients.",
+        "Ensure safe pickups and drops.",
+        "Immediately report accidents, breakdown or operational issues.",
+        "Drivers must not drive when tired or drowsy.",
+        "Follow all company and client safety guidelines."
+      ],
+      "mandatoryReporting": {
+        "title": "Mandatory Reporting:",
+        "instruction": "All Supervisors must share daily briefing photos, attendance and key observations in the official WhatsApp group before shift deployment."
       },
-      "beforeDeparture": {
-        "title": "Before Departure",
-        "intro": "Readiness begins before any vehicle leaves the parking bay. Supervisors and trackers systematically review personal presentation and conduct a thorough multi-point vehicle inspection.",
-        "photo": {
-          "src": "/images/training/daily-briefing-pre-departure.jpg",
-          "alt": "Supervisor reviewing driver grooming, corporate uniform, and vehicle roadworthiness standards with corporate drivers",
-          "caption": "Supervisor reviewing driver readiness, grooming standards, and vehicle inspection requirements prior to departure.",
-          "width": 1536,
-          "height": 479
-        },
-        "driverReadiness": {
-          "title": "Driver Readiness & Attendance",
-          "items": [
-            "Attendance confirmation and punctual reporting for assigned duty",
-            "Fitness for duty — drivers must be well-rested, alert, and healthy",
-            "Clean corporate uniform, neat appearance, and professional grooming",
-            "Valid driver licence, company identity card, and regulatory documentation"
-          ]
-        },
-        "vehicleChecks": {
-          "title": "Vehicle Inspection & Cabin Standards",
-          "items": [
-            "Vehicle cleanliness: spotless exterior and pristine cabin hygiene",
-            "Fuel or CNG levels verified adequate for the entire scheduled shift",
-            "Tyre pressure, tread condition, and spare wheel readiness",
-            "Brake response, steering feel, and horn operation verified",
-            "All headlights, indicators, brake lights, and hazard lights operational",
-            "Air conditioning and climate control functioning optimally for passenger comfort"
-          ]
-        }
+      "banner": "Daily briefing is mandatory for all shifts without fail."
+    },
+    "page2": {
+      "heading": "Daily Briefing – Shift Start Standard",
+      "subheading": "Supervisors and trackers must conduct a briefing before every shift.",
+      "callout": "Every driver must understand the safety, service and operational expectations before deployment.",
+      "standards": [
+        "Confirm driver attendance and readiness for the assigned shift.",
+        "Check grooming, uniform and valid ID card.",
+        "Inspect vehicle cleanliness and overall condition.",
+        "Verify fuel/CNG, tyres, brakes, lights and air conditioning.",
+        "Reinforce punctuality, safe driving and professional conduct."
+      ]
+    },
+    "page3": {
+      "heading": "Driver Safety & Professional Conduct",
+      "subheading": "Key instructions to communicate clearly during every briefing.",
+      "safeDriving": {
+        "title": "SAFE DRIVING",
+        "rules": [
+          "No rash driving, overspeeding or drunk driving.",
+          "Follow traffic rules and speed limits.",
+          "Never use a mobile phone while driving.",
+          "Do not drive when tired or drowsy."
+        ]
       },
-      "onTheRoad": {
-        "title": "On the Road",
-        "intro": "On the road, every driver represents Victor Mobility and our corporate clients. Safety, punctuality, and courteous passenger interactions govern all transit decisions across every corridor.",
-        "photo": {
-          "src": "/images/training/daily-briefing-road-safety.jpg",
-          "alt": "Supervisor instructing drivers on safe speed limits, courteous passenger boarding, and road compliance",
-          "caption": "Communicating roadway safety rules, courteous passenger conduct, and speed limits during the briefing.",
-          "width": 1536,
-          "height": 479
-        },
-        "conductStandards": [
-          {
-            "title": "Safe & Courteous Pickups and Drop-offs",
-            "description": "Drivers arrive punctually at designated pickup points, come to a complete stop at permitted boarding bays, and ensure polite, smooth transitions for employees and clients."
-          },
-          {
-            "title": "Professional Conduct & Etiquette",
-            "description": "Maintain courteous, respectful, and discreet behaviour with passengers and corporate clients at all times, upholding executive chauffeur decorum."
-          },
-          {
-            "title": "Traffic Rules & Client Guidelines",
-            "description": "Strict observance of traffic regulations, lane discipline, posted speed limits, and corporate site-specific access guidelines is mandatory on all trips."
-          }
-        ],
-        "explicitSafetyRules": {
-          "title": "Explicit Safety Rules — Zero Tolerance",
-          "rules": [
-            "No speeding, rash driving, or erratic maneuvers under any conditions — adhere strictly to speed limits",
-            "Strictly no mobile phone usage while driving — handheld and hands-free prohibited during transit",
-            "Zero alcohol or substance tolerance — never drive after drinking or under the influence",
-            "Never drive when tired, drowsy, or fatigued — stop in a safe permitted location and notify dispatch immediately"
-          ]
-        },
-        "incidentReporting": {
-          "title": "Immediate Incident Reporting Protocol",
-          "description": "Drivers must immediately report any accident, breakdown, unexpected delay, or operational issue to the 24/7 supervisor and tracking desk for rapid emergency assistance and fleet coordination."
-        }
-      },
-      "supervisorFollowUp": {
-        "title": "Supervisor Follow-Up",
-        "intro": "Briefing compliance is recorded and verified for every shift. Supervisors and trackers hold direct responsibility for documenting attendance, logging key operational observations, and submitting briefing records prior to vehicle dispatch.",
-        "photo": {
-          "src": "/images/training/daily-briefing-supervisor-log.jpg",
-          "alt": "Operations supervisor recording shift attendance and logging operational observations at vehicle parking bay",
-          "caption": "Supervisor recording driver attendance and logging key observations before vehicle dispatch.",
-          "width": 1536,
-          "height": 479
-        },
-        "responsibilities": [
-          {
-            "title": "Recording Attendance & Observations",
-            "description": "Supervisors record reporting times, check valid driver IDs, inspect uniform standards, and log vehicle checklist remarks before authorizing shift deployment."
-          },
-          {
-            "title": "Briefing Verification Photography",
-            "description": "Supervisors photograph the assembled driver group and vehicle line-up at the parking area as visual confirmation that the pre-shift briefing was conducted."
-          },
-          {
-            "title": "Sharing in Official WhatsApp Group",
-            "description": "Supervisors share daily briefing photos, verified attendance logs, and key observations directly in the official internal operations WhatsApp group before any vehicle is dispatched."
-          }
-        ],
-        "mandatoryRule": "The daily driver briefing is mandatory for all shifts — without fail.",
-        "staffProtocolNotice": "Briefing documentation and WhatsApp group reporting is an internal supervisory responsibility completed before vehicle deployment. No public submissions are accepted."
+      "serviceReporting": {
+        "title": "SERVICE & REPORTING",
+        "rules": [
+          "Ensure safe and courteous employee pickups and drops.",
+          "Maintain professional behaviour with employees and clients.",
+          "Report accidents, breakdowns and operational issues immediately.",
+          "Follow all company and client safety guidelines."
+        ]
       }
     },
-    "classroomTraining": {
-      "title": "Chauffeur Development & Interactive Learning",
-      "eyebrow": "Academy Classroom Curriculum",
-      "intro": "Complementing daily on-site briefings, Victor Mobility conducts structured classroom training modules covering executive chauffeur etiquette, route navigation, defensive driving techniques, and emergency response protocols.",
-      "photo": {
-        "src": "/images/training/driver-briefing-participant-speaking.jpg",
-        "alt": "A participant speaks during an interactive Victor Mobility driver training session in the briefing hall",
-        "caption": "A participant speaks during the training session.",
-        "width": 1024,
-        "height": 768
-      },
-      "keyPoints": [
+    "page4": {
+      "heading": "Daily Drivers Briefing – On-Site Activity",
+      "caption": "Briefing conducted with drivers at the vehicle parking area.",
+      "photos": [
         {
-          "title": "Executive Etiquette & Passenger Care",
-          "description": "Training on discreet hospitality, polite communication, assistance with doors and luggage, and respecting passenger privacy."
+          "id": "photo-1",
+          "src": "/images/training/daily-briefing-parking-group.jpg",
+          "alt": "Briefing conducted with drivers at the vehicle parking area - supervisor addressing assembled driver group",
+          "caption": "Briefing conducted with drivers at the vehicle parking area — supervisor addressing assembled team.",
+          "width": 1536,
+          "height": 479
         },
         {
-          "title": "Defensive Driving & Road Hazards",
-          "description": "Deep-dive workshops on hazard perception, safe following distances, wet-weather braking buffers, and urban traffic navigation."
+          "id": "photo-2",
+          "src": "/images/training/daily-briefing-pre-departure.jpg",
+          "alt": "Briefing conducted with drivers at the vehicle parking area - reviewing pre-departure readiness and grooming",
+          "caption": "Briefing conducted with drivers at the vehicle parking area — reviewing pre-departure readiness.",
+          "width": 1536,
+          "height": 479
         },
         {
-          "title": "Emergency & Safety Protocols",
-          "description": "Comprehensive instruction on 24/7 SOS response, route deviation procedures, first-aid fundamentals, and night-safety transit protocols."
+          "id": "photo-3",
+          "src": "/images/training/daily-briefing-supervisor-log.jpg",
+          "alt": "Briefing conducted with drivers at the vehicle parking area - logging attendance and key observations",
+          "caption": "Briefing conducted with drivers at the vehicle parking area — logging attendance and observations.",
+          "width": 1536,
+          "height": 479
+        },
+        {
+          "id": "photo-4",
+          "src": "/images/training/daily-briefing-road-safety.jpg",
+          "alt": "Briefing conducted with drivers at the vehicle parking area - communicating road safety rules",
+          "caption": "Briefing conducted with drivers at the vehicle parking area — communicating road safety rules.",
+          "width": 1536,
+          "height": 479
         }
       ]
     },
-    "academyCta": {
-      "heading": "Explore the Chauffeur Academy",
-      "description": "Learn more about the formal background-checked verification, 24-point audit framework, and chauffeur protocols backing Victor Mobility pan-India.",
-      "buttonLabel": "Explore the Chauffeur Academy",
-      "href": "/india/academy"
+    "page5": {
+      "heading": "Mandatory Reporting & Compliance",
+      "subheading": "Complete the briefing and document it before shift deployment.",
+      "checklistTitle": "SUPERVISOR CHECKLIST",
+      "checklist": [
+        "Share daily briefing photos in the official WhatsApp group.",
+        "Post driver attendance and key observations.",
+        "Complete reporting before shift deployment."
+      ],
+      "banner": "DAILY BRIEFING IS MANDATORY FOR ALL SHIFTS – WITHOUT FAIL.",
+      "closingReminder": "Safe journeys. Professional service. On time, every time."
+    },
+    "supportingClassroom": {
+      "title": "Chauffeur Development & Ongoing Training",
+      "intro": "Supporting our daily on-site shift briefings, Victor Mobility conducts interactive classroom training sessions covering executive chauffeur etiquette, route navigation, and emergency protocols.",
+      "photos": [
+        {
+          "src": "/images/training/driver-briefing-participant-speaking.jpg",
+          "alt": "A participant speaks during an interactive Victor Mobility driver training session",
+          "caption": "A participant speaks during the training session.",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/images/training/driver-briefing-group.jpg",
+          "alt": "Victor Mobility chauffeurs and operations supervisors in a classroom training session",
+          "caption": "Chauffeur development and hospitality training session.",
+          "width": 1024,
+          "height": 768
+        }
+      ]
     }
   }
 }

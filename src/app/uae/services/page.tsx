@@ -207,31 +207,7 @@ export default function UaeServicesPage() {
         {/* Strategic UAE Commercial Corridors */}
         <CorridorMatrix region="uae" />
 
-        {/* Chauffeur Academy Feature Banner */}
-        <section className="py-12 bg-brand-soft-neutral/30 border-t border-brand-soft-neutral">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-              <div className="max-w-xl">
-                <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
-                  Operational Standards
-                </span>
-                <h3 className="text-xl font-bold text-brand-indigo mb-2">
-                  UAE Chauffeur Protocol Academy
-                </h3>
-                <p className="text-xs sm:text-sm text-brand-slate leading-relaxed"><BrandText>
-                  Discover the 5-pillar limousine curriculum, 24-point pre-dispatch vehicle inspection audit, and RTA compliant luxury chauffeur standards at Victor Dubai.
-                </BrandText></p>
-              </div>
-              <Link
-                href="/uae/academy"
-                className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-indigo hover:bg-brand-blue text-white text-xs font-bold transition-all shadow-xs"
-              >
-                <span>Explore Academy Standards</span>
-                <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
-              </Link>
-            </div>
-          </div>
-        </section>
+
 
         {/* CTA Bar */}
         <section className="py-14 bg-white border-t border-brand-soft-neutral">

@@ -10,7 +10,7 @@ import { FileText, ShieldCheck, CheckCircle2, Building2 } from "lucide-react";
 export const metadata: Metadata = {
   title: "Executive Presentation Deck & Capability Brochure | Victor Mobility India",
   description:
-    "Official digital slide deck and corporate capability brochure for Victor Mobility India. Explore our 2,000+ car & 500+ bus fleet, Chauffeur Academy, and enterprise transit solutions with Print-to-PDF procurement styling.",
+    "Official digital slide deck and corporate capability brochure for Victor Mobility India. Explore our 2,000+ car & 500+ bus fleet, Driver Training standards, and enterprise transit solutions with Print-to-PDF procurement styling.",
   alternates: {
     canonical: "https://victor-mobility.vercel.app/india/brochure",
     languages: {
@@ -61,7 +61,7 @@ export default function IndiaBrochurePage() {
                 Executive Presentation Deck
               </h1>
               <p className="text-base sm:text-lg text-brand-slate-light leading-relaxed">
-                Review our comprehensive corporate mobility capability profile, 2,000+ vehicle infrastructure, Chauffeur Academy compliance standards, and multi-city operations, upholding: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
+                Review our comprehensive corporate mobility capability profile, 2,000+ vehicle infrastructure, Driver Training compliance standards, and multi-city operations, upholding: <strong className="text-white">&ldquo;On Time Every Time.&rdquo;</strong>
               </p>
 
               <div className="pt-2 flex flex-wrap gap-6 text-xs text-brand-slate-light">

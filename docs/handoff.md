@@ -1,5 +1,37 @@
 # Handoff
 
+## 12 November 2026 — Driver Training Full PDF Transcription & Academy Cleanup
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Updated the existing `/india/driver-training` page to present the full Daily Drivers Briefing directly from `Victor_Daily_Drivers_Briefing-1.pdf` and completely removed the separate Chauffeur Academy experience:
+
+1. **Complete Verbatim Briefing Transcription (Pages 1 to 5)**:
+   - **Page 1 (Important Instructions)**: Exact heading "DAILY DRIVERS BRIEFING", subtitle "IMPORTANT INSTRUCTIONS", "Dear Team", supervisor/tracker mandate, 12 complete briefing points (grooming, vehicle cleanliness, fuel/CNG/tyres/brakes/lights/AC, reporting time, traffic rules, no mobile phones, no rash/drunk driving, professional behaviour, safe pickups/drops, immediate incident reporting, drowsy driving prohibition, client guidelines), prominent mandatory WhatsApp reporting directive, and closing banner.
+   - **Page 2 (Shift Start Standard)**: "Daily Briefing – Shift Start Standard", pre-deployment expectations banner, and 5 distinct shift-start checklist standards.
+   - **Page 3 (Driver Safety & Professional Conduct)**: Structured two-column layout covering "SAFE DRIVING" (4 core rules: speed limits, zero tolerance for rash/drunk driving, no phone use, no driving while fatigued) and "SERVICE & REPORTING" (4 core rules: courteous passenger care, designated stop safety, immediate fault reporting, route confirmation).
+   - **Page 4 (On-Site Activity & Parking Area Briefing Photos)**: Displays the 4 distinct photographs extracted from page 4 of the PDF in a clean responsive grid with authentic operational captions and descriptive alt text:
+     - `daily-briefing-parking-group.jpg`: Supervisor addressing assembled drivers in the vehicle parking area.
+     - `daily-briefing-pre-departure.jpg`: Pre-departure check of driver readiness and uniform.
+     - `daily-briefing-supervisor-log.jpg`: Supervisor recording attendance and check-in on site.
+     - `daily-briefing-road-safety.jpg`: Reinforcing road safety rules and boarding procedures.
+   - **Page 5 (Mandatory Reporting & Compliance)**: "Mandatory Reporting & Compliance", supervisor checklist (3 items), closing banner "DAILY BRIEFING IS MANDATORY FOR ALL SHIFTS – WITHOUT FAIL.", and brand tagline.
+   - **Supporting Classroom Section**: Positioned cleanly after the briefing, presenting the 2 previously supplied classroom training photographs with factual captions.
+
+2. **Chauffeur Academy Experience Removal**:
+   - Deleted standalone routes: `src/app/india/academy/`, `src/app/india/academy/verify/`, `src/app/uae/academy/`, and `src/app/uae/academy/verify/`.
+   - Removed the "Explore the Chauffeur Academy" banner from driver training and UAE services.
+   - Cleaned up cross-links in footers, brochures, SLA, protocol, safety, and due diligence pages, pointing "Driver Training" directly to `/india/driver-training`.
+
+3. **Verification & Quality Gates**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings or errors.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+   - Playwright verification: All verbatim texts verified, 4 on-site photos and 2 classroom photos load with HTTP 200, zero `/academy` links remain, and zero horizontal scroll across 1440px, 1024px, 768px, 390px, and 320px viewports.
+   - Screenshots:
+     - [Desktop 1440px](screenshots/driver-training-desktop.png)
+     - [Mobile 390px](screenshots/driver-training-mobile.png)
+
 ## 11 November 2026 — Employee Digital Business Card Visual Redesign
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
