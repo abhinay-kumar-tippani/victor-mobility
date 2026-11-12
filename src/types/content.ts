@@ -285,30 +285,37 @@ export interface AchievementsContent {
   closingSection: AchievementsClosing;
 }
 
-export interface DriverTrainingChecklist {
+export interface TrainingPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+
+export interface BriefingBeforeDeparture {
   title: string;
-  items: string[];
+  intro: string;
+  photo: TrainingPhoto;
+  driverReadiness: {
+    title: string;
+    items: string[];
+  };
+  vehicleChecks: {
+    title: string;
+    items: string[];
+  };
 }
 
-export interface DriverTrainingStandard {
+export interface BriefingOnTheRoad {
   title: string;
-  description: string;
-}
-
-export interface DriverTrainingSection1 {
-  id: string;
-  question: string;
   intro: string;
-  driverChecklist: DriverTrainingChecklist;
-  vehicleChecklist: DriverTrainingChecklist;
-}
-
-export interface DriverTrainingSection2 {
-  id: string;
-  question: string;
-  intro: string;
-  standards: DriverTrainingStandard[];
-  safetyRules: {
+  photo: TrainingPhoto;
+  conductStandards: Array<{
+    title: string;
+    description: string;
+  }>;
+  explicitSafetyRules: {
     title: string;
     rules: string[];
   };
@@ -318,44 +325,46 @@ export interface DriverTrainingSection2 {
   };
 }
 
-export interface DriverTrainingInsideSection {
-  id: string;
+export interface BriefingSupervisorFollowUp {
   title: string;
-  description: string;
-  photo: {
-    src: string;
-    alt: string;
-    caption: string;
-    width: number;
-    height: number;
-  };
-}
-
-export interface DriverTrainingSupervisorSection {
-  id: string;
-  question: string;
   intro: string;
+  photo: TrainingPhoto;
   responsibilities: Array<{
     title: string;
     description: string;
   }>;
-  staffNotice: string;
+  mandatoryRule: string;
+  staffProtocolNotice: string;
+}
+
+export interface DailyDriverBriefingSection {
+  title: string;
+  eyebrow: string;
+  intro: string;
+  mandatoryNotice: string;
+  leadPhoto: TrainingPhoto;
+  beforeDeparture: BriefingBeforeDeparture;
+  onTheRoad: BriefingOnTheRoad;
+  supervisorFollowUp: BriefingSupervisorFollowUp;
+}
+
+export interface ClassroomTrainingSection {
+  title: string;
+  eyebrow: string;
+  intro: string;
+  photo: TrainingPhoto;
+  keyPoints: Array<{
+    title: string;
+    description: string;
+  }>;
 }
 
 export interface DriverTrainingContent {
   title: string;
   eyebrow: string;
   intro: string;
-  heroPhoto: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
-  question1: DriverTrainingSection1;
-  question2: DriverTrainingSection2;
-  insideBriefing: DriverTrainingInsideSection;
-  question3: DriverTrainingSupervisorSection;
+  dailyBriefing: DailyDriverBriefingSection;
+  classroomTraining: ClassroomTrainingSection;
   academyCta: {
     heading: string;
     description: string;
