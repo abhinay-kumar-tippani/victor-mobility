@@ -285,28 +285,77 @@ export interface AchievementsContent {
   closingSection: AchievementsClosing;
 }
 
-export interface DriverTrainingCurriculumMoment {
-  moment: number;
+export interface DriverTrainingChecklist {
   title: string;
-  description: string;
-  practicalExample: string;
+  items: string[];
 }
 
-export interface DriverTrainingScenario {
-  badge: string;
+export interface DriverTrainingStandard {
   title: string;
+  description: string;
+}
+
+export interface DriverTrainingSection1 {
+  id: string;
   question: string;
-  disclosureLabel: string;
-  suggestedResponse: string;
-  educationalNote: string;
+  intro: string;
+  driverChecklist: DriverTrainingChecklist;
+  vehicleChecklist: DriverTrainingChecklist;
+}
+
+export interface DriverTrainingSection2 {
+  id: string;
+  question: string;
+  intro: string;
+  standards: DriverTrainingStandard[];
+  safetyRules: {
+    title: string;
+    rules: string[];
+  };
+  incidentReporting: {
+    title: string;
+    description: string;
+  };
+}
+
+export interface DriverTrainingInsideSection {
+  id: string;
+  title: string;
+  description: string;
+  photo: {
+    src: string;
+    alt: string;
+    caption: string;
+    width: number;
+    height: number;
+  };
+}
+
+export interface DriverTrainingSupervisorSection {
+  id: string;
+  question: string;
+  intro: string;
+  responsibilities: Array<{
+    title: string;
+    description: string;
+  }>;
+  staffNotice: string;
 }
 
 export interface DriverTrainingContent {
   title: string;
+  eyebrow: string;
   intro: string;
-  curriculumSectionLabel: string;
-  curriculumMoments: DriverTrainingCurriculumMoment[];
-  scenario: DriverTrainingScenario;
+  heroPhoto: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+  question1: DriverTrainingSection1;
+  question2: DriverTrainingSection2;
+  insideBriefing: DriverTrainingInsideSection;
+  question3: DriverTrainingSupervisorSection;
   academyCta: {
     heading: string;
     description: string;

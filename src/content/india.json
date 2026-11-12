@@ -1344,35 +1344,102 @@
   },
   "driverTraining": {
     "title": "Driver Training",
-    "intro": "Explore how preparation, road awareness and passenger care fit into a professional driver’s day.",
-    "curriculumSectionLabel": "Sample training outline",
-    "curriculumMoments": [
-      {
-        "moment": 1,
-        "title": "Before pickup",
-        "description": "Pre-dispatch reconnaissance, vehicle hygiene verification, and route telematics assessment before arrival.",
-        "practicalExample": "Confirming GPS telematics, checking tire pressure and HVAC settings, and verifying that bottled water, amenities, and cabin cleanliness meet executive standards 15 minutes prior to scheduled pickup."
+    "eyebrow": "Daily Shift Standards",
+    "intro": "Before every shift, Victor's supervisors brief drivers on vehicle readiness, safe driving and passenger care.",
+    "heroPhoto": {
+      "src": "/images/training/driver-briefing-group.jpg",
+      "alt": "Victor Mobility operations supervisors conducting daily driver briefing on vehicle readiness, safe driving, and passenger care",
+      "width": 1024,
+      "height": 768
+    },
+    "question1": {
+      "id": "departure-checklist",
+      "question": "What gets checked before departure?",
+      "intro": "Every operational shift begins with a structured pre-departure review. Supervisors verify personal readiness, driver presentation, and comprehensive vehicle roadworthiness before any vehicle departs.",
+      "driverChecklist": {
+        "title": "Driver Readiness & Presentation",
+        "items": [
+          "Attendance confirmation and readiness for assigned duty",
+          "Physical fitness for duty — well-rested, alert, and healthy",
+          "Clean, pressed corporate uniform and professional grooming",
+          "Valid driver ID card and required regulatory documentation"
+        ]
       },
-      {
-        "moment": 2,
-        "title": "On the road",
-        "description": "Defensive driving, lane discipline, smooth passenger comfort, and heightened awareness during peak corridors.",
-        "practicalExample": "Maintaining consistent braking buffers, navigating congested junctions with calm patience, and observing female passenger night-safety protocols throughout the transit."
-      },
-      {
-        "moment": 3,
-        "title": "At drop-off",
-        "description": "Authorized curb parking, polite passenger egress assistance, and mandatory vehicle cabin security sweep.",
-        "practicalExample": "Pulling up smoothly at the designated drop-off bay, offering courteous umbrella or luggage assistance, and immediately checking rear passenger seats for forgotten items."
+      "vehicleChecklist": {
+        "title": "Vehicle Health & Cabin Standards",
+        "items": [
+          "Exterior vehicle cleanliness and pristine cabin hygiene",
+          "Fuel or CNG levels adequate for the complete assigned shift",
+          "Tyre pressure, tread condition, and spare wheel readiness",
+          "Brake response, steering feel, and horn functioning",
+          "All exterior lights, indicators, and hazards operational",
+          "Air conditioning and climate control functioning optimally"
+        ]
       }
-    ],
-    "scenario": {
-      "badge": "Interactive Reflection",
-      "title": "What would you do?",
-      "question": "You reach the pickup point and the passenger is at a different entrance.",
-      "disclosureLabel": "See suggested response",
-      "suggestedResponse": "Stop in a permitted location, confirm the entrance with the passenger or dispatch, and agree on a safe meeting point.",
-      "educationalNote": "This scenario emphasizes defensive road placement, clear communication, and safe passenger coordination over hasty curb maneuvers."
+    },
+    "question2": {
+      "id": "on-the-road-expectations",
+      "question": "What is expected on the road?",
+      "intro": "Once on the road, professional discipline and passenger well-being guide every movement. Drivers are held to exacting road standards and strict safety protocols across every trip.",
+      "standards": [
+        {
+          "title": "Punctuality & Schedule Adherence",
+          "description": "Drivers report to designated pickup points on schedule, navigate planned corridors calmly, and ensure smooth, punctual arrivals without hasty driving."
+        },
+        {
+          "title": "Safe & Courteous Pickups and Drop-offs",
+          "description": "Boarding and alighting take place only at safe, permitted curb bays. Drivers assist passengers courteously with doors and luggage while maintaining executive decorum."
+        },
+        {
+          "title": "Traffic Compliance & Professional Conduct",
+          "description": "Full observance of speed limits, lane discipline, and road regulations is mandatory. Drivers maintain respectful, polite, and calm interactions with passengers and corporate clients at all times."
+        }
+      ],
+      "safetyRules": {
+        "title": "Explicit Safety Rules — Zero Tolerance",
+        "rules": [
+          "No speeding, rash driving, or erratic maneuvers under any conditions",
+          "Strictly no mobile phone usage while driving — hands-free or handheld",
+          "Zero alcohol or substance tolerance — never drive after drinking",
+          "Never drive while tired or drowsy — pull over safely and alert dispatch"
+        ]
+      },
+      "incidentReporting": {
+        "title": "Immediate Reporting Protocol",
+        "description": "In the event of an accident, vehicle breakdown, traffic obstruction, or operational issue, the driver must report immediately to the 24/7 dispatch supervisor and tracking team for rapid operational support."
+      }
+    },
+    "insideBriefing": {
+      "id": "inside-driver-briefing",
+      "title": "Inside a driver briefing",
+      "description": "Daily briefings provide a focused forum where supervisors review safety reminders and operational expectations, and drivers align on client standards, route conditions, and passenger care protocols before beginning their shift.",
+      "photo": {
+        "src": "/images/training/driver-briefing-participant-speaking.jpg",
+        "alt": "A participant speaks during the driver training session",
+        "caption": "A participant speaks during the training session.",
+        "width": 1024,
+        "height": 768
+      }
+    },
+    "question3": {
+      "id": "supervisor-recording",
+      "question": "What does the supervisor record?",
+      "intro": "Accountability is an operational requirement for every shift. Supervisors and trackers systematically record and communicate briefing compliance before any vehicle is dispatched.",
+      "responsibilities": [
+        {
+          "title": "Documenting Attendance & Observations",
+          "description": "Supervisors maintain a formal log verifying each driver's on-time attendance, uniform standards, vehicle checklist results, and individual briefing notes."
+        },
+        {
+          "title": "Briefing Verification Photography",
+          "description": "Each briefing is photographed on site to capture team attendance and readiness as visual verification of shift compliance."
+        },
+        {
+          "title": "Internal Operations WhatsApp Group Sharing",
+          "description": "Attendance logs, operational observations, and briefing photos are shared through the official internal operations WhatsApp group for management review before shift deployment."
+        }
+      ],
+      "staffNotice": "Briefing documentation and reporting is an internal supervisory responsibility completed before every shift deployment."
     },
     "academyCta": {
       "heading": "Explore the Chauffeur Academy",
