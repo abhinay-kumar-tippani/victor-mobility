@@ -422,7 +422,7 @@ export const enDictionary: TranslationDictionary = {
     subtitle:
       "Victor is led by experienced transportation veterans who remain personally accessible to corporate clients.",
     founderTitle: "Founder & Managing Director",
-    founderName: "Syed Jahangir",
+    founderName: "Jahangir Haadi",
     founderBio: [
       "Founded Victor Mobility in 2009 with a commitment to disciplined, punctual corporate employee transportation.",
       "Over 18 years of hands-on operations experience scaling from a single vehicle contract to managing over 1,500 vehicles across India.",

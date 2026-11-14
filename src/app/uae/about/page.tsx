@@ -31,7 +31,7 @@ import type { IndiaContent, MediaContent } from "@/types/content";
 export const metadata: Metadata = {
   title: "About Us | Victor Mobility UAE - Dubai & Abu Dhabi Luxury Limousine",
   description:
-    "Discover Victor Mobility UAE: our founder Jahangir, Dubai head office near DXB, 2,000+ car & 500+ bus capabilities, and operating standards across the Emirates. On Time Every Time.",
+    "Discover Victor Mobility UAE: our founder Jahangir Haadi, Dubai head office near DXB, 2,000+ car & 500+ bus capabilities, and operating standards across the Emirates. On Time Every Time.",
 };
 
 export default function UaeAboutPage() {

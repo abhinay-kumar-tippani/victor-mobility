@@ -35,7 +35,7 @@ import type { IndiaContent, MediaContent } from "@/types/content";
 export const metadata: Metadata = {
   title: "About Us | Victor Mobility - Corporate & Luxury Transport Partner",
   description:
-    "Discover Victor Mobility Pvt. Ltd.: our founder Jahangir, company history since 2010, leadership, operating discipline, and verified network across 10 operational hubs pan-India. On Time Every Time.",
+    "Discover Victor Mobility Pvt. Ltd.: our founder Jahangir Haadi, company history since 2010, leadership, operating discipline, and verified network across 10 operational hubs pan-India. On Time Every Time.",
 };
 
 export default function AboutPage() {
