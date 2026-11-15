@@ -6,21 +6,21 @@ import {
   Shield,
   MapPin,
   Clock,
-  Building2,
+  Buildings,
   Users,
-  CheckCircle2,
-  Phone,
-  MessageSquare,
-  HelpCircle,
-  Award,
-  Sparkles,
-  HeartHandshake,
+  CheckCircle,
+  PhoneCall,
+  ChatCircleDots,
+  Question,
+  Trophy,
+  Sparkle,
+  Handshake,
   ArrowRight,
   ShieldCheck,
-  Quote,
+  Quotes,
   Calendar,
   Check,
-} from "lucide-react";
+} from "@phosphor-icons/react/dist/ssr";
 import TopBrandsStrip from "@/components/home/TopBrandsStrip";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -60,7 +60,7 @@ export default function AboutPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
               <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
-                <Building2 className="w-3.5 h-3.5 text-brand-violet" />
+                <Buildings className="w-3.5 h-3.5 text-brand-violet" />
                 Company Story & Philosophy
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -126,7 +126,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="p-4 sm:p-5 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral flex items-start gap-3">
-                    <Quote className="w-5 h-5 text-brand-indigo shrink-0 mt-1" />
+                    <Quotes className="w-5 h-5 text-brand-indigo shrink-0 mt-1" />
                     <p className="text-sm sm:text-base font-semibold italic text-brand-ink">
                       &ldquo;{founder.quote}&rdquo;
                     </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
 
                   <div className="pt-4 border-t border-brand-soft-neutral flex flex-wrap items-center gap-6 text-xs text-brand-ink/70">
                     <div className="flex items-center gap-2">
-                      <Award className="w-4 h-4 text-brand-blue" />
+                      <Trophy className="w-4 h-4 text-brand-blue" />
                       <span className="font-semibold">Established 2010 in Hyderabad</span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -198,7 +198,7 @@ export default function AboutPage() {
                       </p>
                     </div>
                     <div className="pt-3 border-t border-brand-soft-neutral/70 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-blue">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Verified Milestone</span>
                     </div>
                   </div>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                   href="/india/achievements"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-warm-white border border-brand-indigo/20 text-brand-indigo hover:bg-brand-indigo hover:text-white text-xs sm:text-sm font-bold transition-all shadow-2xs"
                 >
-                  <Award className="w-4 h-4" />
+                  <Trophy className="w-4 h-4" />
                   <span>View Achievements &amp; Recognition Gallery</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -240,7 +240,7 @@ export default function AboutPage() {
               href="/india/achievements"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-indigo hover:bg-brand-indigo-light text-white text-xs sm:text-sm font-bold shadow-sm transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:ring-offset-2"
             >
-              <Award className="w-4 h-4" />
+              <Trophy className="w-4 h-4" />
               <span>View Achievements Gallery</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -332,7 +332,7 @@ export default function AboutPage() {
                       className="text-xs font-bold text-brand-indigo hover:text-brand-blue inline-flex items-center gap-1.5"
                     >
                       <span>Enquire for {office.city}</span>
-                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <CheckCircle className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
@@ -347,7 +347,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
               <div className="text-center space-y-3">
                 <div className="inline-flex items-center gap-2 uppercase text-brand-indigo section-eyebrow section-eyebrow--compact">
-                  <HelpCircle className="w-4 h-4" />
+                  <Question className="w-4 h-4" />
                   <span>Clarifications & Guidance</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
@@ -396,7 +396,7 @@ export default function AboutPage() {
                     href="/india/contact"
                     className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
                   >
-                    <MessageSquare className="w-4 h-4" />
+                    <ChatCircleDots className="w-4 h-4" />
                     <span>Open Requirement Desk</span>
                   </Link>
                 </div>

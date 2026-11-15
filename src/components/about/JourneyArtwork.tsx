@@ -3,7 +3,7 @@
 import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
-import { Maximize2, X } from "lucide-react";
+import { ArrowsOutSimple, X } from "@phosphor-icons/react/dist/ssr";
 import journey from "@/content/journey.json";
 import styles from "./JourneyArtwork.module.css";
 
@@ -77,7 +77,7 @@ export default function JourneyArtwork({ dark = false }: { dark?: boolean }) {
             aria-expanded={isOpen}
             className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 font-semibold underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${dark ? "text-white hover:text-[#C5B5E5] focus-visible:outline-white" : "text-brand-indigo hover:text-brand-violet focus-visible:outline-brand-indigo"}`}
           >
-            Open full-size image <Maximize2 className="h-4 w-4" aria-hidden="true" />
+            Open full-size image <ArrowsOutSimple className="h-4 w-4" aria-hidden="true" />
           </button>
         </figcaption>
       </figure>

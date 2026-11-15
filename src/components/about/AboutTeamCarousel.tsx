@@ -4,7 +4,7 @@ import BrandText from "@/components/brand/BrandText";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Mail, MessageSquare, Pause, Phone, Play, QrCode } from "lucide-react";
+import { CaretLeft, CaretRight, EnvelopeSimple, ChatCircleDots, Pause, PhoneCall, Play, QrCode } from "@phosphor-icons/react/dist/ssr";
 import type { ContactData, TeamProfile } from "@/types/content";
 
 interface AboutTeamCarouselProps {
@@ -111,19 +111,19 @@ export default function AboutTeamCarousel({ featured, featuredDescription, profi
           <div className="grid gap-2 border-t border-brand-soft-neutral pt-4 sm:grid-cols-2">
             {!person.placeholder && person.phoneHref && person.phoneDisplay && (
               <a href={person.phoneHref} className="flex min-h-12 min-w-0 items-center gap-3 rounded-xl border border-brand-soft-neutral bg-brand-warm-white px-4 py-2 text-brand-indigo transition-colors hover:border-brand-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo">
-                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <PhoneCall className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span className="min-w-0"><span className="block text-[10px] font-bold uppercase tracking-wider">Call directly</span><bdi dir="ltr" className="block text-xs font-semibold">{person.phoneDisplay}</bdi></span>
               </a>
             )}
             {!person.placeholder && whatsappDigits && person.whatsappDisplay && (
               <a href={`https://wa.me/${whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" className="flex min-h-12 min-w-0 items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-emerald-800 transition-colors hover:bg-emerald-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">
-                <MessageSquare className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <ChatCircleDots className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span className="min-w-0"><span className="block text-[10px] font-bold uppercase tracking-wider">Open WhatsApp draft</span><bdi dir="ltr" className="block text-xs font-semibold">{person.whatsappDisplay}</bdi></span>
               </a>
             )}
             {!person.placeholder && person.emailEnabled && person.emailDisplay && (
               <a href={`mailto:${person.emailDisplay}`} className="flex min-h-12 min-w-0 items-center gap-3 rounded-xl border border-brand-soft-neutral bg-brand-warm-white px-4 py-2 text-brand-indigo transition-colors hover:border-brand-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo sm:col-span-2">
-                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <EnvelopeSimple className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span className="min-w-0"><span className="block text-[10px] font-bold uppercase tracking-wider">Compose email</span><bdi dir="ltr" className="block break-all text-xs font-semibold">{person.emailDisplay}</bdi></span>
               </a>
             )}
@@ -159,8 +159,8 @@ export default function AboutTeamCarousel({ featured, featuredDescription, profi
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-brand-soft-neutral pt-4">
             <div className="flex items-center gap-2">
-              <button type="button" aria-label="Previous employee" onClick={() => showProfile(activeIndex - 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo"><ChevronLeft className="h-5 w-5 rtl:rotate-180" aria-hidden="true" /></button>
-              <button type="button" aria-label="Next employee" onClick={() => showProfile(activeIndex + 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo"><ChevronRight className="h-5 w-5 rtl:rotate-180" aria-hidden="true" /></button>
+              <button type="button" aria-label="Previous employee" onClick={() => showProfile(activeIndex - 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo"><CaretLeft className="h-5 w-5 rtl:rotate-180" aria-hidden="true" /></button>
+              <button type="button" aria-label="Next employee" onClick={() => showProfile(activeIndex + 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo"><CaretRight className="h-5 w-5 rtl:rotate-180" aria-hidden="true" /></button>
               {!reducedMotion && <button type="button" aria-label={paused ? "Play slideshow" : "Pause slideshow"} onClick={() => setPaused((value) => !value)} className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-soft-neutral text-brand-indigo transition-colors hover:bg-brand-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo">{paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}</button>}
             </div>
             <div className="flex items-center" role="group" aria-label="Choose an employee">

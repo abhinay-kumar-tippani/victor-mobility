@@ -5,15 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import BrandText from "@/components/brand/BrandText";
 import {
-  Maximize2,
+  ArrowsOutSimple,
   X,
   ArrowRight,
-  Sparkles,
-  HeartHandshake,
-  ZoomIn,
-  ZoomOut,
-  Zap,
-} from "lucide-react";
+  Sparkle,
+  Handshake,
+  MagnifyingGlassPlus,
+  MagnifyingGlassMinus,
+  Lightning,
+} from "@phosphor-icons/react/dist/ssr";
 import type {
   AchievementsContent,
   AchievementItem,
@@ -95,7 +95,7 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
         <div className="relative max-w-3xl space-y-4">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/20 text-brand-indigo text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <Sparkle className="w-3.5 h-3.5 text-amber-600" />
             <span>{hero.eyebrow}</span>
           </div>
 
@@ -138,9 +138,9 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-warm-white text-brand-indigo border border-brand-soft-neutral shadow-2xs">
                       {isEV ? (
-                        <Zap className="w-3.5 h-3.5 text-amber-600" />
+                        <Lightning className="w-3.5 h-3.5 text-amber-600" />
                       ) : (
-                        <HeartHandshake className="w-3.5 h-3.5 text-amber-600" />
+                        <Handshake className="w-3.5 h-3.5 text-amber-600" />
                       )}
                       <span>{achievement.category}</span>
                     </span>
@@ -239,7 +239,7 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
                       {/* Hover Overlay Cue */}
                       <div className="absolute inset-0 bg-brand-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-brand-indigo text-xs font-bold shadow-md backdrop-blur-xs">
-                          <Maximize2 className="w-3.5 h-3.5" />
+                          <ArrowsOutSimple className="w-3.5 h-3.5" />
                           Click to enlarge
                         </span>
                       </div>
@@ -257,7 +257,7 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
                         aria-haspopup="dialog"
                         aria-expanded={activeItem?.id === achievement.id}
                       >
-                        <Maximize2 className="w-4 h-4" />
+                        <ArrowsOutSimple className="w-4 h-4" />
                         <span>View Full Poster</span>
                       </button>
                     </div>
@@ -307,12 +307,12 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
                 >
                   {isZoomed ? (
                     <>
-                      <ZoomOut className="w-4 h-4" />
+                      <MagnifyingGlassMinus className="w-4 h-4" />
                       <span>Fit</span>
                     </>
                   ) : (
                     <>
-                      <ZoomIn className="w-4 h-4" />
+                      <MagnifyingGlassPlus className="w-4 h-4" />
                       <span>Zoom</span>
                     </>
                   )}

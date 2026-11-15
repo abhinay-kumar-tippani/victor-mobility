@@ -6,23 +6,24 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
-  Briefcase,
+  SuitcaseSimple,
   Users,
   Bus,
   Calendar,
-  Plane,
+  AirplaneTilt,
   Car,
-  KeyRound,
-  CheckCircle2,
-  Phone,
-  MessageSquare,
+  Key,
+  CheckCircle,
+  PhoneCall,
+  ChatCircleDots,
   MapPin,
   Clock,
   ShieldCheck,
-  Sparkles,
-  HelpCircle,
+  Sparkle,
+  Question,
   Check,
-} from "lucide-react";
+} from "@phosphor-icons/react/dist/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import indiaData from "@/content/india.json";
@@ -35,13 +36,13 @@ interface PageProps {
   };
 }
 
-const serviceIcons: Record<string, React.ElementType> = {
+const serviceIcons: Record<string, Icon> = {
   "employee-transportation": Users,
   "bus-shuttle-transport": Bus,
   "event-transportation": Calendar,
-  "airport-transfers": Plane,
+  "airport-transfers": AirplaneTilt,
   "chauffeur-luxury": Car,
-  "rent-a-car": KeyRound,
+  "rent-a-car": Key,
 };
 
 const serviceVisualMap: Record<
@@ -411,7 +412,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
     (s) => s.published && visualData.recommendedComplementary.includes(s.slug)
   );
 
-  const IconComponent = serviceIcons[service.slug] || Briefcase;
+  const IconComponent = serviceIcons[service.slug] || SuitcaseSimple;
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -459,14 +460,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   href={`/india/contact?service=${service.slug}`}
                   className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3 px-5 sm:px-6 rounded-xl transition-colors shadow-sm min-h-[44px]"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <ChatCircleDots className="w-4 h-4" />
                   <span>Request a quote</span>
                 </Link>
                 <a
                   href={content.contact.phoneHref}
                   className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white py-3 px-4 sm:px-5 rounded-xl border border-white/20 transition-colors min-h-[44px]"
                 >
-                  <Phone className="w-4 h-4 text-brand-soft-neutral" />
+                  <PhoneCall className="w-4 h-4 text-brand-soft-neutral" />
                   <span>Call {content.contact.phoneDisplay}</span>
                 </a>
               </div>
@@ -517,7 +518,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       href={`/india/contact?service=${service.slug}`}
                       className="inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-indigo hover:bg-brand-blue text-white py-2.5 px-4 rounded-xl transition-colors shadow-xs min-h-[44px]"
                     >
-                      <MessageSquare className="w-3.5 h-3.5" />
+                      <ChatCircleDots className="w-3.5 h-3.5" />
                       <span>Request a quote for <BrandText>{service.title}</BrandText></span>
                     </Link>
                   </div>
@@ -541,7 +542,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                         className="p-5 rounded-2xl bg-brand-warm-white/70 border border-brand-soft-neutral/80 flex items-start gap-3.5"
                       >
                         <div className="w-8 h-8 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo shrink-0 mt-0.5">
-                          <CheckCircle2 className="w-4 h-4 text-brand-violet" />
+                          <CheckCircle className="w-4 h-4 text-brand-violet" />
                         </div>
                         <div>
                           <h4 className="text-sm font-bold text-brand-ink mb-1">
@@ -608,7 +609,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                         href="/india/contact?service=airport-transfers"
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-indigo hover:bg-brand-blue text-white font-bold text-xs transition shrink-0 min-h-[44px]"
                       >
-                        <MessageSquare className="w-3.5 h-3.5" />
+                        <ChatCircleDots className="w-3.5 h-3.5" />
                         <span>Request a quote</span>
                       </Link>
                     </div>
@@ -688,7 +689,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 {/* Pricing & Proposal Reassurance */}
                 <div className="p-5 rounded-2xl bg-white border border-brand-soft-neutral/80 flex items-start gap-3.5">
                   <div className="w-8 h-8 rounded-xl bg-brand-warm-white border border-brand-soft-neutral flex items-center justify-center text-brand-indigo shrink-0 mt-0.5">
-                    <HelpCircle className="w-4 h-4 text-brand-blue" />
+                    <Question className="w-4 h-4 text-brand-blue" />
                   </div>
                   <div className="text-xs text-brand-ink/75 leading-relaxed">
                     <strong className="text-brand-ink block mb-0.5">Transparent Quotation Process</strong>
@@ -741,7 +742,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       href={`/india/contact?service=${service.slug}`}
                       className="w-full flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors shadow-sm"
                     >
-                      <MessageSquare className="w-4 h-4" />
+                      <ChatCircleDots className="w-4 h-4" />
                       <span>Request a quote</span>
                     </Link>
 
@@ -749,7 +750,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       href={content.contact.phoneHref}
                       className="w-full flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white py-3.5 px-4 rounded-xl text-center transition-colors border border-white/20"
                     >
-                      <Phone className="w-4 h-4 text-brand-soft-neutral" />
+                      <PhoneCall className="w-4 h-4 text-brand-soft-neutral" />
                       <span>Call {content.contact.phoneDisplay}</span>
                     </a>
                   </div>
@@ -760,7 +761,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                       <span>Direct discussion with Business Partner</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-brand-violet shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-brand-violet shrink-0" />
                       <span>Direct confirmation with vehicle & driver details</span>
                     </div>
                   </div>

@@ -1,16 +1,39 @@
 import BrandText from "@/components/brand/BrandText";
 import {
-  ArrowDownRight, Award, Building2, Car, CheckCircle2, Globe, GraduationCap,
-  Leaf, MapPin, Rocket, Route, ShieldCheck, Sparkles, TrendingUp,
-} from "lucide-react";
+  ArrowDownRight,
+  Buildings,
+  Car,
+  CheckCircle,
+  Globe,
+  GraduationCap,
+  Leaf,
+  MapPin,
+  Path,
+  RocketLaunch,
+  ShieldCheck,
+  Sparkle,
+  TrendUp,
+  Trophy,
+} from "@phosphor-icons/react/dist/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { Timeline } from "@/components/velora/timeline";
 import brand from "@/content/brand.json";
 import journey from "@/content/journey.json";
 import styles from "./JourneySection.module.css";
 
-const icons = {
-  Sparkles, Award, Rocket, Car, TrendingUp, GraduationCap,
-  ShieldCheck, MapPin, Globe, Leaf, CheckCircle2, Building2,
+const icons: Record<string, Icon> = {
+  Sparkles: Sparkle,
+  Award: Trophy,
+  Rocket: RocketLaunch,
+  Car,
+  TrendingUp: TrendUp,
+  GraduationCap,
+  ShieldCheck,
+  MapPin,
+  Globe,
+  Leaf,
+  CheckCircle2: CheckCircle,
+  Building2: Buildings,
 };
 
 export default function JourneySection() {
@@ -30,7 +53,7 @@ export default function JourneySection() {
               <span>{firstYear}</span>
               <div className={styles.routeLine} aria-hidden="true">
                 <span />
-                <Route size={22} strokeWidth={1.5} />
+                <Path size={22} weight="bold" />
                 <span />
               </div>
               <span>{lastYear}</span>
@@ -45,7 +68,7 @@ export default function JourneySection() {
                   <span dir="ltr" className={styles.chapterYears}>{chapter.years}</span>
                   <span className={styles.chapterTitle}><BrandText>{chapter.title}</BrandText></span>
                 </span>
-                <ArrowDownRight size={19} strokeWidth={1.5} aria-hidden="true" />
+                <ArrowDownRight size={19} weight="bold" aria-hidden="true" />
               </a>
             ))}
           </nav>
@@ -54,7 +77,7 @@ export default function JourneySection() {
         <Timeline>
           <ol className={styles.milestones}>
             {journey.milestones.map((milestone) => {
-              const Icon = icons[milestone.icon as keyof typeof icons] || Route;
+              const Icon = icons[milestone.icon as keyof typeof icons] || Path;
               return (
                 <li
                   key={milestone.id}
@@ -63,7 +86,7 @@ export default function JourneySection() {
                   className={styles.milestone}
                 >
                   <span className={styles.node} aria-hidden="true">
-                    <Icon size={19} strokeWidth={1.6} />
+                    <Icon size={19} weight="bold" />
                   </span>
                   <article className={styles.card} aria-labelledby={`journey-title-${milestone.id}`}>
                     <div className={styles.cardMeta}>

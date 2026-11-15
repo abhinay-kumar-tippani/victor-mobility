@@ -4,17 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  Briefcase,
+  SuitcaseSimple,
   Users,
   Bus,
   Calendar,
-  Plane,
+  AirplaneTilt,
   Car,
-  KeyRound,
-  CheckCircle2,
-  Phone,
-  MessageSquare,
-} from "lucide-react";
+  Key,
+  CheckCircle,
+  PhoneCall,
+  ChatCircleDots,
+  ShieldCheck,
+  MapPin,
+  Clock,
+} from "@phosphor-icons/react/dist/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CorridorMatrix from "@/components/home/CorridorMatrix";
@@ -28,13 +32,13 @@ export const metadata: Metadata = {
     "Explore Victor Mobility's complete transport portfolio: employee commuting, bus shuttles, airport transfers, event transport, luxury chauffeur, and rental arrangements across 10 operational hubs pan-India.",
 };
 
-const serviceIcons: Record<string, React.ElementType> = {
+const serviceIcons: Record<string, Icon> = {
   "employee-transportation": Users,
   "bus-shuttle-transport": Bus,
   "event-transportation": Calendar,
-  "airport-transfers": Plane,
+  "airport-transfers": AirplaneTilt,
   "chauffeur-luxury": Car,
-  "rent-a-car": KeyRound,
+  "rent-a-car": Key,
 };
 
 interface ServiceMeta {
@@ -79,32 +83,49 @@ export default function ServicesPage() {
       <Header contact={content.contact} />
 
       <main id="main-content" className="flex-1 focus:outline-none">
-        {/* Page Header */}
+        {/* Page Header: Authoritative Corporate Overview */}
         <section className="bg-brand-ink text-white py-16 sm:py-24 border-b border-brand-indigo/30 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:16px_16px]" />
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6E57A0_1px,transparent_1px)] [background-size:20px_20px]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral section-eyebrow section-eyebrow--hero">
-                <Briefcase className="w-3.5 h-3.5 text-brand-violet" />
-                Mobility Services
+            <div className="max-w-3xl space-y-5">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-indigo/40 border border-brand-violet/40 uppercase text-brand-soft-neutral text-xs font-semibold tracking-wider">
+                <SuitcaseSimple className="w-4 h-4 text-brand-violet" />
+                Mobility Services Portfolio
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Corporate & Group Transport Solutions
+                Corporate &amp; Group Transport Solutions
               </h1>
-              <p className="text-base sm:text-lg text-brand-soft-neutral/85 leading-relaxed"><BrandText>
-                From daily employee shift shuttles to executive airport transfers and large-scale event logistics,
-                Victor Mobility provides dependable vehicle arrangements across 10 operational hubs pan-India.
-              </BrandText></p>
+              <p className="text-base sm:text-lg text-brand-soft-neutral/90 leading-relaxed font-normal">
+                <BrandText>
+                  From roster-synchronized employee shift shuttles to executive airport delegations and bespoke luxury saloons, Victor Mobility coordinates dependable fleet logistics across 10 operational hubs pan-India.
+                </BrandText>
+              </p>
+
+              {/* Quick Operational Signals */}
+              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-brand-soft-neutral/80">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15">
+                  <MapPin className="w-3.5 h-3.5 text-brand-violet" />
+                  10 Metro Operating Hubs
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15">
+                  <Clock className="w-3.5 h-3.5 text-brand-blue" />
+                  24/7 Operations Desk
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                  AIS-140 GPS &amp; BGV Vetted
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Services Grid: Elevated Cards */}
         <section className="py-16 sm:py-24 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {publishedServices.map((service, index) => {
-                const IconComponent = serviceIcons[service.slug] || Briefcase;
+                const IconComponent = serviceIcons[service.slug] || SuitcaseSimple;
                 const meta = serviceMeta[service.slug] || {
                   imageSrc: "/images/india/services/service-employee-transport.webp",
                   imageAlt: service.title,
@@ -114,9 +135,9 @@ export default function ServicesPage() {
                   <article
                     key={service.slug}
                     data-testid={`service-card-${service.slug}`}
-                    className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-[#15162F] p-7 sm:p-8 shadow-[0_10px_30px_-5px_rgba(21,22,47,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-white/25 overflow-hidden min-h-[420px]"
+                    className="group relative flex flex-col justify-between rounded-3xl border border-brand-indigo/15 bg-[#15162F] p-7 sm:p-8 shadow-[0_10px_30px_-5px_rgba(21,22,47,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-brand-violet/40 overflow-hidden min-h-[440px]"
                   >
-                    {/* Direct Background Image Layer */}
+                    {/* Background Image Layer with Refined Scrim */}
                     <div className="absolute inset-0 z-0 pointer-events-none">
                       <Image
                         src={meta.imageSrc}
@@ -125,17 +146,16 @@ export default function ServicesPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
                       />
-                      {/* High-legibility brand ink gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#15162F]/95 via-[#15162F]/85 to-[#15162F]/60" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#15162F]/98 via-[#15162F]/88 to-[#15162F]/65" />
                     </div>
 
-                    {/* Card Content - Z-index 10 above image layer */}
+                    {/* Card Header & Content */}
                     <div className="relative z-10 flex flex-col flex-1">
                       <div className="flex items-center justify-between gap-4 mb-5">
-                        <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-white/25 group-hover:scale-105">
+                        <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-brand-indigo group-hover:scale-105">
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
-                        <span className="text-xs font-mono font-bold text-white/70">
+                        <span className="text-xs font-mono font-bold text-white/70 bg-white/10 px-2.5 py-1 rounded-lg border border-white/15">
                           0{index + 1}
                         </span>
                       </div>
@@ -144,7 +164,7 @@ export default function ServicesPage() {
                         <BrandText>{service.title}</BrandText>
                       </h2>
 
-                      <p className="text-sm font-semibold text-brand-soft-neutral/90 mb-3">
+                      <p className="text-sm font-semibold text-brand-soft-neutral/95 mb-3 leading-snug">
                         {service.shortDescription}
                       </p>
 
@@ -152,19 +172,19 @@ export default function ServicesPage() {
                         <BrandText>{service.description}</BrandText>
                       </p>
 
-                      {/* Key Enquiry Scope Details */}
+                      {/* Key Coordination Scope Details */}
                       {service.enquiryDetails && service.enquiryDetails.length > 0 && (
                         <div className="border-t border-white/15 pt-4 mb-6">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-white/70 block mb-2">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-brand-soft-neutral/80 block mb-2.5">
                             Key Coordination Scope
                           </span>
                           <ul className="space-y-1.5">
                             {service.enquiryDetails.map((detail) => (
                               <li
                                 key={detail}
-                                className="flex items-start gap-2 text-xs text-white/90"
+                                className="flex items-start gap-2 text-xs text-white/90 leading-tight"
                               >
-                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                                <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                                 <span>{detail}</span>
                               </li>
                             ))}
@@ -173,7 +193,7 @@ export default function ServicesPage() {
                       )}
                     </div>
 
-                    {/* Action Links */}
+                    {/* Card Actions */}
                     <div className="relative z-10 pt-4 border-t border-white/15 flex items-center justify-between gap-3 mt-auto">
                       <Link
                         href={`/india/services/${service.slug}`}
@@ -187,7 +207,7 @@ export default function ServicesPage() {
                         href={`/india/contact?service=${service.slug}`}
                         className="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-brand-ink hover:bg-brand-indigo hover:text-white px-3.5 py-1.5 rounded-xl shadow-sm transition-all"
                       >
-                        <MessageSquare className="w-3.5 h-3.5 text-brand-blue" />
+                        <ChatCircleDots className="w-3.5 h-3.5 text-brand-indigo group-hover:text-white" />
                         <span>Enquire</span>
                       </Link>
                     </div>
@@ -202,47 +222,49 @@ export default function ServicesPage() {
         <CorridorMatrix region="india" />
 
         {/* Corporate Quotation & Safety Banner */}
-        <section className="py-12 bg-brand-soft-neutral/30 border-t border-brand-soft-neutral">
+        <section className="py-14 bg-brand-soft-neutral/30 border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-soft-neutral shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                 <div>
-                  <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
-                    Corporate Quotation
+                  <span className="inline-flex items-center gap-1.5 uppercase text-brand-indigo font-bold text-xs tracking-wider block mb-2">
+                    <SuitcaseSimple className="w-3.5 h-3.5 text-brand-indigo" />
+                    Corporate Proposals
                   </span>
-                  <h3 className="text-xl font-bold text-brand-indigo mb-2">
-                    Corporate Travel Quotations
+                  <h3 className="text-xl font-bold text-brand-ink mb-2">
+                    Custom Shift &amp; Fleet Quotations
                   </h3>
-                  <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
-                    Discuss employee route corridors, executive airport connections, or event schedules. Our operations team provides an itemized proposal based on your requirements.
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed mb-6">
+                    Discuss employee route corridors, executive airport connections, or large-scale event logistics. Our operations team provides an itemized commercial proposal with clear SLA guarantees.
                   </p>
                 </div>
                 <Link
                   href="/india/contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors w-fit"
                 >
-                  <span>Request Corporate Quotation</span>
+                  <span>Request Corporate Proposal</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-brand-soft-neutral shadow-xs flex flex-col justify-between">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-soft-neutral shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                 <div>
-                  <span className="uppercase text-brand-blue block mb-2 section-eyebrow section-eyebrow--compact">
+                  <span className="inline-flex items-center gap-1.5 uppercase text-brand-violet font-bold text-xs tracking-wider block mb-2">
+                    <ShieldCheck className="w-3.5 h-3.5 text-brand-violet" />
                     Operational Standards
                   </span>
-                  <h3 className="text-xl font-bold text-brand-indigo mb-2">
-                    Verified Chauffeur & Safety Rigour
+                  <h3 className="text-xl font-bold text-brand-ink mb-2">
+                    Verified Chauffeur &amp; Safety Rigour
                   </h3>
-                  <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
-                    Discover our 100% background-checked drivers, 24/7 telematics monitoring, and transparent corporate governance backing &ldquo;On Time Every Time.&rdquo;
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed mb-6">
+                    Discover our 100% background-checked drivers (BGV &amp; PVC), 24/7 telematics monitoring, and transparent corporate governance backing &ldquo;On Time Every Time.&rdquo;
                   </p>
                 </div>
                 <Link
-                  href="/india/about"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-brand-blue-dark transition-colors"
+                  href="/india/driver-training"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-violet hover:text-brand-indigo transition-colors w-fit"
                 >
-                  <span>Read Safety &amp; Governance Standards</span>
+                  <span>Review Driver Training Protocols</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -251,35 +273,38 @@ export default function ServicesPage() {
         </section>
 
         {/* Operating Coverage Banner */}
-        <section className="py-14 bg-white border-t border-brand-soft-neutral">
+        <section className="py-16 bg-white border-t border-brand-soft-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 border border-brand-indigo/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
               <div className="space-y-3 max-w-xl">
-                <span className="uppercase text-brand-violet block section-eyebrow section-eyebrow--compact">
-                  Authorised India Coverage
+                <span className="inline-flex items-center gap-2 uppercase text-brand-violet font-bold text-xs tracking-wider">
+                  <MapPin className="w-3.5 h-3.5" />
+                  Authorised India Operating Grid
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Operating across 10 Operational Hubs Pan-India
+                  Operating across 10 Commercial Hubs Pan-India
                 </h3>
-                <p className="text-sm text-brand-soft-neutral/85 leading-relaxed"><BrandText>
-                  Victor Mobility coordinates scheduled transportation across Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata.
-                  Tell our team your route corridors, shift timings, or travel schedules for custom planning.
-                </BrandText></p>
+                <p className="text-sm text-brand-soft-neutral/85 leading-relaxed">
+                  <BrandText>
+                    Victor Mobility coordinates scheduled transportation across Hyderabad, Bengaluru, Chennai, Pune, Mumbai, Delhi, Noida, Gurgaon, Ahmedabad, and Kolkata.
+                    Tell our team your route corridors, shift timings, or travel schedules for custom planning.
+                  </BrandText>
+                </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">
+              <div className="flex flex-col sm:flex-row gap-3.5 w-full md:w-auto shrink-0">
                 <Link
                   href="/india/contact"
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-colors shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand-indigo hover:bg-brand-blue text-white px-6 py-3.5 rounded-xl transition-all shadow-md hover:-translate-y-0.5"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <ChatCircleDots className="w-4 h-4" />
                   <span>Discuss Requirement</span>
                 </Link>
                 <a
                   href={content.contact.phoneHref}
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-xl transition-colors border border-white/20"
+                  className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-xl transition-all border border-white/20 hover:-translate-y-0.5"
                 >
-                  <Phone className="w-4 h-4 text-brand-soft-neutral" />
+                  <PhoneCall className="w-4 h-4 text-brand-soft-neutral" />
                   <span>{content.contact.phoneDisplay}</span>
                 </a>
               </div>
