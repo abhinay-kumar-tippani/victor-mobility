@@ -120,7 +120,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Grid: Elevated Cards */}
+        {/* Services Grid: High-Contrast Executive Fleet Cards */}
         <section className="py-16 sm:py-24 bg-brand-warm-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -135,10 +135,10 @@ export default function ServicesPage() {
                   <article
                     key={service.slug}
                     data-testid={`service-card-${service.slug}`}
-                    className="group relative flex flex-col justify-between rounded-3xl border border-brand-indigo/15 bg-[#15162F] p-7 sm:p-8 shadow-[0_10px_30px_-5px_rgba(21,22,47,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-brand-violet/40 overflow-hidden min-h-[440px]"
+                    className="group flex flex-col rounded-3xl border border-brand-soft-neutral/90 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-brand-indigo/30 overflow-hidden"
                   >
-                    {/* Background Image Layer with Refined Scrim */}
-                    <div className="absolute inset-0 z-0 pointer-events-none">
+                    {/* Top Fleet Image Showcase */}
+                    <div className="relative h-56 w-full overflow-hidden bg-brand-ink">
                       <Image
                         src={meta.imageSrc}
                         alt={meta.imageAlt}
@@ -146,70 +146,70 @@ export default function ServicesPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#15162F]/98 via-[#15162F]/88 to-[#15162F]/65" />
+                      {/* Subtle vignette gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25" />
+
+                      {/* Top floating badges: Icon on left, Index pill on right */}
+                      <div className="absolute top-4 left-4 z-10 w-11 h-11 rounded-xl bg-white/95 backdrop-blur-md shadow-md flex items-center justify-center text-brand-indigo transition-transform group-hover:scale-110">
+                        <IconComponent className="w-5 h-5 text-brand-indigo" weight="bold" />
+                      </div>
+                      <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white font-mono text-xs font-bold tracking-wider">
+                        0{index + 1}
+                      </div>
                     </div>
 
-                    {/* Card Header & Content */}
-                    <div className="relative z-10 flex flex-col flex-1">
-                      <div className="flex items-center justify-between gap-4 mb-5">
-                        <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all duration-300 group-hover:bg-brand-indigo group-hover:scale-105">
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </div>
-                        <span className="text-xs font-mono font-bold text-white/70 bg-white/10 px-2.5 py-1 rounded-lg border border-white/15">
-                          0{index + 1}
-                        </span>
-                      </div>
-
-                      <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
+                    {/* Card Content & Scope */}
+                    <div className="flex flex-col flex-1 p-6 sm:p-7">
+                      <h2 className="text-xl sm:text-2xl font-bold text-brand-ink tracking-tight mb-1.5 group-hover:text-brand-indigo transition-colors">
                         <BrandText>{service.title}</BrandText>
                       </h2>
 
-                      <p className="text-sm font-semibold text-brand-soft-neutral/95 mb-3 leading-snug">
+                      <p className="text-xs sm:text-sm font-semibold text-brand-indigo mb-3 leading-snug">
                         {service.shortDescription}
                       </p>
 
-                      <p className="text-xs text-white/80 leading-relaxed mb-6 flex-1">
+                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed mb-6">
                         <BrandText>{service.description}</BrandText>
                       </p>
 
-                      {/* Key Coordination Scope Details */}
+                      {/* Key Coordination Scope Details in dedicated callout panel */}
                       {service.enquiryDetails && service.enquiryDetails.length > 0 && (
-                        <div className="border-t border-white/15 pt-4 mb-6">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-brand-soft-neutral/80 block mb-2.5">
+                        <div className="rounded-2xl bg-brand-warm-white p-4 border border-brand-soft-neutral/80 mb-6">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-brand-slate block mb-2.5">
                             Key Coordination Scope
                           </span>
-                          <ul className="space-y-1.5">
+                          <ul className="space-y-2">
                             {service.enquiryDetails.map((detail) => (
                               <li
                                 key={detail}
-                                className="flex items-start gap-2 text-xs text-white/90 leading-tight"
+                                className="flex items-start gap-2.5 text-xs text-brand-ink/90 font-medium leading-tight"
                               >
-                                <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" weight="bold" />
                                 <span>{detail}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       )}
-                    </div>
 
-                    {/* Card Actions */}
-                    <div className="relative z-10 pt-4 border-t border-white/15 flex items-center justify-between gap-3 mt-auto">
-                      <Link
-                        href={`/india/services/${service.slug}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-brand-soft-neutral transition-colors focus:outline-none focus:underline"
-                      >
-                        <span>Explore details</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                      </Link>
+                      {/* Card Actions */}
+                      <div className="pt-4 mt-auto border-t border-brand-soft-neutral/80 flex items-center justify-between gap-3">
+                        <Link
+                          href={`/india/services/${service.slug}`}
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-indigo hover:text-brand-blue transition-colors focus:outline-none focus:underline"
+                        >
+                          <span>Explore details</span>
+                          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" weight="bold" />
+                        </Link>
 
-                      <Link
-                        href={`/india/contact?service=${service.slug}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-brand-ink hover:bg-brand-indigo hover:text-white px-3.5 py-1.5 rounded-xl shadow-sm transition-all"
-                      >
-                        <ChatCircleDots className="w-3.5 h-3.5 text-brand-indigo group-hover:text-white" />
-                        <span>Enquire</span>
-                      </Link>
+                        <Link
+                          href={`/india/contact?service=${service.slug}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold bg-brand-indigo text-white hover:bg-brand-blue px-4 py-2 rounded-xl shadow-xs transition-all hover:shadow-md"
+                        >
+                          <ChatCircleDots className="w-4 h-4 text-white" weight="bold" />
+                          <span>Enquire</span>
+                        </Link>
+                      </div>
                     </div>
                   </article>
                 );
