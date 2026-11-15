@@ -3,7 +3,7 @@
 import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, MessageSquare, MapPin, Mail } from "lucide-react";
+import { PhoneCall, ChatCircleDots, MapPin, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import type { ContactData, OfficeItem, CityItem } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -230,7 +230,7 @@ export default function Footer({
                     href={deskPhoneHref}
                     className="inline-flex items-center gap-2 text-xs sm:text-sm text-brand-soft-neutral hover:text-white transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-brand-blue shrink-0" />
+                    <PhoneCall className="w-3.5 h-3.5 text-brand-blue shrink-0" />
                     <span dir="ltr">{deskPhoneDisplay}</span>
                   </a>
                 </div>
@@ -241,7 +241,7 @@ export default function Footer({
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs sm:text-sm text-brand-soft-neutral hover:text-white transition-colors"
                   >
-                    <MessageSquare className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <ChatCircleDots className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span>WhatsApp (<span dir="ltr">{deskWhatsappDisplay}</span>)</span>
                   </a>
                 </div>
@@ -251,7 +251,7 @@ export default function Footer({
                       href={`mailto:${deskEmail}`}
                       className="inline-flex items-center gap-2 text-xs text-brand-soft-neutral hover:text-white transition-colors"
                     >
-                      <Mail className="w-3.5 h-3.5 text-brand-indigo shrink-0" />
+                      <EnvelopeSimple className="w-3.5 h-3.5 text-brand-indigo shrink-0" />
                       <span dir="ltr">{deskEmail}</span>
                     </a>
                   </div>

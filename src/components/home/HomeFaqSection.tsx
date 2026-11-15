@@ -2,7 +2,7 @@
 
 import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, Plus } from "@phosphor-icons/react/dist/ssr";
 import indiaData from "@/content/india.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 

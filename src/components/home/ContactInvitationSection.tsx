@@ -5,7 +5,7 @@ import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MessageSquare, Phone, Mail, ArrowRight, Clock, ShieldCheck, X, ZoomIn } from "lucide-react";
+import { ChatCircleDots, PhoneCall, EnvelopeSimple, ArrowRight, Clock, ShieldCheck, X, MagnifyingGlassPlus } from "@phosphor-icons/react/dist/ssr";
 import type { ContactData, DeskPerson } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -189,7 +189,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                               className="object-cover object-top transition duration-300 group-hover/avatar:scale-105"
                             />
                             <span className="pointer-events-none absolute bottom-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/75 text-white shadow-sm backdrop-blur-xs transition group-hover/avatar:bg-brand-violet">
-                              <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
+                              <MagnifyingGlassPlus className="h-3.5 w-3.5" aria-hidden="true" />
                             </span>
                           </button>
                         ) : (
@@ -216,7 +216,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                               aria-haspopup="dialog"
                               className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-brand-violet hover:text-white transition-colors pt-0.5"
                             >
-                              <ZoomIn className="h-3.5 w-3.5" />
+                              <MagnifyingGlassPlus className="h-3.5 w-3.5" />
                               <span>{locale === "ar" ? "عرض الصورة كاملة" : "Click image to view photo"}</span>
                             </button>
                           )}
@@ -238,7 +238,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                         aria-label={`Chat on WhatsApp with ${person.name}`}
                       >
                         <span className="flex items-center gap-2.5">
-                          <MessageSquare className="w-4 h-4 shrink-0 text-white" />
+                          <ChatCircleDots className="w-4 h-4 shrink-0 text-white" />
                           <span>{dict.contactSection.whatsappCta || "Continue on WhatsApp"}</span>
                         </span>
                         <span className="text-xs font-bold text-white/95 bg-black/20 py-1 px-2.5 rounded-lg border border-white/10 tracking-wide" dir="ltr">
@@ -253,7 +253,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                         aria-label={`Call ${person.name} at ${person.phoneDisplay}`}
                       >
                         <span className="flex items-center gap-2.5">
-                          <Phone className="w-4 h-4 shrink-0 text-brand-violet" />
+                          <PhoneCall className="w-4 h-4 shrink-0 text-brand-violet" />
                           <span>{locale === "ar" ? "اتصال هاتفي مباشر" : "Direct Phone"}</span>
                         </span>
                         <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide" dir="ltr">
@@ -269,7 +269,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                           aria-label={`Email ${person.name} at ${person.email}`}
                         >
                           <span className="flex items-center gap-2.5 shrink-0">
-                            <Mail className="w-4 h-4 shrink-0 text-brand-blue" />
+                            <EnvelopeSimple className="w-4 h-4 shrink-0 text-brand-blue" />
                             <span>{locale === "ar" ? "البريد الإلكتروني" : "Direct Email"}</span>
                           </span>
                           <span className="text-[11px] sm:text-xs font-medium text-slate-200 truncate max-w-full" dir="ltr">
@@ -365,7 +365,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-2.5 px-3 font-semibold text-white transition shadow-sm"
                 >
-                  <MessageSquare className="h-4 w-4" />
+                  <ChatCircleDots className="h-4 w-4" />
                   <span>WhatsApp</span>
                 </a>
 
@@ -373,7 +373,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                   href={selectedPerson.phoneHref}
                   className="flex items-center justify-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 py-2.5 px-3 font-semibold text-white transition border border-white/15"
                 >
-                  <Phone className="h-4 w-4 text-brand-violet" />
+                  <PhoneCall className="h-4 w-4 text-brand-violet" />
                   <span>Call Direct</span>
                 </a>
               </div>
@@ -383,7 +383,7 @@ export default function ContactInvitationSection({ contact, basePath }: ContactI
                   href={`mailto:${selectedPerson.email}`}
                   className="flex items-center justify-center gap-2 w-full rounded-xl bg-white/5 hover:bg-white/10 py-2 px-3 font-medium text-slate-300 hover:text-white transition border border-white/10 truncate"
                 >
-                  <Mail className="h-3.5 w-3.5 text-brand-blue shrink-0" />
+                  <EnvelopeSimple className="h-3.5 w-3.5 text-brand-blue shrink-0" />
                   <span className="truncate">{selectedPerson.email}</span>
                 </a>
               )}

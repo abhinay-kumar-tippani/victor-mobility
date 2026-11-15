@@ -4,7 +4,7 @@ import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ShieldCheck, Clock, FileText, Leaf, ArrowRight } from "lucide-react";
+import { ShieldCheck, Clock, FileText, Leaf, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface VictorStandardSectionProps {

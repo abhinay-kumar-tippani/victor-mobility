@@ -3,7 +3,7 @@
 import BrandText from "@/components/brand/BrandText";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Globe, Leaf, ShieldCheck } from "lucide-react";
+import { ArrowRight, Globe, Leaf, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 import JourneyArtwork from "@/components/about/JourneyArtwork";
 import journey from "@/content/journey.json";
 import { useLanguage } from "@/i18n/LanguageContext";

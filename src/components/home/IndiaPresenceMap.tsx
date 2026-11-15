@@ -3,7 +3,7 @@
 import BrandText from "@/components/brand/BrandText";
 import { useId, useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Building2, Compass } from "lucide-react";
+import { ArrowRight, MapPin, PhoneCall, Buildings, Compass } from "@phosphor-icons/react/dist/ssr";
 import geography from "@/content/india-map.json";
 import type { OfficeItem, ContactData, CityItem } from "@/types/content";
 import OfficeMapLinks from "@/components/contact/OfficeMapLinks";
@@ -548,7 +548,7 @@ export default function IndiaPresenceMap({
               {/* Header with Classification Badge */}
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-soft-neutral uppercase text-brand-indigo section-eyebrow section-eyebrow--compact">
-                  <Building2 className="w-3.5 h-3.5 text-brand-blue" />
+                  <Buildings className="w-3.5 h-3.5 text-brand-blue" />
                   <span>{selectedCity.label}</span>
                 </span>
                 <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
@@ -611,7 +611,7 @@ export default function IndiaPresenceMap({
                   href={contact.phoneHref}
                   className="w-full inline-flex items-center justify-center gap-2 text-xs font-semibold text-brand-ink/80 hover:text-brand-indigo py-2 transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-brand-blue" />
+                  <PhoneCall className="w-3.5 h-3.5 text-brand-blue" />
                   <span>{dict.presence.callHub}: {contact.phoneDisplay}</span>
                 </a>
               </div>

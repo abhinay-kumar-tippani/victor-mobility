@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Globe, ChevronDown, Check } from "lucide-react";
+import { Globe, CaretDown, Check } from "@phosphor-icons/react/dist/ssr";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { SupportedLocale } from "@/i18n/types";
 
@@ -136,7 +136,7 @@ export default function LanguageSwitcher({
         <span className={`text-xs font-semibold ${compactOnMobile ? "hidden sm:inline" : ""}`}>
           {currentLocale.nativeName}
         </span>
-        <ChevronDown
+        <CaretDown
           className={`w-3.5 h-3.5 text-brand-ink/60 transition-transform duration-200 shrink-0 ${
             isOpen ? "rotate-180" : ""
           }`}

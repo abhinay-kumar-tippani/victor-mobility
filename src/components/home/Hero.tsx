@@ -4,7 +4,7 @@ import BrandText from "@/components/brand/BrandText";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import type { IndiaContent, MediaAsset } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, MessageSquare } from "lucide-react";
+import { List, X, PhoneCall, ChatCircleDots } from "@phosphor-icons/react/dist/ssr";
 import type { ContactData } from "@/types/content";
 import BrandLogo from "@/components/brand/BrandLogo";
 import LanguageSwitcher, { MobileDrawerLanguageSelector } from "@/components/layout/LanguageSwitcher";
@@ -284,7 +284,7 @@ export default function Header({ contact }: HeaderProps) {
                 className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-brand-indigo hover:text-brand-blue hover:bg-brand-indigo/5 transition-colors px-3 py-2 rounded-xl border border-brand-indigo/20 hover:border-brand-indigo/40 focus:outline-none focus:ring-2 focus:ring-brand-indigo min-h-[42px]"
                 title={`${dict.nav.call || "Call"} ${navPhoneDisplay}`}
               >
-                <Phone className="w-3.5 h-3.5" />
+                <PhoneCall className="w-3.5 h-3.5" />
                 <span dir="ltr">{navPhoneDisplay}</span>
               </a>
 
@@ -305,7 +305,7 @@ export default function Header({ contact }: HeaderProps) {
                 className="min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-indigo rounded-xl hover:bg-brand-warm-white focus:outline-none focus:ring-2 focus:ring-brand-indigo transition-colors"
                 aria-label={`${dict.nav.call || "Call"} ${navPhoneDisplay}`}
               >
-                <Phone className="w-5 h-5" />
+                <PhoneCall className="w-5 h-5" />
               </a>
 
               <button
@@ -317,7 +317,7 @@ export default function Header({ contact }: HeaderProps) {
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-navigation-drawer"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6 text-brand-indigo" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-6 h-6 text-brand-indigo" /> : <List className="w-6 h-6" />}
               </button>
             </div>
           </div>
@@ -385,14 +385,14 @@ export default function Header({ contact }: HeaderProps) {
                   onClick={() => closeMenu(false)}
                   className="w-full flex items-center justify-center gap-2 text-sm font-bold bg-brand-indigo hover:bg-brand-blue text-white py-3.5 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo shadow-xs"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <ChatCircleDots className="w-4 h-4" />
                   <span>{dict.nav.discussRequirement || "Discuss Your Requirement"}</span>
                 </Link>
                 <a
                   href={navPhoneHref}
                   className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-brand-indigo border border-brand-indigo/30 hover:bg-brand-warm-white py-3 px-4 rounded-xl text-center transition-colors focus:outline-none focus:ring-2 focus:ring-brand-indigo"
                 >
-                  <Phone className="w-4 h-4" />
+                  <PhoneCall className="w-4 h-4" />
                   <span dir="ltr">
                     {dict.nav.call || "Call"} {navPhoneDisplay}
                   </span>

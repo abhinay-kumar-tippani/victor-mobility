@@ -7,11 +7,12 @@ import {
   Users,
   Bus,
   Calendar,
-  Plane,
-  Sparkles,
+  AirplaneTilt,
+  Sparkle,
   Key,
   ArrowRight,
-} from "lucide-react";
+} from "@phosphor-icons/react/dist/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import type { ServiceItem } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -24,7 +25,7 @@ interface ServiceMeta {
   number: string;
   imageSrc: string;
   imageAlt: string;
-  icon: typeof Users;
+  icon: Icon;
 }
 
 const SERVICE_META: Record<string, ServiceMeta> = {
@@ -50,19 +51,19 @@ const SERVICE_META: Record<string, ServiceMeta> = {
     number: "04",
     imageSrc: "/images/india/services/service-airport-transfers.jpg",
     imageAlt: "VIP executive airport chauffeur greeting passenger at private terminal",
-    icon: Plane,
+    icon: AirplaneTilt,
   },
   "chauffeur-luxury": {
     number: "05",
     imageSrc: "/images/india/services/service-chauffeur-luxury.jpg",
     imageAlt: "Chauffeur standing by luxury executive saloon outside corporate headquarters at night",
-    icon: Sparkles,
+    icon: Sparkle,
   },
   "tourism-travel": {
     number: "05",
     imageSrc: "/images/uae/services/service-tourism-travel.webp",
     imageAlt: "Luxury limousine tourism and city excursions across Dubai and Abu Dhabi",
-    icon: Sparkles,
+    icon: Sparkle,
   },
   "rent-a-car": {
     number: "06",
