@@ -39,12 +39,14 @@ In accordance with `AGENTS.md` and commercial consumer protection standards:
 
 ## UAE Executive Fleet Reference Asset Registry
 
-| # | Vehicle Model | Cab Type | Fuel Version | Project Asset Path | Source URL / Repository | Author / Copyright Holder | License Terms | Required Attribution Text |
+| # | Vehicle Model | Cab Type | Fuel Version | Project Asset Path | Model Year | Style & Environment | Branding | Required Attribution Text |
 |---|---|---|---|---|---|---|---|---|
-| 1 | **Mercedes-Benz S-Class** | Sedan | Petrol | `/images/uae/services/service-chauffeur-luxury.webp` | Victor Executive Limousine Showcase | Victor Chauffeur Operations | Editorial Reference Asset | Photo: Victor Mobility UAE Editorial Reference |
-| 2 | **Cadillac Escalade** | SUV | Petrol | `/images/uae/fleet/cadillac-escalade.webp` | [Wikimedia Commons File](https://commons.wikimedia.org/wiki/File:2021_Cadillac_Escalade_ESV,_front_6.2.21.jpg) | Kevauto / General Motors Model Reference | Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) | Photo: Kevauto, CC BY-SA 4.0, via Wikimedia Commons |
-| 3 | **Mercedes-Benz V-Class** | 12 Seater | Diesel | `/images/uae/fleet/mercedes-v-class.webp` | [Wikimedia Commons File](https://commons.wikimedia.org/wiki/File:2023_Mercedes-Benz_V-Class_300d_(W447)_IMG_9812.jpg) | Alexander-93 / Mercedes-Benz AG Reference | Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) | Photo: Alexander-93, CC BY-SA 4.0, via Wikimedia Commons |
-| 4 | **22-Seater VIP Coach** | 12 Seater | Diesel | `/images/uae/services/service-bus-shuttle.webp` | Victor Corporate Shuttles Reference | Victor Fleet Operations | Editorial Reference Asset | Photo: Victor Mobility UAE Editorial Reference |
+| 1 | **BYD Han** | Sedan | Electric Vehicle | `/images/uae/fleet/byd-han.webp` | 2026 | Pearl-white, front 3/4 facing left, corporate forecourt | Door decal & yellow plate | Commercial fleet illustration · Victor Mobility UAE |
+| 2 | **EXEED VX** | SUV | Petrol | `/images/uae/fleet/exeed-vx.webp` | 2026 | Pearl-white, front 3/4 facing left, corporate forecourt | Door decal & yellow plate | Commercial fleet illustration · Victor Mobility UAE |
+| 3 | **Honda Accord** | Sedan | Hybrid | `/images/uae/fleet/honda-accord.webp` | 2024 | Pearl-white, front 3/4 facing left, corporate forecourt | Door decal & yellow plate | Commercial fleet illustration · Victor Mobility UAE |
+| 4 | **Lexus ES** | Sedan | Hybrid | `/images/uae/fleet/lexus-es.webp` | 2024 | Pearl-white, front 3/4 facing left, corporate forecourt | Door decal & yellow plate | Commercial fleet illustration · Victor Mobility UAE |
+| 5 | **Tesla Model Y** | SUV | Electric Vehicle | `/images/uae/fleet/tesla-model-y.webp` | 2024 | Pearl-white, front 3/4 facing left, corporate forecourt | Door decal & yellow plate | Commercial fleet illustration · Victor Mobility UAE |
+| 6 | **Toyota Highlander** | SUV | Hybrid | `/images/uae/fleet/toyota-highlander.webp` | 2024 | Pearl-white, front 3/4 facing left, corporate forecourt | Door decal & yellow plate | Commercial fleet illustration · Victor Mobility UAE |
 
 ---
 

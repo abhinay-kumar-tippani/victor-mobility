@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Users, Zap } from "lucide-react";
 import indiaData from "@/content/india.json";
-import type uaeData from "@/content/uae.json";
+import uaeData from "@/content/uae.json";
 import type { FleetCategory, FleetVehicle } from "@/types/content";
 import { useLanguage } from "@/i18n/LanguageContext";
 import HomepageFleetPreview from "./HomepageFleetPreview";
@@ -57,13 +57,12 @@ export default function IndiaFleetSection({
   const uaeTabsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
   // --------------------------------------------------------------------------
-  // India Fleet: Modern Categorization Grid (5 Filter Tabs & 16 Manager Vehicles)
+  // Categorization Grid (5 Filter Tabs & Regional Vehicles)
   // --------------------------------------------------------------------------
   const allVehicles: FleetVehicle[] = useMemo(() => {
-    return (vehicles && vehicles.length > 0)
-      ? vehicles
-      : ((indiaData.fleetVehicles || []) as FleetVehicle[]);
-  }, [vehicles]);
+    if (vehicles && vehicles.length > 0) return vehicles;
+    return (isUae ? (uaeData.fleetVehicles || []) : (indiaData.fleetVehicles || [])) as FleetVehicle[];
+  }, [vehicles, isUae]);
 
   const [activeTab, setActiveTab] = useState<TabId>("all");
   const indiaTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -82,13 +81,17 @@ export default function IndiaFleetSection({
   ).length;
   const tabEvCount = allVehicles.filter(v => Boolean(v.isElectric)).length;
 
-  const tabs: TabItem[] = useMemo(() => [
+  const rawTabs: TabItem[] = useMemo(() => [
     { id: "all", label: fleetDict?.filterTabs?.all || "All Vehicles", count: tabAllCount },
     { id: "sedan", label: fleetDict?.filterTabs?.sedan || "Sedan", count: tabSedanCount },
     { id: "suv", label: fleetDict?.filterTabs?.suv || "SUV", count: tabSuvCount },
     { id: "group-transport", label: fleetDict?.filterTabs?.groupTransport || "Group Transport & Buses", count: tabGroupCount },
     { id: "electric", label: fleetDict?.filterTabs?.electric || "Electric Vehicles", count: tabEvCount },
   ], [fleetDict, tabAllCount, tabSedanCount, tabSuvCount, tabGroupCount, tabEvCount]);
+
+  const tabs = useMemo(() => {
+    return rawTabs.filter(tab => tab.count > 0 || !isUae);
+  }, [rawTabs, isUae]);
 
   const getLocalizedFuel = (fuelType: string): string => {
     switch (fuelType) {
@@ -242,7 +245,7 @@ export default function IndiaFleetSection({
   // ==========================================================================
   // UAE ROUTE RENDERING (Regional Isolation - Fallback if no specific vehicles list)
   // ==========================================================================
-  if (isUae && (!vehicles || vehicles.length === 0)) {
+  if (isUae && allVehicles.length === 0) {
     const activeUae = items.find(item => item.id === activeUaeId) || items[0];
     if (!activeUae) return null;
     const category = categories.find(item => item.id === activeUae.id)!;
@@ -431,7 +434,7 @@ export default function IndiaFleetSection({
           })}
         </div>
 
-        {!isUae && <p className="mb-4 text-sm text-brand-ink/65">{imageCaption}</p>}
+        <p className="mb-4 text-sm text-brand-ink/65">{imageCaption}</p>
 
         {/* Active vehicle cards */}
         <div
@@ -441,7 +444,7 @@ export default function IndiaFleetSection({
           tabIndex={0}
           className="scroll-mt-24 sm:scroll-mt-28 focus-visible:outline-none"
         >
-          <div className={isUae ? "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid grid-cols-1 gap-6 md:grid-cols-2"}>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {filteredVehicles.map(vehicle => {
               const isEvVehicle = Boolean(vehicle.isElectric);
               return (
@@ -450,22 +453,7 @@ export default function IndiaFleetSection({
                   className="group flex flex-col overflow-hidden rounded-2xl border border-brand-soft-neutral bg-brand-warm-white shadow-xs transition-all duration-200 hover:shadow-md"
                 >
                   {/* Vehicle Reference Image */}
-                  {!isUae ? <FleetPhoto vehicle={vehicle} /> : (
-                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-soft-neutral/30">
-                    <Image
-                      src={vehicle.image}
-                      alt={vehicle.imageAlt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/40 to-transparent p-2.5">
-                      <p className="text-[10px] leading-tight text-white/90">
-                        Vehicle illustrations are for reference; the assigned vehicle may differ.
-                      </p>
-                    </div>
-                  </div>
-                  )}
+                  <FleetPhoto vehicle={vehicle} />
 
                   {/* Vehicle Specifications & Quotation Card Body */}
                   <div className="flex flex-1 flex-col p-5">

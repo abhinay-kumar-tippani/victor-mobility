@@ -33,7 +33,7 @@ async function main() {
 
   try {
     await waitForServer("http://localhost:3000/sociallinks");
-    console.log("Server ready! Launching Playwright verification...");
+    console.log("Server ready! Launching Playwright verification for redesign...");
 
     const browser = await chromium.launch({ channel: "msedge" });
 
@@ -43,122 +43,112 @@ async function main() {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     await page.goto("http://localhost:3000/sociallinks", { waitUntil: "networkidle" });
 
-    // Verify masthead logo dimensions (reduced from 580px)
-    const logo = page.locator("header svg").first();
-    const logoBox = await logo.boundingBox();
-    console.log("Masthead Logo bounding box:", logoBox);
-    if (!logoBox || logoBox.width > 350) {
-      throw new Error(`Expected reduced logo width (<= 350px), got ${logoBox?.width}px`);
+    // 1. Verify Simple Victor Logo
+    const desktopLogo = page.locator("header img[alt='Victor']").first();
+    const logoSrc = await desktopLogo.getAttribute("src");
+    console.log("Desktop Logo src:", logoSrc);
+    if (!logoSrc || !logoSrc.includes("victor-simple")) {
+      throw new Error(`Expected Simple Victor logo (victor-simple.png), got ${logoSrc}`);
     }
 
-    // Verify Heading
-    const heading = await page.locator("h1").innerText();
-    console.log("Heading text:", heading);
-    if (!heading.includes("Connect with Victor")) {
-      throw new Error(`Expected heading 'Connect with Victor', got '${heading}'`);
+    // 2. Verify Header Company Name & Website Link
+    const headerCompany = await page.locator("header").first().innerText();
+    console.log("Header text:", headerCompany);
+    if (!headerCompany.includes("Victor Mobility Pvt. Ltd.")) {
+      throw new Error("Header missing 'Victor Mobility Pvt. Ltd.'");
+    }
+    const headerLink = await page.locator("header a").first().getAttribute("href");
+    console.log("Header logo href:", headerLink);
+    if (!headerLink || !headerLink.includes("victormobility.in")) {
+      throw new Error(`Expected header link to victormobility.in, got ${headerLink}`);
     }
 
-    // Verify all 5 contact destinations in exact order requested by user:
-    // 1. WhatsApp
-    // 2. Email
-    // 3. Instagram
-    // 4. LinkedIn
-    // 5. Facebook
-    const expectedDestinations = [
-      { id: "website", label: "Visit Victor’s website", href: "https://victormobility.in" },
-      { id: "whatsapp", label: "WhatsApp", href: "https://wa.me/919100777768" },
-      { id: "email", label: "Email", href: "mailto:info@victorluxurylimousine.com" },
-      { id: "instagram", label: "Instagram", href: "https://www.instagram.com/victormobility.in" },
-      { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/victormobility" },
-      { id: "facebook", label: "Facebook", href: "https://www.facebook.com/victormobility.in" },
+    // 3. Verify Hero Section Typography
+    const heroHeading = await page.locator("h1").innerText();
+    console.log("Hero heading:", heroHeading);
+    if (!heroHeading.includes("Connect with Victor")) {
+      throw new Error(`Expected heading 'Connect with Victor', got '${heroHeading}'`);
+    }
+
+    const officialChannels = await page.locator("text=OFFICIAL CHANNELS").isVisible();
+    if (!officialChannels) {
+      throw new Error("Missing 'OFFICIAL CHANNELS' label");
+    }
+
+    const taglineVisible = await page.locator("text=On Time Every Time.").first().isVisible();
+    if (!taglineVisible) {
+      throw new Error("Missing 'On Time Every Time.' tagline");
+    }
+
+    // 4. Verify Hero Vehicle Image
+    const heroImg = page.locator("section img[alt*='Victor Mobility premium fleet vehicle']").first();
+    const heroImgSrc = await heroImg.getAttribute("src");
+    console.log("Hero vehicle image src:", heroImgSrc);
+    if (!heroImgSrc || !heroImgSrc.includes("hero-art")) {
+      throw new Error(`Expected hero vehicle image, got ${heroImgSrc}`);
+    }
+
+    // 5. Verify the 4 Social Media Cards on Desktop (LinkedIn, Facebook, Instagram, WhatsApp)
+    const expectedSocialCards = [
+      { name: "LinkedIn", href: "https://www.linkedin.com/company/victormobility" },
+      { name: "Facebook", href: "https://www.facebook.com/victormobility.in" },
+      { name: "Instagram", href: "https://www.instagram.com/victormobility.in" },
+      { name: "WhatsApp", href: "https://wa.me/919100777768" },
     ];
 
-    // Left Website Card
-    const websiteCard = page.locator("a[aria-label='Visit Victor’s website']").first();
-    const websiteHref = await websiteCard.getAttribute("href");
-    const websiteTarget = await websiteCard.getAttribute("target");
-    const websiteText = await websiteCard.innerText();
-    const websiteImg = page.locator("a[aria-label='Visit Victor’s website'] img").first();
-    const imgSrc = await websiteImg.getAttribute("src");
-    const websiteBox = await websiteCard.boundingBox();
-
-    console.log("Website Card:", { href: websiteHref, target: websiteTarget, text: websiteText.trim(), imgSrc, height: websiteBox?.height });
-
-    if (websiteHref !== expectedDestinations[0].href) {
-      throw new Error(`Website card href mismatch: expected ${expectedDestinations[0].href}, got ${websiteHref}`);
-    }
-    if (websiteTarget === "_blank") {
-      throw new Error(`Website card must not open in new tab (no target="_blank")`);
-    }
-    if (!websiteText.includes("Visit Victor’s website")) {
-      throw new Error(`Website card text must include 'Visit Victor’s website'`);
-    }
-    if (!imgSrc || !imgSrc.includes("luxury-fleet-lineup")) {
-      throw new Error(`Website card image must use luxury-fleet-lineup.jpg, got ${imgSrc}`);
+    const desktopCards = page.locator("section[aria-label='Official Social Media Channels'] .hidden.lg\\:grid a");
+    const desktopCardCount = await desktopCards.count();
+    console.log(`Found ${desktopCardCount} desktop social cards`);
+    if (desktopCardCount !== 4) {
+      throw new Error(`Expected 4 social cards on desktop, found ${desktopCardCount}`);
     }
 
-    // Right Column Links Panel
-    const contactLinks = page.locator("nav[aria-label='Victor Mobility Social and Contact Profiles'] a");
-    const contactCount = await contactLinks.count();
-    console.log(`Found ${contactCount} contact/social links in panel`);
-    if (contactCount !== 5) {
-      throw new Error(`Expected exactly 5 contact links, found ${contactCount}`);
-    }
+    for (let i = 0; i < 4; i++) {
+      const card = desktopCards.nth(i);
+      const text = (await card.innerText()).trim();
+      const href = await card.getAttribute("href");
+      console.log(`Desktop Card ${i + 1}: ${expectedSocialCards[i].name} -> href=${href}`);
 
-    const navElement = page.locator("nav[aria-label='Victor Mobility Social and Contact Profiles']").first();
-    const navBox = await navElement.boundingBox();
-
-    for (let i = 0; i < contactCount; i++) {
-      const link = contactLinks.nth(i);
-      const text = (await link.innerText()).trim();
-      const href = await link.getAttribute("href");
-      const target = await link.getAttribute("target");
-      const box = await link.boundingBox();
-
-      console.log(`Contact Row ${i + 1}: label="${text}", href="${href}", height=${box?.height}px`);
-
-      if (!text.includes(expectedDestinations[i + 1].label)) {
-        throw new Error(`Row ${i + 1} mismatch: expected to contain "${expectedDestinations[i + 1].label}", got "${text}"`);
+      if (!text.includes(expectedSocialCards[i].name)) {
+        throw new Error(`Card ${i + 1} missing name '${expectedSocialCards[i].name}'`);
       }
-      if (href !== expectedDestinations[i + 1].href) {
-        throw new Error(`Row ${i + 1} href mismatch: expected "${expectedDestinations[i + 1].href}", got "${href}"`);
-      }
-      if (box && box.height < 48) {
-        throw new Error(`Row ${i + 1} height is ${box?.height}px; expected at least 48px`);
+      if (href !== expectedSocialCards[i].href) {
+        throw new Error(`Card ${i + 1} href mismatch: expected ${expectedSocialCards[i].href}, got ${href}`);
       }
     }
 
-    // Verify Height Alignment: bottom of social panel and bottom of photo card
-    console.log("Desktop Alignment Check:", {
-      websiteBottom: (websiteBox?.y ?? 0) + (websiteBox?.height ?? 0),
-      socialBottom: (navBox?.y ?? 0) + (navBox?.height ?? 0),
-    });
-
-    // Test Keyboard Tab Navigation Sequence: 1 -> 2 -> 3 -> 4 -> 5 -> 6
-    console.log("Verifying Keyboard Tab sequence...");
-    await page.keyboard.press("Tab"); // Skip link
-    await page.keyboard.press("Tab"); // 1: Website Card
-    let activeHref = await page.evaluate(() => document.activeElement?.getAttribute("href"));
-    console.log("Tab 1 Active:", activeHref);
-    if (activeHref !== expectedDestinations[0].href) {
-      throw new Error(`Tab 1 expected ${expectedDestinations[0].href}, got ${activeHref}`);
+    // 6. Verify Footer
+    const footerText = await page.locator("footer").innerText();
+    console.log("Footer text:", footerText);
+    if (!footerText.includes("Victor Mobility Pvt. Ltd.") || !footerText.includes("On Time Every Time.")) {
+      throw new Error("Footer missing required brand identity");
     }
 
-    for (let i = 1; i <= 5; i++) {
-      await page.keyboard.press("Tab");
-      activeHref = await page.evaluate(() => document.activeElement?.getAttribute("href"));
-      console.log(`Tab ${i + 1} Active:`, activeHref);
-      if (activeHref !== expectedDestinations[i].href) {
-        throw new Error(`Tab ${i + 1} expected ${expectedDestinations[i].href}, got ${activeHref}`);
-      }
+    const fleetSilhouettes = page.locator("footer img[alt*='Victor Mobility Fleet']").first();
+    const silhouettesVisible = await fleetSilhouettes.isVisible();
+    console.log("Footer fleet silhouettes visible on desktop:", silhouettesVisible);
+    if (!silhouettesVisible) {
+      throw new Error("Footer fleet silhouettes must be visible on desktop");
     }
 
     // Capture Desktop Screenshot
-    await page.screenshot({ path: "docs/screenshots/sociallinks-redesign-1440.png", fullPage: true });
-    console.log("Saved docs/screenshots/sociallinks-redesign-1440.png");
+    await page.screenshot({ path: "docs/screenshots/sociallinks-new-1440.png", fullPage: true });
+    console.log("Saved docs/screenshots/sociallinks-new-1440.png");
 
     // ----------------------------------------------------
-    // Test 2: Mobile 390px
+    // Test 2: Tablet (768px)
+    // ----------------------------------------------------
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto("http://localhost:3000/sociallinks", { waitUntil: "networkidle" });
+    const scrollWidth768 = await page.evaluate(() => document.documentElement.scrollWidth);
+    if (scrollWidth768 > 768) {
+      throw new Error(`Horizontal overflow on 768px! scrollWidth=${scrollWidth768}`);
+    }
+    await page.screenshot({ path: "docs/screenshots/sociallinks-new-768.png", fullPage: true });
+    console.log("Saved docs/screenshots/sociallinks-new-768.png");
+
+    // ----------------------------------------------------
+    // Test 3: Mobile (390px)
     // ----------------------------------------------------
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("http://localhost:3000/sociallinks", { waitUntil: "networkidle" });
@@ -169,11 +159,27 @@ async function main() {
       throw new Error(`Horizontal overflow on 390px! scrollWidth=${scrollWidth390}`);
     }
 
-    await page.screenshot({ path: "docs/screenshots/sociallinks-redesign-390.png", fullPage: true });
-    console.log("Saved docs/screenshots/sociallinks-redesign-390.png");
+    // Check stacked mobile cards count
+    const mobileCards = page.locator("section[aria-label='Official Social Media Channels'] .lg\\:hidden a");
+    const mobileCardCount = await mobileCards.count();
+    console.log(`Found ${mobileCardCount} mobile stacked cards`);
+    if (mobileCardCount !== 4) {
+      throw new Error(`Expected 4 stacked cards on mobile, found ${mobileCardCount}`);
+    }
+
+    for (let i = 0; i < 4; i++) {
+      const card = mobileCards.nth(i);
+      const box = await card.boundingBox();
+      if (!box || box.height < 52) {
+        throw new Error(`Mobile card ${i + 1} height is ${box?.height}px; expected >= 52px`);
+      }
+    }
+
+    await page.screenshot({ path: "docs/screenshots/sociallinks-new-390.png", fullPage: true });
+    console.log("Saved docs/screenshots/sociallinks-new-390.png");
 
     // ----------------------------------------------------
-    // Test 3: Ultra-Compact Mobile 320px
+    // Test 4: Ultra-compact Mobile (320px)
     // ----------------------------------------------------
     await page.setViewportSize({ width: 320, height: 600 });
     await page.goto("http://localhost:3000/sociallinks", { waitUntil: "networkidle" });
@@ -184,10 +190,10 @@ async function main() {
       throw new Error(`Horizontal overflow on 320px! scrollWidth=${scrollWidth320}`);
     }
 
-    await page.screenshot({ path: "docs/screenshots/sociallinks-redesign-320.png", fullPage: true });
-    console.log("Saved docs/screenshots/sociallinks-redesign-320.png");
+    await page.screenshot({ path: "docs/screenshots/sociallinks-new-320.png", fullPage: true });
+    console.log("Saved docs/screenshots/sociallinks-new-320.png");
 
-    console.log("ALL SOCIAL & CONTACT LINKS TESTS PASSED FLAWLESSLY!");
+    console.log("ALL REDESIGN VERIFICATION TESTS PASSED FLAWLESSLY!");
     await browser.close();
   } finally {
     console.log("Stopping server...");
