@@ -17,7 +17,7 @@ async function run() {
     // ==========================================
     console.log("\n=== 1. Testing UAE Fleet Page at 1440px Desktop ===");
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await page.goto("http://localhost:3000/uae/fleet", { waitUntil: "networkidle" });
+    await page.goto("http://localhost:3001/uae/fleet", { waitUntil: "networkidle" });
 
     // Verify 6 vehicle cards
     const vehicleCards = page.locator("#fleet article");
@@ -108,7 +108,7 @@ async function run() {
     // ==========================================
     console.log("\n=== 2. Testing UAE Fleet Page at 390px Mobile ===");
     const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
-    await mobilePage.goto("http://localhost:3000/uae/fleet", { waitUntil: "networkidle" });
+    await mobilePage.goto("http://localhost:3001/uae/fleet", { waitUntil: "networkidle" });
 
     // Check horizontal overflow
     const hasOverflow = await mobilePage.evaluate(
@@ -128,7 +128,7 @@ async function run() {
     // ==========================================
     console.log("\n=== 3. Verifying India Fleet Page remains unchanged ===");
     const indiaPage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await indiaPage.goto("http://localhost:3000/india/fleet", { waitUntil: "networkidle" });
+    await indiaPage.goto("http://localhost:3001/india/fleet", { waitUntil: "networkidle" });
 
     const indiaCards = indiaPage.locator("#fleet article");
     const indiaCount = await indiaCards.count();

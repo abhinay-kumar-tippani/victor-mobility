@@ -1216,16 +1216,24 @@
         "logo": "/images/brands/bmw.svg"
       },
       {
-        "name": "Cadillac",
-        "logo": "/images/brands/cadillac.svg"
-      },
-      {
         "name": "Toyota",
         "logo": "/images/brands/toyota.svg"
       },
       {
-        "name": "Lexus",
-        "logo": "/images/brands/lexus.svg"
+        "name": "Kia",
+        "logo": "/images/brands/kia.svg"
+      },
+      {
+        "name": "Hyundai",
+        "logo": "/images/brands/hyundai.svg"
+      },
+      {
+        "name": "Force Motors",
+        "logo": "/images/brands/force-motors.svg"
+      },
+      {
+        "name": "Tata Motors",
+        "logo": "/images/brands/tata-motors.svg"
       }
     ]
   },

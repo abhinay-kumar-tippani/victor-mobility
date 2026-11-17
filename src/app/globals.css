@@ -170,3 +170,17 @@ section[id] {
   }
 }
 
+@keyframes top-brands-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-top-brands-marquee {
+  animation: top-brands-marquee 28s linear infinite;
+  will-change: transform;
+}
+
