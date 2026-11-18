@@ -1,5 +1,134 @@
 # Handoff
 
+## 18 November 2026 — Social Links Page: Fixed Simple Victor Logo Positioning (Same Horizontal Line & Original Asset)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Addressed and resolved the Simple Victor logo heading composition on `/sociallinks` (`src/app/sociallinks/page.tsx`):
+
+1. **Heading Composition & Horizontal Alignment**:
+   - Replaced multi-line wrapping with a strict `inline-flex flex-nowrap items-center whitespace-nowrap` layout.
+   - The words **"Connect with"** and the **[Simple Victor Logo]** appear immediately beside each other on the **exact same horizontal line** across all viewports (desktop, tablet, and mobile).
+   - Desktop vertical delta between text and logo: **2.25px** (same horizontal baseline).
+   - Mobile (390px) vertical delta: **1.00px**; Mobile (320px) vertical delta: **0.38px**.
+   - Zero dropping below "Connect with", zero text-wrapping, and zero crowding or overlapping of the tagline *"On Time Every Time."* beneath.
+
+2. **Logo Asset & Proportion Requirements**:
+   - Used the exact original Simple Victor logo asset from the project: [`/brand/victor-simple.png`](file:///d:/victor%20website/public/brand/victor-simple.png).
+   - Preserved original 3:1 aspect ratio (`width={2172} height={724}` with responsive height classes and `object-contain`).
+   - Displays the complete wordmark with zero clipping, zero cropping, and no distortion.
+   - Proportioned cleanly to match the visual cap-height of "Connect with":
+     - Mobile (<360px): `text-[23px]` with logo `h-[28px]`
+     - Mobile (360px–390px): `text-[26px]`/`text-[28px]` with logo `h-[31px]`/`h-[33px]`
+     - Tablet (sm–md): `text-[34px]` with logo `h-[40px]`
+     - Desktop (lg–xl): `text-[40px]`/`text-[42px]` with logo `h-[46px]`/`h-[48px]`
+
+3. **Desktop Layout Balance**:
+   - Balanced the hero section in a 50/50 column split (`lg:col-span-6` for typography, `lg:col-span-6` for unclipped vehicle photo) within `max-w-[1240px]`.
+   - Gives the heading ~600px of width, ensuring the ~392px combined heading easily sits on a single line with generous breathing room.
+
+4. **Strict Scope Preservation**:
+   - Preserved all other approved elements:
+     - Header brand logo and link to `https://victormobility.in/`.
+     - Hero vehicle photograph (unclipped, all 4 wheels on pavement).
+     - 5 social cards in exact order (1. Website, 2. LinkedIn, 3. Facebook, 4. Instagram, 5. WhatsApp).
+     - Circular lavender arrow buttons, hover states, and animations.
+     - Footer fleet silhouettes, brand text, and wave background decorations.
+
+5. **Quality Gates & Verification**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly.
+   - Playwright verification (`node scripts/verify-sociallinks.mjs`):
+     - Confirmed logo is positioned immediately to the right of "Connect with".
+     - Confirmed same horizontal line across 1440px, 768px, 390px, and 320px.
+     - Confirmed zero horizontal overflow on all screen sizes.
+   - Screenshots:
+     - [Desktop 1440px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-1440.png)
+     - [Tablet 768px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-768.png)
+     - [Mobile 390px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-390.png)
+     - [Mobile 320px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-320.png)
+
+## 18 November 2026 — Social Links Page: Added Official Website Card & Heading Wordmark Logo
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Implemented the two requested design modifications on `/sociallinks` (`src/app/sociallinks/page.tsx`) without altering any other aspect of the approved layout, vehicle artwork, curves, typography, or responsive behaviour:
+
+1. **Change 1 — Website Added as the First Social Card**:
+   - Added Victor's official website as card #1 in the social links list:
+     - 1. **Website** -> `https://victormobility.in/` ("Explore our services and fleet.")
+     - 2. **LinkedIn** -> `https://www.linkedin.com/company/victormobility` ("Corporate updates, insights and opportunities")
+     - 3. **Facebook** -> `https://www.facebook.com/victormobility.in` ("News, events and company updates")
+     - 4. **Instagram** -> `https://www.instagram.com/victormobility.in` ("Our journeys, people and highlights")
+     - 5. **WhatsApp** -> `https://wa.me/919100777768` ("Quick connect with our team")
+   - **Website Card Design & Icon**:
+     - Custom SVG globe glyph set against Victor's signature navy-to-purple gradient (`#15162F` via `#2E2866` to `#7C3AED`).
+     - Consistent squircle container (`h-14 w-14 rounded-2xl` desktop, `h-12 w-12 rounded-2xl` mobile).
+     - Matching circular lavender arrow button, hover elevation (`-translate-y-1.5`), and active feedback.
+   - **Desktop & Mobile 5-Card Grid**:
+     - Desktop: Single elegant 5-column row (`grid-cols-5`) inside `max-w-[1240px]` with balanced ~225px card widths, equal gaps, and zero overflow.
+     - Mobile: Stacked vertically (`flex flex-col gap-2.5`) with full-width touch targets (minimum height 64px).
+
+2. **Change 2 — Original Simple Victor Wordmark in Hero Heading**:
+   - Replaced plain text "Victor" in `<h1>` with the original Simple Victor wordmark logo:
+     - Result reads visually: **"Connect with [Victor Wordmark Logo]"**.
+     - Used high-resolution transparent vector crop [`public/brand/victor-wordmark.png`](file:///d:/victor%20website/public/brand/victor-wordmark.png) (wordmark only: stylized striped V, i, c, t, o, r; no horse, no tagline, no extra graphics).
+     - Aligned vertically with "Connect with" via responsive inline flex box (`h-8 sm:h-9 lg:h-11 w-auto items-center`).
+     - Preserved tagline "On Time Every Time." directly beneath the heading.
+     - Natural responsive wrapping on mobile without text truncation or clipping.
+
+3. **Quality Gates & Verification**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly.
+   - Playwright verification (`node scripts/verify-sociallinks.mjs`):
+     - Confirmed all 5 cards present in exact order on desktop and mobile.
+     - Verified heading text and wordmark logo display.
+     - Verified zero horizontal overflow on 1440px, 768px, 390px, and 320px viewports.
+   - Screenshots:
+     - [Desktop 1440px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-1440.png)
+     - [Mobile 390px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-390.png)
+
+## 18 November 2026 — Victor Mobility Social Links Design Correction (Vehicle Composition & Official Icons)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Addressed all critical design defects on `/sociallinks` (`src/app/sociallinks/page.tsx`) matching the approved reference design (Reference Image 1):
+
+1. **Complete Unclipped Vehicle Photograph**:
+   - Replaced cropped artwork with complete high-resolution vehicle assets:
+     - Desktop: [`hero-vehicle-desktop-perfect.png`](file:///d:/victor%20website/public/images/hero-vehicle-desktop-perfect.png) (1025x717, aspect ratio 1025/717)
+     - Mobile: [`hero-vehicle-mobile-perfect.png`](file:///d:/victor%20website/public/images/hero-vehicle-mobile-perfect.png) (720x540, aspect ratio 4/3)
+   - The entire vehicle is fully visible: front bumper, headlights, hood, roof, rear quarter, all wheels, tires firmly on the pavement, and ample ground clearance.
+   - Pavement below tires extends with clean breathing room, blending softly into the warm-white page background.
+   - Preserved the organic purple gradient ribbon transition from the approved design.
+   - Eliminated any overlap or bleeding between the social cards and the vehicle photograph (clean 32px separation).
+
+2. **Official Platform Brand SVG Icons**:
+   - Replaced all approximate icons with authentic, official platform brand vectors:
+     - **LinkedIn**: Official white LinkedIn 'in' vector on `#0A66C2` blue background.
+     - **Facebook**: Official white Facebook 'f' vector on `#0866FF` blue background.
+     - **Instagram**: Official camera outline and lens glyphs in crisp white on multi-colour gradient (`#FFB703` via `#FD1D1D` to `#833AB4`).
+     - **WhatsApp**: Official phone and chat-bubble vector on `#25D366` green background.
+   - Consistent squircle dimensions (`h-14 w-14 rounded-2xl` on desktop, `h-12 w-12 rounded-2xl` on mobile), identical visual weight, and centered alignment.
+
+3. **Visual Composition & Proportions**:
+   - Hero text and vehicle art balanced in a 5:7 column ratio on desktop, eliminating empty gaps.
+   - 4-card desktop row with equal dimensions, subtle ambient purple shadows, and circular lavender arrow buttons.
+   - Mobile layout with centered header, unclipped landscape vehicle card, and 4 stacked horizontal cards with zero overflow.
+
+4. **Quality Gates & Verification**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly.
+   - Playwright verification (`node scripts/verify-sociallinks.mjs`): All links, icons, vehicle assets, and viewports (1440px, 768px, 390px, 320px) verified. Zero horizontal overflow.
+   - Screenshots:
+     - [Desktop 1440px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-1440.png)
+     - [Mobile 390px Screenshot](file:///d:/victor%20website/docs/screenshots/sociallinks-new-390.png)
+     - [Desktop Comparison](file:///d:/victor%20website/docs/screenshots/comparison-desktop.png)
+     - [Mobile Comparison](file:///d:/victor%20website/docs/screenshots/comparison-mobile.png)
+
 ## 17 November 2026 — Replace UAE Fleet: Exact India Fleet Design & Commercial Photography
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
