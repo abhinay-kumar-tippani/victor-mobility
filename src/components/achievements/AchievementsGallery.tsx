@@ -275,10 +275,10 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
         <section
           id="team-highlight"
           aria-labelledby="team-highlight-heading"
-          className="rounded-3xl bg-gradient-to-b from-brand-warm-white via-white to-brand-warm-white/50 border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-14 shadow-xs space-y-8 sm:space-y-10 scroll-mt-24"
+          className="rounded-3xl bg-gradient-to-b from-brand-warm-white via-white to-brand-warm-white/50 border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs space-y-6 sm:space-y-8 scroll-mt-24"
         >
           {/* Header Block: Eyebrow, Heading, Description */}
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-2xl mx-auto space-y-4">
             {/* Eyebrow Label */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/20 text-brand-indigo text-xs font-bold uppercase tracking-wider">
               <Users className="w-3.5 h-3.5 text-amber-600" />
@@ -303,9 +303,9 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
             </div>
           </div>
 
-          {/* Large Dominant Landscape Photograph Container */}
-          <div className="w-full">
-            <div className="rounded-2xl sm:rounded-3xl bg-white p-2.5 sm:p-4 border border-brand-soft-neutral/90 shadow-sm hover:shadow-md transition-shadow duration-300">
+          {/* Balanced Landscape Photograph Container */}
+          <div className="max-w-2xl mx-auto w-full">
+            <div className="rounded-2xl sm:rounded-3xl bg-white p-2 sm:p-3 border border-brand-soft-neutral/90 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div
                 className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl bg-brand-warm-white border border-brand-soft-neutral/60"
                 style={{
@@ -317,14 +317,14 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
                   alt={teamHighlight.image.alt}
                   fill
                   quality={95}
-                  className="object-contain sm:object-cover sm:object-center"
-                  sizes="(max-width: 1440px) 100vw, 1200px"
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 672px"
                 />
               </div>
 
               {/* Caption */}
               {teamHighlight.image.caption && (
-                <p className="pt-3 px-1 text-xs text-brand-slate text-center sm:text-left leading-relaxed">
+                <p className="pt-2.5 px-1 text-xs text-brand-slate text-center sm:text-left leading-relaxed">
                   <BrandText>{teamHighlight.image.caption}</BrandText>
                 </p>
               )}
@@ -332,7 +332,7 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
           </div>
 
           {/* Closing Statement */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-brand-soft-neutral/70">
+          <div className="max-w-2xl mx-auto pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-brand-soft-neutral/70">
             <div className="inline-flex items-center gap-3">
               <div className="h-px w-8 sm:w-12 bg-amber-500/40" />
               <p className="text-base sm:text-lg font-bold text-brand-indigo tracking-tight font-serif italic">

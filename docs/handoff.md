@@ -20,8 +20,8 @@ Integrated the original Victor Mobility employee group photograph into the Achie
 
 3. **Photograph Integration & Visual Prominence**:
    - Saved the authentic employee group photograph as [`victor-team-gathering.jpg`](file:///d:/victor%20website/public/images/achievements/victor-team-gathering.jpg) ($1024 \times 682$, 352 kB) in `public/images/achievements/`.
-   - Formatted to span the full available container width while strictly maintaining its natural aspect ratio ($1024 / 682 \approx 1.5015$).
-   - Ensured every person remains visible with zero cropping of team members at the left or right edges using a dedicated responsive container and high-fidelity rendering.
+   - Centered in a balanced, dedicated container constrained to `max-w-2xl mx-auto` (~644px wide $\times$ 428px high on desktop, scaled smoothly on mobile), replacing the initial overly large full-width container for an elegant, proportional fit.
+   - Strictly maintains its natural aspect ratio ($1024 / 682 \approx 1.5015$) with zero cropping of team members standing at the left or right edges.
    - Framed in a rounded card with subtle neutral border and warm white interior.
    - Alt text: *"Victor Mobility employees and team members gathered together at a company event."*
 
