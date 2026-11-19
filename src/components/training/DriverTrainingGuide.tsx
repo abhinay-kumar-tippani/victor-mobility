@@ -1,24 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import BrandText from "@/components/brand/BrandText";
+import DriverTrainingSlideshow from "@/components/training/DriverTrainingSlideshow";
 import {
   CheckCircle2,
   ShieldCheck,
   ShieldAlert,
   Clock,
-  Car,
-  UserCheck,
-  PhoneOff,
+  Compass,
   AlertTriangle,
+  Sparkles,
+  UserCheck,
+  Car,
   FileText,
   Camera,
   Users,
-  Sparkles,
-  ClipboardCheck,
-  Fuel,
-  Compass,
-  HeartHandshake,
 } from "lucide-react";
 import type { DriverTrainingContent } from "@/types/content";
 
@@ -27,402 +23,304 @@ interface DriverTrainingGuideProps {
 }
 
 export default function DriverTrainingGuide({ content }: DriverTrainingGuideProps) {
-  const { title, page1, page2, page3, page4, page5, supportingClassroom } = content;
+  const { title, eyebrow, intro, question1, question2, insideBriefing, question3 } = content;
 
   return (
     <div className="space-y-16 sm:space-y-24">
-      {/* Page Title & Tagline */}
-      <div className="max-w-3xl space-y-3">
-        <span className="uppercase text-brand-indigo font-bold text-xs tracking-wider block section-eyebrow">
-          Operational Standards
-        </span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight">
-          <BrandText>{title}</BrandText>
-        </h1>
-        <p className="text-base sm:text-lg text-brand-indigo font-semibold font-serif italic">
-          &ldquo;{content.tagline}&rdquo;
-        </p>
-      </div>
-
-      {/* ========================================================
-          PAGE 1: DAILY DRIVERS BRIEFING — IMPORTANT INSTRUCTIONS
-          ======================================================== */}
+      {/* 1. Hero & Introduction Section with Group Briefing Photo (Image 1) */}
       <section
-        id="daily-drivers-briefing"
-        aria-labelledby="page1-heading"
-        className="rounded-3xl bg-brand-warm-white border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs space-y-8"
+        aria-labelledby="driver-training-hero-title"
+        className="rounded-3xl bg-gradient-to-b from-brand-warm-white via-white to-brand-warm-white/40 border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs"
       >
-        {/* Header Block */}
-        <div className="space-y-3 border-b border-brand-soft-neutral/80 pb-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+          {/* Left Column: Heading and Introduction */}
+          <div className="lg:col-span-6 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/20 text-brand-indigo text-xs font-bold uppercase tracking-wider">
-              <ClipboardCheck className="w-3.5 h-3.5 text-brand-indigo" />
-              <span>{page1.subheading}</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>{eyebrow}</span>
             </div>
-            <span className="text-xs font-mono font-semibold text-brand-slate">
-              VICTOR | 1
-            </span>
+
+            <h1
+              id="driver-training-hero-title"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight leading-tight"
+            >
+              <BrandText>{title}</BrandText>
+            </h1>
+
+            <p className="text-base sm:text-lg text-brand-ink/80 leading-relaxed font-normal pt-1">
+              <BrandText>{intro}</BrandText>
+            </p>
+
+            <div className="pt-2 text-xs sm:text-sm text-brand-slate leading-relaxed border-t border-brand-soft-neutral/70">
+              <p>
+                Structured briefing sessions ensure operational alignment, strict safety adherence, and consistent executive hospitality across every corporate journey.
+              </p>
+            </div>
           </div>
 
-          <h2
-            id="page1-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
-          >
-            <BrandText>{page1.heading}</BrandText>
-          </h2>
-
-          <div className="p-4 sm:p-5 rounded-2xl bg-white border border-brand-soft-neutral/90 space-y-2">
-            <p className="text-sm sm:text-base font-bold text-brand-ink">
-              <BrandText>{page1.dearTeam}</BrandText>
-            </p>
-            <p className="text-sm sm:text-base text-brand-ink/90 leading-relaxed font-medium">
-              <BrandText>{page1.instruction}</BrandText>
-            </p>
+          {/* Right Column: Top Slideshow (All 9 uploaded photographs) */}
+          <div className="lg:col-span-6">
+            <DriverTrainingSlideshow
+              photos={content.slideshowPhotos}
+              priority
+              label="Victor Mobility daily driver briefing gallery"
+            />
           </div>
         </div>
+      </section>
 
-        {/* 12 Briefing Points */}
-        <div className="space-y-4">
-          <h3 className="text-lg sm:text-xl font-bold text-brand-ink">
-            <BrandText>{page1.pointsTitle}</BrandText>
-          </h3>
+      {/* 2. Question 1: What gets checked before departure? */}
+      <section
+        id={question1.id}
+        aria-labelledby="question-1-heading"
+        className="space-y-8 scroll-mt-24"
+      >
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
+            <span className="w-6 h-6 rounded-md bg-brand-indigo text-white flex items-center justify-center text-xs font-extrabold">
+              1
+            </span>
+            <span>Pre-Shift Standard</span>
+          </div>
+          <h2
+            id="question-1-heading"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
+          >
+            <BrandText>{question1.question}</BrandText>
+          </h2>
+          <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed">
+            <BrandText>{question1.intro}</BrandText>
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            {page1.points.map((point, idx) => (
+        {/* Short Scannable Checklists (Driver & Vehicle) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Driver Readiness Checklist */}
+          <div className="rounded-2xl bg-white border border-brand-soft-neutral/90 p-6 sm:p-7 shadow-2xs space-y-5">
+            <div className="flex items-center gap-3 pb-3 border-b border-brand-soft-neutral/70">
+              <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-indigo/15 flex items-center justify-center text-brand-indigo">
+                <UserCheck className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-brand-ink">
+                <BrandText>{question1.driverChecklist.title}</BrandText>
+              </h3>
+            </div>
+
+            <ul className="space-y-3.5 text-sm text-brand-ink/90 font-medium">
+              {question1.driverChecklist.items.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-1" />
+                  <span className="leading-snug"><BrandText>{item}</BrandText></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Vehicle Health & Cabin Checklist */}
+          <div className="rounded-2xl bg-white border border-brand-soft-neutral/90 p-6 sm:p-7 shadow-2xs space-y-5">
+            <div className="flex items-center gap-3 pb-3 border-b border-brand-soft-neutral/70">
+              <div className="w-10 h-10 rounded-xl bg-brand-warm-white border border-brand-indigo/15 flex items-center justify-center text-brand-indigo">
+                <Car className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-brand-ink">
+                <BrandText>{question1.vehicleChecklist.title}</BrandText>
+              </h3>
+            </div>
+
+            <ul className="space-y-3.5 text-sm text-brand-ink/90 font-medium">
+              {question1.vehicleChecklist.items.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-1" />
+                  <span className="leading-snug"><BrandText>{item}</BrandText></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Question 2: What is expected on the road? */}
+      <section
+        id={question2.id}
+        aria-labelledby="question-2-heading"
+        className="space-y-8 scroll-mt-24"
+      >
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
+            <span className="w-6 h-6 rounded-md bg-brand-indigo text-white flex items-center justify-center text-xs font-extrabold">
+              2
+            </span>
+            <span>On-Road Protocol</span>
+          </div>
+          <h2
+            id="question-2-heading"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
+          >
+            <BrandText>{question2.question}</BrandText>
+          </h2>
+          <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed">
+            <BrandText>{question2.intro}</BrandText>
+          </p>
+        </div>
+
+        {/* Operational Standards Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {question2.standards.map((std, idx) => {
+            const icons = [Clock, Compass, ShieldCheck];
+            const Icon = icons[idx] || ShieldCheck;
+
+            return (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-white border border-brand-soft-neutral/90 shadow-2xs hover:shadow-xs transition-shadow"
+                className="rounded-2xl bg-white border border-brand-soft-neutral/90 p-6 shadow-2xs space-y-3 flex flex-col justify-between"
               >
-                <span className="w-6 h-6 rounded-lg bg-brand-indigo/10 text-brand-indigo text-xs font-extrabold flex items-center justify-center shrink-0 mt-0.5">
-                  {idx + 1}
-                </span>
-                <span className="text-xs sm:text-sm text-brand-ink/90 font-medium leading-snug">
-                  <BrandText>{point}</BrandText>
-                </span>
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-brand-indigo/10 flex items-center justify-center text-brand-indigo">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-brand-ink">
+                    <BrandText>{std.title}</BrandText>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
+                    <BrandText>{std.description}</BrandText>
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Mandatory Reporting Callout Box */}
-        <div className="rounded-2xl bg-brand-indigo/5 border border-brand-indigo/20 p-5 sm:p-6 space-y-2">
-          <div className="flex items-center gap-2">
-            <Camera className="w-5 h-5 text-brand-indigo shrink-0" />
-            <h4 className="font-extrabold text-brand-indigo text-sm sm:text-base">
-              <BrandText>{page1.mandatoryReporting.title}</BrandText>
-            </h4>
-          </div>
-          <p className="text-xs sm:text-sm text-brand-ink/85 leading-relaxed font-medium">
-            <BrandText>{page1.mandatoryReporting.instruction}</BrandText>
-          </p>
-        </div>
-
-        {/* Banner */}
-        <div className="rounded-2xl bg-brand-indigo text-white p-4 sm:p-5 text-center shadow-xs">
-          <p className="text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider">
-            {page1.banner}
-          </p>
-        </div>
-      </section>
-
-      {/* ========================================================
-          PAGE 2: DAILY BRIEFING – SHIFT START STANDARD
-          ======================================================== */}
-      <section
-        id="shift-start-standard"
-        aria-labelledby="page2-heading"
-        className="rounded-3xl bg-white border border-brand-soft-neutral/90 p-6 sm:p-10 lg:p-12 shadow-xs space-y-8"
-      >
-        <div className="space-y-3 border-b border-brand-soft-neutral/80 pb-6">
-          <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo">
-              <Clock className="w-3.5 h-3.5" />
-              <span>Shift Start Protocol</span>
-            </span>
-            <span className="text-xs font-mono font-semibold text-brand-slate">
-              VICTOR | 2
-            </span>
-          </div>
-
-          <h2
-            id="page2-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
-          >
-            <BrandText>{page2.heading}</BrandText>
-          </h2>
-
-          <p className="text-sm sm:text-base text-brand-slate font-medium">
-            <BrandText>{page2.subheading}</BrandText>
-          </p>
-        </div>
-
-        {/* Highlight Callout */}
-        <div className="rounded-2xl bg-brand-warm-white border border-brand-soft-neutral p-5 sm:p-6 text-center">
-          <p className="text-base sm:text-lg font-bold text-brand-ink leading-relaxed">
-            &ldquo;<BrandText>{page2.callout}</BrandText>&rdquo;
-          </p>
-        </div>
-
-        {/* Shift Start Standard Bullets */}
-        <div className="rounded-2xl bg-brand-warm-white/60 border border-brand-soft-neutral/80 p-6 sm:p-8 space-y-4">
-          <ul className="space-y-3.5 text-sm sm:text-base text-brand-ink/90 font-medium">
-            {page2.standards.map((std, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="leading-relaxed"><BrandText>{std}</BrandText></span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ========================================================
-          PAGE 3: DRIVER SAFETY & PROFESSIONAL CONDUCT
-          ======================================================== */}
-      <section
-        id="driver-safety-conduct"
-        aria-labelledby="page3-heading"
-        className="rounded-3xl bg-brand-warm-white border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs space-y-8"
-      >
-        <div className="space-y-3 border-b border-brand-soft-neutral/80 pb-6">
-          <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Safety &amp; Decorum</span>
-            </span>
-            <span className="text-xs font-mono font-semibold text-brand-slate">
-              VICTOR | 3
-            </span>
-          </div>
-
-          <h2
-            id="page3-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
-          >
-            <BrandText>{page3.heading}</BrandText>
-          </h2>
-
-          <p className="text-sm sm:text-base text-brand-slate font-medium">
-            <BrandText>{page3.subheading}</BrandText>
-          </p>
-        </div>
-
-        {/* 2 Equal Columns: SAFE DRIVING and SERVICE & REPORTING */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {/* Column 1: SAFE DRIVING */}
-          <div className="rounded-2xl bg-white border border-brand-soft-neutral p-6 sm:p-7 shadow-2xs space-y-5">
-            <div className="flex items-center gap-2.5 pb-3 border-b border-brand-soft-neutral/70">
+        {/* Safety Directives & Incident Reporting Sub-grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Explicit Safety Rules — Zero Tolerance (Column 1-7) */}
+          <div className="lg:col-span-7 rounded-2xl bg-amber-500/5 border border-amber-500/20 p-6 sm:p-7 space-y-4">
+            <div className="flex items-center gap-2.5 text-amber-900 font-bold text-sm sm:text-base">
               <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0" />
-              <h3 className="text-base sm:text-lg font-extrabold text-brand-ink tracking-wide">
-                <BrandText>{page3.safeDriving.title}</BrandText>
-              </h3>
+              <span><BrandText>{question2.safetyRules.title}</BrandText></span>
             </div>
 
-            <ul className="space-y-3.5 text-xs sm:text-sm text-brand-ink/90 font-medium">
-              {page3.safeDriving.rules.map((rule, idx) => (
+            <ul className="space-y-2.5 text-xs sm:text-sm text-brand-ink/90 font-medium">
+              {question2.safetyRules.rules.map((rule, idx) => (
                 <li key={idx} className="flex items-start gap-2.5">
                   <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                  <span className="leading-snug"><BrandText>{rule}</BrandText></span>
+                  <span className="leading-relaxed"><BrandText>{rule}</BrandText></span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 2: SERVICE & REPORTING */}
-          <div className="rounded-2xl bg-white border border-brand-soft-neutral p-6 sm:p-7 shadow-2xs space-y-5">
-            <div className="flex items-center gap-2.5 pb-3 border-b border-brand-soft-neutral/70">
-              <HeartHandshake className="w-5 h-5 text-brand-indigo shrink-0" />
-              <h3 className="text-base sm:text-lg font-extrabold text-brand-ink tracking-wide">
-                <BrandText>{page3.serviceReporting.title}</BrandText>
-              </h3>
-            </div>
-
-            <ul className="space-y-3.5 text-xs sm:text-sm text-brand-ink/90 font-medium">
-              {page3.serviceReporting.rules.map((rule, idx) => (
-                <li key={idx} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-brand-indigo shrink-0 mt-0.5" />
-                  <span className="leading-snug"><BrandText>{rule}</BrandText></span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          PAGE 4: DAILY DRIVERS BRIEFING – ON-SITE ACTIVITY (PHOTOGRAPHS)
-          ======================================================== */}
-      <section
-        id="on-site-activity"
-        aria-labelledby="page4-heading"
-        className="rounded-3xl bg-white border border-brand-soft-neutral/90 p-6 sm:p-10 lg:p-12 shadow-xs space-y-8"
-      >
-        <div className="space-y-3 border-b border-brand-soft-neutral/80 pb-6">
-          <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo">
-              <Camera className="w-3.5 h-3.5" />
-              <span>Operational Visuals</span>
-            </span>
-            <span className="text-xs font-mono font-semibold text-brand-slate">
-              VICTOR | 4
-            </span>
-          </div>
-
-          <h2
-            id="page4-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
-          >
-            <BrandText>{page4.heading}</BrandText>
-          </h2>
-
-          <p className="text-sm sm:text-base text-brand-slate font-medium">
-            <BrandText>{page4.caption}</BrandText>
-          </p>
-        </div>
-
-        {/* The 4 Distinct Briefing Photographs in a 2x2 Grid Matching Slide 4 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {page4.photos.map((photo) => (
-            <div
-              key={photo.id}
-              className="rounded-2xl bg-brand-warm-white p-3 sm:p-4 border border-brand-soft-neutral/90 shadow-2xs space-y-2.5 hover:shadow-xs transition-shadow"
-            >
-              <div
-                className="relative w-full overflow-hidden rounded-xl bg-white shadow-2xs"
-                style={{
-                  aspectRatio: `${photo.width} / ${photo.height}`,
-                }}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 550px"
-                />
+          {/* Immediate Reporting Protocol (Column 8-12) */}
+          <div className="lg:col-span-5 rounded-2xl bg-brand-warm-white border border-brand-soft-neutral/90 p-6 sm:p-7 space-y-3 flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-brand-indigo font-bold text-sm sm:text-base">
+                <Clock className="w-5 h-5 text-brand-indigo shrink-0" />
+                <span><BrandText>{question2.incidentReporting.title}</BrandText></span>
               </div>
-              <p className="text-xs text-brand-slate leading-relaxed px-1">
-                <BrandText>{photo.caption}</BrandText>
+              <p className="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-normal">
+                <BrandText>{question2.incidentReporting.description}</BrandText>
               </p>
             </div>
-          ))}
+            <div className="pt-2 border-t border-brand-soft-neutral/70 text-[11px] text-brand-slate uppercase tracking-wider font-semibold">
+              Mandatory 24/7 Operations Desk Link
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ========================================================
-          PAGE 5: MANDATORY REPORTING & COMPLIANCE
-          ======================================================== */}
+      {/* 4. Inside a Driver Briefing Section with Image 2 */}
       <section
-        id="mandatory-reporting-compliance"
-        aria-labelledby="page5-heading"
-        className="rounded-3xl bg-brand-warm-white border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs space-y-8"
+        id={insideBriefing.id}
+        aria-labelledby="inside-briefing-heading"
+        className="rounded-3xl bg-brand-warm-white border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs"
       >
-        <div className="space-y-3 border-b border-brand-soft-neutral/80 pb-6">
-          <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-indigo">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Compliance Standard</span>
-            </span>
-            <span className="text-xs font-mono font-semibold text-brand-slate">
-              VICTOR | 5
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Bottom Slideshow: Exactly the same collection of 9 photographs */}
+          <div className="lg:col-span-6 order-2 lg:order-1">
+            <DriverTrainingSlideshow
+              photos={content.slideshowPhotos}
+              label="Inside a driver briefing photograph gallery"
+            />
           </div>
 
+          {/* Contextual Narrative */}
+          <div className="lg:col-span-6 space-y-4 order-1 lg:order-2">
+            <span className="uppercase text-brand-indigo font-bold text-xs tracking-wider block">
+              Operational Culture
+            </span>
+            <h2
+              id="inside-briefing-heading"
+              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
+            >
+              <BrandText>{insideBriefing.title}</BrandText>
+            </h2>
+            <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed font-normal">
+              <BrandText>{insideBriefing.description}</BrandText>
+            </p>
+            <div className="p-4 rounded-xl bg-white border border-brand-soft-neutral/70 text-xs text-brand-slate leading-relaxed">
+              Supervisors facilitate two-way dialogue to address real-world route conditions, vehicle readiness feedback, and client preferences before departure.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Question 3: What does the supervisor record? */}
+      <section
+        id={question3.id}
+        aria-labelledby="question-3-heading"
+        className="space-y-8 scroll-mt-24"
+      >
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-indigo">
+            <span className="w-6 h-6 rounded-md bg-brand-indigo text-white flex items-center justify-center text-xs font-extrabold">
+              3
+            </span>
+            <span>Supervisory Oversight</span>
+          </div>
           <h2
-            id="page5-heading"
+            id="question-3-heading"
             className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
           >
-            <BrandText>{page5.heading}</BrandText>
+            <BrandText>{question3.question}</BrandText>
           </h2>
-
-          <p className="text-sm sm:text-base text-brand-slate font-medium">
-            <BrandText>{page5.subheading}</BrandText>
+          <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed">
+            <BrandText>{question3.intro}</BrandText>
           </p>
         </div>
 
-        {/* Supervisor Checklist Card */}
-        <div className="rounded-2xl bg-white border border-brand-soft-neutral p-6 sm:p-8 shadow-2xs space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-brand-soft-neutral/70">
-            <FileText className="w-5 h-5 text-brand-indigo shrink-0" />
-            <h3 className="text-base sm:text-lg font-extrabold text-brand-ink uppercase tracking-wide">
-              <BrandText>{page5.checklistTitle}</BrandText>
-            </h3>
-          </div>
+        {/* 3 Supervisory Responsibilities */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {question3.responsibilities.map((resp, idx) => {
+            const icons = [FileText, Camera, Users];
+            const Icon = icons[idx] || FileText;
 
-          <ul className="space-y-3.5 text-sm sm:text-base text-brand-ink/90 font-medium">
-            {page5.checklist.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="leading-relaxed"><BrandText>{item}</BrandText></span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Banner */}
-        <div className="rounded-2xl bg-brand-ink text-white p-5 sm:p-6 text-center shadow-md">
-          <p className="text-sm sm:text-base md:text-lg font-black uppercase tracking-wider">
-            {page5.banner}
-          </p>
-        </div>
-
-        {/* Closing Reminder Tagline */}
-        <div className="pt-2 text-center">
-          <p className="text-base sm:text-lg font-bold text-brand-indigo tracking-tight font-serif italic">
-            &ldquo;{page5.closingReminder}&rdquo;
-          </p>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SUPPORTING CLASSROOM TRAINING (AFTER COMPLETE BRIEFING)
-          ======================================================== */}
-      <section
-        id="supporting-classroom-training"
-        aria-labelledby="classroom-heading"
-        className="rounded-3xl bg-white border border-brand-soft-neutral/90 p-6 sm:p-10 lg:p-12 shadow-xs space-y-8"
-      >
-        <div className="space-y-2 border-b border-brand-soft-neutral/80 pb-4">
-          <span className="uppercase text-brand-indigo font-bold text-xs tracking-wider block">
-            Supporting Development
-          </span>
-          <h2
-            id="classroom-heading"
-            className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-brand-ink tracking-tight"
-          >
-            <BrandText>{supportingClassroom.title}</BrandText>
-          </h2>
-          <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
-            <BrandText>{supportingClassroom.intro}</BrandText>
-          </p>
-        </div>
-
-        {/* Classroom Photos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {supportingClassroom.photos.map((photo, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl bg-brand-warm-white p-3 sm:p-4 border border-brand-soft-neutral/90 shadow-2xs space-y-2"
-            >
+            return (
               <div
-                className="relative w-full overflow-hidden rounded-xl bg-white"
-                style={{
-                  aspectRatio: `${photo.width} / ${photo.height}`,
-                }}
+                key={idx}
+                className="rounded-2xl bg-white border border-brand-soft-neutral/90 p-6 shadow-2xs space-y-3 flex flex-col justify-between"
               >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-contain sm:object-cover sm:object-center"
-                  sizes="(max-width: 768px) 100vw, 550px"
-                />
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-brand-indigo/10 flex items-center justify-center text-brand-indigo">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-brand-ink">
+                    <BrandText>{resp.title}</BrandText>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-brand-ink/75 leading-relaxed">
+                    <BrandText>{resp.description}</BrandText>
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-brand-slate italic px-1">
-                <BrandText>{photo.caption}</BrandText>
-              </p>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Staff Responsibility Callout (No public upload or WhatsApp button) */}
+        <div className="rounded-2xl bg-brand-warm-white border border-brand-soft-neutral/80 p-4 sm:p-5 text-xs text-brand-slate leading-relaxed flex items-center gap-3">
+          <ShieldCheck className="w-4 h-4 text-brand-indigo shrink-0" />
+          <p>
+            <strong className="text-brand-ink font-semibold">Staff Protocol: </strong>
+            <BrandText>{question3.staffNotice}</BrandText>
+          </p>
         </div>
       </section>
     </div>

@@ -38,13 +38,26 @@ export default function IndiaAchievementsPage() {
       name: content.companyName,
       url: "https://victormobility.in/india",
     },
-    mainEntity: achievements.featuredAchievements.map((item) => ({
-      "@type": "Article",
-      headline: item.heading,
-      articleSection: item.category,
-      image: `https://victormobility.in${item.imageSrc}`,
-      description: item.highlightStatement,
-    })),
+    mainEntity: [
+      ...achievements.featuredAchievements.map((item) => ({
+        "@type": "Article",
+        headline: item.heading,
+        articleSection: item.category,
+        image: `https://victormobility.in${item.imageSrc}`,
+        description: item.highlightStatement,
+      })),
+      ...(achievements.teamHighlight
+        ? [
+            {
+              "@type": "Article",
+              headline: achievements.teamHighlight.heading,
+              articleSection: achievements.teamHighlight.eyebrow,
+              image: `https://victormobility.in${achievements.teamHighlight.image.src}`,
+              description: achievements.teamHighlight.paragraphs[0],
+            },
+          ]
+        : []),
+    ],
   };
 
   return (

@@ -13,6 +13,7 @@ import {
   ZoomIn,
   ZoomOut,
   Zap,
+  Users,
 } from "lucide-react";
 import type {
   AchievementsContent,
@@ -24,7 +25,7 @@ interface AchievementsGalleryProps {
 }
 
 export default function AchievementsGallery({ achievements }: AchievementsGalleryProps) {
-  const { hero, featuredAchievements, closingSection } = achievements;
+  const { hero, featuredAchievements, teamHighlight, closingSection } = achievements;
 
   // Active modal state
   const [activeItem, setActiveItem] = useState<AchievementItem | null>(null);
@@ -269,7 +270,85 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
         })}
       </div>
 
-      {/* 3. Accessible Lightbox Modal */}
+      {/* 3. Featured Section — The People Behind Victor */}
+      {teamHighlight && (
+        <section
+          id="team-highlight"
+          aria-labelledby="team-highlight-heading"
+          className="rounded-3xl bg-gradient-to-b from-brand-warm-white via-white to-brand-warm-white/50 border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-14 shadow-xs space-y-8 sm:space-y-10 scroll-mt-24"
+        >
+          {/* Header Block: Eyebrow, Heading, Description */}
+          <div className="max-w-3xl space-y-4">
+            {/* Eyebrow Label */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/20 text-brand-indigo text-xs font-bold uppercase tracking-wider">
+              <Users className="w-3.5 h-3.5 text-amber-600" />
+              <span>{teamHighlight.eyebrow}</span>
+            </div>
+
+            {/* Main Heading */}
+            <h2
+              id="team-highlight-heading"
+              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight leading-snug"
+            >
+              <BrandText>{teamHighlight.heading}</BrandText>
+            </h2>
+
+            {/* Supporting Description */}
+            <div className="space-y-3.5 text-sm sm:text-base text-brand-ink/80 leading-relaxed pt-1">
+              {teamHighlight.paragraphs.map((para, idx) => (
+                <p key={idx}>
+                  <BrandText>{para}</BrandText>
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Large Dominant Landscape Photograph Container */}
+          <div className="w-full">
+            <div className="rounded-2xl sm:rounded-3xl bg-white p-2.5 sm:p-4 border border-brand-soft-neutral/90 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div
+                className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl bg-brand-warm-white border border-brand-soft-neutral/60"
+                style={{
+                  aspectRatio: `${teamHighlight.image.width} / ${teamHighlight.image.height}`,
+                }}
+              >
+                <Image
+                  src={teamHighlight.image.src}
+                  alt={teamHighlight.image.alt}
+                  fill
+                  quality={95}
+                  className="object-contain sm:object-cover sm:object-center"
+                  sizes="(max-width: 1440px) 100vw, 1200px"
+                />
+              </div>
+
+              {/* Caption */}
+              {teamHighlight.image.caption && (
+                <p className="pt-3 px-1 text-xs text-brand-slate text-center sm:text-left leading-relaxed">
+                  <BrandText>{teamHighlight.image.caption}</BrandText>
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Closing Statement */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-brand-soft-neutral/70">
+            <div className="inline-flex items-center gap-3">
+              <div className="h-px w-8 sm:w-12 bg-amber-500/40" />
+              <p className="text-base sm:text-lg font-bold text-brand-indigo tracking-tight font-serif italic">
+                &ldquo;{teamHighlight.closingLine}&rdquo;
+              </p>
+              <div className="h-px w-8 sm:w-12 bg-amber-500/40" />
+            </div>
+
+            <span className="text-xs uppercase tracking-wider font-semibold text-brand-slate">
+              Victor Mobility Corporate Team
+            </span>
+          </div>
+        </section>
+      )}
+
+      {/* 4. Accessible Lightbox Modal */}
       {activeItem && (
         <div
           role="dialog"
@@ -376,7 +455,7 @@ export default function AchievementsGallery({ achievements }: AchievementsGaller
         </div>
       )}
 
-      {/* 4. Elegant Closing Section */}
+      {/* 5. Elegant Closing Section */}
       <section
         aria-labelledby="achievements-closing-title"
         className="rounded-3xl bg-brand-warm-white border border-brand-soft-neutral/80 p-8 sm:p-12 text-center shadow-xs"

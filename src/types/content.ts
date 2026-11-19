@@ -279,80 +279,102 @@ export interface AchievementsClosing {
   ctaHref: string;
 }
 
+export interface EmployeeTeamHighlight {
+  eyebrow: string;
+  heading: string;
+  paragraphs: string[];
+  closingLine: string;
+  image: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption?: string;
+  };
+}
+
 export interface AchievementsContent {
   hero: AchievementsHero;
   featuredAchievements: AchievementItem[];
+  teamHighlight?: EmployeeTeamHighlight;
   closingSection: AchievementsClosing;
 }
 
-export interface BriefingPhotoItem {
+export interface DriverTrainingChecklist {
+  title: string;
+  items: string[];
+}
+
+export interface DriverTrainingStandard {
+  title: string;
+  description: string;
+}
+
+export interface DriverTrainingSection1 {
   id: string;
+  question: string;
+  intro: string;
+  driverChecklist: DriverTrainingChecklist;
+  vehicleChecklist: DriverTrainingChecklist;
+}
+
+export interface DriverTrainingSection2 {
+  id: string;
+  question: string;
+  intro: string;
+  standards: DriverTrainingStandard[];
+  safetyRules: {
+    title: string;
+    rules: string[];
+  };
+  incidentReporting: {
+    title: string;
+    description: string;
+  };
+}
+
+export interface DriverTrainingPhoto {
+  id?: string;
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
   width: number;
   height: number;
 }
 
-export interface SupportingTrainingPhoto {
-  src: string;
-  alt: string;
-  caption: string;
-  width: number;
-  height: number;
+export interface DriverTrainingInsideSection {
+  id: string;
+  title: string;
+  description: string;
+  photo: DriverTrainingPhoto;
+}
+
+export interface DriverTrainingSupervisorSection {
+  id: string;
+  question: string;
+  intro: string;
+  responsibilities: Array<{
+    title: string;
+    description: string;
+  }>;
+  staffNotice: string;
 }
 
 export interface DriverTrainingContent {
   title: string;
-  tagline: string;
-  page1: {
+  eyebrow: string;
+  intro: string;
+  heroPhoto: DriverTrainingPhoto;
+  slideshowPhotos: DriverTrainingPhoto[];
+  question1: DriverTrainingSection1;
+  question2: DriverTrainingSection2;
+  insideBriefing: DriverTrainingInsideSection;
+  question3: DriverTrainingSupervisorSection;
+  academyCta?: {
     heading: string;
-    subheading: string;
-    dearTeam: string;
-    instruction: string;
-    pointsTitle: string;
-    points: string[];
-    mandatoryReporting: {
-      title: string;
-      instruction: string;
-    };
-    banner: string;
-  };
-  page2: {
-    heading: string;
-    subheading: string;
-    callout: string;
-    standards: string[];
-  };
-  page3: {
-    heading: string;
-    subheading: string;
-    safeDriving: {
-      title: string;
-      rules: string[];
-    };
-    serviceReporting: {
-      title: string;
-      rules: string[];
-    };
-  };
-  page4: {
-    heading: string;
-    caption: string;
-    photos: BriefingPhotoItem[];
-  };
-  page5: {
-    heading: string;
-    subheading: string;
-    checklistTitle: string;
-    checklist: string[];
-    banner: string;
-    closingReminder: string;
-  };
-  supportingClassroom: {
-    title: string;
-    intro: string;
-    photos: SupportingTrainingPhoto[];
+    description: string;
+    buttonLabel: string;
+    href: string;
   };
 }
 

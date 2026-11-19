@@ -1,5 +1,145 @@
 # Handoff
 
+## 19 November 2026 — Added Signature Employee Team Highlight to Achievements Page
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Integrated the original Victor Mobility employee group photograph into the Achievements & Recognition page ([`/india/achievements`](file:///d:/victor%20website/src/app/india/achievements/page.tsx)) as a prominent signature company highlight:
+
+1. **Section Positioning & Structure**:
+   - Introduced a new featured section strictly between section 3 (Partnership Appreciation — Landmark Kia) and section 4 (Every Milestone Moves Us Forward — Closing Section).
+   - Preserved all existing achievements sections, the Kia Clavis EV fleet announcement, the Landmark Kia appreciation poster, full poster lightbox preview modals, and the closing section completely intact.
+
+2. **Editorial Content & Copy**:
+   - **Eyebrow**: `THE PEOPLE BEHIND VICTOR` with warm amber and indigo pill badge.
+   - **Main Heading**: `Our People. Our Strength. Our Journey.`
+   - **Supporting Description**:
+     - *"Behind every milestone at Victor Mobility is a team of dedicated people working together towards a shared vision. From daily operations and customer service to fleet coordination and corporate mobility, our employees are the driving force behind everything we accomplish."*
+     - *"Their dedication, teamwork and commitment to service excellence make every journey possible. As we continue to grow, we remain proud of the people who make Victor Mobility what it is today."*
+   - **Closing Statement**: *"Together, We Move Forward."* styled in Victor brand indigo italic serif with ambient amber rules and "Victor Mobility Corporate Team" sub-label.
+
+3. **Photograph Integration & Visual Prominence**:
+   - Saved the authentic employee group photograph as [`victor-team-gathering.jpg`](file:///d:/victor%20website/public/images/achievements/victor-team-gathering.jpg) ($1024 \times 682$, 352 kB) in `public/images/achievements/`.
+   - Formatted to span the full available container width while strictly maintaining its natural aspect ratio ($1024 / 682 \approx 1.5015$).
+   - Ensured every person remains visible with zero cropping of team members at the left or right edges using a dedicated responsive container and high-fidelity rendering.
+   - Framed in a rounded card with subtle neutral border and warm white interior.
+   - Alt text: *"Victor Mobility employees and team members gathered together at a company event."*
+
+4. **Component & Schema Updates**:
+   - Added `EmployeeTeamHighlight` interface to [`src/types/content.ts`](file:///d:/victor%20website/src/types/content.ts).
+   - Added structured data to `teamHighlight` in [`src/content/india.json`](file:///d:/victor%20website/src/content/india.json).
+   - Integrated into [`AchievementsGallery.tsx`](file:///d:/victor%20website/src/components/achievements/AchievementsGallery.tsx) with Lucide `Users` icon.
+   - Added structured article entity to Schema.org `CollectionPage` in [`src/app/india/achievements/page.tsx`](file:///d:/victor%20website/src/app/india/achievements/page.tsx).
+
+5. **Quality Gates & Automated Verification**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings or errors.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+   - Playwright automated verification:
+     - Confirmed exact DOM order: Hero $\rightarrow$ Fleet (Kia Clavis EV) $\rightarrow$ Partnership (Landmark Kia) $\rightarrow$ **The People Behind Victor** $\rightarrow$ Closing Section.
+     - Confirmed image loads cleanly with HTTP 200 OK.
+     - Verified poster lightbox modal opens and closes properly.
+     - Zero horizontal overflow across 1440px, 1024px, 768px, 390px, and 320px viewports.
+   - Visual screenshots:
+     - Desktop full page: [`screenshots/achievements-desktop.png`](file:///d:/victor%20website/screenshots/achievements-desktop.png)
+     - Mobile full page: [`screenshots/achievements-mobile.png`](file:///d:/victor%20website/screenshots/achievements-mobile.png)
+     - Team highlight section: [`screenshots/team-highlight-section.png`](file:///d:/victor%20website/screenshots/team-highlight-section.png)
+
+## 19 November 2026 — Converted Both Driver Training Image Containers into Automatic Slideshows
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Converted both photograph containers on `/india/driver-training` into automatic slideshows displaying the complete collection of 9 authentic Victor Mobility driver training photographs:
+
+1. **Top Image Container — Automatic Slideshow**:
+   - Converted the image container in the hero section beside the Driver Training introduction (`DriverTrainingGuide.tsx`).
+   - Displays all 9 user-provided authentic training photographs, one large photograph at a time.
+   - Smooth automatic transitions every 5000ms with pause on mouse hover, pause on keyboard focus, and automatic disabling when `prefers-reduced-motion` is active.
+   - Smooth crossfade transition (`transition-opacity duration-700 ease-in-out`) between stacked slides with zero cumulative layout shift.
+   - Clean, uncluttered photographic view with zero overlaid numbers badge and zero bottom pagination dots (removed per direct user request).
+   - Previous and next navigation chevron buttons with accessible aria labels and hover animations.
+   - Dynamic caption bar underneath displaying each photograph's context.
+
+2. **Bottom Image Container — Identical Collection Slideshow**:
+   - Converted the image container in the **"Inside a driver briefing"** section.
+   - Displays **EXACTLY THE SAME COLLECTION** of all 9 uploaded photographs, matching the top container in order, clean unnumbered visual presentation, and navigation controls.
+
+3. **Complete Removal of Formal Verification & Protocol Container**:
+   - Completely removed the "Formal Verification & Protocol" / "Explore the Chauffeur Academy" dark panel from the bottom of [`/india/driver-training`](file:///d:/victor%20website/src/app/india/driver-training/page.tsx).
+   - Cleaned up related CTA schemas and unused imports (`Link`, `ArrowRight`, `GraduationCap`) in `DriverTrainingGuide.tsx` and `india.json`.
+   - Eliminates dead links to deleted `/india/academy` route.
+
+3. **Image Fidelity & Proportions**:
+   - Preserves natural proportions without stretching or distortion using `fill` and `object-cover object-center` within a stable `aspect-[4/3] sm:aspect-[16/10]` responsive viewport.
+   - High-resolution authentic photos saved to [`public/images/training/`](file:///d:/victor%20website/public/images/training/):
+     - `training-slide-01.jpg` ($1024 \times 768$): Supervisor conducting pre-shift briefing.
+     - `training-slide-02.jpg` ($1024 \times 768$): Chauffeur standing and participating in interactive briefing.
+     - `training-slide-03.jpg` ($1024 \times 768$): Chauffeur development and hospitality training session.
+     - `training-slide-04.jpg` ($1024 \times 562$): Supervisory instruction on executive protocol and safety.
+     - `training-slide-05.jpg` ($1024 \times 576$): Structured daily briefing verifying uniform compliance.
+     - `training-slide-06.jpg` ($1024 \times 576$): Visual presentation on road safety, routes, and hygiene.
+     - `training-slide-07.jpg` ($1024 \times 576$): Comprehensive review of client standards and vehicle health.
+     - `training-slide-08.jpg` ($1024 \times 576$): Corporate transit standards, punctuality, and safety directives.
+     - `training-slide-09.jpg` ($1024 \times 576$): Supervisor verifying attendance and readiness before deployment.
+
+4. **Component & Architecture Updates**:
+   - Created reusable client component [`DriverTrainingSlideshow.tsx`](file:///d:/victor%20website/src/components/training/DriverTrainingSlideshow.tsx) with keyboard accessibility (arrow navigation) and mobile touch swipe gestures.
+   - Updated [`DriverTrainingGuide.tsx`](file:///d:/victor%20website/src/components/training/DriverTrainingGuide.tsx) to mount the slideshow in both designated locations.
+   - Updated TypeScript interfaces in [`src/types/content.ts`](file:///d:/victor%20website/src/types/content.ts) with `DriverTrainingPhoto` and `slideshowPhotos`.
+   - Populated `slideshowPhotos` in [`src/content/india.json`](file:///d:/victor%20website/src/content/india.json).
+   - Preserved all other page sections, headings, checklists, and styling completely intact.
+   - Maintained strict restriction on deleted standalone Academy routes (`/india/academy` and `/uae/academy` return 404).
+
+5. **Quality Gates & Automated Verification**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings or errors.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+   - Playwright automated verification:
+     - Confirmed both slideshow carousels exist and display 9 slides each.
+     - Verified both containers render the exact same 9 image sources.
+     - Tested Next arrow, Prev arrow, and dot navigation with live counter updates.
+     - Verified all 9 image assets return HTTP 200 OK.
+     - Zero horizontal overflow across 1440px, 1024px, 768px, 390px, and 320px viewports.
+     - Confirmed `/india/academy` and `/uae/academy` return 404.
+   - Visual screenshots:
+     - Desktop full page: [`screenshots/driver-training-desktop.png`](file:///d:/victor%20website/screenshots/driver-training-desktop.png)
+     - Mobile full page: [`screenshots/driver-training-mobile.png`](file:///d:/victor%20website/screenshots/driver-training-mobile.png)
+     - Top slideshow: [`screenshots/top-slideshow.png`](file:///d:/victor%20website/screenshots/top-slideshow.png)
+     - Bottom slideshow: [`screenshots/bottom-slideshow.png`](file:///d:/victor%20website/screenshots/bottom-slideshow.png)
+
+## 19 November 2026 — Restored Original Driver Training Page (Commit 138d5fb2)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Targeted Git restoration of `/india/driver-training` to its exact pre-update state from commit `138d5fb2` (Thu Nov 12 17:38:39 2026, the last version prior to the full PDF-transcription update), preserving all original authentic training photographs and structure while keeping deleted standalone Academy routes deleted:
+
+1. **Restored Original Page Layout, Architecture & Photographs**:
+   - **Hero Section**: Eyebrow "Daily Shift Standards", heading "Driver Training", intro *"Before every shift, Victor's supervisors brief drivers on vehicle readiness, safe driving and passenger care."*, and the large authentic group briefing photograph [`driver-briefing-group.jpg`](file:///d:/victor%20website/public/images/training/driver-briefing-group.jpg) displayed prominently at the top of the page.
+   - **Section 1 — What gets checked before departure?**: Pre-Shift Standard with Driver Readiness & Presentation checklist (4 items) and Vehicle Health & Cabin Standards checklist (6 items).
+   - **Section 2 — What is expected on the road?**: On-Road Protocol featuring 3 operational standards cards (Punctuality, Safe Pickups/Drop-offs, Traffic Compliance), explicit Zero-Tolerance Safety Directives, and Immediate Reporting Protocol.
+   - **Section 3 — Inside a driver briefing**: Dedicated narrative section with the authentic classroom training photograph [`driver-briefing-participant-speaking.jpg`](file:///d:/victor%20website/public/images/training/driver-briefing-participant-speaking.jpg) (*"A participant speaks during the training session."*).
+   - **Section 4 — What does the supervisor record?**: Supervisory Oversight with 3 responsibilities (Documenting Attendance, Briefing Verification Photography, Internal Operations WhatsApp Group Sharing) and Staff Protocol notice.
+   - **Section 5 — Embedded Academy Panel**: Restored the embedded "Explore the Chauffeur Academy" panel in dark brand ink.
+
+2. **Files Restored to Commit `138d5fb2` State**:
+   - `src/app/india/driver-training/page.tsx`
+   - `src/components/training/DriverTrainingGuide.tsx`
+   - `src/types/content.ts` (with `DriverTrainingContent`, `DriverTrainingSection1`, `DriverTrainingSection2`, `DriverTrainingInsideSection`, `DriverTrainingSupervisorSection`)
+   - `src/content/india.json` (`driverTraining` key restored from `138d5fb2`, keeping all subsequent unrelated updates intact).
+
+3. **Preserved Rest of Site & Academy Restrictions**:
+   - Standalone `/india/academy`, `/india/academy/verify`, `/uae/academy`, and `/uae/academy/verify` routes remain completely deleted (returning 404).
+   - All unrelated recent site updates (top brands in About, UAE fleet, `/sociallinks`, and employee digital business card profiles) remain untouched.
+
+4. **Verification & Quality Gates**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings or errors.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+   - Playwright automated verification: Confirmed hero photograph at top loads at $1024 \times 768$, Question 1, 2, 3 sections verified, inside briefing photograph verified, academy CTA verified, zero horizontal overflow across 1440px, 1024px, 768px, 390px, and 320px viewports, and deleted academy routes return 404.
+   - Screenshots:
+     - [Desktop 1440px](screenshots/driver-training-desktop.png)
+     - [Mobile 390px](screenshots/driver-training-mobile.png)
+
 ## 18 November 2026 — Social Links Page: Fixed Simple Victor Logo Positioning (Same Horizontal Line & Original Asset)
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
