@@ -17,6 +17,10 @@ const getBrandLogoClass = (brandName: string): string => {
       return "h-7 sm:h-8";
     case "tata motors":
       return "h-6 sm:h-7";
+    case "maruti suzuki":
+      return "h-6 sm:h-7";
+    case "mg":
+      return "h-10 sm:h-11";
     case "hyundai":
       return "h-9 sm:h-10";
     case "bmw":
@@ -92,7 +96,7 @@ export default function TopBrandsStrip({
           unoptimized
           priority
           loading="eager"
-          className={clsx("w-auto object-contain", getBrandLogoClass(brand.name))}
+          className={clsx("w-auto max-w-[85%] object-contain", getBrandLogoClass(brand.name))}
         />
       </div>
       <span className="whitespace-nowrap text-xs font-semibold tracking-wide text-brand-ink">

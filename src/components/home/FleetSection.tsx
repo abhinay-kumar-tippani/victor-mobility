@@ -38,7 +38,7 @@ const fleetDetails: Record<string, CategoryDisplayData> = {
   electric: {
     badge: "Electric Vehicles",
     headline: "Explore Electric Travel for Commutes & Airport Transfers",
-    models: ["Tata Tigor", "Tata Nexon", "MG ZS EV", "Kia Carens Clavis EV"],
+    models: ["Tata Nexon", "MG ZS EV", "Kia Carens Clavis EV"],
     capacity: "Confirmed during enquiry",
     uses: "Employee commutes, airport journeys, and corporate requirements.",
     features: [

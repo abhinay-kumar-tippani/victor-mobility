@@ -102,6 +102,10 @@
       "name": "PWC",
       "logo": "/images/clients/pwc.svg",
       "description": "One of the world's largest professional services firms."
+    },
+    {
+      "name": "SitusAMC",
+      "logo": "/images/clients/situsamc.png"
     }
   ],
   "uaePresenceMap": {
@@ -811,21 +815,6 @@
       "description": "Efficient sedan with dual-fuel flexibility for corporate mobility."
     },
     {
-      "id": "tata-tigor",
-      "name": "Tata Tigor",
-      "cabType": "Sedan",
-      "fuelType": "Electric Vehicle",
-      "isElectric": true,
-      "image": "/images/fleet/forecourt/tata-tigor-ev.webp",
-      "imageAlt": "Pearl-white Tata Tigor with the Victor Mobility door decal",
-      "imageDetails": {
-        "doorImage": "/images/fleet/forecourt/details/tata-tigor-ev-door.webp",
-        "plateImage": "/images/fleet/forecourt/details/tata-tigor-ev-plate.webp",
-        "plateText": "Tigor EV"
-      },
-      "description": "Zero-emission electric sedan for sustainable corporate travel."
-    },
-    {
       "id": "tata-nexon",
       "name": "Tata Nexon",
       "cabType": "Sedan",
@@ -1234,6 +1223,14 @@
       {
         "name": "Tata Motors",
         "logo": "/images/brands/tata-motors.svg"
+      },
+      {
+        "name": "Maruti Suzuki",
+        "logo": "/images/brands/maruti-suzuki.svg"
+      },
+      {
+        "name": "MG",
+        "logo": "/images/brands/mg.svg"
       }
     ]
   },

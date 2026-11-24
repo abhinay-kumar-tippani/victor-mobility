@@ -180,7 +180,7 @@ section[id] {
 }
 
 .animate-top-brands-marquee {
-  animation: top-brands-marquee 28s linear infinite;
+  animation: top-brands-marquee 34s linear infinite;
   will-change: transform;
 }
 

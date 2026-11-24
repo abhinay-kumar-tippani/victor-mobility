@@ -4,7 +4,6 @@ import BrandText from "@/components/brand/BrandText";
 import { useState } from "react";
 import Link from "next/link";
 import {
-  Navigation,
   MapPin,
   Clock,
   ShieldCheck,
@@ -204,43 +203,45 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
         </div>
 
         {/* Active Hub Deep Detail Card */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-brand-soft-neutral shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Left Column: Hub Overview & Key Zones */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="flex items-center justify-between">
-              <span className="uppercase px-3 py-1 rounded-full bg-brand-warm-white text-brand-indigo border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
-                {activeHub.badge}
-              </span>
-              <span className="text-xs font-medium text-brand-ink/60 flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                Verified Corridor
-              </span>
-            </div>
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <span className="uppercase px-3 py-1 rounded-full bg-brand-warm-white text-brand-indigo border border-brand-soft-neutral section-eyebrow section-eyebrow--compact">
+                  {activeHub.badge}
+                </span>
+                <span className="text-xs font-medium text-brand-ink/60 flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  Verified Corridor
+                </span>
+              </div>
 
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-brand-ink">
-                {activeHub.name}
-              </h3>
-              <p className="text-sm text-brand-ink/80 mt-2 leading-relaxed">
-                <BrandText>{activeHub.description}</BrandText>
-              </p>
-            </div>
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-brand-ink">
+                  {activeHub.name}
+                </h3>
+                <p className="text-sm text-brand-ink/80 mt-2 leading-relaxed">
+                  <BrandText>{activeHub.description}</BrandText>
+                </p>
+              </div>
 
-            {/* Tech Parks / Business Districts */}
-            <div className="space-y-3 pt-4 border-t border-brand-soft-neutral">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/60 block">
-                Primary Business Campuses & Zones:
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {activeHub.keyZones.map((zone) => (
-                  <span
-                    key={zone}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-warm-white border border-brand-soft-neutral text-xs font-semibold text-brand-ink"
-                  >
-                    <Building2 className="w-3 h-3 text-brand-indigo" />
-                    <span>{zone}</span>
-                  </span>
-                ))}
+              {/* Tech Parks / Business Districts */}
+              <div className="space-y-3 pt-4 border-t border-brand-soft-neutral">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/60 block">
+                  Primary Business Campuses & Zones:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {activeHub.keyZones.map((zone) => (
+                    <span
+                      key={zone}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-warm-white border border-brand-soft-neutral text-xs font-semibold text-brand-ink"
+                    >
+                      <Building2 className="w-3 h-3 text-brand-indigo" />
+                      <span>{zone}</span>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -255,51 +256,36 @@ export default function CorridorMatrix({ region, rfpHref }: CorridorMatrixProps)
             </div>
           </div>
 
-          {/* Right Column: Expressways & Fleet Capabilities */}
-          <div className="lg:col-span-6 space-y-6 lg:border-l lg:border-brand-soft-neutral lg:pl-10">
-            {/* Expressways */}
-            <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/60 block flex items-center gap-1.5">
-                <Navigation className="w-3.5 h-3.5 text-brand-indigo" />
-                Key Expressways & Arterial Links:
-              </span>
-              <ul className="space-y-2">
-                {activeHub.expressways.map((road) => (
-                  <li
-                    key={road}
-                    className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-brand-ink bg-brand-warm-white/50 p-2.5 rounded-xl border border-brand-soft-neutral/70"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-violet shrink-0" />
-                    <span>{road}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Typical Fleet Configurations */}
-            <div className="space-y-3 pt-4 border-t border-brand-soft-neutral">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/60 block flex items-center gap-1.5">
-                <Car className="w-3.5 h-3.5 text-brand-indigo" />
+          {/* Right Column: Active Fleet Deployment Models */}
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-6 lg:border-l lg:border-brand-soft-neutral lg:pl-10">
+            <div className="space-y-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/60 flex items-center gap-2">
+                <Car className="w-4 h-4 text-brand-indigo" />
                 Active Fleet Deployment Models:
               </span>
-              <ul className="space-y-2">
+
+              <ul className="space-y-3 sm:space-y-3.5">
                 {activeHub.serviceCapabilities.map((cap) => (
                   <li
                     key={cap}
-                    className="flex items-start gap-2.5 text-xs sm:text-sm text-brand-ink/85"
+                    className="flex items-center gap-3.5 p-4 sm:p-4.5 rounded-2xl bg-brand-warm-white/70 border border-brand-soft-neutral text-brand-ink transition-all hover:bg-brand-warm-white hover:border-brand-indigo/30"
                   >
-                    <Clock className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>{cap}</span>
+                    <div className="w-10 h-10 rounded-xl bg-white border border-brand-soft-neutral flex items-center justify-center shrink-0 text-emerald-600 shadow-2xs">
+                      <Clock className="w-4 h-4" />
+                    </div>
+                    <span className="text-sm sm:text-base font-semibold text-brand-ink leading-snug">
+                      {cap}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Corridor Action Button */}
-            <div className="pt-6">
+            <div className="pt-2">
               <Link
                 href={`${targetRfpHref}?city=${encodeURIComponent(activeHub.name.replace(/ Hub| Network| Corridor| Free Zones/g, ""))}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-ink hover:bg-brand-indigo text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-brand-ink hover:bg-brand-indigo text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
               >
                 <span>Request a quote for {activeHub.name}</span>
                 <ArrowRight className="w-4 h-4 rtl:rotate-180" />

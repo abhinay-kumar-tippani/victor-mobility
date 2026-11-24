@@ -1,5 +1,38 @@
 # Handoff
 
+## 24 November 2026 — Refined Services Hub Corridor Card Layout
+
+Owner: Antigravity, at user request. Status: COMPLETED.
+
+Updated the regional corridor hub detail card on [`/india/services`](file:///d:/victor%20website/src/app/india/services/page.tsx) and [`/uae/services`](file:///d:/victor%20website/src/app/uae/services/page.tsx) in `src/components/home/CorridorMatrix.tsx`:
+1. **Removed "Key Expressways & Arterial Links"**: Eliminated the expressways list block from the right-hand column.
+2. **Elevated "Active Fleet Deployment Models"**: Preserved and restructured the active deployment models into dedicated, beautifully spaced feature cards with clean clock icons and rounded border styling (`p-4 sm:p-4.5 rounded-2xl bg-brand-warm-white/70 border border-brand-soft-neutral`).
+3. **Full-Height Space Balance (`items-stretch`)**: Set the grid container to `items-stretch` and the right-hand column to `flex flex-col justify-between`, anchoring the "Request a quote" action button to align seamlessly with the left column's airport connectivity card across desktop and mobile viewports.
+
+### Quality Gates & Verification:
+- TypeScript (`npm run type-check`): 0 errors.
+- ESLint (`npm run lint`): 0 warnings or errors.
+- Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+- Visual inspection via browser: Confirmed balanced layout on desktop (1440px) and mobile (390px).
+
+
+
+## 24 November 2026 — Complete Removal of Tata Tigor from Fleet
+
+Owner: Antigravity, at user request. Status: COMPLETED.
+
+Completely removed the **Tata Tigor** vehicle from the active vehicle catalogue and all references across the site:
+1. **Catalogue Database (`src/content/india.json`)**: Removed the `tata-tigor` vehicle record from `fleetVehicles`. The dynamic fleet grid at `/india/fleet` automatically updates filters (Sedan, Electric Vehicles) over the remaining active vehicles.
+2. **Homepage Category Display (`src/components/home/FleetSection.tsx`)**: Removed "Tata Tigor" from the electric models list (`["Tata Nexon", "MG ZS EV", "Kia Carens Clavis EV"]`).
+3. **ESG Roadmap Content (`src/content/esg.json`)**: Replaced the reference to Tata Tigor EV with Tata Nexon EV in progressive fleet transition specifications.
+4. **Documentation (`docs/fleet-image-sources.md`)**: Updated the authoritative India fleet reference registry to 9 vehicles and removed Tigor from EV styling specifications.
+
+### Quality Gates & Verification:
+- TypeScript (`npm run type-check`): 0 errors.
+- ESLint (`npm run lint`): 0 warnings or errors.
+- Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+
+
 ## 20 November 2026 — Driver Training Page Dark Container Styling (#15162F)
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
