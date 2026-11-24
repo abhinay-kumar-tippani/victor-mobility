@@ -30,28 +30,28 @@ export default function DriverTrainingGuide({ content }: DriverTrainingGuideProp
       {/* 1. Hero & Introduction Section with Group Briefing Photo (Image 1) */}
       <section
         aria-labelledby="driver-training-hero-title"
-        className="rounded-3xl bg-gradient-to-b from-brand-warm-white via-white to-brand-warm-white/40 border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs"
+        className="rounded-3xl bg-[#15162F] border border-white/10 p-6 sm:p-10 lg:p-12 shadow-xs text-white"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Column: Heading and Introduction */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/20 text-brand-indigo text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>{eyebrow}</span>
             </div>
 
             <h1
               id="driver-training-hero-title"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight"
             >
               <BrandText>{title}</BrandText>
             </h1>
 
-            <p className="text-base sm:text-lg text-brand-ink/80 leading-relaxed font-normal pt-1">
+            <p className="text-base sm:text-lg text-white/85 leading-relaxed font-normal pt-1">
               <BrandText>{intro}</BrandText>
             </p>
 
-            <div className="pt-2 text-xs sm:text-sm text-brand-slate leading-relaxed border-t border-brand-soft-neutral/70">
+            <div className="pt-2 text-xs sm:text-sm text-white/70 leading-relaxed border-t border-white/15">
               <p>
                 Structured briefing sessions ensure operational alignment, strict safety adherence, and consistent executive hospitality across every corporate journey.
               </p>
@@ -231,7 +231,7 @@ export default function DriverTrainingGuide({ content }: DriverTrainingGuideProp
       <section
         id={insideBriefing.id}
         aria-labelledby="inside-briefing-heading"
-        className="rounded-3xl bg-brand-warm-white border border-brand-soft-neutral/80 p-6 sm:p-10 lg:p-12 shadow-xs"
+        className="rounded-3xl bg-[#15162F] border border-white/10 p-6 sm:p-10 lg:p-12 shadow-xs text-white"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Bottom Slideshow: Exactly the same collection of 9 photographs */}
@@ -244,19 +244,19 @@ export default function DriverTrainingGuide({ content }: DriverTrainingGuideProp
 
           {/* Contextual Narrative */}
           <div className="lg:col-span-6 space-y-4 order-1 lg:order-2">
-            <span className="uppercase text-brand-indigo font-bold text-xs tracking-wider block">
+            <span className="uppercase text-amber-400 font-bold text-xs tracking-wider block">
               Operational Culture
             </span>
             <h2
               id="inside-briefing-heading"
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink tracking-tight"
+              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight"
             >
               <BrandText>{insideBriefing.title}</BrandText>
             </h2>
-            <p className="text-sm sm:text-base text-brand-ink/80 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-white/85 leading-relaxed font-normal">
               <BrandText>{insideBriefing.description}</BrandText>
             </p>
-            <div className="p-4 rounded-xl bg-white border border-brand-soft-neutral/70 text-xs text-brand-slate leading-relaxed">
+            <div className="p-4 rounded-xl bg-white/10 border border-white/15 text-xs text-white/80 leading-relaxed">
               Supervisors facilitate two-way dialogue to address real-world route conditions, vehicle readiness feedback, and client preferences before departure.
             </div>
           </div>

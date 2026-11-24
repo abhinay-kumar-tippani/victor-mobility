@@ -1,5 +1,38 @@
 # Handoff
 
+## 20 November 2026 — Driver Training Page Dark Container Styling (#15162F)
+
+Owner: Antigravity, at direct user request. Status: COMPLETED.
+
+Updated the background color of the **Daily Shift Standards** (hero) and **Operational Culture** (Inside a driver briefing) containers on the Driver Training page ([`/india/driver-training`](file:///d:/victor%20website/src/app/india/driver-training/page.tsx)) to Victor brand ink `#15162F`:
+
+1. **Daily Shift Standards Hero Container**:
+   - Container background set to `#15162F` (`bg-[#15162F]`) with subtle `border-white/10` and `rounded-3xl`.
+   - Translucent frosted pill badge with amber sparkle (`Sparkles className="text-amber-400"`) for "Daily Shift Standards".
+   - High-contrast white typography (`text-white`) for the main heading and intro description (`text-white/85`).
+   - Clean border divider (`border-white/15`) with accessible secondary description text (`text-white/70`).
+   - Retained the high-fidelity white framed slideshow card on the right containing all 9 authentic Victor Mobility training photographs.
+
+2. **Operational Culture Container ("Inside a driver briefing")**:
+   - Container background set to `#15162F` (`bg-[#15162F]`) with subtle `border-white/10` and `rounded-3xl`.
+   - Eyebrow styled with bold warm amber uppercase lettering (`text-amber-400 font-bold text-xs tracking-wider`).
+   - Heading updated to clean white typography (`text-white font-extrabold`) and description to `text-white/85`.
+   - Sub-card updated to translucent dark card (`bg-white/10 border-white/15 text-white/80`) maintaining readability.
+   - Retained the matching 9-photograph slideshow on the left with clean navigation controls.
+
+3. **Quality Gates & Verification**:
+   - TypeScript (`npm run type-check`): 0 errors.
+   - ESLint (`npm run lint`): 0 warnings or errors.
+   - Production build (`npm run build`): All 71 static pages compiled cleanly with exit code 0.
+   - Playwright verification:
+     - Confirmed computed background-color for both containers equals `rgb(21, 22, 47)` (`#15162F`).
+     - Verified zero horizontal overflow on desktop (1440px) and mobile (390px).
+     - Captured fresh screenshots:
+       - [`screenshots/top-slideshow.png`](file:///d:/victor%20website/screenshots/top-slideshow.png)
+       - [`screenshots/bottom-slideshow.png`](file:///d:/victor%20website/screenshots/bottom-slideshow.png)
+       - [`screenshots/driver-training-desktop.png`](file:///d:/victor%20website/screenshots/driver-training-desktop.png)
+       - [`screenshots/driver-training-mobile.png`](file:///d:/victor%20website/screenshots/driver-training-mobile.png)
+
 ## 19 November 2026 — Added Signature Employee Team Highlight to Achievements Page
 
 Owner: Antigravity, at direct user request. Status: COMPLETED.
